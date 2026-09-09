@@ -1,0 +1,8 @@
+student_id,group,study_hours,attendance,score
+S001,A,4,0.80,72
+S002,A,6,0.90,81
+S003,A,8,0.95,90
+S004,B,3,0.75,65
+S005,B,5,0.85,76
+S006,B,7,0.92,86
+
