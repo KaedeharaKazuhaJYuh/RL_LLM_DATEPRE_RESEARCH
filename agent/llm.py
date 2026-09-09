@@ -11,6 +11,7 @@ class LLMClient:
         from openai import OpenAI
         kwargs={"api_key":key}
         if self.provider == "deepseek": kwargs["base_url"]="https://api.deepseek.com"
+        kwargs.update({"timeout": 30.0, "max_retries": 1})
         self.client=OpenAI(**kwargs)
 
     def choose_action(self, task, state, actions):
