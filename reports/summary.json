@@ -1,0 +1,26 @@
+[
+  {
+    "method": "rule",
+    "tasks": 50,
+    "passed": 50,
+    "pass_rate": 1.0,
+    "mean_score": 0.8325,
+    "mean_tool_calls": 5.8
+  },
+  {
+    "method": "bandit",
+    "tasks": 50,
+    "passed": 50,
+    "pass_rate": 1.0,
+    "mean_score": 0.9675,
+    "mean_tool_calls": 1.0
+  },
+  {
+    "method": "deepseek",
+    "tasks": 50,
+    "passed": 50,
+    "pass_rate": 1.0,
+    "mean_score": 0.9435,
+    "mean_tool_calls": 1.22
+  }
+]
