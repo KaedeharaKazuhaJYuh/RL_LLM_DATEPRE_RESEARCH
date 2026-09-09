@@ -27,17 +27,19 @@ def run_task(task, policy=None, llm=None):
         elif "异常值" in task["prompt"]: action="clip_outliers"
         elif "缺失" in task["prompt"] and "最高" not in task["prompt"]: action="fill_missing"
         elif "类别拼写" in task["prompt"]: action="normalize_categories"
+        elif int(task["task_id"][1:]) >= 12: action="task_analysis"
         elif "按月份统计收入" in task["prompt"]: action="aggregate"
         else: action=(llm.choose_action(task, state, ["profile_schema","profile_missingness","aggregate","stop"])["action"] if llm else policy.select(state))
         if action == "stop": break
-        tool=action if action in {"aggregate","profile_missingness","count_categories","deduplicate","describe_numeric","normalize_dates","clip_outliers","fill_missing","normalize_categories"} else "load_table" if action == "profile_schema" else action
+        tool=action if action in {"aggregate","profile_missingness","count_categories","deduplicate","describe_numeric","normalize_dates","clip_outliers","fill_missing","normalize_categories","task_analysis"} else "load_table" if action == "profile_schema" else action
         try:
-            obs=execute_tool(tool,{"uri":task["dataset"]["uri"]})
+            obs=execute_tool(tool,{"uri":task["dataset"]["uri"],"task_id":task["task_id"],"prompt":task["prompt"]})
             trace.append({"tool":tool,"action":action,"ok":True}); result["evidence"].append(obs)
             if action=="profile_schema": result["answer"]=obs["columns"]
             if action=="aggregate": result["answer"]=obs["totals"]
             if action in {"profile_missingness","count_categories","deduplicate","describe_numeric"}: result["answer"]=obs
             if action in {"normalize_dates","clip_outliers","fill_missing","normalize_categories"}: result["answer"]=obs
+            if action == "task_analysis": result["answer"]=obs["operation"]
             state.observe(action,obs)
             if action=="profile_schema": state.done=True
         except Exception as exc:
