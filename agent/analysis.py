@@ -6,8 +6,11 @@ def read(uri):
 
 def analyze_task(uri, task_id, prompt):
     rows=read(uri); cols=list(rows[0]) if rows else []
-    numeric={c:[float(r[c]) for r in rows if r.get(c) not in (None,"")] for c in cols}
-    numeric={c:v for c,v in numeric.items() if v}
+    numeric={}
+    for c in cols:
+        try: values=[float(r[c]) for r in rows if r.get(c) not in (None,"")]
+        except (TypeError, ValueError): values=[]
+        if values: numeric[c]=values
     group="aggregation" if 12<=int(task_id[1:])<=15 else "statistics" if 16<=int(task_id[1:])<=20 else "time_series" if 21<=int(task_id[1:])<=25 else "visualization" if 26<=int(task_id[1:])<=30 else "features" if 31<=int(task_id[1:])<=35 else "modeling" if 36<=int(task_id[1:])<=40 else "decision" if 41<=int(task_id[1:])<=45 else "robustness"
     result={"task_id":task_id,"operation":group,"rows":len(rows),"columns":cols,"evidence":["computed_from_csv"]}
     if group=="aggregation" and "month" in cols:
