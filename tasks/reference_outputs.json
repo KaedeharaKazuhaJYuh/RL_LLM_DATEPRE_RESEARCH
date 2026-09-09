@@ -1,0 +1,874 @@
+{
+  "T12": {
+    "task_id": "T12",
+    "operation": "aggregation",
+    "rows": 4,
+    "columns": [
+      "month",
+      "region",
+      "revenue",
+      "category"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "monthly_sum": {
+      "2026-01": 220.0,
+      "2026-02": 250.0
+    }
+  },
+  "T13": {
+    "task_id": "T13",
+    "operation": "aggregation",
+    "rows": 4,
+    "columns": [
+      "month",
+      "region",
+      "revenue",
+      "category"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "monthly_sum": {
+      "2026-01": 220.0,
+      "2026-02": 250.0
+    }
+  },
+  "T14": {
+    "task_id": "T14",
+    "operation": "aggregation",
+    "rows": 4,
+    "columns": [
+      "month",
+      "region",
+      "revenue",
+      "category"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "monthly_sum": {
+      "2026-01": 220.0,
+      "2026-02": 250.0
+    }
+  },
+  "T15": {
+    "task_id": "T15",
+    "operation": "aggregation",
+    "rows": 4,
+    "columns": [
+      "month",
+      "region",
+      "revenue",
+      "category"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "monthly_sum": {
+      "2026-01": 220.0,
+      "2026-02": 250.0
+    }
+  },
+  "T16": {
+    "task_id": "T16",
+    "operation": "statistics",
+    "rows": 6,
+    "columns": [
+      "customer_id",
+      "month",
+      "region",
+      "plan",
+      "tenure_months",
+      "monthly_fee",
+      "churned"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "numeric_summary": {
+      "tenure_months": {
+        "mean": 11.166666666666666,
+        "median": 9.0
+      },
+      "monthly_fee": {
+        "mean": 35.0,
+        "median": 35.0
+      },
+      "churned": {
+        "mean": 0.3333333333333333,
+        "median": 0.0
+      }
+    }
+  },
+  "T17": {
+    "task_id": "T17",
+    "operation": "statistics",
+    "rows": 6,
+    "columns": [
+      "customer_id",
+      "month",
+      "region",
+      "plan",
+      "tenure_months",
+      "monthly_fee",
+      "churned"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "numeric_summary": {
+      "tenure_months": {
+        "mean": 11.166666666666666,
+        "median": 9.0
+      },
+      "monthly_fee": {
+        "mean": 35.0,
+        "median": 35.0
+      },
+      "churned": {
+        "mean": 0.3333333333333333,
+        "median": 0.0
+      }
+    }
+  },
+  "T18": {
+    "task_id": "T18",
+    "operation": "statistics",
+    "rows": 6,
+    "columns": [
+      "customer_id",
+      "month",
+      "region",
+      "plan",
+      "tenure_months",
+      "monthly_fee",
+      "churned"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "numeric_summary": {
+      "tenure_months": {
+        "mean": 11.166666666666666,
+        "median": 9.0
+      },
+      "monthly_fee": {
+        "mean": 35.0,
+        "median": 35.0
+      },
+      "churned": {
+        "mean": 0.3333333333333333,
+        "median": 0.0
+      }
+    }
+  },
+  "T19": {
+    "task_id": "T19",
+    "operation": "statistics",
+    "rows": 6,
+    "columns": [
+      "customer_id",
+      "month",
+      "region",
+      "plan",
+      "tenure_months",
+      "monthly_fee",
+      "churned"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "numeric_summary": {
+      "tenure_months": {
+        "mean": 11.166666666666666,
+        "median": 9.0
+      },
+      "monthly_fee": {
+        "mean": 35.0,
+        "median": 35.0
+      },
+      "churned": {
+        "mean": 0.3333333333333333,
+        "median": 0.0
+      }
+    }
+  },
+  "T20": {
+    "task_id": "T20",
+    "operation": "statistics",
+    "rows": 6,
+    "columns": [
+      "customer_id",
+      "month",
+      "region",
+      "plan",
+      "tenure_months",
+      "monthly_fee",
+      "churned"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "numeric_summary": {
+      "tenure_months": {
+        "mean": 11.166666666666666,
+        "median": 9.0
+      },
+      "monthly_fee": {
+        "mean": 35.0,
+        "median": 35.0
+      },
+      "churned": {
+        "mean": 0.3333333333333333,
+        "median": 0.0
+      }
+    }
+  },
+  "T21": {
+    "task_id": "T21",
+    "operation": "time_series",
+    "rows": 6,
+    "columns": [
+      "customer_id",
+      "month",
+      "region",
+      "plan",
+      "tenure_months",
+      "monthly_fee",
+      "churned"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "time_column": "month",
+    "ordered": true
+  },
+  "T22": {
+    "task_id": "T22",
+    "operation": "time_series",
+    "rows": 6,
+    "columns": [
+      "customer_id",
+      "month",
+      "region",
+      "plan",
+      "tenure_months",
+      "monthly_fee",
+      "churned"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "time_column": "month",
+    "ordered": true
+  },
+  "T23": {
+    "task_id": "T23",
+    "operation": "time_series",
+    "rows": 6,
+    "columns": [
+      "customer_id",
+      "month",
+      "region",
+      "plan",
+      "tenure_months",
+      "monthly_fee",
+      "churned"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "time_column": "month",
+    "ordered": true
+  },
+  "T24": {
+    "task_id": "T24",
+    "operation": "time_series",
+    "rows": 6,
+    "columns": [
+      "customer_id",
+      "month",
+      "region",
+      "plan",
+      "tenure_months",
+      "monthly_fee",
+      "churned"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "time_column": "month",
+    "ordered": true
+  },
+  "T25": {
+    "task_id": "T25",
+    "operation": "time_series",
+    "rows": 6,
+    "columns": [
+      "customer_id",
+      "month",
+      "region",
+      "plan",
+      "tenure_months",
+      "monthly_fee",
+      "churned"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "time_column": "month",
+    "ordered": true
+  },
+  "T26": {
+    "task_id": "T26",
+    "operation": "visualization",
+    "rows": 6,
+    "columns": [
+      "customer_id",
+      "month",
+      "region",
+      "plan",
+      "tenure_months",
+      "monthly_fee",
+      "churned"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "recommended_chart": "line",
+    "x_candidates": [
+      "customer_id",
+      "month",
+      "region",
+      "plan"
+    ]
+  },
+  "T27": {
+    "task_id": "T27",
+    "operation": "visualization",
+    "rows": 6,
+    "columns": [
+      "customer_id",
+      "month",
+      "region",
+      "plan",
+      "tenure_months",
+      "monthly_fee",
+      "churned"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "recommended_chart": "line",
+    "x_candidates": [
+      "customer_id",
+      "month",
+      "region",
+      "plan"
+    ]
+  },
+  "T28": {
+    "task_id": "T28",
+    "operation": "visualization",
+    "rows": 6,
+    "columns": [
+      "customer_id",
+      "month",
+      "region",
+      "plan",
+      "tenure_months",
+      "monthly_fee",
+      "churned"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "recommended_chart": "line",
+    "x_candidates": [
+      "customer_id",
+      "month",
+      "region",
+      "plan"
+    ]
+  },
+  "T29": {
+    "task_id": "T29",
+    "operation": "visualization",
+    "rows": 6,
+    "columns": [
+      "customer_id",
+      "month",
+      "region",
+      "plan",
+      "tenure_months",
+      "monthly_fee",
+      "churned"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "recommended_chart": "line",
+    "x_candidates": [
+      "customer_id",
+      "month",
+      "region",
+      "plan"
+    ]
+  },
+  "T30": {
+    "task_id": "T30",
+    "operation": "visualization",
+    "rows": 6,
+    "columns": [
+      "customer_id",
+      "month",
+      "region",
+      "plan",
+      "tenure_months",
+      "monthly_fee",
+      "churned"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "recommended_chart": "line",
+    "x_candidates": [
+      "customer_id",
+      "month",
+      "region",
+      "plan"
+    ]
+  },
+  "T31": {
+    "task_id": "T31",
+    "operation": "features",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "feature_candidates": [
+      "group",
+      "study_hours",
+      "attendance"
+    ]
+  },
+  "T32": {
+    "task_id": "T32",
+    "operation": "features",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "feature_candidates": [
+      "group",
+      "study_hours",
+      "attendance"
+    ]
+  },
+  "T33": {
+    "task_id": "T33",
+    "operation": "features",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "feature_candidates": [
+      "group",
+      "study_hours",
+      "attendance"
+    ]
+  },
+  "T34": {
+    "task_id": "T34",
+    "operation": "features",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "feature_candidates": [
+      "group",
+      "study_hours",
+      "attendance"
+    ]
+  },
+  "T35": {
+    "task_id": "T35",
+    "operation": "features",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "feature_candidates": [
+      "group",
+      "study_hours",
+      "attendance"
+    ]
+  },
+  "T36": {
+    "task_id": "T36",
+    "operation": "modeling",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "target_candidates": [
+      "score"
+    ],
+    "numeric_features": [
+      "study_hours",
+      "attendance",
+      "score"
+    ]
+  },
+  "T37": {
+    "task_id": "T37",
+    "operation": "modeling",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "target_candidates": [
+      "score"
+    ],
+    "numeric_features": [
+      "study_hours",
+      "attendance",
+      "score"
+    ]
+  },
+  "T38": {
+    "task_id": "T38",
+    "operation": "modeling",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "target_candidates": [
+      "score"
+    ],
+    "numeric_features": [
+      "study_hours",
+      "attendance",
+      "score"
+    ]
+  },
+  "T39": {
+    "task_id": "T39",
+    "operation": "modeling",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "target_candidates": [
+      "score"
+    ],
+    "numeric_features": [
+      "study_hours",
+      "attendance",
+      "score"
+    ]
+  },
+  "T40": {
+    "task_id": "T40",
+    "operation": "modeling",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "target_candidates": [
+      "score"
+    ],
+    "numeric_features": [
+      "study_hours",
+      "attendance",
+      "score"
+    ]
+  },
+  "T41": {
+    "task_id": "T41",
+    "operation": "decision",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "recommendation_basis": {
+      "rows": 6,
+      "numeric_columns": [
+        "study_hours",
+        "attendance",
+        "score"
+      ]
+    }
+  },
+  "T42": {
+    "task_id": "T42",
+    "operation": "decision",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "recommendation_basis": {
+      "rows": 6,
+      "numeric_columns": [
+        "study_hours",
+        "attendance",
+        "score"
+      ]
+    }
+  },
+  "T43": {
+    "task_id": "T43",
+    "operation": "decision",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "recommendation_basis": {
+      "rows": 6,
+      "numeric_columns": [
+        "study_hours",
+        "attendance",
+        "score"
+      ]
+    }
+  },
+  "T44": {
+    "task_id": "T44",
+    "operation": "decision",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "recommendation_basis": {
+      "rows": 6,
+      "numeric_columns": [
+        "study_hours",
+        "attendance",
+        "score"
+      ]
+    }
+  },
+  "T45": {
+    "task_id": "T45",
+    "operation": "decision",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "recommendation_basis": {
+      "rows": 6,
+      "numeric_columns": [
+        "study_hours",
+        "attendance",
+        "score"
+      ]
+    }
+  },
+  "T46": {
+    "task_id": "T46",
+    "operation": "robustness",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "recovery_checks": {
+      "file_exists": true,
+      "schema_available": true,
+      "safe_stop": true
+    }
+  },
+  "T47": {
+    "task_id": "T47",
+    "operation": "robustness",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "recovery_checks": {
+      "file_exists": true,
+      "schema_available": true,
+      "safe_stop": true
+    }
+  },
+  "T48": {
+    "task_id": "T48",
+    "operation": "robustness",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "recovery_checks": {
+      "file_exists": true,
+      "schema_available": true,
+      "safe_stop": true
+    }
+  },
+  "T49": {
+    "task_id": "T49",
+    "operation": "robustness",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "recovery_checks": {
+      "file_exists": true,
+      "schema_available": true,
+      "safe_stop": true
+    }
+  },
+  "T50": {
+    "task_id": "T50",
+    "operation": "robustness",
+    "rows": 6,
+    "columns": [
+      "student_id",
+      "group",
+      "study_hours",
+      "attendance",
+      "score"
+    ],
+    "evidence": [
+      "computed_from_csv"
+    ],
+    "recovery_checks": {
+      "file_exists": true,
+      "schema_available": true,
+      "safe_stop": true
+    }
+  }
+}
