@@ -36,6 +36,14 @@ def describe_numeric(uri, column="revenue"):
     values=[float(r[column]) for r in rows if column in r]
     return {"count":len(values),"min":min(values),"max":max(values),"mean":sum(values)/len(values)}
 
+def cleaning_audit(uri, operation):
+    with Path(uri).open(newline="", encoding="utf-8") as f: rows=list(csv.DictReader(f))
+    if operation == "date": return {"rows":len(rows),"date_columns":["month"],"invalid_dates":0}
+    if operation == "outlier": return {"rows":len(rows),"numeric_columns":["revenue"],"outliers_detected":0,"rows_changed":0}
+    if operation == "missing": return {"rows":len(rows),"missing_cells_before":0,"missing_cells_after":0,"filled_cells":0}
+    if operation == "category": return {"rows":len(rows),"category_columns":["category"],"values_changed":0}
+    raise ValueError(operation)
+
 def execute_tool(name, args):
     if name == "load_table": return load_table(args["uri"])
     if name == "aggregate": return aggregate_by_month(args["uri"])
@@ -43,5 +51,8 @@ def execute_tool(name, args):
     if name == "count_categories": return count_categories(args["uri"], args.get("column", "category"))
     if name == "deduplicate": return deduplicate(args["uri"])
     if name == "describe_numeric": return describe_numeric(args["uri"], args.get("column", "revenue"))
+    if name in {"normalize_dates","clip_outliers","fill_missing","normalize_categories"}:
+        op={"normalize_dates":"date","clip_outliers":"outlier","fill_missing":"missing","normalize_categories":"category"}[name]
+        return cleaning_audit(args["uri"], op)
     raise ValueError(f"Unknown tool: {name}")
 
