@@ -1,5 +1,9 @@
 {
   "T01": {"answer_type":"schema", "expected":["month","region","revenue","category"]},
+  "T02": {"answer_type":"missingness", "expected":{"month":0.0,"region":0.0,"revenue":0.0,"category":0.0}},
+  "T03": {"answer_type":"frequency", "expected":{"A":2,"B":2}},
+  "T04": {"answer_type":"deduplication", "expected":{"rows_before":4,"rows_after":4,"removed":0}},
+  "T05": {"answer_type":"statistics", "expected":{"count":4,"min":100.0,"max":140.0,"mean":117.5}},
   "T11": {"answer_type":"table", "expected":{"2026-01":220,"2026-02":250}}
 }
 
