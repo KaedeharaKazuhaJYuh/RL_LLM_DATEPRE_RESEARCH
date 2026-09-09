@@ -19,8 +19,8 @@ rows=[]
 for gi,(group, prompts) in enumerate(groups.items()):
     for j,prompt in enumerate(prompts):
         n=gi*5+j+1; difficulty="easy" if n<=15 else "medium" if n<=35 else "hard"
-        dataset = "data/sample.csv" if gi < 2 else "data/churn.csv" if gi < 6 else "data/students.csv"
-        rows.append({"task_id":f"T{n:02d}","dataset":{"uri":dataset,"format":"csv"},"prompt":prompt,"difficulty":difficulty,"allowed_tools":["load_table","python_exec"],"gold":{"answer_type":"structured"},"constraints":{"max_steps":8 if difficulty=="easy" else 12,"max_tool_calls":4 if difficulty=="easy" else 8,"max_seconds":60 if difficulty!="hard" else 120}})
+        dataset = "data/sample.csv" if gi < 3 else "data/churn.csv" if gi < 6 else "data/students.csv"
+        rows.append({"task_id":f"T{n:02d}","dataset":{"uri":dataset,"format":"csv"},"prompt":prompt,"difficulty":difficulty,"allowed_tools":["load_table","aggregate","python_exec"],"gold":{"answer_type":"structured"},"constraints":{"max_steps":8 if difficulty=="easy" else 12,"max_tool_calls":4 if difficulty=="easy" else 8,"max_seconds":60 if difficulty!="hard" else 120}})
 out.write_text("\n".join(json.dumps(x,ensure_ascii=False) for x in rows)+"\n",encoding="utf-8")
 print(f"wrote {len(rows)} tasks to {out}")
 
