@@ -31,7 +31,10 @@ def run_task(task, policy=None, llm=None):
     state=RunState(task["task_id"], x, remaining_calls=task["constraints"]["max_tool_calls"])
     trace=[]; result={"answer": None, "evidence": []}
     while not state.done and state.remaining_calls>0:
-        if llm: action=llm.choose_action(task, state, ["profile_schema","profile_missingness","aggregate","task_analysis","stop"])["action"]
+        if llm:
+            choice=llm.choose_action(task, state, ["profile_schema","profile_missingness","aggregate","task_analysis","stop"])
+            action=choice.get("action","stop")
+            if action not in {"profile_schema","profile_missingness","aggregate","task_analysis","stop"}: action="stop"
         elif "字段类型" in task["prompt"] or "行列数" in task["prompt"]: action="profile_schema"
         elif "缺失率最高" in task["prompt"]: action="profile_missingness"
         elif "类别的频数" in task["prompt"]: action="count_categories"
