@@ -1,0 +1,13 @@
+{
+  "overview": {"ids": "T01-T05", "required": ["answer", "evidence"]},
+  "cleaning": {"ids": "T06-T10", "required": ["answer", "evidence"]},
+  "aggregation": {"ids": "T11-T15", "operation": "aggregation", "required_analysis": ["monthly_sum", "rows", "columns"]},
+  "statistics": {"ids": "T16-T20", "operation": "statistics", "required_analysis": ["numeric_summary", "rows", "columns"]},
+  "time_series": {"ids": "T21-T25", "operation": "time_series", "required_analysis": ["time_column", "ordered"]},
+  "visualization": {"ids": "T26-T30", "operation": "visualization", "required_analysis": ["recommended_chart", "x_candidates"]},
+  "features": {"ids": "T31-T35", "operation": "features", "required_analysis": ["feature_candidates"]},
+  "modeling": {"ids": "T36-T40", "operation": "modeling", "required_analysis": ["target_candidates", "numeric_features"]},
+  "decision": {"ids": "T41-T45", "operation": "decision", "required_analysis": ["recommendation_basis"]},
+  "robustness": {"ids": "T46-T50", "operation": "robustness", "required_analysis": ["recovery_checks"]}
+}
+
