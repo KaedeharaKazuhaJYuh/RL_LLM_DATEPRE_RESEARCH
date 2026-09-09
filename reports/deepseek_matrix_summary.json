@@ -1,0 +1,10 @@
+[
+  {
+    "method": "llm",
+    "tasks": 250,
+    "passed": 238,
+    "pass_rate": 0.952,
+    "mean_score": 0.9106,
+    "mean_tool_calls": 2.728
+  }
+]
