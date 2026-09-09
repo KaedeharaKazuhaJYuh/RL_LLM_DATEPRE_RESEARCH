@@ -1,0 +1,14 @@
+seed: 42
+method: linucb
+alpha: 1.0
+feature_dim: 10
+actions: [profile_schema, profile_missingness, clean, aggregate, visualize, model, explain, retry, stop]
+budgets:
+  max_steps: 12
+  max_tool_calls: 8
+  max_seconds: 120
+reward:
+  correctness: 0.60
+  traceability: 0.20
+  efficiency: 0.20
+
