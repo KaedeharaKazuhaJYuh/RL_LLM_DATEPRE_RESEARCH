@@ -1,0 +1,8 @@
+customer_id,month,region,plan,tenure_months,monthly_fee,churned
+C001,2026-01,East,basic,3,20,1
+C002,2026-01,West,pro,18,50,0
+C003,2026-02,East,basic,6,20,0
+C004,2026-02,South,pro,4,50,1
+C005,2026-03,West,basic,12,20,0
+C006,2026-03,South,pro,24,50,0
+
