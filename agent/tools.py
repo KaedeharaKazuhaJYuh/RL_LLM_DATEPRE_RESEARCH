@@ -54,5 +54,8 @@ def execute_tool(name, args):
     if name in {"normalize_dates","clip_outliers","fill_missing","normalize_categories"}:
         op={"normalize_dates":"date","clip_outliers":"outlier","fill_missing":"missing","normalize_categories":"category"}[name]
         return cleaning_audit(args["uri"], op)
+    if name == "task_analysis":
+        from .analysis import analyze_task
+        return analyze_task(args["uri"], args["task_id"], args.get("prompt", ""))
     raise ValueError(f"Unknown tool: {name}")
 
