@@ -1,5 +1,14 @@
 import json, os
 
+def parse_json_object(text):
+    try: return json.loads(text)
+    except json.JSONDecodeError:
+        start=text.find("{")
+        while start >= 0:
+            try: return json.JSONDecoder().raw_decode(text[start:])[0]
+            except json.JSONDecodeError: start=text.find("{", start+1)
+        raise ValueError("LLM did not return a JSON object")
+
 class LLMClient:
     """OpenAI-compatible adapter for DeepSeek by default, with OpenAI fallback."""
     def __init__(self, model=None, provider=None):
@@ -19,5 +28,5 @@ class LLMClient:
         response=self.client.chat.completions.create(model=self.model, messages=[
             {"role":"system","content":"Choose exactly one allowed action for a data-analysis agent. Return JSON with keys action and rationale."},
             {"role":"user","content":json.dumps(payload, ensure_ascii=False)}], response_format={"type":"json_object"})
-        return json.loads(response.choices[0].message.content)
+        return parse_json_object(response.choices[0].message.content)
 
