@@ -12,6 +12,16 @@ def load_tasks(path):
 def load_gold(path="tasks/gold_answers.json"):
     p=Path(path); return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
 
+def validation_for(task_id):
+    n=int(task_id[1:])
+    if n<=10: return {}
+    groups=[("aggregation",12,15),("statistics",16,20),("time_series",21,25),("visualization",26,30),("features",31,35),("modeling",36,40),("decision",41,45),("robustness",46,50)]
+    for op,lo,hi in groups:
+        if lo<=n<=hi:
+            fields={"aggregation":["monthly_sum","rows","columns"],"statistics":["numeric_summary","rows","columns"],"time_series":["time_column","ordered"],"visualization":["recommended_chart","x_candidates"],"features":["feature_candidates"],"modeling":["target_candidates","numeric_features"],"decision":["recommendation_basis"],"robustness":["recovery_checks"]}[op]
+            return {"operation":op,"required_analysis":fields}
+    return {}
+
 def run_task(task, policy=None, llm=None):
     # Initial feature vector: difficulty, rows, missing rate, numeric columns, then padding.
     x=[{"easy":0.0,"medium":0.5,"hard":1.0}[task["difficulty"]], 0.0, 0.0, 2.0]+[0.0]*6
@@ -39,12 +49,12 @@ def run_task(task, policy=None, llm=None):
             if action=="aggregate": result["answer"]=obs["totals"]
             if action in {"profile_missingness","count_categories","deduplicate","describe_numeric"}: result["answer"]=obs
             if action in {"normalize_dates","clip_outliers","fill_missing","normalize_categories"}: result["answer"]=obs
-            if action == "task_analysis": result["answer"]=obs["operation"]
+            if action == "task_analysis": result["answer"]=obs["operation"]; result["analysis"]=obs
             state.observe(action,obs)
             if action=="profile_schema": state.done=True
         except Exception as exc:
             trace.append({"tool":tool,"action":action,"ok":False,"error":str(exc)}); state.observe(action,{"error":str(exc)})
-    checked=verify(result, task.get("gold",{}), trace, {**task["constraints"],"allowed_tools":task["allowed_tools"]})
+    checked=verify(result, task.get("gold",{}), trace, {**task["constraints"],"allowed_tools":task["allowed_tools"],"validation":validation_for(task["task_id"])})
     return {"task_id":task["task_id"],"score":checked["score"],"passed":checked["passed"],"tool_calls":len(trace),"trace":trace,"checks":checked["checks"]}
 
 def main():
