@@ -31,7 +31,8 @@ def run_task(task, policy=None, llm=None):
     state=RunState(task["task_id"], x, remaining_calls=task["constraints"]["max_tool_calls"])
     trace=[]; result={"answer": None, "evidence": []}
     while not state.done and state.remaining_calls>0:
-        if "字段类型" in task["prompt"] or "行列数" in task["prompt"]: action="profile_schema"
+        if llm: action=llm.choose_action(task, state, ["profile_schema","profile_missingness","aggregate","task_analysis","stop"])["action"]
+        elif "字段类型" in task["prompt"] or "行列数" in task["prompt"]: action="profile_schema"
         elif "缺失率最高" in task["prompt"]: action="profile_missingness"
         elif "类别的频数" in task["prompt"]: action="count_categories"
         elif "重复行" in task["prompt"]: action="deduplicate"
@@ -42,7 +43,7 @@ def run_task(task, policy=None, llm=None):
         elif "类别拼写" in task["prompt"]: action="normalize_categories"
         elif int(task["task_id"][1:]) >= 12: action="task_analysis"
         elif "按月份统计收入" in task["prompt"]: action="aggregate"
-        else: action=(llm.choose_action(task, state, ["profile_schema","profile_missingness","aggregate","stop"])["action"] if llm else policy.select(state))
+        else: action=policy.select(state)
         if action == "stop": break
         tool=action if action in {"aggregate","profile_missingness","count_categories","deduplicate","describe_numeric","normalize_dates","clip_outliers","fill_missing","normalize_categories","task_analysis"} else "load_table" if action == "profile_schema" else action
         try:
