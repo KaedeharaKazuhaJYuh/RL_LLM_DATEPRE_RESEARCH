@@ -30,11 +30,15 @@ def run_task(task, policy=None, llm=None):
     return {"task_id":task["task_id"],"score":checked["score"],"passed":checked["passed"],"tool_calls":len(trace),"trace":trace,"checks":checked["checks"]}
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--tasks",default="tasks/tasks.jsonl"); ap.add_argument("--mode",choices=["rule","bandit","llm"],default="rule"); ap.add_argument("--out",default="reports/results.jsonl"); args=ap.parse_args()
+    ap=argparse.ArgumentParser(); ap.add_argument("--tasks",default="tasks/tasks.jsonl"); ap.add_argument("--mode",choices=["rule","bandit","llm"],default="rule"); ap.add_argument("--out",default="reports/results.jsonl"); ap.add_argument("--limit",type=int,default=0); args=ap.parse_args()
     actions=["profile_schema","profile_missingness","clean","aggregate","visualize","model","explain","retry","stop"]
     policy=Policy(actions,mode=args.mode) if args.mode != "llm" else None
     llm=LLMClient() if args.mode == "llm" else None
-    results=[run_task(t,policy,llm) for t in load_tasks(args.tasks)]
+    tasks=load_tasks(args.tasks); tasks=tasks[:args.limit] if args.limit else tasks
+    results=[]
+    for i,t in enumerate(tasks,1):
+        print(f"running {i}/{len(tasks)} {t['task_id']}", flush=True)
+        results.append(run_task(t,policy,llm))
     p=Path(args.out); p.parent.mkdir(exist_ok=True); p.write_text("\n".join(json.dumps(r) for r in results)+"\n",encoding="utf-8"); print(f"completed {len(results)} tasks; passed={sum(r['passed'] for r in results)}")
 if __name__ == "__main__": main()
 
