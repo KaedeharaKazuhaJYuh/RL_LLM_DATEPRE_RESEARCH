@@ -12,6 +12,9 @@ def load_tasks(path):
 def load_gold(path="tasks/gold_answers.json"):
     p=Path(path); return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
 
+def load_references(path="tasks/reference_outputs.json"):
+    p=Path(path); return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+
 def validation_for(task_id):
     n=int(task_id[1:])
     if n<=10: return {}
@@ -54,17 +57,18 @@ def run_task(task, policy=None, llm=None):
             if action=="profile_schema": state.done=True
         except Exception as exc:
             trace.append({"tool":tool,"action":action,"ok":False,"error":str(exc)}); state.observe(action,{"error":str(exc)})
-    checked=verify(result, task.get("gold",{}), trace, {**task["constraints"],"allowed_tools":task["allowed_tools"],"validation":validation_for(task["task_id"])})
+    checked=verify(result, task.get("gold",{}), trace, {**task["constraints"],"allowed_tools":task["allowed_tools"],"validation":validation_for(task["task_id"]),"reference":task.get("_reference",{})})
     return {"task_id":task["task_id"],"score":checked["score"],"passed":checked["passed"],"tool_calls":len(trace),"trace":trace,"checks":checked["checks"]}
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--tasks",default="tasks/tasks.jsonl"); ap.add_argument("--mode",choices=["rule","bandit","llm"],default="rule"); ap.add_argument("--out",default="reports/results.jsonl"); ap.add_argument("--limit",type=int,default=0); ap.add_argument("--gold",default="tasks/gold_answers.json"); args=ap.parse_args()
+    ap=argparse.ArgumentParser(); ap.add_argument("--tasks",default="tasks/tasks.jsonl"); ap.add_argument("--mode",choices=["rule","bandit","llm"],default="rule"); ap.add_argument("--out",default="reports/results.jsonl"); ap.add_argument("--limit",type=int,default=0); ap.add_argument("--gold",default="tasks/gold_answers.json"); ap.add_argument("--references",default="tasks/reference_outputs.json"); args=ap.parse_args()
     actions=["profile_schema","profile_missingness","clean","aggregate","visualize","model","explain","retry","stop"]
     policy=Policy(actions,mode=args.mode) if args.mode != "llm" else None
     llm=LLMClient() if args.mode == "llm" else None
-    tasks=load_tasks(args.tasks); gold=load_gold(args.gold)
+    tasks=load_tasks(args.tasks); gold=load_gold(args.gold); references=load_references(args.references)
     for t in tasks:
         if t["task_id"] in gold: t["gold"].update(gold[t["task_id"]])
+        if t["task_id"] in references: t["_reference"] = references[t["task_id"]]
     tasks=tasks[:args.limit] if args.limit else tasks
     results=[]
     for i,t in enumerate(tasks,1):
