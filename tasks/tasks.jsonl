@@ -1,0 +1,4 @@
+{"task_id":"T01","dataset":{"uri":"data/sales.csv","format":"csv"},"prompt":"识别每一列的数据类型并报告行列数。","difficulty":"easy","allowed_tools":["load_table","python_exec"],"gold":{"answer_type":"schema"},"constraints":{"max_steps":4,"max_tool_calls":2,"max_seconds":30}}
+{"task_id":"T06","dataset":{"uri":"data/sales.csv","format":"csv"},"prompt":"删除重复行并报告删除前后行数。","difficulty":"easy","allowed_tools":["load_table","python_exec"],"gold":{"answer_type":"counts","tolerance":0},"constraints":{"max_steps":5,"max_tool_calls":3,"max_seconds":30}}
+{"task_id":"T11","dataset":{"uri":"data/sales.csv","format":"csv"},"prompt":"按月份统计收入总额，并指出收入最高月份。","difficulty":"easy","allowed_tools":["load_table","python_exec"],"gold":{"answer_type":"table_and_text","tolerance":1e-6},"constraints":{"max_steps":8,"max_tool_calls":4,"max_seconds":60}}
+
