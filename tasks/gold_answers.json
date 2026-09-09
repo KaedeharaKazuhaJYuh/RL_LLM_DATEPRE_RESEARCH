@@ -1,0 +1,9 @@
+{
+  "T01": {"answer_type":"schema", "expected":["month","region","revenue","category"]},
+  "T02": {"answer_type":"text", "expected":"revenue"},
+  "T11": {"answer_type":"table", "expected":{"2026-01":220,"2026-02":250}},
+  "T16": {"answer_type":"numeric", "expected":{"East":130,"West":115}},
+  "T31": {"answer_type":"feature", "expected":["month","region","plan","tenure_months","monthly_fee"]},
+  "T36": {"answer_type":"metric", "metric":"accuracy", "min":0.5}
+}
+
