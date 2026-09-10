@@ -8,9 +8,10 @@ def _same(actual, expected, tol=1e-6):
     return _close(actual, expected, tol)
 
 def verify(result, gold, trace, constraints):
-    required = all(k in result for k in ("answer", "evidence"))
-    expected = gold.get("answer"); actual = result.get("answer")
-    numeric = _close(actual, expected, gold.get("tolerance", 1e-6)) if expected is not None else required
+    actual = result.get("answer")
+    required = all(k in result for k in ("answer", "evidence")) and actual is not None
+    expected = gold.get("answer", gold.get("expected"))
+    numeric = _same(actual, expected, gold.get("tolerance", 1e-6)) if expected is not None else required
     contract = constraints.get("validation", {})
     analysis = result.get("analysis", {})
     contract_ok = all(k in analysis for k in contract.get("required_analysis", []))
