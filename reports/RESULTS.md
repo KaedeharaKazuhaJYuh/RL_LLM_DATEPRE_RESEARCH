@@ -1,6 +1,12 @@
 # Current results
 
-The current controlled comparison is summarized in `final_comparison.json`. The strongest reliable finding so far is the ablation between raw DeepSeek and DeepSeek with contract protection: pass rate increased from 86.0% to 100.0%, and the corrected mean score increased from 0.8835 to 0.9675.
+`final_comparison.json` records the current comparison status. The Verifier now checks both `gold.answer` and `gold.expected`, rejects missing answers, and still validates task contracts and reference outputs.
 
-Rule Router and the current Bandit scaffold are identical in this version because the Bandit has not yet been given a stochastic exploration policy or enough online reward updates. They should not be presented as evidence that reinforcement learning has already improved over rules.
+The rechecked local Rule Router baseline completes 50/50 tasks with a mean score of 0.9675 and one tool call per task. The first genuine Bandit run (seed 7, without contract protection) completes 19/50 tasks, with a mean score of 0.5740 and 1.24 tool calls. This is a useful diagnostic result: exploration and reward updates are active, but the Bandit is not yet competitive.
+
+The earlier 250-task DeepSeek figures remain listed for traceability, but they are provisional because they were generated before the new `gold.expected` check. They must be rerun before being used as final paper results.
+
+## Next experiment
+
+Run DeepSeek on one 50-task seed with the corrected Verifier, then repeat across five seeds if the API budget is acceptable. Compare raw routing, contract-protected routing, Rule Router, and the updated Bandit using the same task split and report mean and standard deviation.
 
