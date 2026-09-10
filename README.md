@@ -142,6 +142,30 @@ Verifier 已经补充了 `gold.expected` 精确答案校验，并拒绝没有实
 
 DeepSeek 的旧结果仅作为过程记录；由于它们是在 Verifier 修正前生成的，正式报告前应使用同一版本重新运行。
 
+## 11 今日工作记录（2026-09-10）
+
+今天完成了以下工作：
+
+1. 完成 50 个首批数据分析任务的可复现实验框架，并保留逐任务 JSONL 日志。
+2. 修正 Verifier：现在会检查 `gold.expected`，拒绝空答案，并继续检查任务合同、参考输出、工具合法性和调用预算。
+3. 为 Contextual Bandit 接入随机种子、随机探索和任务结束后的 Verifier 奖励更新。
+4. 完成代码语法检查和本地回归：
+   - Rule Router：50/50 通过，平均分 0.9675，平均工具调用 1.00。
+   - Bandit（seed=7、无合同保护）：19/50 通过，平均分 0.5740，平均工具调用 1.24。
+5. 将代码、报告和逐任务结果同步到 GitHub。详细结果见 `reports/RESULTS.md` 和 `reports/rechecked_summary.json`。
+
+当前结论：Rule Router 作为稳定基线已经可用；Bandit 的学习闭环已经接通，但首轮表现较弱，暂时不能声称 RL 优于规则。之前生成的 DeepSeek 结果是在 Verifier 修正前得到的，正式写入论文前必须重新运行。
+
+## 12 明天继续计划
+
+1. 使用修正后的 Verifier 重新运行 DeepSeek 50 个任务。
+2. 先检查单个 seed 的结果和失败类型，再决定是否运行 5 个 seeds。
+3. 统一比较 Rule Router、Bandit、DeepSeek raw 和 DeepSeek contract-protected。
+4. 计算均值、标准差、通过率、平均工具调用和失败类型分布。
+5. 根据结果调整 Bandit 状态特征、动作掩码和奖励塑形，再进入更长轨迹或 Offline RL。
+
+明天开始 DeepSeek 重跑前，需要确认当前 PowerShell 会话中的 `DEEPSEEK_API_KEY` 仍然有效；该密钥不会写入仓库。
+
 ## 11 最小验收标准
 
 我会把一次实验视为有效，前提是：任务输入可复现、工具调用有日志、输出可被 Verifier 独立检查、预算没有被偷偷放宽、失败原因可分类、结果能按 seed 重跑，并且所有方法使用相同模型和数据切分。
