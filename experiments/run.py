@@ -60,7 +60,7 @@ def run_task(task, policy=None, llm=None):
             if action in {"normalize_dates","clip_outliers","fill_missing","normalize_categories"}: result["answer"]=obs
             if action == "task_analysis": result["answer"]=obs["operation"]; result["analysis"]=obs
             state.observe(action,obs)
-            if action=="profile_schema": state.done=True
+            if action in {"profile_schema","aggregate","profile_missingness","count_categories","deduplicate","describe_numeric","normalize_dates","clip_outliers","fill_missing","normalize_categories","task_analysis"}: state.done=True
         except Exception as exc:
             trace.append({"tool":tool,"action":action,"ok":False,"error":str(exc)}); state.observe(action,{"error":str(exc)})
     checked=verify(result, task.get("gold",{}), trace, {**task["constraints"],"allowed_tools":task["allowed_tools"],"validation":validation_for(task["task_id"]),"reference":task.get("_reference",{})})
