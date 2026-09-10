@@ -7,7 +7,7 @@ def main():
     for method in args.methods.split(","):
         for seed in args.seeds.split(","):
             path=out/f"{method}_seed{seed}{args.suffix}.jsonl"
-            cmd=[sys.executable,"-m","experiments.run","--mode",method,"--out",str(path)]
+            cmd=[sys.executable,"-m","experiments.run","--mode",method,"--seed",seed,"--out",str(path)]
             if args.raw_llm and method == "llm": cmd.append("--no-contract-protection")
             print("running",method,"seed",seed,flush=True); subprocess.run(cmd,check=True)
     print(f"wrote matrix results to {out}")
