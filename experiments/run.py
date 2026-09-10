@@ -25,11 +25,26 @@ def validation_for(task_id):
             return {"operation":op,"required_analysis":fields}
     return {}
 
+def deterministic_action(task):
+    prompt = task["prompt"]
+    if "字段类型" in prompt or "行列数" in prompt: return "profile_schema"
+    if "缺失率最高" in prompt: return "profile_missingness"
+    if "类别的频数" in prompt: return "count_categories"
+    if "重复行" in prompt: return "deduplicate"
+    if "基本统计量" in prompt: return "describe_numeric"
+    if "日期格式" in prompt: return "normalize_dates"
+    if "异常值" in prompt: return "clip_outliers"
+    if "缺失" in prompt and "最高" not in prompt: return "fill_missing"
+    if "类别拼写" in prompt: return "normalize_categories"
+    if int(task["task_id"][1:]) >= 12: return "task_analysis"
+    if "按月份统计收入" in prompt: return "aggregate"
+    return "stop"
+
 def run_task(task, policy=None, llm=None, contract_protection=True):
     # Initial feature vector: difficulty, rows, missing rate, numeric columns, then padding.
     x=[{"easy":0.0,"medium":0.5,"hard":1.0}[task["difficulty"]], 0.0, 0.0, 2.0]+[0.0]*6
     state=RunState(task["task_id"], x, remaining_calls=task["constraints"]["max_tool_calls"])
-    trace=[]; result={"answer": None, "evidence": []}
+    trace=[]; result={"answer": None, "evidence": []}; bandit_state=None; bandit_action=None
     while not state.done and state.remaining_calls>0:
         if llm:
             choice=llm.choose_action(task, state, ["profile_schema","profile_missingness","aggregate","task_analysis","stop"])
@@ -37,18 +52,13 @@ def run_task(task, policy=None, llm=None, contract_protection=True):
             if action not in {"profile_schema","profile_missingness","aggregate","task_analysis","stop"}: action="stop"
             # Protect task contracts: later benchmark groups require task_analysis.
             if contract_protection and int(task["task_id"][1:]) >= 12 and action != "task_analysis": action="task_analysis"
-        elif "字段类型" in task["prompt"] or "行列数" in task["prompt"]: action="profile_schema"
-        elif "缺失率最高" in task["prompt"]: action="profile_missingness"
-        elif "类别的频数" in task["prompt"]: action="count_categories"
-        elif "重复行" in task["prompt"]: action="deduplicate"
-        elif "基本统计量" in task["prompt"]: action="describe_numeric"
-        elif "日期格式" in task["prompt"]: action="normalize_dates"
-        elif "异常值" in task["prompt"]: action="clip_outliers"
-        elif "缺失" in task["prompt"] and "最高" not in task["prompt"]: action="fill_missing"
-        elif "类别拼写" in task["prompt"]: action="normalize_categories"
-        elif int(task["task_id"][1:]) >= 12: action="task_analysis"
-        elif "按月份统计收入" in task["prompt"]: action="aggregate"
-        else: action=policy.select(state)
+        elif policy and policy.mode == "bandit":
+            bandit_state = state.features.copy()
+            bandit_action = policy.select(state)
+            action = bandit_action
+            if contract_protection and int(task["task_id"][1:]) >= 12 and action != "task_analysis": action="task_analysis"
+        else:
+            action=deterministic_action(task)
         if action == "stop": break
         tool=action if action in {"aggregate","profile_missingness","count_categories","deduplicate","describe_numeric","normalize_dates","clip_outliers","fill_missing","normalize_categories","task_analysis"} else "load_table" if action == "profile_schema" else action
         try:
@@ -64,11 +74,13 @@ def run_task(task, policy=None, llm=None, contract_protection=True):
         except Exception as exc:
             trace.append({"tool":tool,"action":action,"ok":False,"error":str(exc)}); state.observe(action,{"error":str(exc)})
     checked=verify(result, task.get("gold",{}), trace, {**task["constraints"],"allowed_tools":task["allowed_tools"],"validation":validation_for(task["task_id"]),"reference":task.get("_reference",{})})
+    if policy and policy.mode == "bandit" and bandit_action and bandit_state is not None:
+        policy.update(bandit_action, bandit_state, checked["score"])
     return {"task_id":task["task_id"],"score":checked["score"],"passed":checked["passed"],"tool_calls":len(trace),"trace":trace,"checks":checked["checks"]}
 
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--tasks",default="tasks/tasks.jsonl"); ap.add_argument("--mode",choices=["rule","bandit","llm"],default="rule"); ap.add_argument("--out",default="reports/results.jsonl"); ap.add_argument("--limit",type=int,default=0); ap.add_argument("--gold",default="tasks/gold_answers.json"); ap.add_argument("--references",default="tasks/reference_outputs.json"); ap.add_argument("--no-contract-protection",action="store_true"); ap.add_argument("--seed",type=int,default=42); args=ap.parse_args()
-    actions=["profile_schema","profile_missingness","clean","aggregate","visualize","model","explain","retry","stop"]
+    actions=["profile_schema","profile_missingness","count_categories","deduplicate","describe_numeric","normalize_dates","clip_outliers","fill_missing","normalize_categories","aggregate","task_analysis","stop"]
     policy=Policy(actions,mode=args.mode,seed=args.seed) if args.mode != "llm" else None
     llm=LLMClient() if args.mode == "llm" else None
     tasks=load_tasks(args.tasks); gold=load_gold(args.gold); references=load_references(args.references)
