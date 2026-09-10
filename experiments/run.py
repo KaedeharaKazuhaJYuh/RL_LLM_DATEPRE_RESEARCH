@@ -67,9 +67,9 @@ def run_task(task, policy=None, llm=None, contract_protection=True):
     return {"task_id":task["task_id"],"score":checked["score"],"passed":checked["passed"],"tool_calls":len(trace),"trace":trace,"checks":checked["checks"]}
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--tasks",default="tasks/tasks.jsonl"); ap.add_argument("--mode",choices=["rule","bandit","llm"],default="rule"); ap.add_argument("--out",default="reports/results.jsonl"); ap.add_argument("--limit",type=int,default=0); ap.add_argument("--gold",default="tasks/gold_answers.json"); ap.add_argument("--references",default="tasks/reference_outputs.json"); ap.add_argument("--no-contract-protection",action="store_true"); args=ap.parse_args()
+    ap=argparse.ArgumentParser(); ap.add_argument("--tasks",default="tasks/tasks.jsonl"); ap.add_argument("--mode",choices=["rule","bandit","llm"],default="rule"); ap.add_argument("--out",default="reports/results.jsonl"); ap.add_argument("--limit",type=int,default=0); ap.add_argument("--gold",default="tasks/gold_answers.json"); ap.add_argument("--references",default="tasks/reference_outputs.json"); ap.add_argument("--no-contract-protection",action="store_true"); ap.add_argument("--seed",type=int,default=42); args=ap.parse_args()
     actions=["profile_schema","profile_missingness","clean","aggregate","visualize","model","explain","retry","stop"]
-    policy=Policy(actions,mode=args.mode) if args.mode != "llm" else None
+    policy=Policy(actions,mode=args.mode,seed=args.seed) if args.mode != "llm" else None
     llm=LLMClient() if args.mode == "llm" else None
     tasks=load_tasks(args.tasks); gold=load_gold(args.gold); references=load_references(args.references)
     for t in tasks:
