@@ -10,5 +10,7 @@ class Policy:
             return rule_router(AgentState(missing_rate=state.features[2], numeric_columns=int(state.features[3]), remaining_calls=state.remaining_calls))
         return self.bandit.select(np.asarray(state.features, dtype=float))
     def update(self, action, state, reward):
-        if self.mode == "bandit": self.bandit.update(action, np.asarray(state.features, dtype=float), reward)
+        if self.mode == "bandit":
+            features = state if isinstance(state, (list, tuple, np.ndarray)) else state.features
+            self.bandit.update(action, np.asarray(features, dtype=float), reward)
 
