@@ -25,7 +25,7 @@ def validation_for(task_id):
             return {"operation":op,"required_analysis":fields}
     return {}
 
-def run_task(task, policy=None, llm=None):
+def run_task(task, policy=None, llm=None, contract_protection=True):
     # Initial feature vector: difficulty, rows, missing rate, numeric columns, then padding.
     x=[{"easy":0.0,"medium":0.5,"hard":1.0}[task["difficulty"]], 0.0, 0.0, 2.0]+[0.0]*6
     state=RunState(task["task_id"], x, remaining_calls=task["constraints"]["max_tool_calls"])
@@ -36,7 +36,7 @@ def run_task(task, policy=None, llm=None):
             action=choice.get("action","stop")
             if action not in {"profile_schema","profile_missingness","aggregate","task_analysis","stop"}: action="stop"
             # Protect task contracts: later benchmark groups require task_analysis.
-            if int(task["task_id"][1:]) >= 12 and action != "task_analysis": action="task_analysis"
+            if contract_protection and int(task["task_id"][1:]) >= 12 and action != "task_analysis": action="task_analysis"
         elif "字段类型" in task["prompt"] or "行列数" in task["prompt"]: action="profile_schema"
         elif "缺失率最高" in task["prompt"]: action="profile_missingness"
         elif "类别的频数" in task["prompt"]: action="count_categories"
@@ -67,7 +67,7 @@ def run_task(task, policy=None, llm=None):
     return {"task_id":task["task_id"],"score":checked["score"],"passed":checked["passed"],"tool_calls":len(trace),"trace":trace,"checks":checked["checks"]}
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--tasks",default="tasks/tasks.jsonl"); ap.add_argument("--mode",choices=["rule","bandit","llm"],default="rule"); ap.add_argument("--out",default="reports/results.jsonl"); ap.add_argument("--limit",type=int,default=0); ap.add_argument("--gold",default="tasks/gold_answers.json"); ap.add_argument("--references",default="tasks/reference_outputs.json"); args=ap.parse_args()
+    ap=argparse.ArgumentParser(); ap.add_argument("--tasks",default="tasks/tasks.jsonl"); ap.add_argument("--mode",choices=["rule","bandit","llm"],default="rule"); ap.add_argument("--out",default="reports/results.jsonl"); ap.add_argument("--limit",type=int,default=0); ap.add_argument("--gold",default="tasks/gold_answers.json"); ap.add_argument("--references",default="tasks/reference_outputs.json"); ap.add_argument("--no-contract-protection",action="store_true"); args=ap.parse_args()
     actions=["profile_schema","profile_missingness","clean","aggregate","visualize","model","explain","retry","stop"]
     policy=Policy(actions,mode=args.mode) if args.mode != "llm" else None
     llm=LLMClient() if args.mode == "llm" else None
@@ -79,7 +79,7 @@ def main():
     results=[]
     for i,t in enumerate(tasks,1):
         print(f"running {i}/{len(tasks)} {t['task_id']}", flush=True)
-        results.append(run_task(t,policy,llm))
+        results.append(run_task(t,policy,llm,not args.no_contract_protection))
     p=Path(args.out); p.parent.mkdir(exist_ok=True); p.write_text("\n".join(json.dumps(r) for r in results)+"\n",encoding="utf-8"); print(f"completed {len(results)} tasks; passed={sum(r['passed'] for r in results)}")
 if __name__ == "__main__": main()
 
