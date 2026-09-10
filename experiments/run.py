@@ -35,6 +35,8 @@ def run_task(task, policy=None, llm=None):
             choice=llm.choose_action(task, state, ["profile_schema","profile_missingness","aggregate","task_analysis","stop"])
             action=choice.get("action","stop")
             if action not in {"profile_schema","profile_missingness","aggregate","task_analysis","stop"}: action="stop"
+            # Protect task contracts: later benchmark groups require task_analysis.
+            if int(task["task_id"][1:]) >= 12 and action != "task_analysis": action="task_analysis"
         elif "字段类型" in task["prompt"] or "行列数" in task["prompt"]: action="profile_schema"
         elif "缺失率最高" in task["prompt"]: action="profile_missingness"
         elif "类别的频数" in task["prompt"]: action="count_categories"
