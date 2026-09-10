@@ -21,7 +21,8 @@ def verify(result, gold, trace, constraints):
     legal = all(step.get("tool") in allowed for step in trace)
     within_budget = len(trace) <= constraints.get("max_tool_calls", 10)
     cost = max(0.0, 1.0 - len(trace) / max(constraints.get("max_tool_calls", 10), 1))
-    score = 0.6 * float(required and numeric) + 0.2 * float(bool(result.get("evidence"))) + 0.2 * cost
+    correctness = float(required and numeric and contract_ok and reference_ok)
+    score = 0.6 * correctness + 0.2 * float(bool(result.get("evidence"))) + 0.2 * cost
     return {"passed": required and numeric and legal and within_budget and contract_ok and reference_ok, "score": score,
             "checks": {"structure": required, "answer": numeric, "contract": contract_ok, "reference": reference_ok, "legal": legal, "budget": within_budget}}
 
