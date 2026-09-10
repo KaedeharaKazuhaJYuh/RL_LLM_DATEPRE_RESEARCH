@@ -84,7 +84,9 @@ def react_step(llm, state, tools):
 
 状态 `s` 建议包括：任务难度、数据行列数、缺失率、数值列数、类别列数、目标变量是否存在、当前步骤数、最近一次 verifier 分数、剩余预算、上一步错误类型。
 
-动作 `a` 为高层策略，而非任意 token：`profile_schema`、`profile_missingness`、`clean`、`aggregate`、`visualize`、`model`、`explain`、`retry`、`stop`。
+动作 `a` 为工具白名单中的高层动作，而非任意 token：`profile_schema`、`profile_missingness`、`count_categories`、`deduplicate`、`describe_numeric`、`normalize_dates`、`clip_outliers`、`fill_missing`、`normalize_categories`、`aggregate`、`task_analysis`、`stop`。
+
+当前实现会在每个任务开始时保存状态特征，在任务结束后用 Verifier 得分更新 Bandit。`--seed` 控制随机探索；为了观察未经规则保护的真实探索行为，可使用 `--no-contract-protection`。
 
 即时奖励使用 verifier 分数增量减成本：`r_t = score_t - score_{t-1} - 0.02 * tool_calls - 0.01 * seconds`。先用 LinUCB 或 Thompson Sampling；当有足够轨迹后再训练 Offline RL。
 
@@ -134,7 +136,13 @@ rl-llm-data-agent/
 
 先实现 T01、T06、T11、T16、T26、T36、T46 七个代表任务；完成 Direct Prompt 与 Rule Router；写好程序化 Verifier；固定日志格式；再扩展到全部 50 个任务。只有当 Verifier 在人工抽查中达到至少 95% 一致率，才开始比较 Bandit。
 
-## 10 最小验收标准
+## 10 当前实验状态
+
+Verifier 已经补充了 `gold.expected` 精确答案校验，并拒绝没有实际答案的提前停止结果。修正后的本地重跑结果保存在 `reports/rechecked_summary.json`，对比说明见 `reports/RESULTS.md`。当前 Rule Router 为 50/50 通过；首轮真实 Bandit（seed=7、无合同保护）为 19/50，通过率较低，说明还需要更多任务重复、特征设计和奖励塑形，不能把它表述为 RL 已经优于规则。
+
+DeepSeek 的旧结果仅作为过程记录；由于它们是在 Verifier 修正前生成的，正式报告前应使用同一版本重新运行。
+
+## 11 最小验收标准
 
 我会把一次实验视为有效，前提是：任务输入可复现、工具调用有日志、输出可被 Verifier 独立检查、预算没有被偷偷放宽、失败原因可分类、结果能按 seed 重跑，并且所有方法使用相同模型和数据切分。
 
