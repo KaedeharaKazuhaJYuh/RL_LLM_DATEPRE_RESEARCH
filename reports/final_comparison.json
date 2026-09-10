@@ -1,7 +1,7 @@
 [
-  {"method":"Rule Router","tasks":250,"passed":250,"pass_rate":1.0,"mean_score":0.9675,"mean_tool_calls":1.0,"condition":"deterministic local baseline"},
-  {"method":"Contextual Bandit","tasks":250,"passed":250,"pass_rate":1.0,"mean_score":0.9675,"mean_tool_calls":1.0,"condition":"current deterministic policy scaffold"},
-  {"method":"DeepSeek raw","tasks":250,"passed":215,"pass_rate":0.86,"mean_score":0.8835,"mean_tool_calls":1.0,"condition":"no contract protection"},
-  {"method":"DeepSeek protected","tasks":250,"passed":250,"pass_rate":1.0,"mean_score":0.9675,"mean_tool_calls":1.0,"condition":"contract protection enabled"}
+  {"method":"Rule Router","tasks":50,"passed":50,"pass_rate":1.0,"mean_score":0.9675,"mean_tool_calls":1.0,"condition":"rechecked after expected-answer validation"},
+  {"method":"Contextual Bandit","tasks":50,"passed":19,"pass_rate":0.38,"mean_score":0.574,"mean_tool_calls":1.24,"condition":"seed=7, no contract protection; preliminary learning run"},
+  {"method":"DeepSeek raw","tasks":250,"passed":215,"pass_rate":0.86,"mean_score":0.8835,"mean_tool_calls":1.0,"condition":"previous run; must be rerun after verifier fix"},
+  {"method":"DeepSeek protected","tasks":250,"passed":250,"pass_rate":1.0,"mean_score":0.9675,"mean_tool_calls":1.0,"condition":"previous run; must be rerun after verifier fix"}
 ]
 
