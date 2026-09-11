@@ -1,182 +1,152 @@
-# RL LLM 数据分析 Agent 开工包
+# RL + LLM Data Analysis Agent
 
-## 1 项目目标
+这是我的一个可复现研究项目。我希望研究：强化学习能否利用可验证的数据分析反馈，让 LLM Agent 更准确地选择工具、调整分析计划、处理错误，并减少不必要的工具调用。
 
-我准备研究：强化学习能否利用可验证的数据分析反馈，提高 LLM Agent 在多步数据分析中的工具选择、计划调整和错误恢复能力，同时降低工具调用次数与计算成本。第一阶段先用规则路由和 Contextual Bandit 建立可复现实验，再积累轨迹进入 Offline RL，最后视资源情况加入 LoRA 与 GRPO/PPO。
+## 我在研究什么
 
-## 2 首批 50 个实验任务
+我把数据分析 Agent 看成一个连续决策系统：Agent 读取任务和数据状态，选择下一步工具，获得数据观察结果，再根据 Verifier 的反馈继续行动或停止。我的核心研究问题是：
 
-任务统一使用公开或自建的小型 CSV/Parquet 数据集；每个任务都要求 Agent 输出结论、关键中间产物和可执行代码。建议先固定 5 个随机种子，并按 easy/medium/hard 分层。
+> 当数据分析结果可以被程序化验证时，Verifier 反馈能否训练出比固定规则更好的工具选择策略？
 
-|组别|任务编号|任务设计|期望验证点|
-|---|---:|---|---|
-|读取与概览|T01-T05|识别字段类型；统计行列数；找出缺失率最高列；按类别计数；检查重复行|schema、计数、缺失率、重复率|
-|清洗|T06-T10|去重；日期格式统一；异常值截尾；缺失值填补；类别拼写归一|清洗前后行数、规则与审计日志|
-|聚合|T11-T15|按月求和；按地区求均值；Top-K 客户；分组占比；透视表|聚合结果与分母正确性|
-|统计|T16-T20|均值/中位数比较；置信区间；相关系数；A/B 差异；异常点影响|公式、样本量、方向与数值|
-|时间序列|T21-T25|月度趋势；同比环比；移动平均；峰值月份；简单预测|时间排序、窗口、预测区间|
-|可视化|T26-T30|选择合适图表；绘制分布；绘制趋势；绘制分组比较；标注异常点|图表类型、轴标签、数据映射|
-|特征工程|T31-T35|日期衍生；比率特征；标准化；类别编码；防止目标泄漏|特征定义、训练边界、泄漏检查|
-|建模|T36-T40|线性回归；逻辑回归；树模型；交叉验证；基线比较|切分、指标、随机种子、基线|
-|解释与决策|T41-T45|解释重要特征；给出业务建议；成本收益排序；生成报告；回答追问|证据引用、结论可追溯、建议约束|
-|鲁棒性与恢复|T46-T50|列名变化；缺失文件；工具报错重试；矛盾结果复核；预算受限分析|错误识别、恢复动作、停止条件、成本|
+我先用小型 CSV 数据集和 50 个可复现实验任务建立可靠基线，再逐步引入 Contextual Bandit、Offline RL 和参数高效的 LLM 训练。这样可以先验证“学习式决策是否有效”，再扩大模型和训练规模。
 
-## 3 任务 JSON 格式
+## 项目假设
 
-```json
-{
-  "task_id": "T11",
-  "dataset": {"uri": "data/sales.csv", "format": "csv", "target": null},
-  "prompt": "按月份统计收入总额，并指出收入最高月份。",
-  "difficulty": "easy",
-  "allowed_tools": ["load_table", "python_exec"],
-  "gold": {"answer_type": "table_and_text", "tolerance": 1e-6},
-  "constraints": {"max_steps": 8, "max_tool_calls": 4, "max_seconds": 60},
-  "reward_weights": {"correctness": 0.6, "traceability": 0.2, "efficiency": 0.2}
-}
-```
+- 规则路由可以提供稳定、低成本的初始基线。
+- LLM 可以完成开放式任务理解，但容易选择不匹配的工具。
+- 任务合同、动作约束和 Verifier 可以降低无效行动，并让奖励信号可计算。
+- 当任务状态、动作和奖励定义足够稳定时，Contextual Bandit 有机会学习到比静态规则更好的策略。
 
-每个任务至少保存 `task.json`、`trajectory.jsonl`、`answer.json` 和 `verification.json`。不要把参考答案直接放进 Agent 可见上下文。
-
-## 4 Verifier 设计
-
-Verifier 分为四层：结构验证（输出字段完整）、数值验证（绝对/相对误差）、语义验证（结论与证据一致）、轨迹验证（工具调用合法且可复现）。总奖励可写为：
-
-`R = 0.60 correctness + 0.20 traceability + 0.20 efficiency - 0.10 invalid_action`
-
-```python
-def verify(result, gold, trace, budget):
-    structure = has_required_fields(result)
-    numeric = compare_tables(result.get("table"), gold.get("table"), tol=gold.get("tolerance", 1e-6))
-    evidence = claims_supported(result.get("claims", []), result.get("evidence", []))
-    legal = all(step["tool"] in budget["allowed_tools"] for step in trace)
-    cost = 1 - min(len(trace) / budget["max_tool_calls"], 1.0)
-    score = 0.60 * (0.5 * structure + 0.5 * numeric) + 0.20 * evidence + 0.20 * cost
-    return {"passed": bool(structure and numeric and evidence and legal), "score": score,
-            "checks": {"structure": structure, "numeric": numeric, "evidence": evidence, "legal": legal}}
-```
-
-关键原则：数值任务优先采用程序化核验；开放式建议只核验其证据链、约束满足和是否出现不可支持的断言；所有失败都要记录 `failure_type`，用于后续奖励建模。
-
-## 5 ReAct 与 Rule Router
-
-ReAct 负责在每一步产生 `thought -> action -> observation`，但只允许从白名单工具中选动作；Rule Router 先根据任务特征做低成本初始决策。
-
-```python
-def rule_router(state):
-    if state["missing_rate"] > 0.30: return "profile_missingness"
-    if state["needs_plot"]: return "plot"
-    if state["has_target"]: return "split_and_model"
-    if state["numeric_columns"] >= 2: return "summarize_and_correlate"
-    return "profile_schema"
-
-def react_step(llm, state, tools):
-    message = build_prompt(state, tools, output_format="json_action")
-    action = llm(message)
-    validate_action(action, tools)
-    observation = tools[action["tool"]](**action.get("args", {}))
-    return action, observation
-```
-
-实验上至少比较 Direct Prompt、ReAct、Rule Router、Rule Router + Bandit 四个条件；统一模型、数据、预算和随机种子。
-
-## 6 Contextual Bandit 定义
-
-状态 `s` 建议包括：任务难度、数据行列数、缺失率、数值列数、类别列数、目标变量是否存在、当前步骤数、最近一次 verifier 分数、剩余预算、上一步错误类型。
-
-动作 `a` 为工具白名单中的高层动作，而非任意 token：`profile_schema`、`profile_missingness`、`count_categories`、`deduplicate`、`describe_numeric`、`normalize_dates`、`clip_outliers`、`fill_missing`、`normalize_categories`、`aggregate`、`task_analysis`、`stop`。
-
-当前实现会在每个任务开始时保存状态特征，在任务结束后用 Verifier 得分更新 Bandit。`--seed` 控制随机探索；为了观察未经规则保护的真实探索行为，可使用 `--no-contract-protection`。
-
-即时奖励使用 verifier 分数增量减成本：`r_t = score_t - score_{t-1} - 0.02 * tool_calls - 0.01 * seconds`。先用 LinUCB 或 Thompson Sampling；当有足够轨迹后再训练 Offline RL。
-
-```python
-class LinUCBBandit:
-    def __init__(self, dim, actions, alpha=1.0):
-        self.A = {a: np.eye(dim) for a in actions}; self.b = {a: np.zeros(dim) for a in actions}; self.alpha = alpha
-    def select(self, x):
-        scores = {}
-        for a in self.A:
-            inv = np.linalg.inv(self.A[a]); theta = inv @ self.b[a]
-            scores[a] = theta @ x + self.alpha * np.sqrt(x @ inv @ x)
-        return max(scores, key=scores.get)
-    def update(self, a, x, r):
-        self.A[a] += np.outer(x, x); self.b[a] += r * x
-```
-
-## 7 实验结果表
-
-|方法|平均Verifier分|任务通过率|平均工具调用|平均耗时|平均Token|错误恢复率|95%置信区间|
-|---|---:|---:|---:|---:|---:|---:|---|
-|Direct Prompt| | | | | | | |
-|ReAct| | | | | | | |
-|Rule Router| | | | | | | |
-|Contextual Bandit| | | | | | | |
-
-建议另存逐任务明细：`task_id, seed, method, score, passed, tool_calls, latency_ms, tokens, failure_type, final_action`。主结论至少报告均值、标准差、通过率和成本，不只报告单次最好结果。
-
-## 8 GitHub 项目目录
+## 系统架构
 
 ```text
-rl-llm-data-agent/
-├─ README.md
-├─ pyproject.toml
-├─ configs/{baseline.yaml,bandit.yaml}
-├─ data/{raw,processed,manifests}
-├─ tasks/{tasks.jsonl,schemas/task.schema.json}
-├─ agent/{react.py,router.py,bandit.py,tools.py,state.py}
-├─ verifier/{structure.py,numeric.py,semantic.py,trace.py,score.py}
-├─ experiments/{run.py,aggregate.py,seed.py}
-├─ reports/{tables,figures}
-├─ tests/{test_tools.py,test_verifier.py,test_router.py}
-└─ scripts/{make_tasks.py,run_all.ps1}
+任务 + 数据集
+      │
+      ▼
+状态提取 ──► 策略层：Rule Router / LLM / Contextual Bandit
+      │                                      │
+      │                                      ▼
+      └──────────────────────────────► 工具白名单
+                                             │
+                                             ▼
+                                      Observation / Trace
+                                             │
+                                             ▼
+                                  Verifier：正确性、证据、合同、成本
+                                             │
+                                             ▼
+                                  Reward ──► Bandit 更新 / 轨迹记录
 ```
 
-## 9 第一周落地顺序
+我把策略层、工具层和验证层分开，因此可以在相同任务、数据和预算下公平比较不同方法：
 
-先实现 T01、T06、T11、T16、T26、T36、T46 七个代表任务；完成 Direct Prompt 与 Rule Router；写好程序化 Verifier；固定日志格式；再扩展到全部 50 个任务。只有当 Verifier 在人工抽查中达到至少 95% 一致率，才开始比较 Bandit。
+- Rule Router：根据任务特征和关键词选择确定性工具。
+- LLM Agent：让 DeepSeek 等 OpenAI-compatible 模型从动作白名单中选择工具。
+- Contextual Bandit：使用 LinUCB 根据状态特征选择动作，并用 Verifier 分数更新参数。
+- 后续 Offline RL：使用已经记录的状态、动作、观察和奖励训练更长程的策略。
 
-## 10 当前实验状态
+## 50 个实验任务
 
-Verifier 已经补充了 `gold.expected` 精确答案校验，并拒绝没有实际答案的提前停止结果。修正后的本地重跑结果保存在 `reports/rechecked_summary.json`，对比说明见 `reports/RESULTS.md`。当前 Rule Router 为 50/50 通过；首轮真实 Bandit（seed=7、无合同保护）为 19/50，通过率较低，说明还需要更多任务重复、特征设计和奖励塑形，不能把它表述为 RL 已经优于规则。
+我设计了 50 个任务，并按能力分成十组：
 
-DeepSeek 的旧结果仅作为过程记录；由于它们是在 Verifier 修正前生成的，正式报告前应使用同一版本重新运行。
+| 能力组 | 任务 | 主要验证内容 |
+|---|---:|---|
+| 数据读取与概览 | T01–T05 | 字段、行列数、缺失率、类别频数、重复行 |
+| 数据清洗 | T06–T10 | 去重、日期、异常值、缺失值、类别拼写 |
+| 聚合分析 | T11–T15 | 月度汇总、分组均值、Top-K、占比、透视 |
+| 统计分析 | T16–T20 | 描述统计、置信区间、相关性、A/B 差异、异常影响 |
+| 时间序列 | T21–T25 | 趋势、环比、移动平均、峰值和简单预测 |
+| 可视化 | T26–T30 | 图表选择、分布、趋势、分组比较和异常标注 |
+| 特征工程 | T31–T35 | 日期特征、比率、标准化、编码和泄漏检查 |
+| 建模 | T36–T40 | 回归、分类、树模型、交叉验证和基线比较 |
+| 解释与决策 | T41–T45 | 特征解释、业务建议、成本收益和报告生成 |
+| 鲁棒性与恢复 | T46–T50 | 列名变化、文件缺失、重试、复核和预算限制 |
 
-## 11 今日工作记录（2026-09-10）
+任务定义位于 `tasks/tasks.jsonl`，参考输出位于 `tasks/reference_outputs.json`。参考答案只用于独立验证，不应该被 Agent 直接看到。
 
-今天完成了以下工作：
+## Verifier 与奖励
 
-1. 完成 50 个首批数据分析任务的可复现实验框架，并保留逐任务 JSONL 日志。
-2. 修正 Verifier：现在会检查 `gold.expected`，拒绝空答案，并继续检查任务合同、参考输出、工具合法性和调用预算。
-3. 为 Contextual Bandit 接入随机种子、随机探索和任务结束后的 Verifier 奖励更新。
-4. 完成代码语法检查和本地回归：
-   - Rule Router：50/50 通过，平均分 0.9675，平均工具调用 1.00。
-   - Bandit（seed=7、无合同保护）：19/50 通过，平均分 0.5740，平均工具调用 1.24。
-5. 将代码、报告和逐任务结果同步到 GitHub。详细结果见 `reports/RESULTS.md` 和 `reports/rechecked_summary.json`。
+我使用程序化 Verifier 检查四类内容：
 
-当前结论：Rule Router 作为稳定基线已经可用；Bandit 的学习闭环已经接通，但首轮表现较弱，暂时不能声称 RL 优于规则。之前生成的 DeepSeek 结果是在 Verifier 修正前得到的，正式写入论文前必须重新运行。
+1. 输出结构是否完整，是否真的产生了答案和证据。
+2. 数值或结构化结果是否符合 `gold.expected` 或参考输出。
+3. 工具调用是否属于任务允许的白名单，是否超过预算。
+4. 对 T12–T50，分析操作和必需字段是否符合任务合同。
 
-## 12 今日实验结果（2026-09-11）
+当前奖励由正确性、证据和成本组成。每个任务结束后，Bandit 使用 Verifier 分数更新；所有轨迹会保存为 JSONL，方便之后进行错误分析和 Offline RL。
 
-今天完成了修正 Verifier 下的 DeepSeek 单轮实验：
+## 运行方式
 
-- 50 个任务完成，41 个通过，通过率 82.0%。
-- 平均 Verifier 分数 0.8595。
-- 平均工具调用次数 1.00。
-- 失败任务为 T03–T11，主要原因是模型选择了与任务目标不匹配的工具。
-- 原始逐任务结果保存在 `reports/deepseek_rechecked.jsonl`，汇总保存在 `reports/deepseek_rechecked_summary.json`。
+安装依赖后，我可以运行规则基线：
 
-这组结果可以作为当前 DeepSeek 基线，但还不是最终论文结果。下一步应先修复 T03–T11 的动作约束，再进行多 seed 重跑。
+```powershell
+python -m pip install -e .
+python -m experiments.run --mode rule --out reports/rule_results.jsonl
+```
 
-## 13 下一步计划
+运行 Contextual Bandit：
 
-1. 为 T01–T11 增加任务级动作约束或动作掩码，减少模型选择不匹配工具。
-2. 在同一 50 个任务上重跑 DeepSeek，确认通过率是否提升。
-3. 若 API 额度允许，再运行 5 个 seeds，报告均值、标准差和失败类型分布。
-4. 继续比较 Rule Router、Bandit、DeepSeek raw 和 DeepSeek contract-protected。
-5. 根据结果调整 Bandit 状态特征和奖励塑形，再进入更长轨迹或 Offline RL。
+```powershell
+python -m experiments.run --mode bandit --seed 7 --no-contract-protection --out reports/bandit_seed7.jsonl
+```
 
-## 14 最小验收标准
+运行 DeepSeek：
 
-我会把一次实验视为有效，前提是：任务输入可复现、工具调用有日志、输出可被 Verifier 独立检查、预算没有被偷偷放宽、失败原因可分类、结果能按 seed 重跑，并且所有方法使用相同模型和数据切分。
+```powershell
+$env:LLM_PROVIDER="deepseek"
+$env:DEEPSEEK_MODEL="deepseek-chat"
+$env:DEEPSEEK_API_KEY="粘贴你的 DeepSeek API Key"
+python -m experiments.run --mode llm --limit 50 --out reports/deepseek_results.jsonl
+```
+
+为了研究任务级动作约束的作用，我可以额外开启动作掩码：
+
+```powershell
+python -m experiments.run --mode llm --limit 50 --task-action-mask --out reports/deepseek_masked.jsonl
+```
+
+我不会把 API Key 写入代码、任务文件或 GitHub。多 seed 实验可以使用：
+
+```powershell
+python -m scripts.run_matrix --seeds 1,2,3,4,5 --methods rule,bandit
+```
+
+结果汇总：
+
+```powershell
+python -m experiments.aggregate reports/rule_results.jsonl reports/bandit_seed7.jsonl --out reports/summary.json
+```
+
+## 项目结构
+
+```text
+.
+├─ agent/                 # 状态、策略、Bandit、工具和 LLM 适配器
+├─ configs/               # 实验配置
+├─ data/                  # 可复现实验数据
+├─ tasks/                 # 50 个任务、schema、gold 和参考输出
+├─ verifier/              # 结果、合同、合法性和成本验证
+├─ experiments/           # 单轮运行、矩阵运行和结果汇总
+├─ reports/               # 实验结果、失败分析和报告
+├─ scripts/               # 任务生成和批量运行脚本
+├─ tests/                 # 核心单元测试
+├─ CHANGELOG.md           # 项目变更记录
+└─ pyproject.toml         # Python 项目配置
+```
+
+## 我的研究路线
+
+我计划按以下顺序推进：
+
+1. 固定任务、数据、Verifier 和预算，建立 Rule Router 与 LLM 基线。
+2. 分析 LLM 的错误工具选择，并比较 raw 与 task-action-mask 条件。
+3. 在相同任务上训练和评估 Contextual Bandit，报告多 seed 均值和标准差。
+4. 积累高质量轨迹，进入 Offline RL，学习多步计划和错误恢复。
+5. 在资源允许时，再研究 LoRA、GRPO/PPO 和更大规模的数据分析 Agent。
+
+我会把实验数字和失败分析放在 `reports/`，把过程变更放在 `CHANGELOG.md`，而不是把运行记录混入项目介绍页。
+
+## 研究边界
+
+当前项目是一个研究原型，不是面向生产环境的通用数据分析平台。现阶段数据集较小，工具集合有限，Bandit 仍需要更多任务重复和更丰富的状态特征。我的目标是先保证问题定义、Verifier、实验条件和结果记录足够清楚，再逐步扩大规模。
 
