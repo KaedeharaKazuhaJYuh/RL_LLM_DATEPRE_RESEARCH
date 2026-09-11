@@ -156,17 +156,27 @@ DeepSeek 的旧结果仅作为过程记录；由于它们是在 Verifier 修正�
 
 当前结论：Rule Router 作为稳定基线已经可用；Bandit 的学习闭环已经接通，但首轮表现较弱，暂时不能声称 RL 优于规则。之前生成的 DeepSeek 结果是在 Verifier 修正前得到的，正式写入论文前必须重新运行。
 
-## 12 明天继续计划
+## 12 今日实验结果（2026-09-11）
 
-1. 使用修正后的 Verifier 重新运行 DeepSeek 50 个任务。
-2. 先检查单个 seed 的结果和失败类型，再决定是否运行 5 个 seeds。
-3. 统一比较 Rule Router、Bandit、DeepSeek raw 和 DeepSeek contract-protected。
-4. 计算均值、标准差、通过率、平均工具调用和失败类型分布。
-5. 根据结果调整 Bandit 状态特征、动作掩码和奖励塑形，再进入更长轨迹或 Offline RL。
+今天完成了修正 Verifier 下的 DeepSeek 单轮实验：
 
-明天开始 DeepSeek 重跑前，需要确认当前 PowerShell 会话中的 `DEEPSEEK_API_KEY` 仍然有效；该密钥不会写入仓库。
+- 50 个任务完成，41 个通过，通过率 82.0%。
+- 平均 Verifier 分数 0.8595。
+- 平均工具调用次数 1.00。
+- 失败任务为 T03–T11，主要原因是模型选择了与任务目标不匹配的工具。
+- 原始逐任务结果保存在 `reports/deepseek_rechecked.jsonl`，汇总保存在 `reports/deepseek_rechecked_summary.json`。
 
-## 11 最小验收标准
+这组结果可以作为当前 DeepSeek 基线，但还不是最终论文结果。下一步应先修复 T03–T11 的动作约束，再进行多 seed 重跑。
+
+## 13 下一步计划
+
+1. 为 T01–T11 增加任务级动作约束或动作掩码，减少模型选择不匹配工具。
+2. 在同一 50 个任务上重跑 DeepSeek，确认通过率是否提升。
+3. 若 API 额度允许，再运行 5 个 seeds，报告均值、标准差和失败类型分布。
+4. 继续比较 Rule Router、Bandit、DeepSeek raw 和 DeepSeek contract-protected。
+5. 根据结果调整 Bandit 状态特征和奖励塑形，再进入更长轨迹或 Offline RL。
+
+## 14 最小验收标准
 
 我会把一次实验视为有效，前提是：任务输入可复现、工具调用有日志、输出可被 Verifier 独立检查、预算没有被偷偷放宽、失败原因可分类、结果能按 seed 重跑，并且所有方法使用相同模型和数据切分。
 
