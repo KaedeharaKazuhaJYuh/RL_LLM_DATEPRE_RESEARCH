@@ -4,6 +4,7 @@ from agent.bandit import LinUCBBandit
 from agent.contracts import actions_from_contract
 from scripts.make_task_variants import make_wording_variant
 from scripts.make_value_variant import VALUE_TRANSFORMS
+from agent.features import extract_dataset_features
 from verifier import verify
 
 def test_router_prioritizes_missingness():
@@ -36,4 +37,11 @@ def test_value_variant_transforms_only_declared_numeric_fields():
     assert VALUE_TRANSFORMS["sample.csv"]["revenue"]("100") == "122.00"
     assert VALUE_TRANSFORMS["churn.csv"]["tenure_months"]("3") == "4"
     assert VALUE_TRANSFORMS["students.csv"]["score"]("72") == "74.00"
+
+def test_dataset_profile_observes_value_perturbation_without_schema_change():
+    original = extract_dataset_features("data/sample.csv", "easy")
+    variant = extract_dataset_features("tasks/variants/value_v1/data/sample.csv", "easy")
+    assert len(original) == len(variant) == 10
+    assert original[:7] == variant[:7]
+    assert original[7:9] != variant[7:9]
 
