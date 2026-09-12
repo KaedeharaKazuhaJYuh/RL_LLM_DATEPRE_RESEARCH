@@ -2,7 +2,7 @@
 
 ## 2026-09-12
 
-- 为全部 50 个任务增加声明式 `contract.required_capabilities`。
+- 为全部 50 个任务增加声明式 `contract.required_capabilities`，并将其定义为操作族而非单一正确工具。
 - 新增 `agent/contracts.py`，将合同能力映射为候选动作，并与 `allowed_tools` 取交集。
 - 新增 `--contract-action-mask`，保留 raw 和旧 `--task-action-mask` 条件用于消融比较。
 - 更新任务 schema、生成脚本、矩阵脚本和项目说明。
