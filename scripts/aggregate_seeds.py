@@ -56,12 +56,37 @@ def summarize_seeds(files):
     return output
 
 
+def summarize_labeled_replicates(files, label):
+    """Aggregate explicitly ordered logs whose filenames need not share a prefix."""
+    rows = []
+    for replicate, file in enumerate(files):
+        item = summarize(read(file), label)
+        item["replicate"] = replicate
+        rows.append(item)
+    pass_mean, pass_std = mean_std([item["pass_rate"] for item in rows])
+    score_mean, score_std = mean_std([item["mean_score"] for item in rows])
+    calls_mean, calls_std = mean_std([item["mean_tool_calls"] for item in rows])
+    return [{
+        "method": label,
+        "replicates": len(rows),
+        "tasks_per_replicate": sorted({item["tasks"] for item in rows}),
+        "pass_rate_mean": pass_mean,
+        "pass_rate_std": pass_std,
+        "mean_score_mean": score_mean,
+        "mean_score_std": score_std,
+        "mean_tool_calls_mean": calls_mean,
+        "mean_tool_calls_std": calls_std,
+        "replicate_summaries": rows,
+    }]
+
+
 def main():
     parser = argparse.ArgumentParser(description="Aggregate per-seed JSONL experiment results.")
     parser.add_argument("files", nargs="+", help="Per-seed result JSONL files")
     parser.add_argument("--out", default="reports/seed_summary.json")
+    parser.add_argument("--label", default=None, help="Treat supplied files as one explicitly ordered replicate condition.")
     args = parser.parse_args()
-    summaries = summarize_seeds(args.files)
+    summaries = summarize_labeled_replicates(args.files, args.label) if args.label else summarize_seeds(args.files)
     output = Path(args.out)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(summaries, ensure_ascii=False, indent=2), encoding="utf-8")
