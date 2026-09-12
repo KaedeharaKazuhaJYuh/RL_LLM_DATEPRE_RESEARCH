@@ -1,0 +1,18 @@
+[
+  {
+    "method": "deepseek_wording_raw_run0",
+    "tasks": 50,
+    "passed": 31,
+    "pass_rate": 0.62,
+    "mean_score": 0.7385,
+    "mean_tool_calls": 1.04
+  },
+  {
+    "method": "deepseek_wording_contract_run0",
+    "tasks": 50,
+    "passed": 48,
+    "pass_rate": 0.96,
+    "mean_score": 0.9435,
+    "mean_tool_calls": 1.0
+  }
+]
