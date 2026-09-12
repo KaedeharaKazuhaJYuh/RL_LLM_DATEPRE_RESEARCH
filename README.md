@@ -111,14 +111,14 @@ python -m experiments.run --mode llm --limit 50 --contract-action-mask --out rep
 python -m scripts.run_matrix --seeds 1,2,3,4,5 --methods rule,bandit
 ```
 
-我可以分别运行 DeepSeek 的 raw 和 masked 条件：
+我可以分别运行 DeepSeek 的 raw 和合同约束条件。由于当前 DeepSeek Chat Completions 接口未提供请求级随机 seed，这里的 5 个编号代表独立重复调用；运行器会记录模型和温度配置。
 
 ```powershell
 python -m scripts.run_matrix --seeds 1,2,3,4,5 --methods llm --raw-llm --suffix _raw
 python -m scripts.run_matrix --seeds 1,2,3,4,5 --methods llm --contract-action-mask --suffix _contract
 ```
 
-运行完成后，我可以按 seed 汇总均值和标准差：
+运行完成后，我可以按重复调用汇总均值和标准差：
 
 ```powershell
 $raw = Get-ChildItem reports/matrix/llm_seed*_raw.jsonl | Select-Object -ExpandProperty FullName
