@@ -16,5 +16,5 @@ The earlier 250-task DeepSeek figures remain listed for traceability, but they w
 
 ## Next experiment
 
-Use the corrected raw and masked five-seed matrices as the current DeepSeek ablation. The next research step is to replace the oracle-like task mask with a general contract-based mask that comes from the task schema or allowed-tools field, then evaluate whether the improvement remains. Keep the masked condition labeled as a constrained-policy ablation, not as an unconstrained LLM result.
+Use the corrected raw and masked five-seed matrices as the current DeepSeek ablation. A schema-driven contract mask is now implemented: each task declares required capabilities, which are translated into actions and intersected with `allowed_tools`. The next experiment is to run this condition across five seeds and compare it with raw and the legacy task mask. Keep every constrained condition labeled as an ablation, not as an unconstrained LLM result.
 
