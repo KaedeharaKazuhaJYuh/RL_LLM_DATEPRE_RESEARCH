@@ -8,6 +8,7 @@
 - 保留 raw 条件，避免把动作掩码结果误当作无约束 LLM 结果。
 - 完成本地语法检查和动作掩码配置检查。
 - 完成修正 Verifier 下的 DeepSeek masked 50 任务实验：50/50 通过。
+- 新增 `scripts/aggregate_seeds.py`，用于自动计算多 seed 的通过率、平均分和工具调用均值及标准差。
 
 ## 2026-09-10
 
