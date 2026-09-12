@@ -1,0 +1,62 @@
+[
+  {
+    "method": "llm_contract",
+    "seeds": 5,
+    "tasks_per_seed": [
+      50
+    ],
+    "pass_rate_mean": 0.98,
+    "pass_rate_std": 0.0,
+    "mean_score_mean": 0.9555,
+    "mean_score_std": 0.0,
+    "mean_tool_calls_mean": 1.0,
+    "mean_tool_calls_std": 0.0,
+    "seed_summaries": [
+      {
+        "method": "llm_contract",
+        "tasks": 50,
+        "passed": 49,
+        "pass_rate": 0.98,
+        "mean_score": 0.9555,
+        "mean_tool_calls": 1.0,
+        "seed": 1
+      },
+      {
+        "method": "llm_contract",
+        "tasks": 50,
+        "passed": 49,
+        "pass_rate": 0.98,
+        "mean_score": 0.9555,
+        "mean_tool_calls": 1.0,
+        "seed": 2
+      },
+      {
+        "method": "llm_contract",
+        "tasks": 50,
+        "passed": 49,
+        "pass_rate": 0.98,
+        "mean_score": 0.9555,
+        "mean_tool_calls": 1.0,
+        "seed": 3
+      },
+      {
+        "method": "llm_contract",
+        "tasks": 50,
+        "passed": 49,
+        "pass_rate": 0.98,
+        "mean_score": 0.9555,
+        "mean_tool_calls": 1.0,
+        "seed": 4
+      },
+      {
+        "method": "llm_contract",
+        "tasks": 50,
+        "passed": 49,
+        "pass_rate": 0.98,
+        "mean_score": 0.9555,
+        "mean_tool_calls": 1.0,
+        "seed": 5
+      }
+    ]
+  }
+]
