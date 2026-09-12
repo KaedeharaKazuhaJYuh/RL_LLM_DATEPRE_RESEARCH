@@ -15,9 +15,9 @@ groups = {
 }
 
 contracts = {
-    "overview": ["schema_profile", "missingness_profile", "category_count", "deduplication", "numeric_summary"],
-    "cleaning": ["deduplication", "date_cleaning", "outlier_cleaning", "missing_value_cleaning", "category_normalization"],
-    "aggregation": ["monthly_aggregation", "general_analysis", "general_analysis", "general_analysis", "general_analysis"],
+    "overview": ["overview"] * 5,
+    "cleaning": ["cleaning"] * 5,
+    "aggregation": ["aggregation"] * 5,
     "statistics": ["general_analysis"] * 5,
     "time_series": ["general_analysis"] * 5,
     "visualization": ["general_analysis"] * 5,
