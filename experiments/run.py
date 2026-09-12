@@ -101,7 +101,7 @@ def main():
     actions=["profile_schema","profile_missingness","count_categories","deduplicate","describe_numeric","normalize_dates","clip_outliers","fill_missing","normalize_categories","aggregate","task_analysis","stop"]
     policy=Policy(actions,mode=args.mode,seed=args.seed) if args.mode != "llm" else None
     llm=LLMClient(temperature=args.temperature) if args.mode == "llm" else None
-    run_metadata={"mode":args.mode,"run_index":args.seed,"contract_protection":not args.no_contract_protection,"task_action_mask":args.task_action_mask,"contract_action_mask":args.contract_action_mask}
+    run_metadata={"mode":args.mode,"run_index":args.seed,"contract_protection":not args.no_contract_protection,"task_action_mask":args.task_action_mask,"contract_action_mask":args.contract_action_mask,"tasks_path":args.tasks,"gold_path":args.gold,"references_path":args.references}
     if llm: run_metadata.update({"provider":llm.provider,"model":llm.model,"temperature":llm.temperature,"replicate_label":args.seed})
     tasks=load_tasks(args.tasks); gold=load_gold(args.gold); references=load_references(args.references)
     for t in tasks:
