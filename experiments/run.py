@@ -5,6 +5,7 @@ from agent.policy import Policy
 from agent.tools import execute_tool
 from verifier import verify
 from agent.llm import LLMClient
+from agent.contracts import actions_from_contract
 
 def load_tasks(path):
     return [json.loads(x) for x in Path(path).read_text(encoding="utf-8").splitlines() if x.strip()]
@@ -46,19 +47,21 @@ LLM_ACTIONS = [
     "normalize_categories", "aggregate", "task_analysis", "stop",
 ]
 
-def allowed_llm_actions(task, task_action_mask=False):
+def allowed_llm_actions(task, task_action_mask=False, contract_action_mask=False):
+    if contract_action_mask:
+        return actions_from_contract(task) or ["stop"]
     if task_action_mask and int(task["task_id"][1:]) <= 11:
         return [deterministic_action(task)]
     return LLM_ACTIONS
 
-def run_task(task, policy=None, llm=None, contract_protection=True, task_action_mask=False):
+def run_task(task, policy=None, llm=None, contract_protection=True, task_action_mask=False, contract_action_mask=False):
     # Initial feature vector: difficulty, rows, missing rate, numeric columns, then padding.
     x=[{"easy":0.0,"medium":0.5,"hard":1.0}[task["difficulty"]], 0.0, 0.0, 2.0]+[0.0]*6
     state=RunState(task["task_id"], x, remaining_calls=task["constraints"]["max_tool_calls"])
     trace=[]; result={"answer": None, "evidence": []}; bandit_state=None; bandit_action=None
     while not state.done and state.remaining_calls>0:
         if llm:
-            allowed_actions = allowed_llm_actions(task, task_action_mask)
+            allowed_actions = allowed_llm_actions(task, task_action_mask, contract_action_mask)
             choice=llm.choose_action(task, state, allowed_actions)
             action=choice.get("action","stop")
             if action not in set(allowed_actions): action="stop"
@@ -91,7 +94,8 @@ def run_task(task, policy=None, llm=None, contract_protection=True, task_action_
     return {"task_id":task["task_id"],"score":checked["score"],"passed":checked["passed"],"tool_calls":len(trace),"trace":trace,"checks":checked["checks"]}
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--tasks",default="tasks/tasks.jsonl"); ap.add_argument("--mode",choices=["rule","bandit","llm"],default="rule"); ap.add_argument("--out",default="reports/results.jsonl"); ap.add_argument("--limit",type=int,default=0); ap.add_argument("--gold",default="tasks/gold_answers.json"); ap.add_argument("--references",default="tasks/reference_outputs.json"); ap.add_argument("--no-contract-protection",action="store_true"); ap.add_argument("--task-action-mask",action="store_true"); ap.add_argument("--seed",type=int,default=42); args=ap.parse_args()
+    ap=argparse.ArgumentParser(); ap.add_argument("--tasks",default="tasks/tasks.jsonl"); ap.add_argument("--mode",choices=["rule","bandit","llm"],default="rule"); ap.add_argument("--out",default="reports/results.jsonl"); ap.add_argument("--limit",type=int,default=0); ap.add_argument("--gold",default="tasks/gold_answers.json"); ap.add_argument("--references",default="tasks/reference_outputs.json"); ap.add_argument("--no-contract-protection",action="store_true"); ap.add_argument("--task-action-mask",action="store_true"); ap.add_argument("--contract-action-mask",action="store_true"); ap.add_argument("--seed",type=int,default=42); args=ap.parse_args()
+    if args.task_action_mask and args.contract_action_mask: ap.error("choose only one action-mask condition")
     actions=["profile_schema","profile_missingness","count_categories","deduplicate","describe_numeric","normalize_dates","clip_outliers","fill_missing","normalize_categories","aggregate","task_analysis","stop"]
     policy=Policy(actions,mode=args.mode,seed=args.seed) if args.mode != "llm" else None
     llm=LLMClient() if args.mode == "llm" else None
@@ -103,7 +107,7 @@ def main():
     results=[]
     for i,t in enumerate(tasks,1):
         print(f"running {i}/{len(tasks)} {t['task_id']}", flush=True)
-        results.append(run_task(t,policy,llm,not args.no_contract_protection,args.task_action_mask))
+        results.append(run_task(t,policy,llm,not args.no_contract_protection,args.task_action_mask,args.contract_action_mask))
     p=Path(args.out); p.parent.mkdir(exist_ok=True); p.write_text("\n".join(json.dumps(r) for r in results)+"\n",encoding="utf-8"); print(f"completed {len(results)} tasks; passed={sum(r['passed'] for r in results)}")
 if __name__ == "__main__": main()
 
