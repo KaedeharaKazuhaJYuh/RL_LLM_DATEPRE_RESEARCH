@@ -9,6 +9,7 @@
 - 完成本地语法检查和动作掩码配置检查。
 - 完成修正 Verifier 下的 DeepSeek masked 50 任务实验：50/50 通过。
 - 新增 `scripts/aggregate_seeds.py`，用于自动计算多 seed 的通过率、平均分和工具调用均值及标准差。
+- 完成修正 Verifier 下的 DeepSeek raw 五 seed 矩阵实验：250 个任务中 192 个通过。
 
 ## 2026-09-10
 
