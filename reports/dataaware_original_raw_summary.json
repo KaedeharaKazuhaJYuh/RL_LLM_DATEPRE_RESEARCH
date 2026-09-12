@@ -1,0 +1,62 @@
+[
+  {
+    "method": "deepseek_dataaware_original_raw",
+    "replicates": 5,
+    "tasks_per_replicate": [
+      50
+    ],
+    "pass_rate_mean": 0.588,
+    "pass_rate_std": 0.0179,
+    "mean_score_mean": 0.7186,
+    "mean_score_std": 0.0111,
+    "mean_tool_calls_mean": 1.068,
+    "mean_tool_calls_std": 0.0303,
+    "replicate_summaries": [
+      {
+        "method": "deepseek_dataaware_original_raw",
+        "tasks": 50,
+        "passed": 29,
+        "pass_rate": 0.58,
+        "mean_score": 0.714,
+        "mean_tool_calls": 1.06,
+        "replicate": 0
+      },
+      {
+        "method": "deepseek_dataaware_original_raw",
+        "tasks": 50,
+        "passed": 28,
+        "pass_rate": 0.56,
+        "mean_score": 0.701,
+        "mean_tool_calls": 1.1,
+        "replicate": 1
+      },
+      {
+        "method": "deepseek_dataaware_original_raw",
+        "tasks": 50,
+        "passed": 30,
+        "pass_rate": 0.6,
+        "mean_score": 0.7255,
+        "mean_tool_calls": 1.08,
+        "replicate": 2
+      },
+      {
+        "method": "deepseek_dataaware_original_raw",
+        "tasks": 50,
+        "passed": 30,
+        "pass_rate": 0.6,
+        "mean_score": 0.727,
+        "mean_tool_calls": 1.02,
+        "replicate": 3
+      },
+      {
+        "method": "deepseek_dataaware_original_raw",
+        "tasks": 50,
+        "passed": 30,
+        "pass_rate": 0.6,
+        "mean_score": 0.7255,
+        "mean_tool_calls": 1.08,
+        "replicate": 4
+      }
+    ]
+  }
+]
