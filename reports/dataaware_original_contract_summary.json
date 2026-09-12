@@ -1,0 +1,62 @@
+[
+  {
+    "method": "deepseek_dataaware_original_contract",
+    "replicates": 5,
+    "tasks_per_replicate": [
+      50
+    ],
+    "pass_rate_mean": 0.98,
+    "pass_rate_std": 0.0,
+    "mean_score_mean": 0.9555,
+    "mean_score_std": 0.0,
+    "mean_tool_calls_mean": 1.0,
+    "mean_tool_calls_std": 0.0,
+    "replicate_summaries": [
+      {
+        "method": "deepseek_dataaware_original_contract",
+        "tasks": 50,
+        "passed": 49,
+        "pass_rate": 0.98,
+        "mean_score": 0.9555,
+        "mean_tool_calls": 1.0,
+        "replicate": 0
+      },
+      {
+        "method": "deepseek_dataaware_original_contract",
+        "tasks": 50,
+        "passed": 49,
+        "pass_rate": 0.98,
+        "mean_score": 0.9555,
+        "mean_tool_calls": 1.0,
+        "replicate": 1
+      },
+      {
+        "method": "deepseek_dataaware_original_contract",
+        "tasks": 50,
+        "passed": 49,
+        "pass_rate": 0.98,
+        "mean_score": 0.9555,
+        "mean_tool_calls": 1.0,
+        "replicate": 2
+      },
+      {
+        "method": "deepseek_dataaware_original_contract",
+        "tasks": 50,
+        "passed": 49,
+        "pass_rate": 0.98,
+        "mean_score": 0.9555,
+        "mean_tool_calls": 1.0,
+        "replicate": 3
+      },
+      {
+        "method": "deepseek_dataaware_original_contract",
+        "tasks": 50,
+        "passed": 49,
+        "pass_rate": 0.98,
+        "mean_score": 0.9555,
+        "mean_tool_calls": 1.0,
+        "replicate": 4
+      }
+    ]
+  }
+]
