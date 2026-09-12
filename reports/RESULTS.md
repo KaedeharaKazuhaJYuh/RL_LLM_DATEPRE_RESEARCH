@@ -18,6 +18,10 @@ The five-run operation-family contract matrix completes 245/250 tasks. Its mean 
 
 The prompt-robustness split is now generated at `tasks/variants/wording_v1.jsonl`. It contains 50 wrapper-paraphrased tasks while preserving IDs, contracts, datasets, budgets, gold answers, and reference outputs. The Rule Router regression on this split is 50/50 with mean score 0.9675 and one tool call per task. This is a pipeline-alignment check, not evidence of LLM robustness; the corresponding raw and contract-masked LLM conditions remain to be run.
 
+The first DeepSeek wording_v1 precheck is now complete. Raw routing passes 31/50 tasks (62.0%), mean score 0.7385, and mean tool calls 1.04. The operation-family contract condition passes 48/50 (96.0%), mean score 0.9435, and mean tool calls 1.00. Relative to the original one-run checks (raw 41/50 and contract 49/50), the raw decline is a strong signal that instruction wording affects unconstrained routing, whereas the contract condition loses one additional task. This is a single independent call per condition, so it is an error-analysis signal rather than a final robustness estimate.
+
+For wording_v1, raw failures include incorrect profiling or generic-analysis actions on T04, T08, T09, and T11, plus contract/reference failures across later analysis tasks. Contract masking fails only T03 and T11: T03 selects `profile_schema` rather than the category-count action within the broad overview family, while T11 retains the known `task_analysis` versus `aggregate` ambiguity. Full logs and the run-0 summary are retained in `reports/`.
+
 The earlier 250-task DeepSeek figures remain listed for traceability, but they were generated before the new `gold.expected` check and should be treated as superseded process records, not final paper results.
 
 ## Next experiment
