@@ -16,6 +16,8 @@ The operation-family contract precheck completes 49/50 tasks (98.0%), with a mea
 
 The five-run operation-family contract matrix completes 245/250 tasks. Its mean pass rate is 98.0% (sample standard deviation 0.0), mean score is 0.9555 (standard deviation 0.0), and mean tool calls are 1.00 (standard deviation 0.0). Every repetition failed only T11 with the same `task_analysis` selection; after excluding run metadata, the task-level result records are identical. These are repeated API calls labelled with legacy seed-style filenames, not provider-controlled seeds. The result demonstrates stable behaviour for this prompt and condition, but it does not establish robustness to prompt, dataset, or task-distribution changes.
 
+The prompt-robustness split is now generated at `tasks/variants/wording_v1.jsonl`. It contains 50 wrapper-paraphrased tasks while preserving IDs, contracts, datasets, budgets, gold answers, and reference outputs. The Rule Router regression on this split is 50/50 with mean score 0.9675 and one tool call per task. This is a pipeline-alignment check, not evidence of LLM robustness; the corresponding raw and contract-masked LLM conditions remain to be run.
+
 The earlier 250-task DeepSeek figures remain listed for traceability, but they were generated before the new `gold.expected` check and should be treated as superseded process records, not final paper results.
 
 ## Next experiment
