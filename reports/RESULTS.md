@@ -24,6 +24,8 @@ For wording_v1, raw failures include incorrect profiling or generic-analysis act
 
 The corrected five-repeat wording_v1 matrix confirms the pattern. Raw routing passes 151/250 tasks, with mean pass rate 60.4% (sample standard deviation 5.18 percentage points), mean score 0.7283 (standard deviation 0.0315), and mean tool calls 1.064 (standard deviation 0.0219). The operation-family contract condition passes 245/250 tasks, with pass rate 98.0%, mean score 0.9555, and one tool call per task in every repeat. In the raw condition, T08, T09, T26, T31, T41, and T50 fail in all five repetitions; in the contract condition, T11 is the sole repeated failure. Compared with the corrected original-task five-repeat results (76.8% raw and 98.0% contract), this fixed wording perturbation lowers raw routing by 16.4 percentage points while leaving the constrained ablation unchanged. These are independent API calls, not provider-controlled seeds.
 
+The `value_v1` data-perturbation bundle is now generated and verified. It changes numeric contents while preserving schemas, task prompts, task IDs, contracts, budgets, and row order. Crucially, it rebuilds the 11 stage-one gold answers and 39 later reference outputs from the transformed files: for example, T11's monthly totals change from `{2026-01: 220, 2026-02: 250}` to `{2026-01: 267.0, 2026-02: 301.5}`. Rule Router passes 50/50 with the new aligned artifacts. LLM evaluation on this bundle is pending; no old-data result is reused as a value_v1 result.
+
 The earlier 250-task DeepSeek figures remain listed for traceability, but they were generated before the new `gold.expected` check and should be treated as superseded process records, not final paper results.
 
 ## Next experiment
