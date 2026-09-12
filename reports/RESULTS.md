@@ -26,6 +26,8 @@ The corrected five-repeat wording_v1 matrix confirms the pattern. Raw routing pa
 
 The `value_v1` data-perturbation bundle is now generated and verified. It changes numeric contents while preserving schemas, task prompts, task IDs, contracts, budgets, and row order. Crucially, it rebuilds the 11 stage-one gold answers and 39 later reference outputs from the transformed files: for example, T11's monthly totals change from `{2026-01: 220, 2026-02: 250}` to `{2026-01: 267.0, 2026-02: 301.5}`. Rule Router passes 50/50 with the new aligned artifacts. LLM evaluation on this bundle is pending; no old-data result is reused as a value_v1 result.
 
+To make data-value changes observable to the policy, the runner now uses `dataset_profile_v1_read_only` before first action selection. It provides a ten-dimensional aggregate profile without row-level data and without consuming an action budget. The profile differs between original `sample.csv` and its value_v1 counterpart while the schema-related features are unchanged. Rule Router regression remains 50/50 on both original and value_v1 artifacts under this state. Any LLM result using this profile is a data-aware observed-state condition and will be reported separately from earlier text-only runs.
+
 The earlier 250-task DeepSeek figures remain listed for traceability, but they were generated before the new `gold.expected` check and should be treated as superseded process records, not final paper results.
 
 ## Next experiment
