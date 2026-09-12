@@ -28,6 +28,8 @@ The `value_v1` data-perturbation bundle is now generated and verified. It change
 
 To make data-value changes observable to the policy, the runner now uses `dataset_profile_v1_read_only` before first action selection. It provides a ten-dimensional aggregate profile without row-level data and without consuming an action budget. The profile differs between original `sample.csv` and its value_v1 counterpart while the schema-related features are unchanged. Rule Router regression remains 50/50 on both original and value_v1 artifacts under this state. Any LLM result using this profile is a data-aware observed-state condition and will be reported separately from earlier text-only runs.
 
+The data-aware run-0 precheck is complete. On original data, raw routing passes 29/50 (58.0%, mean score 0.7140) and the contract condition passes 49/50 (98.0%, mean score 0.9555). On value_v1, raw routing passes 33/50 (66.0%, mean score 0.7625) and the contract condition passes 48/50 (96.0%, mean score 0.9435). The only original-contract failure is T11; value_v1 contract additionally fails T03. These single API calls establish that the aligned data-aware path executes end-to-end, but they do not isolate a data-value effect from API-call variability or the added state representation. Multi-repeat evaluation is required before a robustness claim.
+
 The earlier 250-task DeepSeek figures remain listed for traceability, but they were generated before the new `gold.expected` check and should be treated as superseded process records, not final paper results.
 
 ## Next experiment
