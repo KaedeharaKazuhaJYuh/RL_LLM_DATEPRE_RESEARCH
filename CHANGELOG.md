@@ -18,6 +18,7 @@
 - 完成 value_v1 的 Rule Router 回归与完整性验证：50/50 通过；确认 T05、T11 和后续参考统计均随数据变化而重建。
 - 新增 `dataset_profile_v1_read_only` 数据感知状态：在首次工具选择前提供十维聚合 CSV 特征，不包含行级数据且不占用工具预算。
 - 完成 data-aware 原始集与 value_v1 的 Rule Router 回归：两者均为 50/50；后续 LLM 结果将与此前 text-only 条件分开报告。
+- 完成 DeepSeek data-aware 四条件单次预检：原始 raw/合同为 29/50、49/50，value_v1 raw/合同为 33/50、48/50。明确标注为端到端预检，尚不用于数值鲁棒性结论。
 
 ## 2026-09-11
 
