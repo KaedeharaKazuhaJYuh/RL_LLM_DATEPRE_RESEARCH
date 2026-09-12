@@ -1,0 +1,99 @@
+{
+  "T01": {
+    "answer_type": "schema",
+    "expected": [
+      "month",
+      "region",
+      "revenue",
+      "category"
+    ]
+  },
+  "T02": {
+    "answer_type": "missingness",
+    "expected": {
+      "month": 0.0,
+      "region": 0.0,
+      "revenue": 0.0,
+      "category": 0.0
+    }
+  },
+  "T03": {
+    "answer_type": "frequency",
+    "expected": {
+      "A": 2,
+      "B": 2
+    }
+  },
+  "T04": {
+    "answer_type": "deduplication",
+    "expected": {
+      "rows_before": 4,
+      "rows_after": 4,
+      "removed": 0
+    }
+  },
+  "T05": {
+    "answer_type": "statistics",
+    "expected": {
+      "count": 4,
+      "min": 122.0,
+      "max": 168.0,
+      "mean": 142.125
+    }
+  },
+  "T06": {
+    "answer_type": "deduplication",
+    "expected": {
+      "rows_before": 4,
+      "rows_after": 4,
+      "removed": 0
+    }
+  },
+  "T07": {
+    "answer_type": "date_cleaning",
+    "expected": {
+      "rows": 4,
+      "date_columns": [
+        "month"
+      ],
+      "invalid_dates": 0
+    }
+  },
+  "T08": {
+    "answer_type": "outlier_cleaning",
+    "expected": {
+      "rows": 4,
+      "numeric_columns": [
+        "revenue"
+      ],
+      "outliers_detected": 0,
+      "rows_changed": 0
+    }
+  },
+  "T09": {
+    "answer_type": "missing_cleaning",
+    "expected": {
+      "rows": 4,
+      "missing_cells_before": 0,
+      "missing_cells_after": 0,
+      "filled_cells": 0
+    }
+  },
+  "T10": {
+    "answer_type": "category_cleaning",
+    "expected": {
+      "rows": 4,
+      "category_columns": [
+        "category"
+      ],
+      "values_changed": 0
+    }
+  },
+  "T11": {
+    "answer_type": "table",
+    "expected": {
+      "2026-01": 267.0,
+      "2026-02": 301.5
+    }
+  }
+}
