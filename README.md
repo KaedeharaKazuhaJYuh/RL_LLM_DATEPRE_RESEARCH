@@ -155,8 +155,9 @@ python -m experiments.aggregate reports/rule_results.jsonl reports/bandit_seed7.
 1. 固定任务、数据、Verifier 和预算，建立 Rule Router 与 LLM 基线。
 2. 分析 LLM 的错误工具选择，并比较 raw、任务合同约束和 Contextual Bandit 条件。
 3. 在相同任务上训练和评估 Contextual Bandit，报告多 seed 均值和标准差。
-4. 积累高质量轨迹，进入 Offline RL，学习多步计划和错误恢复。
-5. 在资源允许时，再研究 LoRA、GRPO/PPO 和更大规模的数据分析 Agent。
+4. 对任务措辞和数据条件做受控扰动，检查策略是否只依赖固定表述或固定任务集。
+5. 积累高质量轨迹，进入 Offline RL，学习多步计划和错误恢复。
+6. 在资源允许时，再研究 LoRA、GRPO/PPO 和更大规模的数据分析 Agent。
 
 我会把实验数字和失败分析放在 `reports/`，把过程变更放在 `CHANGELOG.md`，而不是把运行记录混入项目介绍页。
 
