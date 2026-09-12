@@ -1,0 +1,62 @@
+[
+  {
+    "method": "llm_wording_raw",
+    "seeds": 5,
+    "tasks_per_seed": [
+      50
+    ],
+    "pass_rate_mean": 0.604,
+    "pass_rate_std": 0.0518,
+    "mean_score_mean": 0.7283,
+    "mean_score_std": 0.0315,
+    "mean_tool_calls_mean": 1.064,
+    "mean_tool_calls_std": 0.0219,
+    "seed_summaries": [
+      {
+        "method": "llm_wording_raw",
+        "tasks": 50,
+        "passed": 32,
+        "pass_rate": 0.64,
+        "mean_score": 0.7505,
+        "mean_tool_calls": 1.04,
+        "seed": 1
+      },
+      {
+        "method": "llm_wording_raw",
+        "tasks": 50,
+        "passed": 28,
+        "pass_rate": 0.56,
+        "mean_score": 0.7015,
+        "mean_tool_calls": 1.08,
+        "seed": 2
+      },
+      {
+        "method": "llm_wording_raw",
+        "tasks": 50,
+        "passed": 31,
+        "pass_rate": 0.62,
+        "mean_score": 0.7375,
+        "mean_tool_calls": 1.08,
+        "seed": 3
+      },
+      {
+        "method": "llm_wording_raw",
+        "tasks": 50,
+        "passed": 33,
+        "pass_rate": 0.66,
+        "mean_score": 0.7625,
+        "mean_tool_calls": 1.04,
+        "seed": 4
+      },
+      {
+        "method": "llm_wording_raw",
+        "tasks": 50,
+        "passed": 27,
+        "pass_rate": 0.54,
+        "mean_score": 0.6895,
+        "mean_tool_calls": 1.08,
+        "seed": 5
+      }
+    ]
+  }
+]
