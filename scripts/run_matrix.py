@@ -11,7 +11,8 @@ def main():
             if args.raw_llm and method == "llm": cmd.append("--no-contract-protection")
             if args.task_action_mask and method == "llm": cmd.append("--task-action-mask")
             if args.contract_action_mask and method == "llm": cmd.append("--contract-action-mask")
-            print("running",method,"seed",seed,flush=True); subprocess.run(cmd,check=True)
+            label="replicate" if method == "llm" else "seed"
+            print("running",method,label,seed,flush=True); subprocess.run(cmd,check=True)
     print(f"wrote matrix results to {out}")
 if __name__ == "__main__": main()
 
