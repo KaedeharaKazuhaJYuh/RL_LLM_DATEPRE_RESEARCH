@@ -10,9 +10,11 @@ The corrected five-seed raw DeepSeek matrix completes 192/250 tasks, for a mean 
 
 After enabling the task-level action mask, DeepSeek completes 50/50 tasks (100.0%), with a mean score of 0.9675 and one tool call per task. This is a controlled ablation showing that constraining the candidate action set removes the observed T03–T11 routing failures. It is not evidence that the underlying model has learned a better policy; the mask supplies task-specific prior knowledge.
 
+The five-seed masked matrix confirms the same pattern: 250/250 tasks pass, with pass-rate standard deviation 0.0, mean score 0.9675 (standard deviation 0.0), and mean tool calls 1.00 (standard deviation 0.0). This stability is useful for the ablation, but the current mask is derived from task-level knowledge and should not be treated as a learned policy.
+
 The earlier 250-task DeepSeek figures remain listed for traceability, but they were generated before the new `gold.expected` check and should be treated as superseded process records, not final paper results.
 
 ## Next experiment
 
-Use the corrected raw and masked 50-task runs as the current DeepSeek ablation. Next, repeat both conditions across five seeds if the API budget is acceptable, then compare Rule Router, Bandit, DeepSeek raw and DeepSeek masked using the same task split and report mean and standard deviation. Keep the masked condition labeled as a constrained-policy ablation, not as an unconstrained LLM result.
+Use the corrected raw and masked five-seed matrices as the current DeepSeek ablation. The next research step is to replace the oracle-like task mask with a general contract-based mask that comes from the task schema or allowed-tools field, then evaluate whether the improvement remains. Keep the masked condition labeled as a constrained-policy ablation, not as an unconstrained LLM result.
 
