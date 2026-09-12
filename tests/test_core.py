@@ -3,6 +3,7 @@ from agent.router import AgentState, rule_router
 from agent.bandit import LinUCBBandit
 from agent.contracts import actions_from_contract
 from scripts.make_task_variants import make_wording_variant
+from scripts.make_value_variant import VALUE_TRANSFORMS
 from verifier import verify
 
 def test_router_prioritizes_missingness():
@@ -30,4 +31,9 @@ def test_wording_variant_preserves_evaluation_fields():
     assert variant["dataset"] == tasks[0]["dataset"]
     assert variant["gold"] == tasks[0]["gold"]
     assert variant["prompt"] != tasks[0]["prompt"]
+
+def test_value_variant_transforms_only_declared_numeric_fields():
+    assert VALUE_TRANSFORMS["sample.csv"]["revenue"]("100") == "122.00"
+    assert VALUE_TRANSFORMS["churn.csv"]["tenure_months"]("3") == "4"
+    assert VALUE_TRANSFORMS["students.csv"]["score"]("72") == "74.00"
 
