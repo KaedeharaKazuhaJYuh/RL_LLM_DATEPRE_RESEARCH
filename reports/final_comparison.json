@@ -7,6 +7,7 @@
   {"method":"DeepSeek masked (5 seeds)","tasks":250,"passed":250,"pass_rate":1.0,"mean_score":0.9675,"mean_tool_calls":1.0,"condition":"corrected Verifier; mean across seeds; stds in llm_masked_seed_summary.json"},
   {"method":"DeepSeek contract precheck","tasks":50,"passed":49,"pass_rate":0.98,"mean_score":0.9555,"mean_tool_calls":1.0,"condition":"operation-family contract mask; one independent call at temperature 1.0"},
   {"method":"DeepSeek contract (5 repeats)","tasks":250,"passed":245,"pass_rate":0.98,"mean_score":0.9555,"mean_tool_calls":1.0,"condition":"operation-family contract mask; five independent calls at temperature 1.0; all repetitions failed only T11; stds in llm_contract_run_summary.json"},
+  {"method":"Rule Router wording_v1","tasks":50,"passed":50,"pass_rate":1.0,"mean_score":0.9675,"mean_tool_calls":1.0,"condition":"prompt-wrapper perturbation; task IDs, data, contracts, budgets, gold, and references unchanged"},
   {"method":"DeepSeek raw (previous)","tasks":250,"passed":215,"pass_rate":0.86,"mean_score":0.8835,"mean_tool_calls":1.0,"condition":"previous run; superseded by corrected 50-task run"},
   {"method":"DeepSeek protected","tasks":250,"passed":250,"pass_rate":1.0,"mean_score":0.9675,"mean_tool_calls":1.0,"condition":"previous run; must be rerun after verifier fix"}
 ]
