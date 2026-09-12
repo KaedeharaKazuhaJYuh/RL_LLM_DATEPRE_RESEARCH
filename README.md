@@ -114,6 +114,15 @@ python -m experiments.run --mode rule --tasks tasks/variants/wording_v1.jsonl --
 
 在这个变体上运行 LLM 时，我会同时报告 raw 与合同约束条件；两者使用相同的变体文件，避免把数据或答案变化混入比较。
 
+我也提供了 `value_v1` 数值扰动包。它会同时生成变换后的 CSV、50 个对齐任务、11 个基础 gold 答案和 39 个分析参考输出；数值变化后不能继续使用原始答案文件。
+
+```powershell
+python -m scripts.make_value_variant
+python -m experiments.run --mode rule --tasks tasks/variants/value_v1/tasks.jsonl --gold tasks/variants/value_v1/gold_answers.json --references tasks/variants/value_v1/reference_outputs.json --out reports/rule_value_v1.jsonl
+```
+
+在 value_v1 上运行任一策略时，我都会同时传入这三个对齐文件。
+
 我不会把 API Key 写入代码、任务文件或 GitHub。多 seed 实验可以使用：
 
 ```powershell
