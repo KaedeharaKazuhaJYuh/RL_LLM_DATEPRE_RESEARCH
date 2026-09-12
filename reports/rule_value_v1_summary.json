@@ -1,0 +1,10 @@
+[
+  {
+    "method": "rule_value_v1",
+    "tasks": 50,
+    "passed": 50,
+    "pass_rate": 1.0,
+    "mean_score": 0.9675,
+    "mean_tool_calls": 1.0
+  }
+]
