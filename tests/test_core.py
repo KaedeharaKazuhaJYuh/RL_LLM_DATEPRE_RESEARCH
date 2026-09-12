@@ -2,6 +2,7 @@ import numpy as np
 from agent.router import AgentState, rule_router
 from agent.bandit import LinUCBBandit
 from agent.contracts import actions_from_contract
+from scripts.make_task_variants import make_wording_variant
 from verifier import verify
 
 def test_router_prioritizes_missingness():
@@ -20,4 +21,13 @@ def test_contract_mask_uses_declared_capability_and_allowed_tools():
     assert actions_from_contract(task) == ["count_categories"]
     task["allowed_tools"] = ["load_table", "profile_missingness"]
     assert actions_from_contract(task) == ["profile_schema", "profile_missingness"]
+
+def test_wording_variant_preserves_evaluation_fields():
+    tasks = [{"task_id":"T01", "prompt":"识别字段类型", "contract":{"required_capabilities":["overview"]}, "dataset":{"uri":"data/sample.csv"}, "gold":{"answer_type":"structured"}, "constraints":{"max_tool_calls":4}}]
+    variant = make_wording_variant(tasks)[0]
+    assert variant["task_id"] == "T01"
+    assert variant["contract"] == tasks[0]["contract"]
+    assert variant["dataset"] == tasks[0]["dataset"]
+    assert variant["gold"] == tasks[0]["gold"]
+    assert variant["prompt"] != tasks[0]["prompt"]
 
