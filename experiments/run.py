@@ -6,6 +6,7 @@ from agent.tools import execute_tool
 from verifier import verify
 from agent.llm import LLMClient
 from agent.contracts import actions_from_contract
+from agent.features import extract_dataset_features
 
 def load_tasks(path):
     return [json.loads(x) for x in Path(path).read_text(encoding="utf-8").splitlines() if x.strip()]
@@ -55,8 +56,8 @@ def allowed_llm_actions(task, task_action_mask=False, contract_action_mask=False
     return LLM_ACTIONS
 
 def run_task(task, policy=None, llm=None, contract_protection=True, task_action_mask=False, contract_action_mask=False, run_metadata=None):
-    # Initial feature vector: difficulty, rows, missing rate, numeric columns, then padding.
-    x=[{"easy":0.0,"medium":0.5,"hard":1.0}[task["difficulty"]], 0.0, 0.0, 2.0]+[0.0]*6
+    # Read-only preflight profile. It is recorded as environment state, not an agent tool call.
+    x=extract_dataset_features(task["dataset"]["uri"], task["difficulty"])
     state=RunState(task["task_id"], x, remaining_calls=task["constraints"]["max_tool_calls"])
     trace=[]; result={"answer": None, "evidence": []}; bandit_state=None; bandit_action=None
     while not state.done and state.remaining_calls>0:
@@ -101,7 +102,7 @@ def main():
     actions=["profile_schema","profile_missingness","count_categories","deduplicate","describe_numeric","normalize_dates","clip_outliers","fill_missing","normalize_categories","aggregate","task_analysis","stop"]
     policy=Policy(actions,mode=args.mode,seed=args.seed) if args.mode != "llm" else None
     llm=LLMClient(temperature=args.temperature) if args.mode == "llm" else None
-    run_metadata={"mode":args.mode,"run_index":args.seed,"contract_protection":not args.no_contract_protection,"task_action_mask":args.task_action_mask,"contract_action_mask":args.contract_action_mask,"tasks_path":args.tasks,"gold_path":args.gold,"references_path":args.references}
+    run_metadata={"mode":args.mode,"run_index":args.seed,"contract_protection":not args.no_contract_protection,"task_action_mask":args.task_action_mask,"contract_action_mask":args.contract_action_mask,"tasks_path":args.tasks,"gold_path":args.gold,"references_path":args.references,"state_profile":"dataset_profile_v1_read_only"}
     if llm: run_metadata.update({"provider":llm.provider,"model":llm.model,"temperature":llm.temperature,"replicate_label":args.seed})
     tasks=load_tasks(args.tasks); gold=load_gold(args.gold); references=load_references(args.references)
     for t in tasks:
