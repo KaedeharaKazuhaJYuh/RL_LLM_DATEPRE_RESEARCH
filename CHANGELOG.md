@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-12
+
+- 为全部 50 个任务增加声明式 `contract.required_capabilities`。
+- 新增 `agent/contracts.py`，将合同能力映射为候选动作，并与 `allowed_tools` 取交集。
+- 新增 `--contract-action-mask`，保留 raw 和旧 `--task-action-mask` 条件用于消融比较。
+- 更新任务 schema、生成脚本、矩阵脚本和项目说明。
+- 验证 50 个任务的合同结构，并完成 Rule Router 50/50 回归和合同掩码模拟调用检查。
+
 ## 2026-09-11
 
 - 重写 README，使其成为项目介绍页，并统一使用第一人称说明研究目标、系统架构、实验任务、运行方式和研究路线。
