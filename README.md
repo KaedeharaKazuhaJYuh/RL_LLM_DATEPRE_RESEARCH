@@ -105,6 +105,15 @@ python -m experiments.run --mode llm --limit 50 --out reports/deepseek_results.j
 python -m experiments.run --mode llm --limit 50 --contract-action-mask --out reports/deepseek_contract.jsonl
 ```
 
+我也提供了一个不改变答案的任务措辞扰动集。它只改写指令表达，保留数据、任务合同、预算和独立答案，因此可以直接用于比较路由对自然语言表述的敏感性：
+
+```powershell
+python -m scripts.make_task_variants
+python -m experiments.run --mode rule --tasks tasks/variants/wording_v1.jsonl --out reports/rule_wording_v1.jsonl
+```
+
+在这个变体上运行 LLM 时，我会同时报告 raw 与合同约束条件；两者使用相同的变体文件，避免把数据或答案变化混入比较。
+
 我不会把 API Key 写入代码、任务文件或 GitHub。多 seed 实验可以使用：
 
 ```powershell
