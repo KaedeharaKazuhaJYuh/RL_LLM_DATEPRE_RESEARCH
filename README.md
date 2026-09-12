@@ -4,11 +4,11 @@
 
 ## 我在研究什么
 
-把数据分析 Agent 看成一个连续决策系统：Agent 读取任务和数据状态，选择下一步工具，获得数据观察结果，再根据 Verifier 的反馈继续行动或停止。我的核心研究问题是：
+我把数据分析 Agent 看成一个连续决策系统：Agent 读取任务和数据状态，选择下一步工具，获得数据观察结果，再根据 Verifier 的反馈继续行动或停止。我的核心研究问题是：
 
 > 当数据分析结果可以被程序化验证时，Verifier 反馈能否训练出比固定规则更好的工具选择策略？
 
-先用小型 CSV 数据集和 50 个可复现实验任务建立可靠基线，再逐步引入 Contextual Bandit、Offline RL 和参数高效的 LLM 训练。这样可以先验证“学习式决策是否有效”，再扩大模型和训练规模。
+我先用小型 CSV 数据集和 50 个可复现实验任务建立可靠基线，再逐步引入 Contextual Bandit、Offline RL 和参数高效的 LLM 训练。这样可以先验证“学习式决策是否有效”，再扩大模型和训练规模。
 
 ## 项目假设
 
@@ -38,7 +38,7 @@
                                   Reward ──► Bandit 更新 / 轨迹记录
 ```
 
-把策略层、工具层和验证层分开，因此可以在相同任务、数据和预算下公平比较不同方法：
+我把策略层、工具层和验证层分开，因此可以在相同任务、数据和预算下公平比较不同方法：
 
 - Rule Router：根据任务特征和关键词选择确定性工具。
 - LLM Agent：让 DeepSeek 等 OpenAI-compatible 模型从动作白名单中选择工具。
@@ -47,7 +47,7 @@
 
 ## 50 个实验任务
 
-设计了 50 个任务，并按能力分成十组：
+我设计了 50 个任务，并按能力分成十组：
 
 | 能力组 | 任务 | 主要验证内容 |
 |---|---:|---|
@@ -66,7 +66,7 @@
 
 ## Verifier 与奖励
 
-使用程序化 Verifier 检查四类内容：
+我使用程序化 Verifier 检查四类内容：
 
 1. 输出结构是否完整，是否真的产生了答案和证据。
 2. 数值或结构化结果是否符合 `gold.expected` 或参考输出。
@@ -77,7 +77,7 @@
 
 ## 运行方式
 
-安装依赖后，可以运行规则基线：
+安装依赖后，我可以运行规则基线：
 
 ```powershell
 python -m pip install -e .
@@ -99,16 +99,30 @@ $env:DEEPSEEK_API_KEY="粘贴你的 DeepSeek API Key"
 python -m experiments.run --mode llm --limit 50 --out reports/deepseek_results.jsonl
 ```
 
-为了研究任务级动作约束的作用，可以额外开启动作掩码：
+为了研究任务级动作约束的作用，我可以额外开启动作掩码：
 
 ```powershell
 python -m experiments.run --mode llm --limit 50 --task-action-mask --out reports/deepseek_masked.jsonl
 ```
 
-多 seed 实验使用：
+我不会把 API Key 写入代码、任务文件或 GitHub。多 seed 实验可以使用：
 
 ```powershell
 python -m scripts.run_matrix --seeds 1,2,3,4,5 --methods rule,bandit
+```
+
+我可以分别运行 DeepSeek 的 raw 和 masked 条件：
+
+```powershell
+python -m scripts.run_matrix --seeds 1,2,3,4,5 --methods llm --raw-llm --suffix _raw
+python -m scripts.run_matrix --seeds 1,2,3,4,5 --methods llm --task-action-mask --suffix _masked
+```
+
+运行完成后，我可以按 seed 汇总均值和标准差：
+
+```powershell
+$raw = Get-ChildItem reports/matrix/llm_seed*_raw.jsonl | Select-Object -ExpandProperty FullName
+python -m scripts.aggregate_seeds $raw --out reports/llm_raw_seed_summary.json
 ```
 
 结果汇总：
@@ -144,7 +158,7 @@ python -m experiments.aggregate reports/rule_results.jsonl reports/bandit_seed7.
 4. 积累高质量轨迹，进入 Offline RL，学习多步计划和错误恢复。
 5. 在资源允许时，再研究 LoRA、GRPO/PPO 和更大规模的数据分析 Agent。
 
-实验数字和失败分析在 `reports/`，过程变更在 `CHANGELOG.md`。
+我会把实验数字和失败分析放在 `reports/`，把过程变更放在 `CHANGELOG.md`，而不是把运行记录混入项目介绍页。
 
 ## 研究边界
 
