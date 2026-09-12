@@ -27,7 +27,7 @@ class LLMClient:
     def choose_action(self, task, state, actions):
         payload={"task":task["prompt"],"state":state.__dict__,"allowed_actions":actions}
         response=self.client.chat.completions.create(model=self.model, messages=[
-            {"role":"system","content":"Choose exactly one allowed action for a data-analysis agent. Return JSON with keys action and rationale."},
+            {"role":"system","content":"Choose exactly one allowed action for a data-analysis agent. The state contains a read-only dataset profile and prior observations. Return JSON with keys action and rationale."},
             {"role":"user","content":json.dumps(payload, ensure_ascii=False)}], response_format={"type":"json_object"}, temperature=self.temperature)
         return parse_json_object(response.choices[0].message.content)
 
