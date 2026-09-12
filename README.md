@@ -99,7 +99,7 @@ $env:DEEPSEEK_API_KEY="粘贴你的 DeepSeek API Key"
 python -m experiments.run --mode llm --limit 50 --out reports/deepseek_results.jsonl
 ```
 
-为了研究通用任务合同约束的作用，我可以让 Agent 从任务声明的能力标签和 `allowed_tools` 自动得到候选动作：
+为了研究通用任务合同约束的作用，我可以让 Agent 从任务声明的操作族标签和 `allowed_tools` 自动得到候选动作。例如，概览类任务只开放概览工具，清洗类任务只开放清洗工具；Agent 仍需要在候选工具中做出选择。
 
 ```powershell
 python -m experiments.run --mode llm --limit 50 --contract-action-mask --out reports/deepseek_contract.jsonl
