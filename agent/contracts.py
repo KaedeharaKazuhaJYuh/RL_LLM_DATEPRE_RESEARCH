@@ -15,6 +15,15 @@ ACTION_TO_TOOL = {
 }
 
 CAPABILITY_ACTIONS = {
+    "overview": (
+        "profile_schema", "profile_missingness", "count_categories",
+        "deduplicate", "describe_numeric",
+    ),
+    "cleaning": (
+        "deduplicate", "normalize_dates", "clip_outliers",
+        "fill_missing", "normalize_categories",
+    ),
+    "aggregation": ("aggregate", "task_analysis"),
     "schema_profile": ("profile_schema",),
     "missingness_profile": ("profile_missingness",),
     "category_count": ("count_categories",),
