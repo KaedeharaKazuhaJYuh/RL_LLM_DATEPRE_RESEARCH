@@ -16,8 +16,8 @@ def test_bandit_returns_known_action():
     assert b.select(np.ones(3)) in {"clean", "aggregate"}
 
 def test_contract_mask_uses_declared_capability_and_allowed_tools():
-    task = {"contract":{"required_capabilities":["category_count"]}, "allowed_tools":["count_categories"]}
+    task = {"contract":{"required_capabilities":["overview"]}, "allowed_tools":["count_categories"]}
     assert actions_from_contract(task) == ["count_categories"]
-    task["allowed_tools"] = ["load_table"]
-    assert actions_from_contract(task) == []
+    task["allowed_tools"] = ["load_table", "profile_missingness"]
+    assert actions_from_contract(task) == ["profile_schema", "profile_missingness"]
 
