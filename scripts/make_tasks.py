@@ -13,6 +13,19 @@ groups = {
     "decision": ["解释重要特征", "提出有证据的业务建议", "按成本收益排序建议", "生成结构化分析报告", "回答一个基于结果的追问"],
     "robustness": ["适应列名轻微变化", "处理数据文件不存在", "工具报错后重试", "发现矛盾结果并复核", "在调用预算受限时完成分析"],
 }
+
+contracts = {
+    "overview": ["schema_profile", "missingness_profile", "category_count", "deduplication", "numeric_summary"],
+    "cleaning": ["deduplication", "date_cleaning", "outlier_cleaning", "missing_value_cleaning", "category_normalization"],
+    "aggregation": ["monthly_aggregation", "general_analysis", "general_analysis", "general_analysis", "general_analysis"],
+    "statistics": ["general_analysis"] * 5,
+    "time_series": ["general_analysis"] * 5,
+    "visualization": ["general_analysis"] * 5,
+    "features": ["general_analysis"] * 5,
+    "modeling": ["general_analysis"] * 5,
+    "decision": ["general_analysis"] * 5,
+    "robustness": ["general_analysis"] * 5,
+}
 out = Path(__file__).parents[1] / "tasks" / "tasks.jsonl"
 out.parent.mkdir(exist_ok=True)
 rows=[]
@@ -20,7 +33,7 @@ for gi,(group, prompts) in enumerate(groups.items()):
     for j,prompt in enumerate(prompts):
         n=gi*5+j+1; difficulty="easy" if n<=15 else "medium" if n<=35 else "hard"
         dataset = "data/sample.csv" if gi < 3 else "data/churn.csv" if gi < 6 else "data/students.csv"
-        rows.append({"task_id":f"T{n:02d}","dataset":{"uri":dataset,"format":"csv"},"prompt":prompt,"difficulty":difficulty,"allowed_tools":["load_table","aggregate","profile_missingness","count_categories","deduplicate","describe_numeric","normalize_dates","clip_outliers","fill_missing","normalize_categories","task_analysis","python_exec"],"gold":{"answer_type":"structured"},"constraints":{"max_steps":8 if difficulty=="easy" else 12,"max_tool_calls":4 if difficulty=="easy" else 8,"max_seconds":60 if difficulty!="hard" else 120}})
+        rows.append({"task_id":f"T{n:02d}","dataset":{"uri":dataset,"format":"csv"},"prompt":prompt,"difficulty":difficulty,"allowed_tools":["load_table","aggregate","profile_missingness","count_categories","deduplicate","describe_numeric","normalize_dates","clip_outliers","fill_missing","normalize_categories","task_analysis","python_exec"],"contract":{"required_capabilities":[contracts[group][j]]},"gold":{"answer_type":"structured"},"constraints":{"max_steps":8 if difficulty=="easy" else 12,"max_tool_calls":4 if difficulty=="easy" else 8,"max_seconds":60 if difficulty!="hard" else 120}})
 out.write_text("\n".join(json.dumps(x,ensure_ascii=False) for x in rows)+"\n",encoding="utf-8")
 print(f"wrote {len(rows)} tasks to {out}")
 
