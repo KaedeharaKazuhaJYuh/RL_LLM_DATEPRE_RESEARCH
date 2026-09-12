@@ -1,13 +1,20 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
-  "required": ["task_id", "dataset", "prompt", "difficulty", "allowed_tools", "gold", "constraints"],
+  "required": ["task_id", "dataset", "prompt", "difficulty", "allowed_tools", "contract", "gold", "constraints"],
   "properties": {
     "task_id": {"type": "string", "pattern": "^T[0-9]{2}$"},
     "dataset": {"type": "object", "required": ["uri", "format"]},
     "prompt": {"type": "string", "minLength": 5},
     "difficulty": {"enum": ["easy", "medium", "hard"]},
     "allowed_tools": {"type": "array", "items": {"type": "string"}},
+    "contract": {
+      "type": "object",
+      "required": ["required_capabilities"],
+      "properties": {
+        "required_capabilities": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      }
+    },
     "gold": {"type": "object", "required": ["answer_type"]},
     "constraints": {"type": "object", "required": ["max_steps", "max_tool_calls", "max_seconds"]}
   }
