@@ -99,10 +99,10 @@ $env:DEEPSEEK_API_KEY="粘贴你的 DeepSeek API Key"
 python -m experiments.run --mode llm --limit 50 --out reports/deepseek_results.jsonl
 ```
 
-为了研究任务级动作约束的作用，我可以额外开启动作掩码：
+为了研究通用任务合同约束的作用，我可以让 Agent 从任务声明的能力标签和 `allowed_tools` 自动得到候选动作：
 
 ```powershell
-python -m experiments.run --mode llm --limit 50 --task-action-mask --out reports/deepseek_masked.jsonl
+python -m experiments.run --mode llm --limit 50 --contract-action-mask --out reports/deepseek_contract.jsonl
 ```
 
 我不会把 API Key 写入代码、任务文件或 GitHub。多 seed 实验可以使用：
@@ -115,7 +115,7 @@ python -m scripts.run_matrix --seeds 1,2,3,4,5 --methods rule,bandit
 
 ```powershell
 python -m scripts.run_matrix --seeds 1,2,3,4,5 --methods llm --raw-llm --suffix _raw
-python -m scripts.run_matrix --seeds 1,2,3,4,5 --methods llm --task-action-mask --suffix _masked
+python -m scripts.run_matrix --seeds 1,2,3,4,5 --methods llm --contract-action-mask --suffix _contract
 ```
 
 运行完成后，我可以按 seed 汇总均值和标准差：
@@ -153,7 +153,7 @@ python -m experiments.aggregate reports/rule_results.jsonl reports/bandit_seed7.
 我计划按以下顺序推进：
 
 1. 固定任务、数据、Verifier 和预算，建立 Rule Router 与 LLM 基线。
-2. 分析 LLM 的错误工具选择，并比较 raw 与 task-action-mask 条件。
+2. 分析 LLM 的错误工具选择，并比较 raw、任务合同约束和 Contextual Bandit 条件。
 3. 在相同任务上训练和评估 Contextual Bandit，报告多 seed 均值和标准差。
 4. 积累高质量轨迹，进入 Offline RL，学习多步计划和错误恢复。
 5. 在资源允许时，再研究 LoRA、GRPO/PPO 和更大规模的数据分析 Agent。
