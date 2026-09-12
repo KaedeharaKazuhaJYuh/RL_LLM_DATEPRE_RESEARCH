@@ -12,9 +12,11 @@ After enabling the task-level action mask, DeepSeek completes 50/50 tasks (100.0
 
 The five-run masked matrix confirms the same pattern: 250/250 tasks pass, with pass-rate standard deviation 0.0, mean score 0.9675 (standard deviation 0.0), and mean tool calls 1.00 (standard deviation 0.0). These are independent API repetitions stored with legacy seed labels. This stability is useful for the ablation, but the current mask is derived from task-level knowledge and should not be treated as a learned policy.
 
+The operation-family contract precheck completes 49/50 tasks (98.0%), with a mean score of 0.9555 and one tool call per task. The single failure is T11: the aggregation contract permits both `aggregate` and `task_analysis`, and the model chose `task_analysis` even though T11 requires the dedicated monthly aggregate tool. This is retained as a meaningful routing error; the contract is intentionally not narrowed to one correct action.
+
 The earlier 250-task DeepSeek figures remain listed for traceability, but they were generated before the new `gold.expected` check and should be treated as superseded process records, not final paper results.
 
 ## Next experiment
 
-Use the corrected raw and masked five-seed matrices as the current DeepSeek ablation. The schema-driven contract mask is implemented with broad operation families, rather than a single correct action: each task declares a family such as overview, cleaning, or aggregation; the runtime translates it into candidate actions and intersects them with `allowed_tools`. The next experiment is to run this condition across five seeds and compare it with raw and the legacy task mask. Keep every constrained condition labeled as an ablation, not as an unconstrained LLM result.
+Use the corrected raw and masked five-run matrices as the current DeepSeek ablation. The schema-driven contract mask is implemented with broad operation families, rather than a single correct action: each task declares a family such as overview, cleaning, or aggregation; the runtime translates it into candidate actions and intersects them with `allowed_tools`. The next experiment is to repeat this condition five times and compare it with raw and the legacy task mask. Keep every constrained condition labeled as an ablation, not as an unconstrained LLM result.
 
