@@ -5,6 +5,7 @@ from agent.contracts import actions_from_contract
 from scripts.make_task_variants import make_wording_variant
 from scripts.make_value_variant import VALUE_TRANSFORMS
 from agent.features import extract_dataset_features
+from scripts.aggregate_seeds import summarize_labeled_replicates
 from verifier import verify
 
 def test_router_prioritizes_missingness():
@@ -44,4 +45,14 @@ def test_dataset_profile_observes_value_perturbation_without_schema_change():
     assert len(original) == len(variant) == 10
     assert original[:7] == variant[:7]
     assert original[7:9] != variant[7:9]
+
+def test_labeled_replicate_summary_keeps_explicit_order(tmp_path):
+    first = tmp_path / "run0.jsonl"
+    second = tmp_path / "run1.jsonl"
+    first.write_text('{"passed": true, "score": 1.0, "tool_calls": 1}\n', encoding="utf-8")
+    second.write_text('{"passed": false, "score": 0.2, "tool_calls": 2}\n', encoding="utf-8")
+    summary = summarize_labeled_replicates([first, second], "demo")[0]
+    assert summary["replicates"] == 2
+    assert summary["pass_rate_mean"] == 0.5
+    assert [row["replicate"] for row in summary["replicate_summaries"]] == [0, 1]
 
