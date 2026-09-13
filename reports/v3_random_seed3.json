@@ -1,0 +1,3187 @@
+{
+  "benchmark_version": 3,
+  "mode": "random",
+  "seed": 3,
+  "passed": 9,
+  "tasks": 240,
+  "pass_rate": 0.0375,
+  "by_track": {
+    "clarification": {
+      "passed": 2,
+      "tasks": 24,
+      "pass_rate": 0.08333333333333333
+    },
+    "composition": {
+      "passed": 3,
+      "tasks": 72,
+      "pass_rate": 0.041666666666666664
+    },
+    "single": {
+      "passed": 4,
+      "tasks": 144,
+      "pass_rate": 0.027777777777777776
+    }
+  },
+  "records": [
+    {
+      "task_id": "0ce0fe8f3aae3c20",
+      "track": "single",
+      "predicted_plan": [],
+      "gold_plan": [
+        "count_categories"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "fab9e6d73894776b",
+      "track": "single",
+      "predicted_plan": [],
+      "gold_plan": [
+        "rolling_mean"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "af161b876a4f1862",
+      "track": "single",
+      "predicted_plan": [],
+      "gold_plan": [
+        "aggregate"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "0797a5a688ff7e4d",
+      "track": "composition",
+      "predicted_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "124c3bf4031abf15",
+      "track": "clarification",
+      "predicted_plan": [
+        "describe_numeric"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "8be0e8dde697b6f0",
+      "track": "single",
+      "predicted_plan": [],
+      "gold_plan": [
+        "count_categories"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "422bb4195f8f1056",
+      "track": "composition",
+      "predicted_plan": [
+        "fill_missing"
+      ],
+      "gold_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "ff3b8288cb60f799",
+      "track": "single",
+      "predicted_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "deduplicate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "85e47640fbc71d6e",
+      "track": "composition",
+      "predicted_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "64c716c45eeb0b5d",
+      "track": "composition",
+      "predicted_plan": [
+        "correlate"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "8569ac8832550080",
+      "track": "composition",
+      "predicted_plan": [
+        "correlate"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "ed2a324ec0cfe3d7",
+      "track": "composition",
+      "predicted_plan": [
+        "clip_outliers"
+      ],
+      "gold_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "86cbfaa15ea921e1",
+      "track": "single",
+      "predicted_plan": [
+        "fill_missing"
+      ],
+      "gold_plan": [
+        "clip_outliers"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "66a494da589ec159",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_dates"
+      ],
+      "gold_plan": [
+        "clip_outliers"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "aab58847ebaf573b",
+      "track": "clarification",
+      "predicted_plan": [
+        "describe_numeric"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "81669c4cd2eec760",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "gold_plan": [
+        "fill_missing"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "0ea854dbe158eefa",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "b06a0d283a7ae555",
+      "track": "composition",
+      "predicted_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "142105cd5b35239b",
+      "track": "single",
+      "predicted_plan": [
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "deduplicate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "5b092994db265b00",
+      "track": "single",
+      "predicted_plan": [
+        "profile_missingness"
+      ],
+      "gold_plan": [
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "80db074580023a9a",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_categories"
+      ],
+      "gold_plan": [
+        "profile_schema"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "f13b342690f1fa76",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "gold_plan": [
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "7e59f54f9c9b4830",
+      "track": "clarification",
+      "predicted_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "062cdfdad83c94c4",
+      "track": "composition",
+      "predicted_plan": [
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "dd602ef4aa885ef7",
+      "track": "composition",
+      "predicted_plan": [
+        "aggregate"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "8c2362f014249156",
+      "track": "single",
+      "predicted_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "normalize_dates"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "a0d1e24080f9ef60",
+      "track": "single",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "b72351c72e1d9b7f",
+      "track": "single",
+      "predicted_plan": [
+        "profile_missingness"
+      ],
+      "gold_plan": [
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "fcd97c8d1e9365ff",
+      "track": "composition",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "b029332c7e5f5ffc",
+      "track": "single",
+      "predicted_plan": [
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "89301114146963c2",
+      "track": "composition",
+      "predicted_plan": [
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "e6d1741935dcbf72",
+      "track": "composition",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "2d04a2927bc16bbe",
+      "track": "composition",
+      "predicted_plan": [
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "efb2bdf7a22b5e9c",
+      "track": "composition",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "4404d020a3f94863",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_dates"
+      ],
+      "gold_plan": [
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "a6a621d297c0f913",
+      "track": "single",
+      "predicted_plan": [],
+      "gold_plan": [
+        "aggregate"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "2e1e04666b63b478",
+      "track": "composition",
+      "predicted_plan": [
+        "clip_outliers"
+      ],
+      "gold_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "d128a4551136a85d",
+      "track": "single",
+      "predicted_plan": [
+        "aggregate"
+      ],
+      "gold_plan": [
+        "fill_missing"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "62f699855e0ba970",
+      "track": "composition",
+      "predicted_plan": [
+        "fill_missing"
+      ],
+      "gold_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "081f7536169eba38",
+      "track": "clarification",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "170b0de66344fd20",
+      "track": "single",
+      "predicted_plan": [
+        "fill_missing"
+      ],
+      "gold_plan": [
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "1a810a2a339fa0cc",
+      "track": "single",
+      "predicted_plan": [
+        "correlate"
+      ],
+      "gold_plan": [
+        "normalize_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "ef502e61d3708f79",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "gold_plan": [
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "ee031bcaad4e34c0",
+      "track": "composition",
+      "predicted_plan": [
+        "clip_outliers"
+      ],
+      "gold_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "e272963d9761b776",
+      "track": "single",
+      "predicted_plan": [],
+      "gold_plan": [
+        "normalize_dates"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "87f6db68e8235b8d",
+      "track": "single",
+      "predicted_plan": [
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "deduplicate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "a0814471ff9e39d9",
+      "track": "composition",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "8e5792ed3e28b757",
+      "track": "single",
+      "predicted_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "2def735a12781987",
+      "track": "clarification",
+      "predicted_plan": [
+        "profile_missingness"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "cae898773714228e",
+      "track": "single",
+      "predicted_plan": [],
+      "gold_plan": [
+        "normalize_dates"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "28bd29fb1942101c",
+      "track": "single",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "normalize_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "282eca80a92b2532",
+      "track": "clarification",
+      "predicted_plan": [
+        "rolling_mean"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "4ee7550af3f1f29a",
+      "track": "composition",
+      "predicted_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": true
+    },
+    {
+      "task_id": "dea08ac1c7d718a5",
+      "track": "clarification",
+      "predicted_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "96899ebe3781bb24",
+      "track": "single",
+      "predicted_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "9cc9c466bf900e8a",
+      "track": "single",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "9806abe5d970c725",
+      "track": "clarification",
+      "predicted_plan": [
+        "profile_missingness"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "6921b70f96e673da",
+      "track": "composition",
+      "predicted_plan": [
+        "clip_outliers"
+      ],
+      "gold_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "b3aa42ae9a5ea216",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_dates"
+      ],
+      "gold_plan": [
+        "fill_missing"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "9a9ea1626a0e50d1",
+      "track": "single",
+      "predicted_plan": [
+        "aggregate"
+      ],
+      "gold_plan": [
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "7867263a94adca7e",
+      "track": "composition",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "35c5343cec0e51c0",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "gold_plan": [
+        "normalize_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "63d4d7f8658dfd54",
+      "track": "single",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "clip_outliers"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "9bb52f69851918b4",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "clip_outliers"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "1c986c1f5d5020ea",
+      "track": "single",
+      "predicted_plan": [
+        "correlate"
+      ],
+      "gold_plan": [
+        "normalize_dates"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "6fb38f4d84545972",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "gold_plan": [
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "d8dcd9ebde094674",
+      "track": "composition",
+      "predicted_plan": [
+        "clip_outliers"
+      ],
+      "gold_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "b40d1f9a72ef08dc",
+      "track": "composition",
+      "predicted_plan": [
+        "normalize_categories"
+      ],
+      "gold_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "b4c2f5e4ff2ea9b9",
+      "track": "single",
+      "predicted_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "cdbf709138e00ba0",
+      "track": "single",
+      "predicted_plan": [
+        "profile_missingness"
+      ],
+      "gold_plan": [
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "89869e96e03d077c",
+      "track": "single",
+      "predicted_plan": [
+        "aggregate"
+      ],
+      "gold_plan": [
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "13fc523c2603a1d5",
+      "track": "single",
+      "predicted_plan": [
+        "correlate"
+      ],
+      "gold_plan": [
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "ec00e989dbc6612e",
+      "track": "clarification",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "f54eb00a4feeea51",
+      "track": "single",
+      "predicted_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "fill_missing"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "116391a11a9b9dc6",
+      "track": "composition",
+      "predicted_plan": [],
+      "gold_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "9e98755458ef6d07",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "gold_plan": [
+        "fill_missing"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "5276837c86dd579f",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "deduplicate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "4493b5063d3cc69a",
+      "track": "composition",
+      "predicted_plan": [
+        "profile_missingness"
+      ],
+      "gold_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "8e46a989d7c944f7",
+      "track": "clarification",
+      "predicted_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "d6c4f0a2034dacb3",
+      "track": "single",
+      "predicted_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "d7bd212c0e04e7f6",
+      "track": "composition",
+      "predicted_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "a0ecda2b191e2ddf",
+      "track": "composition",
+      "predicted_plan": [],
+      "gold_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "7230a34428db44b7",
+      "track": "single",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "normalize_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "dc914b6050b92a5f",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "gold_plan": [
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "500da95155a216e3",
+      "track": "composition",
+      "predicted_plan": [],
+      "gold_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "b573601f5aea452b",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_categories"
+      ],
+      "gold_plan": [
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "df726fdb30feb919",
+      "track": "clarification",
+      "predicted_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "4322296e11a1d51d",
+      "track": "composition",
+      "predicted_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "d48bb50eb16cb744",
+      "track": "single",
+      "predicted_plan": [
+        "aggregate"
+      ],
+      "gold_plan": [
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "60b31e233ccf1449",
+      "track": "composition",
+      "predicted_plan": [
+        "correlate"
+      ],
+      "gold_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "c2570258c53dcebb",
+      "track": "composition",
+      "predicted_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "gold_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": true
+    },
+    {
+      "task_id": "beb9fa278c7f37e0",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "normalize_dates"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "82dca9258c791cf1",
+      "track": "single",
+      "predicted_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "gold_plan": [
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "de8a72916b0d8067",
+      "track": "composition",
+      "predicted_plan": [
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "f32974b188d6b451",
+      "track": "single",
+      "predicted_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "normalize_dates"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "fb75e1c40884ff7a",
+      "track": "composition",
+      "predicted_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "ede1a9f968d376d5",
+      "track": "single",
+      "predicted_plan": [
+        "correlate"
+      ],
+      "gold_plan": [
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "16758b07478d6461",
+      "track": "single",
+      "predicted_plan": [],
+      "gold_plan": [
+        "profile_schema"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "f5fcf48b008070d4",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_dates"
+      ],
+      "gold_plan": [
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "a9ce726725b3360f",
+      "track": "composition",
+      "predicted_plan": [
+        "profile_missingness"
+      ],
+      "gold_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "a06ea32fa3a3bb9f",
+      "track": "clarification",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "c6a726ca720c594e",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_dates"
+      ],
+      "gold_plan": [
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "a0efe390f090acdb",
+      "track": "single",
+      "predicted_plan": [
+        "clip_outliers"
+      ],
+      "gold_plan": [
+        "profile_schema"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "5a5b9dceae1e76c8",
+      "track": "composition",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "d9d8eaf65c59812d",
+      "track": "single",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "clip_outliers"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "9361abde93868b44",
+      "track": "composition",
+      "predicted_plan": [],
+      "gold_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "9d5fc9ae82f9a128",
+      "track": "single",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "6893aa7bbad1e898",
+      "track": "composition",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "6f8bcb61c0d19bc9",
+      "track": "composition",
+      "predicted_plan": [
+        "clip_outliers"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "2ee7213615823838",
+      "track": "single",
+      "predicted_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "8dd4ac15a3b90c09",
+      "track": "composition",
+      "predicted_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "a16e9237396bf4a2",
+      "track": "single",
+      "predicted_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "gold_plan": [
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "ee06197681e205c2",
+      "track": "single",
+      "predicted_plan": [
+        "fill_missing"
+      ],
+      "gold_plan": [
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "773fba76c500470a",
+      "track": "composition",
+      "predicted_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "gold_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "9f4760a31cd8865a",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_dates"
+      ],
+      "gold_plan": [
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "240169c766bc0ba4",
+      "track": "composition",
+      "predicted_plan": [
+        "normalize_dates"
+      ],
+      "gold_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "ab6b1700514bb404",
+      "track": "composition",
+      "predicted_plan": [],
+      "gold_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "ee6c0d0279c89edc",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "deduplicate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "e9f6f0f6934adb51",
+      "track": "single",
+      "predicted_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "gold_plan": [
+        "profile_schema"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "3653f741b9ef0fdc",
+      "track": "single",
+      "predicted_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "gold_plan": [
+        "fill_missing"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "9004b4f332e3b71a",
+      "track": "single",
+      "predicted_plan": [
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "899dd24f7bdecbfd",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "gold_plan": [
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "97107734e90b6065",
+      "track": "single",
+      "predicted_plan": [
+        "deduplicate"
+      ],
+      "gold_plan": [
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "6ab4628040b1ba19",
+      "track": "single",
+      "predicted_plan": [
+        "correlate"
+      ],
+      "gold_plan": [
+        "deduplicate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "4898d6a3959a101a",
+      "track": "single",
+      "predicted_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "5313f97e246fc578",
+      "track": "composition",
+      "predicted_plan": [],
+      "gold_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "28fdec819a9739f1",
+      "track": "single",
+      "predicted_plan": [
+        "profile_missingness"
+      ],
+      "gold_plan": [
+        "deduplicate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "a31255c3becf31d5",
+      "track": "single",
+      "predicted_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "profile_schema"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "fc1f17b91fafae70",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "gold_plan": [
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "a6d1551bce8afe44",
+      "track": "single",
+      "predicted_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "gold_plan": [
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "d10d3fb736c721d2",
+      "track": "single",
+      "predicted_plan": [
+        "deduplicate"
+      ],
+      "gold_plan": [
+        "normalize_dates"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "e28fb01ce84cd15b",
+      "track": "clarification",
+      "predicted_plan": [
+        "deduplicate"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "d11426f17851e659",
+      "track": "single",
+      "predicted_plan": [
+        "fill_missing"
+      ],
+      "gold_plan": [
+        "profile_schema"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "2b135feb0b35e88c",
+      "track": "composition",
+      "predicted_plan": [
+        "aggregate"
+      ],
+      "gold_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "8149b5a85f85220d",
+      "track": "single",
+      "predicted_plan": [
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "normalize_dates"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "f2907d2743d9d427",
+      "track": "single",
+      "predicted_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "gold_plan": [
+        "normalize_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "ea70577ae5be0d1e",
+      "track": "clarification",
+      "predicted_plan": [],
+      "gold_plan": [],
+      "decision": "clarify",
+      "gold_decision": "clarify",
+      "passed": true
+    },
+    {
+      "task_id": "c4715cd91582ced2",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "gold_plan": [
+        "profile_schema"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "54090a52466d3aea",
+      "track": "single",
+      "predicted_plan": [
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": true
+    },
+    {
+      "task_id": "31b0aabfcb1279c1",
+      "track": "single",
+      "predicted_plan": [
+        "aggregate"
+      ],
+      "gold_plan": [
+        "profile_schema"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "48c832941131f477",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "69ea2f5dcb655030",
+      "track": "clarification",
+      "predicted_plan": [
+        "deduplicate"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "e31d02bd41bbae5d",
+      "track": "single",
+      "predicted_plan": [
+        "profile_missingness"
+      ],
+      "gold_plan": [
+        "deduplicate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "ff385b197c44b64b",
+      "track": "composition",
+      "predicted_plan": [
+        "fill_missing"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "b5e43233ff9710a0",
+      "track": "composition",
+      "predicted_plan": [
+        "clip_outliers"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "6fb26bcd55b5bc0a",
+      "track": "composition",
+      "predicted_plan": [
+        "clip_outliers"
+      ],
+      "gold_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "0c87b95ce97fa170",
+      "track": "single",
+      "predicted_plan": [
+        "profile_missingness"
+      ],
+      "gold_plan": [
+        "clip_outliers"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "d59ba3c3ffffe25d",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "fill_missing"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "07895eebacd6ee2d",
+      "track": "clarification",
+      "predicted_plan": [
+        "normalize_categories"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "78530beb65652c1b",
+      "track": "single",
+      "predicted_plan": [
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "clip_outliers"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "f4405d480e2f68bb",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "normalize_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "16728b1c214ebdf6",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "gold_plan": [
+        "normalize_dates"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "aa20884973947523",
+      "track": "composition",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "9af8ebc7e6d60859",
+      "track": "composition",
+      "predicted_plan": [
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "ff37a2043019fd5e",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_dates"
+      ],
+      "gold_plan": [
+        "normalize_dates"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": true
+    },
+    {
+      "task_id": "6b8e3d96410d1552",
+      "track": "single",
+      "predicted_plan": [],
+      "gold_plan": [
+        "deduplicate"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "3c289f197ab3bca2",
+      "track": "composition",
+      "predicted_plan": [],
+      "gold_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "6c461aaed94eb96c",
+      "track": "single",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "normalize_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "d881e6209b6733f4",
+      "track": "composition",
+      "predicted_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "09a991c4302d3c03",
+      "track": "composition",
+      "predicted_plan": [
+        "normalize_categories"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "b0cab9ee7a2188ab",
+      "track": "composition",
+      "predicted_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "3ddf454f65805c04",
+      "track": "composition",
+      "predicted_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "e2493d4d7c061c68",
+      "track": "single",
+      "predicted_plan": [
+        "profile_missingness"
+      ],
+      "gold_plan": [
+        "normalize_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "729b5001a15f8776",
+      "track": "clarification",
+      "predicted_plan": [
+        "deduplicate"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "88f9f4ec36d85175",
+      "track": "composition",
+      "predicted_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "gold_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "55f5feed06ccac46",
+      "track": "single",
+      "predicted_plan": [
+        "correlate"
+      ],
+      "gold_plan": [
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "95eca003ed3e5f78",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "2b206eeb1deac77a",
+      "track": "single",
+      "predicted_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "normalize_dates"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "7272e50e8e2c7629",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_categories"
+      ],
+      "gold_plan": [
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "63f2f183f0a5592f",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_dates"
+      ],
+      "gold_plan": [
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "96e1134196a67794",
+      "track": "composition",
+      "predicted_plan": [],
+      "gold_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "9f7f69dcd41c4796",
+      "track": "single",
+      "predicted_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "8d444dc9dd8eee00",
+      "track": "single",
+      "predicted_plan": [
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "normalize_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "51ab144e33e6def2",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "clip_outliers"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "f5cb30ed870831f1",
+      "track": "composition",
+      "predicted_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "2fb647d1e47bd4bf",
+      "track": "single",
+      "predicted_plan": [
+        "aggregate"
+      ],
+      "gold_plan": [
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "06937349d08d87b5",
+      "track": "single",
+      "predicted_plan": [
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "93dae327c42012c1",
+      "track": "composition",
+      "predicted_plan": [
+        "clip_outliers"
+      ],
+      "gold_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "dbf7fdc0edd0968b",
+      "track": "clarification",
+      "predicted_plan": [
+        "aggregate"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "fe529df8110d33b3",
+      "track": "single",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "profile_schema"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "6b3de314f685c84e",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "clip_outliers"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "5b02a84de6e50826",
+      "track": "composition",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "588741d5159cb172",
+      "track": "single",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "clip_outliers"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "f65acb633505c595",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "fill_missing"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "37b5d8581dd41b12",
+      "track": "single",
+      "predicted_plan": [],
+      "gold_plan": [
+        "profile_missingness"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "7f78f2f55dda10a9",
+      "track": "composition",
+      "predicted_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "gold_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": true
+    },
+    {
+      "task_id": "de057496aea0f8aa",
+      "track": "single",
+      "predicted_plan": [
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "fill_missing"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "617c750732b8a34e",
+      "track": "composition",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "4eea1e8872d4b16e",
+      "track": "single",
+      "predicted_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "gold_plan": [
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "b58df988786cd43f",
+      "track": "single",
+      "predicted_plan": [
+        "correlate"
+      ],
+      "gold_plan": [
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "f9d443237aede02b",
+      "track": "single",
+      "predicted_plan": [
+        "deduplicate"
+      ],
+      "gold_plan": [
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "d276cfe85e9c077f",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "gold_plan": [
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "9825514c92464e83",
+      "track": "composition",
+      "predicted_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "gold_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "37aa2416bcbdd03f",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_categories"
+      ],
+      "gold_plan": [
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "9a3efe0b8a3c1d00",
+      "track": "single",
+      "predicted_plan": [],
+      "gold_plan": [
+        "profile_missingness"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "c3f956abc00d8c74",
+      "track": "single",
+      "predicted_plan": [
+        "deduplicate"
+      ],
+      "gold_plan": [
+        "profile_schema"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "d40b7848f1257b94",
+      "track": "clarification",
+      "predicted_plan": [
+        "deduplicate"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "3be38d6d070d79aa",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "normalize_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "fb699331abf13636",
+      "track": "single",
+      "predicted_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "4f9555a1c5af8a1f",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_categories"
+      ],
+      "gold_plan": [
+        "profile_schema"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "5832fa6a2f055070",
+      "track": "single",
+      "predicted_plan": [],
+      "gold_plan": [
+        "rolling_mean"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "ff09e4e3c183d5df",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_categories"
+      ],
+      "gold_plan": [
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "3ea43dae164d3772",
+      "track": "clarification",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "2dd9d675db1e6262",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "gold_plan": [
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "5074fec69070af70",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "ac82c6d639b651bf",
+      "track": "single",
+      "predicted_plan": [],
+      "gold_plan": [
+        "count_categories"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "d56bbd2b0ce1d9e4",
+      "track": "single",
+      "predicted_plan": [
+        "count_categories"
+      ],
+      "gold_plan": [
+        "normalize_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "1f82ae1df7786a71",
+      "track": "composition",
+      "predicted_plan": [
+        "aggregate"
+      ],
+      "gold_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "70afb5ceaf9c584b",
+      "track": "composition",
+      "predicted_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "e6ab1d0bea854d69",
+      "track": "single",
+      "predicted_plan": [
+        "profile_missingness"
+      ],
+      "gold_plan": [
+        "deduplicate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "cf5cbc0f00f6cb92",
+      "track": "composition",
+      "predicted_plan": [
+        "aggregate"
+      ],
+      "gold_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "6e3e968a2ea1be17",
+      "track": "composition",
+      "predicted_plan": [
+        "aggregate"
+      ],
+      "gold_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "40d77728ca4267b6",
+      "track": "single",
+      "predicted_plan": [
+        "correlate"
+      ],
+      "gold_plan": [
+        "fill_missing"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "18f2182c62a54f7d",
+      "track": "composition",
+      "predicted_plan": [
+        "aggregate"
+      ],
+      "gold_plan": [
+        "deduplicate",
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "1a4ebc577e5bb8c0",
+      "track": "single",
+      "predicted_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "gold_plan": [
+        "normalize_dates"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "794ab82822591488",
+      "track": "clarification",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "3677eac467b498dd",
+      "track": "single",
+      "predicted_plan": [
+        "clip_outliers"
+      ],
+      "gold_plan": [
+        "profile_missingness"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "fbaac784c34f7130",
+      "track": "single",
+      "predicted_plan": [
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "deduplicate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "f1f4af900d42f4bb",
+      "track": "clarification",
+      "predicted_plan": [],
+      "gold_plan": [],
+      "decision": "clarify",
+      "gold_decision": "clarify",
+      "passed": true
+    },
+    {
+      "task_id": "ab21f9a228f74c0e",
+      "track": "single",
+      "predicted_plan": [
+        "deduplicate",
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "bba16054b1621270",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "9cafd0a069d55acd",
+      "track": "single",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "clip_outliers"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "42af400c400f29b4",
+      "track": "single",
+      "predicted_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "gold_plan": [
+        "profile_schema"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "d3eee910daa54311",
+      "track": "clarification",
+      "predicted_plan": [
+        "describe_numeric"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "679ca6a35c0dce40",
+      "track": "composition",
+      "predicted_plan": [
+        "profile_missingness"
+      ],
+      "gold_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "b1b68cb6cf2ebffe",
+      "track": "single",
+      "predicted_plan": [
+        "clip_outliers"
+      ],
+      "gold_plan": [
+        "fill_missing"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "11b48d1d2764905a",
+      "track": "composition",
+      "predicted_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "gold_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "8d39e9d8561149f6",
+      "track": "single",
+      "predicted_plan": [],
+      "gold_plan": [
+        "profile_missingness"
+      ],
+      "decision": "clarify",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "2bb12e95282e1f0a",
+      "track": "single",
+      "predicted_plan": [
+        "clip_outliers"
+      ],
+      "gold_plan": [
+        "clip_outliers"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": true
+    },
+    {
+      "task_id": "40a6d715174896bf",
+      "track": "single",
+      "predicted_plan": [
+        "clip_outliers"
+      ],
+      "gold_plan": [
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "ef2625800fe006a4",
+      "track": "clarification",
+      "predicted_plan": [
+        "rolling_mean"
+      ],
+      "gold_plan": [],
+      "decision": "execute",
+      "gold_decision": "clarify",
+      "passed": false
+    },
+    {
+      "task_id": "eb73418c02ccd273",
+      "track": "single",
+      "predicted_plan": [
+        "normalize_dates"
+      ],
+      "gold_plan": [
+        "correlate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "0a9f8b86ca7ea436",
+      "track": "composition",
+      "predicted_plan": [
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "normalize_dates",
+        "aggregate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "b649a8fafc33cffd",
+      "track": "single",
+      "predicted_plan": [
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "deduplicate"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "6cfaa0d9d067e943",
+      "track": "single",
+      "predicted_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "gold_plan": [
+        "fill_missing"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "85fece2a1e5f4287",
+      "track": "single",
+      "predicted_plan": [
+        "rolling_mean"
+      ],
+      "gold_plan": [
+        "rolling_mean"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": true
+    },
+    {
+      "task_id": "97f414df5df4ede1",
+      "track": "composition",
+      "predicted_plan": [
+        "profile_schema"
+      ],
+      "gold_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "0332382cd21f36fa",
+      "track": "single",
+      "predicted_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "gold_plan": [
+        "normalize_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "904beb112d64e850",
+      "track": "single",
+      "predicted_plan": [
+        "clip_outliers",
+        "correlate"
+      ],
+      "gold_plan": [
+        "describe_numeric"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    },
+    {
+      "task_id": "942199065c2f996d",
+      "track": "composition",
+      "predicted_plan": [
+        "describe_numeric"
+      ],
+      "gold_plan": [
+        "normalize_categories",
+        "count_categories"
+      ],
+      "decision": "execute",
+      "gold_decision": "execute",
+      "passed": false
+    }
+  ]
+}
