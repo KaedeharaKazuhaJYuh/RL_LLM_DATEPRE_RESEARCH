@@ -3,6 +3,7 @@ from pathlib import Path
 from research.benchmark_v3 import build
 from research.v3_baselines import evaluate
 from research.v3_runtime import run_plan
+from research.v3_recovery import evaluate as evaluate_recovery
 
 
 class V3BenchmarkTests(unittest.TestCase):
@@ -36,6 +37,14 @@ class V3BenchmarkTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             row = run_plan(task, oracle[task["task_id"]]["plan"], oracle[task["task_id"]], Path(d), recover=True, inject_error=True)
             self.assertTrue(row["passed"]); self.assertTrue(row["recovered"]); self.assertFalse(row["steps"][0]["passed"])
+
+    def test_real_data_frozen_recovery(self):
+        with tempfile.TemporaryDirectory() as d:
+            result=evaluate_recovery(str(Path(d)/"result.json"))
+            self.assertEqual(["abalone"],result["test_sources"])
+            self.assertFalse(result["updates_during_test"])
+            self.assertEqual(result["test_examples"],result["execution_passed"])
+            self.assertTrue(result["policy_sha256"])
 
 
 if __name__ == "__main__": unittest.main()
