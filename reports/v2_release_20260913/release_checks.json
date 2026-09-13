@@ -1,0 +1,158 @@
+{
+  "test_suite": "25 unittest tests passed",
+  "release_runs_verified": 30,
+  "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+  "checks": [
+    {
+      "file": "reports/v2_release_20260913/rule_seed1.jsonl",
+      "tasks": 72,
+      "passed": 72
+    },
+    {
+      "file": "reports/v2_release_20260913/rule_seed2.jsonl",
+      "tasks": 72,
+      "passed": 72
+    },
+    {
+      "file": "reports/v2_release_20260913/rule_seed3.jsonl",
+      "tasks": 72,
+      "passed": 72
+    },
+    {
+      "file": "reports/v2_release_20260913/rule_seed4.jsonl",
+      "tasks": 72,
+      "passed": 72
+    },
+    {
+      "file": "reports/v2_release_20260913/rule_seed5.jsonl",
+      "tasks": 72,
+      "passed": 72
+    },
+    {
+      "file": "reports/v2_release_20260913/supervised_seed1.jsonl",
+      "tasks": 72,
+      "passed": 72
+    },
+    {
+      "file": "reports/v2_release_20260913/supervised_seed2.jsonl",
+      "tasks": 72,
+      "passed": 72
+    },
+    {
+      "file": "reports/v2_release_20260913/supervised_seed3.jsonl",
+      "tasks": 72,
+      "passed": 72
+    },
+    {
+      "file": "reports/v2_release_20260913/supervised_seed4.jsonl",
+      "tasks": 72,
+      "passed": 72
+    },
+    {
+      "file": "reports/v2_release_20260913/supervised_seed5.jsonl",
+      "tasks": 72,
+      "passed": 72
+    },
+    {
+      "file": "reports/v2_release_20260913/bandit_seed1.jsonl",
+      "tasks": 72,
+      "passed": 72
+    },
+    {
+      "file": "reports/v2_release_20260913/bandit_seed2.jsonl",
+      "tasks": 72,
+      "passed": 72
+    },
+    {
+      "file": "reports/v2_release_20260913/bandit_seed3.jsonl",
+      "tasks": 72,
+      "passed": 72
+    },
+    {
+      "file": "reports/v2_release_20260913/bandit_seed4.jsonl",
+      "tasks": 72,
+      "passed": 72
+    },
+    {
+      "file": "reports/v2_release_20260913/bandit_seed5.jsonl",
+      "tasks": 72,
+      "passed": 72
+    },
+    {
+      "file": "reports/v2_release_20260913/random_seed1.jsonl",
+      "tasks": 72,
+      "passed": 6
+    },
+    {
+      "file": "reports/v2_release_20260913/random_seed2.jsonl",
+      "tasks": 72,
+      "passed": 4
+    },
+    {
+      "file": "reports/v2_release_20260913/random_seed3.jsonl",
+      "tasks": 72,
+      "passed": 4
+    },
+    {
+      "file": "reports/v2_release_20260913/random_seed4.jsonl",
+      "tasks": 72,
+      "passed": 4
+    },
+    {
+      "file": "reports/v2_release_20260913/random_seed5.jsonl",
+      "tasks": 72,
+      "passed": 8
+    },
+    {
+      "file": "reports/v2_release_20260913/majority_seed1.jsonl",
+      "tasks": 72,
+      "passed": 6
+    },
+    {
+      "file": "reports/v2_release_20260913/majority_seed2.jsonl",
+      "tasks": 72,
+      "passed": 6
+    },
+    {
+      "file": "reports/v2_release_20260913/majority_seed3.jsonl",
+      "tasks": 72,
+      "passed": 6
+    },
+    {
+      "file": "reports/v2_release_20260913/majority_seed4.jsonl",
+      "tasks": 72,
+      "passed": 6
+    },
+    {
+      "file": "reports/v2_release_20260913/majority_seed5.jsonl",
+      "tasks": 72,
+      "passed": 6
+    },
+    {
+      "file": "reports/v2_data_only_20260913/bandit_seed1.jsonl",
+      "tasks": 72,
+      "passed": 6
+    },
+    {
+      "file": "reports/v2_data_only_20260913/bandit_seed2.jsonl",
+      "tasks": 72,
+      "passed": 6
+    },
+    {
+      "file": "reports/v2_data_only_20260913/bandit_seed3.jsonl",
+      "tasks": 72,
+      "passed": 6
+    },
+    {
+      "file": "reports/v2_data_only_20260913/bandit_seed4.jsonl",
+      "tasks": 72,
+      "passed": 6
+    },
+    {
+      "file": "reports/v2_data_only_20260913/bandit_seed5.jsonl",
+      "tasks": 72,
+      "passed": 6
+    }
+  ],
+  "llm_live_run": false
+}

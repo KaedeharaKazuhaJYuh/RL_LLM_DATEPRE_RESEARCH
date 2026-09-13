@@ -1,0 +1,119 @@
+{
+  "v1_commit": "e59cbb5669f4d6e681fe51d38a60ab6d2cae6cb3",
+  "native_v1": {
+    "tasks": 50,
+    "rule_passed": 50,
+    "bandit_passed_per_seed": [
+      14,
+      16,
+      15,
+      14,
+      15
+    ],
+    "test_functions": [
+      {
+        "name": "test_bandit_returns_known_action",
+        "passed": true
+      },
+      {
+        "name": "test_contract_mask_uses_declared_capability_and_allowed_tools",
+        "passed": true
+      },
+      {
+        "name": "test_dataset_profile_observes_value_perturbation_without_schema_change",
+        "passed": false,
+        "error": "FileNotFoundError"
+      },
+      {
+        "name": "test_labeled_replicate_summary_keeps_explicit_order",
+        "passed": true
+      },
+      {
+        "name": "test_router_prioritizes_missingness",
+        "passed": true
+      },
+      {
+        "name": "test_value_variant_transforms_only_declared_numeric_fields",
+        "passed": true
+      },
+      {
+        "name": "test_verifier_accepts_valid_result",
+        "passed": true
+      },
+      {
+        "name": "test_wording_variant_preserves_evaluation_fields",
+        "passed": true
+      }
+    ]
+  },
+  "common": {
+    "tasks": 72,
+    "v1_passed": 15,
+    "v2_passed": 72,
+    "v1_mean_seconds": 0.000277193053787212,
+    "v2_mean_seconds": 0.001197009721686805,
+    "by_operation": {
+      "profile_schema": {
+        "tasks": 6,
+        "v1_passed": 6,
+        "v2_passed": 6
+      },
+      "profile_missingness": {
+        "tasks": 6,
+        "v1_passed": 6,
+        "v2_passed": 6
+      },
+      "count_categories": {
+        "tasks": 6,
+        "v1_passed": 3,
+        "v2_passed": 6
+      },
+      "deduplicate": {
+        "tasks": 6,
+        "v1_passed": 0,
+        "v2_passed": 6
+      },
+      "describe_numeric": {
+        "tasks": 6,
+        "v1_passed": 0,
+        "v2_passed": 6
+      },
+      "normalize_dates": {
+        "tasks": 6,
+        "v1_passed": 0,
+        "v2_passed": 6
+      },
+      "clip_outliers": {
+        "tasks": 6,
+        "v1_passed": 0,
+        "v2_passed": 6
+      },
+      "fill_missing": {
+        "tasks": 6,
+        "v1_passed": 0,
+        "v2_passed": 6
+      },
+      "normalize_categories": {
+        "tasks": 6,
+        "v1_passed": 0,
+        "v2_passed": 6
+      },
+      "aggregate": {
+        "tasks": 6,
+        "v1_passed": 0,
+        "v2_passed": 6
+      },
+      "correlate": {
+        "tasks": 6,
+        "v1_passed": 0,
+        "v2_passed": 6
+      },
+      "rolling_mean": {
+        "tasks": 6,
+        "v1_passed": 0,
+        "v2_passed": 6
+      }
+    }
+  },
+  "protocol": "72 held-out synthetic tasks, same CSV/prompt/one-call budget/oracle. v1 native runtime with original family IDs (privileged legacy information); only schema response shape normalized. Cleaning requires real artifact. No LLM calls. Measures system capability, not isolated policy learning."
+}

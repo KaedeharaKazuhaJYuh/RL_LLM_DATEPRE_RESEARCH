@@ -1,14 +1,11 @@
-seed: 42
-method: linucb
-alpha: 1.0
-feature_dim: 10
-actions: [profile_schema, profile_missingness, clean, aggregate, visualize, model, explain, retry, stop]
-budgets:
-  max_steps: 12
-  max_tool_calls: 8
-  max_seconds: 120
-reward:
-  correctness: 0.60
-  traceability: 0.20
-  efficiency: 0.20
-
+# Documentation only: CLI is the single configuration source.
+version: 2
+algorithm: disjoint_linucb
+alpha: 0.5
+feature_dim: 106
+epochs: 6
+train_split: train
+evaluation_split: test
+updates_during_evaluation: false
+semantic_mask: false
+reward: success_minus_0.05_per_normalized_tool_call

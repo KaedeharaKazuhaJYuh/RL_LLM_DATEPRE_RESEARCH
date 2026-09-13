@@ -1,0 +1,1105 @@
+{
+  "version": 2,
+  "runs": [
+    {
+      "file": "reports/v2_release_20260913/rule_seed1.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 72,
+        "pass_rate": 1.0,
+        "mean_score": 0.95,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.002419318053095291,
+        "run_metadata": {
+          "version": 2,
+          "mode": "rule",
+          "seed": 1,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 0,
+          "training_wall_seconds": 7.00005330145359e-07,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/rule_seed2.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 72,
+        "pass_rate": 1.0,
+        "mean_score": 0.95,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0013187916669671217,
+        "run_metadata": {
+          "version": 2,
+          "mode": "rule",
+          "seed": 2,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 0,
+          "training_wall_seconds": 5.00003807246685e-07,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/rule_seed3.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 72,
+        "pass_rate": 1.0,
+        "mean_score": 0.95,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0013519736134589443,
+        "run_metadata": {
+          "version": 2,
+          "mode": "rule",
+          "seed": 3,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 0,
+          "training_wall_seconds": 3.00002284348011e-07,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/rule_seed4.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 72,
+        "pass_rate": 1.0,
+        "mean_score": 0.95,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.00135914166619639,
+        "run_metadata": {
+          "version": 2,
+          "mode": "rule",
+          "seed": 4,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 0,
+          "training_wall_seconds": 3.00002284348011e-07,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/rule_seed5.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 72,
+        "pass_rate": 1.0,
+        "mean_score": 0.95,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0013469194463040265,
+        "run_metadata": {
+          "version": 2,
+          "mode": "rule",
+          "seed": 5,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 0,
+          "training_wall_seconds": 5.00003807246685e-07,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/supervised_seed1.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 72,
+        "pass_rate": 1.0,
+        "mean_score": 0.95,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0018767736093852566,
+        "run_metadata": {
+          "version": 2,
+          "mode": "supervised",
+          "seed": 1,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 216,
+          "training_wall_seconds": 0.041950999991968274,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/supervised_seed2.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 72,
+        "pass_rate": 1.0,
+        "mean_score": 0.95,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0017502999916258785,
+        "run_metadata": {
+          "version": 2,
+          "mode": "supervised",
+          "seed": 2,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 216,
+          "training_wall_seconds": 0.04172909999033436,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/supervised_seed3.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 72,
+        "pass_rate": 1.0,
+        "mean_score": 0.95,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.001479881944154234,
+        "run_metadata": {
+          "version": 2,
+          "mode": "supervised",
+          "seed": 3,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 216,
+          "training_wall_seconds": 0.03967730002477765,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/supervised_seed4.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 72,
+        "pass_rate": 1.0,
+        "mean_score": 0.95,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0014867208349945333,
+        "run_metadata": {
+          "version": 2,
+          "mode": "supervised",
+          "seed": 4,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 216,
+          "training_wall_seconds": 0.04275319998851046,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/supervised_seed5.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 72,
+        "pass_rate": 1.0,
+        "mean_score": 0.95,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0016122611098883983,
+        "run_metadata": {
+          "version": 2,
+          "mode": "supervised",
+          "seed": 5,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 216,
+          "training_wall_seconds": 0.043912400025874376,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/bandit_seed1.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 72,
+        "pass_rate": 1.0,
+        "mean_score": 0.95,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0015877444489483929,
+        "run_metadata": {
+          "version": 2,
+          "mode": "bandit",
+          "seed": 1,
+          "epochs": 6,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 1296,
+          "supervised_labels": 0,
+          "training_wall_seconds": 3.3392981000361033,
+          "train_log": "artifacts\\v2_release_20260913\\bandit_seed1\\train.jsonl"
+        },
+        "training_curve": [
+          {
+            "epoch": 1,
+            "tasks": 216,
+            "passed": 90,
+            "pass_rate": 0.4166666666666667,
+            "mean_score": 0.3958333333333333,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.002296881481015589
+          },
+          {
+            "epoch": 2,
+            "tasks": 216,
+            "passed": 204,
+            "pass_rate": 0.9444444444444444,
+            "mean_score": 0.8972222222222221,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0019792282403580394
+          },
+          {
+            "epoch": 3,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.001851455555879511
+          },
+          {
+            "epoch": 4,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0017256120387443203
+          },
+          {
+            "epoch": 5,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.001736963427834713
+          },
+          {
+            "epoch": 6,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0017055671333865677
+          }
+        ]
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/bandit_seed2.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 72,
+        "pass_rate": 1.0,
+        "mean_score": 0.95,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0017804472259336358,
+        "run_metadata": {
+          "version": 2,
+          "mode": "bandit",
+          "seed": 2,
+          "epochs": 6,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 1296,
+          "supervised_labels": 0,
+          "training_wall_seconds": 3.162545500032138,
+          "train_log": "artifacts\\v2_release_20260913\\bandit_seed2\\train.jsonl"
+        },
+        "training_curve": [
+          {
+            "epoch": 1,
+            "tasks": 216,
+            "passed": 104,
+            "pass_rate": 0.48148148148148145,
+            "mean_score": 0.4574074074074074,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.001810421297300814
+          },
+          {
+            "epoch": 2,
+            "tasks": 216,
+            "passed": 213,
+            "pass_rate": 0.9861111111111112,
+            "mean_score": 0.9368055555555556,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0016808138911814981
+          },
+          {
+            "epoch": 3,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0016538249980873876
+          },
+          {
+            "epoch": 4,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.001732810646461547
+          },
+          {
+            "epoch": 5,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0016841319445154146
+          },
+          {
+            "epoch": 6,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.001738775923580828
+          }
+        ]
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/bandit_seed3.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 72,
+        "pass_rate": 1.0,
+        "mean_score": 0.95,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0014881277731749127,
+        "run_metadata": {
+          "version": 2,
+          "mode": "bandit",
+          "seed": 3,
+          "epochs": 6,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 1296,
+          "supervised_labels": 0,
+          "training_wall_seconds": 3.1246032000053674,
+          "train_log": "artifacts\\v2_release_20260913\\bandit_seed3\\train.jsonl"
+        },
+        "training_curve": [
+          {
+            "epoch": 1,
+            "tasks": 216,
+            "passed": 111,
+            "pass_rate": 0.5138888888888888,
+            "mean_score": 0.48819444444444443,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0017586259270535299
+          },
+          {
+            "epoch": 2,
+            "tasks": 216,
+            "passed": 208,
+            "pass_rate": 0.9629629629629629,
+            "mean_score": 0.9148148148148147,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0016588601841552493
+          },
+          {
+            "epoch": 3,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.001765252777894838
+          },
+          {
+            "epoch": 4,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0017081657403010737
+          },
+          {
+            "epoch": 5,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0017504726824376525
+          },
+          {
+            "epoch": 6,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0016687143525578668
+          }
+        ]
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/bandit_seed4.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 72,
+        "pass_rate": 1.0,
+        "mean_score": 0.95,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.001531650005037793,
+        "run_metadata": {
+          "version": 2,
+          "mode": "bandit",
+          "seed": 4,
+          "epochs": 6,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 1296,
+          "supervised_labels": 0,
+          "training_wall_seconds": 3.203862299968023,
+          "train_log": "artifacts\\v2_release_20260913\\bandit_seed4\\train.jsonl"
+        },
+        "training_curve": [
+          {
+            "epoch": 1,
+            "tasks": 216,
+            "passed": 75,
+            "pass_rate": 0.3472222222222222,
+            "mean_score": 0.3298611111111111,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0016411907447575315
+          },
+          {
+            "epoch": 2,
+            "tasks": 216,
+            "passed": 213,
+            "pass_rate": 0.9861111111111112,
+            "mean_score": 0.9368055555555556,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0017418078709010001
+          },
+          {
+            "epoch": 3,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0019200453691020677
+          },
+          {
+            "epoch": 4,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0018191680568701554
+          },
+          {
+            "epoch": 5,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.001785706942933353
+          },
+          {
+            "epoch": 6,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0016721324071921925
+          }
+        ]
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/bandit_seed5.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 72,
+        "pass_rate": 1.0,
+        "mean_score": 0.95,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0019675652794022527,
+        "run_metadata": {
+          "version": 2,
+          "mode": "bandit",
+          "seed": 5,
+          "epochs": 6,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 1296,
+          "supervised_labels": 0,
+          "training_wall_seconds": 3.250304999994114,
+          "train_log": "artifacts\\v2_release_20260913\\bandit_seed5\\train.jsonl"
+        },
+        "training_curve": [
+          {
+            "epoch": 1,
+            "tasks": 216,
+            "passed": 98,
+            "pass_rate": 0.4537037037037037,
+            "mean_score": 0.4310185185185185,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0016499268531333655
+          },
+          {
+            "epoch": 2,
+            "tasks": 216,
+            "passed": 208,
+            "pass_rate": 0.9629629629629629,
+            "mean_score": 0.9148148148148147,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0016393013876815396
+          },
+          {
+            "epoch": 3,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0017565152765773408
+          },
+          {
+            "epoch": 4,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0018868902738581204
+          },
+          {
+            "epoch": 5,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0017803000012429915
+          },
+          {
+            "epoch": 6,
+            "tasks": 216,
+            "passed": 216,
+            "pass_rate": 1.0,
+            "mean_score": 0.95,
+            "mean_tool_calls": 1,
+            "mean_wall_seconds": 0.0017934574077824233
+          }
+        ]
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/random_seed1.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 6,
+        "pass_rate": 0.08333333333333333,
+        "mean_score": 0.07916666666666666,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0015271458275189314,
+        "run_metadata": {
+          "version": 2,
+          "mode": "random",
+          "seed": 1,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 0,
+          "training_wall_seconds": 5.00003807246685e-07,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/random_seed2.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 4,
+        "pass_rate": 0.05555555555555555,
+        "mean_score": 0.05277777777777778,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.001608330550273725,
+        "run_metadata": {
+          "version": 2,
+          "mode": "random",
+          "seed": 2,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 0,
+          "training_wall_seconds": 4.00003045797348e-07,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/random_seed3.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 4,
+        "pass_rate": 0.05555555555555555,
+        "mean_score": 0.05277777777777778,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0014403249992432797,
+        "run_metadata": {
+          "version": 2,
+          "mode": "random",
+          "seed": 3,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 0,
+          "training_wall_seconds": 4.00003045797348e-07,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/random_seed4.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 4,
+        "pass_rate": 0.05555555555555555,
+        "mean_score": 0.05277777777777778,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0014078944441280328,
+        "run_metadata": {
+          "version": 2,
+          "mode": "random",
+          "seed": 4,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 0,
+          "training_wall_seconds": 7.00005330145359e-07,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/random_seed5.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 8,
+        "pass_rate": 0.1111111111111111,
+        "mean_score": 0.10555555555555556,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.001131030556280166,
+        "run_metadata": {
+          "version": 2,
+          "mode": "random",
+          "seed": 5,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 0,
+          "training_wall_seconds": 5.00003807246685e-07,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/majority_seed1.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 6,
+        "pass_rate": 0.08333333333333333,
+        "mean_score": 0.07916666666666666,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0005919944451306947,
+        "run_metadata": {
+          "version": 2,
+          "mode": "majority",
+          "seed": 1,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 0,
+          "training_wall_seconds": 4.00003045797348e-07,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/majority_seed2.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 6,
+        "pass_rate": 0.08333333333333333,
+        "mean_score": 0.07916666666666666,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0005960625009417223,
+        "run_metadata": {
+          "version": 2,
+          "mode": "majority",
+          "seed": 2,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 0,
+          "training_wall_seconds": 4.00003045797348e-07,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/majority_seed3.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 6,
+        "pass_rate": 0.08333333333333333,
+        "mean_score": 0.07916666666666666,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0005470652767043146,
+        "run_metadata": {
+          "version": 2,
+          "mode": "majority",
+          "seed": 3,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 0,
+          "training_wall_seconds": 3.9994483813643456e-07,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/majority_seed4.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 6,
+        "pass_rate": 0.08333333333333333,
+        "mean_score": 0.07916666666666666,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0005842013868257507,
+        "run_metadata": {
+          "version": 2,
+          "mode": "majority",
+          "seed": 4,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 0,
+          "training_wall_seconds": 3.00002284348011e-07,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    },
+    {
+      "file": "reports/v2_release_20260913/majority_seed5.jsonl",
+      "summary": {
+        "tasks": 72,
+        "passed": 6,
+        "pass_rate": 0.08333333333333333,
+        "mean_score": 0.07916666666666666,
+        "mean_tool_calls": 1,
+        "mean_wall_seconds": 0.0005143416670358016,
+        "run_metadata": {
+          "version": 2,
+          "mode": "majority",
+          "seed": 5,
+          "epochs": 0,
+          "data_only": false,
+          "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+          "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+          "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+          "numpy": "2.3.5",
+          "python": "3.12.14",
+          "model": null,
+          "temperature": null,
+          "evaluation_split": "test",
+          "updates_during_evaluation": false,
+          "contract_mask": false,
+          "training_interactions": 0,
+          "supervised_labels": 0,
+          "training_wall_seconds": 3.00002284348011e-07,
+          "train_log": null
+        },
+        "training_curve": []
+      }
+    }
+  ]
+}

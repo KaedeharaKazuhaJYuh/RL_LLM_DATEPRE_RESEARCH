@@ -1,61 +1,97 @@
-import csv
+"""Parameterized operations: task IDs and private oracle are never used."""
+import math, statistics
+from collections import Counter,defaultdict
+from datetime import datetime
 from pathlib import Path
-
-def load_table(uri):
-    with Path(uri).open(newline="", encoding="utf-8") as f:
-        rows=list(csv.DictReader(f))
-    return {"rows": len(rows), "columns": list(rows[0]) if rows else [], "sample": rows[:3]}
-
-def aggregate_by_month(uri, value_column=None):
-    with Path(uri).open(newline="", encoding="utf-8") as f: rows=list(csv.DictReader(f))
-    value_column=value_column or ("revenue" if rows and "revenue" in rows[0] else "monthly_fee")
-    totals={}
-    for row in rows:
-        totals[row["month"]]=totals.get(row["month"],0.0)+float(row[value_column])
-    return {"value_column":value_column,"totals":totals}
-
-def profile_missingness(uri):
-    with Path(uri).open(newline="", encoding="utf-8") as f: rows=list(csv.DictReader(f))
-    cols=list(rows[0]) if rows else []
-    return {c: sum(1 for r in rows if r.get(c) in (None, ""))/max(len(rows),1) for c in cols}
-
-def count_categories(uri, column="category"):
-    with Path(uri).open(newline="", encoding="utf-8") as f: rows=list(csv.DictReader(f))
-    out={}
-    for r in rows:
-        if column in r: out[r[column]]=out.get(r[column],0)+1
-    return out
-
-def deduplicate(uri):
-    with Path(uri).open(newline="", encoding="utf-8") as f: rows=list(csv.DictReader(f))
-    unique={tuple(sorted(r.items())) for r in rows}
-    return {"rows_before":len(rows),"rows_after":len(unique),"removed":len(rows)-len(unique)}
-
-def describe_numeric(uri, column="revenue"):
-    with Path(uri).open(newline="", encoding="utf-8") as f: rows=list(csv.DictReader(f))
-    values=[float(r[column]) for r in rows if column in r]
-    return {"count":len(values),"min":min(values),"max":max(values),"mean":sum(values)/len(values)}
-
-def cleaning_audit(uri, operation):
-    with Path(uri).open(newline="", encoding="utf-8") as f: rows=list(csv.DictReader(f))
-    if operation == "date": return {"rows":len(rows),"date_columns":["month"],"invalid_dates":0}
-    if operation == "outlier": return {"rows":len(rows),"numeric_columns":["revenue"],"outliers_detected":0,"rows_changed":0}
-    if operation == "missing": return {"rows":len(rows),"missing_cells_before":0,"missing_cells_after":0,"filled_cells":0}
-    if operation == "category": return {"rows":len(rows),"category_columns":["category"],"values_changed":0}
-    raise ValueError(operation)
-
-def execute_tool(name, args):
-    if name == "load_table": return load_table(args["uri"])
-    if name == "aggregate": return aggregate_by_month(args["uri"])
-    if name == "profile_missingness": return profile_missingness(args["uri"])
-    if name == "count_categories": return count_categories(args["uri"], args.get("column", "category"))
-    if name == "deduplicate": return deduplicate(args["uri"])
-    if name == "describe_numeric": return describe_numeric(args["uri"], args.get("column", "revenue"))
-    if name in {"normalize_dates","clip_outliers","fill_missing","normalize_categories"}:
-        op={"normalize_dates":"date","clip_outliers":"outlier","fill_missing":"missing","normalize_categories":"category"}[name]
-        return cleaning_audit(args["uri"], op)
-    if name == "task_analysis":
-        from .analysis import analyze_task
-        return analyze_task(args["uri"], args["task_id"], args.get("prompt", ""))
-    raise ValueError(f"Unknown tool: {name}")
-
+from research.io import ROOT,read_table,write_table,digest,resolve
+DESCRIPTIONS={
+"profile_schema":"Return columns and row count.",
+"profile_missingness":"Missing fraction per column; empty strings are missing.",
+"count_categories":"Count exact values in column.",
+"deduplicate":"Remove identical rows and save resulting table.",
+"describe_numeric":"Count/min/max/mean of nonempty column values.",
+"normalize_dates":"Normalize YYYY-MM, YYYY-MM-DD, YYYY/MM/DD to YYYY-MM-DD; invalid to empty.",
+"clip_outliers":"Clip numeric column to explicit lower/upper; save table.",
+"fill_missing":"Fill empty numeric cells with column median; save table.",
+"normalize_categories":"Strip whitespace and uppercase column; save table.",
+"aggregate":"Sum column grouped by group_by; ignore empty numeric values.",
+"correlate":"Pearson correlation on complete pairs: column, other_column.",
+"rolling_mean":"Rolling mean of column in row order; full windows only."}
+ACTIONS=list(DESCRIPTIONS)
+MUTATING={"deduplicate","normalize_dates","clip_outliers","fill_missing","normalize_categories"}
+REQUIRED={a:("column",) for a in ACTIONS}
+REQUIRED.update(profile_schema=(),profile_missingness=(),deduplicate=(),aggregate=("column","group_by"),correlate=("column","other_column"))
+def number(v):
+    v=float(v)
+    if not math.isfinite(v):raise ValueError("non-finite numeric value")
+    return v
+def execute_tool(name,args):
+    if name=="load_table":name="profile_schema"
+    if name not in ACTIONS:raise ValueError("unsupported tool: "+name)
+    cols,rows=read_table(args["uri"]);p=dict(args.get("params",{}));c=p.get("column")
+    for key in REQUIRED[name]:
+        if p.get(key) not in cols:raise ValueError("unknown/missing "+key)
+    changed=[dict(r) for r in rows]
+    if name=="profile_schema":ans={"columns":cols,"rows":len(rows)}
+    elif name=="profile_missingness":ans={c:sum(r[c]=="" for r in rows)/max(1,len(rows)) for c in cols}
+    elif name=="count_categories":ans=dict(Counter(r[c] for r in rows))
+    elif name=="deduplicate":
+        seen=set();changed=[]
+        for r in rows:
+            k=tuple(r[c] for c in cols)
+            if k not in seen:seen.add(k);changed.append(dict(r))
+        ans={"rows_before":len(rows),"rows_after":len(changed),"removed":len(rows)-len(changed)}
+    elif name=="describe_numeric":
+        v=[number(r[c]) for r in rows if r[c]!=""]
+        if not v:raise ValueError("no numeric values")
+        ans={"count":len(v),"min":min(v),"max":max(v),"mean":statistics.mean(v)}
+    elif name=="normalize_dates":
+        bad=count=0
+        for r in changed:
+            value=r[c];normalized=""
+            for fmt in ("%Y-%m-%d","%Y/%m/%d","%Y-%m"):
+                try:normalized=datetime.strptime(value,fmt).strftime("%Y-%m-%d");break
+                except ValueError:pass
+            bad+=bool(value and not normalized);count+=value!=normalized;r[c]=normalized
+        ans={"rows":len(rows),"date_columns":[c],"invalid_dates":bad,"rows_changed":count}
+    elif name=="clip_outliers":
+        lo,hi=number(p["lower"]),number(p["upper"])
+        if lo>hi:raise ValueError("lower exceeds upper")
+        count=0
+        for r in changed:
+            if r[c]=="":continue
+            v=number(r[c]);out=min(hi,max(lo,v));count+=v!=out;r[c]=str(out)
+        ans={"rows":len(rows),"numeric_columns":[c],"outliers_detected":count,"rows_changed":count}
+    elif name=="fill_missing":
+        v=[number(r[c]) for r in rows if r[c]!=""]
+        if not v:raise ValueError("all values missing")
+        median=statistics.median(v);count=0
+        for r in changed:
+            if r[c]=="":r[c]=str(median);count+=1
+        ans={"rows":len(rows),"missing_cells_before":count,"missing_cells_after":0,"filled_cells":count}
+    elif name=="normalize_categories":
+        count=0
+        for r in changed:
+            v=r[c].strip().upper();count+=v!=r[c];r[c]=v
+        ans={"rows":len(rows),"category_columns":[c],"values_changed":count}
+    elif name=="aggregate":
+        totals=defaultdict(float)
+        for r in rows:
+            if r[c]!="":totals[r[p["group_by"]]]+=number(r[c])
+        ans=dict(totals)
+    elif name=="correlate":
+        pairs=[(number(r[c]),number(r[p["other_column"]])) for r in rows if r[c]!="" and r[p["other_column"]]!=""]
+        if len(pairs)<2:raise ValueError("too few pairs")
+        x,y=zip(*pairs);ans={"correlation":statistics.correlation(x,y),"pairs":len(pairs)}
+    else:
+        w=p.get("window",3)
+        if not isinstance(w,int) or w<1:raise ValueError("invalid window")
+        v=[number(r[c]) for r in rows]
+        ans={"values":[statistics.mean(v[i-w+1:i+1]) for i in range(w-1,len(v))]}
+    result={"answer":ans,"evidence":{"input_sha256":digest(resolve(args["uri"])),"rows_read":len(rows)}}
+    if name in MUTATING:
+        if not args.get("artifact_dir"):raise ValueError("artifact_dir required")
+        target=Path(args["artifact_dir"])/"table.csv";write_table(target,cols,changed)
+        path=target.resolve();stored=path.relative_to(ROOT).as_posix() if path.is_relative_to(ROOT) else str(path)
+        result["artifact"]={"path":stored,"sha256":digest(target),"columns":cols,"rows":changed}
+    return result

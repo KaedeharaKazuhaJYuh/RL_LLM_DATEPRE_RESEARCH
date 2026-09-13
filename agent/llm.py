@@ -1,33 +1,19 @@
-import json, os
-
-def parse_json_object(text):
-    try: return json.loads(text)
-    except json.JSONDecodeError:
-        start=text.find("{")
-        while start >= 0:
-            try: return json.JSONDecoder().raw_decode(text[start:])[0]
-            except json.JSONDecodeError: start=text.find("{", start+1)
-        raise ValueError("LLM did not return a JSON object")
-
+"""Optional DeepSeek-compatible policy; no API calls during local test matrices."""
+import json,os,urllib.request
+from agent.tools import DESCRIPTIONS
 class LLMClient:
-    """OpenAI-compatible adapter for DeepSeek by default, with OpenAI fallback."""
-    def __init__(self, model=None, provider=None, temperature=None):
-        self.provider=provider or os.getenv("LLM_PROVIDER", "deepseek")
-        prefix="DEEPSEEK" if self.provider == "deepseek" else "OPENAI"
-        self.model=model or os.getenv(f"{prefix}_MODEL", "deepseek-chat" if prefix == "DEEPSEEK" else "gpt-5")
-        self.temperature=float(temperature if temperature is not None else os.getenv("LLM_TEMPERATURE", "1.0"))
-        key=os.getenv(f"{prefix}_API_KEY")
-        if not key: raise RuntimeError(f"{prefix}_API_KEY is not set")
-        from openai import OpenAI
-        kwargs={"api_key":key}
-        if self.provider == "deepseek": kwargs["base_url"]="https://api.deepseek.com"
-        kwargs.update({"timeout": 30.0, "max_retries": 1})
-        self.client=OpenAI(**kwargs)
-
-    def choose_action(self, task, state, actions):
-        payload={"task":task["prompt"],"state":state.__dict__,"allowed_actions":actions}
-        response=self.client.chat.completions.create(model=self.model, messages=[
-            {"role":"system","content":"Choose exactly one allowed action for a data-analysis agent. The state contains a read-only dataset profile and prior observations. Return JSON with keys action and rationale."},
-            {"role":"user","content":json.dumps(payload, ensure_ascii=False)}], response_format={"type":"json_object"}, temperature=self.temperature)
-        return parse_json_object(response.choices[0].message.content)
-
+    def __init__(self):
+        self.model=os.getenv('DEEPSEEK_MODEL','deepseek-chat')
+        self.key=os.getenv('DEEPSEEK_API_KEY')
+        if not self.key:raise RuntimeError('DEEPSEEK_API_KEY is not configured; local rule/bandit modes need no key')
+        self.temperature=float(os.getenv('LLM_TEMPERATURE','0'))
+        self.last_usage={};self.last_response_id=None
+    def choose(self,task,state,allowed):
+        public={'prompt':task['prompt'],'parameters':task['params'],'state':state,'tools':{a:DESCRIPTIONS[a] for a in allowed}}
+        body={'model':self.model,'temperature':self.temperature,'response_format':{'type':'json_object'},'messages':[{'role':'system','content':'Select exactly one allowed tool for the task. Return JSON with action and a short rationale. Parameters are supplied by the task. Never invent results.'},{'role':'user','content':json.dumps(public,ensure_ascii=False)}]}
+        request=urllib.request.Request('https://api.deepseek.com/chat/completions',data=json.dumps(body).encode(),headers={'Authorization':'Bearer '+self.key,'Content-Type':'application/json'},method='POST')
+        with urllib.request.urlopen(request,timeout=max(.1,min(30,task['constraints']['max_seconds']))) as response:data=json.load(response)
+        self.last_usage=data.get('usage',{});self.last_response_id=data.get('id')
+        choice=json.loads(data['choices'][0]['message']['content'])
+        if not isinstance(choice,dict) or choice.get('action') not in allowed:raise ValueError('model returned invalid action')
+        return choice

@@ -1,187 +1,42 @@
-# RL + LLM Data Analysis Agent
+# RL + LLM Data Analysis Agent — V2
 
-这是我的一个可复现研究项目。我希望研究：强化学习能否利用可验证的数据分析反馈，让 LLM Agent 更准确地选择工具、调整分析计划、处理错误，并减少不必要的工具调用。
+V2 是独立验证的单步数据分析路由实验。修复了原版的任务编号捷径、占位清洗、同源参考计算、数据包损坏、奖励与合法性不一致以及不完整日志。
 
-## 我在研究什么
+## 已实现
 
-我把数据分析 Agent 看成一个连续决策系统：Agent 读取任务和数据状态，选择下一步工具，获得数据观察结果，再根据 Verifier 的反馈继续行动或停止。我的核心研究问题是：
+12 种真实参数化操作：schema、缺失率、类别计数、去重、描述统计、日期规范化、阈值截断、中位数填补、类别规范化、分组求和、相关系数、移动平均。清洗会输出实际 CSV，独立验证器读取产物检查。
 
-> 当数据分析结果可以被程序化验证时，Verifier 反馈能否训练出比固定规则更好的工具选择策略？
+360 个合成任务实例，按表划分 216/72/72 训练、验证、测试。规则、监督岭分类器、LinUCB 和随机/固定基线共享工具及公开任务；测试时模型冻结。数据实例留出不等于未见模板或真实数据泛化。
 
-我先用小型 CSV 数据集和 50 个可复现实验任务建立可靠基线，再逐步引入 Contextual Bandit、Offline RL 和参数高效的 LLM 训练。这样可以先验证“学习式决策是否有效”，再扩大模型和训练规模。
+## 本地运行
 
-## 项目假设
+需要 Python 3.11+（本次验证 3.12.14）及 NumPy 2.3.5。运行不要求 GPU、pytest 或 API 密钥。
 
-- 规则路由可以提供稳定、低成本的初始基线。
-- LLM 可以完成开放式任务理解，但容易选择不匹配的工具。
-- 任务合同、动作约束和 Verifier 可以降低无效行动，并让奖励信号可计算。
-- 当任务状态、动作和奖励定义足够稳定时，Contextual Bandit 有机会学习到比静态规则更好的策略。
-
-## 系统架构
-
-```text
-任务 + 数据集
-      │
-      ▼
-状态提取 ──► 策略层：Rule Router / LLM / Contextual Bandit
-      │                                      │
-      │                                      ▼
-      └──────────────────────────────► 工具白名单
-                                             │
-                                             ▼
-                                      Observation / Trace
-                                             │
-                                             ▼
-                                  Verifier：正确性、证据、合同、成本
-                                             │
-                                             ▼
-                                  Reward ──► Bandit 更新 / 轨迹记录
+```sh
+python -m pip install numpy==2.3.5
+python -m unittest discover -s tests -v
+python -m scripts.run_matrix --out-dir reports/my_run --epochs 6
+python -m research.compare_v1 --v1-root ../v1 --out-dir reports/my_comparison
 ```
 
-我把策略层、工具层和验证层分开，因此可以在相同任务、数据和预算下公平比较不同方法：
+可选真实 DeepSeek：配置 `DEEPSEEK_API_KEY`、可选 `DEEPSEEK_MODEL` 后运行 `python -m experiments.run --mode llm --out reports/my_llm.jsonl`。本次仅验证模拟客户端，没有执行真实 API 请求。不要提交密钥。
 
-- Rule Router：根据任务特征和关键词选择确定性工具。
-- LLM Agent：让 DeepSeek 等 OpenAI-compatible 模型从动作白名单中选择工具。
-- Contextual Bandit：使用 LinUCB 根据状态特征选择动作，并用 Verifier 分数更新参数。
-- 后续 Offline RL：使用已经记录的状态、动作、观察和奖励训练更长程的策略。
+## 结果
 
-当前运行器会在选择第一步工具前提取一个只读数据状态：行数、缺失率、字段类型计数、时间/目标字段标记，以及数值规模与离散度等聚合特征。它不暴露行级数据，也不计入工具调用预算；由于这会给策略增加环境信息，我会把使用该状态的结果单独标注为 data-aware 条件。
+[V1/V2 实验报告](reports/V2_COMPARISON.md)记录具体协议与限制。共同 72 题 V1 15/72，V2 Rule 72/72；V2 Rule、监督和 Bandit 在五次冻结测试中都是 72/72。仅数据特征的 Bandit 是 6/72。结果说明已修复基础能力与任务状态，但尚未证明 RL 优于规则。
 
-## 50 个实验任务
+## 架构
 
-我设计了 50 个任务，并按能力分成十组：
-
-| 能力组 | 任务 | 主要验证内容 |
-|---|---:|---|
-| 数据读取与概览 | T01–T05 | 字段、行列数、缺失率、类别频数、重复行 |
-| 数据清洗 | T06–T10 | 去重、日期、异常值、缺失值、类别拼写 |
-| 聚合分析 | T11–T15 | 月度汇总、分组均值、Top-K、占比、透视 |
-| 统计分析 | T16–T20 | 描述统计、置信区间、相关性、A/B 差异、异常影响 |
-| 时间序列 | T21–T25 | 趋势、环比、移动平均、峰值和简单预测 |
-| 可视化 | T26–T30 | 图表选择、分布、趋势、分组比较和异常标注 |
-| 特征工程 | T31–T35 | 日期特征、比率、标准化、编码和泄漏检查 |
-| 建模 | T36–T40 | 回归、分类、树模型、交叉验证和基线比较 |
-| 解释与决策 | T41–T45 | 特征解释、业务建议、成本收益和报告生成 |
-| 鲁棒性与恢复 | T46–T50 | 列名变化、文件缺失、重试、复核和预算限制 |
-
-任务定义位于 `tasks/tasks.jsonl`，参考输出位于 `tasks/reference_outputs.json`。参考答案只用于独立验证，不应该被 Agent 直接看到。
-
-## Verifier 与奖励
-
-我使用程序化 Verifier 检查四类内容：
-
-1. 输出结构是否完整，是否真的产生了答案和证据。
-2. 数值或结构化结果是否符合 `gold.expected` 或参考输出。
-3. 工具调用是否属于任务允许的白名单，是否超过预算。
-4. 对 T12–T50，分析操作和必需字段是否符合任务合同。
-
-当前奖励由正确性、证据和成本组成。每个任务结束后，Bandit 使用 Verifier 分数更新；所有轨迹会保存为 JSONL，方便之后进行错误分析和 Offline RL。
-
-## 运行方式
-
-安装依赖后，我可以运行规则基线：
-
-```powershell
-python -m pip install -e .
-python -m experiments.run --mode rule --out reports/rule_results.jsonl
-```
-
-运行 Contextual Bandit：
-
-```powershell
-python -m experiments.run --mode bandit --seed 7 --no-contract-protection --out reports/bandit_seed7.jsonl
-```
-
-运行 DeepSeek：
-
-```powershell
-$env:LLM_PROVIDER="deepseek"
-$env:DEEPSEEK_MODEL="deepseek-chat"
-$env:DEEPSEEK_API_KEY="粘贴你的 DeepSeek API Key"
-python -m experiments.run --mode llm --limit 50 --out reports/deepseek_results.jsonl
-```
-
-为了研究通用任务合同约束的作用，我可以让 Agent 从任务声明的操作族标签和 `allowed_tools` 自动得到候选动作。例如，概览类任务只开放概览工具，清洗类任务只开放清洗工具；Agent 仍需要在候选工具中做出选择。
-
-```powershell
-python -m experiments.run --mode llm --limit 50 --contract-action-mask --out reports/deepseek_contract.jsonl
-```
-
-我也提供了一个不改变答案的任务措辞扰动集。它只改写指令表达，保留数据、任务合同、预算和独立答案，因此可以直接用于比较路由对自然语言表述的敏感性：
-
-```powershell
-python -m scripts.make_task_variants
-python -m experiments.run --mode rule --tasks tasks/variants/wording_v1.jsonl --out reports/rule_wording_v1.jsonl
-```
-
-在这个变体上运行 LLM 时，我会同时报告 raw 与合同约束条件；两者使用相同的变体文件，避免把数据或答案变化混入比较。
-
-我也提供了 `value_v1` 数值扰动包。它会同时生成变换后的 CSV、50 个对齐任务、11 个基础 gold 答案和 39 个分析参考输出；数值变化后不能继续使用原始答案文件。
-
-```powershell
-python -m scripts.make_value_variant
-python -m experiments.run --mode rule --tasks tasks/variants/value_v1/tasks.jsonl --gold tasks/variants/value_v1/gold_answers.json --references tasks/variants/value_v1/reference_outputs.json --out reports/rule_value_v1.jsonl
-```
-
-在 value_v1 上运行任一策略时，我都会同时传入这三个对齐文件。
-
-我不会把 API Key 写入代码、任务文件或 GitHub。多 seed 实验可以使用：
-
-```powershell
-python -m scripts.run_matrix --seeds 1,2,3,4,5 --methods rule,bandit
-```
-
-我可以分别运行 DeepSeek 的 raw 和合同约束条件。由于当前 DeepSeek Chat Completions 接口未提供请求级随机 seed，这里的 5 个编号代表独立重复调用；运行器会记录模型和温度配置。
-
-```powershell
-python -m scripts.run_matrix --seeds 1,2,3,4,5 --methods llm --raw-llm --suffix _raw
-python -m scripts.run_matrix --seeds 1,2,3,4,5 --methods llm --contract-action-mask --suffix _contract
-```
-
-运行完成后，我可以按重复调用汇总均值和标准差：
-
-```powershell
-$raw = Get-ChildItem reports/matrix/llm_seed*_raw.jsonl | Select-Object -ExpandProperty FullName
-python -m scripts.aggregate_seeds $raw --out reports/llm_raw_seed_summary.json
-```
-
-结果汇总：
-
-```powershell
-python -m experiments.aggregate reports/rule_results.jsonl reports/bandit_seed7.jsonl --out reports/summary.json
-```
-
-## 项目结构
-
-```text
-.
-├─ agent/                 # 状态、策略、Bandit、工具和 LLM 适配器
-├─ configs/               # 实验配置
-├─ data/                  # 可复现实验数据
-├─ tasks/                 # 50 个任务、schema、gold 和参考输出
-├─ verifier/              # 结果、合同、合法性和成本验证
-├─ experiments/           # 单轮运行、矩阵运行和结果汇总
-├─ reports/               # 实验结果、失败分析和报告
-├─ scripts/               # 任务生成和批量运行脚本
-├─ tests/                 # 核心单元测试
-├─ CHANGELOG.md           # 项目变更记录
-└─ pyproject.toml         # Python 项目配置
-```
-
-## 我的研究路线
-
-我计划按以下顺序推进：
-
-1. 固定任务、数据、Verifier 和预算，建立 Rule Router 与 LLM 基线。
-2. 分析 LLM 的错误工具选择，并比较 raw、任务合同约束和 Contextual Bandit 条件。
-3. 在相同任务上训练和评估 Contextual Bandit，报告多 seed 均值和标准差。
-4. 对任务措辞和数据条件做受控扰动，检查策略是否只依赖固定表述或固定任务集。
-5. 积累高质量轨迹，进入 Offline RL，学习多步计划和错误恢复。
-6. 在资源允许时，再研究 LoRA、GRPO/PPO 和更大规模的数据分析 Agent。
-
-我会把实验数字和失败分析放在 `reports/`，把过程变更放在 `CHANGELOG.md`，而不是把运行记录混入项目介绍页。
+- `research/benchmark.py`：任务、数据、清单生成；历史 CSV 修复。
+- `research/oracle.py`：独立参考计算，不调用被测工具。
+- `agent/tools.py`：真实计算、参数校验、清洗产物。
+- `research/features.py` / `policies.py`：具名数据 profile、文本哈希特征、策略。
+- `research/runtime.py`：合法性、预算、完整单步轨迹。
+- `verifier/score.py`：答案、证据、产物和资源一致性检查。
+- `experiments/run.py`：训练/冻结测试、模型保存、版本哈希。
 
 ## 研究边界
 
-当前项目是一个研究原型，不是面向生产环境的通用数据分析平台。现阶段数据集较小，工具集合有限，Bandit 仍需要更多任务重复和更丰富的状态特征。我的目标是先保证问题定义、Verifier、实验条件和结果记录足够清楚，再逐步扩大规模。
+任务参数由公开规格提供，尚未训练列名/参数生成。当前不是多步 RL；没有实现旧 T12–T50 文本所宣称的全部建模、绘图、决策与恢复能力。旧 `tasks/tasks.jsonl` 与早期 reports 保留作历史证据，正式 v2 CLI 明确拒绝旧 schema；不得把旧 98%/100% 当作当前真实分析能力。
 
+本地工具在执行前后检查墙钟预算，超时结果失败；不提供 OS 级抢占沙箱。训练与产物在 `artifacts/`，实验日志在显式 manifest 列出的 reports 路径；禁止用宽泛通配符混合版本。新实验会拒绝覆盖同名输出。
