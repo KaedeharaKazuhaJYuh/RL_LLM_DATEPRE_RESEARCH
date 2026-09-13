@@ -21,6 +21,15 @@ SINGLE = [
     ("rolling_mean", "计算三期移动平均", "Smooth {metric} over a trailing window of three complete observations."),
 ]
 
+SINGLE_ZH_TEST = [
+    "不要改文件，只说明表有多少行、哪些列以及各列类型", "逐列审计空白单元格占比，并指出最严重的字段",
+    "给出{category}中每个取值出现的次数", "相同观测只留一份，并保存处理后的数据",
+    "概括{value}的样本数、均值、极值和离散程度", "把{date}转换成机器可读日期，无法解析的保留为空",
+    "将{value}限制在给定最小值和最大值内", "用稳健的中心位置补齐{value}中的数值空缺",
+    "忽略大小写和首尾空格，统一{category}的标签", "按照{date}计算{value}的分期合计",
+    "衡量{value}与{metric}的线性联系", "用三个完整观测组成的尾随窗口平滑{metric}",
+]
+
 COMPOSITIONS = [
     (("deduplicate", "profile_missingness"), "先删除重复记录，再检查各列缺失情况", "Remove repeated observations before auditing null rates."),
     (("fill_missing", "describe_numeric"), "填补金额空值后再汇总描述统计", "Repair numeric gaps in {value}, then summarize its distribution."),
@@ -28,6 +37,15 @@ COMPOSITIONS = [
     (("normalize_dates", "aggregate"), "清理日期后按期汇总金额", "Parse {date} first, then total {value} by the cleaned period."),
     (("clip_outliers", "correlate"), "截断金额异常值后计算相关性", "Cap extreme {value} values before measuring association with {metric}."),
     (("deduplicate", "rolling_mean"), "去重后计算三期移动平均", "Drop identical rows, then smooth {metric} using three complete observations."),
+]
+
+NOVEL_COMPOSITIONS = [
+    (("deduplicate", "count_categories"), "先删除重复行，再统计{category}频数"),
+    (("fill_missing", "correlate"), "先填补{value}空值，再计算它与{metric}的相关系数"),
+    (("normalize_dates", "rolling_mean"), "先统一{date}的日期格式，再计算{metric}的移动平均"),
+    (("normalize_categories", "aggregate"), "先清理{category}的类别拼写，再按{date}汇总{value}总额"),
+    (("clip_outliers", "describe_numeric"), "先处理{value}异常值，再报告基本统计量"),
+    (("deduplicate", "profile_schema"), "先去掉重复行，再报告字段和行列数"),
 ]
 
 CLARIFY = [
@@ -69,17 +87,31 @@ def build(out_dir=None, sources=24):
         for i, (action, train_text, test_text) in enumerate(SINGLE):
             prompt = _render(train_text if split == "train" else test_text, names)
             tid = _task_id(source, "single", i)
-            tasks.append(_public(tid, source, split, "single", prompt, uri, columns, names))
+            tasks.append(_public(tid, source, split, "single", prompt, uri, columns, names,
+                                 slice_name="train_direct" if split == "train" else "cross_language"))
             oracle[tid] = {"plan": [action], "decision": "execute"}
+            if split == "test":
+                zh_id = _task_id(source, "single_zh", i)
+                tasks.append(_public(zh_id, source, split, "single", _render(SINGLE_ZH_TEST[i], names), uri, columns, names,
+                                     slice_name="same_language_paraphrase"))
+                oracle[zh_id] = {"plan": [action], "decision": "execute"}
         for i, (plan, train_text, test_text) in enumerate(COMPOSITIONS):
             prompt = _render(train_text if split == "train" else test_text, names)
             tid = _task_id(source, "composition", i)
-            tasks.append(_public(tid, source, split, "composition", prompt, uri, columns, names, max_steps=len(plan)))
+            tasks.append(_public(tid, source, split, "composition", prompt, uri, columns, names, max_steps=len(plan),
+                                 slice_name="train_direct" if split == "train" else "cross_language_composition"))
             oracle[tid] = {"plan": list(plan), "decision": "execute"}
+        if split == "test":
+            for i, (plan, text) in enumerate(NOVEL_COMPOSITIONS):
+                tid = _task_id(source, "novel_composition", i)
+                tasks.append(_public(tid, source, split, "composition", _render(text, names), uri, columns, names,
+                                     max_steps=len(plan), slice_name="novel_composition"))
+                oracle[tid] = {"plan": list(plan), "decision": "execute"}
         for i, (train_text, test_text) in enumerate(CLARIFY):
             prompt = train_text if split == "train" else test_text
             tid = _task_id(source, "clarification", i)
-            tasks.append(_public(tid, source, split, "clarification", prompt, uri, columns, names, max_steps=0))
+            tasks.append(_public(tid, source, split, "clarification", prompt, uri, columns, names, max_steps=0,
+                                 slice_name="train_direct" if split == "train" else "clarification_holdout"))
             oracle[tid] = {"plan": [], "decision": "clarify"}
 
     rng.shuffle(tasks)
@@ -91,15 +123,16 @@ def build(out_dir=None, sources=24):
         "version": 3, "seed": SEED, "tasks_sha256": digest(tasks_path), "oracle_sha256": digest(out / "oracle.json"),
         "counts": {s: sum(t["split"] == s for t in tasks) for s in ("train", "test")},
         "tracks": {k: sum(t["track"] == k for t in tasks) for k in ("single", "composition", "clarification")},
+        "test_slices": {k: sum(t["split"] == "test" and t["slice"] == k for t in tasks) for k in sorted({t["slice"] for t in tasks if t["split"] == "test"})},
         "source_overlap": False, "exact_prompt_overlap": bool(prompt_sets["train"] & prompt_sets["test"]), "datasets": datasets,
         "scope": "synthetic planner diagnostic; source and wording-family holdout; plans are scored but not yet executed end to end"
     })
     return tasks, oracle
 
 
-def _public(tid, source, split, track, prompt, uri, columns, names, max_steps=1):
+def _public(tid, source, split, track, prompt, uri, columns, names, max_steps=1, slice_name="unspecified"):
     return {"schema_version": 3, "task_id": tid, "source_id": f"v3_source_{source:02d}", "split": split,
-            "track": track, "prompt": prompt, "dataset": {"uri": uri, "columns": columns},
+            "track": track, "slice": slice_name, "prompt": prompt, "dataset": {"uri": uri, "columns": columns},
             "params": {"column": names["value"], "category_column": names["category"], "date_column": names["date"],
                        "other_column": names["metric"], "lower": 0, "upper": 100, "window": 3},
             "allowed_tools": ACTIONS, "constraints": {"max_steps": max_steps, "max_tool_calls": max_steps}}

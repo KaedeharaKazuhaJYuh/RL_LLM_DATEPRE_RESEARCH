@@ -2,6 +2,7 @@ import json, tempfile, unittest
 from pathlib import Path
 from research.benchmark_v3 import build
 from research.v3_baselines import evaluate
+from research.v3_runtime import run_plan
 
 
 class V3BenchmarkTests(unittest.TestCase):
@@ -18,6 +19,23 @@ class V3BenchmarkTests(unittest.TestCase):
     def test_oracle_upper_bound(self):
         result = evaluate("oracle")
         self.assertEqual(result["passed"], result["tasks"])
+
+    def test_multistep_artifact_chaining(self):
+        tasks = json.loads("[" + ",".join(Path("tasks/v3/tasks.jsonl").read_text(encoding="utf-8").splitlines()) + "]")
+        oracle = json.loads(Path("tasks/v3/oracle.json").read_text(encoding="utf-8"))
+        task = next(t for t in tasks if t["split"] == "test" and t["track"] == "composition" and oracle[t["task_id"]]["plan"][0] == "deduplicate")
+        with tempfile.TemporaryDirectory() as d:
+            row = run_plan(task, oracle[task["task_id"]]["plan"], oracle[task["task_id"]], Path(d))
+            self.assertTrue(row["passed"])
+            self.assertEqual(row["steps"][0]["result"]["artifact"]["sha256"], row["steps"][1]["input_sha256"])
+
+    def test_parameter_error_recovery(self):
+        tasks = json.loads("[" + ",".join(Path("tasks/v3/tasks.jsonl").read_text(encoding="utf-8").splitlines()) + "]")
+        oracle = json.loads(Path("tasks/v3/oracle.json").read_text(encoding="utf-8"))
+        task = next(t for t in tasks if t["split"] == "test" and oracle[t["task_id"]]["plan"][:1] == ["fill_missing"])
+        with tempfile.TemporaryDirectory() as d:
+            row = run_plan(task, oracle[task["task_id"]]["plan"], oracle[task["task_id"]], Path(d), recover=True, inject_error=True)
+            self.assertTrue(row["passed"]); self.assertTrue(row["recovered"]); self.assertFalse(row["steps"][0]["passed"])
 
 
 if __name__ == "__main__": unittest.main()

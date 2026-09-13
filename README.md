@@ -1,6 +1,6 @@
 # RL + LLM Data Analysis Agent — V2
 
-> `research/benchmark_v3.py` 和 `research/v3_baselines.py` 提供正在开发的 V3 规划诊断基准。它加入未见提示模板、两步有序计划和需要澄清的任务；当前只评估计划，不代表多步执行已经完成。设计与首轮结果见 `reports/V3_BASELINE_DESIGN.md`。
+> V3 已加入未见提示模板、正交泛化切片、两步有序计划和澄清任务；`research/v3_runtime.py` 会逐步验证产物、更新输入状态并支持一次参数恢复。设计与首轮结果见 `reports/V3_BASELINE_DESIGN.md`。
 
 V2 是独立验证的单步数据分析路由实验。修复了原版的任务编号捷径、占位清洗、同源参考计算、数据包损坏、奖励与合法性不一致以及不完整日志。
 

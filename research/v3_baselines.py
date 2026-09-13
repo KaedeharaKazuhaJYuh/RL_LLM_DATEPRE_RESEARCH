@@ -57,8 +57,12 @@ def evaluate(mode="keyword", tasks_path="tasks/v3/tasks.jsonl", oracle_path="tas
     by_track = {}
     for track in sorted({r["track"] for r in rows}):
         subset = [r for r in rows if r["track"] == track]; by_track[track] = {"passed": sum(r["passed"] for r in subset), "tasks": len(subset), "pass_rate": sum(r["passed"] for r in subset)/len(subset)}
+    by_slice = {}
+    for slice_name in sorted({t["slice"] for t in test}):
+        ids = {t["task_id"] for t in test if t["slice"] == slice_name}; subset = [r for r in rows if r["task_id"] in ids]
+        by_slice[slice_name] = {"passed": sum(r["passed"] for r in subset), "tasks": len(subset), "pass_rate": sum(r["passed"] for r in subset)/len(subset)}
     return {"benchmark_version": 3, "mode": mode, "seed": seed, "passed": sum(r["passed"] for r in rows), "tasks": len(rows),
-            "pass_rate": sum(r["passed"] for r in rows)/len(rows), "by_track": by_track, "records": rows}
+            "pass_rate": sum(r["passed"] for r in rows)/len(rows), "by_track": by_track, "by_slice": by_slice, "records": rows}
 
 
 if __name__ == "__main__":

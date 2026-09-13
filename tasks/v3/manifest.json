@@ -1,16 +1,23 @@
 {
   "version": 3,
   "seed": 20260913,
-  "tasks_sha256": "b627db173e6421c53ac1bbb176deb514f54f92e3d5c1e8f89c9f5f10bccbb83a",
-  "oracle_sha256": "8b91bb6e273b5b8aacbfd2f4985f16a7321abf71bf7af1c8d97623a736408c96",
+  "tasks_sha256": "d7eb134f97cc5961231e954fc1b75633b70a6b2abcb16388dcf07d618d32386a",
+  "oracle_sha256": "ef7be506e9a6634eafac56d575c444d39118b0f3e4eb991a52f9dc0002f0e5bb",
   "counts": {
     "train": 240,
-    "test": 240
+    "test": 456
   },
   "tracks": {
-    "single": 288,
-    "composition": 144,
+    "single": 432,
+    "composition": 216,
     "clarification": 48
+  },
+  "test_slices": {
+    "clarification_holdout": 24,
+    "cross_language": 144,
+    "cross_language_composition": 72,
+    "novel_composition": 72,
+    "same_language_paraphrase": 144
   },
   "source_overlap": false,
   "exact_prompt_overlap": false,

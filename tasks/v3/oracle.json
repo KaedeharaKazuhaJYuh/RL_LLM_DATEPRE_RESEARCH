@@ -1469,7 +1469,19 @@
     ],
     "decision": "execute"
   },
+  "ec5a741eeb8679d0": {
+    "plan": [
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "d276cfe85e9c077f": {
+    "plan": [
+      "profile_missingness"
+    ],
+    "decision": "execute"
+  },
+  "0ff7f268ac80a281": {
     "plan": [
       "profile_missingness"
     ],
@@ -1481,7 +1493,19 @@
     ],
     "decision": "execute"
   },
+  "5b4f3c86fc255acd": {
+    "plan": [
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
   "6ab4628040b1ba19": {
+    "plan": [
+      "deduplicate"
+    ],
+    "decision": "execute"
+  },
+  "883709cda6921e1f": {
     "plan": [
       "deduplicate"
     ],
@@ -1493,7 +1517,19 @@
     ],
     "decision": "execute"
   },
+  "72fff7227216340f": {
+    "plan": [
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
   "f32974b188d6b451": {
+    "plan": [
+      "normalize_dates"
+    ],
+    "decision": "execute"
+  },
+  "2f0625a0e82126e6": {
     "plan": [
       "normalize_dates"
     ],
@@ -1505,7 +1541,19 @@
     ],
     "decision": "execute"
   },
+  "04a223af12a9842d": {
+    "plan": [
+      "clip_outliers"
+    ],
+    "decision": "execute"
+  },
   "d128a4551136a85d": {
+    "plan": [
+      "fill_missing"
+    ],
+    "decision": "execute"
+  },
+  "94dbec53ae837895": {
     "plan": [
       "fill_missing"
     ],
@@ -1517,7 +1565,19 @@
     ],
     "decision": "execute"
   },
+  "f6504773ebac1189": {
+    "plan": [
+      "normalize_categories"
+    ],
+    "decision": "execute"
+  },
   "2ee7213615823838": {
+    "plan": [
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "07672a7325d86370": {
     "plan": [
       "aggregate"
     ],
@@ -1529,7 +1589,19 @@
     ],
     "decision": "execute"
   },
+  "22487a0025f165fb": {
+    "plan": [
+      "correlate"
+    ],
+    "decision": "execute"
+  },
   "f9d443237aede02b": {
+    "plan": [
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "c7331ab5705afbd6": {
     "plan": [
       "rolling_mean"
     ],
@@ -1577,6 +1649,48 @@
     ],
     "decision": "execute"
   },
+  "99159b67f93a53ef": {
+    "plan": [
+      "deduplicate",
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
+  "2d08a2833cb47282": {
+    "plan": [
+      "fill_missing",
+      "correlate"
+    ],
+    "decision": "execute"
+  },
+  "4f5779f7d5360baf": {
+    "plan": [
+      "normalize_dates",
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "6ca749ee90d40a23": {
+    "plan": [
+      "normalize_categories",
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "83f401039ee5fe6a": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
+  "83ac11c55543db3c": {
+    "plan": [
+      "deduplicate",
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "ec00e989dbc6612e": {
     "plan": [],
     "decision": "clarify"
@@ -1591,7 +1705,19 @@
     ],
     "decision": "execute"
   },
+  "74e34d2b62b1755c": {
+    "plan": [
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "13fc523c2603a1d5": {
+    "plan": [
+      "profile_missingness"
+    ],
+    "decision": "execute"
+  },
+  "b454f23aedb006b9": {
     "plan": [
       "profile_missingness"
     ],
@@ -1603,7 +1729,19 @@
     ],
     "decision": "execute"
   },
+  "30ab120907d52f3d": {
+    "plan": [
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
   "28fdec819a9739f1": {
+    "plan": [
+      "deduplicate"
+    ],
+    "decision": "execute"
+  },
+  "bdf64f90999897d8": {
     "plan": [
       "deduplicate"
     ],
@@ -1615,7 +1753,19 @@
     ],
     "decision": "execute"
   },
+  "d19bb5d7d92f7046": {
+    "plan": [
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
   "beb9fa278c7f37e0": {
+    "plan": [
+      "normalize_dates"
+    ],
+    "decision": "execute"
+  },
+  "575e1876a6bcecef": {
     "plan": [
       "normalize_dates"
     ],
@@ -1627,7 +1777,19 @@
     ],
     "decision": "execute"
   },
+  "48cfc5533afdd255": {
+    "plan": [
+      "clip_outliers"
+    ],
+    "decision": "execute"
+  },
   "b1b68cb6cf2ebffe": {
+    "plan": [
+      "fill_missing"
+    ],
+    "decision": "execute"
+  },
+  "ebe1e86f4d7a194d": {
     "plan": [
       "fill_missing"
     ],
@@ -1639,7 +1801,19 @@
     ],
     "decision": "execute"
   },
+  "b2310edb84acad0f": {
+    "plan": [
+      "normalize_categories"
+    ],
+    "decision": "execute"
+  },
   "ff09e4e3c183d5df": {
+    "plan": [
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "333816f8229fbaf9": {
     "plan": [
       "aggregate"
     ],
@@ -1651,7 +1825,19 @@
     ],
     "decision": "execute"
   },
+  "6992dcbec130715f": {
+    "plan": [
+      "correlate"
+    ],
+    "decision": "execute"
+  },
   "b573601f5aea452b": {
+    "plan": [
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "a3b80f171855c359": {
     "plan": [
       "rolling_mean"
     ],
@@ -1699,6 +1885,48 @@
     ],
     "decision": "execute"
   },
+  "fc97fb4343b6b0b9": {
+    "plan": [
+      "deduplicate",
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
+  "4e06a2eb6734db77": {
+    "plan": [
+      "fill_missing",
+      "correlate"
+    ],
+    "decision": "execute"
+  },
+  "a0194683626fde58": {
+    "plan": [
+      "normalize_dates",
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "151b1b1f017c982f": {
+    "plan": [
+      "normalize_categories",
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "9f43919dbf579989": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
+  "fb841658f83dc4bb": {
+    "plan": [
+      "deduplicate",
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "aab58847ebaf573b": {
     "plan": [],
     "decision": "clarify"
@@ -1713,7 +1941,19 @@
     ],
     "decision": "execute"
   },
+  "292485768b230f31": {
+    "plan": [
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "d48bb50eb16cb744": {
+    "plan": [
+      "profile_missingness"
+    ],
+    "decision": "execute"
+  },
+  "684e9e7711ef15e0": {
     "plan": [
       "profile_missingness"
     ],
@@ -1725,7 +1965,19 @@
     ],
     "decision": "execute"
   },
+  "9ce96b435438b225": {
+    "plan": [
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
   "5276837c86dd579f": {
+    "plan": [
+      "deduplicate"
+    ],
+    "decision": "execute"
+  },
+  "572189efb466666d": {
     "plan": [
       "deduplicate"
     ],
@@ -1737,7 +1989,19 @@
     ],
     "decision": "execute"
   },
+  "98cc85304b96c627": {
+    "plan": [
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
   "8149b5a85f85220d": {
+    "plan": [
+      "normalize_dates"
+    ],
+    "decision": "execute"
+  },
+  "8d50ede67b8e4d91": {
     "plan": [
       "normalize_dates"
     ],
@@ -1749,7 +2013,19 @@
     ],
     "decision": "execute"
   },
+  "95f795a6a0471208": {
+    "plan": [
+      "clip_outliers"
+    ],
+    "decision": "execute"
+  },
   "f65acb633505c595": {
+    "plan": [
+      "fill_missing"
+    ],
+    "decision": "execute"
+  },
+  "aef69d9668e8008b": {
     "plan": [
       "fill_missing"
     ],
@@ -1761,7 +2037,19 @@
     ],
     "decision": "execute"
   },
+  "08f955f449780f7e": {
+    "plan": [
+      "normalize_categories"
+    ],
+    "decision": "execute"
+  },
   "a6d1551bce8afe44": {
+    "plan": [
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "1c83fcc1ca1fa860": {
     "plan": [
       "aggregate"
     ],
@@ -1773,7 +2061,19 @@
     ],
     "decision": "execute"
   },
+  "05fdc0c996251d0a": {
+    "plan": [
+      "correlate"
+    ],
+    "decision": "execute"
+  },
   "4eea1e8872d4b16e": {
+    "plan": [
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "eb4361456e4ecd4b": {
     "plan": [
       "rolling_mean"
     ],
@@ -1821,6 +2121,48 @@
     ],
     "decision": "execute"
   },
+  "654bd121f5002ea8": {
+    "plan": [
+      "deduplicate",
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
+  "0fec22e97d9b3769": {
+    "plan": [
+      "fill_missing",
+      "correlate"
+    ],
+    "decision": "execute"
+  },
+  "17de9687c1a10368": {
+    "plan": [
+      "normalize_dates",
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "4c65615d5b610fdc": {
+    "plan": [
+      "normalize_categories",
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "eb5ee5db3025b814": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
+  "8a54e4058200107c": {
+    "plan": [
+      "deduplicate",
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "794ab82822591488": {
     "plan": [],
     "decision": "clarify"
@@ -1835,7 +2177,19 @@
     ],
     "decision": "execute"
   },
+  "6c19caba7481c785": {
+    "plan": [
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "89869e96e03d077c": {
+    "plan": [
+      "profile_missingness"
+    ],
+    "decision": "execute"
+  },
+  "d4a481542d8e6de9": {
     "plan": [
       "profile_missingness"
     ],
@@ -1847,7 +2201,19 @@
     ],
     "decision": "execute"
   },
+  "e0d7db12fb004cca": {
+    "plan": [
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
   "ff3b8288cb60f799": {
+    "plan": [
+      "deduplicate"
+    ],
+    "decision": "execute"
+  },
+  "bff2155ee585d853": {
     "plan": [
       "deduplicate"
     ],
@@ -1859,7 +2225,19 @@
     ],
     "decision": "execute"
   },
+  "4b018a4ec58cd12d": {
+    "plan": [
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
   "16728b1c214ebdf6": {
+    "plan": [
+      "normalize_dates"
+    ],
+    "decision": "execute"
+  },
+  "279faa52ae147091": {
     "plan": [
       "normalize_dates"
     ],
@@ -1871,7 +2249,19 @@
     ],
     "decision": "execute"
   },
+  "6279b186152b09fb": {
+    "plan": [
+      "clip_outliers"
+    ],
+    "decision": "execute"
+  },
   "81669c4cd2eec760": {
+    "plan": [
+      "fill_missing"
+    ],
+    "decision": "execute"
+  },
+  "7d6c79b2277f17c7": {
     "plan": [
       "fill_missing"
     ],
@@ -1883,7 +2273,19 @@
     ],
     "decision": "execute"
   },
+  "dc9a06b1cf596bae": {
+    "plan": [
+      "normalize_categories"
+    ],
+    "decision": "execute"
+  },
   "ede1a9f968d376d5": {
+    "plan": [
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "4f7511dd9d7acfc4": {
     "plan": [
       "aggregate"
     ],
@@ -1895,7 +2297,19 @@
     ],
     "decision": "execute"
   },
+  "3470a133a81368ca": {
+    "plan": [
+      "correlate"
+    ],
+    "decision": "execute"
+  },
   "96899ebe3781bb24": {
+    "plan": [
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "d2ffa2b5e599398b": {
     "plan": [
       "rolling_mean"
     ],
@@ -1943,6 +2357,48 @@
     ],
     "decision": "execute"
   },
+  "235cee2162150b37": {
+    "plan": [
+      "deduplicate",
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
+  "617eca93720a1595": {
+    "plan": [
+      "fill_missing",
+      "correlate"
+    ],
+    "decision": "execute"
+  },
+  "45e8788c2202346f": {
+    "plan": [
+      "normalize_dates",
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "de7d13fc634fca79": {
+    "plan": [
+      "normalize_categories",
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "0ba45aff1f22b3a2": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
+  "4fa995bfeb01e91f": {
+    "plan": [
+      "deduplicate",
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "a06ea32fa3a3bb9f": {
     "plan": [],
     "decision": "clarify"
@@ -1957,7 +2413,19 @@
     ],
     "decision": "execute"
   },
+  "481edbc23fec506f": {
+    "plan": [
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "3677eac467b498dd": {
+    "plan": [
+      "profile_missingness"
+    ],
+    "decision": "execute"
+  },
+  "08bf65e93959cec5": {
     "plan": [
       "profile_missingness"
     ],
@@ -1969,7 +2437,19 @@
     ],
     "decision": "execute"
   },
+  "fb1798f6d48a812c": {
+    "plan": [
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
   "e6ab1d0bea854d69": {
+    "plan": [
+      "deduplicate"
+    ],
+    "decision": "execute"
+  },
+  "48406382d5e56c3e": {
     "plan": [
       "deduplicate"
     ],
@@ -1981,7 +2461,19 @@
     ],
     "decision": "execute"
   },
+  "f1df5b22e725a2a3": {
+    "plan": [
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
   "8c2362f014249156": {
+    "plan": [
+      "normalize_dates"
+    ],
+    "decision": "execute"
+  },
+  "26cd16f1ce7aebac": {
     "plan": [
       "normalize_dates"
     ],
@@ -1993,7 +2485,19 @@
     ],
     "decision": "execute"
   },
+  "6f95430c73e30c56": {
+    "plan": [
+      "clip_outliers"
+    ],
+    "decision": "execute"
+  },
   "40d77728ca4267b6": {
+    "plan": [
+      "fill_missing"
+    ],
+    "decision": "execute"
+  },
+  "5a85ced773c1d524": {
     "plan": [
       "fill_missing"
     ],
@@ -2005,7 +2509,19 @@
     ],
     "decision": "execute"
   },
+  "1f7e5863f84a4737": {
+    "plan": [
+      "normalize_categories"
+    ],
+    "decision": "execute"
+  },
   "a0d1e24080f9ef60": {
+    "plan": [
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "7917a50a16dd93a1": {
     "plan": [
       "aggregate"
     ],
@@ -2017,7 +2533,19 @@
     ],
     "decision": "execute"
   },
+  "3fb9f44441b9a914": {
+    "plan": [
+      "correlate"
+    ],
+    "decision": "execute"
+  },
   "d6c4f0a2034dacb3": {
+    "plan": [
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "29a0c9e841a57d27": {
     "plan": [
       "rolling_mean"
     ],
@@ -2065,6 +2593,48 @@
     ],
     "decision": "execute"
   },
+  "caa2943ebf8035b4": {
+    "plan": [
+      "deduplicate",
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
+  "2072b43e539ff55d": {
+    "plan": [
+      "fill_missing",
+      "correlate"
+    ],
+    "decision": "execute"
+  },
+  "d29a0f6a15a8b21e": {
+    "plan": [
+      "normalize_dates",
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "0127ef0216e7af59": {
+    "plan": [
+      "normalize_categories",
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "21e6b91344bdd3b3": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
+  "b4e39f85e046152d": {
+    "plan": [
+      "deduplicate",
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "d40b7848f1257b94": {
     "plan": [],
     "decision": "clarify"
@@ -2079,7 +2649,19 @@
     ],
     "decision": "execute"
   },
+  "3af3b1dc10de20b3": {
+    "plan": [
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "37b5d8581dd41b12": {
+    "plan": [
+      "profile_missingness"
+    ],
+    "decision": "execute"
+  },
+  "131cf402e5d2524d": {
     "plan": [
       "profile_missingness"
     ],
@@ -2091,7 +2673,19 @@
     ],
     "decision": "execute"
   },
+  "891a34d29b4536c6": {
+    "plan": [
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
   "142105cd5b35239b": {
+    "plan": [
+      "deduplicate"
+    ],
+    "decision": "execute"
+  },
+  "a7d1b095bfa9f31b": {
     "plan": [
       "deduplicate"
     ],
@@ -2103,7 +2697,19 @@
     ],
     "decision": "execute"
   },
+  "e0923e5bff32bf47": {
+    "plan": [
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
   "1a4ebc577e5bb8c0": {
+    "plan": [
+      "normalize_dates"
+    ],
+    "decision": "execute"
+  },
+  "bad3e628fa199069": {
     "plan": [
       "normalize_dates"
     ],
@@ -2115,7 +2721,19 @@
     ],
     "decision": "execute"
   },
+  "eb1e13694fd98c93": {
+    "plan": [
+      "clip_outliers"
+    ],
+    "decision": "execute"
+  },
   "f54eb00a4feeea51": {
+    "plan": [
+      "fill_missing"
+    ],
+    "decision": "execute"
+  },
+  "9d5bc89d59083796": {
     "plan": [
       "fill_missing"
     ],
@@ -2127,7 +2745,19 @@
     ],
     "decision": "execute"
   },
+  "ed419314e8313a3d": {
+    "plan": [
+      "normalize_categories"
+    ],
+    "decision": "execute"
+  },
   "a6a621d297c0f913": {
+    "plan": [
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "e9d921cf32847bf6": {
     "plan": [
       "aggregate"
     ],
@@ -2139,7 +2769,19 @@
     ],
     "decision": "execute"
   },
+  "1c4b5d9b76437973": {
+    "plan": [
+      "correlate"
+    ],
+    "decision": "execute"
+  },
   "cdbf709138e00ba0": {
+    "plan": [
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "571f02178e9e3a4c": {
     "plan": [
       "rolling_mean"
     ],
@@ -2187,6 +2829,48 @@
     ],
     "decision": "execute"
   },
+  "ef6262d4adc31aac": {
+    "plan": [
+      "deduplicate",
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
+  "a197a3a221be0a75": {
+    "plan": [
+      "fill_missing",
+      "correlate"
+    ],
+    "decision": "execute"
+  },
+  "901ef50c0e518a9c": {
+    "plan": [
+      "normalize_dates",
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "49e29557f56a71fa": {
+    "plan": [
+      "normalize_categories",
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "b7814fbdba715017": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
+  "273bbf95281a9864": {
+    "plan": [
+      "deduplicate",
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "df726fdb30feb919": {
     "plan": [],
     "decision": "clarify"
@@ -2201,7 +2885,19 @@
     ],
     "decision": "execute"
   },
+  "c19bb24888eacc0d": {
+    "plan": [
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "dc914b6050b92a5f": {
+    "plan": [
+      "profile_missingness"
+    ],
+    "decision": "execute"
+  },
+  "156a8c3f028b3d6e": {
     "plan": [
       "profile_missingness"
     ],
@@ -2213,7 +2909,19 @@
     ],
     "decision": "execute"
   },
+  "b75a2a9cd135a4d4": {
+    "plan": [
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
   "ee6c0d0279c89edc": {
+    "plan": [
+      "deduplicate"
+    ],
+    "decision": "execute"
+  },
+  "64064cce6f853106": {
     "plan": [
       "deduplicate"
     ],
@@ -2225,7 +2933,19 @@
     ],
     "decision": "execute"
   },
+  "17e968572bc5a607": {
+    "plan": [
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
   "1c986c1f5d5020ea": {
+    "plan": [
+      "normalize_dates"
+    ],
+    "decision": "execute"
+  },
+  "98d3e7b5f2a68f71": {
     "plan": [
       "normalize_dates"
     ],
@@ -2237,7 +2957,19 @@
     ],
     "decision": "execute"
   },
+  "0a4fca06158e627a": {
+    "plan": [
+      "clip_outliers"
+    ],
+    "decision": "execute"
+  },
   "de057496aea0f8aa": {
+    "plan": [
+      "fill_missing"
+    ],
+    "decision": "execute"
+  },
+  "719b3ad22f06b57d": {
     "plan": [
       "fill_missing"
     ],
@@ -2249,7 +2981,19 @@
     ],
     "decision": "execute"
   },
+  "8b9bd744736d472b": {
+    "plan": [
+      "normalize_categories"
+    ],
+    "decision": "execute"
+  },
   "af161b876a4f1862": {
+    "plan": [
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "bc912637e3cfff06": {
     "plan": [
       "aggregate"
     ],
@@ -2261,7 +3005,19 @@
     ],
     "decision": "execute"
   },
+  "6f0b705f5cab4f84": {
+    "plan": [
+      "correlate"
+    ],
+    "decision": "execute"
+  },
   "fab9e6d73894776b": {
+    "plan": [
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "87493d4f16d3bf80": {
     "plan": [
       "rolling_mean"
     ],
@@ -2309,6 +3065,48 @@
     ],
     "decision": "execute"
   },
+  "4648dac31ef9386f": {
+    "plan": [
+      "deduplicate",
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
+  "2e0f83481f7ce18c": {
+    "plan": [
+      "fill_missing",
+      "correlate"
+    ],
+    "decision": "execute"
+  },
+  "0fcf3831991d3bb7": {
+    "plan": [
+      "normalize_dates",
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "c231d97d87886f37": {
+    "plan": [
+      "normalize_categories",
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "1a71afb0cca9abdf": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
+  "db605736675db60c": {
+    "plan": [
+      "deduplicate",
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "dbf7fdc0edd0968b": {
     "plan": [],
     "decision": "clarify"
@@ -2323,7 +3121,19 @@
     ],
     "decision": "execute"
   },
+  "89bece284b27c8af": {
+    "plan": [
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "97107734e90b6065": {
+    "plan": [
+      "profile_missingness"
+    ],
+    "decision": "execute"
+  },
+  "59ebf63e4c462dd6": {
     "plan": [
       "profile_missingness"
     ],
@@ -2335,7 +3145,19 @@
     ],
     "decision": "execute"
   },
+  "1b6491f709a04631": {
+    "plan": [
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
   "87f6db68e8235b8d": {
+    "plan": [
+      "deduplicate"
+    ],
+    "decision": "execute"
+  },
+  "4e74ce83cd4dec6d": {
     "plan": [
       "deduplicate"
     ],
@@ -2347,7 +3169,19 @@
     ],
     "decision": "execute"
   },
+  "f41838ac7f35d5d8": {
+    "plan": [
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
   "ff37a2043019fd5e": {
+    "plan": [
+      "normalize_dates"
+    ],
+    "decision": "execute"
+  },
+  "4f550cc9c14ed0a3": {
     "plan": [
       "normalize_dates"
     ],
@@ -2359,7 +3193,19 @@
     ],
     "decision": "execute"
   },
+  "7dfebd85998e6e64": {
+    "plan": [
+      "clip_outliers"
+    ],
+    "decision": "execute"
+  },
   "9e98755458ef6d07": {
+    "plan": [
+      "fill_missing"
+    ],
+    "decision": "execute"
+  },
+  "ec86b8f0138de053": {
     "plan": [
       "fill_missing"
     ],
@@ -2371,7 +3217,19 @@
     ],
     "decision": "execute"
   },
+  "076b107a09b51308": {
+    "plan": [
+      "normalize_categories"
+    ],
+    "decision": "execute"
+  },
   "4898d6a3959a101a": {
+    "plan": [
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "44ca051f850de14f": {
     "plan": [
       "aggregate"
     ],
@@ -2383,7 +3241,19 @@
     ],
     "decision": "execute"
   },
+  "32a40b94d14409ca": {
+    "plan": [
+      "correlate"
+    ],
+    "decision": "execute"
+  },
   "06937349d08d87b5": {
+    "plan": [
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "c82388e1362aafb9": {
     "plan": [
       "rolling_mean"
     ],
@@ -2431,6 +3301,48 @@
     ],
     "decision": "execute"
   },
+  "d4c1f505fa6628ce": {
+    "plan": [
+      "deduplicate",
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
+  "492bd3ef3813b36e": {
+    "plan": [
+      "fill_missing",
+      "correlate"
+    ],
+    "decision": "execute"
+  },
+  "8bbc0259672cd323": {
+    "plan": [
+      "normalize_dates",
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "c2298308abf40d09": {
+    "plan": [
+      "normalize_categories",
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "b8539d0691e2414c": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
+  "e27859d72033ac3b": {
+    "plan": [
+      "deduplicate",
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "f1f4af900d42f4bb": {
     "plan": [],
     "decision": "clarify"
@@ -2445,7 +3357,19 @@
     ],
     "decision": "execute"
   },
+  "8f4d500fc0e2f922": {
+    "plan": [
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "5074fec69070af70": {
+    "plan": [
+      "profile_missingness"
+    ],
+    "decision": "execute"
+  },
+  "62fda9dd91f132ec": {
     "plan": [
       "profile_missingness"
     ],
@@ -2457,7 +3381,19 @@
     ],
     "decision": "execute"
   },
+  "bd561c0f8fd48b11": {
+    "plan": [
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
   "e31d02bd41bbae5d": {
+    "plan": [
+      "deduplicate"
+    ],
+    "decision": "execute"
+  },
+  "df3f44d67e47339f": {
     "plan": [
       "deduplicate"
     ],
@@ -2469,7 +3405,19 @@
     ],
     "decision": "execute"
   },
+  "15b1e5ac3855b700": {
+    "plan": [
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
   "e272963d9761b776": {
+    "plan": [
+      "normalize_dates"
+    ],
+    "decision": "execute"
+  },
+  "900c454b2d30305e": {
     "plan": [
       "normalize_dates"
     ],
@@ -2481,7 +3429,19 @@
     ],
     "decision": "execute"
   },
+  "b3727d286dd0705b": {
+    "plan": [
+      "clip_outliers"
+    ],
+    "decision": "execute"
+  },
   "d59ba3c3ffffe25d": {
+    "plan": [
+      "fill_missing"
+    ],
+    "decision": "execute"
+  },
+  "a05d12b3800ddec7": {
     "plan": [
       "fill_missing"
     ],
@@ -2493,7 +3453,19 @@
     ],
     "decision": "execute"
   },
+  "06bd3adf5906a379": {
+    "plan": [
+      "normalize_categories"
+    ],
+    "decision": "execute"
+  },
   "55f5feed06ccac46": {
+    "plan": [
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "1f17e5b7c2d815c4": {
     "plan": [
       "aggregate"
     ],
@@ -2505,7 +3477,19 @@
     ],
     "decision": "execute"
   },
+  "d193c54f1112d009": {
+    "plan": [
+      "correlate"
+    ],
+    "decision": "execute"
+  },
   "85fece2a1e5f4287": {
+    "plan": [
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "ca7211fa864bbc79": {
     "plan": [
       "rolling_mean"
     ],
@@ -2553,6 +3537,48 @@
     ],
     "decision": "execute"
   },
+  "cea6273e2c3c1214": {
+    "plan": [
+      "deduplicate",
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
+  "9555ec4ca41830b8": {
+    "plan": [
+      "fill_missing",
+      "correlate"
+    ],
+    "decision": "execute"
+  },
+  "346595fc99fed110": {
+    "plan": [
+      "normalize_dates",
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "b5043cd81ad93103": {
+    "plan": [
+      "normalize_categories",
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "c2cda7c19d81b5cd": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
+  "a2e3af2f0a95e3eb": {
+    "plan": [
+      "deduplicate",
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "282eca80a92b2532": {
     "plan": [],
     "decision": "clarify"
@@ -2567,7 +3593,19 @@
     ],
     "decision": "execute"
   },
+  "622ff5594f27228c": {
+    "plan": [
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "8d39e9d8561149f6": {
+    "plan": [
+      "profile_missingness"
+    ],
+    "decision": "execute"
+  },
+  "626b83b458c47502": {
     "plan": [
       "profile_missingness"
     ],
@@ -2579,7 +3617,19 @@
     ],
     "decision": "execute"
   },
+  "2a27826923dfa9e6": {
+    "plan": [
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
   "fbaac784c34f7130": {
+    "plan": [
+      "deduplicate"
+    ],
+    "decision": "execute"
+  },
+  "46fa1e7d8c6a2bd0": {
     "plan": [
       "deduplicate"
     ],
@@ -2591,7 +3641,19 @@
     ],
     "decision": "execute"
   },
+  "4bd7e06e4186a4f1": {
+    "plan": [
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
   "d10d3fb736c721d2": {
+    "plan": [
+      "normalize_dates"
+    ],
+    "decision": "execute"
+  },
+  "ed37e4cacd680930": {
     "plan": [
       "normalize_dates"
     ],
@@ -2603,7 +3665,19 @@
     ],
     "decision": "execute"
   },
+  "1e3c605492800274": {
+    "plan": [
+      "clip_outliers"
+    ],
+    "decision": "execute"
+  },
   "3653f741b9ef0fdc": {
+    "plan": [
+      "fill_missing"
+    ],
+    "decision": "execute"
+  },
+  "dfafdb7b97415a27": {
     "plan": [
       "fill_missing"
     ],
@@ -2615,7 +3689,19 @@
     ],
     "decision": "execute"
   },
+  "ef51c99e6c3acbaf": {
+    "plan": [
+      "normalize_categories"
+    ],
+    "decision": "execute"
+  },
   "899dd24f7bdecbfd": {
+    "plan": [
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "e89ec95367e40054": {
     "plan": [
       "aggregate"
     ],
@@ -2627,7 +3713,19 @@
     ],
     "decision": "execute"
   },
+  "9cd35c7a68fcea33": {
+    "plan": [
+      "correlate"
+    ],
+    "decision": "execute"
+  },
   "5832fa6a2f055070": {
+    "plan": [
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "3ab29752b72a0d2d": {
     "plan": [
       "rolling_mean"
     ],
@@ -2675,6 +3773,48 @@
     ],
     "decision": "execute"
   },
+  "583b624228ffb313": {
+    "plan": [
+      "deduplicate",
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
+  "e3fd360d3a3107e4": {
+    "plan": [
+      "fill_missing",
+      "correlate"
+    ],
+    "decision": "execute"
+  },
+  "c3b6ee4d924d1cfc": {
+    "plan": [
+      "normalize_dates",
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "3e384abbfa737ff6": {
+    "plan": [
+      "normalize_categories",
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "d0fa3ab8165ef19d": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
+  "d5ea68a6bd2319f9": {
+    "plan": [
+      "deduplicate",
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "124c3bf4031abf15": {
     "plan": [],
     "decision": "clarify"
@@ -2689,7 +3829,19 @@
     ],
     "decision": "execute"
   },
+  "b7154aa6f91762e9": {
+    "plan": [
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "f13b342690f1fa76": {
+    "plan": [
+      "profile_missingness"
+    ],
+    "decision": "execute"
+  },
+  "addeb0b95efa7677": {
     "plan": [
       "profile_missingness"
     ],
@@ -2701,7 +3853,19 @@
     ],
     "decision": "execute"
   },
+  "30b77b660aa887b2": {
+    "plan": [
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
   "b649a8fafc33cffd": {
+    "plan": [
+      "deduplicate"
+    ],
+    "decision": "execute"
+  },
+  "8583d2e80b8bc02b": {
     "plan": [
       "deduplicate"
     ],
@@ -2713,7 +3877,19 @@
     ],
     "decision": "execute"
   },
+  "48b1978fe358f989": {
+    "plan": [
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
   "2b206eeb1deac77a": {
+    "plan": [
+      "normalize_dates"
+    ],
+    "decision": "execute"
+  },
+  "7385f9ec5f9dcc7c": {
     "plan": [
       "normalize_dates"
     ],
@@ -2725,7 +3901,19 @@
     ],
     "decision": "execute"
   },
+  "98ea9e8d4d031ff4": {
+    "plan": [
+      "clip_outliers"
+    ],
+    "decision": "execute"
+  },
   "6cfaa0d9d067e943": {
+    "plan": [
+      "fill_missing"
+    ],
+    "decision": "execute"
+  },
+  "b63f79cb32945b35": {
     "plan": [
       "fill_missing"
     ],
@@ -2737,7 +3925,19 @@
     ],
     "decision": "execute"
   },
+  "c3e9fa2d88ffdb3f": {
+    "plan": [
+      "normalize_categories"
+    ],
+    "decision": "execute"
+  },
   "9d5fc9ae82f9a128": {
+    "plan": [
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "68caf18122e883b3": {
     "plan": [
       "aggregate"
     ],
@@ -2749,7 +3949,19 @@
     ],
     "decision": "execute"
   },
+  "d00293ece80d6d01": {
+    "plan": [
+      "correlate"
+    ],
+    "decision": "execute"
+  },
   "b58df988786cd43f": {
+    "plan": [
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "9c17d3d3cdb7cdf8": {
     "plan": [
       "rolling_mean"
     ],
@@ -2797,6 +4009,48 @@
     ],
     "decision": "execute"
   },
+  "35185eba2f5314d6": {
+    "plan": [
+      "deduplicate",
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
+  "49253dba7114971f": {
+    "plan": [
+      "fill_missing",
+      "correlate"
+    ],
+    "decision": "execute"
+  },
+  "21ac693b741056ab": {
+    "plan": [
+      "normalize_dates",
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "58592edc77b051e8": {
+    "plan": [
+      "normalize_categories",
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "92e7d8cff1d78951": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
+  "cbcced508c6ed4fe": {
+    "plan": [
+      "deduplicate",
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "3ea43dae164d3772": {
     "plan": [],
     "decision": "clarify"
@@ -2811,7 +4065,19 @@
     ],
     "decision": "execute"
   },
+  "a2d54a62cdaf4527": {
+    "plan": [
+      "profile_schema"
+    ],
+    "decision": "execute"
+  },
   "9a3efe0b8a3c1d00": {
+    "plan": [
+      "profile_missingness"
+    ],
+    "decision": "execute"
+  },
+  "d12f106204c67c9a": {
     "plan": [
       "profile_missingness"
     ],
@@ -2823,7 +4089,19 @@
     ],
     "decision": "execute"
   },
+  "36385764f12efd71": {
+    "plan": [
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
   "6b8e3d96410d1552": {
+    "plan": [
+      "deduplicate"
+    ],
+    "decision": "execute"
+  },
+  "e058dd8ad1dffde3": {
     "plan": [
       "deduplicate"
     ],
@@ -2835,7 +4113,19 @@
     ],
     "decision": "execute"
   },
+  "86a384a06963a375": {
+    "plan": [
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
   "cae898773714228e": {
+    "plan": [
+      "normalize_dates"
+    ],
+    "decision": "execute"
+  },
+  "c81c849c9abcfb19": {
     "plan": [
       "normalize_dates"
     ],
@@ -2847,7 +4137,19 @@
     ],
     "decision": "execute"
   },
+  "6be67f18436690bd": {
+    "plan": [
+      "clip_outliers"
+    ],
+    "decision": "execute"
+  },
   "b3aa42ae9a5ea216": {
+    "plan": [
+      "fill_missing"
+    ],
+    "decision": "execute"
+  },
+  "0f465608e2dc6064": {
     "plan": [
       "fill_missing"
     ],
@@ -2859,7 +4161,19 @@
     ],
     "decision": "execute"
   },
+  "98ce020351cfcc12": {
+    "plan": [
+      "normalize_categories"
+    ],
+    "decision": "execute"
+  },
   "6fb38f4d84545972": {
+    "plan": [
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "1ae96d6960854b13": {
     "plan": [
       "aggregate"
     ],
@@ -2871,7 +4185,19 @@
     ],
     "decision": "execute"
   },
+  "94cd69bcd7245178": {
+    "plan": [
+      "correlate"
+    ],
+    "decision": "execute"
+  },
   "95eca003ed3e5f78": {
+    "plan": [
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "9d979f00cd1ef755": {
     "plan": [
       "rolling_mean"
     ],
@@ -2916,6 +4242,48 @@
     "plan": [
       "deduplicate",
       "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "42f75c600fdf68a8": {
+    "plan": [
+      "deduplicate",
+      "count_categories"
+    ],
+    "decision": "execute"
+  },
+  "ce41d36838a8382c": {
+    "plan": [
+      "fill_missing",
+      "correlate"
+    ],
+    "decision": "execute"
+  },
+  "71766a0d367c28ef": {
+    "plan": [
+      "normalize_dates",
+      "rolling_mean"
+    ],
+    "decision": "execute"
+  },
+  "c02604a9fd5e59cb": {
+    "plan": [
+      "normalize_categories",
+      "aggregate"
+    ],
+    "decision": "execute"
+  },
+  "3bc19545df58f9c9": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ],
+    "decision": "execute"
+  },
+  "7d45689644f41519": {
+    "plan": [
+      "deduplicate",
+      "profile_schema"
     ],
     "decision": "execute"
   },
