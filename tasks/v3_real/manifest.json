@@ -1,5 +1,5 @@
 {
-  "version": "3.2",
+  "version": "3.5",
   "sources": {
     "wine": {
       "url": "https://archive.ics.uci.edu/static/public/186/wine+quality.zip",
@@ -138,6 +138,94 @@
       "value": "cnt",
       "metric": "temp",
       "split": "test"
+    },
+    "iris": {
+      "url": "https://archive.ics.uci.edu/static/public/53/iris.zip",
+      "sha256": "d11fe30213d36434a0879aab7cb00ce3c812eb7ba2495874438abff7b7b762e9",
+      "doi": "10.24432/C56C76",
+      "license": "CC BY 4.0",
+      "derived_sha256": "e1412f8c8c69c78fea91c42d8732f7edeb182234e9a67261b29617cc6097cc7b",
+      "rows": 150,
+      "columns": [
+        "sepal_length",
+        "sepal_width",
+        "petal_length",
+        "petal_width",
+        "class"
+      ],
+      "category": "class",
+      "value": "sepal_length",
+      "metric": "petal_length",
+      "split": "loo"
+    },
+    "wholesale": {
+      "url": "https://archive.ics.uci.edu/static/public/292/wholesale+customers.zip",
+      "sha256": "647e6a61683ed23f48c7b04e1e2be78835eca8758b32267603fc42a1479dbfb8",
+      "doi": "10.24432/C5030X",
+      "license": "CC BY 4.0",
+      "derived_sha256": "7f3f4a4954a4a62704da0356014fde9cf1ed347ce89173018068e348e20a59de",
+      "rows": 240,
+      "columns": [
+        "Channel",
+        "Region",
+        "Fresh",
+        "Milk",
+        "Grocery",
+        "Frozen",
+        "Detergents_Paper",
+        "Delicassen"
+      ],
+      "category": "Channel",
+      "value": "Fresh",
+      "metric": "Milk",
+      "split": "loo"
+    },
+    "student": {
+      "url": "https://archive.ics.uci.edu/static/public/320/student+performance.zip",
+      "sha256": "82ae9d66437b9808df42e8c89d2bb179c46e9cfbcf06f38abc1d20b3b747e177",
+      "doi": "10.24432/C5TG7T",
+      "license": "CC BY 4.0",
+      "derived_sha256": "4a2be31103c5f4d7ec26dd936076db99131f3e8a61b041cbab52c30e5a6e6af7",
+      "rows": 240,
+      "columns": [
+        "school",
+        "sex",
+        "age",
+        "address",
+        "famsize",
+        "Pstatus",
+        "Medu",
+        "Fedu",
+        "Mjob",
+        "Fjob",
+        "reason",
+        "guardian",
+        "traveltime",
+        "studytime",
+        "failures",
+        "schoolsup",
+        "famsup",
+        "paid",
+        "activities",
+        "nursery",
+        "higher",
+        "internet",
+        "romantic",
+        "famrel",
+        "freetime",
+        "goout",
+        "Dalc",
+        "Walc",
+        "health",
+        "absences",
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "category": "school",
+      "value": "G3",
+      "metric": "G2",
+      "split": "loo"
     }
   }
 }

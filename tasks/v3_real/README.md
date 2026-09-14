@@ -9,5 +9,8 @@ The committed CSV files are deterministic 240-row extracts prepared by `research
 | Abalone | frozen recovery test | https://doi.org/10.24432/C55C7W | CC BY 4.0 |
 | Seoul Bike Sharing Demand | frozen recovery test | https://doi.org/10.24432/C5F62R | CC BY 4.0 |
 | Bike Sharing | frozen recovery test | https://doi.org/10.24432/C5W894 | CC BY 4.0 |
+| Iris | leave-one-source-out pool | https://doi.org/10.24432/C56C76 | CC BY 4.0 |
+| Wholesale customers | leave-one-source-out pool | https://doi.org/10.24432/C5030X | CC BY 4.0 |
+| Student Performance | leave-one-source-out pool | https://doi.org/10.24432/C5TG7T | CC BY 4.0 |
 
 Attribution belongs to the creators listed by UCI. The extracts are redistributed under the source datasets' Creative Commons Attribution 4.0 licenses. See `manifest.json` for the exact official download URLs and hashes.

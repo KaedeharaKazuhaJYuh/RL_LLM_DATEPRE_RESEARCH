@@ -1,0 +1,209 @@
+{
+  "version": "3.5",
+  "sources": [
+    "abalone",
+    "bank",
+    "bike_sharing",
+    "iris",
+    "seoul_bike",
+    "student",
+    "wholesale",
+    "wine"
+  ],
+  "folds": [
+    {
+      "heldout_source": "abalone",
+      "calibration_source": "wine",
+      "fit_sources": [
+        "bank",
+        "bike_sharing",
+        "iris",
+        "seoul_bike",
+        "student",
+        "wholesale"
+      ],
+      "style": "raw",
+      "train_examples": 68,
+      "calibration_examples": 11,
+      "test_examples": 11,
+      "passed": 11,
+      "rate": 1.0,
+      "threshold": 0.5968856754661981,
+      "errors": []
+    },
+    {
+      "heldout_source": "bank",
+      "calibration_source": "wine",
+      "fit_sources": [
+        "abalone",
+        "bike_sharing",
+        "iris",
+        "seoul_bike",
+        "student",
+        "wholesale"
+      ],
+      "style": "compact",
+      "train_examples": 67,
+      "calibration_examples": 11,
+      "test_examples": 12,
+      "passed": 12,
+      "rate": 1.0,
+      "threshold": 0.5955982301323937,
+      "errors": []
+    },
+    {
+      "heldout_source": "bike_sharing",
+      "calibration_source": "wine",
+      "fit_sources": [
+        "abalone",
+        "bank",
+        "iris",
+        "seoul_bike",
+        "student",
+        "wholesale"
+      ],
+      "style": "code",
+      "train_examples": 68,
+      "calibration_examples": 11,
+      "test_examples": 11,
+      "passed": 11,
+      "rate": 1.0,
+      "threshold": 0.5945948889491176,
+      "errors": []
+    },
+    {
+      "heldout_source": "iris",
+      "calibration_source": "wine",
+      "fit_sources": [
+        "abalone",
+        "bank",
+        "bike_sharing",
+        "seoul_bike",
+        "student",
+        "wholesale"
+      ],
+      "style": "terse",
+      "train_examples": 68,
+      "calibration_examples": 11,
+      "test_examples": 11,
+      "passed": 7,
+      "rate": 0.6363636363636364,
+      "threshold": 0.16857199039077078,
+      "errors": [
+        {
+          "fault": "unknown_column",
+          "expected": "repair_column",
+          "predicted": "swap_bounds"
+        },
+        {
+          "fault": "unknown_column",
+          "expected": "repair_column",
+          "predicted": "swap_bounds"
+        },
+        {
+          "fault": "unknown_column",
+          "expected": "repair_column",
+          "predicted": "swap_bounds"
+        },
+        {
+          "fault": "unknown_column",
+          "expected": "repair_column",
+          "predicted": "swap_bounds"
+        }
+      ]
+    },
+    {
+      "heldout_source": "seoul_bike",
+      "calibration_source": "wine",
+      "fit_sources": [
+        "abalone",
+        "bank",
+        "bike_sharing",
+        "iris",
+        "student",
+        "wholesale"
+      ],
+      "style": "raw",
+      "train_examples": 68,
+      "calibration_examples": 11,
+      "test_examples": 11,
+      "passed": 11,
+      "rate": 1.0,
+      "threshold": 0.5975551138427581,
+      "errors": []
+    },
+    {
+      "heldout_source": "student",
+      "calibration_source": "wine",
+      "fit_sources": [
+        "abalone",
+        "bank",
+        "bike_sharing",
+        "iris",
+        "seoul_bike",
+        "wholesale"
+      ],
+      "style": "compact",
+      "train_examples": 67,
+      "calibration_examples": 11,
+      "test_examples": 12,
+      "passed": 12,
+      "rate": 1.0,
+      "threshold": 0.5954493291433622,
+      "errors": []
+    },
+    {
+      "heldout_source": "wholesale",
+      "calibration_source": "wine",
+      "fit_sources": [
+        "abalone",
+        "bank",
+        "bike_sharing",
+        "iris",
+        "seoul_bike",
+        "student"
+      ],
+      "style": "code",
+      "train_examples": 68,
+      "calibration_examples": 11,
+      "test_examples": 11,
+      "passed": 11,
+      "rate": 1.0,
+      "threshold": 0.5954885643934187,
+      "errors": []
+    },
+    {
+      "heldout_source": "wine",
+      "calibration_source": "wholesale",
+      "fit_sources": [
+        "abalone",
+        "bank",
+        "bike_sharing",
+        "iris",
+        "seoul_bike",
+        "student"
+      ],
+      "style": "terse",
+      "train_examples": 68,
+      "calibration_examples": 11,
+      "test_examples": 11,
+      "passed": 10,
+      "rate": 0.9090909090909091,
+      "threshold": 0.6023222351755294,
+      "errors": [
+        {
+          "fault": "invalid_bounds",
+          "expected": "swap_bounds",
+          "predicted": "repair_column"
+        }
+      ]
+    }
+  ],
+  "macro_rate": 0.9431818181818181,
+  "source_bootstrap_95": [
+    0.8522727272727273,
+    1.0
+  ],
+  "total_passed": 85,
+  "total_tasks": 90
+}

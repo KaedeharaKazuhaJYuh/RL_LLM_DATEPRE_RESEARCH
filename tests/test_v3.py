@@ -5,6 +5,7 @@ from research.v3_baselines import evaluate
 from research.v3_runtime import run_plan
 from research.v3_recovery import evaluate as evaluate_recovery
 from research.v3_subprocess_faults import run_case
+from research.v3_leave_one_source_out import evaluate as evaluate_loo
 
 
 class V3BenchmarkTests(unittest.TestCase):
@@ -56,6 +57,14 @@ class V3BenchmarkTests(unittest.TestCase):
             partial=run_case("partial",deadline=.1,sleep=.4,folder=Path(d)/"partial")
             self.assertTrue(timeout["killed"] and timeout["passed"])
             self.assertTrue(partial["killed"] and partial["artifact_exists"] and not partial["artifact_valid"] and partial["passed"])
+
+    def test_leave_one_source_out_covers_every_source(self):
+        with tempfile.TemporaryDirectory() as d:
+            result=evaluate_loo(str(Path(d)/"loo.json"))
+            self.assertEqual(8,len(result["folds"]))
+            self.assertEqual(set(result["sources"]),{f["heldout_source"] for f in result["folds"]})
+            self.assertEqual(90,result["total_tasks"])
+            self.assertEqual(85,result["total_passed"])
 
 
 if __name__ == "__main__": unittest.main()
