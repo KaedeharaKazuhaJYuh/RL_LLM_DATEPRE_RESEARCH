@@ -1,0 +1,404 @@
+{
+  "version": 2,
+  "generator_seed": 20260913,
+  "task_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+  "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+  "datasets": {
+    "tasks/v2/data/source_00.csv": {
+      "sha256": "59cf1cead8c7f055f163905463f43158a8e0d12c68adc13caabc1a3b31d33989",
+      "columns": [
+        "month",
+        "region",
+        "revenue",
+        "category",
+        "metric"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_00"
+    },
+    "tasks/v2/data/source_01.csv": {
+      "sha256": "d3cb7b08877a1c065df9e5e297d97a7fe4fa8ee085f0bbc7a17fbb532275565c",
+      "columns": [
+        "日期",
+        "区域",
+        "金额",
+        "类型",
+        "指标"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_01"
+    },
+    "tasks/v2/data/source_02.csv": {
+      "sha256": "aaa259eb1b79907079677bb7ebe6cf1c2343e986f351222f051512adde653b01",
+      "columns": [
+        "month",
+        "region",
+        "revenue",
+        "category",
+        "metric"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_02"
+    },
+    "tasks/v2/data/source_03.csv": {
+      "sha256": "9774eac36e2b15fc59b01ce11054297d39064bcf41694b2a79ded21ed0ae05c0",
+      "columns": [
+        "日期",
+        "区域",
+        "金额",
+        "类型",
+        "指标"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_03"
+    },
+    "tasks/v2/data/source_04.csv": {
+      "sha256": "adcc68b226c999af2d9886ecc4dda48377a0683cb6ce872af54fa9066f037164",
+      "columns": [
+        "month",
+        "region",
+        "revenue",
+        "category",
+        "metric"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_04"
+    },
+    "tasks/v2/data/source_05.csv": {
+      "sha256": "9aab97525e7c2f639fa30e9bda3cfc450bfd1c36ea594281044013e87fe1c183",
+      "columns": [
+        "日期",
+        "区域",
+        "金额",
+        "类型",
+        "指标"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_05"
+    },
+    "tasks/v2/data/source_06.csv": {
+      "sha256": "88f275599d97bae18e8bc4d1c3bd783245325e4877c384710a616de1b1bea842",
+      "columns": [
+        "month",
+        "region",
+        "revenue",
+        "category",
+        "metric"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_06"
+    },
+    "tasks/v2/data/source_07.csv": {
+      "sha256": "ed545ddd534e9412e0f3d58fd7cb7cd41700ba81f1d7f3103ec573459e1bfd7f",
+      "columns": [
+        "日期",
+        "区域",
+        "金额",
+        "类型",
+        "指标"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_07"
+    },
+    "tasks/v2/data/source_08.csv": {
+      "sha256": "579f1a549fff932717209a137f551472f6a6d0f2af1f2bb379ed13e9f540e915",
+      "columns": [
+        "month",
+        "region",
+        "revenue",
+        "category",
+        "metric"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_08"
+    },
+    "tasks/v2/data/source_09.csv": {
+      "sha256": "09acf0673844ca3894bfb80f3bd8a224ebdba9075a61696bdf39236bb46f4655",
+      "columns": [
+        "日期",
+        "区域",
+        "金额",
+        "类型",
+        "指标"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_09"
+    },
+    "tasks/v2/data/source_10.csv": {
+      "sha256": "a18fe902684cf9d3a30d8baa72523ac633a4bbedb0b9fdbb1750b9af92bfab3e",
+      "columns": [
+        "month",
+        "region",
+        "revenue",
+        "category",
+        "metric"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_10"
+    },
+    "tasks/v2/data/source_11.csv": {
+      "sha256": "2b07bcdedd2e1da8146ac5dab06f6e119b83c2dae77fcba5c89c229680637104",
+      "columns": [
+        "日期",
+        "区域",
+        "金额",
+        "类型",
+        "指标"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_11"
+    },
+    "tasks/v2/data/source_12.csv": {
+      "sha256": "7eb86caa68a506c48317fc25c83b0091c809ef592e27a52cbb59c763bb08acf9",
+      "columns": [
+        "month",
+        "region",
+        "revenue",
+        "category",
+        "metric"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_12"
+    },
+    "tasks/v2/data/source_13.csv": {
+      "sha256": "b1d6bbb6f12a5b38780c90c002f142c088a61dcb9a3c9970f0faa2cb8a6d7d80",
+      "columns": [
+        "日期",
+        "区域",
+        "金额",
+        "类型",
+        "指标"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_13"
+    },
+    "tasks/v2/data/source_14.csv": {
+      "sha256": "b1aea700887518c2cc46ac07a1c7e7d11425274f90a28d63243f8e3176cf8846",
+      "columns": [
+        "month",
+        "region",
+        "revenue",
+        "category",
+        "metric"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_14"
+    },
+    "tasks/v2/data/source_15.csv": {
+      "sha256": "f014af0491e6133e19969c39188350172252ab65e031b77061b4d97214351868",
+      "columns": [
+        "日期",
+        "区域",
+        "金额",
+        "类型",
+        "指标"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_15"
+    },
+    "tasks/v2/data/source_16.csv": {
+      "sha256": "d15acf9ab07c6db693065316c96ddfa8b111dc11f4eb3e3e80597fcc3f1501f5",
+      "columns": [
+        "month",
+        "region",
+        "revenue",
+        "category",
+        "metric"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_16"
+    },
+    "tasks/v2/data/source_17.csv": {
+      "sha256": "6662b17e83e1e437f17b94c37cb577c6f9f0c84dc005c6b916e97b7ca9ddffe2",
+      "columns": [
+        "日期",
+        "区域",
+        "金额",
+        "类型",
+        "指标"
+      ],
+      "rows": 13,
+      "split": "train",
+      "source_id": "source_17"
+    },
+    "tasks/v2/data/source_18.csv": {
+      "sha256": "87e28ebce2765858cd78cc216a9d516d64f46d915178ddab62e32beb7daec354",
+      "columns": [
+        "month",
+        "region",
+        "revenue",
+        "category",
+        "metric"
+      ],
+      "rows": 13,
+      "split": "validation",
+      "source_id": "source_18"
+    },
+    "tasks/v2/data/source_19.csv": {
+      "sha256": "ca0a26b87bc4e441947487880e00eab76f53fc1be61e8c9498a9bd47ef537dd3",
+      "columns": [
+        "日期",
+        "区域",
+        "金额",
+        "类型",
+        "指标"
+      ],
+      "rows": 13,
+      "split": "validation",
+      "source_id": "source_19"
+    },
+    "tasks/v2/data/source_20.csv": {
+      "sha256": "b392ffa301ec07bbbd875900a0c6091a36842587affa9210faaf4a1e69612c16",
+      "columns": [
+        "month",
+        "region",
+        "revenue",
+        "category",
+        "metric"
+      ],
+      "rows": 13,
+      "split": "validation",
+      "source_id": "source_20"
+    },
+    "tasks/v2/data/source_21.csv": {
+      "sha256": "340e12c36ff39d9a201ffc81d785fb344c9e27e451d386819c28e87c7384d957",
+      "columns": [
+        "日期",
+        "区域",
+        "金额",
+        "类型",
+        "指标"
+      ],
+      "rows": 13,
+      "split": "validation",
+      "source_id": "source_21"
+    },
+    "tasks/v2/data/source_22.csv": {
+      "sha256": "ec96a6c6106c3adad5ee5f547e9b06b692d6c80f558d9f14bd077eca0cf20b51",
+      "columns": [
+        "month",
+        "region",
+        "revenue",
+        "category",
+        "metric"
+      ],
+      "rows": 13,
+      "split": "validation",
+      "source_id": "source_22"
+    },
+    "tasks/v2/data/source_23.csv": {
+      "sha256": "220b6b535fe303eb0e590601f1da3dc80c754eda80fd3d1d7d8720aa780805c9",
+      "columns": [
+        "日期",
+        "区域",
+        "金额",
+        "类型",
+        "指标"
+      ],
+      "rows": 13,
+      "split": "validation",
+      "source_id": "source_23"
+    },
+    "tasks/v2/data/source_24.csv": {
+      "sha256": "0a6b74e9540c92cd162e65a6f25afe35d8e0d60fe0d053b8b04ca9da9251fb2f",
+      "columns": [
+        "month",
+        "region",
+        "revenue",
+        "category",
+        "metric"
+      ],
+      "rows": 13,
+      "split": "test",
+      "source_id": "source_24"
+    },
+    "tasks/v2/data/source_25.csv": {
+      "sha256": "ee648f0e7063dc061f5c775b6e5a849396b5458375d16d705325b03f588ebc57",
+      "columns": [
+        "日期",
+        "区域",
+        "金额",
+        "类型",
+        "指标"
+      ],
+      "rows": 13,
+      "split": "test",
+      "source_id": "source_25"
+    },
+    "tasks/v2/data/source_26.csv": {
+      "sha256": "9f259b5eaabd7451dbfda9392dfbc1c8f9df88c3d5d833ed221eecae0cd180f9",
+      "columns": [
+        "month",
+        "region",
+        "revenue",
+        "category",
+        "metric"
+      ],
+      "rows": 13,
+      "split": "test",
+      "source_id": "source_26"
+    },
+    "tasks/v2/data/source_27.csv": {
+      "sha256": "6c5b20ccfdba9b9c317e3dbfa2e0730064232c745da0fb7ef8d7dd906c916173",
+      "columns": [
+        "日期",
+        "区域",
+        "金额",
+        "类型",
+        "指标"
+      ],
+      "rows": 13,
+      "split": "test",
+      "source_id": "source_27"
+    },
+    "tasks/v2/data/source_28.csv": {
+      "sha256": "8eb50d157fddb4ae332e5ff1e226415fc8aed97eb7a2218369a47bb2a7b7a77a",
+      "columns": [
+        "month",
+        "region",
+        "revenue",
+        "category",
+        "metric"
+      ],
+      "rows": 13,
+      "split": "test",
+      "source_id": "source_28"
+    },
+    "tasks/v2/data/source_29.csv": {
+      "sha256": "2eec8c07b7def9c7383955c5077108ad0b66734783a713b7f52abf0186a9be93",
+      "columns": [
+        "日期",
+        "区域",
+        "金额",
+        "类型",
+        "指标"
+      ],
+      "rows": 13,
+      "split": "test",
+      "source_id": "source_29"
+    }
+  },
+  "counts": {
+    "train": 216,
+    "validation": 72,
+    "test": 72
+  },
+  "scope": "synthetic, 12 fixed templates, held-out sources; not external real-world generalization"
+}

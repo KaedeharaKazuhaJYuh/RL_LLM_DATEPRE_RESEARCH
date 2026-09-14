@@ -1,3 +1,7 @@
+# V2 — 2026-09-13
+
+Independent functional verifier; real CSV mutations; task-aware LinUCB with frozen evaluation; repaired data bundles; complete logs and common V1/V2 benchmark. See reports/V2_COMPARISON.md. This is a breaking experiment API change; historical tasks remain archived.
+
 # Changelog
 
 ## 2026-09-12

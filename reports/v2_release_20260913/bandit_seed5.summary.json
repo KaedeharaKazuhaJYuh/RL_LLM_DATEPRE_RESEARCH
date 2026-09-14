@@ -1,0 +1,85 @@
+{
+  "tasks": 72,
+  "passed": 72,
+  "pass_rate": 1.0,
+  "mean_score": 0.95,
+  "mean_tool_calls": 1,
+  "mean_wall_seconds": 0.0019675652794022527,
+  "run_metadata": {
+    "version": 2,
+    "mode": "bandit",
+    "seed": 5,
+    "epochs": 6,
+    "data_only": false,
+    "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+    "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+    "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+    "numpy": "2.3.5",
+    "python": "3.12.14",
+    "model": null,
+    "temperature": null,
+    "evaluation_split": "test",
+    "updates_during_evaluation": false,
+    "contract_mask": false,
+    "training_interactions": 1296,
+    "supervised_labels": 0,
+    "training_wall_seconds": 3.250304999994114,
+    "train_log": "artifacts\\v2_release_20260913\\bandit_seed5\\train.jsonl"
+  },
+  "training_curve": [
+    {
+      "epoch": 1,
+      "tasks": 216,
+      "passed": 98,
+      "pass_rate": 0.4537037037037037,
+      "mean_score": 0.4310185185185185,
+      "mean_tool_calls": 1,
+      "mean_wall_seconds": 0.0016499268531333655
+    },
+    {
+      "epoch": 2,
+      "tasks": 216,
+      "passed": 208,
+      "pass_rate": 0.9629629629629629,
+      "mean_score": 0.9148148148148147,
+      "mean_tool_calls": 1,
+      "mean_wall_seconds": 0.0016393013876815396
+    },
+    {
+      "epoch": 3,
+      "tasks": 216,
+      "passed": 216,
+      "pass_rate": 1.0,
+      "mean_score": 0.95,
+      "mean_tool_calls": 1,
+      "mean_wall_seconds": 0.0017565152765773408
+    },
+    {
+      "epoch": 4,
+      "tasks": 216,
+      "passed": 216,
+      "pass_rate": 1.0,
+      "mean_score": 0.95,
+      "mean_tool_calls": 1,
+      "mean_wall_seconds": 0.0018868902738581204
+    },
+    {
+      "epoch": 5,
+      "tasks": 216,
+      "passed": 216,
+      "pass_rate": 1.0,
+      "mean_score": 0.95,
+      "mean_tool_calls": 1,
+      "mean_wall_seconds": 0.0017803000012429915
+    },
+    {
+      "epoch": 6,
+      "tasks": 216,
+      "passed": 216,
+      "pass_rate": 1.0,
+      "mean_score": 0.95,
+      "mean_tool_calls": 1,
+      "mean_wall_seconds": 0.0017934574077824233
+    }
+  ]
+}

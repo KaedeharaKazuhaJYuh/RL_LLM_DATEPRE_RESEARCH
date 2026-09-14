@@ -1,0 +1,30 @@
+{
+  "tasks": 72,
+  "passed": 72,
+  "pass_rate": 1.0,
+  "mean_score": 0.95,
+  "mean_tool_calls": 1,
+  "mean_wall_seconds": 0.0018767736093852566,
+  "run_metadata": {
+    "version": 2,
+    "mode": "supervised",
+    "seed": 1,
+    "epochs": 0,
+    "data_only": false,
+    "code_sha256": "dc06d1ef96410fd4158fd0676462571b6c9a4f10c50259c137706302bf46e800",
+    "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+    "oracle_sha256": "4fe12472f0f4958f850394db9c4eb05607868166f5dbeaf1b6e0808993383274",
+    "numpy": "2.3.5",
+    "python": "3.12.14",
+    "model": null,
+    "temperature": null,
+    "evaluation_split": "test",
+    "updates_during_evaluation": false,
+    "contract_mask": false,
+    "training_interactions": 0,
+    "supervised_labels": 216,
+    "training_wall_seconds": 0.041950999991968274,
+    "train_log": null
+  },
+  "training_curve": []
+}
