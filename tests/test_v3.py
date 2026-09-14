@@ -44,8 +44,8 @@ class V3BenchmarkTests(unittest.TestCase):
             self.assertEqual({"abalone","seoul_bike","bike_sharing"},set(result["test_sources"]))
             self.assertFalse(result["updates_during_test"])
             self.assertEqual(126,result["test_examples"])
-            self.assertEqual(107,result["execution_passed"])
-            self.assertEqual(125,result["safe_outcomes_passed"])
+            self.assertEqual(108,result["execution_passed"])
+            self.assertEqual(126,result["safe_outcomes_passed"])
             self.assertEqual(2,len(result["safe_outcome_wilson_95"]))
             self.assertTrue(result["policy_sha256"])
 
