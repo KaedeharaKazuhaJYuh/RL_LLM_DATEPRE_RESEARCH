@@ -1,0 +1,49 @@
+{
+  "version": "4.0-draft",
+  "status": "pre_registered_before_v4_test_construction",
+  "research_question": "Can a learned planner and recovery policy improve verified completion on unseen sources while controlling unsafe actions, escalation, cost, and latency?",
+  "split_unit": ["data_source", "prompt_template_family", "fault_family"],
+  "development_policy": {
+    "train": "available for training and error analysis",
+    "validation": "available for model and threshold selection",
+    "test": "sealed until the implementation and thresholds are frozen",
+    "no_test_derived_inputs": true
+  },
+  "required_baselines": [
+    "no_recovery",
+    "fixed_rule",
+    "direct_llm",
+    "supervised_policy",
+    "selective_policy",
+    "reinforcement_learning_policy"
+  ],
+  "primary_metric": "verified_end_to_end_completion_rate",
+  "required_metrics": [
+    "accepted_coverage",
+    "accepted_failure_rate",
+    "unsafe_action_rate",
+    "necessary_escalation_rate",
+    "unnecessary_escalation_rate",
+    "mean_tool_calls",
+    "p95_tool_calls",
+    "mean_latency_seconds",
+    "p95_latency_seconds",
+    "api_input_tokens",
+    "api_output_tokens",
+    "cost_per_verified_completion"
+  ],
+  "execution_requirements": {
+    "subprocess_isolation_for_tools": true,
+    "atomic_artifact_publish": true,
+    "input_hash_validation": true,
+    "independent_final_state_verification": true,
+    "retries_consume_budget": true
+  },
+  "reporting": {
+    "training_seeds_minimum": 3,
+    "api_repetitions_minimum": 3,
+    "grouped_resampling_unit": "data_source",
+    "report_all_runs": true,
+    "label_oracle_as_upper_bound": true
+  }
+}
