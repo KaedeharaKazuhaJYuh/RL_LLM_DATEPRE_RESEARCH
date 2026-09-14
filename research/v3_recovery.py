@@ -96,6 +96,8 @@ def examples(source,meta,styles=("raw",)):
     return rows
 
 def evaluate(out="reports/v3_real_recovery.json"):
+    # Legacy stress suite. Run the rule independently rather than borrowing learned execution outcomes.
+    from research.v3_final import execute_repair
     manifest=json.loads((ROOT/"tasks/v3_real/manifest.json").read_text(encoding="utf-8"));meta=manifest["sources"]
     train_sources=[s for s,v in meta.items() if v["split"]=="train"]
     test_sources=[s for s,v in meta.items() if v["split"]=="test"]
@@ -123,9 +125,10 @@ def evaluate(out="reports/v3_real_recovery.json"):
             checked=verify(result,gold,[{"tool":action,"ok":True}],{"allowed_tools":[action],"max_tool_calls":1,"max_steps":1,"max_seconds":10,"elapsed_seconds":0,"input_sha256":started_hash})
             executed=checked["passed"]
         except Exception as exc: executed=False;result={"error":type(exc).__name__+": "+str(exc)}
+        heuristic_executed, _ = execute_repair(item, rule, artifact_dir/'rule')
         records.append({**item,"predicted_repair":predicted,"prediction_confidence":policy.confidence(item["message"]),"heuristic_repair":rule,"classification_passed":predicted==item["label"],
                         "heuristic_classification_passed":rule==item["label"],"execution_passed":executed,
-                        "heuristic_execution_passed":executed and rule==item["label"],"result":result})
+                        "heuristic_execution_passed":heuristic_executed,"result":result})
     # Test-only faults have no safe automatic repair label in training. Correct behavior is escalation.
     for source in test_sources:
         clean=ROOT/f"tasks/v3_real/data/{source}.csv";cols,rows=read_table(clean);meta_source=meta[source]
@@ -171,7 +174,12 @@ def evaluate(out="reports/v3_real_recovery.json"):
                 records.append({"source":source,"style":style,"action":action,"params":params,"fault":fault,"message":messages,"label":list(labels),
                                 "predicted_repair":predicted,"prediction_confidence":[policy.confidence(m) for m in messages],"heuristic_repair":rules,
                                 "classification_passed":ok,"heuristic_classification_passed":rules==list(labels),"execution_passed":executed,
-                                "heuristic_execution_passed":executed and rules==list(labels),"result":result})
+                                "heuristic_execution_passed":False,"result":result})
+                if rules == list(labels):
+                    rule_result=execute_tool(action,{'uri':str(clean),'params':params,'artifact_dir':fault_dir/fault/style/'rule'})
+                    rule_check=verify(rule_result,expected(clean,action,params),[{'tool':action,'ok':True}],
+                                      {'allowed_tools':[action],'max_tool_calls':1,'max_steps':1,'max_seconds':10,'elapsed_seconds':0,'input_sha256':digest(clean)})
+                    records[-1]['heuristic_execution_passed']=rule_check['passed']
     if not np.array_equal(before,policy.weights):raise AssertionError("test modified frozen recovery policy")
     weight_hash=hashlib.sha256(policy.weights.tobytes()).hexdigest()
     by_fault={f:{"tasks":sum(r["fault"]==f for r in records),"classification_passed":sum(r["fault"]==f and r["classification_passed"] for r in records),

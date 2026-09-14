@@ -4,19 +4,29 @@ from pathlib import Path
 from research.io import ROOT, write_json
 
 def run_case(mode,deadline=.15,sleep=.6,folder=None):
-    base=Path(folder or tempfile.mkdtemp(prefix="v3_fault_"));target=base/f"{mode}.json"
-    cmd=[sys.executable,"-m","research.v3_fault_worker","--mode",mode,"--output",str(target),"--sleep",str(sleep)]
+    base=Path(folder or tempfile.mkdtemp(prefix="v3_fault_"));base.mkdir(parents=True,exist_ok=True)
+    # A fresh run directory prevents accepting a previous run's complete artifact.
+    base=Path(tempfile.mkdtemp(prefix='run_',dir=base));target=base/f"{mode}.json"
+    ready=base/'ready'
+    cmd=[sys.executable,"-m","research.v3_fault_worker","--mode",mode,"--output",str(target),"--ready",str(ready),"--sleep",str(sleep)]
     started=time.perf_counter();proc=subprocess.Popen(cmd,cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+    # Bound startup separately so interpreter startup latency cannot masquerade as a tool timeout.
+    while not ready.exists() and proc.poll() is None and time.perf_counter()-started < 5:
+        time.sleep(.005)
+    startup_seconds=time.perf_counter()-started
     killed=False
+    if not ready.exists() and proc.poll() is None:
+        proc.kill();proc.communicate()
+        raise TimeoutError('worker did not become ready within startup budget')
     try:stdout,stderr=proc.communicate(timeout=deadline)
     except subprocess.TimeoutExpired:
         killed=True;proc.kill();stdout,stderr=proc.communicate()
     elapsed=time.perf_counter()-started;valid=False;payload=None
     if target.exists():
-        try:payload=json.loads(target.read_text(encoding="utf-8"));valid=payload.get("status")=="complete"
+        try:payload=json.loads(target.read_text(encoding="utf-8"));valid=isinstance(payload,dict) and payload.get("status")=="complete" and proc.returncode==0 and not killed
         except (json.JSONDecodeError,UnicodeDecodeError):pass
     passed=(mode=="success" and not killed and valid) or (mode=="timeout" and killed and not target.exists()) or (mode=="partial" and killed and target.exists() and not valid)
-    return {"mode":mode,"deadline_seconds":deadline,"worker_sleep_seconds":sleep,"elapsed_seconds":elapsed,"killed":killed,
+    return {"mode":mode,"deadline_seconds":deadline,"startup_seconds":startup_seconds,"worker_sleep_seconds":sleep,"elapsed_seconds":elapsed,"killed":killed,
             "returncode":proc.returncode,"artifact_exists":target.exists(),"artifact_valid":valid,"payload":payload,"stdout":stdout,"stderr":stderr,"passed":passed}
 
 def evaluate(trials=10,out="reports/v3_subprocess_faults.json"):

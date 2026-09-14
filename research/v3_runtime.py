@@ -20,25 +20,43 @@ def params_for(action, task, corrupt=False):
 
 
 def run_plan(task, plan, gold, artifact_dir, recover=False, inject_error=False):
-    if gold["decision"] == "clarify":
-        passed = not plan
+    if not plan:
+        passed = gold['decision'] == 'clarify'
         return {"task_id": task["task_id"], "track": task["track"], "slice": task["slice"], "decision": "clarify" if not plan else "execute",
                 "proposed_plan": plan, "gold_plan": gold["plan"], "steps": [], "recoveries": 0, "recovered": False,
                 "planning_passed": passed, "execution_passed": passed, "passed": passed}
     current = resolve(task["dataset"]["uri"]); steps = []; recoveries = 0; execution_ok = True
+    limits = task['constraints']; calls = 0; overall_start = time.perf_counter()
+    max_seconds = limits.get('max_seconds', 10)
+    reason = None
+    if len(plan) > limits['max_steps'] or any(a not in task['allowed_tools'] for a in plan):
+        reason = 'plan exceeds budget or contains forbidden tool'
+    if reason is None:
+        try:
+            if task['dataset'].get('sha256') and digest(current) != task['dataset']['sha256']:
+                reason = 'input hash mismatch'
+        except OSError as exc:
+            reason = type(exc).__name__
     for index, action in enumerate(plan):
+        if reason:
+            execution_ok = False
+            break
         step_ok = False
         for attempt in range(2 if recover else 1):
+            if calls >= limits['max_tool_calls'] or time.perf_counter()-overall_start >= max_seconds:
+                reason = 'execution budget exhausted'
+                break
             corrupt = inject_error and index == 0 and attempt == 0
             params = params_for(action, task, corrupt=corrupt)
-            before_hash = digest(current); started = time.perf_counter()
+            before_hash = None
             try:
+                before_hash = digest(current); started = time.perf_counter(); calls += 1
                 result = execute_tool(action, {"uri": str(current), "params": params,
                                                "artifact_dir": Path(artifact_dir)/f"step_{index}"/f"attempt_{attempt}"})
                 reference = expected(current, action, params)
                 checked = verify(result, reference, [{"tool": action, "ok": True}],
                                  {"allowed_tools": task["allowed_tools"], "max_tool_calls": 1, "max_steps": 1,
-                                  "max_seconds": 10, "elapsed_seconds": time.perf_counter()-started, "input_sha256": before_hash})
+                                  "max_seconds": max_seconds, "elapsed_seconds": time.perf_counter()-overall_start, "input_sha256": before_hash})
                 step = {"index": index, "attempt": attempt, "action": action, "input_sha256": before_hash,
                         "result": result, "checks": checked["checks"], "passed": checked["passed"]}
                 steps.append(step)
@@ -56,6 +74,7 @@ def run_plan(task, plan, gold, artifact_dir, recover=False, inject_error=False):
     return {"task_id": task["task_id"], "track": task["track"], "slice": task["slice"], "decision": "execute",
             "proposed_plan": plan, "gold_plan": gold["plan"], "steps": steps, "recoveries": recoveries, "recovered": recovered,
             "planning_passed": planning_ok, "execution_passed": execution_ok, "passed": planning_ok and execution_ok,
+            "tool_calls": calls, "termination_reason": reason,
             "final_artifact_sha256": digest(current) if current.exists() else None}
 
 

@@ -125,17 +125,17 @@ def build(out_dir=None, sources=24):
         "tracks": {k: sum(t["track"] == k for t in tasks) for k in ("single", "composition", "clarification")},
         "test_slices": {k: sum(t["split"] == "test" and t["slice"] == k for t in tasks) for k in sorted({t["slice"] for t in tasks if t["split"] == "test"})},
         "source_overlap": False, "exact_prompt_overlap": bool(prompt_sets["train"] & prompt_sets["test"]), "datasets": datasets,
-        "scope": "synthetic planner diagnostic; source and wording-family holdout; plans are scored but not yet executed end to end"
+        "scope": "synthetic planner diagnostic with bounded execution; public parameters supplied; no learned LLM planner"
     })
     return tasks, oracle
 
 
 def _public(tid, source, split, track, prompt, uri, columns, names, max_steps=1, slice_name="unspecified"):
     return {"schema_version": 3, "task_id": tid, "source_id": f"v3_source_{source:02d}", "split": split,
-            "track": track, "slice": slice_name, "prompt": prompt, "dataset": {"uri": uri, "columns": columns},
+            "track": track, "slice": slice_name, "prompt": prompt, "dataset": {"uri": uri, "columns": columns, "sha256": digest(ROOT/uri)},
             "params": {"column": names["value"], "category_column": names["category"], "date_column": names["date"],
                        "other_column": names["metric"], "lower": 0, "upper": 100, "window": 3},
-            "allowed_tools": ACTIONS, "constraints": {"max_steps": max_steps, "max_tool_calls": max_steps}}
+            "allowed_tools": ACTIONS, "constraints": {"max_steps": max_steps, "max_tool_calls": max_steps + (1 if max_steps else 0), "max_seconds": 10}}
 
 
 if __name__ == "__main__":

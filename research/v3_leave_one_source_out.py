@@ -1,4 +1,7 @@
-"""Leave-one-data-source-out recovery routing with heterogeneous fault schedules."""
+"""Historical V3.5 routing-only experiment (source and style confounded).
+
+Retained for reproduction; use research.v3_final for the corrected primary evaluation.
+"""
 import argparse, json, random
 from pathlib import Path
 from research.io import ROOT, write_json

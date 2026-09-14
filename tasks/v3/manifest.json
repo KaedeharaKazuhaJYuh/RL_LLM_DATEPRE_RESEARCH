@@ -1,7 +1,7 @@
 {
   "version": 3,
   "seed": 20260913,
-  "tasks_sha256": "d7eb134f97cc5961231e954fc1b75633b70a6b2abcb16388dcf07d618d32386a",
+  "tasks_sha256": "e482662ff26a7c578c09f836ddc2f76607c4b6c8f5304492a7c178bce283700a",
   "oracle_sha256": "ef7be506e9a6634eafac56d575c444d39118b0f3e4eb991a52f9dc0002f0e5bb",
   "counts": {
     "train": 240,
@@ -143,5 +143,5 @@
       "split": "test"
     }
   },
-  "scope": "synthetic planner diagnostic; source and wording-family holdout; plans are scored but not yet executed end to end"
+  "scope": "synthetic planner diagnostic with bounded execution; public parameters supplied; no learned LLM planner"
 }

@@ -1,4 +1,8 @@
-# RL + LLM Data Analysis Agent — V2
+# RL + LLM Data Analysis Agent — V3.6 Final
+
+当前主结果与边界见 [V3 最终审计](reports/V3_FINAL_AUDIT.md)，后续研究见 [V4 规划](reports/V4_RESEARCH_PLAN.md)。本版本是本地诊断基准，尚无 LLM/RL 训练结果。
+
+运行 `python -m unittest discover -s tests -v` 后，运行 `python -m research.v3_release --out work/v3_acceptance` 完成离线验收。主恢复比较为 480 条交叉测试，自动完成与升级分别计分。以下 V3.1–V3.5 为历史实验，不能代替最终主结果。
 
 > V3 已加入未见提示模板、正交泛化切片、两步有序计划和澄清任务；`research/v3_runtime.py` 会逐步验证产物、更新输入状态并支持一次参数恢复。设计与首轮结果见 `reports/V3_BASELINE_DESIGN.md`。
 
