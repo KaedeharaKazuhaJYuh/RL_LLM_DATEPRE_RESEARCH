@@ -43,7 +43,8 @@ def heuristic_predict(text):
     return "repair_column"
 
 def render_message(raw,action,style):
-    return raw+f"; tool={action}" if style=="raw" else raw.split(":",1)[-1].strip()+f" [{action}]"
+    normalized=raw.replace(str(ROOT),"<ROOT>").replace(str(ROOT).replace("\\","/"),"<ROOT>")
+    return normalized+f"; tool={action}" if style=="raw" else normalized.split(":",1)[-1].strip()+f" [{action}]"
 
 def task_specs(meta):
     return [
