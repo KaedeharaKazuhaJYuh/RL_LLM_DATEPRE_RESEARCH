@@ -4,6 +4,7 @@ from research.benchmark_v3 import build
 from research.v3_baselines import evaluate
 from research.v3_runtime import run_plan
 from research.v3_recovery import evaluate as evaluate_recovery
+from research.v3_subprocess_faults import run_case
 
 
 class V3BenchmarkTests(unittest.TestCase):
@@ -48,6 +49,13 @@ class V3BenchmarkTests(unittest.TestCase):
             self.assertEqual(126,result["safe_outcomes_passed"])
             self.assertEqual(2,len(result["safe_outcome_wilson_95"]))
             self.assertTrue(result["policy_sha256"])
+
+    def test_real_subprocess_timeout_and_partial_rejection(self):
+        with tempfile.TemporaryDirectory() as d:
+            timeout=run_case("timeout",deadline=.1,sleep=.4,folder=Path(d)/"timeout")
+            partial=run_case("partial",deadline=.1,sleep=.4,folder=Path(d)/"partial")
+            self.assertTrue(timeout["killed"] and timeout["passed"])
+            self.assertTrue(partial["killed"] and partial["artifact_exists"] and not partial["artifact_valid"] and partial["passed"])
 
 
 if __name__ == "__main__": unittest.main()

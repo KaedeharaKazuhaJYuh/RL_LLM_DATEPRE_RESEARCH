@@ -1,0 +1,34 @@
+{
+  "version": "3.4",
+  "unit": "held-out data source",
+  "sources": [
+    "abalone",
+    "bike_sharing",
+    "seoul_bike"
+  ],
+  "draws": 10000,
+  "learned": {
+    "source_rates": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "mean": 1.0,
+    "bootstrap_95": [
+      1.0,
+      1.0
+    ]
+  },
+  "heuristic": {
+    "source_rates": [
+      0.8095238095238095,
+      0.8095238095238095,
+      0.8095238095238095
+    ],
+    "mean": 0.8095238095238096,
+    "bootstrap_95": [
+      0.8095238095238096,
+      0.8095238095238096
+    ]
+  }
+}
