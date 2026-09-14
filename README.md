@@ -1,4 +1,20 @@
-# RL + LLM Data Analysis Agent — V2
+# RL + LLM Data Analysis Agent — V3.6 Final
+
+当前主结果与边界见 [V3 最终审计](reports/V3_FINAL_AUDIT.md)，后续研究见 [V4 规划](reports/V4_RESEARCH_PLAN.md)。本版本是本地诊断基准，尚无 LLM/RL 训练结果。
+
+运行 `python -m unittest discover -s tests -v` 后，运行 `python -m research.v3_release --out work/v3_acceptance` 完成离线验收。主恢复比较为 480 条交叉测试，自动完成与升级分别计分。以下 V3.1–V3.5 为历史实验，不能代替最终主结果。
+
+> V3 已加入未见提示模板、正交泛化切片、两步有序计划和澄清任务；`research/v3_runtime.py` 会逐步验证产物、更新输入状态并支持一次参数恢复。设计与首轮结果见 `reports/V3_BASELINE_DESIGN.md`。
+
+> V3.1 进一步加入三份带许可和哈希记录的 UCI 真实数据、五类实际故障及训练后冻结的恢复分类器。方法、结果和解释边界见 `reports/V3_1_REAL_RECOVERY.md`。
+
+> V3.2 将冻结测试扩大到三个真实数据源和 102 条故障记录，并加入测试阶段未见故障及低置信度升级机制。结果见 `reports/V3_2_HARDENED_RECOVERY.md`。
+
+> V3.3 将训练、阈值校准、测试来源分离，并加入复合故障、部分写入、编码损坏、随机延迟与 Wilson 区间。结果见 `reports/V3_3_CALIBRATED_COMPOUND_RECOVERY.md`。
+
+> V3.4 使用真实子进程实施硬超时和部分写入，并补充按数据来源bootstrap。结果见 `reports/V3_4_PROCESS_ISOLATION.md`。
+
+> V3.5 将真实数据池扩展到8个来源，采用按来源留一法和异质日志条件，暴露出截短诊断信息下的恢复错误。结果见 `reports/V3_5_LEAVE_ONE_SOURCE_OUT.md`。
 
 V2 是独立验证的单步数据分析路由实验。修复了原版的任务编号捷径、占位清洗、同源参考计算、数据包损坏、奖励与合法性不一致以及不完整日志。
 

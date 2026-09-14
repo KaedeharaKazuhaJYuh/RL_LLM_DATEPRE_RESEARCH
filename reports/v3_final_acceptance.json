@@ -1,0 +1,406 @@
+{
+  "version": "3.6-final",
+  "checks": {
+    "tracked_files_unchanged": true,
+    "oracle_executes_all": true,
+    "bounded_recovery_executes_all": true,
+    "child_process_cases_pass": true,
+    "terse_logs_escalate": true
+  },
+  "changed_tracked_files": [],
+  "planning": {
+    "keyword": {
+      "benchmark_version": 3,
+      "mode": "keyword",
+      "seed": 1,
+      "passed": 96,
+      "tasks": 456,
+      "pass_rate": 0.21052631578947367,
+      "by_track": {
+        "clarification": {
+          "passed": 0,
+          "tasks": 24,
+          "pass_rate": 0.0
+        },
+        "composition": {
+          "passed": 72,
+          "tasks": 144,
+          "pass_rate": 0.5
+        },
+        "single": {
+          "passed": 24,
+          "tasks": 288,
+          "pass_rate": 0.08333333333333333
+        }
+      },
+      "by_slice": {
+        "clarification_holdout": {
+          "passed": 0,
+          "tasks": 24,
+          "pass_rate": 0.0
+        },
+        "cross_language": {
+          "passed": 12,
+          "tasks": 144,
+          "pass_rate": 0.08333333333333333
+        },
+        "cross_language_composition": {
+          "passed": 0,
+          "tasks": 72,
+          "pass_rate": 0.0
+        },
+        "novel_composition": {
+          "passed": 72,
+          "tasks": 72,
+          "pass_rate": 1.0
+        },
+        "same_language_paraphrase": {
+          "passed": 12,
+          "tasks": 144,
+          "pass_rate": 0.08333333333333333
+        }
+      }
+    },
+    "nearest": {
+      "benchmark_version": 3,
+      "mode": "nearest",
+      "seed": 1,
+      "passed": 24,
+      "tasks": 456,
+      "pass_rate": 0.05263157894736842,
+      "by_track": {
+        "clarification": {
+          "passed": 0,
+          "tasks": 24,
+          "pass_rate": 0.0
+        },
+        "composition": {
+          "passed": 0,
+          "tasks": 144,
+          "pass_rate": 0.0
+        },
+        "single": {
+          "passed": 24,
+          "tasks": 288,
+          "pass_rate": 0.08333333333333333
+        }
+      },
+      "by_slice": {
+        "clarification_holdout": {
+          "passed": 0,
+          "tasks": 24,
+          "pass_rate": 0.0
+        },
+        "cross_language": {
+          "passed": 12,
+          "tasks": 144,
+          "pass_rate": 0.08333333333333333
+        },
+        "cross_language_composition": {
+          "passed": 0,
+          "tasks": 72,
+          "pass_rate": 0.0
+        },
+        "novel_composition": {
+          "passed": 0,
+          "tasks": 72,
+          "pass_rate": 0.0
+        },
+        "same_language_paraphrase": {
+          "passed": 12,
+          "tasks": 144,
+          "pass_rate": 0.08333333333333333
+        }
+      }
+    },
+    "oracle": {
+      "benchmark_version": 3,
+      "mode": "oracle",
+      "seed": 1,
+      "passed": 456,
+      "tasks": 456,
+      "pass_rate": 1.0,
+      "by_track": {
+        "clarification": {
+          "passed": 24,
+          "tasks": 24,
+          "pass_rate": 1.0
+        },
+        "composition": {
+          "passed": 144,
+          "tasks": 144,
+          "pass_rate": 1.0
+        },
+        "single": {
+          "passed": 288,
+          "tasks": 288,
+          "pass_rate": 1.0
+        }
+      },
+      "by_slice": {
+        "clarification_holdout": {
+          "passed": 24,
+          "tasks": 24,
+          "pass_rate": 1.0
+        },
+        "cross_language": {
+          "passed": 144,
+          "tasks": 144,
+          "pass_rate": 1.0
+        },
+        "cross_language_composition": {
+          "passed": 72,
+          "tasks": 72,
+          "pass_rate": 1.0
+        },
+        "novel_composition": {
+          "passed": 72,
+          "tasks": 72,
+          "pass_rate": 1.0
+        },
+        "same_language_paraphrase": {
+          "passed": 144,
+          "tasks": 144,
+          "pass_rate": 1.0
+        }
+      }
+    }
+  },
+  "runtime": {
+    "oracle_recover0_inject0": {
+      "version": 3,
+      "mode": "oracle",
+      "recover": false,
+      "inject_error": false,
+      "tasks": 456,
+      "planning_passed": 456,
+      "execution_passed": 456,
+      "passed": 456,
+      "recovered": 0,
+      "by_slice": {
+        "clarification_holdout": {
+          "tasks": 24,
+          "planning_passed": 24,
+          "execution_passed": 24,
+          "passed": 24,
+          "recovered": 0
+        },
+        "cross_language": {
+          "tasks": 144,
+          "planning_passed": 144,
+          "execution_passed": 144,
+          "passed": 144,
+          "recovered": 0
+        },
+        "cross_language_composition": {
+          "tasks": 72,
+          "planning_passed": 72,
+          "execution_passed": 72,
+          "passed": 72,
+          "recovered": 0
+        },
+        "novel_composition": {
+          "tasks": 72,
+          "planning_passed": 72,
+          "execution_passed": 72,
+          "passed": 72,
+          "recovered": 0
+        },
+        "same_language_paraphrase": {
+          "tasks": 144,
+          "planning_passed": 144,
+          "execution_passed": 144,
+          "passed": 144,
+          "recovered": 0
+        }
+      }
+    },
+    "oracle_recover0_inject1": {
+      "version": 3,
+      "mode": "oracle",
+      "recover": false,
+      "inject_error": true,
+      "tasks": 456,
+      "planning_passed": 456,
+      "execution_passed": 144,
+      "passed": 144,
+      "recovered": 0,
+      "by_slice": {
+        "clarification_holdout": {
+          "tasks": 24,
+          "planning_passed": 24,
+          "execution_passed": 24,
+          "passed": 24,
+          "recovered": 0
+        },
+        "cross_language": {
+          "tasks": 144,
+          "planning_passed": 144,
+          "execution_passed": 36,
+          "passed": 36,
+          "recovered": 0
+        },
+        "cross_language_composition": {
+          "tasks": 72,
+          "planning_passed": 72,
+          "execution_passed": 24,
+          "passed": 24,
+          "recovered": 0
+        },
+        "novel_composition": {
+          "tasks": 72,
+          "planning_passed": 72,
+          "execution_passed": 24,
+          "passed": 24,
+          "recovered": 0
+        },
+        "same_language_paraphrase": {
+          "tasks": 144,
+          "planning_passed": 144,
+          "execution_passed": 36,
+          "passed": 36,
+          "recovered": 0
+        }
+      }
+    },
+    "oracle_recover1_inject1": {
+      "version": 3,
+      "mode": "oracle",
+      "recover": true,
+      "inject_error": true,
+      "tasks": 456,
+      "planning_passed": 456,
+      "execution_passed": 456,
+      "passed": 456,
+      "recovered": 312,
+      "by_slice": {
+        "clarification_holdout": {
+          "tasks": 24,
+          "planning_passed": 24,
+          "execution_passed": 24,
+          "passed": 24,
+          "recovered": 0
+        },
+        "cross_language": {
+          "tasks": 144,
+          "planning_passed": 144,
+          "execution_passed": 144,
+          "passed": 144,
+          "recovered": 108
+        },
+        "cross_language_composition": {
+          "tasks": 72,
+          "planning_passed": 72,
+          "execution_passed": 72,
+          "passed": 72,
+          "recovered": 48
+        },
+        "novel_composition": {
+          "tasks": 72,
+          "planning_passed": 72,
+          "execution_passed": 72,
+          "passed": 72,
+          "recovered": 48
+        },
+        "same_language_paraphrase": {
+          "tasks": 144,
+          "planning_passed": 144,
+          "execution_passed": 144,
+          "passed": 144,
+          "recovered": 108
+        }
+      }
+    },
+    "keyword_recover0_inject0": {
+      "version": 3,
+      "mode": "keyword",
+      "recover": false,
+      "inject_error": false,
+      "tasks": 456,
+      "planning_passed": 96,
+      "execution_passed": 432,
+      "passed": 96,
+      "recovered": 0,
+      "by_slice": {
+        "clarification_holdout": {
+          "tasks": 24,
+          "planning_passed": 0,
+          "execution_passed": 0,
+          "passed": 0,
+          "recovered": 0
+        },
+        "cross_language": {
+          "tasks": 144,
+          "planning_passed": 12,
+          "execution_passed": 144,
+          "passed": 12,
+          "recovered": 0
+        },
+        "cross_language_composition": {
+          "tasks": 72,
+          "planning_passed": 0,
+          "execution_passed": 72,
+          "passed": 0,
+          "recovered": 0
+        },
+        "novel_composition": {
+          "tasks": 72,
+          "planning_passed": 72,
+          "execution_passed": 72,
+          "passed": 72,
+          "recovered": 0
+        },
+        "same_language_paraphrase": {
+          "tasks": 144,
+          "planning_passed": 12,
+          "execution_passed": 144,
+          "passed": 12,
+          "recovered": 0
+        }
+      }
+    }
+  },
+  "recovery": {
+    "none": {
+      "tasks": 480,
+      "accepted": 480,
+      "escalated": 0,
+      "coverage": 1.0,
+      "accepted_accuracy": 0.0,
+      "selective_risk": 1.0,
+      "execution_passed": 0,
+      "execution_rate": 0.0,
+      "accepted_execution_failure_rate": 1.0
+    },
+    "rule": {
+      "tasks": 480,
+      "accepted": 480,
+      "escalated": 0,
+      "coverage": 1.0,
+      "accepted_accuracy": 0.8833333333333333,
+      "selective_risk": 0.1166666666666667,
+      "execution_passed": 424,
+      "execution_rate": 0.8833333333333333,
+      "accepted_execution_failure_rate": 0.1166666666666667
+    },
+    "selective": {
+      "tasks": 480,
+      "accepted": 355,
+      "escalated": 125,
+      "coverage": 0.7395833333333334,
+      "accepted_accuracy": 1.0,
+      "selective_risk": 0.0,
+      "execution_passed": 355,
+      "execution_rate": 0.7395833333333334,
+      "accepted_execution_failure_rate": 0.0
+    }
+  },
+  "processes": {
+    "version": "3.4",
+    "trials": 10,
+    "cases": 30,
+    "passed": 30,
+    "killed": 20,
+    "partial_artifacts_rejected": 10
+  }
+}

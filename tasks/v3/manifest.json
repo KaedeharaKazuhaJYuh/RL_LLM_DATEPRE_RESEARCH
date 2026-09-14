@@ -1,0 +1,147 @@
+{
+  "version": 3,
+  "seed": 20260913,
+  "tasks_sha256": "e482662ff26a7c578c09f836ddc2f76607c4b6c8f5304492a7c178bce283700a",
+  "oracle_sha256": "ef7be506e9a6634eafac56d575c444d39118b0f3e4eb991a52f9dc0002f0e5bb",
+  "counts": {
+    "train": 240,
+    "test": 456
+  },
+  "tracks": {
+    "single": 432,
+    "composition": 216,
+    "clarification": 48
+  },
+  "test_slices": {
+    "clarification_holdout": 24,
+    "cross_language": 144,
+    "cross_language_composition": 72,
+    "novel_composition": 72,
+    "same_language_paraphrase": 144
+  },
+  "source_overlap": false,
+  "exact_prompt_overlap": false,
+  "datasets": {
+    "tasks/v3/data/source_00.csv": {
+      "sha256": "7df07130a390943434241b9699a72d7343c8631a2eea7951a5d382fc23b87643",
+      "source_id": "v3_source_00",
+      "split": "train"
+    },
+    "tasks/v3/data/source_01.csv": {
+      "sha256": "65719e87f547f6bbb3df7bdbb762383af13cedaacf7516e49db0f317005a831f",
+      "source_id": "v3_source_01",
+      "split": "train"
+    },
+    "tasks/v3/data/source_02.csv": {
+      "sha256": "935ad792933fdd6cabf2b43a54533510e4c3060526759057892c249e32e1da9c",
+      "source_id": "v3_source_02",
+      "split": "train"
+    },
+    "tasks/v3/data/source_03.csv": {
+      "sha256": "9df6412c153ce3c8c4cf062b07a7069bb207a0a32108f87ee64dc2fcc21bda34",
+      "source_id": "v3_source_03",
+      "split": "train"
+    },
+    "tasks/v3/data/source_04.csv": {
+      "sha256": "efb54df4ec29032c19e9677035ed6adb8a864e4e0b6992811645d08660ce8bf4",
+      "source_id": "v3_source_04",
+      "split": "train"
+    },
+    "tasks/v3/data/source_05.csv": {
+      "sha256": "80d36a9649aac837ab40ad2e39b511369a0a83b0e6e2b2024da4cad910f58ca1",
+      "source_id": "v3_source_05",
+      "split": "train"
+    },
+    "tasks/v3/data/source_06.csv": {
+      "sha256": "c8c4390f3af843c928fac194901e8ac401727f17aef732c7a23a9b938bd724fc",
+      "source_id": "v3_source_06",
+      "split": "train"
+    },
+    "tasks/v3/data/source_07.csv": {
+      "sha256": "534f94fefa3d09721b549d5b8eb1c8425d1ec175a5a804a0104bf378d516e086",
+      "source_id": "v3_source_07",
+      "split": "train"
+    },
+    "tasks/v3/data/source_08.csv": {
+      "sha256": "273d98bd02894faa6a10ced3483b9aa6685e9b5a205e8079970207cf9ee3db8a",
+      "source_id": "v3_source_08",
+      "split": "train"
+    },
+    "tasks/v3/data/source_09.csv": {
+      "sha256": "7d3362fc75a1b148ce2bb5d40749bf95282bf612562294848b55900fcf1e6962",
+      "source_id": "v3_source_09",
+      "split": "train"
+    },
+    "tasks/v3/data/source_10.csv": {
+      "sha256": "491a99c0066d348b3e472630a7af9172012f70a7b6175a6fea8dd0996346bd3d",
+      "source_id": "v3_source_10",
+      "split": "train"
+    },
+    "tasks/v3/data/source_11.csv": {
+      "sha256": "d68c5f7840f9d2cee21fdc420b9f5d2d935e4403977fc75cff815f0ea207fc03",
+      "source_id": "v3_source_11",
+      "split": "train"
+    },
+    "tasks/v3/data/source_12.csv": {
+      "sha256": "84d379a162e6496dbd043617dc4a770599b8b658a36b31fe8956858c023b6d02",
+      "source_id": "v3_source_12",
+      "split": "test"
+    },
+    "tasks/v3/data/source_13.csv": {
+      "sha256": "d77fee4ec569d4fdfdf323d893d5c6e529de141ecfdb7e00b09813129124815c",
+      "source_id": "v3_source_13",
+      "split": "test"
+    },
+    "tasks/v3/data/source_14.csv": {
+      "sha256": "4e93d0336a4ff04119afb0ab4a1e3bf1fcb901536108d74c59686aee3341b206",
+      "source_id": "v3_source_14",
+      "split": "test"
+    },
+    "tasks/v3/data/source_15.csv": {
+      "sha256": "3ef7bf9fe068a4aa5e63800792bb95ac861bee504fc2f7f2f2ea3f3bfb5fb38b",
+      "source_id": "v3_source_15",
+      "split": "test"
+    },
+    "tasks/v3/data/source_16.csv": {
+      "sha256": "f3f9edd77c38c59d360509d815a10e466b9237e81484cea878c48abb0cb0cfd0",
+      "source_id": "v3_source_16",
+      "split": "test"
+    },
+    "tasks/v3/data/source_17.csv": {
+      "sha256": "d29a0a32e40a0470abe3c2341d4dd490ac8b47b572750e4962b3ecc84fd1fa16",
+      "source_id": "v3_source_17",
+      "split": "test"
+    },
+    "tasks/v3/data/source_18.csv": {
+      "sha256": "ac9ab35b923c8e8890471bbc4710427d80e6f318edf745874dabe9f0db991dd0",
+      "source_id": "v3_source_18",
+      "split": "test"
+    },
+    "tasks/v3/data/source_19.csv": {
+      "sha256": "279b528c931006cec1cad5a47037f5e8ecfd81ec0a448328bce48b93b22192ae",
+      "source_id": "v3_source_19",
+      "split": "test"
+    },
+    "tasks/v3/data/source_20.csv": {
+      "sha256": "2672ae023912966a678b09eab65dcc19d03a5f3b3d3137fc70dae4676232a070",
+      "source_id": "v3_source_20",
+      "split": "test"
+    },
+    "tasks/v3/data/source_21.csv": {
+      "sha256": "3236706527756876a824a9df290b374cd0b356004038d945d9fb4f0e1c1492a9",
+      "source_id": "v3_source_21",
+      "split": "test"
+    },
+    "tasks/v3/data/source_22.csv": {
+      "sha256": "64f0e0af91e3381f73b0f4d9ab77571efbfbe41384e3538d87a49b0ce4ba28ce",
+      "source_id": "v3_source_22",
+      "split": "test"
+    },
+    "tasks/v3/data/source_23.csv": {
+      "sha256": "a7a33f1deac71122543f4bd98fa18e7d888b0af8c9b13f7e84e2c895a8dca557",
+      "source_id": "v3_source_23",
+      "split": "test"
+    }
+  },
+  "scope": "synthetic planner diagnostic with bounded execution; public parameters supplied; no learned LLM planner"
+}
