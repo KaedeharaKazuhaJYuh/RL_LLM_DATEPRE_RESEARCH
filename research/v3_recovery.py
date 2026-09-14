@@ -3,7 +3,7 @@ import argparse, hashlib, json
 from pathlib import Path
 import numpy as np
 from agent.tools import execute_tool, MUTATING
-from research.io import ROOT, digest, write_json
+from research.io import ROOT, digest, read_table, write_json, write_table
 from research.oracle import expected
 from verifier.score import verify
 
@@ -22,7 +22,23 @@ class FrozenRecoveryPolicy:
     def fit(self,texts,labels):
         X=np.asarray([encode(x) for x in texts]);Y=np.eye(len(REPAIRS))[[REPAIRS.index(y) for y in labels]]
         self.weights=np.linalg.solve(X.T@X+np.eye(X.shape[1])*.2,X.T@Y)
-    def predict(self,text): return REPAIRS[int(np.argmax(encode(text)@self.weights))]
+        self.confidence_threshold=.6*min(float(np.max(row@self.weights)) for row in X)
+    def predict(self,text):
+        scores=encode(text)@self.weights;confidence=float(np.max(scores))
+        return "escalate" if confidence<self.confidence_threshold else REPAIRS[int(np.argmax(scores))]
+    def confidence(self,text):return float(np.max(encode(text)@self.weights))
+
+def heuristic_predict(text):
+    lower=text.lower()
+    if "unknown/missing" in lower:return "repair_column"
+    if "lower exceeds upper" in lower:return "swap_bounds"
+    if "artifact_dir" in lower:return "allocate_artifact"
+    if "filenotfound" in lower or "no such file" in lower:return "reload_clean"
+    if "deadline exceeded" in lower:return "retry_deadline"
+    return "repair_column"
+
+def render_message(raw,action,style):
+    return raw+f"; tool={action}" if style=="raw" else raw.split(":",1)[-1].strip()+f" [{action}]"
 
 def task_specs(meta):
     return [
@@ -60,23 +76,30 @@ def observe_fault(fault,action,args):
     except Exception as exc:return type(exc).__name__+": "+str(exc)
     raise AssertionError(f"fault {fault} did not fail")
 
-def examples(source,meta):
+def examples(source,meta,styles=("raw",)):
     rows=[]
     for action,params in task_specs(meta):
         for fault,repair in zip(FAULTS,REPAIRS):
             if applicable(fault,action):
                 args,_=inject(fault,action,params,ROOT/f"tasks/v3_real/data/{source}.csv",None)
-                message=observe_fault(fault,action,args)+f"; tool={action}"
-                rows.append({"source":source,"action":action,"params":params,"fault":fault,"message":message,"label":repair})
+                raw=observe_fault(fault,action,args)
+                for style in styles:
+                    message=render_message(raw,action,style)
+                    rows.append({"source":source,"style":style,"action":action,"params":params,"fault":fault,"message":message,"label":repair})
     return rows
 
 def evaluate(out="reports/v3_real_recovery.json"):
     manifest=json.loads((ROOT/"tasks/v3_real/manifest.json").read_text(encoding="utf-8"));meta=manifest["sources"]
-    train=sum((examples(s,meta[s]) for s in ("wine","bank")),[]);test=examples("abalone",meta["abalone"])
+    train_sources=[s for s,v in meta.items() if v["split"]=="train"]
+    test_sources=[s for s,v in meta.items() if v["split"]=="test"]
+    train=sum((examples(s,meta[s],("raw",)) for s in train_sources),[])
+    test=sum((examples(s,meta[s],("raw","compact")) for s in test_sources),[])
     policy=FrozenRecoveryPolicy();policy.fit([x["message"] for x in train],[x["label"] for x in train]);before=policy.weights.copy()
-    records=[];uri=ROOT/"tasks/v3_real/data/abalone.csv"
+    records=[]
     for i,item in enumerate(test):
-        predicted=policy.predict(item["message"]);action=item["action"];params=item["params"];artifact_dir=ROOT/"artifacts/v3_real_recovery"/str(i)
+        uri=ROOT/f"tasks/v3_real/data/{item['source']}.csv"
+        predicted=policy.predict(item["message"]);rule=heuristic_predict(item["message"]);action=item["action"];params=item["params"]
+        artifact_dir=ROOT/"artifacts/v3_real_recovery"/item["source"]/item["style"]/str(i)
         faulty,_=inject(item["fault"],action,params,uri,artifact_dir)
         args=repair_args(predicted,faulty,params,uri,artifact_dir)
         try:
@@ -85,15 +108,37 @@ def evaluate(out="reports/v3_real_recovery.json"):
             checked=verify(result,gold,[{"tool":action,"ok":True}],{"allowed_tools":[action],"max_tool_calls":1,"max_steps":1,"max_seconds":10,"elapsed_seconds":0,"input_sha256":started_hash})
             executed=checked["passed"]
         except Exception as exc: executed=False;result={"error":type(exc).__name__+": "+str(exc)}
-        records.append({**item,"predicted_repair":predicted,"classification_passed":predicted==item["label"],"execution_passed":executed,"result":result})
+        records.append({**item,"predicted_repair":predicted,"prediction_confidence":policy.confidence(item["message"]),"heuristic_repair":rule,"classification_passed":predicted==item["label"],
+                        "heuristic_classification_passed":rule==item["label"],"execution_passed":executed,"result":result})
+    # Test-only faults have no safe automatic repair label in training. Correct behavior is escalation.
+    for source in test_sources:
+        clean=ROOT/f"tasks/v3_real/data/{source}.csv";cols,rows=read_table(clean);meta_source=meta[source]
+        fault_dir=ROOT/"artifacts/v3_real_unseen"/source;fault_dir.mkdir(parents=True,exist_ok=True)
+        malformed=fault_dir/"malformed.csv";malformed.write_text(",".join(cols)+"\nonly,too,few\n",encoding="utf-8",newline="\n")
+        nonfinite=fault_dir/"nonfinite.csv";changed=[dict(r) for r in rows];changed[0][meta_source["value"]]="inf";write_table(nonfinite,cols,changed)
+        unseen=(("malformed_csv","profile_schema",{},malformed),("nonfinite_numeric","describe_numeric",{"column":meta_source["value"]},nonfinite))
+        for fault,action,params,bad_uri in unseen:
+            raw=observe_fault(fault,action,{"uri":str(bad_uri),"params":params,"artifact_dir":None})
+            for style in ("raw","compact"):
+                message=render_message(raw,action,style);predicted=policy.predict(message);rule=heuristic_predict(message)
+                records.append({"source":source,"style":style,"action":action,"params":params,"fault":fault,"message":message,"label":"escalate",
+                                "predicted_repair":predicted,"prediction_confidence":policy.confidence(message),"heuristic_repair":rule,"classification_passed":predicted=="escalate",
+                                "heuristic_classification_passed":rule=="escalate","execution_passed":False,
+                                "result":{"decision":"unsafe_auto_repair_rejected","expected":"escalate"}})
     if not np.array_equal(before,policy.weights):raise AssertionError("test modified frozen recovery policy")
     weight_hash=hashlib.sha256(policy.weights.tobytes()).hexdigest()
     by_fault={f:{"tasks":sum(r["fault"]==f for r in records),"classification_passed":sum(r["fault"]==f and r["classification_passed"] for r in records),
-                 "execution_passed":sum(r["fault"]==f and r["execution_passed"] for r in records)} for f in FAULTS}
-    summary={"version":"3.1","train_sources":["wine","bank"],"test_sources":["abalone"],"training_examples":len(train),"test_examples":len(test),
-             "updates_during_test":False,"policy_sha256":weight_hash,"unrecovered_execution_passed":0,
+                 "execution_passed":sum(r["fault"]==f and r["execution_passed"] for r in records)} for f in sorted({r["fault"] for r in records})}
+    group=lambda key:{v:{"tasks":sum(r[key]==v for r in records),"classification_passed":sum(r[key]==v and r["classification_passed"] for r in records),
+                           "execution_passed":sum(r[key]==v and r["execution_passed"] for r in records)} for v in sorted({r[key] for r in records})}
+    summary={"version":"3.2","train_sources":train_sources,"test_sources":test_sources,"training_examples":len(train),"test_examples":len(records),
+             "updates_during_test":False,"policy_sha256":weight_hash,"confidence_threshold":policy.confidence_threshold,"unrecovered_execution_passed":0,
              "classification_passed":sum(r["classification_passed"] for r in records),
-             "execution_passed":sum(r["execution_passed"] for r in records),"by_fault":by_fault,"records":records}
+             "heuristic_classification_passed":sum(r["heuristic_classification_passed"] for r in records),
+             "execution_passed":sum(r["execution_passed"] for r in records),"known_fault_examples":sum(r["fault"] in FAULTS for r in records),
+             "safe_outcomes_passed":sum(r["execution_passed"] or (r["label"]=="escalate" and r["predicted_repair"]=="escalate") for r in records),
+             "heuristic_safe_outcomes_passed":sum(r["execution_passed"] if r["label"]!="escalate" else r["heuristic_repair"]=="escalate" for r in records),
+             "unseen_fault_examples":sum(r["fault"] not in FAULTS for r in records),"by_fault":by_fault,"by_source":group("source"),"by_style":group("style"),"records":records}
     write_json(ROOT/out,summary);return summary
 
 if __name__=="__main__":

@@ -41,9 +41,11 @@ class V3BenchmarkTests(unittest.TestCase):
     def test_real_data_frozen_recovery(self):
         with tempfile.TemporaryDirectory() as d:
             result=evaluate_recovery(str(Path(d)/"result.json"))
-            self.assertEqual(["abalone"],result["test_sources"])
+            self.assertEqual({"abalone","seoul_bike","bike_sharing"},set(result["test_sources"]))
             self.assertFalse(result["updates_during_test"])
-            self.assertEqual(result["test_examples"],result["execution_passed"])
+            self.assertEqual(102,result["test_examples"])
+            self.assertEqual(90,result["execution_passed"])
+            self.assertEqual(result["test_examples"],result["safe_outcomes_passed"])
             self.assertTrue(result["policy_sha256"])
 
 

@@ -1,5 +1,5 @@
 {
-  "version": "3.1",
+  "version": "3.2",
   "sources": {
     "wine": {
       "url": "https://archive.ics.uci.edu/static/public/186/wine+quality.zip",
@@ -79,6 +79,64 @@
       "category": "Sex",
       "value": "Whole_weight",
       "metric": "Shell_weight",
+      "split": "test"
+    },
+    "seoul_bike": {
+      "url": "https://archive.ics.uci.edu/static/public/560/seoul+bike+sharing+demand.zip",
+      "sha256": "139e9908f0a3544bb222386855c9ce107e96467306bb8e4ce936aab59e7baac4",
+      "doi": "10.24432/C5F62R",
+      "license": "CC BY 4.0",
+      "derived_sha256": "9b9b27421010aaec4df6ba2934acada64d1fb0dd93b55c03e1845383bad93288",
+      "rows": 240,
+      "columns": [
+        "Date",
+        "Rented Bike Count",
+        "Hour",
+        "Temperature(°C)",
+        "Humidity(%)",
+        "Wind speed (m/s)",
+        "Visibility (10m)",
+        "Dew point temperature(°C)",
+        "Solar Radiation (MJ/m2)",
+        "Rainfall(mm)",
+        "Snowfall (cm)",
+        "Seasons",
+        "Holiday",
+        "Functioning Day"
+      ],
+      "category": "Seasons",
+      "value": "Rented Bike Count",
+      "metric": "Temperature(°C)",
+      "split": "test"
+    },
+    "bike_sharing": {
+      "url": "https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip",
+      "sha256": "b70182d0d0508e9abbb79306ce5c0cec34869000f8220175ac83d11dbe845401",
+      "doi": "10.24432/C5W894",
+      "license": "CC BY 4.0",
+      "derived_sha256": "b4e0eb23d4460b956a5617fb73bc0e470e6b0b9be53fc10e2ea75d53911736da",
+      "rows": 240,
+      "columns": [
+        "instant",
+        "dteday",
+        "season",
+        "yr",
+        "mnth",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed",
+        "casual",
+        "registered",
+        "cnt"
+      ],
+      "category": "season",
+      "value": "cnt",
+      "metric": "temp",
       "split": "test"
     }
   }
