@@ -1,10 +1,19 @@
 import os
 import unittest
+import tempfile
+from pathlib import Path
 from unittest.mock import patch
 from research.v4_readiness import check
 
 
 class V4ReadinessTests(unittest.TestCase):
+    def setUp(self):
+        folder=tempfile.TemporaryDirectory()
+        self.addCleanup(folder.cleanup)
+        local=patch('agent.deepseek_config.ROOT',Path(folder.name))
+        local.start()
+        self.addCleanup(local.stop)
+
     def test_missing_key_is_reported_without_secret(self):
         with patch.dict(os.environ, {}, clear=True):
             result = check()

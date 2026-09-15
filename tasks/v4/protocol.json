@@ -1,5 +1,8 @@
 {
   "version": "4.0-draft",
+  "provider": "deepseek",
+  "first_learning_target": "external contextual-bandit policy conditioned on frozen LLM suggestions",
+  "llm_weight_training_in_pilot": false,
   "status": "pre_registered_before_v4_test_construction",
   "research_question": "Can a learned planner and recovery policy improve verified completion on unseen sources while controlling unsafe actions, escalation, cost, and latency?",
   "split_unit": ["data_source", "prompt_template_family", "fault_family"],

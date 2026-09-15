@@ -4,19 +4,21 @@ import json
 import os
 from pathlib import Path
 from research.io import ROOT, write_json
+from agent.deepseek_config import credential_present
 
 
 def check():
     protocol_path = ROOT / 'tasks/v4/protocol.json'
     protocol = json.loads(protocol_path.read_text(encoding='utf-8'))
     required = {'primary_metric', 'required_metrics', 'split_unit', 'execution_requirements'}
-    provider = ('deepseek' if os.getenv('DEEPSEEK_API_KEY') else
-                'openai' if os.getenv('OPENAI_API_KEY') else None)
+    provider = 'deepseek' if credential_present() else None
     return {
         'version': protocol['version'],
         'protocol_complete': not (required - set(protocol)),
         'api_provider_configured': provider,
         'live_api_ready': provider is not None,
+        'connectivity_verified': False,
+        'provider_selected': 'deepseek',
         'test_set_created': False,
         'test_set_sealed': False,
         'next_gate': 'configure_api_credentials' if provider is None else 'implement_isolated_v4_environment'

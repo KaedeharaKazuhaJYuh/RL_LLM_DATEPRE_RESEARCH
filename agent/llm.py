@@ -1,12 +1,14 @@
 """Optional DeepSeek-compatible policy; no API calls during local test matrices."""
 import json,os,urllib.request
 from agent.tools import DESCRIPTIONS
+from agent.deepseek_config import settings, credential_present
 class LLMClient:
     def __init__(self):
-        self.model=os.getenv('DEEPSEEK_MODEL','deepseek-chat')
-        self.key=os.getenv('DEEPSEEK_API_KEY')
-        if not self.key:raise RuntimeError('DEEPSEEK_API_KEY is not configured; local rule/bandit modes need no key')
-        self.temperature=float(os.getenv('LLM_TEMPERATURE','0'))
+        config=settings()
+        self.model=config.get('DEEPSEEK_MODEL','deepseek-chat')
+        self.key=config.get('DEEPSEEK_API_KEY')
+        if not credential_present():raise RuntimeError('DEEPSEEK_API_KEY is not configured; use process environment or ignored .env.local')
+        self.temperature=float(config.get('LLM_TEMPERATURE','0'))
         self.last_usage={};self.last_response_id=None
     def choose(self,task,state,allowed):
         public={'prompt':task['prompt'],'parameters':task['params'],'state':state,'tools':{a:DESCRIPTIONS[a] for a in allowed}}
