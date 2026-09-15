@@ -9,12 +9,17 @@ from research.policies import Policy
 
 
 class HybridPolicy(Policy):
-    def __init__(self, suggestions, seed=1):
+    def __init__(self, suggestions, seed=1, warm_start=False):
         super().__init__('bandit', seed)
         self.suggestions = suggestions
         self.inv = np.repeat(np.eye(DIM+len(ACTIONS))[None,:,:], len(ACTIONS), axis=0)
         self.b = np.zeros((len(ACTIONS), DIM+len(ACTIONS)))
         self.weights = np.zeros((DIM+len(ACTIONS), len(ACTIONS)))
+        if warm_start:
+            # Fixed prior: initially prefer the suggested action, without treating it as verified reward.
+            # Subsequent real rewards can override this preference. No oracle labels are read here.
+            for i in range(len(ACTIONS)):
+                self.b[i, DIM+i] = 1.0
         self.pending = None
 
     def select(self, task, x, allowed=None, training=False, state=None):

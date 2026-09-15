@@ -21,6 +21,27 @@ class MockClient:
 
 
 class HybridTests(unittest.TestCase):
+    def test_warm_prior_follows_hint_and_can_be_corrected(self):
+        policy=HybridPolicy({'x':'fill_missing'},warm_start=True)
+        task={'task_id':'x'};x=np.zeros(DIM)
+        self.assertEqual('fill_missing',policy.select(task,x)[0])
+        action,_=policy.select(task,x,training=True)
+        policy.update(action,x,-1)
+        self.assertNotEqual('fill_missing',policy.select(task,x)[0])
+
+    def test_cache_reuse_and_budget_preflight(self):
+        class NoCalls(MockClient):
+            def choose(self,*args):raise AssertionError('cache should avoid network')
+        with tempfile.TemporaryDirectory() as d:
+            first=Path(d)/'first';second=Path(d)/'second'
+            run(MockClient(),first,limit=1,epochs=1,seeds=(1,),live=False)
+            result=run(NoCalls(),second,limit=1,epochs=1,seeds=(1,),live=False,
+                       cache_dirs=(first,),warm_start=True,max_new_requests=0)
+            self.assertEqual(2,result['cache_reused'])
+            self.assertEqual(4,len(result['results']))
+            with self.assertRaisesRegex(ValueError,'budget exceeded'):
+                run(NoCalls(),Path(d)/'third',limit=2,cache_dirs=(first,),max_new_requests=0,live=False)
+
     def test_deepseek_request_uses_public_fields(self):
         config={'DEEPSEEK_API_KEY':'mock-secret','DEEPSEEK_MODEL':'deepseek-chat','LLM_TEMPERATURE':'0'}
         response=io.BytesIO(json.dumps({'id':'mock-response','usage':{'prompt_tokens':4},
