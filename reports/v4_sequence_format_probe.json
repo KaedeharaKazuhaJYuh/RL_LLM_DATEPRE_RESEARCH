@@ -1,0 +1,56 @@
+[
+  {
+    "root_type": "dict",
+    "fields": [
+      "type",
+      "action"
+    ],
+    "action": "fill_missing",
+    "usage": {
+      "prompt_tokens": 1036,
+      "completion_tokens": 12,
+      "total_tokens": 1048,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 140
+    }
+  },
+  {
+    "root_type": "dict",
+    "fields": [
+      "type",
+      "action"
+    ],
+    "action": "fill_missing",
+    "usage": {
+      "prompt_tokens": 1036,
+      "completion_tokens": 15,
+      "total_tokens": 1051,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 140
+    }
+  },
+  {
+    "root_type": "dict",
+    "fields": [
+      "type",
+      "action"
+    ],
+    "action": "fill_missing",
+    "usage": {
+      "prompt_tokens": 1036,
+      "completion_tokens": 15,
+      "total_tokens": 1051,
+      "prompt_tokens_details": {
+        "cached_tokens": 896
+      },
+      "prompt_cache_hit_tokens": 896,
+      "prompt_cache_miss_tokens": 140
+    }
+  }
+]
