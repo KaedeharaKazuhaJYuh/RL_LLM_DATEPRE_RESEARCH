@@ -47,3 +47,28 @@ class SequenceTests(unittest.TestCase):
         self.assertTrue(repaired);self.assertEqual('stop',r['action'])
         with self.assertRaises(ValueError):parse_step('{"action":"invented"}',[])
         with self.assertRaises(ValueError):parse_step('not JSON',[])
+
+    def test_batch_update_bounds_kl_and_preserves_reference(self):
+        t=self.tasks[0];e=SequenceEnv(t,self.gold[t['task_id']],self.root/'batch')
+        obs=e.observation();p=SequencePolicy();reference=SequencePolicy()
+        action,cache=p.select(obs,True);before=p.probs(cache[0]).copy()
+        reference_hash=reference.fingerprint()
+        diagnostic=p.batch_reinforce([([cache],1.)],[0.],
+            [{'observation':obs,'action':action}],reference,lr=100.,
+            bc_weight=0.,kl_weight=0.,max_kl=1e-5)
+        after=p.probs(cache[0])
+        self.assertTrue(diagnostic['accepted'])
+        self.assertLess(diagnostic['step_scale'],1.)
+        self.assertLessEqual(float(np.sum(before*np.log(before/after))),1e-5)
+        self.assertGreater(after[cache[1]],before[cache[1]])
+        self.assertEqual(reference_hash,reference.fingerprint())
+
+    def test_anchor_only_reduces_reference_divergence(self):
+        t=self.tasks[0];e=SequenceEnv(t,self.gold[t['task_id']],self.root/'anchor')
+        obs=e.observation();p=SequencePolicy();reference=SequencePolicy()
+        x=features(obs);p.weights[:,0]+=.3*x
+        q=reference.probs(x);before=p.probs(x)
+        p.batch_reinforce([],[],[{'observation':obs,'action':'stop'}],
+                          reference,bc_weight=0.,kl_weight=1.)
+        after=p.probs(x)
+        self.assertLess(float(np.sum(q*np.log(q/after))),float(np.sum(q*np.log(q/before))))
