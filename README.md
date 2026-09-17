@@ -4,6 +4,8 @@ V4 多步学习阶段：已完成明确任务协议、监督初始化与 REINFOR
 
 V4 稳定性修正：批量策略梯度、历史条件基线、更新幅度约束及可选监督保持项，将三种子开发验证通过率恢复至 100%；尚未超过监督基线。见 [退化诊断与优化报告](reports/V4_RL_STABILITY.md)，入口 `experiments.v4_sequence_stabilize`。
 
+V4 后续审计发现，前述 100% 仅针对贪心执行；随机执行通过率约 21.8%，新两步组合中本地策略全部失败。DeepSeek 在组合开发探针温度 0 的一次运行中完成 12/12，仍需重复验证。见 [随机执行与组合泛化审计](reports/V4_STOCHASTIC_AND_COMPOSITION.md)。
+
 V3 主结果与边界见 [V3 最终审计](reports/V3_FINAL_AUDIT.md)，后续研究见 [V4 规划](reports/V4_RESEARCH_PLAN.md)。V4 已有外部控制策略 RL 结果，尚无 LLM 权重训练结果。
 
 V4.0 初始协议位于 `tasks/v4/protocol.json`，就绪检查使用 `python -m research.v4_readiness`；当前最终测试集尚未创建，以保留后续盲测有效性。

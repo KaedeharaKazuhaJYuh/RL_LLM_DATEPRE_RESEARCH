@@ -5,6 +5,7 @@ import numpy as np
 from agent.llm import parse_step
 from research.v4_sequence_env import build,SequenceEnv
 from research.v4_sequence_policy import SequencePolicy,features,CHOICES
+from experiments.v4_sequence_composition import build as build_composition
 
 
 class SequenceTests(unittest.TestCase):
@@ -72,3 +73,15 @@ class SequenceTests(unittest.TestCase):
                           reference,bc_weight=0.,kl_weight=1.)
         after=p.probs(x)
         self.assertLess(float(np.sum(q*np.log(q/after))),float(np.sum(q*np.log(q/before))))
+
+    def test_unseen_composition_accepts_expert_and_rejects_seen_pair(self):
+        tasks,gold=build_composition(self.root,self.root/'composition')
+        train_pairs={tuple(self.gold[t['task_id']]['plan']) for t in self.tasks if t['split']=='train'}
+        self.assertTrue(all(tuple(gold[t['task_id']]['plan']) not in train_pairs for t in tasks))
+        t=tasks[0];g=gold[t['task_id']]
+        expert=SequenceEnv(t,g,self.root/'expert')
+        for action in [*g['plan'],'stop']:expert.step(action)
+        self.assertTrue(expert.result()['passed'])
+        wrong=SequenceEnv(t,g,self.root/'wrong')
+        for action in ['fill_missing','describe_numeric','stop']:wrong.step(action)
+        self.assertFalse(wrong.result()['passed'])

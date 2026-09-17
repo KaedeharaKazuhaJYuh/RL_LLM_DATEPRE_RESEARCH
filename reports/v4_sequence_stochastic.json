@@ -1,0 +1,114 @@
+{
+  "manifest": {
+    "protocol": "v4-sequence-1",
+    "mode": "sampled execution, frozen checkpoint",
+    "methods": [
+      "supervised",
+      "original_reinforce",
+      "batch_only",
+      "batch_anchored"
+    ],
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "repeats_per_task_condition": 20,
+    "selection": "fixed checkpoints, no validation tuning",
+    "external_test": false,
+    "pairing": "same RNG seed per task/condition/repeat; actions may diverge",
+    "independent_validation_sources": 2
+  },
+  "groups": [
+    {
+      "method": "supervised",
+      "episodes": 1440,
+      "passed": 314,
+      "pass_rate": 0.21805555555555556,
+      "mean_reward": 0.05863888888888888,
+      "mean_calls": 2.4902777777777776,
+      "clean_pass_rate": 0.23333333333333334,
+      "fault_pass_rate": 0.20277777777777778
+    },
+    {
+      "method": "original_reinforce",
+      "episodes": 1440,
+      "passed": 398,
+      "pass_rate": 0.2763888888888889,
+      "mean_reward": 0.11684722222222221,
+      "mean_calls": 2.4923611111111112,
+      "clean_pass_rate": 0.28194444444444444,
+      "fault_pass_rate": 0.2708333333333333
+    },
+    {
+      "method": "batch_only",
+      "episodes": 1440,
+      "passed": 314,
+      "pass_rate": 0.21805555555555556,
+      "mean_reward": 0.05855555555555555,
+      "mean_calls": 2.4916666666666667,
+      "clean_pass_rate": 0.23194444444444445,
+      "fault_pass_rate": 0.20416666666666666
+    },
+    {
+      "method": "batch_anchored",
+      "episodes": 1440,
+      "passed": 315,
+      "pass_rate": 0.21875,
+      "mean_reward": 0.05916666666666666,
+      "mean_calls": 2.4930555555555554,
+      "clean_pass_rate": 0.23333333333333334,
+      "fault_pass_rate": 0.20416666666666666
+    }
+  ],
+  "source_results": [
+    {
+      "method": "supervised",
+      "source_id": "v3_source_04",
+      "episodes": 720,
+      "pass_rate": 0.225
+    },
+    {
+      "method": "supervised",
+      "source_id": "v3_source_05",
+      "episodes": 720,
+      "pass_rate": 0.2111111111111111
+    },
+    {
+      "method": "original_reinforce",
+      "source_id": "v3_source_04",
+      "episodes": 720,
+      "pass_rate": 0.28194444444444444
+    },
+    {
+      "method": "original_reinforce",
+      "source_id": "v3_source_05",
+      "episodes": 720,
+      "pass_rate": 0.2708333333333333
+    },
+    {
+      "method": "batch_only",
+      "source_id": "v3_source_04",
+      "episodes": 720,
+      "pass_rate": 0.22777777777777777
+    },
+    {
+      "method": "batch_only",
+      "source_id": "v3_source_05",
+      "episodes": 720,
+      "pass_rate": 0.20833333333333334
+    },
+    {
+      "method": "batch_anchored",
+      "source_id": "v3_source_04",
+      "episodes": 720,
+      "pass_rate": 0.22916666666666666
+    },
+    {
+      "method": "batch_anchored",
+      "source_id": "v3_source_05",
+      "episodes": 720,
+      "pass_rate": 0.20833333333333334
+    }
+  ]
+}
