@@ -1,0 +1,770 @@
+{
+  "8e27c2a6a4ce710e": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "91c3b393a70ed365": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "b10cc8497e03bfe5": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "83c043a5bf5629c8": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "005c1c33b01b5c42": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "a7ad1d830aff5907": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "88d99eb9503c592c": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "f61e3f67c383601b": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "ee2de87f718a22bb": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "4a872f30387553d5": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "9977d34fa9abcf96": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "6233bb54887de914": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "d50e1b13d93f3c9e": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "b16b5d3b0015572d": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "81afd085c3ed474f": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "1d70f4abf7ec6578": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "b4894a0e41d43fd9": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "e50acdb9df4c56a1": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "5bef9653ed1852b8": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "a91656c8469a3357": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "783629fc80f3df66": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "e109f87f009464a6": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "334e8e153bf14e59": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "54ea2c141b509fb2": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "20d5e8c62cbaeb26": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "65edadb346422e50": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "eb5a43d2fb179075": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "f6bcc36599815c05": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "8ea5f30eca175c59": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "b51fac2f365d3be1": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "fcc604b0b1c86ce1": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "e295c15024898af3": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "212bfab39cb63ca0": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "a9d3881bc92657c9": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "8a4183fb57a476a2": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "6e64a731f7a0d674": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "06ad1ba51f22390c": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "0e03e328a0ee7c8e": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "6131dd3a001f6076": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "f08780bdec1f9ba9": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "ab362906e011d0f0": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "e364491723b20498": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "55103c7241abf453": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "5aa7762816de83e6": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "d79a3db54ed00e5e": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "0709404c83329086": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "907d04a408a71eea": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "bcf3ce5376ca2cde": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "9dd2ffb30940df59": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "b90e9bfb26cbef4a": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "e9ef31ce9aa393f3": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "5638c4ab3b939481": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "c841becd8486e87b": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "2553b195fec1d6ef": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "a081dca781bd0c04": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "4a1caacdc3ebde12": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "eb4baddd567e9263": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "d1b0c25c4ade9b70": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "6eaa78ad677201df": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "5939f692f50b1921": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "a7233dbdf56f8595": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "96ef7f5997e1382f": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "ec673a5a1bf6cd47": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "7cb60b6b36e97510": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "eefcee2772f8e30f": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "d7f1d63371aaa69d": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "72db68517ada3987": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "18a1e7cd31c061ce": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "74146c7590adae32": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "63289e6fda7fc393": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "88e0fc039b915983": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "e7aad9934a00f3e0": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "2ff06e700a57fd64": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "fb297d61ae1164e7": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "b151772c21c5321f": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "747b10b7b048cce7": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "b7545e1912d3491f": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "607ab58c7754260e": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "6c7c975e833fdee2": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "4aaba0a18a1c81bc": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "1f7d07e5bb281790": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "f845765b9d8948dd": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "bd5ebe385b66a0a9": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "77f1c5c629666358": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "d8e5656a64f377f3": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "af843b7854009560": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "851671e260dcb998": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "f70f323b1da1e430": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "9f176bf28e3c035c": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "cdc327b0539752c1": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "6190796470e6cc65": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "3f0878fbdc024da6": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "df12c8ca6af68e29": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "71beae3f5ca0ce04": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "e568ea33480cfbd5": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "ea1d2314c98c76fc": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "c198ca255cae6fa8": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "d6a388759606fef6": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "bf0f23774dd3bd1f": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "bec6c0b2bfb8736b": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "6743ecd4eb90c09c": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "749ec8f8cacbfd5d": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "767db3b93758f334": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "91cfd62e8d03d1ce": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "1064df9a64c64f51": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "3c9f2ddb0f96c49f": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "cd8d84920a89cd03": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "c79e74c4307a7702": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "09dad962167af609": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "47b708140b7a7987": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "98751ccacf31ed1c": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "dde30d797630b3fa": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "cb84ff7d5d3d271d": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "8f3e7ed79ea47938": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "d8df2885901eebc2": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "4b55053a1bd21507": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "5940ed1e12723eb8": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "c3f885ab8deea866": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "23c39f716a5b069c": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "78dbcb6f9762984c": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "b0e3cb4b44abc463": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "96b293e9b3930d35": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "443d1bbc0efe84c7": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "77f3e1cdd7291bf8": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "b0e70892b1f4ef9a": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "4cce9ad412bed819": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "41c17e84c6d54234": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "e16aeff2f28602f5": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  }
+}
