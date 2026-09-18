@@ -4,6 +4,8 @@ V4 可训练 LLM 试验已建立新来源与未见工具组合划分，并导出
 
 V4 已增加 SFT 后的 action-level DPO 试验：`experiments.v4_llm_dpo` 用环境验证的专家动作对比提前 stop 和错误动作，作为在线 RL/GRPO 之前的偏好优化基线。首轮完整开发评测为 83/96，仍需在线采样和最终盲测。
 
+V4 已完成最小在线 GRPO 链路烟测：`experiments.v4_llm_grpo` 从 SFT→DPO 适配器采样完整工具轨迹，用环境终局奖励做组内相对优势更新；8 条训练轨迹全部通过，12 任务开发子集为 21/24。该结果仅证明链路可运行，不代表已完成 RL 泛化。
+
 V4 多步学习阶段：已完成明确任务协议、监督初始化与 REINFORCE 对照，见 [阶段报告](reports/V4_SEQUENCE_RL_STAGE.md)。本轮 RL 从监督基线退化，原始负结果完整保留；不代表 DeepSeek 权重微调。运行入口为 `experiments.v4_sequence_train` 和 `experiments.v4_sequence_live`。
 
 V4 稳定性修正：批量策略梯度、历史条件基线、更新幅度约束及可选监督保持项，将三种子开发验证通过率恢复至 100%；尚未超过监督基线。见 [退化诊断与优化报告](reports/V4_RL_STABILITY.md)，入口 `experiments.v4_sequence_stabilize`。
