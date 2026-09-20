@@ -2,6 +2,48 @@
 
 V4.5.1 将 NPU 接入纳入正式版本范围：训练与 BF16 金标准评测继续使用 CUDA GPU，Intel AI Boost NPU 用于 OpenVINO 量化推理和精度研究。本版本同时包含 SFT→DPO、经审计修正的在线 GRPO 链路，以及 NPU 冻结评测；版本结论和复现实验见 [V4.5.1 发布说明](reports/V4_5_1_RELEASE.md)。
 
+## V4.5.1 概览
+
+训练主线为 `环境验证监督轨迹 → LoRA SFT → action-level DPO → 在线 GRPO`。所有策略输出都在同一个多步工具环境中执行，以终局任务结果计分；GPU、CPU 和 NPU 评测共用任务协议与严格 JSON 动作解析。
+
+| 项目 | 当前状态 | 结果或边界 |
+| --- | --- | --- |
+| LoRA SFT / DPO | 已完成 | BF16 DPO 冻结开发集 83/96 |
+| 在线 GRPO | 链路完成并已审计 | 修正错误分组后仍为 83/96，尚未超过 DPO |
+| Intel NPU | 已真实接入 | OpenVINO NPU 图和 1.5B INT4 LLM 均可运行 |
+| NPU 冻结评测 | 已完成首轮对照 | 混合 INT4/INT8 为 15/24，低于 GPU BF16 的 21/24 |
+| 最终盲测 | 尚未创建 | 待困难训练任务、量化门槛和发布清单冻结后创建 |
+
+旧 GRPO 实现曾因混合正常与故障条件产生伪优势；对应的 85/96 已撤回。修正实现按条件分别成组，并在组内优势全为零时跳过优化器。当前 64 条均衡训练轨迹没有奖励方差，说明下一阶段首先需要构造可学习的困难任务，而不是继续增加更新轮数。
+
+### 快速验证
+
+基础测试不需要 API 密钥或 GPU：
+
+```powershell
+python -m pip install numpy==2.3.5
+python -m unittest discover -s tests -v
+```
+
+NPU 使用独立环境，避免改动 CUDA 训练依赖：
+
+```powershell
+python -m venv work/.venv-v4-npu
+work/.venv-v4-npu/Scripts/python.exe -m pip install -r requirements-v4-npu.txt
+work/.venv-v4-npu/Scripts/python.exe -m experiments.v4_npu_probe
+```
+
+使用已转换的 OpenVINO 模型进行 NPU 冻结评测：
+
+```powershell
+work/.venv-v4-npu/Scripts/python.exe -m experiments.v4_llm_eval_npu `
+  --model work/modelscope_deepseek_r1_1p5b_dpo_merged_ov_int4_ratio08 `
+  --device NPU --both-faults --limit 12 `
+  --out work/v4_llm_npu_eval.json
+```
+
+模型权重、转换产物、密钥和逐次运行文件位于被 Git 忽略的 `work/` 或本地环境文件中，不会进入仓库。完整 NPU 方法、设备信息和量化对照见 [NPU 接入与精度审计](reports/V4_NPU_ENABLEMENT.md)。
+
 V4 可训练 LLM 试验已建立新来源与未见工具组合划分，并导出经环境回放验证的监督轨迹。LoRA 训练、冻结模型评测及其结果须分开记录；目前的划分是合成开发协议，不是外部真实数据或最终盲测。见 [V4 可训练 LLM 试验协议](reports/V4_LLM_TRAINING_PILOT.md)，入口为 `research.v4_llm_protocol`、`experiments.v4_llm_export`、`experiments.v4_llm_sft` 和 `experiments.v4_llm_eval`。
 
 V4 已增加 SFT 后的 action-level DPO 试验：`experiments.v4_llm_dpo` 用环境验证的专家动作对比提前 stop 和错误动作，作为在线 RL/GRPO 之前的偏好优化基线。首轮完整开发评测为 83/96，仍需在线采样和最终盲测。
