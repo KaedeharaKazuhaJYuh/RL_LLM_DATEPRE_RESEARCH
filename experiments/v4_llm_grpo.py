@@ -5,6 +5,7 @@ and normalized against other rollouts for the same task. This is deliberately
 small: it validates the online reward/update path before scaling up.
 """
 import argparse
+from collections import defaultdict
 import json
 import random
 import tempfile
@@ -16,6 +17,27 @@ from agent.llm import parse_step
 from experiments.v4_llm_export import input_text, model_input
 from research.io import ROOT, digest, write_json
 from research.v4_sequence_env import SequenceEnv
+
+
+def select_train_tasks(tasks, limit, seed):
+    """Select a seeded, pair-family-balanced training subset."""
+    families = defaultdict(list)
+    for task in tasks:
+        if task['split'] == 'train':
+            families[task['pair_family']].append(task)
+    rng = random.Random(seed)
+    for rows in families.values():
+        rng.shuffle(rows)
+    selected = []
+    while len(selected) < limit and any(families.values()):
+        for family in sorted(families):
+            if families[family] and len(selected) < limit:
+                selected.append(families[family].pop())
+    return selected
+
+
+def fault_conditions(mode):
+    return {'clean': (False,), 'fault': (True,), 'both': (False, True)}[mode]
 
 
 def generate_action(model, tokenizer, task, observation, temperature, max_new_tokens):
@@ -89,70 +111,95 @@ def run(args):
     # stochastic through generate(do_sample=True)). Gradients still flow.
     policy.eval()
     optimizer = torch.optim.AdamW((p for p in policy.parameters() if p.requires_grad), lr=args.learning_rate)
-    tasks = json.loads((Path(args.protocol) / 'tasks.json').read_text(encoding='utf-8'))
+    all_tasks = json.loads((Path(args.protocol) / 'tasks.json').read_text(encoding='utf-8'))
     oracle = json.loads((Path(args.protocol) / 'train_oracle.json').read_text(encoding='utf-8'))
-    tasks = [t for t in tasks if t['split'] == 'train'][:args.limit]
+    tasks = select_train_tasks(all_tasks, args.limit, args.seed)
     records, losses, rewards, clip_fractions, ref_kls = [], [], [], [], []
+    updated_groups = skipped_zero_advantage_groups = 0
     with tempfile.TemporaryDirectory(prefix='v4_grpo_') as scratch:
         for update in range(args.updates):
             for task in tasks:
-                group = []
-                for member in range(args.group_size):
-                    episode_folder = Path(scratch) / f'update_{update}_task_{task["task_id"]}_member_{member}'
-                    reward, trajectory, score = rollout(policy, tokenizer, task,
-                                                        oracle[task['task_id']], episode_folder,
-                                                        fault=bool(member % 2), args=args)
-                    group.append((reward, trajectory, score))
-                values = torch.tensor([x[0] for x in group], dtype=torch.float32)
-                if float(values.std(unbiased=False)) == 0:
-                    advantages = torch.zeros_like(values)
-                else:
-                    advantages = (values - values.mean()) / (values.std(unbiased=False) + 1e-6)
-                # Snapshot behavior-policy and reference token log probabilities before update.
-                behavior = []
-                with torch.no_grad():
-                    policy.set_adapter('default')
-                    policy.eval()
-                    for _, trajectory, _ in group:
-                        seq = []
-                        for step in trajectory:
-                            old_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
-                            policy.set_adapter('reference')
-                            policy.eval()
-                            ref_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
-                            policy.set_adapter('default')
-                            policy.eval()
-                            seq.append((old_lp.detach(), ref_lp.detach()))
-                        behavior.append(seq)
-                for _ppo_epoch in range(args.ppo_epochs):
-                    optimizer.zero_grad(set_to_none=True)
-                    objective = torch.zeros((), device='cuda')
-                    clip_count, token_count, kl_total = 0, 0, 0.0
-                    for advantage, (_, trajectory, _), old_steps in zip(advantages, group, behavior):
-                        for step, (old_lp, ref_lp) in zip(trajectory, old_steps):
-                            new_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
-                            ratio = torch.exp((new_lp - old_lp).clamp(-20, 20))
-                            clipped = ratio.clamp(1.0 - args.clip_range, 1.0 + args.clip_range)
-                            adv = advantage.to('cuda')
-                            objective = objective - torch.minimum(ratio * adv, clipped * adv).mean()
-                            # Non-negative sampled KL estimator, clipped against numerical overflow.
-                            ref_diff = (ref_lp - new_lp).clamp(-20, 20)
-                            kl = torch.exp(ref_diff) - ref_diff - 1.0
-                            objective = objective + args.kl_beta * kl.mean()
-                            clip_count += int(((ratio < 1 - args.clip_range) | (ratio > 1 + args.clip_range)).sum().item())
-                            token_count += ratio.numel()
-                            kl_total += float(kl.detach().mean().cpu())
-                    objective = objective / max(1, sum(len(x[1]) for x in group))
-                    objective.backward()
-                    torch.nn.utils.clip_grad_norm_(policy.parameters(), 1.0)
-                    optimizer.step()
-                    losses.append(float(objective.detach().cpu()))
-                    clip_fractions.append(clip_count / max(1, token_count))
-                    ref_kls.append(kl_total / max(1, token_count))
-                rewards.extend(values.tolist())
-                records.append({'update': update, 'task_id': task['task_id'],
-                                'rewards': values.tolist(), 'passed': [bool(x[2].get('passed')) for x in group],
-                                'advantages': advantages.tolist()})
+                # Normal and injected-fault rollouts have different fixed costs.
+                # Keep them in separate groups so condition difficulty cannot
+                # become a spurious policy advantage.
+                for fault in fault_conditions(args.fault_mode):
+                    group = []
+                    for member in range(args.group_size):
+                        episode_folder = (Path(scratch) /
+                                          f'update_{update}_task_{task["task_id"]}_fault_{int(fault)}_member_{member}')
+                        reward, trajectory, score = rollout(policy, tokenizer, task,
+                                                            oracle[task['task_id']], episode_folder,
+                                                            fault=fault, args=args)
+                        group.append((reward, trajectory, score))
+                    values = torch.tensor([x[0] for x in group], dtype=torch.float32)
+                    if float(values.std(unbiased=False)) == 0:
+                        advantages = torch.zeros_like(values)
+                    else:
+                        advantages = (values - values.mean()) / (values.std(unbiased=False) + 1e-6)
+                    group_record = {'update': update, 'task_id': task['task_id'],
+                                    'pair_family': task['pair_family'], 'fault': fault,
+                                    'rewards': values.tolist(),
+                                    'passed': [bool(x[2].get('passed')) for x in group],
+                                    'advantages': advantages.tolist(),
+                                    'members': [{'actions': [s['action'] for s in trajectory],
+                                                 'parse_error': bool(score.get('parse_error')),
+                                                 'tool_calls': score.get('tool_calls'),
+                                                 'decisions': score.get('decisions'),
+                                                 'extra_calls': score.get('extra_calls')}
+                                                for _, trajectory, score in group]}
+                    rewards.extend(values.tolist())
+                    if not bool(torch.any(advantages)):
+                        # Avoid Adam amplifying floating-point KL noise when a
+                        # group contains no relative learning signal.
+                        group_record['updated'] = False
+                        skipped_zero_advantage_groups += 1
+                        records.append(group_record)
+                        continue
+                    updated_groups += 1
+                    # Snapshot behavior-policy and reference token log probabilities before update.
+                    behavior = []
+                    with torch.no_grad():
+                        policy.set_adapter('default')
+                        policy.eval()
+                        for _, trajectory, _ in group:
+                            seq = []
+                            for step in trajectory:
+                                old_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
+                                policy.set_adapter('reference')
+                                policy.eval()
+                                ref_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
+                                policy.set_adapter('default')
+                                policy.eval()
+                                seq.append((old_lp.detach(), ref_lp.detach()))
+                            behavior.append(seq)
+                    for _ppo_epoch in range(args.ppo_epochs):
+                        optimizer.zero_grad(set_to_none=True)
+                        objective = torch.zeros((), device='cuda')
+                        clip_count, token_count, kl_total = 0, 0, 0.0
+                        for advantage, (_, trajectory, _), old_steps in zip(advantages, group, behavior):
+                            for step, (old_lp, ref_lp) in zip(trajectory, old_steps):
+                                new_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
+                                ratio = torch.exp((new_lp - old_lp).clamp(-20, 20))
+                                clipped = ratio.clamp(1.0 - args.clip_range, 1.0 + args.clip_range)
+                                adv = advantage.to('cuda')
+                                objective = objective - torch.minimum(ratio * adv, clipped * adv).mean()
+                                # Non-negative sampled KL estimator, clipped against numerical overflow.
+                                ref_diff = (ref_lp - new_lp).clamp(-20, 20)
+                                kl = torch.exp(ref_diff) - ref_diff - 1.0
+                                objective = objective + args.kl_beta * kl.mean()
+                                clip_count += int(((ratio < 1 - args.clip_range) |
+                                                   (ratio > 1 + args.clip_range)).sum().item())
+                                token_count += ratio.numel()
+                                kl_total += float(kl.detach().sum().cpu())
+                        objective = objective / max(1, sum(len(x[1]) for x in group))
+                        objective.backward()
+                        torch.nn.utils.clip_grad_norm_(policy.parameters(), 1.0)
+                        optimizer.step()
+                        losses.append(float(objective.detach().cpu()))
+                        clip_fractions.append(clip_count / max(1, token_count))
+                        ref_kls.append(kl_total / max(1, token_count))
+                    group_record['updated'] = True
+                    records.append(group_record)
     out = Path(args.out)
     out.mkdir(parents=True)
     adapter = out / 'adapter'
@@ -160,7 +207,12 @@ def run(args):
     tokenizer.save_pretrained(adapter)
     summary = {'model': args.model, 'adapter_init': args.adapter, 'method': 'online-grpo-clipped-pilot',
                'seed': args.seed, 'updates': args.updates, 'tasks': len(tasks),
-               'group_size': args.group_size, 'ppo_epochs': args.ppo_epochs, 'episodes': len(rewards),
+               'task_ids': [x['task_id'] for x in tasks],
+               'pair_families': [x['pair_family'] for x in tasks],
+               'fault_mode': args.fault_mode, 'group_size': args.group_size,
+               'ppo_epochs': args.ppo_epochs, 'episodes': len(rewards),
+               'updated_groups': updated_groups,
+               'skipped_zero_advantage_groups': skipped_zero_advantage_groups,
                'episode_passed': sum(x > 0 for x in rewards), 'reward_mean': sum(rewards) / max(1, len(rewards)),
                'loss_first': losses[0] if losses else None, 'loss_last': losses[-1] if losses else None,
                'clip_range': args.clip_range, 'kl_beta': args.kl_beta,
@@ -184,6 +236,7 @@ if __name__ == '__main__':
     parser.add_argument('--updates', type=int, default=2)
     parser.add_argument('--group-size', type=int, default=2)
     parser.add_argument('--ppo-epochs', type=int, default=2)
+    parser.add_argument('--fault-mode', choices=('clean', 'fault', 'both'), default='both')
     parser.add_argument('--temperature', type=float, default=.8)
     parser.add_argument('--max-new-tokens', type=int, default=48)
     parser.add_argument('--learning-rate', type=float, default=5e-6)
