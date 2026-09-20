@@ -1,4 +1,6 @@
-# RL + LLM Data Analysis Agent — V3.6 Final
+# RL + LLM Data Analysis Agent — V4.5.1
+
+V4.5.1 将 NPU 接入纳入正式版本范围：训练与 BF16 金标准评测继续使用 CUDA GPU，Intel AI Boost NPU 用于 OpenVINO 量化推理和精度研究。本版本同时包含 SFT→DPO、经审计修正的在线 GRPO 链路，以及 NPU 冻结评测；版本结论和复现实验见 [V4.5.1 发布说明](reports/V4_5_1_RELEASE.md)。
 
 V4 可训练 LLM 试验已建立新来源与未见工具组合划分，并导出经环境回放验证的监督轨迹。LoRA 训练、冻结模型评测及其结果须分开记录；目前的划分是合成开发协议，不是外部真实数据或最终盲测。见 [V4 可训练 LLM 试验协议](reports/V4_LLM_TRAINING_PILOT.md)，入口为 `research.v4_llm_protocol`、`experiments.v4_llm_export`、`experiments.v4_llm_sft` 和 `experiments.v4_llm_eval`。
 

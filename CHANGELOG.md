@@ -1,3 +1,12 @@
+# V4.5.1 — 2026-09-20
+
+- 完成 SFT→DPO 偏好优化基线；BF16 DPO 在冻结开发集上通过 83/96。
+- 完成在线 GRPO 训练链路，并修正正常/故障轨迹混组导致的伪优势；修正后的冻结结果仍为 83/96，不再把旧的 85/96 作为提升结论。
+- 零优势组跳过优化器更新，避免无有效奖励信号时出现参数漂移。
+- 接入 Intel AI Boost NPU：OpenVINO 计算图与 DeepSeek 1.5B INT4 推理已在本机实际运行。
+- 新增 LoRA 合并、NPU 探测和冻结评测入口。当前 NPU 最佳混合 INT4/INT8 结果为 15/24，低于 GPU BF16 DPO 的 21/24，因此 NPU 现阶段用于量化研究和辅助推理。
+- 本地完整测试 61/61 通过。
+
 # V2 — 2026-09-13
 
 Independent functional verifier; real CSV mutations; task-aware LinUCB with frozen evaluation; repaired data bundles; complete logs and common V1/V2 benchmark. See reports/V2_COMPARISON.md. This is a breaking experiment API change; historical tasks remain archived.
@@ -50,4 +59,3 @@ Independent functional verifier; real CSV mutations; task-aware LinUCB with froz
 - 建立 50 个数据分析任务、任务 schema、参考输出和基础验证规则。
 - 实现 Rule Router、LinUCB Bandit、LLM 适配器、数据工具和实验运行器。
 - 接入 DeepSeek 的 OpenAI-compatible API 调用方式。
-
