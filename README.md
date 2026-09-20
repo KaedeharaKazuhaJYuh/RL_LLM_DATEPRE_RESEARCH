@@ -8,6 +8,8 @@ V4 已完成最小在线 GRPO 链路烟测：`experiments.v4_llm_grpo` 从 SFT�
 
 V4 GRPO 后续审计修正了正常/故障轨迹混组造成的伪优势，并在零优势时跳过优化器以避免浮点 KL 经 Adam 放大。均衡覆盖 8 个训练组合族的 64 条轨迹全部通过、组内无奖励方差，冻结开发结果仍为 83/96，与 DPO 相同；当前瓶颈是训练任务过易、缺少有效 RL 信号，而不是继续增加更新轮数。
 
+V4 已接入本机 Intel AI Boost NPU：OpenVINO 计算图和 1.5B INT4 LLM 均已实际运行，并新增 NPU 探测、LoRA 合并与冻结评测入口。当前最佳混合 INT4/INT8 NPU 版本在 24 条开发执行中为 15/24，仍低于 BF16 DPO 的 21/24，因此 NPU 暂用于量化研究与辅助推理，CUDA GPU 继续承担训练和金标准评测。见 [NPU 接入与精度审计](reports/V4_NPU_ENABLEMENT.md)。
+
 V4 多步学习阶段：已完成明确任务协议、监督初始化与 REINFORCE 对照，见 [阶段报告](reports/V4_SEQUENCE_RL_STAGE.md)。本轮 RL 从监督基线退化，原始负结果完整保留；不代表 DeepSeek 权重微调。运行入口为 `experiments.v4_sequence_train` 和 `experiments.v4_sequence_live`。
 
 V4 稳定性修正：批量策略梯度、历史条件基线、更新幅度约束及可选监督保持项，将三种子开发验证通过率恢复至 100%；尚未超过监督基线。见 [退化诊断与优化报告](reports/V4_RL_STABILITY.md)，入口 `experiments.v4_sequence_stabilize`。

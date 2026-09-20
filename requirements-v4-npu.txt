@@ -1,0 +1,8 @@
+# Intel AI Boost runtime and local LLM conversion stack.
+openvino==2026.3.0
+openvino-genai==2026.3.0.0
+optimum-intel==2.2.0
+nncf==3.4.0
+transformers==5.0.0
+sentencepiece==0.2.2
+safetensors==0.8.0
