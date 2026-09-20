@@ -35,13 +35,13 @@ def generate_action(model, tokenizer, task, observation, temperature, max_new_to
         return None, raw, completion.detach().cpu().tolist()
 
 
-def logprob_completion(model, prompt_ids, completion_ids):
+def completion_logprobs(model, prompt_ids, completion_ids):
     ids = torch.tensor([prompt_ids + completion_ids], device=model.device)
     logits = model(input_ids=ids, attention_mask=torch.ones_like(ids)).logits[:, :-1]
     target = ids[:, 1:]
     logp = torch.log_softmax(logits.float(), dim=-1).gather(-1, target.unsqueeze(-1)).squeeze(-1)
     start = max(0, len(prompt_ids) - 1)
-    return logp[:, start:].sum(-1).mean()
+    return logp[:, start:]
 
 
 def rollout(model, tokenizer, task, gold, scratch, fault, args):
@@ -76,18 +76,23 @@ def run(args):
     tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=False)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
-    policy = AutoModelForCausalLM.from_pretrained(args.model, dtype=torch.bfloat16,
-                                                  trust_remote_code=False).cuda()
-    if args.adapter:
-        policy = PeftModel.from_pretrained(policy, args.adapter, is_trainable=True)
-    else:
+    if not args.adapter:
         raise ValueError('--adapter is required so the pilot starts from SFT/DPO')
-    policy.train()
+    policy = PeftModel.from_pretrained(
+        AutoModelForCausalLM.from_pretrained(args.model, dtype=torch.bfloat16,
+                                             trust_remote_code=False).cuda(),
+        args.adapter, is_trainable=True)
+    # Keep a frozen copy of the starting SFT/DPO adapter on the shared base model.
+    policy.load_adapter(args.adapter, adapter_name='reference', is_trainable=False)
+    # Keep the policy in eval mode so rollout, old-policy, reference, and update
+    # log probabilities use the same deterministic network (sampling remains
+    # stochastic through generate(do_sample=True)). Gradients still flow.
+    policy.eval()
     optimizer = torch.optim.AdamW((p for p in policy.parameters() if p.requires_grad), lr=args.learning_rate)
     tasks = json.loads((Path(args.protocol) / 'tasks.json').read_text(encoding='utf-8'))
     oracle = json.loads((Path(args.protocol) / 'train_oracle.json').read_text(encoding='utf-8'))
     tasks = [t for t in tasks if t['split'] == 'train'][:args.limit]
-    records, losses, rewards = [], [], []
+    records, losses, rewards, clip_fractions, ref_kls = [], [], [], [], []
     with tempfile.TemporaryDirectory(prefix='v4_grpo_') as scratch:
         for update in range(args.updates):
             for task in tasks:
@@ -103,17 +108,47 @@ def run(args):
                     advantages = torch.zeros_like(values)
                 else:
                     advantages = (values - values.mean()) / (values.std(unbiased=False) + 1e-6)
-                optimizer.zero_grad(set_to_none=True)
-                objective = torch.zeros((), device='cuda')
-                for advantage, (reward, trajectory, score) in zip(advantages, group):
-                    for step in trajectory:
-                        objective = objective - advantage.to('cuda') * logprob_completion(
-                            policy, step['prompt_ids'], step['completion_ids'])
-                objective = objective / max(1, sum(len(x[1]) for x in group))
-                objective.backward()
-                torch.nn.utils.clip_grad_norm_(policy.parameters(), 1.0)
-                optimizer.step()
-                losses.append(float(objective.detach().cpu()))
+                # Snapshot behavior-policy and reference token log probabilities before update.
+                behavior = []
+                with torch.no_grad():
+                    policy.set_adapter('default')
+                    policy.eval()
+                    for _, trajectory, _ in group:
+                        seq = []
+                        for step in trajectory:
+                            old_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
+                            policy.set_adapter('reference')
+                            policy.eval()
+                            ref_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
+                            policy.set_adapter('default')
+                            policy.eval()
+                            seq.append((old_lp.detach(), ref_lp.detach()))
+                        behavior.append(seq)
+                for _ppo_epoch in range(args.ppo_epochs):
+                    optimizer.zero_grad(set_to_none=True)
+                    objective = torch.zeros((), device='cuda')
+                    clip_count, token_count, kl_total = 0, 0, 0.0
+                    for advantage, (_, trajectory, _), old_steps in zip(advantages, group, behavior):
+                        for step, (old_lp, ref_lp) in zip(trajectory, old_steps):
+                            new_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
+                            ratio = torch.exp((new_lp - old_lp).clamp(-20, 20))
+                            clipped = ratio.clamp(1.0 - args.clip_range, 1.0 + args.clip_range)
+                            adv = advantage.to('cuda')
+                            objective = objective - torch.minimum(ratio * adv, clipped * adv).mean()
+                            # Non-negative sampled KL estimator, clipped against numerical overflow.
+                            ref_diff = (ref_lp - new_lp).clamp(-20, 20)
+                            kl = torch.exp(ref_diff) - ref_diff - 1.0
+                            objective = objective + args.kl_beta * kl.mean()
+                            clip_count += int(((ratio < 1 - args.clip_range) | (ratio > 1 + args.clip_range)).sum().item())
+                            token_count += ratio.numel()
+                            kl_total += float(kl.detach().mean().cpu())
+                    objective = objective / max(1, sum(len(x[1]) for x in group))
+                    objective.backward()
+                    torch.nn.utils.clip_grad_norm_(policy.parameters(), 1.0)
+                    optimizer.step()
+                    losses.append(float(objective.detach().cpu()))
+                    clip_fractions.append(clip_count / max(1, token_count))
+                    ref_kls.append(kl_total / max(1, token_count))
                 rewards.extend(values.tolist())
                 records.append({'update': update, 'task_id': task['task_id'],
                                 'rewards': values.tolist(), 'passed': [bool(x[2].get('passed')) for x in group],
@@ -123,11 +158,14 @@ def run(args):
     adapter = out / 'adapter'
     policy.save_pretrained(adapter)
     tokenizer.save_pretrained(adapter)
-    summary = {'model': args.model, 'adapter_init': args.adapter, 'method': 'online-grpo-pilot',
+    summary = {'model': args.model, 'adapter_init': args.adapter, 'method': 'online-grpo-clipped-pilot',
                'seed': args.seed, 'updates': args.updates, 'tasks': len(tasks),
-               'group_size': args.group_size, 'episodes': len(rewards),
+               'group_size': args.group_size, 'ppo_epochs': args.ppo_epochs, 'episodes': len(rewards),
                'episode_passed': sum(x > 0 for x in rewards), 'reward_mean': sum(rewards) / max(1, len(rewards)),
                'loss_first': losses[0] if losses else None, 'loss_last': losses[-1] if losses else None,
+               'clip_range': args.clip_range, 'kl_beta': args.kl_beta,
+               'clip_fraction_mean': sum(clip_fractions) / max(1, len(clip_fractions)),
+               'reference_kl_mean': sum(ref_kls) / max(1, len(ref_kls)),
                'protocol_sha256': digest(Path(args.protocol) / 'manifest.json'),
                'trainable_parameters': sum(p.numel() for p in policy.parameters() if p.requires_grad),
                'adapter_sha256': {p.name: digest(p) for p in adapter.glob('*.safetensors')},
@@ -145,9 +183,12 @@ if __name__ == '__main__':
     parser.add_argument('--limit', type=int, default=2)
     parser.add_argument('--updates', type=int, default=2)
     parser.add_argument('--group-size', type=int, default=2)
+    parser.add_argument('--ppo-epochs', type=int, default=2)
     parser.add_argument('--temperature', type=float, default=.8)
     parser.add_argument('--max-new-tokens', type=int, default=48)
     parser.add_argument('--learning-rate', type=float, default=5e-6)
+    parser.add_argument('--clip-range', type=float, default=.2)
+    parser.add_argument('--kl-beta', type=float, default=.02)
     parser.add_argument('--seed', type=int, default=20260918)
     args = parser.parse_args()
     print(json.dumps(run(args), ensure_ascii=False, indent=2))
