@@ -1,4 +1,4 @@
-import copy,tempfile,unittest
+import copy,hashlib,tempfile,unittest
 from pathlib import Path
 import numpy as np
 from agent.tools import execute_tool,ACTIONS
@@ -44,6 +44,10 @@ class CoreTests(unittest.TestCase):
     def test_nonfinite(self):
         write_table(self.path,['value'],[{'value':'nan'}])
         with self.assertRaises(ValueError):self.tool('describe_numeric')
+    def test_digest_streams_without_changing_sha256(self):
+        payload=(b'large-model-shard' * 200000) + b'end'
+        path=self.dir/'weights.safetensors';path.write_bytes(payload)
+        self.assertEqual(hashlib.sha256(payload).hexdigest(),digest(path,chunk_size=65536))
 class BenchmarkTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):cls.tasks,cls.oracles=load_bundle()

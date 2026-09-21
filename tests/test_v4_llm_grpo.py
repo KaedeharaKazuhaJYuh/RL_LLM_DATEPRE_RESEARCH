@@ -1,6 +1,6 @@
 import unittest
 
-from experiments.v4_llm_grpo import fault_conditions, select_train_tasks
+from experiments.v4_llm_grpo import count_passed, fault_conditions, select_train_tasks
 
 
 class TestV4LlmGrpo(unittest.TestCase):
@@ -29,6 +29,12 @@ class TestV4LlmGrpo(unittest.TestCase):
         self.assertEqual((False,), fault_conditions('clean'))
         self.assertEqual((True,), fault_conditions('fault'))
         self.assertEqual((False, True), fault_conditions('both'))
+
+    def test_positive_shaped_reward_is_not_counted_as_success(self):
+        records = [{'passed': [False, True]}, {'passed': [False, False]}]
+        rewards = [0.07, 1.11, 0.01, -0.03]
+        self.assertEqual(1, count_passed(records))
+        self.assertEqual(3, sum(x > 0 for x in rewards))
 
 
 if __name__ == '__main__':

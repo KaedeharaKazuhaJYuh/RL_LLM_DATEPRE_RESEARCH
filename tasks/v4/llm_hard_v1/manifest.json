@@ -1,0 +1,106 @@
+{
+  "version": "v4-llm-hard-1",
+  "seed": 20260921,
+  "synthetic": true,
+  "external_test": false,
+  "purpose": "development protocol for non-zero online-RL reward variance",
+  "training_sources": [
+    "v4hard_source_00",
+    "v4hard_source_01",
+    "v4hard_source_02",
+    "v4hard_source_03",
+    "v4hard_source_04",
+    "v4hard_source_05",
+    "v4hard_source_06",
+    "v4hard_source_07",
+    "v4hard_source_08",
+    "v4hard_source_09",
+    "v4hard_source_10",
+    "v4hard_source_11",
+    "v4hard_source_12",
+    "v4hard_source_13",
+    "v4hard_source_14",
+    "v4hard_source_15"
+  ],
+  "dev_sources": [
+    "v4hard_source_16",
+    "v4hard_source_17",
+    "v4hard_source_18",
+    "v4hard_source_19"
+  ],
+  "train_task_count": 128,
+  "dev_seen_triple_tasks": 32,
+  "dev_unseen_triple_tasks": 16,
+  "train_triple_families": [
+    [
+      "clip_outliers",
+      "deduplicate",
+      "describe_numeric"
+    ],
+    [
+      "deduplicate",
+      "fill_missing",
+      "describe_numeric"
+    ],
+    [
+      "deduplicate",
+      "normalize_dates",
+      "profile_missingness"
+    ],
+    [
+      "fill_missing",
+      "clip_outliers",
+      "correlate"
+    ],
+    [
+      "normalize_categories",
+      "deduplicate",
+      "count_categories"
+    ],
+    [
+      "normalize_categories",
+      "fill_missing",
+      "aggregate"
+    ],
+    [
+      "normalize_dates",
+      "deduplicate",
+      "rolling_mean"
+    ],
+    [
+      "normalize_dates",
+      "fill_missing",
+      "aggregate"
+    ]
+  ],
+  "unseen_dev_triple_families": [
+    [
+      "deduplicate",
+      "clip_outliers",
+      "correlate"
+    ],
+    [
+      "deduplicate",
+      "fill_missing",
+      "rolling_mean"
+    ],
+    [
+      "fill_missing",
+      "normalize_dates",
+      "aggregate"
+    ],
+    [
+      "normalize_categories",
+      "normalize_dates",
+      "count_categories"
+    ]
+  ],
+  "max_decisions": 5,
+  "max_tool_calls": 4,
+  "success": "ordered three-tool completion + explicit stop + independent final verification",
+  "reward": "success + 0.3*correct_prefix_fraction - 0.05*tool_calls - 0.01*decisions",
+  "fault": "first tool call transient read failure; one retry fits the budget",
+  "tasks_sha256": "df5bb952201fba8cc3235dc2bb8324bb3ad7d02c27f0e446b49317372334315e",
+  "train_oracle_sha256": "ed458ca4a23bf7dec73a80e475108db0b411c6e43905e42c2542fdee4baeaa10",
+  "dev_oracle_sha256": "89f5030a97f9c5d0c56e58a7ba174db01b2ccb5b5e305de22413da0cb526e90d"
+}

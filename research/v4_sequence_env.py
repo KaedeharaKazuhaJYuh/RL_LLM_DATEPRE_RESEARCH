@@ -47,6 +47,12 @@ def build(out):
 class SequenceEnv:
     def __init__(self,task,gold,folder,fault=False):
         self.task=task;self.gold=gold;self.folder=Path(folder);self.folder.mkdir(parents=True,exist_ok=True)
+        limits=task.get('constraints',{})
+        self.max_decisions=int(limits.get('max_steps',4))
+        self.max_tool_calls=int(limits.get('max_tool_calls',3))
+        self.max_seconds=float(limits.get('max_seconds',120))
+        if self.max_decisions<1 or self.max_tool_calls<0 or self.max_seconds<=0:
+            raise ValueError('invalid task constraints')
         self.current=ROOT/task['dataset']['uri'];self.initial=digest(self.current)
         if self.initial!=task['dataset']['sha256']:raise ValueError('input hash mismatch')
         self.history=[];self.last={};self.last_hash=None;self.calls=0;self.decisions=0
@@ -57,18 +63,19 @@ class SequenceEnv:
         cols,rows=read_table(self.current)
         return {'prompt':self.task['prompt'],'columns':cols,'rows':len(rows),
                 'missing_cells':sum(v=='' for r in rows for v in r.values()),
-                'history':copy.deepcopy(self.history),'remaining_calls':3-self.calls,
-                'remaining_decisions':4-self.decisions,
+                'history':copy.deepcopy(self.history),
+                'remaining_calls':max(0,self.max_tool_calls-self.calls),
+                'remaining_decisions':max(0,self.max_decisions-self.decisions),
                 'parameter_bindings':{a:params_for(a,self.task) for a in ACTIONS}}
 
     def step(self,action):
         if self.done:raise RuntimeError('episode ended')
-        if time.perf_counter()-self.started>120:
+        if time.perf_counter()-self.started>self.max_seconds:
             self.done=True
             return self.observation()
         self.decisions+=1
         if action=='stop':self.done=True;self.stopped=True
-        elif action not in ACTIONS or self.calls>=3:self.done=True
+        elif action not in self.task['allowed_tools'] or self.calls>=self.max_tool_calls:self.done=True
         else:
             self.calls+=1;before=digest(self.current)
             try:
@@ -86,7 +93,7 @@ class SequenceEnv:
                                      'input_sha256':before,'output_sha256':digest(self.current)})
             except (ValueError,KeyError,OSError,TypeError) as exc:
                 self.history.append({'action':action,'ok':False,'error':type(exc).__name__+': '+str(exc)})
-        if self.decisions>=4:self.done=True
+        if self.decisions>=self.max_decisions:self.done=True
         return self.observation()
 
     def result(self):
@@ -99,9 +106,24 @@ class SequenceEnv:
                 write_table(ref,target['artifact_columns'],target['artifact_rows'])
         cols,rows=read_table(self.current);refcols,refrows=read_table(ref)
         verified=verify(self.last,target,[{'tool':h['action'],'ok':True} for h in self.history if h['ok']],
-                        {'allowed_tools':ACTIONS,'input_sha256':self.last_hash,'max_tool_calls':3,'max_steps':3})
+                        {'allowed_tools':self.task['allowed_tools'],'input_sha256':self.last_hash,
+                         'max_tool_calls':self.max_tool_calls,'max_steps':self.max_decisions})
         passed=bool(self.stopped and verified['passed'] and cols==refcols and _same(rows,refrows)
-                    and digest(ROOT/self.task['dataset']['uri'])==self.initial and time.perf_counter()-self.started<=120)
+                    and digest(ROOT/self.task['dataset']['uri'])==self.initial
+                    and time.perf_counter()-self.started<=self.max_seconds)
+        successful_actions=[h['action'] for h in self.history if h['ok']]
+        matched_prefix=0
+        for actual,planned in zip(successful_actions,self.gold['plan']):
+            if actual!=planned:break
+            matched_prefix+=1
+        progress=matched_prefix/max(1,len(self.gold['plan']))
+        reward_spec=self.task.get('reward',{})
+        success_weight=float(reward_spec.get('success',1.0))
+        progress_weight=float(reward_spec.get('progress',0.0))
+        tool_cost=float(reward_spec.get('tool_call_cost',.05))
+        decision_cost=float(reward_spec.get('decision_cost',.01))
+        reward=success_weight*float(passed)+progress_weight*progress-tool_cost*self.calls-decision_cost*self.decisions
         return {'passed':passed,'stopped':self.stopped,'tool_calls':self.calls,'decisions':self.decisions,
-                'injection_applied':self.injected,'reward':float(passed)-.05*self.calls-.01*self.decisions,
-                'extra_calls':max(0,self.calls-2-int(self.injected))}
+                'injection_applied':self.injected,'matched_prefix':matched_prefix,'progress':progress,
+                'reward':reward,
+                'extra_calls':max(0,self.calls-len(self.gold['plan'])-int(self.injected))}

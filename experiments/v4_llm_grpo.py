@@ -40,6 +40,11 @@ def fault_conditions(mode):
     return {'clean': (False,), 'fault': (True,), 'both': (False, True)}[mode]
 
 
+def count_passed(records):
+    """Count terminal successes independently of shaped reward sign."""
+    return sum(sum(record['passed']) for record in records)
+
+
 def generate_action(model, tokenizer, task, observation, temperature, max_new_tokens):
     message = [{'role': 'user', 'content': input_text(model_input(task, observation))}]
     encoded = tokenizer.apply_chat_template(message, tokenize=True, add_generation_prompt=True,
@@ -114,7 +119,7 @@ def run(args):
     all_tasks = json.loads((Path(args.protocol) / 'tasks.json').read_text(encoding='utf-8'))
     oracle = json.loads((Path(args.protocol) / 'train_oracle.json').read_text(encoding='utf-8'))
     tasks = select_train_tasks(all_tasks, args.limit, args.seed)
-    records, losses, rewards, clip_fractions, ref_kls = [], [], [], [], []
+    records, losses, rewards, progresses, clip_fractions, ref_kls = [], [], [], [], [], []
     updated_groups = skipped_zero_advantage_groups = 0
     with tempfile.TemporaryDirectory(prefix='v4_grpo_') as scratch:
         for update in range(args.updates):
@@ -145,9 +150,12 @@ def run(args):
                                                  'parse_error': bool(score.get('parse_error')),
                                                  'tool_calls': score.get('tool_calls'),
                                                  'decisions': score.get('decisions'),
+                                                 'matched_prefix': score.get('matched_prefix'),
+                                                 'progress': score.get('progress'),
                                                  'extra_calls': score.get('extra_calls')}
                                                 for _, trajectory, score in group]}
                     rewards.extend(values.tolist())
+                    progresses.extend(float(score.get('progress', 0.0)) for _, _, score in group)
                     if not bool(torch.any(advantages)):
                         # Avoid Adam amplifying floating-point KL noise when a
                         # group contains no relative learning signal.
@@ -213,7 +221,10 @@ def run(args):
                'ppo_epochs': args.ppo_epochs, 'episodes': len(rewards),
                'updated_groups': updated_groups,
                'skipped_zero_advantage_groups': skipped_zero_advantage_groups,
-               'episode_passed': sum(x > 0 for x in rewards), 'reward_mean': sum(rewards) / max(1, len(rewards)),
+               'episode_passed': count_passed(records),
+               'reward_mean': sum(rewards) / max(1, len(rewards)),
+               'progress_mean': sum(progresses) / max(1, len(progresses)),
+               'full_prefix_episodes': sum(x == 1.0 for x in progresses),
                'loss_first': losses[0] if losses else None, 'loss_last': losses[-1] if losses else None,
                'clip_range': args.clip_range, 'kl_beta': args.kl_beta,
                'clip_fraction_mean': sum(clip_fractions) / max(1, len(clip_fractions)),

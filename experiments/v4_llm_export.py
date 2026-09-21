@@ -54,6 +54,7 @@ def run(protocol, out):
     tasks = json.loads((protocol / 'tasks.json').read_text(encoding='utf-8'))
     train_oracle = json.loads((protocol / 'train_oracle.json').read_text(encoding='utf-8'))
     dev_oracle = json.loads((protocol / 'dev_oracle.json').read_text(encoding='utf-8'))
+    manifest = json.loads((protocol / 'manifest.json').read_text(encoding='utf-8'))
     train = [t for t in tasks if t['split'] == 'train']
     dev = [t for t in tasks if t['split'] == 'dev']
     assert {t['task_id'] for t in train} == set(train_oracle)
@@ -72,7 +73,7 @@ def run(protocol, out):
             for fault in (False, True):
                 replay(task, dev_oracle[task['task_id']], scratch, fault, False)
                 dev_episodes += 1
-    summary = {'protocol': 'v4-llm-pilot-1', 'train_tasks': len(train),
+    summary = {'protocol': manifest['version'], 'train_tasks': len(train),
                'dev_tasks': len(dev), 'train_episodes': episodes, 'dev_expert_episodes': dev_episodes,
                'train_steps': count, 'training_sources': len({t['source_id'] for t in train}),
                'dev_sources': len({t['source_id'] for t in dev}),
