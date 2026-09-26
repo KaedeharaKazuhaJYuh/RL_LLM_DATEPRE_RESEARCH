@@ -25,3 +25,10 @@ jobs:
           cache-dependency-path: orchestrator/go.mod
       - run: go test ./...
         working-directory: orchestrator
+  cpp-native-probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cmake -S native -B build/native -DCMAKE_BUILD_TYPE=Release
+      - run: cmake --build build/native --parallel
+      - run: ctest --test-dir build/native --output-on-failure
