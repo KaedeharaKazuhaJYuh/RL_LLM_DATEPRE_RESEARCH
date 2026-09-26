@@ -1,6 +1,6 @@
 import unittest
 
-from experiments.v4_llm_grpo import (count_passed, fault_conditions,
+from experiments.v4_llm_grpo import (BudgetedGroupSchedule, count_passed, fault_conditions,
                                       groups_from_scan, has_learning_signal,
                                       select_train_tasks)
 
@@ -64,6 +64,32 @@ class TestV4LlmGrpo(unittest.TestCase):
         self.assertTrue(has_learning_signal([
             {'passed': False, 'matched_prefix': 1},
             {'passed': False, 'matched_prefix': 2}]))
+
+    def test_budgeted_schedule_is_deterministic_and_uses_only_train(self):
+        tasks = [{'task_id': f'{family}-{source}', 'pair_family': family,
+                  'split': 'train', 'source_id': source}
+                 for family in range(8) for source in range(3)]
+        tasks.append({'task_id': 'dev', 'pair_family': 8, 'split': 'dev'})
+        left = BudgetedGroupSchedule(tasks, 7, 'schedule_static')
+        right = BudgetedGroupSchedule(tasks, 7, 'schedule_static')
+        first = [left.next() for _ in range(8)]
+        second = [right.next() for _ in range(8)]
+        self.assertEqual(first, second)
+        self.assertEqual(4, sum(fault for _, fault in first))
+        self.assertEqual(8, len({task['pair_family'] for task, _ in first}))
+        self.assertTrue(all(task['split'] == 'train' for task, _ in first))
+
+    def test_dynamic_schedule_repeats_signal_family_once_with_new_source(self):
+        tasks = [{'task_id': f'{family}-{source}', 'pair_family': family,
+                  'split': 'train'} for family in range(3) for source in range(3)]
+        schedule = BudgetedGroupSchedule(tasks, 11, 'schedule_dynamic')
+        first, first_fault = schedule.next()
+        second, second_fault = schedule.next(previous_signal=True)
+        third, _ = schedule.next(previous_signal=True)
+        self.assertEqual(first['pair_family'], second['pair_family'])
+        self.assertNotEqual(first['task_id'], second['task_id'])
+        self.assertNotEqual(first_fault, second_fault)
+        self.assertNotEqual(second['pair_family'], third['pair_family'])
 
 
 if __name__ == '__main__':

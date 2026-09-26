@@ -1,0 +1,81 @@
+{
+  "version": "v4-llm-composition-1",
+  "parent_version": "v4-llm-hard-1",
+  "parent_manifest_sha256": "8a197d3fda055a56e751752e6c2a00c9b28d85851c5106c84d4df3e032b57ee2",
+  "synthetic": true,
+  "external_test": false,
+  "train_sources": [
+    "v4hard_source_00",
+    "v4hard_source_01",
+    "v4hard_source_02",
+    "v4hard_source_03",
+    "v4hard_source_04",
+    "v4hard_source_05",
+    "v4hard_source_06",
+    "v4hard_source_07",
+    "v4hard_source_08",
+    "v4hard_source_09",
+    "v4hard_source_10",
+    "v4hard_source_11",
+    "v4hard_source_12",
+    "v4hard_source_13",
+    "v4hard_source_14",
+    "v4hard_source_15"
+  ],
+  "dev_sources": [
+    "v4hard_source_16",
+    "v4hard_source_17",
+    "v4hard_source_18",
+    "v4hard_source_19"
+  ],
+  "train_tasks": 192,
+  "dev_tasks": 48,
+  "added_train_families": [
+    [
+      "fill_missing",
+      "deduplicate",
+      "describe_numeric"
+    ],
+    [
+      "clip_outliers",
+      "fill_missing",
+      "correlate"
+    ],
+    [
+      "normalize_dates",
+      "clip_outliers",
+      "aggregate"
+    ],
+    [
+      "normalize_categories",
+      "clip_outliers",
+      "count_categories"
+    ]
+  ],
+  "held_out_dev_families": [
+    [
+      "deduplicate",
+      "clip_outliers",
+      "correlate"
+    ],
+    [
+      "deduplicate",
+      "fill_missing",
+      "rolling_mean"
+    ],
+    [
+      "fill_missing",
+      "normalize_dates",
+      "aggregate"
+    ],
+    [
+      "normalize_categories",
+      "normalize_dates",
+      "count_categories"
+    ]
+  ],
+  "dev_oracle_sha256": "89f5030a97f9c5d0c56e58a7ba174db01b2ccb5b5e305de22413da0cb526e90d",
+  "parent_dev_oracle_sha256": "89f5030a97f9c5d0c56e58a7ba174db01b2ccb5b5e305de22413da0cb526e90d",
+  "tasks_sha256": "c9db3f7f2a974ee1fa79fb2d791019d74ce7e86e9fffdd6e1b543033d56ae9a9",
+  "train_oracle_sha256": "c784a683855d53eea5fd570a1965a74fc6421413e87422200ee3a315eb502891"
+}
