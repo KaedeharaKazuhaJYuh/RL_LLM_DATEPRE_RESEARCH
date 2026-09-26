@@ -1,0 +1,10 @@
+{
+  "version": "v4-composition-dev-1",
+  "purpose": "development probe, not blind test",
+  "held_out_ordered_pairs": true,
+  "source_independence": "same two V4 validation sources, no new external sources",
+  "parameter_mode": "identical public deterministic bindings",
+  "tool_budget": 3,
+  "decision_budget": 4,
+  "fault": "one first-read failure"
+}

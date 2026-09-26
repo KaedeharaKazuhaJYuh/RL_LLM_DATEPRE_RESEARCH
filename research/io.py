@@ -3,7 +3,11 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def resolve(path):
     p=Path(path); return p if p.is_absolute() else ROOT/p
-def digest(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def digest(path,chunk_size=1024*1024):
+    value=hashlib.sha256()
+    with Path(path).open('rb') as stream:
+        for chunk in iter(lambda:stream.read(chunk_size),b''):value.update(chunk)
+    return value.hexdigest()
 def read_table(path):
     with resolve(path).open(encoding="utf-8",newline="") as f:
         r=csv.DictReader(f); cols=r.fieldnames

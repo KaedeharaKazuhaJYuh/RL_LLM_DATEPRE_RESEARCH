@@ -1,0 +1,23 @@
+{
+  "version": "v4-sequence-1",
+  "train_sources": [
+    "v3_source_00",
+    "v3_source_01",
+    "v3_source_02",
+    "v3_source_03"
+  ],
+  "validation_sources": [
+    "v3_source_04",
+    "v3_source_05"
+  ],
+  "shared_template_families": true,
+  "external_test": false,
+  "max_decisions": 4,
+  "max_tools": 3,
+  "parameter_mode": "identical public deterministic bindings for all policies",
+  "success": "explicit stop + oracle final answer and table + original input unchanged",
+  "reward": "success - 0.05 * tool_calls - 0.01 * decisions",
+  "fault": "one simulated transient read failure before first tool; retry allowed",
+  "tasks_sha256": "e519f5d3f0f639fdbbe28029aa70b60bf9d790eb4179547b71d04d594cdf7d53",
+  "oracle_sha256": "18c2ad0b3f6b3133829f954a376882b925caceebdc70c4eacbf12cf878152759"
+}

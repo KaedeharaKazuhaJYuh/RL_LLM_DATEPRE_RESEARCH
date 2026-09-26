@@ -1,0 +1,74 @@
+{
+  "51f37f8622e055b4": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "dbe541d14d6658b6": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "242ec5c24f14bb2a": {
+    "plan": [
+      "deduplicate",
+      "correlate"
+    ]
+  },
+  "c7042ccb65c845a6": {
+    "plan": [
+      "normalize_categories",
+      "profile_missingness"
+    ]
+  },
+  "7437cdde27f861df": {
+    "plan": [
+      "normalize_dates",
+      "profile_schema"
+    ]
+  },
+  "52195d170aec7a69": {
+    "plan": [
+      "fill_missing",
+      "count_categories"
+    ]
+  },
+  "dc7c250c6ab3f568": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "7bad10a844da6384": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "e60e7844ab52e23b": {
+    "plan": [
+      "deduplicate",
+      "correlate"
+    ]
+  },
+  "0188ab858b5d27c4": {
+    "plan": [
+      "normalize_categories",
+      "profile_missingness"
+    ]
+  },
+  "5a447126adfdc027": {
+    "plan": [
+      "normalize_dates",
+      "profile_schema"
+    ]
+  },
+  "0c6a180d555bf46f": {
+    "plan": [
+      "fill_missing",
+      "count_categories"
+    ]
+  }
+}

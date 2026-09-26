@@ -1,0 +1,42 @@
+{
+  "protocol": "v4-composition-dev-1",
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "groups": [
+    {
+      "method": "supervised",
+      "episodes": 72,
+      "passed": 0,
+      "pass_rate": 0.0,
+      "mean_reward": -0.16
+    },
+    {
+      "method": "original_reinforce",
+      "episodes": 72,
+      "passed": 0,
+      "pass_rate": 0.0,
+      "mean_reward": -0.16
+    },
+    {
+      "method": "batch_only",
+      "episodes": 72,
+      "passed": 0,
+      "pass_rate": 0.0,
+      "mean_reward": -0.16
+    },
+    {
+      "method": "batch_anchored",
+      "episodes": 72,
+      "passed": 0,
+      "pass_rate": 0.0,
+      "mean_reward": -0.16
+    }
+  ],
+  "tasks": 12,
+  "independent_sources": 2,
+  "external_test": false,
+  "checkpoint_selection": "frozen from prior work; no tuning on this probe"
+}

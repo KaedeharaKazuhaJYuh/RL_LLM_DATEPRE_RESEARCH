@@ -1,0 +1,290 @@
+{
+  "03e2584bd5eec8d6": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "e3bad8d826dbc366": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "1eb634f348920a0d": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "8d5ae0cb607fecc8": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "e249ebfc4668954e": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "2ccb7b5b0cae19e0": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "c3a4b51060a1308d": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "c84b2e00771d583d": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "3b1acd7ae8d1418e": {
+    "plan": [
+      "deduplicate",
+      "correlate"
+    ]
+  },
+  "d0775ef4274a7cf0": {
+    "plan": [
+      "normalize_categories",
+      "profile_missingness"
+    ]
+  },
+  "12e5469a9844bac4": {
+    "plan": [
+      "normalize_dates",
+      "profile_schema"
+    ]
+  },
+  "b8d5217c00a25aa6": {
+    "plan": [
+      "fill_missing",
+      "count_categories"
+    ]
+  },
+  "bb5928e365921c28": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "34d1cad9f2697935": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "429788499ab2bcb4": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "eaea37a932ba002a": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "71cab87b2c9c6547": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "f86d98471b7a4014": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "e31050564ba24685": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "552f32692b7888c0": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "7a79eebb9fbd65fc": {
+    "plan": [
+      "deduplicate",
+      "correlate"
+    ]
+  },
+  "038d9ceccc4fc8d1": {
+    "plan": [
+      "normalize_categories",
+      "profile_missingness"
+    ]
+  },
+  "99964410bfcef782": {
+    "plan": [
+      "normalize_dates",
+      "profile_schema"
+    ]
+  },
+  "0ff034b2c067b72f": {
+    "plan": [
+      "fill_missing",
+      "count_categories"
+    ]
+  },
+  "92046fa53ce44a84": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "c97d1c5eedf59fd2": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "75554a2bd49238d2": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "60f9faed944935be": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "0be2293d6ea125ca": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "dc18bfee9a2f5538": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "9ef47cb7580cbf9f": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "2b289c738a34fcb1": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "4f846d278d4f7468": {
+    "plan": [
+      "deduplicate",
+      "correlate"
+    ]
+  },
+  "57683475ab47d85d": {
+    "plan": [
+      "normalize_categories",
+      "profile_missingness"
+    ]
+  },
+  "af066a24b35bcf8e": {
+    "plan": [
+      "normalize_dates",
+      "profile_schema"
+    ]
+  },
+  "c1ea798562daa908": {
+    "plan": [
+      "fill_missing",
+      "count_categories"
+    ]
+  },
+  "5b7ce225d2214f49": {
+    "plan": [
+      "deduplicate",
+      "profile_missingness"
+    ]
+  },
+  "a380f1d917000b2d": {
+    "plan": [
+      "fill_missing",
+      "describe_numeric"
+    ]
+  },
+  "4e402a9d756dd990": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "fb4d8a9b60946846": {
+    "plan": [
+      "normalize_dates",
+      "aggregate"
+    ]
+  },
+  "f311ca1b42a0a8da": {
+    "plan": [
+      "clip_outliers",
+      "correlate"
+    ]
+  },
+  "eeba73c2a75c101a": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "30b4568e7b599eca": {
+    "plan": [
+      "fill_missing",
+      "aggregate"
+    ]
+  },
+  "ae95481e05e05564": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "e0a595b63492ac78": {
+    "plan": [
+      "deduplicate",
+      "correlate"
+    ]
+  },
+  "c2d9ad838f8b6556": {
+    "plan": [
+      "normalize_categories",
+      "profile_missingness"
+    ]
+  },
+  "a253d3666dbcb48e": {
+    "plan": [
+      "normalize_dates",
+      "profile_schema"
+    ]
+  },
+  "05808e897e316fd3": {
+    "plan": [
+      "fill_missing",
+      "count_categories"
+    ]
+  }
+}

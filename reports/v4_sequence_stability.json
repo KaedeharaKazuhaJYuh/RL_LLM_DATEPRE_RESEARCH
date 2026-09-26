@@ -1,0 +1,176 @@
+{
+  "manifest": {
+    "epochs": 20,
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "batch_size": 48,
+    "lr": 0.1,
+    "max_step_kl": 0.01,
+    "configs": {
+      "batch_only": {
+        "bc_weight": 0.0,
+        "kl_weight": 0.0
+      },
+      "batch_anchored": {
+        "bc_weight": 0.2,
+        "kl_weight": 0.5
+      }
+    },
+    "baseline": "past-only task and fault EMA; initial zero",
+    "selection": "fixed final epoch; no validation tuning",
+    "llm_weights_updated": false
+  },
+  "results": [
+    {
+      "seed": 1,
+      "method": "batch_only",
+      "passed": 24,
+      "episodes": 24,
+      "mean_reward": 0.8399999999999999,
+      "mean_calls": 2.5
+    },
+    {
+      "seed": 1,
+      "method": "batch_anchored",
+      "passed": 24,
+      "episodes": 24,
+      "mean_reward": 0.8399999999999999,
+      "mean_calls": 2.5
+    },
+    {
+      "seed": 2,
+      "method": "batch_only",
+      "passed": 24,
+      "episodes": 24,
+      "mean_reward": 0.8399999999999999,
+      "mean_calls": 2.5
+    },
+    {
+      "seed": 2,
+      "method": "batch_anchored",
+      "passed": 24,
+      "episodes": 24,
+      "mean_reward": 0.8399999999999999,
+      "mean_calls": 2.5
+    },
+    {
+      "seed": 3,
+      "method": "batch_only",
+      "passed": 24,
+      "episodes": 24,
+      "mean_reward": 0.8399999999999999,
+      "mean_calls": 2.5
+    },
+    {
+      "seed": 3,
+      "method": "batch_anchored",
+      "passed": 24,
+      "episodes": 24,
+      "mean_reward": 0.8399999999999999,
+      "mean_calls": 2.5
+    }
+  ],
+  "diagnostics": [
+    {
+      "seed": 1,
+      "method": "supervised",
+      "expert_action_probability": 0.6148527725567836,
+      "expert_argmax_accuracy": 1.0,
+      "reference_kl": 0.0,
+      "weight_distance": 0.0
+    },
+    {
+      "seed": 1,
+      "method": "original_reinforce",
+      "expert_action_probability": 0.658456853467434,
+      "expert_argmax_accuracy": 0.8095238095238095,
+      "reference_kl": 0.04214075657192124,
+      "weight_distance": 1.328154642210829
+    },
+    {
+      "seed": 1,
+      "method": "batch_only",
+      "expert_action_probability": 0.6191570139262973,
+      "expert_argmax_accuracy": 1.0,
+      "reference_kl": 0.000414584588536955,
+      "weight_distance": 0.11282750886804568
+    },
+    {
+      "seed": 1,
+      "method": "batch_anchored",
+      "expert_action_probability": 0.6201699359545119,
+      "expert_argmax_accuracy": 1.0,
+      "reference_kl": 0.00036216171994011865,
+      "weight_distance": 0.13564104520505357
+    },
+    {
+      "seed": 2,
+      "method": "supervised",
+      "expert_action_probability": 0.6147858257543382,
+      "expert_argmax_accuracy": 1.0,
+      "reference_kl": 0.0,
+      "weight_distance": 0.0
+    },
+    {
+      "seed": 2,
+      "method": "original_reinforce",
+      "expert_action_probability": 0.6543918837424497,
+      "expert_argmax_accuracy": 0.9107142857142857,
+      "reference_kl": 0.015936914720746834,
+      "weight_distance": 1.1687861376242705
+    },
+    {
+      "seed": 2,
+      "method": "batch_only",
+      "expert_action_probability": 0.6183819763897289,
+      "expert_argmax_accuracy": 1.0,
+      "reference_kl": 0.00014286052665635654,
+      "weight_distance": 0.09981833847488636
+    },
+    {
+      "seed": 2,
+      "method": "batch_anchored",
+      "expert_action_probability": 0.6192759111035985,
+      "expert_argmax_accuracy": 1.0,
+      "reference_kl": 0.0001437354534630091,
+      "weight_distance": 0.12573374622685274
+    },
+    {
+      "seed": 3,
+      "method": "supervised",
+      "expert_action_probability": 0.6146764631105506,
+      "expert_argmax_accuracy": 1.0,
+      "reference_kl": 0.0,
+      "weight_distance": 0.0
+    },
+    {
+      "seed": 3,
+      "method": "original_reinforce",
+      "expert_action_probability": 0.6520714045186212,
+      "expert_argmax_accuracy": 0.9285714285714286,
+      "reference_kl": 0.04373476004898883,
+      "weight_distance": 1.4075828432636792
+    },
+    {
+      "seed": 3,
+      "method": "batch_only",
+      "expert_action_probability": 0.6182892271479429,
+      "expert_argmax_accuracy": 1.0,
+      "reference_kl": 0.0004916547069298881,
+      "weight_distance": 0.11242915068210434
+    },
+    {
+      "seed": 3,
+      "method": "batch_anchored",
+      "expert_action_probability": 0.6193331638141657,
+      "expert_argmax_accuracy": 1.0,
+      "reference_kl": 0.0004292267336508432,
+      "weight_distance": 0.13284720598055177
+    }
+  ],
+  "original_summary": "C:\\Users\\jyuh1\\Documents\\Codex\\2026-09-13\\qi\\v2\\work\\v4_sequence_train_001\\summary.json",
+  "training_episodes": 5760
+}

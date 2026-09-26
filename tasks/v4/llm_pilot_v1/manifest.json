@@ -1,0 +1,93 @@
+{
+  "version": "v4-llm-pilot-1",
+  "seed": 20260917,
+  "synthetic": true,
+  "external_test": false,
+  "training_sources": [
+    "v4pilot_source_00",
+    "v4pilot_source_01",
+    "v4pilot_source_02",
+    "v4pilot_source_03",
+    "v4pilot_source_04",
+    "v4pilot_source_05",
+    "v4pilot_source_06",
+    "v4pilot_source_07",
+    "v4pilot_source_08",
+    "v4pilot_source_09",
+    "v4pilot_source_10",
+    "v4pilot_source_11",
+    "v4pilot_source_12",
+    "v4pilot_source_13",
+    "v4pilot_source_14",
+    "v4pilot_source_15"
+  ],
+  "dev_sources": [
+    "v4pilot_source_16",
+    "v4pilot_source_17",
+    "v4pilot_source_18",
+    "v4pilot_source_19"
+  ],
+  "train_task_count": 128,
+  "dev_seen_pair_tasks": 32,
+  "dev_unseen_pair_tasks": 16,
+  "train_pair_families": [
+    [
+      "clip_outliers",
+      "correlate"
+    ],
+    [
+      "clip_outliers",
+      "describe_numeric"
+    ],
+    [
+      "deduplicate",
+      "profile_missingness"
+    ],
+    [
+      "deduplicate",
+      "rolling_mean"
+    ],
+    [
+      "fill_missing",
+      "aggregate"
+    ],
+    [
+      "fill_missing",
+      "describe_numeric"
+    ],
+    [
+      "normalize_categories",
+      "count_categories"
+    ],
+    [
+      "normalize_dates",
+      "aggregate"
+    ]
+  ],
+  "unseen_dev_pair_families": [
+    [
+      "deduplicate",
+      "correlate"
+    ],
+    [
+      "fill_missing",
+      "count_categories"
+    ],
+    [
+      "normalize_categories",
+      "profile_missingness"
+    ],
+    [
+      "normalize_dates",
+      "profile_schema"
+    ]
+  ],
+  "max_decisions": 4,
+  "max_tool_calls": 3,
+  "success": "explicit stop + independent oracle answer/table + unchanged input",
+  "reward": "success - 0.05*tool_calls - 0.01*decisions",
+  "fault": "first tool call transient read failure; retry allowed",
+  "tasks_sha256": "97a7810b06de582f0fab5b0d8f531e110cf1de71f7c07c553cb08867bec1c962",
+  "train_oracle_sha256": "789ad9104afd9a389db79ccb38f14fac476650b70378bccdfe72535c6d04a603",
+  "dev_oracle_sha256": "feb1110b2920068cc971ca16718f413f1920df486ee77edf4c7e261f621697c3"
+}

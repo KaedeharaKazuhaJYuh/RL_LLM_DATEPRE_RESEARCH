@@ -1,0 +1,641 @@
+{
+  "phase": "V4 development pilot",
+  "live_api": true,
+  "test_split_used": false,
+  "provider": "deepseek",
+  "model": "deepseek-chat",
+  "temperature": 1.0,
+  "epochs": 6,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "train_ids": [
+    "00977aca55e1dcc2",
+    "04998726ee632921",
+    "068e5f57ca57e618",
+    "075cfc285beea4af",
+    "075fdc12d6fb2116",
+    "0c18d4313bdb673f",
+    "0d7e0ef4b17383b4",
+    "0fb5cffd49aad534",
+    "11ff87ef63548d92",
+    "135863d359af443f",
+    "147dd1903bf4a3fe",
+    "14f313b504d6709e",
+    "15c4e2b9cdc5de19",
+    "183e241e77eee45d",
+    "1b14d85610aedc79",
+    "1cc458a901610b34",
+    "1d8577891fba8dcf",
+    "1e17034618479396",
+    "1e58eb036ee99c65",
+    "20fa9aed8de9c742",
+    "22a04ea07ca73f53",
+    "2528ebb1ad6934d3",
+    "27e776409134e7c1",
+    "27edfdeaf8b8d5fb",
+    "2844b7c402dc9590",
+    "2927dd8dd9f337c2",
+    "2b4d7427abab034a",
+    "2c270498892aebd9",
+    "2d3b6b4b5c939406",
+    "2fceb1167329a16b",
+    "31c89b177dc630df",
+    "31d5db577b2a23e0",
+    "325d5d0eae0d8e80",
+    "35fb9ecd7f2a75ee",
+    "3836987c6b7862f2",
+    "3a314252c9a009a1",
+    "3aa95a59f2489b1d",
+    "3ff3ae1a60b55405",
+    "40649d510d3af6e4",
+    "41d8885a36dc8dbe",
+    "436fa4eea07295e6",
+    "471facdf32b96e5c",
+    "47d978205b426699",
+    "48c0ec6a08d4ac0d",
+    "4c55c36d25faead9",
+    "4c7093c6e506a33e",
+    "4dc3c6996d1c6ddc",
+    "4dd89a6ae9d86429",
+    "4df9a005c364eaba",
+    "4e40f573ba90b8f6",
+    "4e4acca80c21226f",
+    "4fa84c2f1500aa53",
+    "4fe08dcc8d74699c",
+    "502a81f99502474d",
+    "5056e7efbb39f580",
+    "51acd9845fc2e61d",
+    "52757554d9c26ba5",
+    "533f999205f69cec",
+    "54468ac753018f80",
+    "562bdd83be473a2f",
+    "56ba33faf68e24eb",
+    "57633fb83b9b57af",
+    "58555ad335892c89",
+    "5886d998225bf203",
+    "5a719656b5233adb",
+    "5b696a4aeacd3677",
+    "5bedda9500e649fd",
+    "5e4af083732ae565",
+    "5e59e481515c66da",
+    "604e4e3091d347ed",
+    "6074525c5221c255",
+    "60bbb78cf154f134"
+  ],
+  "validation_ids": [
+    "00b9a89644458b5c",
+    "0d78d7257221549d",
+    "0f3a8675874eef14",
+    "21c08ddc9ccdc4e6",
+    "2449d8f6b2b34904",
+    "25627d61ec9f66ac",
+    "25ef15bbbfe3f85b",
+    "2744636ed0596dbf",
+    "2fcfbce2b5d0a7ff",
+    "3129ab512fd4b2dc",
+    "3d5413ff57226eba",
+    "409963019606fcec",
+    "4587199e6fecfd86",
+    "46b9164d60581151",
+    "476de702d7480300",
+    "4a816c8912a2a00d",
+    "4ac77b7c26abae7f",
+    "511f804a84c05914",
+    "567836cbdf5dbf1d",
+    "57bfc68966007ce6",
+    "5c493af7ab530b45",
+    "5fdeec1730c4b3aa",
+    "60e6de0498f09e56",
+    "688350edbdbfd240"
+  ],
+  "tasks_sha256": "fdae95da6ecbb335a50d857d62f90d53f9869623122550daf19b820eec101480",
+  "reward": "existing independent verifier score; only executed training action updated",
+  "llm_weights_updated": false,
+  "data_scope": "reused V2 development data; not V4 external test",
+  "methods": [
+    "bandit",
+    "deepseek_bandit",
+    "deepseek_bandit_warm"
+  ],
+  "warm_start_prior": 1.0,
+  "new_requests_planned": 72,
+  "cache_reused": 24,
+  "results": [
+    {
+      "method": "deepseek_direct",
+      "seed": null,
+      "passed": 24,
+      "tasks": 24,
+      "pass_rate": 1.0,
+      "mean_inference_seconds": 0.9794092624991512
+    },
+    {
+      "method": "bandit",
+      "seed": 1,
+      "passed": 23,
+      "tasks": 24,
+      "pass_rate": 0.9583333333333334,
+      "mean_inference_seconds": 0.0015950625189968075
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 1,
+      "passed": 24,
+      "tasks": 24,
+      "pass_rate": 1.0,
+      "mean_inference_seconds": 0.9787024875064768
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 1,
+      "passed": 24,
+      "tasks": 24,
+      "pass_rate": 1.0,
+      "mean_inference_seconds": 0.9787578791729175
+    },
+    {
+      "method": "bandit",
+      "seed": 2,
+      "passed": 24,
+      "tasks": 24,
+      "pass_rate": 1.0,
+      "mean_inference_seconds": 0.0014137250206355627
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 2,
+      "passed": 24,
+      "tasks": 24,
+      "pass_rate": 1.0,
+      "mean_inference_seconds": 0.9786665416613687
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 2,
+      "passed": 24,
+      "tasks": 24,
+      "pass_rate": 1.0,
+      "mean_inference_seconds": 0.9786740291892784
+    },
+    {
+      "method": "bandit",
+      "seed": 3,
+      "passed": 22,
+      "tasks": 24,
+      "pass_rate": 0.9166666666666666,
+      "mean_inference_seconds": 0.0015861041853592421
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 3,
+      "passed": 24,
+      "tasks": 24,
+      "pass_rate": 1.0,
+      "mean_inference_seconds": 0.978546604164876
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 3,
+      "passed": 24,
+      "tasks": 24,
+      "pass_rate": 1.0,
+      "mean_inference_seconds": 0.9786237416653117
+    }
+  ],
+  "training_curve": [
+    {
+      "method": "bandit",
+      "seed": 1,
+      "epoch": 1,
+      "passed": 27,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 1,
+      "epoch": 2,
+      "passed": 49,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 1,
+      "epoch": 3,
+      "passed": 62,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 1,
+      "epoch": 4,
+      "passed": 65,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 1,
+      "epoch": 5,
+      "passed": 69,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 1,
+      "epoch": 6,
+      "passed": 70,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 1,
+      "epoch": 1,
+      "passed": 22,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 1,
+      "epoch": 2,
+      "passed": 54,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 1,
+      "epoch": 3,
+      "passed": 64,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 1,
+      "epoch": 4,
+      "passed": 69,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 1,
+      "epoch": 5,
+      "passed": 70,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 1,
+      "epoch": 6,
+      "passed": 71,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 1,
+      "epoch": 1,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 1,
+      "epoch": 2,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 1,
+      "epoch": 3,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 1,
+      "epoch": 4,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 1,
+      "epoch": 5,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 1,
+      "epoch": 6,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 2,
+      "epoch": 1,
+      "passed": 18,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 2,
+      "epoch": 2,
+      "passed": 43,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 2,
+      "epoch": 3,
+      "passed": 60,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 2,
+      "epoch": 4,
+      "passed": 67,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 2,
+      "epoch": 5,
+      "passed": 70,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 2,
+      "epoch": 6,
+      "passed": 71,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 2,
+      "epoch": 1,
+      "passed": 20,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 2,
+      "epoch": 2,
+      "passed": 51,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 2,
+      "epoch": 3,
+      "passed": 64,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 2,
+      "epoch": 4,
+      "passed": 68,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 2,
+      "epoch": 5,
+      "passed": 70,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 2,
+      "epoch": 6,
+      "passed": 71,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 2,
+      "epoch": 1,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 2,
+      "epoch": 2,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 2,
+      "epoch": 3,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 2,
+      "epoch": 4,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 2,
+      "epoch": 5,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 2,
+      "epoch": 6,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 3,
+      "epoch": 1,
+      "passed": 17,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 3,
+      "epoch": 2,
+      "passed": 42,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 3,
+      "epoch": 3,
+      "passed": 56,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 3,
+      "epoch": 4,
+      "passed": 66,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 3,
+      "epoch": 5,
+      "passed": 66,
+      "tasks": 72
+    },
+    {
+      "method": "bandit",
+      "seed": 3,
+      "epoch": 6,
+      "passed": 69,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 3,
+      "epoch": 1,
+      "passed": 15,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 3,
+      "epoch": 2,
+      "passed": 48,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 3,
+      "epoch": 3,
+      "passed": 66,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 3,
+      "epoch": 4,
+      "passed": 69,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 3,
+      "epoch": 5,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 3,
+      "epoch": 6,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 3,
+      "epoch": 1,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 3,
+      "epoch": 2,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 3,
+      "epoch": 3,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 3,
+      "epoch": 4,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 3,
+      "epoch": 5,
+      "passed": 72,
+      "tasks": 72
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 3,
+      "epoch": 6,
+      "passed": 72,
+      "tasks": 72
+    }
+  ],
+  "frozen_policies": [
+    {
+      "method": "bandit",
+      "seed": 1,
+      "sha256": "d574d62f5b69c5e78c6b9bb89394f054db420172cb48901f72c8970b4d0e3bf6"
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 1,
+      "sha256": "3af59df454bc37fd7c182089d29bce74a9a464f32b989ce6ed96b6fb96157271"
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 1,
+      "sha256": "45f931e5901eae10e86aa19a6ddbbfd650711130979d73d01018c56a43ba1648"
+    },
+    {
+      "method": "bandit",
+      "seed": 2,
+      "sha256": "def6d9c893c6982593b909e4c95343632e63200503937224d7165257e03d677e"
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 2,
+      "sha256": "75800e248bc55f0ec9559adee8a8e800817cab8bd2f6d8f1ef83ddc32dbb48f4"
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 2,
+      "sha256": "b5c7677f6f0c49169770f215d4d35ec2d69cec016e89c7879a39dc31bf436c39"
+    },
+    {
+      "method": "bandit",
+      "seed": 3,
+      "sha256": "4d9d4f1fbbd924ae48e100ce0fdb0fdf2ef124274be9071edf2b20b948eda282"
+    },
+    {
+      "method": "deepseek_bandit",
+      "seed": 3,
+      "sha256": "1c49055577e75bbf45e177b5f063b5ad87119405d258d6116c626032b6142d86"
+    },
+    {
+      "method": "deepseek_bandit_warm",
+      "seed": 3,
+      "sha256": "b950dbbf03b31646d4889a98c149e0d4f09786bd82958a642319f400740b2836"
+    }
+  ],
+  "api_requests": 72,
+  "api_input_tokens": 30291,
+  "api_output_tokens": 3444,
+  "api_wall_seconds": 72.81524930032901,
+  "cost_currency": null,
+  "note": "one shared frozen LLM suggestion per task; training seeds are not independent API repetitions"
+}

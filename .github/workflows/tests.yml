@@ -11,6 +11,24 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install numpy==2.3.5
+      - run: mkdir -p work
       - run: python -m unittest discover -s tests -v
       - run: python -m research.benchmark
       - run: git diff --exit-code -- tasks/v2 data/variants/value_v1 tasks/variants/value_v1/data
+  go-local-runner:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: orchestrator/go.mod
+          cache-dependency-path: orchestrator/go.mod
+      - run: go test ./...
+        working-directory: orchestrator
+  cpp-native-probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cmake -S native -B build/native -DCMAKE_BUILD_TYPE=Release
+      - run: cmake --build build/native --parallel
+      - run: ctest --test-dir build/native --output-on-failure

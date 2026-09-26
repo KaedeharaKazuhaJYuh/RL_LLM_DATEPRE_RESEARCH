@@ -1,0 +1,11 @@
+{
+  "schema_version": "v4-local-experiment-1",
+  "experiment_id": "v4-composition-eval-small",
+  "entrypoint": "v4_eval",
+  "protocol": "tasks/v4/llm_composition_v1",
+  "resource": "gpu",
+  "model": "work/modelscope_deepseek_r1_1p5b",
+  "adapter": "work/v4_llm_composition_sft100_seed20260921/adapter",
+  "limit": 2,
+  "both_faults": true
+}

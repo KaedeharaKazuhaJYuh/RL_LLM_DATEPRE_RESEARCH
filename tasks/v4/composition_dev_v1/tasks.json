@@ -1,0 +1,590 @@
+[
+  {
+    "schema_version": 3,
+    "task_id": "51f37f8622e055b4",
+    "source_id": "v3_source_04",
+    "split": "composition_dev",
+    "track": "single",
+    "slice": "train_direct",
+    "prompt": "先用中位数补齐 销售额 的空值并保存，再按 日期 分组求 销售额 总和，空日期保留为一组。 完成要求后选择 stop，不做额外清理。",
+    "dataset": {
+      "uri": "tasks/v3/data/source_04.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "efb54df4ec29032c19e9677035ed6adb8a864e4e0b6992811645d08660ce8bf4"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120
+    },
+    "template_id": "composition_0"
+  },
+  {
+    "schema_version": 3,
+    "task_id": "dbe541d14d6658b6",
+    "source_id": "v3_source_04",
+    "split": "composition_dev",
+    "track": "single",
+    "slice": "train_direct",
+    "prompt": "先把 销售额 的数值截断至 [0,100] 并保存，再报告处理后该列的计数、最小值、最大值与均值。 完成要求后选择 stop，不做额外清理。",
+    "dataset": {
+      "uri": "tasks/v3/data/source_04.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "efb54df4ec29032c19e9677035ed6adb8a864e4e0b6992811645d08660ce8bf4"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120
+    },
+    "template_id": "composition_1"
+  },
+  {
+    "schema_version": 3,
+    "task_id": "242ec5c24f14bb2a",
+    "source_id": "v3_source_04",
+    "split": "composition_dev",
+    "track": "single",
+    "slice": "train_direct",
+    "prompt": "先删去完全相同的记录并保存，再计算 销售额 与 观测值 在完整数值对上的皮尔逊相关系数。 完成要求后选择 stop，不做额外清理。",
+    "dataset": {
+      "uri": "tasks/v3/data/source_04.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "efb54df4ec29032c19e9677035ed6adb8a864e4e0b6992811645d08660ce8bf4"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120
+    },
+    "template_id": "composition_2"
+  },
+  {
+    "schema_version": 3,
+    "task_id": "c7042ccb65c845a6",
+    "source_id": "v3_source_04",
+    "split": "composition_dev",
+    "track": "single",
+    "slice": "train_direct",
+    "prompt": "先修整 客群：去首尾空格并转为大写，保存后给出所有列的空值比例。 完成要求后选择 stop，不做额外清理。",
+    "dataset": {
+      "uri": "tasks/v3/data/source_04.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "efb54df4ec29032c19e9677035ed6adb8a864e4e0b6992811645d08660ce8bf4"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120
+    },
+    "template_id": "composition_3"
+  },
+  {
+    "schema_version": 3,
+    "task_id": "7437cdde27f861df",
+    "source_id": "v3_source_04",
+    "split": "composition_dev",
+    "track": "single",
+    "slice": "train_direct",
+    "prompt": "先把 日期 统一为 YYYY-MM-DD，无法解析的日期置空并保存，再报告列名和总行数。 完成要求后选择 stop，不做额外清理。",
+    "dataset": {
+      "uri": "tasks/v3/data/source_04.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "efb54df4ec29032c19e9677035ed6adb8a864e4e0b6992811645d08660ce8bf4"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120
+    },
+    "template_id": "composition_4"
+  },
+  {
+    "schema_version": 3,
+    "task_id": "52195d170aec7a69",
+    "source_id": "v3_source_04",
+    "split": "composition_dev",
+    "track": "single",
+    "slice": "train_direct",
+    "prompt": "先用中位数填补 销售额 的空值并保存，然后精确统计 客群 的各类别频数。 完成要求后选择 stop，不做额外清理。",
+    "dataset": {
+      "uri": "tasks/v3/data/source_04.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "efb54df4ec29032c19e9677035ed6adb8a864e4e0b6992811645d08660ce8bf4"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120
+    },
+    "template_id": "composition_5"
+  },
+  {
+    "schema_version": 3,
+    "task_id": "dc7c250c6ab3f568",
+    "source_id": "v3_source_05",
+    "split": "composition_dev",
+    "track": "single",
+    "slice": "train_direct",
+    "prompt": "先用中位数补齐 net_value 的空值并保存，再按 when 分组求 net_value 总和，空日期保留为一组。 完成要求后选择 stop，不做额外清理。",
+    "dataset": {
+      "uri": "tasks/v3/data/source_05.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "80d36a9649aac837ab40ad2e39b511369a0a83b0e6e2b2024da4cad910f58ca1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120
+    },
+    "template_id": "composition_0"
+  },
+  {
+    "schema_version": 3,
+    "task_id": "7bad10a844da6384",
+    "source_id": "v3_source_05",
+    "split": "composition_dev",
+    "track": "single",
+    "slice": "train_direct",
+    "prompt": "先把 net_value 的数值截断至 [0,100] 并保存，再报告处理后该列的计数、最小值、最大值与均值。 完成要求后选择 stop，不做额外清理。",
+    "dataset": {
+      "uri": "tasks/v3/data/source_05.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "80d36a9649aac837ab40ad2e39b511369a0a83b0e6e2b2024da4cad910f58ca1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120
+    },
+    "template_id": "composition_1"
+  },
+  {
+    "schema_version": 3,
+    "task_id": "e60e7844ab52e23b",
+    "source_id": "v3_source_05",
+    "split": "composition_dev",
+    "track": "single",
+    "slice": "train_direct",
+    "prompt": "先删去完全相同的记录并保存，再计算 net_value 与 measure 在完整数值对上的皮尔逊相关系数。 完成要求后选择 stop，不做额外清理。",
+    "dataset": {
+      "uri": "tasks/v3/data/source_05.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "80d36a9649aac837ab40ad2e39b511369a0a83b0e6e2b2024da4cad910f58ca1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120
+    },
+    "template_id": "composition_2"
+  },
+  {
+    "schema_version": 3,
+    "task_id": "0188ab858b5d27c4",
+    "source_id": "v3_source_05",
+    "split": "composition_dev",
+    "track": "single",
+    "slice": "train_direct",
+    "prompt": "先修整 class_name：去首尾空格并转为大写，保存后给出所有列的空值比例。 完成要求后选择 stop，不做额外清理。",
+    "dataset": {
+      "uri": "tasks/v3/data/source_05.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "80d36a9649aac837ab40ad2e39b511369a0a83b0e6e2b2024da4cad910f58ca1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120
+    },
+    "template_id": "composition_3"
+  },
+  {
+    "schema_version": 3,
+    "task_id": "5a447126adfdc027",
+    "source_id": "v3_source_05",
+    "split": "composition_dev",
+    "track": "single",
+    "slice": "train_direct",
+    "prompt": "先把 when 统一为 YYYY-MM-DD，无法解析的日期置空并保存，再报告列名和总行数。 完成要求后选择 stop，不做额外清理。",
+    "dataset": {
+      "uri": "tasks/v3/data/source_05.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "80d36a9649aac837ab40ad2e39b511369a0a83b0e6e2b2024da4cad910f58ca1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120
+    },
+    "template_id": "composition_4"
+  },
+  {
+    "schema_version": 3,
+    "task_id": "0c6a180d555bf46f",
+    "source_id": "v3_source_05",
+    "split": "composition_dev",
+    "track": "single",
+    "slice": "train_direct",
+    "prompt": "先用中位数填补 net_value 的空值并保存，然后精确统计 class_name 的各类别频数。 完成要求后选择 stop，不做额外清理。",
+    "dataset": {
+      "uri": "tasks/v3/data/source_05.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "80d36a9649aac837ab40ad2e39b511369a0a83b0e6e2b2024da4cad910f58ca1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120
+    },
+    "template_id": "composition_5"
+  }
+]
