@@ -6,6 +6,7 @@ import time
 from pathlib import Path
 from agent.tools import ACTIONS, MUTATING, execute_tool
 from research.io import ROOT, load_jsonl, digest, read_table, write_table, write_json
+from research.stage_profile import scope
 from research.oracle import expected
 from research.v3_runtime import params_for
 from verifier.score import verify, _same
@@ -45,8 +46,9 @@ def build(out):
 
 
 class SequenceEnv:
-    def __init__(self,task,gold,folder,fault=False):
+    def __init__(self,task,gold,folder,fault=False,profile=None):
         self.task=task;self.gold=gold;self.folder=Path(folder);self.folder.mkdir(parents=True,exist_ok=True)
+        self.profile=profile
         limits=task.get('constraints',{})
         self.max_decisions=int(limits.get('max_steps',4))
         self.max_tool_calls=int(limits.get('max_tool_calls',3))
@@ -60,7 +62,8 @@ class SequenceEnv:
         self.started=time.perf_counter()
 
     def observation(self):
-        cols,rows=read_table(self.current)
+        with scope(self.profile,'csv_read'):
+            cols,rows=read_table(self.current)
         return {'prompt':self.task['prompt'],'columns':cols,'rows':len(rows),
                 'missing_cells':sum(v=='' for r in rows for v in r.values()),
                 'history':copy.deepcopy(self.history),
@@ -83,9 +86,11 @@ class SequenceEnv:
                     self.injected=True
                     raise FileNotFoundError('simulated transient input read failure; retry allowed')
                 p=params_for(action,self.task)
-                result=execute_tool(action,{'uri':str(self.current),'params':p,'artifact_dir':self.folder/f'step_{self.decisions}'})
-                checked=verify(result,expected(self.current,action,p),[{'tool':action,'ok':True}],
-                               {'allowed_tools':ACTIONS,'input_sha256':before,'max_steps':1,'max_tool_calls':1})
+                with scope(self.profile,'tool_execute'):
+                    result=execute_tool(action,{'uri':str(self.current),'params':p,'artifact_dir':self.folder/f'step_{self.decisions}'})
+                with scope(self.profile,'tool_reference_and_verify'):
+                    checked=verify(result,expected(self.current,action,p),[{'tool':action,'ok':True}],
+                                   {'allowed_tools':ACTIONS,'input_sha256':before,'max_steps':1,'max_tool_calls':1})
                 if not checked['passed']:raise ValueError('invalid tool artifact')
                 self.last=result;self.last_hash=before
                 if action in MUTATING:self.current=Path(result['artifact']['path'])
@@ -100,14 +105,17 @@ class SequenceEnv:
         if not self.done:raise RuntimeError('terminal scoring only')
         ref=ROOT/self.task['dataset']['uri'];target=None
         for i,action in enumerate(self.gold['plan']):
-            target=expected(ref,action,params_for(action,self.task))
+            with scope(self.profile,'result_reference'):
+                target=expected(ref,action,params_for(action,self.task))
             if 'artifact_rows' in target:
                 ref=self.folder/f'reference_{i}.csv'
                 write_table(ref,target['artifact_columns'],target['artifact_rows'])
-        cols,rows=read_table(self.current);refcols,refrows=read_table(ref)
-        verified=verify(self.last,target,[{'tool':h['action'],'ok':True} for h in self.history if h['ok']],
-                        {'allowed_tools':self.task['allowed_tools'],'input_sha256':self.last_hash,
-                         'max_tool_calls':self.max_tool_calls,'max_steps':self.max_decisions})
+        with scope(self.profile,'csv_read'):
+            cols,rows=read_table(self.current);refcols,refrows=read_table(ref)
+        with scope(self.profile,'result_verify'):
+            verified=verify(self.last,target,[{'tool':h['action'],'ok':True} for h in self.history if h['ok']],
+                            {'allowed_tools':self.task['allowed_tools'],'input_sha256':self.last_hash,
+                             'max_tool_calls':self.max_tool_calls,'max_steps':self.max_decisions})
         passed=bool(self.stopped and verified['passed'] and cols==refcols and _same(rows,refrows)
                     and digest(ROOT/self.task['dataset']['uri'])==self.initial
                     and time.perf_counter()-self.started<=self.max_seconds)

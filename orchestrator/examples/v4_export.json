@@ -1,0 +1,8 @@
+{
+  "schema_version": "v4-local-experiment-1",
+  "experiment_id": "v4-composition-export-smoke",
+  "entrypoint": "v4_export",
+  "protocol": "tasks/v4/llm_composition_v1",
+  "resource": "cpu",
+  "expected_steps_sha256": "9470cf5cdbe088f7c1cc8aa0b5115ad4ebed15be990b26a0ee159484984073bf"
+}
