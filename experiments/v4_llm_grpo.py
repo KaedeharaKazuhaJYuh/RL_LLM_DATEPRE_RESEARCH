@@ -12,8 +12,6 @@ import tempfile
 import time
 from pathlib import Path
 
-import torch
-
 from agent.llm import parse_step
 from experiments.v4_llm_export import input_text, model_input
 from research.io import ROOT, digest, write_json
@@ -119,6 +117,7 @@ def groups_from_scan(tasks, scan, *, seed, model, protocol_sha256, adapter_sha25
 
 
 def generate_action(model, tokenizer, task, observation, temperature, max_new_tokens):
+    import torch
     message = [{'role': 'user', 'content': input_text(model_input(task, observation))}]
     encoded = tokenizer.apply_chat_template(message, tokenize=True, add_generation_prompt=True,
                                             return_tensors='pt')['input_ids'].to(model.device)
@@ -136,6 +135,7 @@ def generate_action(model, tokenizer, task, observation, temperature, max_new_to
 
 
 def completion_logprobs(model, prompt_ids, completion_ids):
+    import torch
     ids = torch.tensor([prompt_ids + completion_ids], device=model.device)
     logits = model(input_ids=ids, attention_mask=torch.ones_like(ids)).logits[:, :-1]
     target = ids[:, 1:]
@@ -164,6 +164,7 @@ def rollout(model, tokenizer, task, gold, scratch, fault, args):
 
 
 def run(args):
+    import torch
     started = time.perf_counter()
     if Path(args.out).exists():
         raise FileExistsError('new output directory required')

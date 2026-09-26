@@ -8,8 +8,6 @@ import random
 import tempfile
 from pathlib import Path
 
-import torch
-
 from experiments.v4_llm_grpo import rollout, select_train_tasks
 from research.io import ROOT, digest, write_json
 
@@ -40,6 +38,7 @@ def selected_tasks(protocol, selection_seed):
 
 
 def run(args):
+    import torch
     if not torch.cuda.is_available():
         raise RuntimeError('CUDA GPU required for policy rollouts')
     if args.group_size < 2:
