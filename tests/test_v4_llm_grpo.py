@@ -1,6 +1,8 @@
 import unittest
 
-from experiments.v4_llm_grpo import count_passed, fault_conditions, select_train_tasks
+from experiments.v4_llm_grpo import (count_passed, fault_conditions,
+                                      groups_from_scan, has_learning_signal,
+                                      select_train_tasks)
 
 
 class TestV4LlmGrpo(unittest.TestCase):
@@ -35,6 +37,33 @@ class TestV4LlmGrpo(unittest.TestCase):
         rewards = [0.07, 1.11, 0.01, -0.03]
         self.assertEqual(1, count_passed(records))
         self.assertEqual(3, sum(x > 0 for x in rewards))
+
+    def test_scan_selects_only_verified_train_signal(self):
+        tasks = [{'task_id': 'a', 'pair_family': 0, 'split': 'train'},
+                 {'task_id': 'b', 'pair_family': 1, 'split': 'train'},
+                 {'task_id': 'dev', 'pair_family': 2, 'split': 'dev'}]
+        scan = {'schema_version': 'v4-llm-signal-scan-1', 'seed': 1, 'model': 'deepseek',
+                'protocol_sha256': 'protocol', 'adapter_sha256': {'a': 'hash'},
+                'group_size': 4, 'temperature': .9, 'max_new_tokens': 48,
+                'records': [
+                    {'task_id': 'a', 'pair_family': 0, 'fault': False, 'signal': 'zero'},
+                    {'task_id': 'a', 'pair_family': 0, 'fault': True, 'signal': 'outcome'},
+                    {'task_id': 'b', 'pair_family': 1, 'fault': False, 'signal': 'prefix'}]}
+        kwargs = dict(seed=1, model='deepseek', protocol_sha256='protocol', adapter_sha256={'a': 'hash'},
+                      group_size=4, temperature=.9, max_new_tokens=48, limit=8)
+        self.assertEqual([('a', True), ('b', False)],
+                         [(task['task_id'], fault) for task, fault in
+                          groups_from_scan(tasks, scan, **kwargs)])
+        with self.assertRaisesRegex(ValueError, 'adapter_sha256 mismatch'):
+            groups_from_scan(tasks, scan, **{**kwargs, 'adapter_sha256': {}})
+
+    def test_cost_difference_alone_is_not_task_signal(self):
+        self.assertFalse(has_learning_signal([
+            {'passed': False, 'matched_prefix': 1, 'reward': .11},
+            {'passed': False, 'matched_prefix': 1, 'reward': .09}]))
+        self.assertTrue(has_learning_signal([
+            {'passed': False, 'matched_prefix': 1},
+            {'passed': False, 'matched_prefix': 2}]))
 
 
 if __name__ == '__main__':

@@ -45,6 +45,37 @@ def count_passed(records):
     return sum(sum(record['passed']) for record in records)
 
 
+def has_learning_signal(scores):
+    """Ignore cost differences if outcome and correct prefix are identical."""
+    return (len({bool(score.get('passed')) for score in scores}) > 1 or
+            len({int(score.get('matched_prefix', 0)) for score in scores}) > 1)
+
+
+def groups_from_scan(tasks, scan, *, seed, model, protocol_sha256, adapter_sha256,
+                     group_size, temperature, max_new_tokens, limit):
+    """Use only pre-scanned train groups with outcome or prefix variation."""
+    if scan.get('schema_version') != 'v4-llm-signal-scan-1':
+        raise ValueError('unsupported signal scan')
+    checks = {'seed': seed, 'model': model, 'protocol_sha256': protocol_sha256,
+              'adapter_sha256': adapter_sha256, 'group_size': group_size,
+              'temperature': temperature, 'max_new_tokens': max_new_tokens}
+    for key, expected in checks.items():
+        if scan.get(key) != expected:
+            raise ValueError(f'signal scan {key} mismatch')
+    train = {task['task_id']: task for task in tasks if task['split'] == 'train'}
+    selected = []
+    for row in scan['records']:
+        if row['signal'] not in ('outcome', 'prefix'):
+            continue
+        task = train.get(row['task_id'])
+        if task is None or task['pair_family'] != row['pair_family']:
+            raise ValueError('signal scan references an invalid training task')
+        selected.append((task, bool(row['fault'])))
+    if len(selected) != len(set((task['task_id'], fault) for task, fault in selected)):
+        raise ValueError('signal scan has duplicate task-condition groups')
+    return selected[:limit]
+
+
 def generate_action(model, tokenizer, task, observation, temperature, max_new_tokens):
     message = [{'role': 'user', 'content': input_text(model_input(task, observation))}]
     encoded = tokenizer.apply_chat_template(message, tokenize=True, add_generation_prompt=True,
@@ -118,96 +149,116 @@ def run(args):
     optimizer = torch.optim.AdamW((p for p in policy.parameters() if p.requires_grad), lr=args.learning_rate)
     all_tasks = json.loads((Path(args.protocol) / 'tasks.json').read_text(encoding='utf-8'))
     oracle = json.loads((Path(args.protocol) / 'train_oracle.json').read_text(encoding='utf-8'))
-    tasks = select_train_tasks(all_tasks, args.limit, args.seed)
+    scan_sha256 = None
+    if args.signal_scan:
+        scan_path = Path(args.signal_scan)
+        scan = json.loads(scan_path.read_text(encoding='utf-8'))
+        adapter_hash = {p.name: digest(p) for p in Path(args.adapter).glob('*.safetensors')}
+        groups = groups_from_scan(
+            all_tasks, scan, seed=args.seed, model=args.model,
+            protocol_sha256=digest(Path(args.protocol) / 'manifest.json'),
+            adapter_sha256=adapter_hash, group_size=args.group_size,
+            temperature=args.temperature, max_new_tokens=args.max_new_tokens,
+            limit=args.signal_limit)
+        if not groups:
+            raise ValueError('scan has no trainable signal groups')
+        scan_sha256 = digest(scan_path)
+        tasks = list(dict((task['task_id'], task) for task, _ in groups).values())
+    else:
+        tasks = select_train_tasks(all_tasks, args.limit, args.seed)
+        groups = [(task, fault) for task in tasks for fault in fault_conditions(args.fault_mode)]
     records, losses, rewards, progresses, clip_fractions, ref_kls = [], [], [], [], [], []
-    updated_groups = skipped_zero_advantage_groups = 0
+    updated_groups = skipped_zero_advantage_groups = skipped_nonsemantic_groups = 0
     with tempfile.TemporaryDirectory(prefix='v4_grpo_') as scratch:
         for update in range(args.updates):
-            for task in tasks:
-                # Normal and injected-fault rollouts have different fixed costs.
-                # Keep them in separate groups so condition difficulty cannot
-                # become a spurious policy advantage.
-                for fault in fault_conditions(args.fault_mode):
-                    group = []
-                    for member in range(args.group_size):
-                        episode_folder = (Path(scratch) /
-                                          f'update_{update}_task_{task["task_id"]}_fault_{int(fault)}_member_{member}')
-                        reward, trajectory, score = rollout(policy, tokenizer, task,
-                                                            oracle[task['task_id']], episode_folder,
-                                                            fault=fault, args=args)
-                        group.append((reward, trajectory, score))
-                    values = torch.tensor([x[0] for x in group], dtype=torch.float32)
-                    if float(values.std(unbiased=False)) == 0:
-                        advantages = torch.zeros_like(values)
+            for task, fault in groups:
+                # Normal and injected-fault rollouts remain separate groups.
+                group = []
+                for member in range(args.group_size):
+                    episode_folder = (Path(scratch) /
+                                      f'update_{update}_task_{task["task_id"]}_fault_{int(fault)}_member_{member}')
+                    reward, trajectory, score = rollout(policy, tokenizer, task,
+                                                        oracle[task['task_id']], episode_folder,
+                                                        fault=fault, args=args)
+                    group.append((reward, trajectory, score))
+                values = torch.tensor([x[0] for x in group], dtype=torch.float32)
+                if float(values.std(unbiased=False)) == 0:
+                    advantages = torch.zeros_like(values)
+                else:
+                    advantages = (values - values.mean()) / (values.std(unbiased=False) + 1e-6)
+                group_record = {'update': update, 'task_id': task['task_id'],
+                                'pair_family': task['pair_family'], 'fault': fault,
+                                'rewards': values.tolist(),
+                                'passed': [bool(x[2].get('passed')) for x in group],
+                                'advantages': advantages.tolist(),
+                                'members': [{'actions': [s['action'] for s in trajectory],
+                                             'parse_error': bool(score.get('parse_error')),
+                                             'tool_calls': score.get('tool_calls'),
+                                             'decisions': score.get('decisions'),
+                                             'matched_prefix': score.get('matched_prefix'),
+                                             'progress': score.get('progress'),
+                                             'extra_calls': score.get('extra_calls')}
+                                            for _, trajectory, score in group]}
+                rewards.extend(values.tolist())
+                progresses.extend(float(score.get('progress', 0.0)) for _, _, score in group)
+                if not bool(torch.any(advantages)) or (args.signal_scan and not has_learning_signal(
+                        [score for _, _, score in group])):
+                    # Avoid Adam amplifying floating-point KL noise when a
+                    # group contains no task-level relative learning signal.
+                    group_record['updated'] = False
+                    if bool(torch.any(advantages)):
+                        skipped_nonsemantic_groups += 1
                     else:
-                        advantages = (values - values.mean()) / (values.std(unbiased=False) + 1e-6)
-                    group_record = {'update': update, 'task_id': task['task_id'],
-                                    'pair_family': task['pair_family'], 'fault': fault,
-                                    'rewards': values.tolist(),
-                                    'passed': [bool(x[2].get('passed')) for x in group],
-                                    'advantages': advantages.tolist(),
-                                    'members': [{'actions': [s['action'] for s in trajectory],
-                                                 'parse_error': bool(score.get('parse_error')),
-                                                 'tool_calls': score.get('tool_calls'),
-                                                 'decisions': score.get('decisions'),
-                                                 'matched_prefix': score.get('matched_prefix'),
-                                                 'progress': score.get('progress'),
-                                                 'extra_calls': score.get('extra_calls')}
-                                                for _, trajectory, score in group]}
-                    rewards.extend(values.tolist())
-                    progresses.extend(float(score.get('progress', 0.0)) for _, _, score in group)
-                    if not bool(torch.any(advantages)):
-                        # Avoid Adam amplifying floating-point KL noise when a
-                        # group contains no relative learning signal.
-                        group_record['updated'] = False
                         skipped_zero_advantage_groups += 1
-                        records.append(group_record)
-                        continue
-                    updated_groups += 1
-                    # Snapshot behavior-policy and reference token log probabilities before update.
-                    behavior = []
-                    with torch.no_grad():
-                        policy.set_adapter('default')
-                        policy.eval()
-                        for _, trajectory, _ in group:
-                            seq = []
-                            for step in trajectory:
-                                old_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
-                                policy.set_adapter('reference')
-                                policy.eval()
-                                ref_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
-                                policy.set_adapter('default')
-                                policy.eval()
-                                seq.append((old_lp.detach(), ref_lp.detach()))
-                            behavior.append(seq)
-                    for _ppo_epoch in range(args.ppo_epochs):
-                        optimizer.zero_grad(set_to_none=True)
-                        objective = torch.zeros((), device='cuda')
-                        clip_count, token_count, kl_total = 0, 0, 0.0
-                        for advantage, (_, trajectory, _), old_steps in zip(advantages, group, behavior):
-                            for step, (old_lp, ref_lp) in zip(trajectory, old_steps):
-                                new_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
-                                ratio = torch.exp((new_lp - old_lp).clamp(-20, 20))
-                                clipped = ratio.clamp(1.0 - args.clip_range, 1.0 + args.clip_range)
-                                adv = advantage.to('cuda')
-                                objective = objective - torch.minimum(ratio * adv, clipped * adv).mean()
-                                # Non-negative sampled KL estimator, clipped against numerical overflow.
-                                ref_diff = (ref_lp - new_lp).clamp(-20, 20)
-                                kl = torch.exp(ref_diff) - ref_diff - 1.0
-                                objective = objective + args.kl_beta * kl.mean()
-                                clip_count += int(((ratio < 1 - args.clip_range) |
-                                                   (ratio > 1 + args.clip_range)).sum().item())
-                                token_count += ratio.numel()
-                                kl_total += float(kl.detach().sum().cpu())
-                        objective = objective / max(1, sum(len(x[1]) for x in group))
-                        objective.backward()
-                        torch.nn.utils.clip_grad_norm_(policy.parameters(), 1.0)
-                        optimizer.step()
-                        losses.append(float(objective.detach().cpu()))
-                        clip_fractions.append(clip_count / max(1, token_count))
-                        ref_kls.append(kl_total / max(1, token_count))
-                    group_record['updated'] = True
                     records.append(group_record)
+                    print(f'group family={task["pair_family"]} fault={fault} updated=False', flush=True)
+                    continue
+                updated_groups += 1
+                # Snapshot behavior-policy and reference token log probabilities before update.
+                behavior = []
+                with torch.no_grad():
+                    policy.set_adapter('default')
+                    policy.eval()
+                    for _, trajectory, _ in group:
+                        seq = []
+                        for step in trajectory:
+                            old_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
+                            policy.set_adapter('reference')
+                            policy.eval()
+                            ref_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
+                            policy.set_adapter('default')
+                            policy.eval()
+                            seq.append((old_lp.detach(), ref_lp.detach()))
+                        behavior.append(seq)
+                for _ppo_epoch in range(args.ppo_epochs):
+                    optimizer.zero_grad(set_to_none=True)
+                    objective = torch.zeros((), device='cuda')
+                    clip_count, token_count, kl_total = 0, 0, 0.0
+                    for advantage, (_, trajectory, _), old_steps in zip(advantages, group, behavior):
+                        for step, (old_lp, ref_lp) in zip(trajectory, old_steps):
+                            new_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
+                            ratio = torch.exp((new_lp - old_lp).clamp(-20, 20))
+                            clipped = ratio.clamp(1.0 - args.clip_range, 1.0 + args.clip_range)
+                            adv = advantage.to('cuda')
+                            objective = objective - torch.minimum(ratio * adv, clipped * adv).mean()
+                            # Non-negative sampled KL estimator, clipped against numerical overflow.
+                            ref_diff = (ref_lp - new_lp).clamp(-20, 20)
+                            kl = torch.exp(ref_diff) - ref_diff - 1.0
+                            objective = objective + args.kl_beta * kl.mean()
+                            clip_count += int(((ratio < 1 - args.clip_range) |
+                                               (ratio > 1 + args.clip_range)).sum().item())
+                            token_count += ratio.numel()
+                            kl_total += float(kl.detach().sum().cpu())
+                    objective = objective / max(1, sum(len(x[1]) for x in group))
+                    objective.backward()
+                    torch.nn.utils.clip_grad_norm_(policy.parameters(), 1.0)
+                    optimizer.step()
+                    losses.append(float(objective.detach().cpu()))
+                    clip_fractions.append(clip_count / max(1, token_count))
+                    ref_kls.append(kl_total / max(1, token_count))
+                group_record['updated'] = True
+                records.append(group_record)
+                print(f'group family={task["pair_family"]} fault={fault} updated=True', flush=True)
     out = Path(args.out)
     out.mkdir(parents=True)
     adapter = out / 'adapter'
@@ -217,10 +268,13 @@ def run(args):
                'seed': args.seed, 'updates': args.updates, 'tasks': len(tasks),
                'task_ids': [x['task_id'] for x in tasks],
                'pair_families': [x['pair_family'] for x in tasks],
+               'selection_mode': 'training_signal_scan' if scan_sha256 else 'seeded_family_balance',
+               'signal_scan_sha256': scan_sha256, 'selected_groups': len(groups),
                'fault_mode': args.fault_mode, 'group_size': args.group_size,
                'ppo_epochs': args.ppo_epochs, 'episodes': len(rewards),
                'updated_groups': updated_groups,
                'skipped_zero_advantage_groups': skipped_zero_advantage_groups,
+               'skipped_nonsemantic_groups': skipped_nonsemantic_groups,
                'episode_passed': count_passed(records),
                'reward_mean': sum(rewards) / max(1, len(rewards)),
                'progress_mean': sum(progresses) / max(1, len(progresses)),
@@ -254,5 +308,7 @@ if __name__ == '__main__':
     parser.add_argument('--clip-range', type=float, default=.2)
     parser.add_argument('--kl-beta', type=float, default=.02)
     parser.add_argument('--seed', type=int, default=20260918)
+    parser.add_argument('--signal-scan', help='completed train-only scan summary.json')
+    parser.add_argument('--signal-limit', type=int, default=8)
     args = parser.parse_args()
     print(json.dumps(run(args), ensure_ascii=False, indent=2))
