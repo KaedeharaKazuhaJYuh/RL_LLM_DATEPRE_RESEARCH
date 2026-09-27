@@ -6,6 +6,7 @@ from pathlib import Path
 
 from experiments.v4_llm_export import input_text
 from research.io import digest, write_json
+from research.stage_profile import StageProfile, scope
 
 
 MODEL = 'deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B'
@@ -31,28 +32,37 @@ def examples(path, tokenizer, max_length):
 def run(args):
     if Path(args.out).exists():
         raise FileExistsError('new output directory required')
+    profile_out = getattr(args, 'profile_out', None)
+    if profile_out and Path(profile_out).exists():
+        raise FileExistsError('new profile output file required')
     import torch
     from peft import LoraConfig, get_peft_model
     from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments
 
     if not torch.cuda.is_available():
         raise RuntimeError('CUDA GPU required for this pilot')
+    profile = StageProfile(synchronize=torch.cuda.synchronize) if profile_out else None
+    if profile is not None:
+        torch.cuda.reset_peak_memory_stats()
     random.seed(args.seed)
     torch.manual_seed(args.seed)
     torch.cuda.manual_seed_all(args.seed)
-    tokenizer = AutoTokenizer.from_pretrained(args.model, revision=args.revision, trust_remote_code=False)
-    if tokenizer.pad_token is None:
-        tokenizer.pad_token = tokenizer.eos_token
-    rows, dataset = examples(args.steps, tokenizer, args.max_length)
-    model = AutoModelForCausalLM.from_pretrained(args.model, revision=args.revision,
-                                                  dtype=torch.bfloat16,
-                                                  trust_remote_code=False)
-    model.config.use_cache = False
-    model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={'use_reentrant': False})
-    model.enable_input_require_grads()
-    model = get_peft_model(model, LoraConfig(r=8, lora_alpha=16, lora_dropout=.05,
-                                             target_modules='all-linear', bias='none',
-                                             task_type='CAUSAL_LM'))
+    with scope(profile, 'tokenizer_load'):
+        tokenizer = AutoTokenizer.from_pretrained(args.model, revision=args.revision, trust_remote_code=False)
+        if tokenizer.pad_token is None:
+            tokenizer.pad_token = tokenizer.eos_token
+    with scope(profile, 'examples_tokenize'):
+        rows, dataset = examples(args.steps, tokenizer, args.max_length)
+    with scope(profile, 'model_load'):
+        model = AutoModelForCausalLM.from_pretrained(args.model, revision=args.revision,
+                                                      dtype=torch.bfloat16,
+                                                      trust_remote_code=False)
+        model.config.use_cache = False
+        model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={'use_reentrant': False})
+        model.enable_input_require_grads()
+        model = get_peft_model(model, LoraConfig(r=8, lora_alpha=16, lora_dropout=.05,
+                                                 target_modules='all-linear', bias='none',
+                                                 task_type='CAUSAL_LM'))
     trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
     total = sum(p.numel() for p in model.parameters())
 
@@ -69,11 +79,19 @@ def run(args):
                                learning_rate=args.learning_rate, bf16=True, logging_steps=1,
                                save_strategy='no', report_to='none', remove_unused_columns=False,
                                seed=args.seed, dataloader_num_workers=0)
-    trainer = Trainer(model=model, args=config, train_dataset=dataset, data_collator=collate)
-    result = trainer.train()
+    class ProfiledTrainer(Trainer):
+        def training_step(self, *call_args, **call_kwargs):
+            with scope(profile, 'train_forward_backward'):
+                return super().training_step(*call_args, **call_kwargs)
+
+    with scope(profile, 'trainer_setup'):
+        trainer = ProfiledTrainer(model=model, args=config, train_dataset=dataset, data_collator=collate)
+    with scope(profile, 'train_loop'):
+        result = trainer.train()
     adapter = out / 'adapter'
-    model.save_pretrained(adapter)
-    tokenizer.save_pretrained(adapter)
+    with scope(profile, 'adapter_save'):
+        model.save_pretrained(adapter)
+        tokenizer.save_pretrained(adapter)
     summary = {'model': args.model, 'revision_requested': args.revision,
                'base_commit': getattr(model.config, '_commit_hash', None),
                'local_base_weights_sha256': {p.name: digest(p) for p in Path(args.model).glob('*.safetensors')}
@@ -85,6 +103,12 @@ def run(args):
                'adapter_sha256': {p.name: digest(p) for p in adapter.glob('*.safetensors')},
                'external_test': False}
     write_json(out / 'summary.json', summary)
+    if profile is not None:
+        profile.write(profile_out, operation='sft_train',
+                      metadata={'steps_sha256': summary['training_steps_sha256'],
+                                'max_steps': args.max_steps, 'model': args.model,
+                                'peak_cuda_allocated_bytes': torch.cuda.max_memory_allocated(),
+                                'adapter_sha256': summary['adapter_sha256']})
     return summary
 
 
@@ -98,5 +122,6 @@ if __name__ == '__main__':
     parser.add_argument('--max-length', type=int, default=768)
     parser.add_argument('--learning-rate', type=float, default=2e-4)
     parser.add_argument('--seed', type=int, default=20260917)
+    parser.add_argument('--profile-out', help='write synchronized stage timings to a new JSON file')
     args = parser.parse_args()
     print(json.dumps(run(args), ensure_ascii=False, indent=2))

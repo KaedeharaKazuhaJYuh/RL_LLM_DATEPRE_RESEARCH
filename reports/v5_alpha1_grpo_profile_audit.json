@@ -1,0 +1,177 @@
+{
+  "schema_version": "v5-profile-audit-1",
+  "operation": "grpo_train",
+  "repetitions": 3,
+  "workload": {
+    "protocol_sha256": "8a197d3fda055a56e751752e6c2a00c9b28d85851c5106c84d4df3e032b57ee2",
+    "adapter_init": "work/v4_llm_hard_sft_100_001/adapter",
+    "episodes": 4,
+    "updated_groups": 1,
+    "adapter_sha256": {
+      "adapter_model.safetensors": "a3606204b4f21b8f0fc79d800b840c29f2113c03d33e7b7ad92e203d8525a961"
+    }
+  },
+  "wall_seconds": {
+    "n": 3,
+    "median": 21.56616539999959,
+    "p95_nearest_rank": 21.99400809999497,
+    "min": 21.423662600005628,
+    "max": 21.99400809999497
+  },
+  "stages_seconds": {
+    "adapter_save": {
+      "n": 3,
+      "median": 0.2155858000041917,
+      "p95_nearest_rank": 0.2191803999885451,
+      "min": 0.21000409999396652,
+      "max": 0.2191803999885451
+    },
+    "behavior_reference_forward": {
+      "n": 3,
+      "median": 2.8138455000007525,
+      "p95_nearest_rank": 2.8288363000028767,
+      "min": 2.7759692999970866,
+      "max": 2.8288363000028767
+    },
+    "csv_read": {
+      "n": 3,
+      "median": 0.007016900053713471,
+      "p95_nearest_rank": 0.0074640999955590814,
+      "min": 0.0067330999445402995,
+      "max": 0.0074640999955590814
+    },
+    "model_load": {
+      "n": 3,
+      "median": 4.099200799988466,
+      "p95_nearest_rank": 4.1473223000066355,
+      "min": 3.977076600000146,
+      "max": 4.1473223000066355
+    },
+    "optimizer_step": {
+      "n": 3,
+      "median": 0.059970100002828985,
+      "p95_nearest_rank": 0.0725840000086464,
+      "min": 0.051523500005714595,
+      "max": 0.0725840000086464
+    },
+    "result_reference": {
+      "n": 3,
+      "median": 0.01149489999806974,
+      "p95_nearest_rank": 0.018922899980680086,
+      "min": 0.010497100025531836,
+      "max": 0.018922899980680086
+    },
+    "result_verify": {
+      "n": 3,
+      "median": 8.420000085607171e-05,
+      "p95_nearest_rank": 8.639998850412667e-05,
+      "min": 8.28999764053151e-05,
+      "max": 8.639998850412667e-05
+    },
+    "rollout": {
+      "n": 3,
+      "median": 7.898944200002006,
+      "p95_nearest_rank": 8.676969100022689,
+      "min": 7.688513299988699,
+      "max": 8.676969100022689
+    },
+    "task_load": {
+      "n": 3,
+      "median": 0.004610199990565889,
+      "p95_nearest_rank": 0.0077099000045564026,
+      "min": 0.003610100000514649,
+      "max": 0.0077099000045564026
+    },
+    "tool_execute": {
+      "n": 3,
+      "median": 0.02262110001174733,
+      "p95_nearest_rank": 0.03453450000961311,
+      "min": 0.020404700000653975,
+      "max": 0.03453450000961311
+    },
+    "tool_reference_and_verify": {
+      "n": 3,
+      "median": 0.012309299985645339,
+      "p95_nearest_rank": 0.012574899985338561,
+      "min": 0.010644999987562187,
+      "max": 0.012574899985338561
+    },
+    "update_forward_backward": {
+      "n": 3,
+      "median": 3.1387447000015527,
+      "p95_nearest_rank": 3.294128300025477,
+      "min": 2.9747774999559624,
+      "max": 3.294128300025477
+    }
+  },
+  "peak_cuda_allocated_bytes": {
+    "n": 3,
+    "median": 5343644672,
+    "p95_nearest_rank": 5343644672,
+    "min": 5343644672,
+    "max": 5343644672
+  },
+  "nested_stages_must_not_be_summed": true,
+  "runs": [
+    {
+      "path": "work\\v5_alpha1_grpo_r1_profile.json",
+      "sha256": "18381b493cc82b7141084b60fea11f0374752d23b3e6dae6bde594a5689f03a3",
+      "wall_seconds": 21.423662600005628,
+      "peak_cuda_allocated_bytes": 5343644672,
+      "stage_calls": {
+        "adapter_save": 1,
+        "behavior_reference_forward": 1,
+        "csv_read": 40,
+        "model_load": 1,
+        "optimizer_step": 1,
+        "result_reference": 12,
+        "result_verify": 4,
+        "rollout": 4,
+        "task_load": 1,
+        "tool_execute": 10,
+        "tool_reference_and_verify": 10,
+        "update_forward_backward": 18
+      }
+    },
+    {
+      "path": "work\\v5_alpha1_grpo_r2_profile.json",
+      "sha256": "df3dfe6bd98bd217f9b7db56f821af547efe62e755f91873b15a5da4810c28c4",
+      "wall_seconds": 21.56616539999959,
+      "peak_cuda_allocated_bytes": 5343644672,
+      "stage_calls": {
+        "adapter_save": 1,
+        "behavior_reference_forward": 1,
+        "csv_read": 40,
+        "model_load": 1,
+        "optimizer_step": 1,
+        "result_reference": 12,
+        "result_verify": 4,
+        "rollout": 4,
+        "task_load": 1,
+        "tool_execute": 10,
+        "tool_reference_and_verify": 10,
+        "update_forward_backward": 18
+      }
+    },
+    {
+      "path": "work\\v5_alpha1_grpo_r3_profile.json",
+      "sha256": "cf7cc04dd4d882467da399971e08ddf0163bf9963e5ae7d8c35ae6bd92c0a8f7",
+      "wall_seconds": 21.99400809999497,
+      "peak_cuda_allocated_bytes": 5343644672,
+      "stage_calls": {
+        "adapter_save": 1,
+        "behavior_reference_forward": 1,
+        "csv_read": 40,
+        "model_load": 1,
+        "optimizer_step": 1,
+        "result_reference": 12,
+        "result_verify": 4,
+        "rollout": 4,
+        "task_load": 1,
+        "tool_execute": 10,
+        "tool_reference_and_verify": 10,
+        "update_forward_backward": 18
+      }
+    }
+  ]
+}
