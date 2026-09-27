@@ -1,0 +1,9 @@
+{
+  "schema_version": "v4-local-experiment-1",
+  "experiment_id": "v4-real-csv-frozen-eval",
+  "entrypoint": "v4_eval",
+  "protocol": "tasks/v4/real_csv_v1",
+  "resource": "gpu",
+  "model": "work/modelscope_deepseek_r1_1p5b",
+  "adapter": "work/v4_llm_composition_sft100_seed20260921/adapter"
+}
