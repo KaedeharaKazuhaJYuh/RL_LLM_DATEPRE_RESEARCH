@@ -1,4 +1,6 @@
-# RL + LLM Data Analysis Agent — V4.5.7
+# RL + LLM Data Analysis Agent — V4.5.8
+
+V4.5.8 完成 [公开真实 CSV 与隔离工具故障审计](reports/V4_5_8_RELEASE.md)：冻结 3 个可公开使用的 UCI 数据来源、18 道中英双语两步题；专家计划在正常、瞬时读取失败、超时和部分写入条件下 72/72 通过。工具执行增加可选子进程隔离与状态核验。独立 C++ 移动平均原型完成本机编译和数值差分，但尚无真实任务端到端收益，因此不替换 Python 工具。上述数据在 V3 已使用，不属于最终外部盲测。
 
 V4.5.7 已在 [V5 三语言架构规划](reports/V4_5_7_V5_ARCHITECTURE_PLAN.md)之外，完成 [分阶段计时与 Go 单机运行器原型](reports/V4_5_7_IMPLEMENTATION.md)。Python 负责 DeepSeek 与 RL 训练；本版可对专家导出和冻结 GPU 评测计时，Go 可按固定清单启动这两种 Python 作业、记录日志并核验产物摘要。手动运行与 Go 启动的导出和评测结果一致。C++ 原生内核、持久队列、租约和真实多机调度仍属 V5 后续工作；V4.5.6 的模型实验结论未改变。
 

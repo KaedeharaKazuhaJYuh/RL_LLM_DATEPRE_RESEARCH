@@ -2,11 +2,13 @@
 import copy
 import hashlib
 import json
+import tempfile
 import time
 from pathlib import Path
 from agent.tools import ACTIONS, MUTATING, execute_tool
 from research.io import ROOT, load_jsonl, digest, read_table, write_table, write_json
 from research.stage_profile import scope
+from research.v4_isolated_tool import execute_isolated
 from research.oracle import expected
 from research.v3_runtime import params_for
 from verifier.score import verify, _same
@@ -46,10 +48,14 @@ def build(out):
 
 
 class SequenceEnv:
-    def __init__(self,task,gold,folder,fault=False,profile=None):
-        self.task=task;self.gold=gold;self.folder=Path(folder);self.folder.mkdir(parents=True,exist_ok=True)
+    def __init__(self,task,gold,folder,fault=False,profile=None,fault_mode=None):
+        self.task=task;self.gold=gold
         self.profile=profile
         limits=task.get('constraints',{})
+        self.limits=limits
+        base=Path(folder);base.mkdir(parents=True,exist_ok=True)
+        self.folder=(Path(tempfile.mkdtemp(prefix='v4_episode_',dir=base))
+                     if limits.get('isolated_tools') else base)
         self.max_decisions=int(limits.get('max_steps',4))
         self.max_tool_calls=int(limits.get('max_tool_calls',3))
         self.max_seconds=float(limits.get('max_seconds',120))
@@ -58,7 +64,12 @@ class SequenceEnv:
         self.current=ROOT/task['dataset']['uri'];self.initial=digest(self.current)
         if self.initial!=task['dataset']['sha256']:raise ValueError('input hash mismatch')
         self.history=[];self.last={};self.last_hash=None;self.calls=0;self.decisions=0
-        self.fault=fault;self.injected=False;self.done=False;self.stopped=False
+        if fault_mode not in (None,'timeout','partial_write'):
+            raise ValueError('unsupported fault mode')
+        if fault_mode and not limits.get('isolated_tools'):
+            raise ValueError('process fault requires isolated tools')
+        self.fault=fault;self.fault_mode=fault_mode
+        self.injected=False;self.done=False;self.stopped=False
         self.started=time.perf_counter()
 
     def observation(self):
@@ -82,12 +93,22 @@ class SequenceEnv:
         else:
             self.calls+=1;before=digest(self.current)
             try:
-                if self.fault and not self.injected:
+                if self.fault and not self.injected and self.fault_mode is None:
                     self.injected=True
                     raise FileNotFoundError('simulated transient input read failure; retry allowed')
                 p=params_for(action,self.task)
+                process_fault='none'
+                if self.fault_mode and not self.injected:
+                    self.injected=True;process_fault=self.fault_mode
                 with scope(self.profile,'tool_execute'):
-                    result=execute_tool(action,{'uri':str(self.current),'params':p,'artifact_dir':self.folder/f'step_{self.decisions}'})
+                    if self.limits.get('isolated_tools'):
+                        remaining=self.max_seconds-(time.perf_counter()-self.started)
+                        result=execute_isolated(action,str(self.current),p,
+                                self.folder/f'step_{self.decisions}',
+                                timeout=min(float(self.limits.get('tool_timeout_seconds',10)),remaining),
+                                fault=process_fault)
+                    else:
+                        result=execute_tool(action,{'uri':str(self.current),'params':p,'artifact_dir':self.folder/f'step_{self.decisions}'})
                 with scope(self.profile,'tool_reference_and_verify'):
                     checked=verify(result,expected(self.current,action,p),[{'tool':action,'ok':True}],
                                    {'allowed_tools':ACTIONS,'input_sha256':before,'max_steps':1,'max_tool_calls':1})
@@ -96,7 +117,7 @@ class SequenceEnv:
                 if action in MUTATING:self.current=Path(result['artifact']['path'])
                 self.history.append({'action':action,'ok':True,'answer':result['answer'],
                                      'input_sha256':before,'output_sha256':digest(self.current)})
-            except (ValueError,KeyError,OSError,TypeError) as exc:
+            except (ValueError,KeyError,OSError,TypeError,RuntimeError) as exc:
                 self.history.append({'action':action,'ok':False,'error':type(exc).__name__+': '+str(exc)})
         if self.decisions>=self.max_decisions:self.done=True
         return self.observation()

@@ -1,0 +1,54 @@
+{
+  "version": "v4-real-csv-1",
+  "synthetic": false,
+  "external_test": false,
+  "frozen_public_diagnostic": true,
+  "source_reuse_from_v3": true,
+  "train_task_count": 0,
+  "dev_task_count": 18,
+  "paraphrase_count_per_family": 2,
+  "fault_conditions": [
+    "none",
+    "transient_read",
+    "timeout",
+    "partial_write"
+  ],
+  "sources": {
+    "wine": {
+      "source_id": "uci_wine",
+      "rows": 240,
+      "sha256": "73e5c37d778b895723f846082ea3abbf76ff2abf49abfbe1335bc5fc10eac27e",
+      "archive_sha256": "3ed56667f4b828242bd732d7d1dd7f2861e54432239d7fa63877014cbb0304d4",
+      "upstream_url": "https://archive.ics.uci.edu/static/public/186/wine+quality.zip",
+      "doi": "10.24432/C56S3T",
+      "license": "CC BY 4.0",
+      "derived_from": "tasks/v3_real/data/wine.csv",
+      "personal_data_columns": []
+    },
+    "abalone": {
+      "source_id": "uci_abalone",
+      "rows": 240,
+      "sha256": "357e7466e3966bd51bef9a586aa4565ed2041fe76855a93350a1e6b70f0e2053",
+      "archive_sha256": "755a6a67c5b266961a3f149ea13be2cfb6e6c727e48cee3c83bc0b4526210ee4",
+      "upstream_url": "https://archive.ics.uci.edu/static/public/1/abalone.zip",
+      "doi": "10.24432/C55C7W",
+      "license": "CC BY 4.0",
+      "derived_from": "tasks/v3_real/data/abalone.csv",
+      "personal_data_columns": []
+    },
+    "wholesale": {
+      "source_id": "uci_wholesale",
+      "rows": 240,
+      "sha256": "7f3f4a4954a4a62704da0356014fde9cf1ed347ce89173018068e348e20a59de",
+      "archive_sha256": "647e6a61683ed23f48c7b04e1e2be78835eca8758b32267603fc42a1479dbfb8",
+      "upstream_url": "https://archive.ics.uci.edu/static/public/292/wholesale+customers.zip",
+      "doi": "10.24432/C5030X",
+      "license": "CC BY 4.0",
+      "derived_from": "tasks/v3_real/data/wholesale.csv",
+      "personal_data_columns": []
+    }
+  },
+  "tasks_sha256": "ebaaf631a7030e8017403bfc8e83b4e497e4316618952b2a5e30f0f76142fa69",
+  "train_oracle_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+  "dev_oracle_sha256": "cad40d965a17ec31a56fba11fc6011026bf2f2aed645fc95270358b24fde3632"
+}
