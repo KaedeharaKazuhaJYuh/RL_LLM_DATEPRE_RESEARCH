@@ -1,0 +1,56 @@
+{
+  "version": "v4-source-holdout-1",
+  "synthetic": false,
+  "external_test": true,
+  "external_test_scope": "new data sources only; task templates and action families reused",
+  "one_time_evaluation": true,
+  "source_reuse_from_v3": false,
+  "train_task_count": 0,
+  "dev_task_count": 12,
+  "paraphrase_count_per_family": 2,
+  "fault_conditions": [
+    "none",
+    "transient_read",
+    "timeout",
+    "partial_write"
+  ],
+  "frozen_model_weights_sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945",
+  "frozen_adapter_weights_sha256": "867a6c91b74a1c4a8b233de6511977e7876008c17ace9df8bab12a877696c9ff",
+  "frozen_decoding": {
+    "greedy": true,
+    "max_new_tokens": 48
+  },
+  "planned_primary_metric": "terminal success, 12 clean episodes",
+  "planned_secondary_metric": "terminal success, 48 episodes across 4 fault modes",
+  "sources": {
+    "forest": {
+      "source_id": "uci_forest",
+      "rows": 240,
+      "upstream_rows": 517,
+      "selection": "first 240 rows in upstream order",
+      "sha256": "9d5b07e6f00cf4f37cacfe02a3861cd805ac07444b6ed05bdf15c3499cefbd70",
+      "archive_sha256": "abd40d6142b5e30fea73ff7292f91dcdd8b64bf3b3f36e20f96c37f5d14f06fb",
+      "upstream_url": "https://archive.ics.uci.edu/static/public/162/forest+fires.zip",
+      "doi": "10.24432/C5D88D",
+      "citation": "Cortez, P. & Morais, A. (2007). Forest Fires. UCI Machine Learning Repository.",
+      "license": "CC BY 4.0",
+      "personal_data_columns": []
+    },
+    "rice": {
+      "source_id": "uci_rice",
+      "rows": 240,
+      "upstream_rows": 3810,
+      "selection": "240 evenly spaced source-order rows, index floor(i*N/240)",
+      "sha256": "2c38eb95b9192a76acf10de0b790c00990a728beb50126e7bbac7a86b7faaf92",
+      "archive_sha256": "fe94e42046b829de21b92b0ffb6a22774fde021328cae799faa802a14e8dbed9",
+      "upstream_url": "https://archive.ics.uci.edu/static/public/545/rice+cammeo+and+osmancik.zip",
+      "doi": "10.24432/C5MW4Z",
+      "citation": "Rice (Cammeo and Osmancik) (2019). UCI Machine Learning Repository.",
+      "license": "CC BY 4.0",
+      "personal_data_columns": []
+    }
+  },
+  "tasks_sha256": "1269dbb973a32cb828c8d2d1b4bd43b37b469ebef65509e9093ca44476070606",
+  "train_oracle_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+  "dev_oracle_sha256": "42956b0d536e88e55e6bf75da5e39f0b8430712f2aadba69055956824591f2a2"
+}

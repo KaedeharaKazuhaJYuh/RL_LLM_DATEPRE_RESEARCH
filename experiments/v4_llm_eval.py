@@ -55,6 +55,7 @@ def run(args):
 
     if not torch.cuda.is_available():
         raise RuntimeError('CUDA GPU required for this pilot')
+    manifest = json.loads((Path(args.protocol) / 'manifest.json').read_text(encoding='utf-8'))
     tasks = json.loads((Path(args.protocol) / 'tasks.json').read_text(encoding='utf-8'))
     dev = [x for x in tasks if x['split'] == 'dev']
     oracle = json.loads((Path(args.protocol) / 'dev_oracle.json').read_text(encoding='utf-8'))
@@ -128,7 +129,7 @@ def run(args):
                'adapter': args.adapter, 'protocol_sha256': digest(Path(args.protocol) / 'manifest.json'),
                'episodes': len(records), 'passed': sum(r['passed'] for r in records),
                'slices': {k: {'n': len(v), 'passed': sum(x['passed'] for x in v)} for k, v in groups.items()},
-               'greedy': True, 'external_test': False, 'records': records}
+               'greedy': True, 'external_test': bool(manifest.get('external_test', False)), 'records': records}
     if getattr(args, 'no_repeat_success', False):
         summary['action_guard'] = 'exclude_successful_actions'
     if requested_modes:
