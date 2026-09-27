@@ -1,0 +1,80 @@
+{
+  "version": "v4-native-differential-1",
+  "protocol_sha256": "5fae0f87d06cdcf53df1c2a6300a7f8326d99352e03307ee13fa872147cb94d2",
+  "binary_sha256": "3c7d4c18d068c1f8cdf3f92a2b233827999dc61ba5128db7bed5427c6e29fb5f",
+  "repeats": 10,
+  "tolerance": {
+    "abs": 1e-06,
+    "rel": 1e-06
+  },
+  "scope": "standalone numeric CLI, not full tool or episode",
+  "cases": [
+    {
+      "case": "uci_abalone",
+      "rows": 240,
+      "window": 3,
+      "output_rows": 238,
+      "max_absolute_error": 4.440892098500626e-16,
+      "python_reference_median_seconds": 0.001241650003066752,
+      "python_reference_p95_seconds": 0.001777500001480803,
+      "native_cli_median_seconds": 0.011232900003960822,
+      "native_cli_p95_seconds": 0.016085800001746975
+    },
+    {
+      "case": "uci_wholesale",
+      "rows": 240,
+      "window": 3,
+      "output_rows": 238,
+      "max_absolute_error": 3.183231456205249e-11,
+      "python_reference_median_seconds": 0.000687250001647044,
+      "python_reference_p95_seconds": 0.0008621000015409663,
+      "native_cli_median_seconds": 0.010573799998383038,
+      "native_cli_p95_seconds": 0.01199590000032913
+    },
+    {
+      "case": "uci_wine",
+      "rows": 240,
+      "window": 3,
+      "output_rows": 238,
+      "max_absolute_error": 8.881784197001252e-16,
+      "python_reference_median_seconds": 0.0010612500045681372,
+      "python_reference_p95_seconds": 0.001304699995671399,
+      "native_cli_median_seconds": 0.011248049995629117,
+      "native_cli_p95_seconds": 0.013471800004481338
+    },
+    {
+      "case": "stress_1000",
+      "rows": 1000,
+      "window": 3,
+      "output_rows": 998,
+      "max_absolute_error": 1.4921397450962104e-13,
+      "python_reference_median_seconds": 0.005587200001173187,
+      "python_reference_p95_seconds": 0.007743900001514703,
+      "native_cli_median_seconds": 0.014726400004292373,
+      "native_cli_p95_seconds": 0.016192800001590513
+    },
+    {
+      "case": "stress_100000",
+      "rows": 100000,
+      "window": 3,
+      "output_rows": 99998,
+      "max_absolute_error": 1.3642420526593924e-12,
+      "python_reference_median_seconds": 0.7283280999981798,
+      "python_reference_p95_seconds": 0.8022357000008924,
+      "native_cli_median_seconds": 0.454338600000483,
+      "native_cli_p95_seconds": 0.496531100012362
+    },
+    {
+      "case": "large_finite",
+      "rows": 2,
+      "window": 2,
+      "output_rows": 1,
+      "max_absolute_error": 0.0,
+      "python_reference_median_seconds": 2.8599999495781958e-05,
+      "python_reference_p95_seconds": 5.460000829771161e-05,
+      "native_cli_median_seconds": 0.009327899999334477,
+      "native_cli_p95_seconds": 0.011396400004741736
+    }
+  ],
+  "passed": 6
+}

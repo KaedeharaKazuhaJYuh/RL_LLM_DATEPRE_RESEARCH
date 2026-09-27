@@ -8,5 +8,8 @@ target_include_directories(rolling_mean PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 add_executable(rolling_mean_test rolling_mean_test.cpp)
 target_link_libraries(rolling_mean_test PRIVATE rolling_mean)
 
+add_executable(rolling_mean_cli rolling_mean_cli.cpp)
+target_link_libraries(rolling_mean_cli PRIVATE rolling_mean)
+
 enable_testing()
 add_test(NAME rolling_mean_test COMMAND rolling_mean_test)

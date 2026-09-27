@@ -1,0 +1,680 @@
+[
+  {
+    "schema_version": "v4-source-holdout-1",
+    "task_id": "c78ca23fc7ad2bbb",
+    "source_id": "uci_forest",
+    "split": "dev",
+    "pair_family": 0,
+    "paraphrase_id": 0,
+    "composition_novelty": "held_out_public_source",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 temp 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/final_holdout_v1/data/forest.csv",
+      "columns": [
+        "X",
+        "Y",
+        "month",
+        "day",
+        "FFMC",
+        "DMC",
+        "DC",
+        "ISI",
+        "temp",
+        "RH",
+        "wind",
+        "rain",
+        "area"
+      ],
+      "sha256": "9d5b07e6f00cf4f37cacfe02a3861cd805ac07444b6ed05bdf15c3499cefbd70"
+    },
+    "params": {
+      "column": "DMC",
+      "category_column": "month",
+      "date_column": "month",
+      "other_column": "temp",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v4-source-holdout-1",
+    "task_id": "e0e66297095a2f7c",
+    "source_id": "uci_forest",
+    "split": "dev",
+    "pair_family": 0,
+    "paraphrase_id": 1,
+    "composition_novelty": "held_out_public_source",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of temp in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/final_holdout_v1/data/forest.csv",
+      "columns": [
+        "X",
+        "Y",
+        "month",
+        "day",
+        "FFMC",
+        "DMC",
+        "DC",
+        "ISI",
+        "temp",
+        "RH",
+        "wind",
+        "rain",
+        "area"
+      ],
+      "sha256": "9d5b07e6f00cf4f37cacfe02a3861cd805ac07444b6ed05bdf15c3499cefbd70"
+    },
+    "params": {
+      "column": "DMC",
+      "category_column": "month",
+      "date_column": "month",
+      "other_column": "temp",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v4-source-holdout-1",
+    "task_id": "4d9c7723e85330f6",
+    "source_id": "uci_forest",
+    "split": "dev",
+    "pair_family": 1,
+    "paraphrase_id": 0,
+    "composition_novelty": "held_out_public_source",
+    "prompt": "先把 month 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/final_holdout_v1/data/forest.csv",
+      "columns": [
+        "X",
+        "Y",
+        "month",
+        "day",
+        "FFMC",
+        "DMC",
+        "DC",
+        "ISI",
+        "temp",
+        "RH",
+        "wind",
+        "rain",
+        "area"
+      ],
+      "sha256": "9d5b07e6f00cf4f37cacfe02a3861cd805ac07444b6ed05bdf15c3499cefbd70"
+    },
+    "params": {
+      "column": "DMC",
+      "category_column": "month",
+      "date_column": "month",
+      "other_column": "temp",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v4-source-holdout-1",
+    "task_id": "f76946bd2a146d1e",
+    "source_id": "uci_forest",
+    "split": "dev",
+    "pair_family": 1,
+    "paraphrase_id": 1,
+    "composition_novelty": "held_out_public_source",
+    "prompt": "Canonicalize month by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/final_holdout_v1/data/forest.csv",
+      "columns": [
+        "X",
+        "Y",
+        "month",
+        "day",
+        "FFMC",
+        "DMC",
+        "DC",
+        "ISI",
+        "temp",
+        "RH",
+        "wind",
+        "rain",
+        "area"
+      ],
+      "sha256": "9d5b07e6f00cf4f37cacfe02a3861cd805ac07444b6ed05bdf15c3499cefbd70"
+    },
+    "params": {
+      "column": "DMC",
+      "category_column": "month",
+      "date_column": "month",
+      "other_column": "temp",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v4-source-holdout-1",
+    "task_id": "26fb5986ae0b6487",
+    "source_id": "uci_forest",
+    "split": "dev",
+    "pair_family": 2,
+    "paraphrase_id": 0,
+    "composition_novelty": "held_out_public_source",
+    "prompt": "先把 DMC 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/final_holdout_v1/data/forest.csv",
+      "columns": [
+        "X",
+        "Y",
+        "month",
+        "day",
+        "FFMC",
+        "DMC",
+        "DC",
+        "ISI",
+        "temp",
+        "RH",
+        "wind",
+        "rain",
+        "area"
+      ],
+      "sha256": "9d5b07e6f00cf4f37cacfe02a3861cd805ac07444b6ed05bdf15c3499cefbd70"
+    },
+    "params": {
+      "column": "DMC",
+      "category_column": "month",
+      "date_column": "month",
+      "other_column": "temp",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v4-source-holdout-1",
+    "task_id": "d4b96a2c987d581b",
+    "source_id": "uci_forest",
+    "split": "dev",
+    "pair_family": 2,
+    "paraphrase_id": 1,
+    "composition_novelty": "held_out_public_source",
+    "prompt": "Clip DMC to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/final_holdout_v1/data/forest.csv",
+      "columns": [
+        "X",
+        "Y",
+        "month",
+        "day",
+        "FFMC",
+        "DMC",
+        "DC",
+        "ISI",
+        "temp",
+        "RH",
+        "wind",
+        "rain",
+        "area"
+      ],
+      "sha256": "9d5b07e6f00cf4f37cacfe02a3861cd805ac07444b6ed05bdf15c3499cefbd70"
+    },
+    "params": {
+      "column": "DMC",
+      "category_column": "month",
+      "date_column": "month",
+      "other_column": "temp",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v4-source-holdout-1",
+    "task_id": "74bca69dc854002b",
+    "source_id": "uci_rice",
+    "split": "dev",
+    "pair_family": 0,
+    "paraphrase_id": 0,
+    "composition_novelty": "held_out_public_source",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 Major_Axis_Length 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/final_holdout_v1/data/rice.csv",
+      "columns": [
+        "Area",
+        "Perimeter",
+        "Major_Axis_Length",
+        "Minor_Axis_Length",
+        "Eccentricity",
+        "Convex_Area",
+        "Extent",
+        "Class"
+      ],
+      "sha256": "2c38eb95b9192a76acf10de0b790c00990a728beb50126e7bbac7a86b7faaf92"
+    },
+    "params": {
+      "column": "Minor_Axis_Length",
+      "category_column": "Class",
+      "date_column": "Class",
+      "other_column": "Major_Axis_Length",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v4-source-holdout-1",
+    "task_id": "eccbdb294c9467ba",
+    "source_id": "uci_rice",
+    "split": "dev",
+    "pair_family": 0,
+    "paraphrase_id": 1,
+    "composition_novelty": "held_out_public_source",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of Major_Axis_Length in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/final_holdout_v1/data/rice.csv",
+      "columns": [
+        "Area",
+        "Perimeter",
+        "Major_Axis_Length",
+        "Minor_Axis_Length",
+        "Eccentricity",
+        "Convex_Area",
+        "Extent",
+        "Class"
+      ],
+      "sha256": "2c38eb95b9192a76acf10de0b790c00990a728beb50126e7bbac7a86b7faaf92"
+    },
+    "params": {
+      "column": "Minor_Axis_Length",
+      "category_column": "Class",
+      "date_column": "Class",
+      "other_column": "Major_Axis_Length",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v4-source-holdout-1",
+    "task_id": "d52f7e8d70899804",
+    "source_id": "uci_rice",
+    "split": "dev",
+    "pair_family": 1,
+    "paraphrase_id": 0,
+    "composition_novelty": "held_out_public_source",
+    "prompt": "先把 Class 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/final_holdout_v1/data/rice.csv",
+      "columns": [
+        "Area",
+        "Perimeter",
+        "Major_Axis_Length",
+        "Minor_Axis_Length",
+        "Eccentricity",
+        "Convex_Area",
+        "Extent",
+        "Class"
+      ],
+      "sha256": "2c38eb95b9192a76acf10de0b790c00990a728beb50126e7bbac7a86b7faaf92"
+    },
+    "params": {
+      "column": "Minor_Axis_Length",
+      "category_column": "Class",
+      "date_column": "Class",
+      "other_column": "Major_Axis_Length",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v4-source-holdout-1",
+    "task_id": "3cf6629ad3104b79",
+    "source_id": "uci_rice",
+    "split": "dev",
+    "pair_family": 1,
+    "paraphrase_id": 1,
+    "composition_novelty": "held_out_public_source",
+    "prompt": "Canonicalize Class by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/final_holdout_v1/data/rice.csv",
+      "columns": [
+        "Area",
+        "Perimeter",
+        "Major_Axis_Length",
+        "Minor_Axis_Length",
+        "Eccentricity",
+        "Convex_Area",
+        "Extent",
+        "Class"
+      ],
+      "sha256": "2c38eb95b9192a76acf10de0b790c00990a728beb50126e7bbac7a86b7faaf92"
+    },
+    "params": {
+      "column": "Minor_Axis_Length",
+      "category_column": "Class",
+      "date_column": "Class",
+      "other_column": "Major_Axis_Length",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v4-source-holdout-1",
+    "task_id": "0c308007dbe09a5c",
+    "source_id": "uci_rice",
+    "split": "dev",
+    "pair_family": 2,
+    "paraphrase_id": 0,
+    "composition_novelty": "held_out_public_source",
+    "prompt": "先把 Minor_Axis_Length 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/final_holdout_v1/data/rice.csv",
+      "columns": [
+        "Area",
+        "Perimeter",
+        "Major_Axis_Length",
+        "Minor_Axis_Length",
+        "Eccentricity",
+        "Convex_Area",
+        "Extent",
+        "Class"
+      ],
+      "sha256": "2c38eb95b9192a76acf10de0b790c00990a728beb50126e7bbac7a86b7faaf92"
+    },
+    "params": {
+      "column": "Minor_Axis_Length",
+      "category_column": "Class",
+      "date_column": "Class",
+      "other_column": "Major_Axis_Length",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v4-source-holdout-1",
+    "task_id": "a8c0c1b9a8c157fb",
+    "source_id": "uci_rice",
+    "split": "dev",
+    "pair_family": 2,
+    "paraphrase_id": 1,
+    "composition_novelty": "held_out_public_source",
+    "prompt": "Clip Minor_Axis_Length to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/final_holdout_v1/data/rice.csv",
+      "columns": [
+        "Area",
+        "Perimeter",
+        "Major_Axis_Length",
+        "Minor_Axis_Length",
+        "Eccentricity",
+        "Convex_Area",
+        "Extent",
+        "Class"
+      ],
+      "sha256": "2c38eb95b9192a76acf10de0b790c00990a728beb50126e7bbac7a86b7faaf92"
+    },
+    "params": {
+      "column": "Minor_Axis_Length",
+      "category_column": "Class",
+      "date_column": "Class",
+      "other_column": "Major_Axis_Length",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  }
+]

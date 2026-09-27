@@ -1,8 +1,14 @@
-# RL + LLM Data Analysis Agent — V4.5.7
+# RL + LLM Data Analysis Agent — V4.5.10（V4 收尾）
+
+V4.5.10 已完成[新来源留出评测与 V4 总结](reports/V4_5_10_V4_CLOSURE.md)。预先冻结模型、数据和指标后，在此前未用于本项目的两份 UCI 数据上，DeepSeek SFT 模型正常通过 **10/12**、正常加三种故障合计 **35/48**；专家轨迹 48/48。主要失分来自类别工具误选、故障后跳过重试及两步结束后额外动作。它是来源留出的小样本评测，模板和工具组合仍沿用开发阶段；没有证据表明当前 RL 训练带来了稳定外部提升。[预注册协议](reports/V4_5_10_PREREGISTRATION.md)和[逐题审计](reports/v4_5_10_model_audit.json)可供核查。V5 接下来优先训练这些失败模式，再以新来源、新模板做独立评测；C++ 与 Go 沿[已规划的系统门槛](reports/V4_5_7_V5_ARCHITECTURE_PLAN.md)逐步验收。
+
+V4.5.9 完成 [真实 CSV 冻结模型评测与故障归因](reports/V4_5_9_RELEASE.md)：现有 DeepSeek SFT 适配器在 18 道公开真实数据题上正常条件通过 17/18，正常加三种故障条件合计 69/72。最初的 1/18 来自评测临时目录冲突，已修复并撤回；可选的成功动作去重诊断反而降至 14/18，因此未设为默认。结果只针对已在 V3 使用过的三个公开来源，不是最终盲测。Go 单机运行器与手动评测的正常条件结果逐字节一致。
+
+V4.5.8 完成 [公开真实 CSV 与隔离工具故障审计](reports/V4_5_8_RELEASE.md)：冻结 3 个可公开使用的 UCI 数据来源、18 道中英双语两步题；专家计划在正常、瞬时读取失败、超时和部分写入条件下 72/72 通过。工具执行增加可选子进程隔离与状态核验。独立 C++ 移动平均原型完成本机编译和数值差分，但尚无真实任务端到端收益，因此不替换 Python 工具。上述数据在 V3 已使用，不属于最终外部盲测。
 
 V4.5.7 已在 [V5 三语言架构规划](reports/V4_5_7_V5_ARCHITECTURE_PLAN.md)之外，完成 [分阶段计时与 Go 单机运行器原型](reports/V4_5_7_IMPLEMENTATION.md)。Python 负责 DeepSeek 与 RL 训练；本版可对专家导出和冻结 GPU 评测计时，Go 可按固定清单启动这两种 Python 作业、记录日志并核验产物摘要。手动运行与 Go 启动的导出和评测结果一致。C++ 原生内核、持久队列、租约和真实多机调度仍属 V5 后续工作；V4.5.6 的模型实验结论未改变。
 
-另已加入 `native/` 的独立 C++17 移动平均小原型，尚未替换 Python 工具或取得加速成绩。[V4.5.8 计划](reports/V4_5_8_PLAN.md)将原生工具差分验证与公开真实 CSV、同义改写、超时/部分写入故障、工具进程隔离及状态验证一起推进。
+V4.5.7 另加入 `native/` 的独立 C++17 移动平均小原型；V4.5.8 已对其完成数值差分，仍未替换 Python 工具。[原 V4.5.8 计划](reports/V4_5_8_PLAN.md)及其完成范围见对应报告。
 
 V4.5.5 在训练来源内部增加四类三步组合，保持原 96 条开发执行不变。三种子 SFT100 从旧课程的 52、65、82/96 变为 72、76、70/96：前两个种子受益，最强种子退化 12 题，因此尚不能把扩展课程设为稳定默认方案。V4.5.6 用相同 32 条在线训练预算对照静态/动态采样和进度/二值奖励。三种子的静态进度 GRPO 为 72、76、73/96，动态进度为 71、76、74/96，静态二值为 71、76、72/96；动态相对静态的平均变化为零。当前收益主要在已见组合故障恢复，仍需新的真实数据盲测。详见 [V4.5.5 / V4.5.6 结果与局限](reports/V4_5_5_5_6_RESULTS.md) 和 [预设实验协议](reports/V4_5_5_5_6_PROTOCOL.md)。
 
@@ -78,15 +84,15 @@ V4 GRPO 后续审计修正了正常/故障轨迹混组造成的伪优势，并�
 
 V4 已接入本机 Intel AI Boost NPU：OpenVINO 计算图和 1.5B INT4 LLM 均已实际运行，并新增 NPU 探测、LoRA 合并与冻结评测入口。当前最佳混合 INT4/INT8 NPU 版本在 24 条开发执行中为 15/24，仍低于 BF16 DPO 的 21/24，因此 NPU 暂用于量化研究与辅助推理，CUDA GPU 继续承担训练和金标准评测。见 [NPU 接入与精度审计](reports/V4_NPU_ENABLEMENT.md)。
 
-V4 多步学习阶段：已完成明确任务协议、监督初始化与 REINFORCE 对照，见 [阶段报告](reports/V4_SEQUENCE_RL_STAGE.md)。本轮 RL 从监督基线退化，原始负结果完整保留；不代表 DeepSeek 权重微调。运行入口为 `experiments.v4_sequence_train` 和 `experiments.v4_sequence_live`。
+V4 早期多步学习阶段：已完成明确任务协议、监督初始化与 REINFORCE 对照，见 [阶段报告](reports/V4_SEQUENCE_RL_STAGE.md)。该早期 RL 从监督基线退化，原始负结果完整保留；此阶段不代表 DeepSeek 权重微调。后续 LoRA 与 GRPO 实验见上文。运行入口为 `experiments.v4_sequence_train` 和 `experiments.v4_sequence_live`。
 
 V4 稳定性修正：批量策略梯度、历史条件基线、更新幅度约束及可选监督保持项，将三种子开发验证通过率恢复至 100%；尚未超过监督基线。见 [退化诊断与优化报告](reports/V4_RL_STABILITY.md)，入口 `experiments.v4_sequence_stabilize`。
 
 V4 后续审计发现，前述 100% 仅针对贪心执行；随机执行通过率约 21.8%，新两步组合中本地策略全部失败。DeepSeek 在组合开发探针温度 0 的一次运行中完成 12/12，仍需重复验证。见 [随机执行与组合泛化审计](reports/V4_STOCHASTIC_AND_COMPOSITION.md)。
 
-V3 主结果与边界见 [V3 最终审计](reports/V3_FINAL_AUDIT.md)，后续研究见 [V4 规划](reports/V4_RESEARCH_PLAN.md)。V4 已有外部控制策略 RL 结果，尚无 LLM 权重训练结果。
+V3 主结果与边界见 [V3 最终审计](reports/V3_FINAL_AUDIT.md)，V4 最初规划见 [V4 规划](reports/V4_RESEARCH_PLAN.md)。此处往下保留 V4 早期实验记录；当前版本已完成 DeepSeek LoRA 权重训练与 V4.5.10 来源留出评测。
 
-V4.0 初始协议位于 `tasks/v4/protocol.json`，就绪检查使用 `python -m research.v4_readiness`；当前最终测试集尚未创建，以保留后续盲测有效性。
+V4.0 初始协议位于 `tasks/v4/protocol.json`，就绪检查使用 `python -m research.v4_readiness`；该阶段尚未创建最终测试集。V4.5.10 后已完成一次来源留出测试，但模板留出评测仍须在 V5 新建。
 
 V4 现已接入 DeepSeek + Bandit 开发试跑：`python -m experiments.v4_pilot --out work/v4_pilot_001`。先在环境变量或被忽略的 `.env.local` 配置 DeepSeek 密钥；方法、费用记录与权重训练边界见 [V4 DeepSeek RL 试跑](reports/V4_DEEPSEEK_RL_PILOT.md)。
 

@@ -15,14 +15,14 @@ SYSTEM = ('你是一个表格分析工具规划器。每次只选择一个动作
           '所有要求完成后选择 stop，不执行额外清理。')
 
 
-def model_input(task, observation):
+def model_input(task, observation, allowed_actions=None):
     return {'request': task['prompt'], 'columns': observation['columns'],
             'history': [{'action': h['action'], 'ok': h['ok'],
                          'error_type': h.get('error', '').split(':', 1)[0] if not h['ok'] else None}
                         for h in observation['history']],
             'remaining_calls': observation['remaining_calls'],
             'remaining_decisions': observation['remaining_decisions'],
-            'allowed_actions': task['allowed_tools'] + ['stop']}
+            'allowed_actions': (task['allowed_tools'] if allowed_actions is None else allowed_actions) + ['stop']}
 
 
 def input_text(sample):

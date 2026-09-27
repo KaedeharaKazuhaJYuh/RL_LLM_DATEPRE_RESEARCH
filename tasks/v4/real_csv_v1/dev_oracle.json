@@ -1,0 +1,110 @@
+{
+  "41e073d4214bea92": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "3043daf2804cbd18": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "a43e3f7a87038608": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "e1150322a2a5d6eb": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "4b9b216846beca2b": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "780005f2d207fe16": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "9e961f92f10fd2c5": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "ff0aaf6300366a69": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "be71e4e02e0554c2": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "c1765f3da3d5b17f": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "512fecdd0a76e377": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "e279657fb25ab418": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "3f3dea644bcd617a": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "a955ceacc668198b": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "d0726cf63dfc6127": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "8529086c3b5a4955": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "e4bb20f3068a2081": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "300e0a0f17fdfa59": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  }
+}

@@ -1,0 +1,1228 @@
+{
+  "version": "v4-real-model-audit-1",
+  "protocol_sha256": "e58a5b60149ebe8327281fac3672ea486d624f21ce370d17c5e8bab7785c03e4",
+  "evaluation_sha256": "6521f790c177722ee962c94386fc99611f48e56570f96fe14a811fbef8c68e56",
+  "episodes": 48,
+  "passed": 35,
+  "model_weights_sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945",
+  "adapter_weights_sha256": "867a6c91b74a1c4a8b233de6511977e7876008c17ace9df8bab12a877696c9ff",
+  "by_source": {
+    "uci_forest": {
+      "n": 24,
+      "passed": 16
+    },
+    "uci_rice": {
+      "n": 24,
+      "passed": 19
+    }
+  },
+  "by_family": {
+    "0": {
+      "n": 16,
+      "passed": 15
+    },
+    "1": {
+      "n": 16,
+      "passed": 8
+    },
+    "2": {
+      "n": 16,
+      "passed": 12
+    }
+  },
+  "by_paraphrase": {
+    "0": {
+      "n": 24,
+      "passed": 15
+    },
+    "1": {
+      "n": 24,
+      "passed": 20
+    }
+  },
+  "by_fault": {
+    "none": {
+      "n": 12,
+      "passed": 10
+    },
+    "partial_write": {
+      "n": 12,
+      "passed": 9
+    },
+    "timeout": {
+      "n": 12,
+      "passed": 9
+    },
+    "transient_read": {
+      "n": 12,
+      "passed": 7
+    }
+  },
+  "paired_paraphrases": {
+    "both": 11,
+    "zh_only": 4,
+    "en_only": 9,
+    "neither": 0
+  },
+  "first_divergence": {
+    "repeated_action": 1,
+    "wrong_action": 12
+  },
+  "records": [
+    {
+      "task_id": "c78ca23fc7ad2bbb",
+      "source_id": "uci_forest",
+      "pair_family": 0,
+      "paraphrase_id": 0,
+      "fault_kind": "none",
+      "injection_applied": false,
+      "passed": true,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "expected": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [],
+      "first_divergence": null
+    },
+    {
+      "task_id": "c78ca23fc7ad2bbb",
+      "source_id": "uci_forest",
+      "pair_family": 0,
+      "paraphrase_id": 0,
+      "fault_kind": "transient_read",
+      "injection_applied": true,
+      "passed": false,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "deduplicate",
+        "deduplicate"
+      ],
+      "expected": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [
+        "FileNotFoundError"
+      ],
+      "first_divergence": "repeated_action"
+    },
+    {
+      "task_id": "c78ca23fc7ad2bbb",
+      "source_id": "uci_forest",
+      "pair_family": 0,
+      "paraphrase_id": 0,
+      "fault_kind": "timeout",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "expected": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "c78ca23fc7ad2bbb",
+      "source_id": "uci_forest",
+      "pair_family": 0,
+      "paraphrase_id": 0,
+      "fault_kind": "partial_write",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "expected": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "e0e66297095a2f7c",
+      "source_id": "uci_forest",
+      "pair_family": 0,
+      "paraphrase_id": 1,
+      "fault_kind": "none",
+      "injection_applied": false,
+      "passed": true,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "expected": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [],
+      "first_divergence": null
+    },
+    {
+      "task_id": "e0e66297095a2f7c",
+      "source_id": "uci_forest",
+      "pair_family": 0,
+      "paraphrase_id": 1,
+      "fault_kind": "transient_read",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "expected": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [
+        "FileNotFoundError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "e0e66297095a2f7c",
+      "source_id": "uci_forest",
+      "pair_family": 0,
+      "paraphrase_id": 1,
+      "fault_kind": "timeout",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "expected": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "e0e66297095a2f7c",
+      "source_id": "uci_forest",
+      "pair_family": 0,
+      "paraphrase_id": 1,
+      "fault_kind": "partial_write",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "expected": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "4d9c7723e85330f6",
+      "source_id": "uci_forest",
+      "pair_family": 1,
+      "paraphrase_id": 0,
+      "fault_kind": "none",
+      "injection_applied": false,
+      "passed": false,
+      "actions": [
+        "normalize_dates",
+        "count_categories",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [],
+      "first_divergence": "wrong_action"
+    },
+    {
+      "task_id": "4d9c7723e85330f6",
+      "source_id": "uci_forest",
+      "pair_family": 1,
+      "paraphrase_id": 0,
+      "fault_kind": "transient_read",
+      "injection_applied": true,
+      "passed": false,
+      "actions": [
+        "normalize_dates",
+        "normalize_dates",
+        "count_categories",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [
+        "FileNotFoundError"
+      ],
+      "first_divergence": "wrong_action"
+    },
+    {
+      "task_id": "4d9c7723e85330f6",
+      "source_id": "uci_forest",
+      "pair_family": 1,
+      "paraphrase_id": 0,
+      "fault_kind": "timeout",
+      "injection_applied": true,
+      "passed": false,
+      "actions": [
+        "normalize_dates",
+        "normalize_dates",
+        "count_categories",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": "wrong_action"
+    },
+    {
+      "task_id": "4d9c7723e85330f6",
+      "source_id": "uci_forest",
+      "pair_family": 1,
+      "paraphrase_id": 0,
+      "fault_kind": "partial_write",
+      "injection_applied": true,
+      "passed": false,
+      "actions": [
+        "normalize_dates",
+        "normalize_dates",
+        "count_categories",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": "wrong_action"
+    },
+    {
+      "task_id": "f76946bd2a146d1e",
+      "source_id": "uci_forest",
+      "pair_family": 1,
+      "paraphrase_id": 1,
+      "fault_kind": "none",
+      "injection_applied": false,
+      "passed": true,
+      "actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [],
+      "first_divergence": null
+    },
+    {
+      "task_id": "f76946bd2a146d1e",
+      "source_id": "uci_forest",
+      "pair_family": 1,
+      "paraphrase_id": 1,
+      "fault_kind": "transient_read",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [
+        "FileNotFoundError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "f76946bd2a146d1e",
+      "source_id": "uci_forest",
+      "pair_family": 1,
+      "paraphrase_id": 1,
+      "fault_kind": "timeout",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "f76946bd2a146d1e",
+      "source_id": "uci_forest",
+      "pair_family": 1,
+      "paraphrase_id": 1,
+      "fault_kind": "partial_write",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "26fb5986ae0b6487",
+      "source_id": "uci_forest",
+      "pair_family": 2,
+      "paraphrase_id": 0,
+      "fault_kind": "none",
+      "injection_applied": false,
+      "passed": true,
+      "actions": [
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [],
+      "first_divergence": null
+    },
+    {
+      "task_id": "26fb5986ae0b6487",
+      "source_id": "uci_forest",
+      "pair_family": 2,
+      "paraphrase_id": 0,
+      "fault_kind": "transient_read",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [
+        "FileNotFoundError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "26fb5986ae0b6487",
+      "source_id": "uci_forest",
+      "pair_family": 2,
+      "paraphrase_id": 0,
+      "fault_kind": "timeout",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "26fb5986ae0b6487",
+      "source_id": "uci_forest",
+      "pair_family": 2,
+      "paraphrase_id": 0,
+      "fault_kind": "partial_write",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "d4b96a2c987d581b",
+      "source_id": "uci_forest",
+      "pair_family": 2,
+      "paraphrase_id": 1,
+      "fault_kind": "none",
+      "injection_applied": false,
+      "passed": true,
+      "actions": [
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [],
+      "first_divergence": null
+    },
+    {
+      "task_id": "d4b96a2c987d581b",
+      "source_id": "uci_forest",
+      "pair_family": 2,
+      "paraphrase_id": 1,
+      "fault_kind": "transient_read",
+      "injection_applied": true,
+      "passed": false,
+      "actions": [
+        "clip_outliers",
+        "normalize_dates",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [
+        "FileNotFoundError"
+      ],
+      "first_divergence": "wrong_action"
+    },
+    {
+      "task_id": "d4b96a2c987d581b",
+      "source_id": "uci_forest",
+      "pair_family": 2,
+      "paraphrase_id": 1,
+      "fault_kind": "timeout",
+      "injection_applied": true,
+      "passed": false,
+      "actions": [
+        "clip_outliers",
+        "normalize_dates",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": "wrong_action"
+    },
+    {
+      "task_id": "d4b96a2c987d581b",
+      "source_id": "uci_forest",
+      "pair_family": 2,
+      "paraphrase_id": 1,
+      "fault_kind": "partial_write",
+      "injection_applied": true,
+      "passed": false,
+      "actions": [
+        "clip_outliers",
+        "normalize_dates",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": "wrong_action"
+    },
+    {
+      "task_id": "74bca69dc854002b",
+      "source_id": "uci_rice",
+      "pair_family": 0,
+      "paraphrase_id": 0,
+      "fault_kind": "none",
+      "injection_applied": false,
+      "passed": true,
+      "actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "expected": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [],
+      "first_divergence": null
+    },
+    {
+      "task_id": "74bca69dc854002b",
+      "source_id": "uci_rice",
+      "pair_family": 0,
+      "paraphrase_id": 0,
+      "fault_kind": "transient_read",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "expected": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [
+        "FileNotFoundError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "74bca69dc854002b",
+      "source_id": "uci_rice",
+      "pair_family": 0,
+      "paraphrase_id": 0,
+      "fault_kind": "timeout",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "expected": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "74bca69dc854002b",
+      "source_id": "uci_rice",
+      "pair_family": 0,
+      "paraphrase_id": 0,
+      "fault_kind": "partial_write",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "expected": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "eccbdb294c9467ba",
+      "source_id": "uci_rice",
+      "pair_family": 0,
+      "paraphrase_id": 1,
+      "fault_kind": "none",
+      "injection_applied": false,
+      "passed": true,
+      "actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "expected": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [],
+      "first_divergence": null
+    },
+    {
+      "task_id": "eccbdb294c9467ba",
+      "source_id": "uci_rice",
+      "pair_family": 0,
+      "paraphrase_id": 1,
+      "fault_kind": "transient_read",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "expected": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [
+        "FileNotFoundError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "eccbdb294c9467ba",
+      "source_id": "uci_rice",
+      "pair_family": 0,
+      "paraphrase_id": 1,
+      "fault_kind": "timeout",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "expected": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "eccbdb294c9467ba",
+      "source_id": "uci_rice",
+      "pair_family": 0,
+      "paraphrase_id": 1,
+      "fault_kind": "partial_write",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "expected": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "d52f7e8d70899804",
+      "source_id": "uci_rice",
+      "pair_family": 1,
+      "paraphrase_id": 0,
+      "fault_kind": "none",
+      "injection_applied": false,
+      "passed": false,
+      "actions": [
+        "normalize_categories",
+        "count_categories",
+        "deduplicate",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [],
+      "first_divergence": "wrong_action"
+    },
+    {
+      "task_id": "d52f7e8d70899804",
+      "source_id": "uci_rice",
+      "pair_family": 1,
+      "paraphrase_id": 0,
+      "fault_kind": "transient_read",
+      "injection_applied": true,
+      "passed": false,
+      "actions": [
+        "normalize_categories",
+        "count_categories",
+        "normalize_categories",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [
+        "FileNotFoundError"
+      ],
+      "first_divergence": "wrong_action"
+    },
+    {
+      "task_id": "d52f7e8d70899804",
+      "source_id": "uci_rice",
+      "pair_family": 1,
+      "paraphrase_id": 0,
+      "fault_kind": "timeout",
+      "injection_applied": true,
+      "passed": false,
+      "actions": [
+        "normalize_categories",
+        "count_categories",
+        "normalize_categories",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": "wrong_action"
+    },
+    {
+      "task_id": "d52f7e8d70899804",
+      "source_id": "uci_rice",
+      "pair_family": 1,
+      "paraphrase_id": 0,
+      "fault_kind": "partial_write",
+      "injection_applied": true,
+      "passed": false,
+      "actions": [
+        "normalize_categories",
+        "count_categories",
+        "normalize_categories",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": "wrong_action"
+    },
+    {
+      "task_id": "3cf6629ad3104b79",
+      "source_id": "uci_rice",
+      "pair_family": 1,
+      "paraphrase_id": 1,
+      "fault_kind": "none",
+      "injection_applied": false,
+      "passed": true,
+      "actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [],
+      "first_divergence": null
+    },
+    {
+      "task_id": "3cf6629ad3104b79",
+      "source_id": "uci_rice",
+      "pair_family": 1,
+      "paraphrase_id": 1,
+      "fault_kind": "transient_read",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [
+        "FileNotFoundError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "3cf6629ad3104b79",
+      "source_id": "uci_rice",
+      "pair_family": 1,
+      "paraphrase_id": 1,
+      "fault_kind": "timeout",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "3cf6629ad3104b79",
+      "source_id": "uci_rice",
+      "pair_family": 1,
+      "paraphrase_id": 1,
+      "fault_kind": "partial_write",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "expected": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "0c308007dbe09a5c",
+      "source_id": "uci_rice",
+      "pair_family": 2,
+      "paraphrase_id": 0,
+      "fault_kind": "none",
+      "injection_applied": false,
+      "passed": true,
+      "actions": [
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [],
+      "first_divergence": null
+    },
+    {
+      "task_id": "0c308007dbe09a5c",
+      "source_id": "uci_rice",
+      "pair_family": 2,
+      "paraphrase_id": 0,
+      "fault_kind": "transient_read",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [
+        "FileNotFoundError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "0c308007dbe09a5c",
+      "source_id": "uci_rice",
+      "pair_family": 2,
+      "paraphrase_id": 0,
+      "fault_kind": "timeout",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "0c308007dbe09a5c",
+      "source_id": "uci_rice",
+      "pair_family": 2,
+      "paraphrase_id": 0,
+      "fault_kind": "partial_write",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "a8c0c1b9a8c157fb",
+      "source_id": "uci_rice",
+      "pair_family": 2,
+      "paraphrase_id": 1,
+      "fault_kind": "none",
+      "injection_applied": false,
+      "passed": true,
+      "actions": [
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [],
+      "first_divergence": null
+    },
+    {
+      "task_id": "a8c0c1b9a8c157fb",
+      "source_id": "uci_rice",
+      "pair_family": 2,
+      "paraphrase_id": 1,
+      "fault_kind": "transient_read",
+      "injection_applied": true,
+      "passed": false,
+      "actions": [
+        "clip_outliers",
+        "deduplicate",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [
+        "FileNotFoundError"
+      ],
+      "first_divergence": "wrong_action"
+    },
+    {
+      "task_id": "a8c0c1b9a8c157fb",
+      "source_id": "uci_rice",
+      "pair_family": 2,
+      "paraphrase_id": 1,
+      "fault_kind": "timeout",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    },
+    {
+      "task_id": "a8c0c1b9a8c157fb",
+      "source_id": "uci_rice",
+      "pair_family": 2,
+      "paraphrase_id": 1,
+      "fault_kind": "partial_write",
+      "injection_applied": true,
+      "passed": true,
+      "actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "expected": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_failures": [
+        "TimeoutError"
+      ],
+      "first_divergence": null
+    }
+  ]
+}
