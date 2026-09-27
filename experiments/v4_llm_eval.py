@@ -56,6 +56,13 @@ def run(args):
     if not torch.cuda.is_available():
         raise RuntimeError('CUDA GPU required for this pilot')
     manifest = json.loads((Path(args.protocol) / 'manifest.json').read_text(encoding='utf-8'))
+    if manifest.get('frozen_model_weights_sha256') and (
+            digest(Path(args.model) / 'model.safetensors') != manifest['frozen_model_weights_sha256']):
+        raise ValueError('model weights differ from frozen protocol')
+    if manifest.get('frozen_adapter_weights_sha256') and (
+            not args.adapter or digest(Path(args.adapter) / 'adapter_model.safetensors') !=
+            manifest['frozen_adapter_weights_sha256']):
+        raise ValueError('adapter weights differ from frozen protocol')
     tasks = json.loads((Path(args.protocol) / 'tasks.json').read_text(encoding='utf-8'))
     dev = [x for x in tasks if x['split'] == 'dev']
     oracle = json.loads((Path(args.protocol) / 'dev_oracle.json').read_text(encoding='utf-8'))

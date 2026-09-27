@@ -32,6 +32,7 @@ def run(protocol, evaluation, out):
     by_id = {task['task_id']: task for task in tasks}
     oracle = json.loads((protocol / 'dev_oracle.json').read_text(encoding='utf-8'))
     result = json.loads(evaluation.read_text(encoding='utf-8'))
+    manifest = json.loads((protocol / 'manifest.json').read_text(encoding='utf-8'))
     protocol_hash = digest(protocol / 'manifest.json')
     if result['protocol_sha256'] != protocol_hash or not result['greedy']:
         raise ValueError('evaluation is not the frozen protocol/greedy mode')
@@ -83,6 +84,10 @@ def run(protocol, evaluation, out):
              'by_paraphrase': summary('paraphrase_id'), 'by_fault': summary('fault_kind'),
              'paired_paraphrases': {key: paired[key] for key in ('both', 'zh_only', 'en_only', 'neither')},
              'first_divergence': dict(sorted(errors.items())), 'records': rows}
+    for field, actual in [('frozen_model_weights_sha256', audit['model_weights_sha256']),
+                          ('frozen_adapter_weights_sha256', audit['adapter_weights_sha256'])]:
+        if manifest.get(field) and manifest[field] != actual:
+            raise ValueError(f'{field} mismatch')
     write_json(out, audit)
     return {key: value for key, value in audit.items() if key != 'records'}
 
