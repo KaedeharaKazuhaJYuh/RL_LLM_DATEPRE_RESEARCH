@@ -37,7 +37,7 @@ class NativeRollingTests(unittest.TestCase):
         task = next(t for t in tasks if t['pair_family'] == 0)
         original = os.environ.get('V5_ROLLING_BACKEND')
         try:
-            with tempfile.TemporaryDirectory(dir=ROOT / 'work') as scratch:
+            with tempfile.TemporaryDirectory() as scratch:
                 for backend in ('python', 'native'):
                     os.environ['V5_ROLLING_BACKEND'] = backend
                     env = SequenceEnv(task, oracle[task['task_id']], Path(scratch) / backend)
