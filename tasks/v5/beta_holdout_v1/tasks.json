@@ -1,0 +1,632 @@
+[
+  {
+    "schema_version": "v5-beta-holdout-1",
+    "task_id": "dccf7a957c55b3f8",
+    "source_id": "uci_banknote",
+    "split": "dev",
+    "pair_family": 0,
+    "paraphrase_id": 0,
+    "composition_novelty": "new_public_source_and_prompt",
+    "prompt": "检查重复行并只保留一份。然后依数据现有顺序，给出 entropy 每连续三行的平均值；完成后结束。",
+    "dataset": {
+      "uri": "tasks/v5/beta_holdout_v1/data/banknote.csv",
+      "columns": [
+        "variance",
+        "skewness",
+        "curtosis",
+        "entropy",
+        "class"
+      ],
+      "sha256": "3a54c5e3059a12b0043e23ef49d96788e7a35ff7dac947980ec90b18b99fb13f"
+    },
+    "params": {
+      "column": "variance",
+      "category_column": "class",
+      "date_column": "class",
+      "other_column": "entropy",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v5-beta-holdout-1",
+    "task_id": "a6b26d3bb6e91d0a",
+    "source_id": "uci_banknote",
+    "split": "dev",
+    "pair_family": 0,
+    "paraphrase_id": 1,
+    "composition_novelty": "new_public_source_and_prompt",
+    "prompt": "Keep one copy of each duplicate row. Next compute full three-row moving averages for entropy in the existing order, then finish.",
+    "dataset": {
+      "uri": "tasks/v5/beta_holdout_v1/data/banknote.csv",
+      "columns": [
+        "variance",
+        "skewness",
+        "curtosis",
+        "entropy",
+        "class"
+      ],
+      "sha256": "3a54c5e3059a12b0043e23ef49d96788e7a35ff7dac947980ec90b18b99fb13f"
+    },
+    "params": {
+      "column": "variance",
+      "category_column": "class",
+      "date_column": "class",
+      "other_column": "entropy",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v5-beta-holdout-1",
+    "task_id": "e126c66e2501c2aa",
+    "source_id": "uci_banknote",
+    "split": "dev",
+    "pair_family": 1,
+    "paraphrase_id": 0,
+    "composition_novelty": "new_public_source_and_prompt",
+    "prompt": "请先清理 class 的首尾空白并转成大写，再汇总清理后各类别出现的次数，然后结束。",
+    "dataset": {
+      "uri": "tasks/v5/beta_holdout_v1/data/banknote.csv",
+      "columns": [
+        "variance",
+        "skewness",
+        "curtosis",
+        "entropy",
+        "class"
+      ],
+      "sha256": "3a54c5e3059a12b0043e23ef49d96788e7a35ff7dac947980ec90b18b99fb13f"
+    },
+    "params": {
+      "column": "variance",
+      "category_column": "class",
+      "date_column": "class",
+      "other_column": "entropy",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v5-beta-holdout-1",
+    "task_id": "e6d9811edf0c33cd",
+    "source_id": "uci_banknote",
+    "split": "dev",
+    "pair_family": 1,
+    "paraphrase_id": 1,
+    "composition_novelty": "new_public_source_and_prompt",
+    "prompt": "First trim and uppercase entries in class; then tally the cleaned categories and finish.",
+    "dataset": {
+      "uri": "tasks/v5/beta_holdout_v1/data/banknote.csv",
+      "columns": [
+        "variance",
+        "skewness",
+        "curtosis",
+        "entropy",
+        "class"
+      ],
+      "sha256": "3a54c5e3059a12b0043e23ef49d96788e7a35ff7dac947980ec90b18b99fb13f"
+    },
+    "params": {
+      "column": "variance",
+      "category_column": "class",
+      "date_column": "class",
+      "other_column": "entropy",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v5-beta-holdout-1",
+    "task_id": "c90ccdcc1aa962b1",
+    "source_id": "uci_banknote",
+    "split": "dev",
+    "pair_family": 2,
+    "paraphrase_id": 0,
+    "composition_novelty": "new_public_source_and_prompt",
+    "prompt": "把 variance 中低于 0 的值设为 0、高于 100 的值设为 100 并保存，随后报告该列的数量、最小值、最大值与均值；完成后结束。",
+    "dataset": {
+      "uri": "tasks/v5/beta_holdout_v1/data/banknote.csv",
+      "columns": [
+        "variance",
+        "skewness",
+        "curtosis",
+        "entropy",
+        "class"
+      ],
+      "sha256": "3a54c5e3059a12b0043e23ef49d96788e7a35ff7dac947980ec90b18b99fb13f"
+    },
+    "params": {
+      "column": "variance",
+      "category_column": "class",
+      "date_column": "class",
+      "other_column": "entropy",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v5-beta-holdout-1",
+    "task_id": "17f525df028a6135",
+    "source_id": "uci_banknote",
+    "split": "dev",
+    "pair_family": 2,
+    "paraphrase_id": 1,
+    "composition_novelty": "new_public_source_and_prompt",
+    "prompt": "Save variance after bounding it to 0 through 100, then report its count, minimum, maximum and mean. Finish after that.",
+    "dataset": {
+      "uri": "tasks/v5/beta_holdout_v1/data/banknote.csv",
+      "columns": [
+        "variance",
+        "skewness",
+        "curtosis",
+        "entropy",
+        "class"
+      ],
+      "sha256": "3a54c5e3059a12b0043e23ef49d96788e7a35ff7dac947980ec90b18b99fb13f"
+    },
+    "params": {
+      "column": "variance",
+      "category_column": "class",
+      "date_column": "class",
+      "other_column": "entropy",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v5-beta-holdout-1",
+    "task_id": "eab9b875599f8273",
+    "source_id": "uci_occupancy",
+    "split": "dev",
+    "pair_family": 0,
+    "paraphrase_id": 0,
+    "composition_novelty": "new_public_source_and_prompt",
+    "prompt": "检查重复行并只保留一份。然后依数据现有顺序，给出 CO2 每连续三行的平均值；完成后结束。",
+    "dataset": {
+      "uri": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "columns": [
+        "id",
+        "date",
+        "Temperature",
+        "Humidity",
+        "Light",
+        "CO2",
+        "HumidityRatio",
+        "Occupancy"
+      ],
+      "sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0"
+    },
+    "params": {
+      "column": "Light",
+      "category_column": "Occupancy",
+      "date_column": "Occupancy",
+      "other_column": "CO2",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v5-beta-holdout-1",
+    "task_id": "fd1fb17060c2c9ed",
+    "source_id": "uci_occupancy",
+    "split": "dev",
+    "pair_family": 0,
+    "paraphrase_id": 1,
+    "composition_novelty": "new_public_source_and_prompt",
+    "prompt": "Keep one copy of each duplicate row. Next compute full three-row moving averages for CO2 in the existing order, then finish.",
+    "dataset": {
+      "uri": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "columns": [
+        "id",
+        "date",
+        "Temperature",
+        "Humidity",
+        "Light",
+        "CO2",
+        "HumidityRatio",
+        "Occupancy"
+      ],
+      "sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0"
+    },
+    "params": {
+      "column": "Light",
+      "category_column": "Occupancy",
+      "date_column": "Occupancy",
+      "other_column": "CO2",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v5-beta-holdout-1",
+    "task_id": "de60031f14d335dc",
+    "source_id": "uci_occupancy",
+    "split": "dev",
+    "pair_family": 1,
+    "paraphrase_id": 0,
+    "composition_novelty": "new_public_source_and_prompt",
+    "prompt": "请先清理 Occupancy 的首尾空白并转成大写，再汇总清理后各类别出现的次数，然后结束。",
+    "dataset": {
+      "uri": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "columns": [
+        "id",
+        "date",
+        "Temperature",
+        "Humidity",
+        "Light",
+        "CO2",
+        "HumidityRatio",
+        "Occupancy"
+      ],
+      "sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0"
+    },
+    "params": {
+      "column": "Light",
+      "category_column": "Occupancy",
+      "date_column": "Occupancy",
+      "other_column": "CO2",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v5-beta-holdout-1",
+    "task_id": "4e4f057e4e2dd00b",
+    "source_id": "uci_occupancy",
+    "split": "dev",
+    "pair_family": 1,
+    "paraphrase_id": 1,
+    "composition_novelty": "new_public_source_and_prompt",
+    "prompt": "First trim and uppercase entries in Occupancy; then tally the cleaned categories and finish.",
+    "dataset": {
+      "uri": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "columns": [
+        "id",
+        "date",
+        "Temperature",
+        "Humidity",
+        "Light",
+        "CO2",
+        "HumidityRatio",
+        "Occupancy"
+      ],
+      "sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0"
+    },
+    "params": {
+      "column": "Light",
+      "category_column": "Occupancy",
+      "date_column": "Occupancy",
+      "other_column": "CO2",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v5-beta-holdout-1",
+    "task_id": "e82b32a1820685a4",
+    "source_id": "uci_occupancy",
+    "split": "dev",
+    "pair_family": 2,
+    "paraphrase_id": 0,
+    "composition_novelty": "new_public_source_and_prompt",
+    "prompt": "把 Light 中低于 0 的值设为 0、高于 100 的值设为 100 并保存，随后报告该列的数量、最小值、最大值与均值；完成后结束。",
+    "dataset": {
+      "uri": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "columns": [
+        "id",
+        "date",
+        "Temperature",
+        "Humidity",
+        "Light",
+        "CO2",
+        "HumidityRatio",
+        "Occupancy"
+      ],
+      "sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0"
+    },
+    "params": {
+      "column": "Light",
+      "category_column": "Occupancy",
+      "date_column": "Occupancy",
+      "other_column": "CO2",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  },
+  {
+    "schema_version": "v5-beta-holdout-1",
+    "task_id": "379e049697ebe478",
+    "source_id": "uci_occupancy",
+    "split": "dev",
+    "pair_family": 2,
+    "paraphrase_id": 1,
+    "composition_novelty": "new_public_source_and_prompt",
+    "prompt": "Save Light after bounding it to 0 through 100, then report its count, minimum, maximum and mean. Finish after that.",
+    "dataset": {
+      "uri": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "columns": [
+        "id",
+        "date",
+        "Temperature",
+        "Humidity",
+        "Light",
+        "CO2",
+        "HumidityRatio",
+        "Occupancy"
+      ],
+      "sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0"
+    },
+    "params": {
+      "column": "Light",
+      "category_column": "Occupancy",
+      "date_column": "Occupancy",
+      "other_column": "CO2",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    }
+  }
+]

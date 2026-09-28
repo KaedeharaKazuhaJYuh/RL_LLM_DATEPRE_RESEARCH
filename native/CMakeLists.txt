@@ -11,5 +11,9 @@ target_link_libraries(rolling_mean_test PRIVATE rolling_mean)
 add_executable(rolling_mean_cli rolling_mean_cli.cpp)
 target_link_libraries(rolling_mean_cli PRIVATE rolling_mean)
 
+add_library(rolling_mean_ffi SHARED rolling_mean.cpp rolling_mean_c.cpp)
+target_compile_features(rolling_mean_ffi PUBLIC cxx_std_17)
+target_include_directories(rolling_mean_ffi PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
 enable_testing()
 add_test(NAME rolling_mean_test COMMAND rolling_mean_test)

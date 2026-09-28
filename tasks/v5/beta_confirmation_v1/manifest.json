@@ -1,0 +1,46 @@
+{
+  "version": "v5-beta-confirmation-1",
+  "synthetic": false,
+  "external_test": true,
+  "external_test_scope": "new data sources only; prompts/action pairs used in train curriculum",
+  "one_time_evaluation": true,
+  "train_task_count": 0,
+  "dev_task_count": 12,
+  "fault_conditions": [
+    "none",
+    "transient_read",
+    "timeout",
+    "partial_write"
+  ],
+  "sources": {
+    "drybean": {
+      "source_id": "uci_drybean",
+      "rows": 240,
+      "upstream_rows": 13611,
+      "selection": "240 evenly spaced source-order rows, index floor(i*N/240)",
+      "sha256": "6100f159e707fd5b4029bef5923c69061d188470cd76d43257412effb4890d9c",
+      "archive_sha256": "0a64eff5be87f48c3dbbfc0a12a56c5d5b5167ef8e61cd45d69b3e7c7130c06f",
+      "upstream_url": "https://archive.ics.uci.edu/static/public/602/dry+bean+dataset.zip",
+      "doi": "10.24432/C50S4B",
+      "citation": "Dry Bean (2020). UCI Machine Learning Repository.",
+      "license": "CC BY 4.0",
+      "personal_data_columns": []
+    },
+    "letter": {
+      "source_id": "uci_letter",
+      "rows": 240,
+      "upstream_rows": 20000,
+      "selection": "240 evenly spaced source-order rows, index floor(i*N/240)",
+      "sha256": "4e8b76f652c62b27573b94f834ad2d898d74cc0118d2b95e72d1eda6c37e9bf7",
+      "archive_sha256": "3b5f07a334697b6cace4fbae22940393a18fee596e73f68d97ce5973d52dc60f",
+      "upstream_url": "https://archive.ics.uci.edu/static/public/59/letter+recognition.zip",
+      "doi": "10.24432/C5ZP40",
+      "citation": "Slate, D. (1991). Letter Recognition. UCI Machine Learning Repository.",
+      "license": "CC BY 4.0",
+      "personal_data_columns": []
+    }
+  },
+  "tasks_sha256": "160f2fc538e2a34a280cbb8b61e718842bbcf53e2250cc7687ab529ca3a1c778",
+  "train_oracle_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+  "dev_oracle_sha256": "1bcc3262c8e2d19dae8af5c598ab86b476fe85af27c326926b06bed8d5ef1842"
+}

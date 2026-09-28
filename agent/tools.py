@@ -1,5 +1,5 @@
 """Parameterized operations: task IDs and private oracle are never used."""
-import math, statistics
+import math, os, statistics
 from collections import Counter,defaultdict
 from datetime import datetime
 from pathlib import Path
@@ -87,7 +87,13 @@ def execute_tool(name,args):
         w=p.get("window",3)
         if not isinstance(w,int) or w<1:raise ValueError("invalid window")
         v=[number(r[c]) for r in rows]
-        ans={"values":[statistics.mean(v[i-w+1:i+1]) for i in range(w-1,len(v))]}
+        backend=os.environ.get("V5_ROLLING_BACKEND","python")
+        if backend=="python":values=[statistics.mean(v[i-w+1:i+1]) for i in range(w-1,len(v))]
+        elif backend=="native":
+            from agent.native_rolling import rolling_mean
+            values=rolling_mean(v,w)
+        else:raise ValueError("invalid V5_ROLLING_BACKEND")
+        ans={"values":values}
     result={"answer":ans,"evidence":{"input_sha256":digest(resolve(args["uri"])),"rows_read":len(rows)}}
     if name in MUTATING:
         if not args.get("artifact_dir"):raise ValueError("artifact_dir required")

@@ -1,0 +1,30 @@
+{
+  "version": "v5-beta-two-step-curriculum-1",
+  "parent_manifest_sha256": "38e73c00a93b10c89fa2b0bfb380c93fb7e1ac8839a82a5a5e1be9f9593d214b",
+  "synthetic": true,
+  "external_test": false,
+  "train_sources": [
+    "v4hard_source_00",
+    "v4hard_source_01",
+    "v4hard_source_02",
+    "v4hard_source_03",
+    "v4hard_source_04",
+    "v4hard_source_05",
+    "v4hard_source_06",
+    "v4hard_source_07",
+    "v4hard_source_08",
+    "v4hard_source_09",
+    "v4hard_source_10",
+    "v4hard_source_11",
+    "v4hard_source_12",
+    "v4hard_source_13",
+    "v4hard_source_14",
+    "v4hard_source_15"
+  ],
+  "train_tasks": 96,
+  "dev_tasks": 0,
+  "train_only": true,
+  "tasks_sha256": "0708edcc2538f2dec522be0762417c65382dcd1efb026341eeb1bc4ac181f939",
+  "train_oracle_sha256": "b207b8f0fb4092d0e4b2184cb89e1b2a318715446d4a9f5ecfb84d133c6bd3d8",
+  "dev_oracle_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+}

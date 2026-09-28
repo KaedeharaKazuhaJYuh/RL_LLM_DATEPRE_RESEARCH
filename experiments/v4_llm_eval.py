@@ -26,14 +26,10 @@ def choose(model, tokenizer, task, observation, max_new_tokens, profile=None,
     message = [{'role': 'user', 'content': input_text(model_input(task, observation, allowed_actions))}]
     prompt = tokenizer.apply_chat_template(message, tokenize=True, add_generation_prompt=True,
                                            return_tensors='pt')['input_ids'].to(model.device)
-    if profile is not None:
-        torch.cuda.synchronize()
     with scope(profile, 'model_generate'):
         with torch.inference_mode():
             generated = model.generate(prompt, max_new_tokens=max_new_tokens, do_sample=False,
                                        pad_token_id=tokenizer.eos_token_id)
-        if profile is not None:
-            torch.cuda.synchronize()
     response = tokenizer.decode(generated[0, prompt.shape[1]:], skip_special_tokens=True).strip()
     try:
         choice, _ = parse_step(response, task['allowed_tools'] if allowed_actions is None
@@ -48,13 +44,15 @@ def run(args):
         raise FileExistsError('new output file required')
     if getattr(args, 'profile_out', None) and Path(args.profile_out).exists():
         raise FileExistsError('new profile file required')
-    profile = StageProfile() if getattr(args, 'profile_out', None) else None
     import torch
     from peft import PeftModel
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
     if not torch.cuda.is_available():
         raise RuntimeError('CUDA GPU required for this pilot')
+    profile = StageProfile(synchronize=torch.cuda.synchronize) if getattr(args, 'profile_out', None) else None
+    if profile is not None:
+        torch.cuda.reset_peak_memory_stats()
     manifest = json.loads((Path(args.protocol) / 'manifest.json').read_text(encoding='utf-8'))
     if manifest.get('frozen_model_weights_sha256') and (
             digest(Path(args.model) / 'model.safetensors') != manifest['frozen_model_weights_sha256']):
@@ -146,6 +144,7 @@ def run(args):
         profile.write(args.profile_out, operation='greedy_eval',
                       metadata={'protocol_sha256': summary['protocol_sha256'],
                                 'episodes': len(records), 'model': args.model,
+                                'peak_cuda_allocated_bytes': torch.cuda.max_memory_allocated(),
                                 'adapter': args.adapter})
     return {k: v for k, v in summary.items() if k != 'records'}
 

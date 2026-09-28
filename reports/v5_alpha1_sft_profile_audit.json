@@ -1,0 +1,126 @@
+{
+  "schema_version": "v5-profile-audit-1",
+  "operation": "sft_train",
+  "repetitions": 3,
+  "workload": {
+    "steps_sha256": "9470cf5cdbe088f7c1cc8aa0b5115ad4ebed15be990b26a0ee159484984073bf",
+    "max_steps": 2,
+    "model": "work/modelscope_deepseek_r1_1p5b",
+    "adapter_sha256": {
+      "adapter_model.safetensors": "79308e706a5fd39c9acc4e47844527896870307f207b777e8b8c2b74586b2d3f"
+    }
+  },
+  "wall_seconds": {
+    "n": 3,
+    "median": 10.87917529999686,
+    "p95_nearest_rank": 10.892157100010081,
+    "min": 10.017705499994918,
+    "max": 10.892157100010081
+  },
+  "stages_seconds": {
+    "adapter_save": {
+      "n": 3,
+      "median": 0.1511604000115767,
+      "p95_nearest_rank": 0.17336040000373032,
+      "min": 0.13906220000353642,
+      "max": 0.17336040000373032
+    },
+    "examples_tokenize": {
+      "n": 3,
+      "median": 0.6839227000018582,
+      "p95_nearest_rank": 0.8472232000058284,
+      "min": 0.550588099999004,
+      "max": 0.8472232000058284
+    },
+    "model_load": {
+      "n": 3,
+      "median": 2.772888099992997,
+      "p95_nearest_rank": 3.034318100006203,
+      "min": 2.6508548999991035,
+      "max": 3.034318100006203
+    },
+    "tokenizer_load": {
+      "n": 3,
+      "median": 0.2971048999897903,
+      "p95_nearest_rank": 0.36112420000426937,
+      "min": 0.2967124999995576,
+      "max": 0.36112420000426937
+    },
+    "train_forward_backward": {
+      "n": 3,
+      "median": 3.171274100022856,
+      "p95_nearest_rank": 3.268398399988655,
+      "min": 3.108847700015758,
+      "max": 3.268398399988655
+    },
+    "train_loop": {
+      "n": 3,
+      "median": 3.4855403999972623,
+      "p95_nearest_rank": 3.664216999997734,
+      "min": 3.425719699996989,
+      "max": 3.664216999997734
+    },
+    "trainer_setup": {
+      "n": 3,
+      "median": 0.7194225999992341,
+      "p95_nearest_rank": 0.7396599999919999,
+      "min": 0.6944329999969341,
+      "max": 0.7396599999919999
+    }
+  },
+  "peak_cuda_allocated_bytes": {
+    "n": 3,
+    "median": 4194734592,
+    "p95_nearest_rank": 4194734592,
+    "min": 4194734592,
+    "max": 4194734592
+  },
+  "nested_stages_must_not_be_summed": true,
+  "runs": [
+    {
+      "path": "work\\v5_alpha1_sft_r1_profile.json",
+      "sha256": "cdd8d0a5fdf57a8bb5f585452c8b061386c29007df29561355fa683dcadab5ca",
+      "wall_seconds": 10.87917529999686,
+      "peak_cuda_allocated_bytes": 4194734592,
+      "stage_calls": {
+        "adapter_save": 1,
+        "examples_tokenize": 1,
+        "model_load": 1,
+        "tokenizer_load": 1,
+        "train_forward_backward": 8,
+        "train_loop": 1,
+        "trainer_setup": 1
+      }
+    },
+    {
+      "path": "work\\v5_alpha1_sft_r2_profile.json",
+      "sha256": "d5b640a293b2d486a883ef3d2bbf5c6de2449a33197e30d162419c69df07b6a2",
+      "wall_seconds": 10.017705499994918,
+      "peak_cuda_allocated_bytes": 4194734592,
+      "stage_calls": {
+        "adapter_save": 1,
+        "examples_tokenize": 1,
+        "model_load": 1,
+        "tokenizer_load": 1,
+        "train_forward_backward": 8,
+        "train_loop": 1,
+        "trainer_setup": 1
+      }
+    },
+    {
+      "path": "work\\v5_alpha1_sft_r3_profile.json",
+      "sha256": "739017708976ff57a3151c6391974359a445ddf2f6e6e08620bc5631051231d1",
+      "wall_seconds": 10.892157100010081,
+      "peak_cuda_allocated_bytes": 4194734592,
+      "stage_calls": {
+        "adapter_save": 1,
+        "examples_tokenize": 1,
+        "model_load": 1,
+        "tokenizer_load": 1,
+        "train_forward_backward": 8,
+        "train_loop": 1,
+        "trainer_setup": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "version": "v5-beta-holdout-1",
+  "synthetic": false,
+  "external_test": true,
+  "external_test_scope": "new data sources and prompt paraphrases; action pairs reused",
+  "one_time_evaluation": true,
+  "train_task_count": 0,
+  "dev_task_count": 12,
+  "fault_conditions": [
+    "none",
+    "transient_read",
+    "timeout",
+    "partial_write"
+  ],
+  "planned_primary_metric": "paired terminal success over 48 executions, RL vs SFT",
+  "planned_secondary_metric": "paired terminal success over 12 clean executions",
+  "sources": {
+    "banknote": {
+      "source_id": "uci_banknote",
+      "rows": 240,
+      "upstream_rows": 1372,
+      "selection": "240 evenly spaced source-order rows, index floor(i*N/240)",
+      "sha256": "3a54c5e3059a12b0043e23ef49d96788e7a35ff7dac947980ec90b18b99fb13f",
+      "archive_sha256": "1e2acd9a2085fadf3d8145c12d3d22af853320d52294a6590c2eaf75fdc05227",
+      "upstream_url": "https://archive.ics.uci.edu/static/public/267/banknote+authentication.zip",
+      "doi": "10.24432/C55P57",
+      "citation": "Lohweg, V. (2012). Banknote Authentication. UCI Machine Learning Repository.",
+      "license": "CC BY 4.0",
+      "personal_data_columns": []
+    },
+    "occupancy": {
+      "source_id": "uci_occupancy",
+      "rows": 240,
+      "upstream_rows": 2665,
+      "selection": "240 evenly spaced source-order rows, index floor(i*N/240)",
+      "sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "archive_sha256": "4ae3f46aa98eedff564a9f6924d1635173e2fd2c816004342a9be93076d3a81a",
+      "upstream_url": "https://archive.ics.uci.edu/static/public/357/occupancy+detection.zip",
+      "doi": "10.24432/C5X01N",
+      "citation": "Candanedo, L. (2016). Occupancy Detection. UCI Machine Learning Repository.",
+      "license": "CC BY 4.0",
+      "personal_data_columns": []
+    }
+  },
+  "tasks_sha256": "f27799c695d6614ae65d4ff50b88924018bb6bbbc131489bd86a718e361de0ed",
+  "train_oracle_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+  "dev_oracle_sha256": "93a84bd325a91dec424ea238aa87683a3fff45e2b4c3506c49e1b75d77f32d4b"
+}

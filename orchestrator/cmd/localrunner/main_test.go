@@ -29,3 +29,16 @@ func TestRunRefusesExistingOutputBeforeStartingPython(t *testing.T) {
 		t.Fatal("existing output was overwritten")
 	}
 }
+
+func TestNPUEntrypointRequiresNPUResource(t *testing.T) {
+	s := spec{SchemaVersion: "v4-local-experiment-1", ExperimentID: "npu-test",
+		Entrypoint: "v4_eval_npu", Protocol: "tasks/v4/llm_pilot_v1",
+		Resource: "npu", Model: "quantized-model"}
+	if err := validate(s); err != nil {
+		t.Fatal(err)
+	}
+	s.Resource = "gpu"
+	if err := validate(s); err == nil {
+		t.Fatal("NPU entrypoint accepted GPU resource")
+	}
+}

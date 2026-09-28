@@ -16,6 +16,7 @@ from agent.llm import parse_step
 from experiments.v4_llm_export import input_text, model_input
 from research.io import ROOT, digest, write_json
 from research.v4_sequence_env import SequenceEnv
+from research.stage_profile import StageProfile, scope
 
 
 def select_train_tasks(tasks, limit, seed):
@@ -144,8 +145,8 @@ def completion_logprobs(model, prompt_ids, completion_ids):
     return logp[:, start:]
 
 
-def rollout(model, tokenizer, task, gold, scratch, fault, args):
-    env = SequenceEnv(task, gold, scratch, fault=fault)
+def rollout(model, tokenizer, task, gold, scratch, fault, args, profile=None):
+    env = SequenceEnv(task, gold, scratch, fault=fault, profile=profile)
     actions = []
     while not env.done:
         observation = env.observation()
@@ -168,31 +169,39 @@ def run(args):
     started = time.perf_counter()
     if Path(args.out).exists():
         raise FileExistsError('new output directory required')
+    profile_out = getattr(args, 'profile_out', None)
+    if profile_out and Path(profile_out).exists():
+        raise FileExistsError('new profile output file required')
     if not torch.cuda.is_available():
         raise RuntimeError('CUDA GPU required for this pilot')
+    profile = StageProfile(synchronize=torch.cuda.synchronize) if profile_out else None
+    if profile is not None:
+        torch.cuda.reset_peak_memory_stats()
     from peft import PeftModel
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
     random.seed(args.seed)
     torch.manual_seed(args.seed)
-    tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=False)
-    if tokenizer.pad_token is None:
-        tokenizer.pad_token = tokenizer.eos_token
-    if not args.adapter:
-        raise ValueError('--adapter is required so the pilot starts from SFT/DPO')
-    policy = PeftModel.from_pretrained(
-        AutoModelForCausalLM.from_pretrained(args.model, dtype=torch.bfloat16,
-                                             trust_remote_code=False).cuda(),
-        args.adapter, is_trainable=True)
-    # Keep a frozen copy of the starting SFT/DPO adapter on the shared base model.
-    policy.load_adapter(args.adapter, adapter_name='reference', is_trainable=False)
-    # Keep the policy in eval mode so rollout, old-policy, reference, and update
-    # log probabilities use the same deterministic network (sampling remains
-    # stochastic through generate(do_sample=True)). Gradients still flow.
-    policy.eval()
-    optimizer = torch.optim.AdamW((p for p in policy.parameters() if p.requires_grad), lr=args.learning_rate)
-    all_tasks = json.loads((Path(args.protocol) / 'tasks.json').read_text(encoding='utf-8'))
-    oracle = json.loads((Path(args.protocol) / 'train_oracle.json').read_text(encoding='utf-8'))
+    with scope(profile, 'model_load'):
+        tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=False)
+        if tokenizer.pad_token is None:
+            tokenizer.pad_token = tokenizer.eos_token
+        if not args.adapter:
+            raise ValueError('--adapter is required so the pilot starts from SFT/DPO')
+        policy = PeftModel.from_pretrained(
+            AutoModelForCausalLM.from_pretrained(args.model, dtype=torch.bfloat16,
+                                                 trust_remote_code=False).cuda(),
+            args.adapter, is_trainable=True)
+        # Keep a frozen copy of the starting SFT/DPO adapter on the shared base model.
+        policy.load_adapter(args.adapter, adapter_name='reference', is_trainable=False)
+        # Keep the policy in eval mode so rollout, old-policy, reference, and update
+        # log probabilities use the same deterministic network (sampling remains
+        # stochastic through generate(do_sample=True)). Gradients still flow.
+        policy.eval()
+        optimizer = torch.optim.AdamW((p for p in policy.parameters() if p.requires_grad), lr=args.learning_rate)
+    with scope(profile, 'task_load'):
+        all_tasks = json.loads((Path(args.protocol) / 'tasks.json').read_text(encoding='utf-8'))
+        oracle = json.loads((Path(args.protocol) / 'train_oracle.json').read_text(encoding='utf-8'))
     scan_sha256 = None
     schedule = None
     if args.sampling_mode != 'legacy':
@@ -234,9 +243,10 @@ def run(args):
                 for member in range(args.group_size):
                     episode_folder = (Path(scratch) /
                                       f'update_{update}_task_{task["task_id"]}_fault_{int(fault)}_member_{member}')
-                    reward, trajectory, score = rollout(policy, tokenizer, task,
-                                                        oracle[task['task_id']], episode_folder,
-                                                        fault=fault, args=args)
+                    with scope(profile, 'rollout'):
+                        reward, trajectory, score = rollout(policy, tokenizer, task,
+                                                            oracle[task['task_id']], episode_folder,
+                                                            fault=fault, args=args, profile=profile)
                     if args.reward_mode == 'outcome':
                         reward = float(score.get('passed', False))
                     group.append((reward, trajectory, score))
@@ -281,7 +291,7 @@ def run(args):
                 updated_groups += 1
                 # Snapshot behavior-policy and reference token log probabilities before update.
                 behavior = []
-                with torch.no_grad():
+                with torch.no_grad(), scope(profile, 'behavior_reference_forward'):
                     policy.set_adapter('default')
                     policy.eval()
                     for _, trajectory, _ in group:
@@ -305,23 +315,25 @@ def run(args):
                     clip_count, token_count, kl_total = 0, 0, 0.0
                     for advantage, (_, trajectory, _), old_steps in zip(advantages, group, behavior):
                         for step, (old_lp, ref_lp) in zip(trajectory, old_steps):
-                            new_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
-                            ratio = torch.exp((new_lp - old_lp).clamp(-20, 20))
-                            clipped = ratio.clamp(1.0 - args.clip_range, 1.0 + args.clip_range)
-                            adv = advantage.to('cuda')
-                            step_objective = -torch.minimum(ratio * adv, clipped * adv).mean()
-                            # Non-negative sampled KL estimator, clipped against numerical overflow.
-                            ref_diff = (ref_lp - new_lp).clamp(-20, 20)
-                            kl = torch.exp(ref_diff) - ref_diff - 1.0
-                            step_objective = step_objective + args.kl_beta * kl.mean()
-                            objective_value += float(step_objective.detach().cpu()) / step_count
-                            (step_objective / step_count).backward()
-                            clip_count += int(((ratio < 1 - args.clip_range) |
-                                               (ratio > 1 + args.clip_range)).sum().item())
-                            token_count += ratio.numel()
-                            kl_total += float(kl.detach().sum().cpu())
+                            with scope(profile, 'update_forward_backward'):
+                                new_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
+                                ratio = torch.exp((new_lp - old_lp).clamp(-20, 20))
+                                clipped = ratio.clamp(1.0 - args.clip_range, 1.0 + args.clip_range)
+                                adv = advantage.to('cuda')
+                                step_objective = -torch.minimum(ratio * adv, clipped * adv).mean()
+                                # Non-negative sampled KL estimator, clipped against numerical overflow.
+                                ref_diff = (ref_lp - new_lp).clamp(-20, 20)
+                                kl = torch.exp(ref_diff) - ref_diff - 1.0
+                                step_objective = step_objective + args.kl_beta * kl.mean()
+                                objective_value += float(step_objective.detach().cpu()) / step_count
+                                (step_objective / step_count).backward()
+                                clip_count += int(((ratio < 1 - args.clip_range) |
+                                                   (ratio > 1 + args.clip_range)).sum().item())
+                                token_count += ratio.numel()
+                                kl_total += float(kl.detach().sum().cpu())
                     torch.nn.utils.clip_grad_norm_(policy.parameters(), 1.0)
-                    optimizer.step()
+                    with scope(profile, 'optimizer_step'):
+                        optimizer.step()
                     losses.append(objective_value)
                     clip_fractions.append(clip_count / max(1, token_count))
                     ref_kls.append(kl_total / max(1, token_count))
@@ -331,8 +343,9 @@ def run(args):
     out = Path(args.out)
     out.mkdir(parents=True)
     adapter = out / 'adapter'
-    policy.save_pretrained(adapter)
-    tokenizer.save_pretrained(adapter)
+    with scope(profile, 'adapter_save'):
+        policy.save_pretrained(adapter)
+        tokenizer.save_pretrained(adapter)
     if schedule:
         tasks = list(dict((row['task_id'],
                            next(task for task in all_tasks if task['task_id'] == row['task_id']))
@@ -369,6 +382,13 @@ def run(args):
                'adapter_sha256': {p.name: digest(p) for p in adapter.glob('*.safetensors')},
                'external_test': False, 'records': records}
     write_json(out / 'summary.json', summary)
+    if profile is not None:
+        profile.write(profile_out, operation='grpo_train',
+                      metadata={'protocol_sha256': summary['protocol_sha256'],
+                                'adapter_init': args.adapter, 'episodes': summary['episodes'],
+                                'updated_groups': updated_groups,
+                                'peak_cuda_allocated_bytes': torch.cuda.max_memory_allocated(),
+                                'adapter_sha256': summary['adapter_sha256']})
     return {k: v for k, v in summary.items() if k != 'records'}
 
 
@@ -395,5 +415,6 @@ if __name__ == '__main__':
                         default='legacy')
     parser.add_argument('--episode-budget', type=int, default=32)
     parser.add_argument('--reward-mode', choices=('shaped', 'outcome'), default='shaped')
+    parser.add_argument('--profile-out', help='write synchronized stage timings to a new JSON file')
     args = parser.parse_args()
     print(json.dumps(run(args), ensure_ascii=False, indent=2))
