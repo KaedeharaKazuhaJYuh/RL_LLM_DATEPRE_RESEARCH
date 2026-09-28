@@ -135,3 +135,9 @@ Independent functional verifier; real CSV mutations; task-aware LinUCB with froz
 - 建立 50 个数据分析任务、任务 schema、参考输出和基础验证规则。
 - 实现 Rule Router、LinUCB Bandit、LLM 适配器、数据工具和实验运行器。
 - 接入 DeepSeek 的 OpenAI-compatible API 调用方式。
+# V5.0.0-alpha.2 — 2026-09-28
+
+- 将 C++17 滚动均值编译成共享库，以 `V5_ROLLING_BACKEND=native` 和 `V5_ROLLING_LIB` 显式接入 Python 工具；新增逐项差分、真实 CSV 验证任务和三次重复的内核、工具及完整 episode 计时。
+- 增加 Go 单机持久协调器与工作进程：任务去重、CPU/GPU/NPU 独占、心跳租约、取消进程树、失联设备隔离、确认清理后重试、旧尝试令牌拒绝和结果幂等提交。Windows 改用 Job Object 管理工作进程及子进程。
+- 支持 Go 本地运行器调用既有 NPU 冻结评测入口；协调器仅绑定回环地址，状态文件采用操作系统独占锁并在异常退出后可重新打开。
+- 本版仅优化系统执行路径，没有重训 DeepSeek 或宣称新的 RL 模型效果；完整结果与边界见 `reports/V5_ALPHA_2.md`。

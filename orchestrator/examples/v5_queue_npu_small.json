@@ -1,0 +1,15 @@
+{
+  "id": "v5_npu_example",
+  "submission_key": "v5_npu_example",
+  "resource": "npu",
+  "device_id": "intel0",
+  "spec": {
+    "schema_version": "v4-local-experiment-1",
+    "experiment_id": "v5_npu_example",
+    "entrypoint": "v4_eval_npu",
+    "protocol": "tasks/v4/llm_pilot_v1",
+    "resource": "npu",
+    "model": "work/modelscope_deepseek_r1_1p5b_dpo_merged_ov_int4_ratio08",
+    "limit": 1
+  }
+}

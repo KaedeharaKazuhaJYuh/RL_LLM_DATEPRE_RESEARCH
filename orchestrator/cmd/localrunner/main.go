@@ -63,6 +63,10 @@ func validate(s spec) error {
 		if s.Resource != "gpu" || s.Model == "" || s.ExpectedStepsSHA256 != "" {
 			return errors.New("v4_eval requires gpu and model")
 		}
+	case "v4_eval_npu":
+		if s.Resource != "npu" || s.Model == "" || s.ExpectedStepsSHA256 != "" {
+			return errors.New("v4_eval_npu requires npu and model")
+		}
 	default:
 		return errors.New("entrypoint is not allowlisted")
 	}
@@ -145,7 +149,7 @@ func run(s spec, python, repo, runDir string) (r result, err error) {
 		return r, err
 	}
 	r.Hashes["protocol_manifest_sha256"] = protocolHash
-	if s.Entrypoint == "v4_eval" {
+	if s.Entrypoint == "v4_eval" || s.Entrypoint == "v4_eval_npu" {
 		for _, item := range []struct{ label, root, name string }{
 			{"model_weights_sha256", s.Model, "model.safetensors"},
 			{"adapter_weights_sha256", s.Adapter, "adapter_model.safetensors"},
@@ -172,9 +176,17 @@ func run(s spec, python, repo, runDir string) (r result, err error) {
 			"--profile-out", profile}
 	} else {
 		module = "experiments.v4_llm_eval"
+		if s.Entrypoint == "v4_eval_npu" {
+			module = "experiments.v4_llm_eval_npu"
+		}
 		output = filepath.Join(runDir, "result.json")
 		args = []string{"-m", module, "--protocol", protocol, "--model", s.Model,
-			"--out", output, "--profile-out", profile}
+			"--out", output}
+		if s.Entrypoint == "v4_eval" {
+			args = append(args, "--profile-out", profile)
+		} else {
+			args = append(args, "--device", "NPU")
+		}
 		if s.Adapter != "" {
 			args = append(args, "--adapter", s.Adapter)
 		}
@@ -204,7 +216,10 @@ func run(s spec, python, repo, runDir string) (r result, err error) {
 	if closeErr != nil {
 		return r, closeErr
 	}
-	paths := map[string]string{"profile_sha256": profile}
+	paths := map[string]string{}
+	if s.Entrypoint != "v4_eval_npu" {
+		paths["profile_sha256"] = profile
+	}
 	if s.Entrypoint == "v4_export" {
 		paths["summary_sha256"] = filepath.Join(output, "summary.json")
 		paths["train_steps_sha256"] = filepath.Join(output, "train_steps.jsonl")
@@ -242,11 +257,14 @@ func run(s spec, python, repo, runDir string) (r result, err error) {
 			ProtocolSHA256 string `json:"protocol_sha256"`
 			Episodes       int    `json:"episodes"`
 			Greedy         bool   `json:"greedy"`
+			Device         string `json:"device"`
 		}
 		if err := json.Unmarshal(b, &summary); err != nil {
 			return r, err
 		}
-		if summary.Episodes < 1 || !summary.Greedy || summary.ProtocolSHA256 != protocolHash {
+		if summary.Episodes < 1 || summary.ProtocolSHA256 != protocolHash ||
+			(s.Entrypoint == "v4_eval" && !summary.Greedy) ||
+			(s.Entrypoint == "v4_eval_npu" && summary.Device != "NPU") {
 			return r, errors.New("evaluation summary does not match protocol")
 		}
 	}

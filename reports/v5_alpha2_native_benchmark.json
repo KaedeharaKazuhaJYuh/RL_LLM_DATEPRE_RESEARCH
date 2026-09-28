@@ -1,0 +1,135 @@
+{
+  "schema_version": "v5-native-benchmark-1",
+  "library_sha256": "cf45e165884b7afdff96fee478d850659e2ce724f54daefab62af55ace8aab65",
+  "repetitions": 3,
+  "rows": [
+    {
+      "size": 1000,
+      "stage": "numeric_kernel_with_python_boundary",
+      "python": {
+        "median_seconds": 0.006591600002138875,
+        "min_seconds": 0.006108799992944114,
+        "max_seconds": 0.00835779999033548,
+        "repetitions": 3
+      },
+      "native": {
+        "median_seconds": 0.0007124000112526119,
+        "min_seconds": 0.0005132000078447163,
+        "max_seconds": 0.0011603000020841137,
+        "repetitions": 3
+      },
+      "max_absolute_difference": 3.730349362740526e-14,
+      "native_speedup": 9.25266689784139
+    },
+    {
+      "size": 100000,
+      "stage": "numeric_kernel_with_python_boundary",
+      "python": {
+        "median_seconds": 0.6271198999893386,
+        "min_seconds": 0.555248800010304,
+        "max_seconds": 0.6427086000039708,
+        "repetitions": 3
+      },
+      "native": {
+        "median_seconds": 0.01382930000545457,
+        "min_seconds": 0.01194979999854695,
+        "max_seconds": 0.01492109999526292,
+        "repetitions": 3
+      },
+      "max_absolute_difference": 3.664624159682717e-12,
+      "native_speedup": 45.347190366973685
+    },
+    {
+      "size": 1000000,
+      "stage": "numeric_kernel_with_python_boundary",
+      "python": {
+        "median_seconds": 6.321553200003109,
+        "min_seconds": 6.286967299995013,
+        "max_seconds": 6.425350899997284,
+        "repetitions": 3
+      },
+      "native": {
+        "median_seconds": 0.17337469999620225,
+        "min_seconds": 0.16683700001158286,
+        "max_seconds": 0.1867976999928942,
+        "repetitions": 3
+      },
+      "max_absolute_difference": 3.6626701671593764e-11,
+      "native_speedup": 36.46179748337896
+    },
+    {
+      "size": 1000,
+      "stage": "complete_csv_tool_call",
+      "input_sha256": "0041073494fa5150afe5b9c76e8c90085bd3ceee9aa4888e024089959e3ae76f",
+      "python": {
+        "median_seconds": 0.011218100000405684,
+        "min_seconds": 0.00789170000643935,
+        "max_seconds": 0.023573000013129786,
+        "repetitions": 3
+      },
+      "native": {
+        "median_seconds": 0.0019810999947367236,
+        "min_seconds": 0.0019499000045470893,
+        "max_seconds": 0.00212239999382291,
+        "repetitions": 3
+      },
+      "max_absolute_difference": 3.730349362740526e-14,
+      "native_speedup": 5.66256121862062
+    },
+    {
+      "size": 100000,
+      "stage": "complete_csv_tool_call",
+      "input_sha256": "b7cafda7581c796dec9d782fc67056814de83660b0fbde2c7ba3e45e6a932f80",
+      "python": {
+        "median_seconds": 0.819731600000523,
+        "min_seconds": 0.7193976999988081,
+        "max_seconds": 0.8965064000076381,
+        "repetitions": 3
+      },
+      "native": {
+        "median_seconds": 0.15668189999996684,
+        "min_seconds": 0.13732989999698475,
+        "max_seconds": 0.16667710000183433,
+        "repetitions": 3
+      },
+      "max_absolute_difference": 3.664624159682717e-12,
+      "native_speedup": 5.231820650634799
+    },
+    {
+      "size": 100000,
+      "stage": "inprocess_verified_episode",
+      "input_sha256": "b7cafda7581c796dec9d782fc67056814de83660b0fbde2c7ba3e45e6a932f80",
+      "python": {
+        "median_seconds": 1.8090080999972997,
+        "min_seconds": 1.760700500002713,
+        "max_seconds": 2.22658699999738,
+        "repetitions": 3
+      },
+      "native": {
+        "median_seconds": 1.2076911000040127,
+        "min_seconds": 1.1615313999936916,
+        "max_seconds": 1.223181499997736,
+        "repetitions": 3
+      },
+      "native_speedup": 1.4979062940774253
+    },
+    {
+      "size": 10000,
+      "stage": "isolated_verified_episode",
+      "input_sha256": "52670c3ef9a7f0a69c9fadbd3cce175fe711b3b0cecdc79c9694f67270246652",
+      "python": {
+        "median_seconds": 0.5699336999969091,
+        "min_seconds": 0.45980060000147205,
+        "max_seconds": 0.6398928999988129,
+        "repetitions": 3
+      },
+      "native": {
+        "median_seconds": 0.4241646000009496,
+        "min_seconds": 0.3849521999945864,
+        "max_seconds": 0.5171598000015365,
+        "repetitions": 3
+      },
+      "native_speedup": 1.3436616351190864
+    }
+  ]
+}
