@@ -1,6 +1,7 @@
 """Frozen paired audit for the second V5 beta source holdout."""
 import argparse
 import json
+import random
 from collections import defaultdict
 from pathlib import Path
 
@@ -27,6 +28,7 @@ def run(work, out):
         raise ValueError('train curriculum changed')
     train_ids = {task['task_id'] for task in read(curriculum / 'tasks.json')}
     results = []
+    paired_records = []
     gains = losses = clean_sft = clean_rl = 0
     slices = defaultdict(lambda: {'n': 0, 'sft': 0, 'rl': 0, 'gain': 0, 'loss': 0})
     for seed, expected_sft_sha in zip(SEEDS, SFT_SHA):
@@ -69,6 +71,13 @@ def run(work, out):
             if fault == 'none':
                 seed_clean_sft += a
                 seed_clean_rl += b
+            paired_records.append({'seed': seed, 'task_id': task_id,
+                                   'source_id': task['source_id'],
+                                   'pair_family': task['pair_family'],
+                                   'paraphrase_id': task['paraphrase_id'],
+                                   'fault_kind': fault, 'sft_passed': a, 'rl_passed': b,
+                                   'sft_actions': [step['action'] for step in before['steps']],
+                                   'rl_actions': [step['action'] for step in after['steps']]})
             for name in (f'source:{task["source_id"]}', f'language:{task["paraphrase_id"]}',
                          f'family:{task["pair_family"]}', f'fault:{fault}'):
                 row = slices[name]
@@ -92,13 +101,22 @@ def run(work, out):
                         'rl_eval_sha256': digest(pair[1][0])})
     criterion = (gains > losses and sum(r['net'] > 0 for r in results) >= 2 and
                  min(r['net'] for r in results) >= -2 and clean_rl >= clean_sft)
+    # Exploratory uncertainty only: resample 12 tasks, preserving their seeds/faults.
+    task_nets = defaultdict(int)
+    for row in paired_records:
+        task_nets[row['task_id']] += int(row['rl_passed']) - int(row['sft_passed'])
+    rng = random.Random(20260928)
+    values = [task_nets[key] for key in sorted(task_nets)]
+    resamples = sorted(sum(rng.choices(values, k=len(values))) for _ in range(20000))
     output = {'schema_version': 'v5-beta1-confirmation-audit-1',
               'protocol_sha256': PROTOCOL_SHA, 'train_protocol_sha256': TRAIN_SHA,
               'base_sha256': BASE_SHA, 'seeds': results,
               'paired_gains': gains, 'paired_losses': losses, 'net': gains - losses,
               'clean_sft': clean_sft, 'clean_rl': clean_rl,
               'preregistered_initial_improvement_criterion_met': criterion,
-              'slices': dict(sorted(slices.items()))}
+              'exploratory_task_bootstrap_net_95pct': [resamples[499], resamples[19499]],
+              'slices': dict(sorted(slices.items())),
+              'paired_records': paired_records}
     write_json(out, output)
     return output
 

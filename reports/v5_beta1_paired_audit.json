@@ -1,0 +1,141 @@
+{
+  "schema_version": "v5-beta1-paired-audit-1",
+  "protocol_sha256": "6387bc6780dc6b5b594e5e8fa4709da9a343b6e786270e87ea56a00bb6ba994c",
+  "base_sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945",
+  "seeds": [
+    {
+      "seed": 20260921,
+      "sft_passed": 3,
+      "rl_passed": 4,
+      "gain": 1,
+      "loss": 0,
+      "net": 1,
+      "clean_sft": 3,
+      "clean_rl": 3,
+      "updated_groups": 6,
+      "training_episodes": 64,
+      "sft_adapter_sha256": "867a6c91b74a1c4a8b233de6511977e7876008c17ace9df8bab12a877696c9ff",
+      "rl_adapter_sha256": "2dbea5d2dfb91e92fb894e93f6f33892dc090b0e973310b9c45328f8ee0694e6",
+      "sft_eval_sha256": "65fe0ba429aa1ed0f33c1d41f4124f45c437b4c6ce42acc8c11804bfb5fb04f9",
+      "rl_eval_sha256": "f4216a6ba2216b2e63619eda33fa51e147100d5ed9b15da6cfd4645e374587ff"
+    },
+    {
+      "seed": 20260922,
+      "sft_passed": 4,
+      "rl_passed": 4,
+      "gain": 0,
+      "loss": 0,
+      "net": 0,
+      "clean_sft": 2,
+      "clean_rl": 2,
+      "updated_groups": 1,
+      "training_episodes": 64,
+      "sft_adapter_sha256": "268cc2423789691eec5bc73bd62c78a480c425ab1edb3f74efaab81b16c2ca3a",
+      "rl_adapter_sha256": "74db0871e2d3773468a9fdf34293b58ddb95d449a8e9ae7eded80980b553a5bd",
+      "sft_eval_sha256": "15b4ade01bc8158a8d12d42ab11024edd9894c6a7e9470da052049e3b7b49562",
+      "rl_eval_sha256": "a8868cdc6728f4367be81023c27f8947f6acc1efbef75289314bc453b8540b15"
+    },
+    {
+      "seed": 20260923,
+      "sft_passed": 5,
+      "rl_passed": 3,
+      "gain": 0,
+      "loss": 2,
+      "net": -2,
+      "clean_sft": 3,
+      "clean_rl": 3,
+      "updated_groups": 8,
+      "training_episodes": 64,
+      "sft_adapter_sha256": "6c402eafee2cf01cf6c2addae89e765e9cbc05f938356c0cae16e963a921a993",
+      "rl_adapter_sha256": "982fdca290c278f1fa214e55efd4efaafe2fca68460bcb3659408b4278c29154",
+      "sft_eval_sha256": "5f3ab8310efb7741e538043c9d6266b446b35ca2acb8a38b679ed0276504828c",
+      "rl_eval_sha256": "69bdf738a8bcd3fb8f51e40d966fd817a13ace01980027acdc3d675222a5c2d7"
+    }
+  ],
+  "paired_gains": 1,
+  "paired_losses": 2,
+  "net": -1,
+  "clean_sft": 8,
+  "clean_rl": 8,
+  "updated_seeds": 3,
+  "preregistered_initial_improvement_criterion_met": false,
+  "slices": {
+    "family:0": {
+      "n": 48,
+      "sft": 7,
+      "rl": 8,
+      "gain": 1,
+      "loss": 0
+    },
+    "family:1": {
+      "n": 48,
+      "sft": 4,
+      "rl": 2,
+      "gain": 0,
+      "loss": 2
+    },
+    "family:2": {
+      "n": 48,
+      "sft": 1,
+      "rl": 1,
+      "gain": 0,
+      "loss": 0
+    },
+    "fault:none": {
+      "n": 36,
+      "sft": 8,
+      "rl": 8,
+      "gain": 0,
+      "loss": 0
+    },
+    "fault:partial_write": {
+      "n": 36,
+      "sft": 2,
+      "rl": 1,
+      "gain": 0,
+      "loss": 1
+    },
+    "fault:timeout": {
+      "n": 36,
+      "sft": 2,
+      "rl": 1,
+      "gain": 0,
+      "loss": 1
+    },
+    "fault:transient_read": {
+      "n": 36,
+      "sft": 0,
+      "rl": 1,
+      "gain": 1,
+      "loss": 0
+    },
+    "language:0": {
+      "n": 72,
+      "sft": 5,
+      "rl": 4,
+      "gain": 1,
+      "loss": 2
+    },
+    "language:1": {
+      "n": 72,
+      "sft": 7,
+      "rl": 7,
+      "gain": 0,
+      "loss": 0
+    },
+    "source:uci_banknote": {
+      "n": 72,
+      "sft": 6,
+      "rl": 4,
+      "gain": 0,
+      "loss": 2
+    },
+    "source:uci_occupancy": {
+      "n": 72,
+      "sft": 6,
+      "rl": 7,
+      "gain": 1,
+      "loss": 0
+    }
+  }
+}
