@@ -1,0 +1,5474 @@
+[
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "366ffeb9a28192e8",
+    "source_id": "v4hard_source_00",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 signal 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "99a61f83d028b5a7",
+    "source_id": "v4hard_source_00",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of signal in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "9e9cdb10062132b9",
+    "source_id": "v4hard_source_00",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 segment 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "6081ae8b0b57602c",
+    "source_id": "v4hard_source_00",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize segment by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "48044fb74c00eeec",
+    "source_id": "v4hard_source_00",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 amount 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "876196cba0965c5c",
+    "source_id": "v4hard_source_00",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip amount to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "4b22f23179eab98d",
+    "source_id": "v4hard_source_01",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 观测值 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "97f95d6f720b641b",
+    "source_id": "v4hard_source_01",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of 观测值 in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "fc6b032cd5313570",
+    "source_id": "v4hard_source_01",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 客群 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "ed8a7139118a1476",
+    "source_id": "v4hard_source_01",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize 客群 by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "f9accd95705e5b97",
+    "source_id": "v4hard_source_01",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 销售额 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "7c413e2b92fdf750",
+    "source_id": "v4hard_source_01",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip 销售额 to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "862b0748cb71ed9f",
+    "source_id": "v4hard_source_02",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 measure 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "d2502a56f40a3a7d",
+    "source_id": "v4hard_source_02",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of measure in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "4efc9af12cd7128d",
+    "source_id": "v4hard_source_02",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 class_name 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "b7d9afb2ab943407",
+    "source_id": "v4hard_source_02",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize class_name by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "60b50ced5df0d3cc",
+    "source_id": "v4hard_source_02",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 net_value 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "f40f0712eb7d2a7c",
+    "source_id": "v4hard_source_02",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip net_value to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "d5c097917bab59cc",
+    "source_id": "v4hard_source_03",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 指标 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "94ab4b8a89bf2ab0",
+    "source_id": "v4hard_source_03",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of 指标 in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "38a47e7a900f713f",
+    "source_id": "v4hard_source_03",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 渠道 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "17d0212602b4368b",
+    "source_id": "v4hard_source_03",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize 渠道 by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "c738bfb1ecca8024",
+    "source_id": "v4hard_source_03",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 收入 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "1cf8421630b807ed",
+    "source_id": "v4hard_source_03",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip 收入 to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "91e3f35cabd448b9",
+    "source_id": "v4hard_source_04",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 signal 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "195e00cfaec1705a",
+    "source_id": "v4hard_source_04",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of signal in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "6c0f16916caa01c7",
+    "source_id": "v4hard_source_04",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 segment 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "233407ebfa104cdc",
+    "source_id": "v4hard_source_04",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize segment by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "3cd6e73faf41b058",
+    "source_id": "v4hard_source_04",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 amount 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "3d8712a90949d37c",
+    "source_id": "v4hard_source_04",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip amount to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "abc4aee634ede1c5",
+    "source_id": "v4hard_source_05",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 观测值 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "1aed4632e7a89642",
+    "source_id": "v4hard_source_05",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of 观测值 in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "943a91dec337c3a7",
+    "source_id": "v4hard_source_05",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 客群 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "f5120ffb5fff2264",
+    "source_id": "v4hard_source_05",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize 客群 by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "e01d51e35737d25d",
+    "source_id": "v4hard_source_05",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 销售额 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "bff3772019346a3f",
+    "source_id": "v4hard_source_05",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip 销售额 to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "d3878f1993df1477",
+    "source_id": "v4hard_source_06",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 measure 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "75ddfcbc018c324c",
+    "source_id": "v4hard_source_06",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of measure in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "ed24cec23be68b66",
+    "source_id": "v4hard_source_06",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 class_name 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "819ef52becb6d2c1",
+    "source_id": "v4hard_source_06",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize class_name by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "dfee32beb7f914a9",
+    "source_id": "v4hard_source_06",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 net_value 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "1ea2059d5a513d2f",
+    "source_id": "v4hard_source_06",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip net_value to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "caa110ce765030d6",
+    "source_id": "v4hard_source_07",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 指标 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "e25b0f19313a99d0",
+    "source_id": "v4hard_source_07",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of 指标 in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "30ab296191282c03",
+    "source_id": "v4hard_source_07",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 渠道 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "bac3323867a7082e",
+    "source_id": "v4hard_source_07",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize 渠道 by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "5e132f224328a2a0",
+    "source_id": "v4hard_source_07",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 收入 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "9dfbca86261d5d20",
+    "source_id": "v4hard_source_07",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip 收入 to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "98065b621ad49eac",
+    "source_id": "v4hard_source_08",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 signal 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "0866681a03bd3a0e",
+    "source_id": "v4hard_source_08",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of signal in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "12d1a589df8596cd",
+    "source_id": "v4hard_source_08",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 segment 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "3964fd5e5bd9e4db",
+    "source_id": "v4hard_source_08",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize segment by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "516008b76339ec27",
+    "source_id": "v4hard_source_08",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 amount 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "cc3d43d64c222cdc",
+    "source_id": "v4hard_source_08",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip amount to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "3b0b858c6131b882",
+    "source_id": "v4hard_source_09",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 观测值 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "0b581ea56b938db1",
+    "source_id": "v4hard_source_09",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of 观测值 in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "91fb75b413e977c9",
+    "source_id": "v4hard_source_09",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 客群 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "f93a1ee0be1be813",
+    "source_id": "v4hard_source_09",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize 客群 by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "5f6207786587297d",
+    "source_id": "v4hard_source_09",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 销售额 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "fd1bfe6a9d384d48",
+    "source_id": "v4hard_source_09",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip 销售额 to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "788dc98f6aaf9183",
+    "source_id": "v4hard_source_10",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 measure 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "d5edc581a21afd28",
+    "source_id": "v4hard_source_10",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of measure in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "555d30c4c72eddf5",
+    "source_id": "v4hard_source_10",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 class_name 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "dc813a5a546a846c",
+    "source_id": "v4hard_source_10",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize class_name by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "95ff7dde5f840dce",
+    "source_id": "v4hard_source_10",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 net_value 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "ec73b7746ef3df4b",
+    "source_id": "v4hard_source_10",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip net_value to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "84cc88a4127b36dc",
+    "source_id": "v4hard_source_11",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 指标 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "b0fc0c5e85172f15",
+    "source_id": "v4hard_source_11",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of 指标 in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "e811d9e2c0a9ced9",
+    "source_id": "v4hard_source_11",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 渠道 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "7975872526bc9028",
+    "source_id": "v4hard_source_11",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize 渠道 by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "0574f3fb526fa9b5",
+    "source_id": "v4hard_source_11",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 收入 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "1ecc4c89b50a5205",
+    "source_id": "v4hard_source_11",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip 收入 to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "aee33ba21929c0fa",
+    "source_id": "v4hard_source_12",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 signal 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "f1b0a02e01ade5a2",
+    "source_id": "v4hard_source_12",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of signal in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "220535fd615a1804",
+    "source_id": "v4hard_source_12",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 segment 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "83d04035a66b5e9a",
+    "source_id": "v4hard_source_12",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize segment by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "fad49c19057dd8e5",
+    "source_id": "v4hard_source_12",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 amount 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "4acd35a75aa5777d",
+    "source_id": "v4hard_source_12",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip amount to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "31bfdd8cc9ca754c",
+    "source_id": "v4hard_source_13",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 观测值 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "e6307737e706ea3e",
+    "source_id": "v4hard_source_13",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of 观测值 in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "aae7904c706664b8",
+    "source_id": "v4hard_source_13",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 客群 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "963168eb5deda795",
+    "source_id": "v4hard_source_13",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize 客群 by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "70a438eebaad9328",
+    "source_id": "v4hard_source_13",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 销售额 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "15a2f35a9aaf4a37",
+    "source_id": "v4hard_source_13",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip 销售额 to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "54e3fc7d18809a4d",
+    "source_id": "v4hard_source_14",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 measure 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "2184682296ab1758",
+    "source_id": "v4hard_source_14",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of measure in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "5f43e272df0db9f9",
+    "source_id": "v4hard_source_14",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 class_name 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "d9aef9c590f54331",
+    "source_id": "v4hard_source_14",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize class_name by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "0624af7caf007a46",
+    "source_id": "v4hard_source_14",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 net_value 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "fce2ed9dbb96b48f",
+    "source_id": "v4hard_source_14",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip net_value to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "badef3a4f8c53f9e",
+    "source_id": "v4hard_source_15",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "先删除完全重复的记录，再按当前行序计算 指标 列的三期完整窗口移动平均。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "4fc3670830ff5ebe",
+    "source_id": "v4hard_source_15",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_two_step",
+    "prompt": "Remove exact duplicate rows, then report the three-observation rolling mean of 指标 in row order. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "4683a07db31c3cbb",
+    "source_id": "v4hard_source_15",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 渠道 列去除首尾空格并统一为大写，再统计该列每个取值的频数。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "30bc6ebb61f0fb53",
+    "source_id": "v4hard_source_15",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_two_step",
+    "prompt": "Canonicalize 渠道 by trimming and uppercasing it, then count each category. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "d59774ee2395088c",
+    "source_id": "v4hard_source_15",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "先把 收入 列数值截断到 [0,100] 并保存，再给出该列的数值描述统计。最后选择 stop。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-beta-two-step-curriculum-1",
+    "task_id": "7020500fd49920c8",
+    "source_id": "v4hard_source_15",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_two_step",
+    "prompt": "Clip 收入 to the inclusive range [0,100], persist it, and describe that numeric column. Stop when done.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  }
+]

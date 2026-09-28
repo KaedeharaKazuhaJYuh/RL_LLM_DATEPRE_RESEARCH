@@ -1,0 +1,74 @@
+{
+  "60b2a0b0f0f58be2": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "3bd8d2c21fe31a6e": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "ca1f412f0fa769df": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "c481a29777cbe368": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "e1afadecb6dba0a3": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "34ede3f4c0adde90": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "740e96dc0273d2b8": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "eb070055dae6b9d8": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "16bfc27347395927": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "b82a38406ec3403f": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "b54806d29d41ae0c": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "4382643aa4f51e21": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  }
+}
