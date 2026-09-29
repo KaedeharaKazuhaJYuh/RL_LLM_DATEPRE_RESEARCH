@@ -36,7 +36,7 @@ def run(args):
     if profile_out and Path(profile_out).exists():
         raise FileExistsError('new profile output file required')
     import torch
-    from peft import LoraConfig, get_peft_model
+    from peft import LoraConfig, PeftModel, get_peft_model
     from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments
 
     if not torch.cuda.is_available():
@@ -60,9 +60,12 @@ def run(args):
         model.config.use_cache = False
         model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={'use_reentrant': False})
         model.enable_input_require_grads()
-        model = get_peft_model(model, LoraConfig(r=8, lora_alpha=16, lora_dropout=.05,
-                                                 target_modules='all-linear', bias='none',
-                                                 task_type='CAUSAL_LM'))
+        if getattr(args, 'adapter_init', None):
+            model = PeftModel.from_pretrained(model, args.adapter_init, is_trainable=True)
+        else:
+            model = get_peft_model(model, LoraConfig(r=8, lora_alpha=16, lora_dropout=.05,
+                                                     target_modules='all-linear', bias='none',
+                                                     task_type='CAUSAL_LM'))
     trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
     total = sum(p.numel() for p in model.parameters())
 
@@ -93,6 +96,9 @@ def run(args):
         model.save_pretrained(adapter)
         tokenizer.save_pretrained(adapter)
     summary = {'model': args.model, 'revision_requested': args.revision,
+               'adapter_init': getattr(args, 'adapter_init', None),
+               'adapter_init_sha256': {p.name: digest(p) for p in Path(args.adapter_init).glob('*.safetensors')}
+               if getattr(args, 'adapter_init', None) else {},
                'base_commit': getattr(model.config, '_commit_hash', None),
                'local_base_weights_sha256': {p.name: digest(p) for p in Path(args.model).glob('*.safetensors')}
                if Path(args.model).is_dir() else {},
@@ -116,6 +122,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--steps', default='work/v4_llm_export_001/train_steps.jsonl')
     parser.add_argument('--model', default=MODEL)
+    parser.add_argument('--adapter-init', help='continue supervised training from an existing LoRA adapter')
     parser.add_argument('--out', required=True)
     parser.add_argument('--revision', default='main')
     parser.add_argument('--max-steps', type=int, default=20)

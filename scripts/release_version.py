@@ -23,7 +23,12 @@ def parse_display_version(value: str) -> tuple[int, int, int]:
 def next_display_version(value: str) -> str:
     major, minor, patch = parse_display_version(value)
     patch += 5
-    if 40 <= patch <= 49:
+    if patch >= 100:
+        minor += 1
+        if minor == 4:
+            minor = 5
+        patch = 0
+    elif 40 <= patch <= 49:
         patch = 50
     return f"{major}.{minor}.{patch:02d}" if patch == 5 else f"{major}.{minor}.{patch}"
 

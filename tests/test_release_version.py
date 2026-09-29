@@ -13,7 +13,8 @@ class ReleaseVersionTests(unittest.TestCase):
         self.assertEqual(next_display_version("5.0.0"), "5.0.05")
         self.assertEqual(next_display_version("5.0.05"), "5.0.10")
         self.assertEqual(next_display_version("5.0.35"), "5.0.50")
-        self.assertEqual(next_display_version("5.0.95"), "5.0.100")
+        self.assertEqual(next_display_version("5.0.95"), "5.1.0")
+        self.assertEqual(next_display_version("5.3.95"), "5.5.0")
         for value in ("5.0.5", "5.0.40", "5.0.45", "5.4.05", "5.0.06"):
             with self.subTest(value=value), self.assertRaises(ValueError):
                 parse_display_version(value)
