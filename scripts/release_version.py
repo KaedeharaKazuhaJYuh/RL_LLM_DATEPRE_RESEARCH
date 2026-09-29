@@ -48,6 +48,8 @@ def check_repository(root: Path = ROOT) -> str:
     readme = (root / "README.md").read_text(encoding="utf-8")
     if not readme.startswith(f"# RL + LLM Data Analysis Agent — V{version}"):
         raise ValueError("README heading does not match VERSION")
+    if "本项目的 GitHub 推送仍由用户自行完成。" in readme:
+        raise ValueError("README contains a retired publishing note")
     return version
 
 

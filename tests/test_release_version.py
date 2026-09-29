@@ -21,7 +21,7 @@ class ReleaseVersionTests(unittest.TestCase):
 
     def test_package_metadata_uses_normalized_number(self):
         self.assertEqual(package_version("5.0.05"), "5.0.5")
-        self.assertEqual(check_repository(), "5.0.0")
+        self.assertEqual(check_repository(), "5.0.05")
 
 
 if __name__ == "__main__":

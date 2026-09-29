@@ -1,0 +1,38 @@
+{
+  "schema_version": "v5-sft-control-new-wording-diagnostic-1",
+  "protocol_sha256": "6387bc6780dc6b5b594e5e8fa4709da9a343b6e786270e87ea56a00bb6ba994c",
+  "previously_used_for_course_selection": true,
+  "seeds": [
+    {
+      "seed": 20260921,
+      "initial_sft_passed": 3,
+      "rl_passed": 4,
+      "control_passed": 4,
+      "initial_sft_eval_sha256": "65fe0ba429aa1ed0f33c1d41f4124f45c437b4c6ce42acc8c11804bfb5fb04f9",
+      "rl_eval_sha256": "f4216a6ba2216b2e63619eda33fa51e147100d5ed9b15da6cfd4645e374587ff",
+      "control_eval_sha256": "ab9ba936df5a3e93e5394882185504ece101f671fb179f62160192b9900dbcb0"
+    },
+    {
+      "seed": 20260922,
+      "initial_sft_passed": 4,
+      "rl_passed": 4,
+      "control_passed": 4,
+      "initial_sft_eval_sha256": "15b4ade01bc8158a8d12d42ab11024edd9894c6a7e9470da052049e3b7b49562",
+      "rl_eval_sha256": "a8868cdc6728f4367be81023c27f8947f6acc1efbef75289314bc453b8540b15",
+      "control_eval_sha256": "110bedc42f44d1cb3d85c9358ef1944c5157b640034d4433fea2931423686c7e"
+    },
+    {
+      "seed": 20260923,
+      "initial_sft_passed": 5,
+      "rl_passed": 3,
+      "control_passed": 2,
+      "initial_sft_eval_sha256": "5f3ab8310efb7741e538043c9d6266b446b35ca2acb8a38b679ed0276504828c",
+      "rl_eval_sha256": "69bdf738a8bcd3fb8f51e40d966fd817a13ace01980027acdc3d675222a5c2d7",
+      "control_eval_sha256": "b37ea8f53c55d84e2c88a45f2369e6717aacd0296e1f656f5630e7f0eb727c2a"
+    }
+  ],
+  "initial_sft_passed": 12,
+  "rl_passed": 11,
+  "control_passed": 10,
+  "new_blind_test": false
+}
