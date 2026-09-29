@@ -1,0 +1,155 @@
+{
+  "schema_version": "v5-profile-audit-1",
+  "operation": "greedy_eval",
+  "repetitions": 3,
+  "workload": {
+    "protocol_sha256": "8a197d3fda055a56e751752e6c2a00c9b28d85851c5106c84d4df3e032b57ee2",
+    "episodes": 48,
+    "model": "work/modelscope_deepseek_r1_1p5b",
+    "adapter": "work/v4_llm_hard_sft_100_001/adapter",
+    "batch_size": 1
+  },
+  "wall_seconds": {
+    "n": 3,
+    "median": 88.61042350000002,
+    "p95_nearest_rank": 102.20533969999997,
+    "min": 82.60840129999997,
+    "max": 102.20533969999997
+  },
+  "stages_seconds": {
+    "csv_read": {
+      "n": 3,
+      "median": 0.084415100001479,
+      "p95_nearest_rank": 0.09415560000093137,
+      "min": 0.0722513000005165,
+      "max": 0.09415560000093137
+    },
+    "environment_result": {
+      "n": 3,
+      "median": 0.2821896000000379,
+      "p95_nearest_rank": 0.35441140000057203,
+      "min": 0.2704451999986759,
+      "max": 0.35441140000057203
+    },
+    "environment_step": {
+      "n": 3,
+      "median": 0.8050916000004236,
+      "p95_nearest_rank": 1.0920376999997643,
+      "min": 0.7556711000015639,
+      "max": 1.0920376999997643
+    },
+    "model_generate": {
+      "n": 3,
+      "median": 83.2459567000003,
+      "p95_nearest_rank": 96.60531539999988,
+      "min": 76.91303179999932,
+      "max": 96.60531539999988
+    },
+    "model_load": {
+      "n": 3,
+      "median": 3.834102199999961,
+      "p95_nearest_rank": 4.227389300000141,
+      "min": 3.6516973999998754,
+      "max": 4.227389300000141
+    },
+    "observation": {
+      "n": 3,
+      "median": 0.03877270000066346,
+      "p95_nearest_rank": 0.04183079999847905,
+      "min": 0.03241769999817734,
+      "max": 0.04183079999847905
+    },
+    "result_reference": {
+      "n": 3,
+      "median": 0.1392823999999564,
+      "p95_nearest_rank": 0.1838380000003781,
+      "min": 0.13757099999884304,
+      "max": 0.1838380000003781
+    },
+    "result_verify": {
+      "n": 3,
+      "median": 0.0010687000001325941,
+      "p95_nearest_rank": 0.0011791000006269314,
+      "min": 0.0010470999993685837,
+      "max": 0.0011791000006269314
+    },
+    "tool_execute": {
+      "n": 3,
+      "median": 0.4220244000011917,
+      "p95_nearest_rank": 0.6623125000012351,
+      "min": 0.4199466999996275,
+      "max": 0.6623125000012351
+    },
+    "tool_reference_and_verify": {
+      "n": 3,
+      "median": 0.1252001000002565,
+      "p95_nearest_rank": 0.13225859999943168,
+      "min": 0.10624340000140364,
+      "max": 0.13225859999943168
+    }
+  },
+  "peak_cuda_allocated_bytes": {
+    "n": 3,
+    "median": 3639815168,
+    "p95_nearest_rank": 3639815168,
+    "min": 3639815168,
+    "max": 3639815168
+  },
+  "nested_stages_must_not_be_summed": true,
+  "runs": [
+    {
+      "path": "work\\v5_0_10_serial_full_r1_profile.json",
+      "sha256": "c9c81bca797e84582ffd5797c0c6d8b0a4f00574e7226943bcd8285e816e3879",
+      "wall_seconds": 102.20533969999997,
+      "peak_cuda_allocated_bytes": 3639815168,
+      "stage_calls": {
+        "csv_read": 442,
+        "environment_result": 48,
+        "environment_step": 197,
+        "model_generate": 197,
+        "model_load": 1,
+        "observation": 197,
+        "result_reference": 144,
+        "result_verify": 48,
+        "tool_execute": 149,
+        "tool_reference_and_verify": 149
+      }
+    },
+    {
+      "path": "work\\v5_0_10_serial_full_r2_profile.json",
+      "sha256": "d29edcfe3c36ea093c684f56cb04827b3a9e5dad72f592c392f225593f9c3da9",
+      "wall_seconds": 82.60840129999997,
+      "peak_cuda_allocated_bytes": 3639815168,
+      "stage_calls": {
+        "csv_read": 442,
+        "environment_result": 48,
+        "environment_step": 197,
+        "model_generate": 197,
+        "model_load": 1,
+        "observation": 197,
+        "result_reference": 144,
+        "result_verify": 48,
+        "tool_execute": 149,
+        "tool_reference_and_verify": 149
+      }
+    },
+    {
+      "path": "work\\v5_0_10_serial_full_r3_profile.json",
+      "sha256": "b2ce2f57f05a7062564b251f0636c90aa8308613e47e3a5974f8e5c8182ec4e4",
+      "wall_seconds": 88.61042350000002,
+      "peak_cuda_allocated_bytes": 3639815168,
+      "stage_calls": {
+        "csv_read": 442,
+        "environment_result": 48,
+        "environment_step": 197,
+        "model_generate": 197,
+        "model_load": 1,
+        "observation": 197,
+        "result_reference": 144,
+        "result_verify": 48,
+        "tool_execute": 149,
+        "tool_reference_and_verify": 149
+      }
+    }
+  ]
+}

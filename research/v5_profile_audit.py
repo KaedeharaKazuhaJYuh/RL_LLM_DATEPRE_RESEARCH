@@ -29,7 +29,8 @@ def run(paths, out):
     compare_fields = {'sft_train': ('steps_sha256', 'max_steps', 'model', 'adapter_sha256'),
                       'grpo_train': ('protocol_sha256', 'adapter_init', 'episodes',
                                      'updated_groups', 'adapter_sha256'),
-                      'greedy_eval': ('protocol_sha256', 'episodes', 'model', 'adapter')}
+                      'greedy_eval': ('protocol_sha256', 'episodes', 'model', 'adapter',
+                                      'batch_size')}
     if operation not in compare_fields:
         raise ValueError('unsupported profile operation')
     fields = compare_fields[operation]
