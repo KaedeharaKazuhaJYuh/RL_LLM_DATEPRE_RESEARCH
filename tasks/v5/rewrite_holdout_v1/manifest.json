@@ -1,0 +1,45 @@
+{
+  "version": "v5-0-10-rewrite-1",
+  "synthetic": false,
+  "external_test": true,
+  "external_test_scope": "new UCI source and unseen prompt templates",
+  "one_time_evaluation": true,
+  "train_task_count": 0,
+  "dev_task_count": 6,
+  "fault_conditions": [
+    "none",
+    "transient_read",
+    "timeout",
+    "partial_write"
+  ],
+  "source": {
+    "source_id": "uci_online_shoppers",
+    "rows": 240,
+    "upstream_rows": 12330,
+    "selection": "240 evenly spaced source-order rows, index floor(i*N/240)",
+    "sha256": "72d3ccacdc9956b92f531689dac54d83578a6213eea2e5c082e032f41783e813",
+    "archive_sha256": "2972e6184d3ad7beaaa831d9fc2b059dc3ee29df69d1ec593c466a5cd8485d14",
+    "upstream_url": "https://archive.ics.uci.edu/static/public/468/online+shoppers+purchasing+intention+dataset.zip",
+    "doi": "10.24432/C5F88Q",
+    "citation": "Sakar, C. & Kastro, Y. (2018). Online Shoppers Purchasing Intention Dataset. UCI Machine Learning Repository.",
+    "license": "CC BY 4.0",
+    "personal_data_columns": []
+  },
+  "prompt_templates": [
+    [
+      "表里重复的完整记录只留一条。接着按照现有行顺序，求 {metric} 每三个相邻值的完整窗口平均；两项都办妥后结束。",
+      "Retain a single instance of each fully repeated record. Next return full-window averages over adjacent triples of {metric} in table order; end after both operations."
+    ],
+    [
+      "将 {category} 的类别名统一为去掉首尾留白后的大写形式。基于变更后的表列出每种类别的出现次数，然后结束。",
+      "Standardize category names in {category} to uppercase after removing surrounding space. Count frequencies in the updated table and then end."
+    ],
+    [
+      "将 {value} 的每个数压到闭区间 [0,100] 并保存；随后给出此列的条数、最小值、最大值和平均值，结束。",
+      "Persist {value} with every number confined to the closed interval [0,100]; then provide its count, minimum, maximum and mean, and end."
+    ]
+  ],
+  "tasks_sha256": "66a7416acb35e5f4e076a8413bf44ff81a5d111ee43e811cf85cb5c3e5a491db",
+  "train_oracle_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+  "dev_oracle_sha256": "35283a251a3a3ffbb9791c4505f41e238efe9b652d48ebbdb0061279c4d820eb"
+}

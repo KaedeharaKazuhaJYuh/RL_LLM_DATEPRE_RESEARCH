@@ -1,0 +1,5474 @@
+[
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "05b3ad781adf8d08",
+    "source_id": "v4hard_source_00",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 signal 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "d69afccdff9dfe90",
+    "source_id": "v4hard_source_00",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of signal in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "3783c8b6f10adda8",
+    "source_id": "v4hard_source_00",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 segment 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "408e8a98cd51b677",
+    "source_id": "v4hard_source_00",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in segment by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "d4db9e711182c4cb",
+    "source_id": "v4hard_source_00",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 amount 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "65a6929ec94b7a19",
+    "source_id": "v4hard_source_00",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound amount inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "3334f776c9c11c58",
+    "source_id": "v4hard_source_01",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 观测值 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "26b66151c6ab7183",
+    "source_id": "v4hard_source_01",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of 观测值 in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "3f75cc196608bfe3",
+    "source_id": "v4hard_source_01",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 客群 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "b8f324b2c27847c9",
+    "source_id": "v4hard_source_01",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in 客群 by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "b904cdc03811915f",
+    "source_id": "v4hard_source_01",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 销售额 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "476ec20b2304addc",
+    "source_id": "v4hard_source_01",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound 销售额 inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "85e75b2dd36578ef",
+    "source_id": "v4hard_source_02",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 measure 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "ca742c78ebf991eb",
+    "source_id": "v4hard_source_02",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of measure in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "2676f2bba375f0ae",
+    "source_id": "v4hard_source_02",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 class_name 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "17e37d3551232907",
+    "source_id": "v4hard_source_02",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in class_name by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "2965b64698068cce",
+    "source_id": "v4hard_source_02",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 net_value 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "96951efb99b65d79",
+    "source_id": "v4hard_source_02",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound net_value inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "931ea77f0af7b828",
+    "source_id": "v4hard_source_03",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 指标 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "1d3bf32f3b8b4ccd",
+    "source_id": "v4hard_source_03",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of 指标 in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "f520bb6b7d57e097",
+    "source_id": "v4hard_source_03",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 渠道 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "4976fbe529fbff66",
+    "source_id": "v4hard_source_03",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in 渠道 by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "103743fb23329537",
+    "source_id": "v4hard_source_03",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 收入 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "3b8ce2b178a15158",
+    "source_id": "v4hard_source_03",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound 收入 inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "f2e2e2175d61c1fb",
+    "source_id": "v4hard_source_04",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 signal 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "bd2ed1327ddebc71",
+    "source_id": "v4hard_source_04",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of signal in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "b60b930d3381e2c5",
+    "source_id": "v4hard_source_04",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 segment 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "5f8fab47af94f712",
+    "source_id": "v4hard_source_04",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in segment by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "e5629000d4c08553",
+    "source_id": "v4hard_source_04",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 amount 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "76552d7f02a01a0b",
+    "source_id": "v4hard_source_04",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound amount inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "74c2a63736059901",
+    "source_id": "v4hard_source_05",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 观测值 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "3670243d9a3435b7",
+    "source_id": "v4hard_source_05",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of 观测值 in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "1d057e4670be35d1",
+    "source_id": "v4hard_source_05",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 客群 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "386e5c92ce4fd110",
+    "source_id": "v4hard_source_05",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in 客群 by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "0f86724ce3324ff6",
+    "source_id": "v4hard_source_05",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 销售额 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "5604c2e08aea4d9f",
+    "source_id": "v4hard_source_05",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound 销售额 inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "d208261dbc360616",
+    "source_id": "v4hard_source_06",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 measure 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "9009b63c6caed3e8",
+    "source_id": "v4hard_source_06",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of measure in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "f6886364e9c14556",
+    "source_id": "v4hard_source_06",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 class_name 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "22011adfee9e7cca",
+    "source_id": "v4hard_source_06",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in class_name by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "ec5b8f2664fbaef3",
+    "source_id": "v4hard_source_06",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 net_value 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "d08059b387891012",
+    "source_id": "v4hard_source_06",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound net_value inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "4bfeb33b4b64d665",
+    "source_id": "v4hard_source_07",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 指标 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "839a070250aa332b",
+    "source_id": "v4hard_source_07",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of 指标 in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "06e0c6453308c17e",
+    "source_id": "v4hard_source_07",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 渠道 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "1c76717a63d6b55d",
+    "source_id": "v4hard_source_07",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in 渠道 by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "21abac6a58dbc2a5",
+    "source_id": "v4hard_source_07",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 收入 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "5c0aca0f2eb156a3",
+    "source_id": "v4hard_source_07",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound 收入 inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "367ab052eb38764a",
+    "source_id": "v4hard_source_08",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 signal 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "250c76e4ba8f54a1",
+    "source_id": "v4hard_source_08",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of signal in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "8104613f68b0b4a1",
+    "source_id": "v4hard_source_08",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 segment 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "170a5c81ac57fd67",
+    "source_id": "v4hard_source_08",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in segment by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "f6897d567afbf307",
+    "source_id": "v4hard_source_08",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 amount 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "5031a30315996e7e",
+    "source_id": "v4hard_source_08",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound amount inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "a8dabbad2241a8aa",
+    "source_id": "v4hard_source_09",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 观测值 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "23b3514fe5781fd3",
+    "source_id": "v4hard_source_09",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of 观测值 in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "b8453d1768409de1",
+    "source_id": "v4hard_source_09",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 客群 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "1f2fc147bb59d928",
+    "source_id": "v4hard_source_09",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in 客群 by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "7b6608e72d3de91d",
+    "source_id": "v4hard_source_09",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 销售额 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "cf230234fadb2aac",
+    "source_id": "v4hard_source_09",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound 销售额 inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "f31a2d6ed5ddf7ea",
+    "source_id": "v4hard_source_10",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 measure 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "1c19aaaae456f7b5",
+    "source_id": "v4hard_source_10",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of measure in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "009ff211f31468f5",
+    "source_id": "v4hard_source_10",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 class_name 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "cf330c35a43cb745",
+    "source_id": "v4hard_source_10",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in class_name by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "a05ad31d02a9628a",
+    "source_id": "v4hard_source_10",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 net_value 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "1646f01b4a61f23b",
+    "source_id": "v4hard_source_10",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound net_value inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "542268c7b1fe4860",
+    "source_id": "v4hard_source_11",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 指标 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "c6fa3a4c0f56e9a7",
+    "source_id": "v4hard_source_11",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of 指标 in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "b917deed8379f7ea",
+    "source_id": "v4hard_source_11",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 渠道 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "32774adb0ed4f306",
+    "source_id": "v4hard_source_11",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in 渠道 by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "9a4d3499cddd7e38",
+    "source_id": "v4hard_source_11",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 收入 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "9179989ccf1b3648",
+    "source_id": "v4hard_source_11",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound 收入 inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "6cd7b243bea53789",
+    "source_id": "v4hard_source_12",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 signal 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "9e06805d7e864b76",
+    "source_id": "v4hard_source_12",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of signal in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "83334af1b3c0d0b3",
+    "source_id": "v4hard_source_12",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 segment 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "a6fabfd72c0ce6bd",
+    "source_id": "v4hard_source_12",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in segment by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "d960e953fd45312d",
+    "source_id": "v4hard_source_12",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 amount 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "f633e84922731037",
+    "source_id": "v4hard_source_12",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound amount inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "3b6e911cc9fda35a",
+    "source_id": "v4hard_source_13",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 观测值 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "1f0349e5fae3b375",
+    "source_id": "v4hard_source_13",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of 观测值 in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "9fe9db565f58c440",
+    "source_id": "v4hard_source_13",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 客群 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "7df5a47817e46f36",
+    "source_id": "v4hard_source_13",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in 客群 by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "00c1ff881b988106",
+    "source_id": "v4hard_source_13",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 销售额 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "2267710c23d6bb1e",
+    "source_id": "v4hard_source_13",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound 销售额 inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "9c18a7917541f3e5",
+    "source_id": "v4hard_source_14",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 measure 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "9e4037311d98cdcc",
+    "source_id": "v4hard_source_14",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of measure in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "220ee29a90cd14fb",
+    "source_id": "v4hard_source_14",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 class_name 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "84d634b0e42644cd",
+    "source_id": "v4hard_source_14",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in class_name by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "6dc6f47525d5a62f",
+    "source_id": "v4hard_source_14",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 net_value 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "991f2a1ed5b1afc3",
+    "source_id": "v4hard_source_14",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound net_value inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "93f520fa412da202",
+    "source_id": "v4hard_source_15",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 指标 的三行完整滑动均值，工作完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "209457585037294b",
+    "source_id": "v4hard_source_15",
+    "split": "train",
+    "pair_family": 0,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of 指标 in original order and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "10ee398f749e7c20",
+    "source_id": "v4hard_source_15",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "先修整 渠道 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "efb2ba19f72c8506",
+    "source_id": "v4hard_source_15",
+    "split": "train",
+    "pair_family": 1,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Tidy labels in 渠道 by stripping outer whitespace and converting to capitals; tally each resulting label and finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "2ffe8c535784c5ee",
+    "source_id": "v4hard_source_15",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "把 收入 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 0
+  },
+  {
+    "schema_version": "v5-0-10-rewrite-1",
+    "task_id": "f07863558db592bd",
+    "source_id": "v4hard_source_15",
+    "split": "train",
+    "pair_family": 2,
+    "composition_novelty": "train_rewrite_only",
+    "prompt": "Bound 收入 inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "allowed_tools": [
+      "profile_schema",
+      "profile_missingness",
+      "count_categories",
+      "deduplicate",
+      "describe_numeric",
+      "normalize_dates",
+      "clip_outliers",
+      "fill_missing",
+      "normalize_categories",
+      "aggregate",
+      "correlate",
+      "rolling_mean"
+    ],
+    "reward": {
+      "success": 1.0,
+      "progress": 1.0,
+      "tool_call_cost": 0.02,
+      "decision_cost": 0.01
+    },
+    "constraints": {
+      "max_steps": 4,
+      "max_tool_calls": 3,
+      "max_seconds": 120,
+      "isolated_tools": true,
+      "tool_timeout_seconds": 10
+    },
+    "paraphrase_id": 1
+  }
+]
