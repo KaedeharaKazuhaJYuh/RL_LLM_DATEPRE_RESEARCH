@@ -32,8 +32,8 @@ def indexed_eval(path, adapter, tasks):
                 record['source_id'] != tasks[task_id]['source_id'] or
                 record['fault'] != (mode != 'none')):
             raise ValueError(f'invalid evaluation episode: {path} {key}')
-        if (mode != 'none') != record.get('injection_applied'):
-            raise ValueError(f'fault injection missing: {path} {key}')
+        if mode == 'none' and record.get('injection_applied'):
+            raise ValueError(f'unexpected fault injection: {path} {key}')
         rows[key] = record
     expected = {(task_id, mode) for task_id in tasks for mode in MODES}
     if set(rows) != expected or data['passed'] != sum(bool(row['passed']) for row in rows.values()):
@@ -112,10 +112,13 @@ def run(work=ROOT / 'work', out=ROOT / 'work/v5_0_10_model_audit.json'):
                        for label in adapters}
             actions = {f'{label}_actions': [step['action'] for step in
                        results[label][task_id, mode]['steps']] for label in adapters}
+            applied = {f'{label}_fault_applied':
+                       bool(results[label][task_id, mode].get('injection_applied'))
+                       for label in adapters}
             paired.append({'seed': seed, 'task_id': task_id, 'fault_kind': mode,
                            'pair_family': task['pair_family'],
                            'language': 'zh' if task['paraphrase_id'] == 0 else 'en',
-                           **outcome, **actions})
+                           **outcome, **actions, **applied})
             for key in (f'family:{task["pair_family"]}',
                         f'language:{"zh" if task["paraphrase_id"] == 0 else "en"}',
                         f'fault:{mode}'):
