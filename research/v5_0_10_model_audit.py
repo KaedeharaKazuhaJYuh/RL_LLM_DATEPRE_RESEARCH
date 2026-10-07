@@ -17,10 +17,12 @@ def read(path):
     return json.loads(Path(path).read_text(encoding='utf-8'))
 
 
-def indexed_eval(path, adapter, tasks):
+def indexed_eval(path, adapter, tasks, model=None):
     data = read(path)
     if (data.get('protocol_sha256') != EVAL_SHA or data.get('episodes') != 24 or
             not data.get('adapter') or Path(data['adapter']).resolve() != adapter.resolve() or
+            (model is not None and (not data.get('model') or
+             Path(data['model']).resolve() != model.resolve())) or
             not data.get('greedy') or
             data.get('batch_size', 1) != 1 or data.get('fault_modes') != list(MODES)):
         raise ValueError(f'evaluation metadata mismatch: {path}')
@@ -98,7 +100,8 @@ def run(work=ROOT / 'work', out=ROOT / 'work/v5_0_10_model_audit.json'):
         results, hashes = {}, {}
         for label, adapter in adapters.items():
             path = work / f'v5_0_10_eval_{label}_seed{seed}.json'
-            results[label] = indexed_eval(path, adapter, tasks)
+            results[label] = indexed_eval(path, adapter, tasks,
+                                          work / 'modelscope_deepseek_r1_1p5b')
             hashes[f'{label}_eval_sha256'] = digest(path)
             hashes[f'{label}_adapter_sha256'] = digest(adapter / 'adapter_model.safetensors')
         if (hashes['sft_adapter_sha256'] != sft['adapter_sha256']['adapter_model.safetensors'] or
