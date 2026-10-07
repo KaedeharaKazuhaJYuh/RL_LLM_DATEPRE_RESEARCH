@@ -1,0 +1,692 @@
+{
+  "schema_version": "v5-0-10-expert-audit-1",
+  "protocol_sha256": "4b710398c260c306dab7231b7a8dfee14a986412785d5b8bbd589fa94cd919b0",
+  "episodes": 24,
+  "passed": 24,
+  "records": [
+    {
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "none",
+      "passed": true,
+      "injection_applied": false,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "deduplicate",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "rolling_mean",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "transient_read",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "deduplicate",
+          "ok": false,
+          "error_type": "FileNotFoundError"
+        },
+        {
+          "action": "deduplicate",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "rolling_mean",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "timeout",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "deduplicate",
+          "ok": false,
+          "error_type": "TimeoutError"
+        },
+        {
+          "action": "deduplicate",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "rolling_mean",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "partial_write",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": true,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "deduplicate",
+          "ok": false,
+          "error_type": "TimeoutError"
+        },
+        {
+          "action": "deduplicate",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "rolling_mean",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "none",
+      "passed": true,
+      "injection_applied": false,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "deduplicate",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "rolling_mean",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "transient_read",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "deduplicate",
+          "ok": false,
+          "error_type": "FileNotFoundError"
+        },
+        {
+          "action": "deduplicate",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "rolling_mean",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "timeout",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "deduplicate",
+          "ok": false,
+          "error_type": "TimeoutError"
+        },
+        {
+          "action": "deduplicate",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "rolling_mean",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "partial_write",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": true,
+      "actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "deduplicate",
+          "ok": false,
+          "error_type": "TimeoutError"
+        },
+        {
+          "action": "deduplicate",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "rolling_mean",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "none",
+      "passed": true,
+      "injection_applied": false,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "normalize_categories",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "count_categories",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "transient_read",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "normalize_categories",
+          "ok": false,
+          "error_type": "FileNotFoundError"
+        },
+        {
+          "action": "normalize_categories",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "count_categories",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "timeout",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "normalize_categories",
+          "ok": false,
+          "error_type": "TimeoutError"
+        },
+        {
+          "action": "normalize_categories",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "count_categories",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "partial_write",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": true,
+      "actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "normalize_categories",
+          "ok": false,
+          "error_type": "TimeoutError"
+        },
+        {
+          "action": "normalize_categories",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "count_categories",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "none",
+      "passed": true,
+      "injection_applied": false,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "normalize_categories",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "count_categories",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "transient_read",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "normalize_categories",
+          "ok": false,
+          "error_type": "FileNotFoundError"
+        },
+        {
+          "action": "normalize_categories",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "count_categories",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "timeout",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "normalize_categories",
+          "ok": false,
+          "error_type": "TimeoutError"
+        },
+        {
+          "action": "normalize_categories",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "count_categories",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "partial_write",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": true,
+      "actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "normalize_categories",
+          "ok": false,
+          "error_type": "TimeoutError"
+        },
+        {
+          "action": "normalize_categories",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "count_categories",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "none",
+      "passed": true,
+      "injection_applied": false,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "clip_outliers",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "describe_numeric",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "transient_read",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "clip_outliers",
+          "ok": false,
+          "error_type": "FileNotFoundError"
+        },
+        {
+          "action": "clip_outliers",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "describe_numeric",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "timeout",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "clip_outliers",
+          "ok": false,
+          "error_type": "TimeoutError"
+        },
+        {
+          "action": "clip_outliers",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "describe_numeric",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "partial_write",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": true,
+      "actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "clip_outliers",
+          "ok": false,
+          "error_type": "TimeoutError"
+        },
+        {
+          "action": "clip_outliers",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "describe_numeric",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "none",
+      "passed": true,
+      "injection_applied": false,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "clip_outliers",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "describe_numeric",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "transient_read",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "clip_outliers",
+          "ok": false,
+          "error_type": "FileNotFoundError"
+        },
+        {
+          "action": "clip_outliers",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "describe_numeric",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "timeout",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": false,
+      "actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "clip_outliers",
+          "ok": false,
+          "error_type": "TimeoutError"
+        },
+        {
+          "action": "clip_outliers",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "describe_numeric",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    },
+    {
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "partial_write",
+      "passed": true,
+      "injection_applied": true,
+      "private_partial_artifact_present": true,
+      "actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "describe_numeric",
+        "stop"
+      ],
+      "tool_history": [
+        {
+          "action": "clip_outliers",
+          "ok": false,
+          "error_type": "TimeoutError"
+        },
+        {
+          "action": "clip_outliers",
+          "ok": true,
+          "error_type": ""
+        },
+        {
+          "action": "describe_numeric",
+          "ok": true,
+          "error_type": ""
+        }
+      ]
+    }
+  ]
+}
