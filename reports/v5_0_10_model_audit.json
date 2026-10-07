@@ -1,0 +1,2328 @@
+{
+  "schema_version": "v5-0-10-model-audit-1",
+  "train_protocol_sha256": "10542a0ad8bdd4dffc921e45bc1a61b231e3f75f808644cb7fb850569f2d6fdf",
+  "eval_protocol_sha256": "4b710398c260c306dab7231b7a8dfee14a986412785d5b8bbd589fa94cd919b0",
+  "base_sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945",
+  "episodes_per_method": 72,
+  "seeds": [
+    {
+      "seed": 20260921,
+      "baseline": 15,
+      "sft": 15,
+      "rl": 15,
+      "rl_minus_sft": 0,
+      "rl_updated_groups": 9,
+      "sft_optimization_steps": 18,
+      "expert_decision_examples": 224,
+      "export_sha256": "e6c57b8108ca9ee3cb88bfb52e12eb4d3adc00a91be354bc01c214ca344c6402",
+      "baseline_eval_sha256": "c2c948f2b90864e22646aaba1869fc09f73961aa6f3a6a1f0ae01c4a40a689fa",
+      "baseline_adapter_sha256": "cebd7c6b95c95fb09ac13d5ec4415f8213fb6af1c5f1ed7d15b824d283d82212",
+      "sft_eval_sha256": "85451d1493a03ec2fab597b62152b82df995c3c2f941fcdbfe7725ff76a8dfb2",
+      "sft_adapter_sha256": "c5d629557b4f8f3cc5c79b4e803b5b3b850e568bbdab2ed2efd1b07c0026a247",
+      "rl_eval_sha256": "e0e1f0a8ac95afa5c8d9f0a49216ab88964093190d74bb6bbb43d32434323c41",
+      "rl_adapter_sha256": "3f68507c36e2e2ab60265cc04fd70516125d6ab7ff543d84bead291997c68bc8"
+    },
+    {
+      "seed": 20260922,
+      "baseline": 10,
+      "sft": 12,
+      "rl": 14,
+      "rl_minus_sft": 2,
+      "rl_updated_groups": 15,
+      "sft_optimization_steps": 30,
+      "expert_decision_examples": 224,
+      "export_sha256": "1f0ae1a89b8cb78ffc574d229cf9bdc8debad018ab1cbafea970a4dceb42c449",
+      "baseline_eval_sha256": "3d0d6f970df345125902eb28f06be3f75c1d2261f287e229e3e8a6cc3123de29",
+      "baseline_adapter_sha256": "d84467e781c7508419e778b5302b8b7a3a2ff6e7d693902a6abe96fe093ac2a2",
+      "sft_eval_sha256": "2862d53b3d90a27bdac32958d255604162a3aaa0e71d818375497ccae88ade0f",
+      "sft_adapter_sha256": "8b3113d2510c292420a38e99d1a954c97ba2e03ec44e9bacbacd60851f18817e",
+      "rl_eval_sha256": "39e1ad7a29b65b5622929b29e36744aceefcd994d0d8ec2c1a98e24643a88786",
+      "rl_adapter_sha256": "ac212dd591ef7402689f73e09e12f8100c6c31f15917044043f086bae1d639ba"
+    },
+    {
+      "seed": 20260923,
+      "baseline": 10,
+      "sft": 11,
+      "rl": 10,
+      "rl_minus_sft": -1,
+      "rl_updated_groups": 7,
+      "sft_optimization_steps": 14,
+      "expert_decision_examples": 224,
+      "export_sha256": "92aa74834c8bd4409ddc9993c2ac65787b5fd15f924da267e3780d99403c3451",
+      "baseline_eval_sha256": "761e265f067d67cd360a8acaa3c16657ebb6515a11601ded0cf174b01a3a4a9d",
+      "baseline_adapter_sha256": "c41d0579ca1440f42f2b86c5fee3784feaf870dc1dbcc7fbc4a3a6de2e54ebc1",
+      "sft_eval_sha256": "b74832c85145da02ddef1224a2ace018a4070e9cb991d2c914e3aac54cb5f19b",
+      "sft_adapter_sha256": "efb06aee12a4c465ef968f4e189dc46778af0c0ca31dce254311672f64f9489d",
+      "rl_eval_sha256": "d4cfc3aca5d305cadebdbb7a37e46a345c7ec0dfdbd27efbce7ff14f85887a0c",
+      "rl_adapter_sha256": "cc59c9f0f9f3097789c76839c70af1719cc27ae51216509faf288d1e735f5eac"
+    }
+  ],
+  "totals": {
+    "baseline": 35,
+    "sft": 38,
+    "rl": 39
+  },
+  "rl_vs_sft_gain": 2,
+  "rl_vs_sft_loss": 1,
+  "preregistered_rl_better_than_matched_sft": true,
+  "slices": {
+    "family:0": {
+      "n": 24,
+      "baseline": 21,
+      "sft": 22,
+      "rl": 21
+    },
+    "family:1": {
+      "n": 24,
+      "baseline": 13,
+      "sft": 14,
+      "rl": 16
+    },
+    "family:2": {
+      "n": 24,
+      "baseline": 1,
+      "sft": 2,
+      "rl": 2
+    },
+    "fault:none": {
+      "n": 18,
+      "baseline": 12,
+      "sft": 13,
+      "rl": 13
+    },
+    "fault:partial_write": {
+      "n": 18,
+      "baseline": 7,
+      "sft": 7,
+      "rl": 8
+    },
+    "fault:timeout": {
+      "n": 18,
+      "baseline": 7,
+      "sft": 7,
+      "rl": 8
+    },
+    "fault:transient_read": {
+      "n": 18,
+      "baseline": 9,
+      "sft": 11,
+      "rl": 10
+    },
+    "language:en": {
+      "n": 36,
+      "baseline": 15,
+      "sft": 16,
+      "rl": 17
+    },
+    "language:zh": {
+      "n": 36,
+      "baseline": 20,
+      "sft": 22,
+      "rl": 22
+    }
+  },
+  "paired_records": [
+    {
+      "seed": 20260921,
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "none",
+      "pair_family": 0,
+      "language": "en",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260921,
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "partial_write",
+      "pair_family": 0,
+      "language": "en",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "timeout",
+      "pair_family": 0,
+      "language": "en",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "transient_read",
+      "pair_family": 0,
+      "language": "en",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "none",
+      "pair_family": 1,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260921,
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "partial_write",
+      "pair_family": 1,
+      "language": "zh",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "normalize_categories",
+        "count_categories",
+        "normalize_categories",
+        "deduplicate"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "count_categories",
+        "normalize_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "count_categories",
+        "normalize_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "timeout",
+      "pair_family": 1,
+      "language": "zh",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "normalize_categories",
+        "count_categories",
+        "normalize_categories",
+        "deduplicate"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "count_categories",
+        "normalize_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "count_categories",
+        "normalize_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "transient_read",
+      "pair_family": 1,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "none",
+      "pair_family": 0,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260921,
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "partial_write",
+      "pair_family": 0,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "timeout",
+      "pair_family": 0,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "transient_read",
+      "pair_family": 0,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "none",
+      "pair_family": 2,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "clip_outliers",
+        "normalize_dates",
+        "stop"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "normalize_dates",
+        "stop"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "normalize_dates",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260921,
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "partial_write",
+      "pair_family": 2,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "normalize_dates",
+        "stop"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "normalize_dates",
+        "stop"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "normalize_dates",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "timeout",
+      "pair_family": 2,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "normalize_dates",
+        "stop"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "normalize_dates",
+        "stop"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "normalize_dates",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "transient_read",
+      "pair_family": 2,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "normalize_dates",
+        "stop"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "normalize_dates",
+        "stop"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "normalize_dates",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "none",
+      "pair_family": 1,
+      "language": "en",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260921,
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "partial_write",
+      "pair_family": 1,
+      "language": "en",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "timeout",
+      "pair_family": 1,
+      "language": "en",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "transient_read",
+      "pair_family": 1,
+      "language": "en",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "none",
+      "pair_family": 2,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "clip_outliers",
+        "fill_missing",
+        "describe_numeric",
+        "stop"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "fill_missing",
+        "describe_numeric",
+        "stop"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "fill_missing",
+        "describe_numeric",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260921,
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "partial_write",
+      "pair_family": 2,
+      "language": "zh",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "timeout",
+      "pair_family": 2,
+      "language": "zh",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260921,
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "transient_read",
+      "pair_family": 2,
+      "language": "zh",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "none",
+      "pair_family": 0,
+      "language": "en",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260922,
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "partial_write",
+      "pair_family": 0,
+      "language": "en",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "timeout",
+      "pair_family": 0,
+      "language": "en",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "transient_read",
+      "pair_family": 0,
+      "language": "en",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "none",
+      "pair_family": 1,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260922,
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "partial_write",
+      "pair_family": 1,
+      "language": "zh",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "count_categories"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "count_categories"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "count_categories"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "timeout",
+      "pair_family": 1,
+      "language": "zh",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "count_categories"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "count_categories"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "count_categories"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "transient_read",
+      "pair_family": 1,
+      "language": "zh",
+      "baseline": false,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "count_categories"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "none",
+      "pair_family": 0,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260922,
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "partial_write",
+      "pair_family": 0,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "timeout",
+      "pair_family": 0,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "transient_read",
+      "pair_family": 0,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "none",
+      "pair_family": 2,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "count_categories",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "count_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260922,
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "partial_write",
+      "pair_family": 2,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "fill_missing",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "fill_missing",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "fill_missing",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "timeout",
+      "pair_family": 2,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "fill_missing",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "fill_missing",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "fill_missing",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "transient_read",
+      "pair_family": 2,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "fill_missing",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "fill_missing",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "fill_missing",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "none",
+      "pair_family": 1,
+      "language": "en",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260922,
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "partial_write",
+      "pair_family": 1,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "count_categories"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "count_categories"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "timeout",
+      "pair_family": 1,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "count_categories"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "count_categories"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "transient_read",
+      "pair_family": 1,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "normalize_categories",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "normalize_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "normalize_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "none",
+      "pair_family": 2,
+      "language": "zh",
+      "baseline": false,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "fill_missing",
+        "describe_numeric"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "fill_missing",
+        "describe_numeric",
+        "stop"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "fill_missing",
+        "describe_numeric",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260922,
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "partial_write",
+      "pair_family": 2,
+      "language": "zh",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "fill_missing",
+        "stop"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "stop"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "timeout",
+      "pair_family": 2,
+      "language": "zh",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "fill_missing",
+        "stop"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "stop"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260922,
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "transient_read",
+      "pair_family": 2,
+      "language": "zh",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "normalize_dates",
+        "clip_outliers",
+        "fill_missing",
+        "stop"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "stop"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "none",
+      "pair_family": 0,
+      "language": "en",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260923,
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "partial_write",
+      "pair_family": 0,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "deduplicate",
+        "fill_missing",
+        "count_categories",
+        "rolling_mean"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "fill_missing",
+        "count_categories",
+        "rolling_mean"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "fill_missing",
+        "count_categories",
+        "rolling_mean"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "timeout",
+      "pair_family": 0,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "deduplicate",
+        "fill_missing",
+        "count_categories",
+        "rolling_mean"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "fill_missing",
+        "count_categories",
+        "rolling_mean"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "fill_missing",
+        "count_categories",
+        "rolling_mean"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "4a4944a3a67816b3",
+      "fault_kind": "transient_read",
+      "pair_family": 0,
+      "language": "en",
+      "baseline": false,
+      "sft": true,
+      "rl": false,
+      "baseline_actions": [
+        "deduplicate",
+        "deduplicate",
+        "fill_missing",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "deduplicate",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "deduplicate",
+        "fill_missing",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "none",
+      "pair_family": 1,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260923,
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "partial_write",
+      "pair_family": 1,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "timeout",
+      "pair_family": 1,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "4dba9e81b727de36",
+      "fault_kind": "transient_read",
+      "pair_family": 1,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "none",
+      "pair_family": 0,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260923,
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "partial_write",
+      "pair_family": 0,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "timeout",
+      "pair_family": 0,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "9258bb6f1330edcb",
+      "fault_kind": "transient_read",
+      "pair_family": 0,
+      "language": "zh",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "sft_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "rl_actions": [
+        "deduplicate",
+        "fill_missing",
+        "rolling_mean",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "none",
+      "pair_family": 2,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "clip_outliers",
+        "deduplicate",
+        "describe_numeric",
+        "normalize_dates"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "deduplicate",
+        "describe_numeric",
+        "normalize_dates"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "deduplicate",
+        "describe_numeric",
+        "normalize_dates"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260923,
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "partial_write",
+      "pair_family": 2,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "deduplicate",
+        "describe_numeric"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "deduplicate",
+        "describe_numeric"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "normalize_dates",
+        "deduplicate"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "timeout",
+      "pair_family": 2,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "deduplicate",
+        "describe_numeric"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "deduplicate",
+        "describe_numeric"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "normalize_dates",
+        "deduplicate"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "a7d6092b97ac1775",
+      "fault_kind": "transient_read",
+      "pair_family": 2,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "deduplicate",
+        "describe_numeric"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "deduplicate",
+        "describe_numeric"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "deduplicate",
+        "describe_numeric"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "none",
+      "pair_family": 1,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "normalize_categories",
+        "count_categories",
+        "deduplicate",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "count_categories",
+        "deduplicate",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "count_categories",
+        "deduplicate",
+        "stop"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260923,
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "partial_write",
+      "pair_family": 1,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "deduplicate"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "deduplicate"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "deduplicate"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "timeout",
+      "pair_family": 1,
+      "language": "en",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "deduplicate"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "deduplicate"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "deduplicate"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "b0011e1b6c150c17",
+      "fault_kind": "transient_read",
+      "pair_family": 1,
+      "language": "en",
+      "baseline": true,
+      "sft": true,
+      "rl": true,
+      "baseline_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "sft_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "rl_actions": [
+        "normalize_categories",
+        "normalize_categories",
+        "count_categories",
+        "stop"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "none",
+      "pair_family": 2,
+      "language": "zh",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "clip_outliers",
+        "fill_missing",
+        "normalize_dates",
+        "describe_numeric"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "fill_missing",
+        "normalize_dates",
+        "describe_numeric"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "fill_missing",
+        "describe_numeric",
+        "normalize_dates"
+      ],
+      "baseline_fault_applied": false,
+      "sft_fault_applied": false,
+      "rl_fault_applied": false
+    },
+    {
+      "seed": 20260923,
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "partial_write",
+      "pair_family": 2,
+      "language": "zh",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "timeout",
+      "pair_family": 2,
+      "language": "zh",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    },
+    {
+      "seed": 20260923,
+      "task_id": "b1d4b4e4c29f750b",
+      "fault_kind": "transient_read",
+      "pair_family": 2,
+      "language": "zh",
+      "baseline": false,
+      "sft": false,
+      "rl": false,
+      "baseline_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "sft_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "rl_actions": [
+        "clip_outliers",
+        "clip_outliers",
+        "fill_missing",
+        "clip_outliers"
+      ],
+      "baseline_fault_applied": true,
+      "sft_fault_applied": true,
+      "rl_fault_applied": true
+    }
+  ]
+}

@@ -55,9 +55,10 @@ def run(work=ROOT / 'work', out=ROOT / 'work/v5_0_10_model_audit.json'):
         raise ValueError('frozen protocol or base weights changed')
     train_tasks = read(train / 'tasks.json')
     tasks = {task['task_id']: task for task in read(eval_protocol / 'tasks.json')}
-    if (len(tasks) != 6 or any(task['source_id'] != 'uci_online_shoppers' for task in tasks) or
+    if (len(tasks) != 6 or any(task['source_id'] != 'uci_online_shoppers'
+                               for task in tasks.values()) or
             {task['source_id'] for task in train_tasks} &
-            {task['source_id'] for task in tasks}):
+            {task['source_id'] for task in tasks.values()}):
         raise ValueError('source isolation failed')
     experts = read(ROOT / 'reports/v5_0_10_expert_audit.json')
     if experts['protocol_sha256'] != EVAL_SHA or experts['passed'] != 24:
