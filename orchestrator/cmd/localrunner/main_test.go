@@ -42,3 +42,21 @@ func TestNPUEntrypointRequiresNPUResource(t *testing.T) {
 		t.Fatal("NPU entrypoint accepted GPU resource")
 	}
 }
+
+func TestBatchSizeIsOnlyAcceptedForGPUEvaluation(t *testing.T) {
+	s := spec{SchemaVersion: "v4-local-experiment-1", ExperimentID: "batch-test",
+		Entrypoint: "v4_eval", Protocol: "tasks/v4/llm_hard_v1",
+		Resource: "gpu", Model: "local-model", BatchSize: 16}
+	if err := validate(s); err != nil {
+		t.Fatal(err)
+	}
+	s.BatchSize = -1
+	if err := validate(s); err == nil {
+		t.Fatal("negative batch_size was accepted")
+	}
+	s.BatchSize = 16
+	s.Entrypoint, s.Resource = "v4_eval_npu", "npu"
+	if err := validate(s); err == nil {
+		t.Fatal("GPU batch_size was accepted for NPU evaluation")
+	}
+}
