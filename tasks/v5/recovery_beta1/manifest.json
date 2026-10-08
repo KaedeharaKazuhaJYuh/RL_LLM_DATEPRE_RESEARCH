@@ -1,0 +1,84 @@
+{
+  "version": "v5-recovery-beta1",
+  "scope": "conditional recovery; given prefix and suffix",
+  "train_sources": [
+    "v4hard_source_00",
+    "v4hard_source_01",
+    "v4hard_source_02",
+    "v4hard_source_03",
+    "v4hard_source_04",
+    "v4hard_source_05",
+    "v4hard_source_06",
+    "v4hard_source_07",
+    "v4hard_source_08",
+    "v4hard_source_09",
+    "v4hard_source_10",
+    "v4hard_source_11",
+    "v4hard_source_12",
+    "v4hard_source_13",
+    "v4hard_source_14",
+    "v4hard_source_15"
+  ],
+  "holdout_sources": [
+    "uci_auto_mpg",
+    "uci_glass"
+  ],
+  "source_licenses": {
+    "auto_mpg": {
+      "sha256": "5fc1507522b73b8050d3aa45df51eefe1b666ae5f428a5f1347b6483339f1003",
+      "doi": "10.24432/C5859H",
+      "citation": "Quinlan, R. (1993). Auto MPG. UCI.",
+      "url": "https://archive.ics.uci.edu/static/public/9/auto+mpg.zip",
+      "license": "CC BY 4.0",
+      "transformations": "whitespace source parsed to CSV; ? becomes empty; all rows retained"
+    },
+    "glass": {
+      "sha256": "499c07a17115bf63100bb19cc1fdefad7f464bf5dc2b168930fa2071fd6b6e65",
+      "doi": "10.24432/C5WW2P",
+      "citation": "German, B. (1987). Glass Identification. UCI.",
+      "url": "https://archive.ics.uci.edu/static/public/42/glass+identification.zip",
+      "license": "CC BY 4.0",
+      "transformations": "whitespace source parsed to CSV; ? becomes empty; all rows retained"
+    }
+  },
+  "tasks_sha256": "2dfec83b72a8027919165ec536c43635b7cf3ee6359e0251f70d9baa05129bff",
+  "oracle_sha256": "9b6037430524b43bc3ea12124e1f2f285962a057ab494e316cb1fd2b8aa2477e",
+  "seeds": [
+    20260921,
+    20260922,
+    20260923
+  ],
+  "modes": [
+    "none",
+    "before_commit",
+    "after_commit",
+    "partial_write"
+  ],
+  "train_task_count": 96,
+  "eval_task_count": 20,
+  "train_modes": [
+    "none",
+    "before_commit",
+    "after_commit"
+  ],
+  "heldout_fault": "partial_write",
+  "heldout_families": [
+    3,
+    4
+  ],
+  "arms": [
+    "sft",
+    "grpo",
+    "branch",
+    "counterfactual",
+    "paired"
+  ],
+  "groups": 16,
+  "branches_per_group": 4,
+  "ppo_epochs": 2,
+  "learning_rate": 2e-06,
+  "kl_beta": 0.02,
+  "decoding": "4-way categorical next-token policy; greedy at evaluation",
+  "counterfactual_estimator": "enumerate first action; sample continuation with frozen behavior; update root only",
+  "gate": "positive source-family macro gap over SFT, GRPO and branch; >=2 positive seeds; clean no regression; descriptive only with two sources"
+}

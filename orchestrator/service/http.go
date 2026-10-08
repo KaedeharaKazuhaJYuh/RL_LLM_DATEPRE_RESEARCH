@@ -3,6 +3,8 @@ package service
 
 import (
 	"encoding/json"
+	"errors"
+	"io"
 	"net/http"
 	"strings"
 	"time"
@@ -15,7 +17,14 @@ type Server struct{ Queue *queue.Queue }
 func decode(r *http.Request, value any) error {
 	reader := json.NewDecoder(http.MaxBytesReader(nil, r.Body, 1<<20))
 	reader.DisallowUnknownFields()
-	return reader.Decode(value)
+	if err := reader.Decode(value); err != nil {
+		return err
+	}
+	var extra any
+	if err := reader.Decode(&extra); err != io.EOF {
+		return errors.New("request must contain exactly one JSON value")
+	}
+	return nil
 }
 
 func reply(w http.ResponseWriter, status int, value any) {

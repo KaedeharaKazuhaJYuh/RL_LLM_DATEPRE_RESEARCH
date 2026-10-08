@@ -5,6 +5,8 @@ from pathlib import Path
 
 
 def rolling_mean(values, window):
+    if isinstance(window, bool) or not isinstance(window, int) or window < 1:
+        raise ValueError('window must be a positive integer')
     library_path = os.environ.get('V5_ROLLING_LIB')
     if not library_path:
         raise RuntimeError('V5_ROLLING_LIB is required for native rolling_mean')

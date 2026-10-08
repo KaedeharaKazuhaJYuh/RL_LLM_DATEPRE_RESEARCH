@@ -15,13 +15,15 @@ class ReleaseVersionTests(unittest.TestCase):
         self.assertEqual(next_display_version("5.0.35"), "5.0.50")
         self.assertEqual(next_display_version("5.0.95"), "5.1.0")
         self.assertEqual(next_display_version("5.3.95"), "5.5.0")
-        for value in ("5.0.5", "5.0.40", "5.0.45", "5.4.05", "5.0.06"):
+        self.assertEqual(next_display_version("5.0.15-beta.1"), "5.0.15")
+        self.assertEqual(package_version("5.0.15-beta.1"), "5.0.15b1")
+        for value in ("5.0.5", "5.0.40", "5.0.45", "5.4.05", "5.0.06", "5.0.100", "5.0.15-beta.0"):
             with self.subTest(value=value), self.assertRaises(ValueError):
                 parse_display_version(value)
 
     def test_package_metadata_uses_normalized_number(self):
         self.assertEqual(package_version("5.0.05"), "5.0.5")
-        self.assertEqual(check_repository(), "5.0.10")
+        self.assertEqual(check_repository(), "5.0.15-beta.1")
 
 
 if __name__ == "__main__":

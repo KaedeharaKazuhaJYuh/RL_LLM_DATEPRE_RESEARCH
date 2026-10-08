@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION_PATTERN = re.compile(r"^5\.(0|[1-9][0-9]*)\.(0|05|[1-9][0-9]+)$")
+VERSION_PATTERN = re.compile(r"^5\.(0|[1-9][0-9]*)\.(0|05|[1-9][0-9]+)(?:-beta\.([1-9][0-9]*))?$")
 
 
 def parse_display_version(value: str) -> tuple[int, int, int]:
@@ -15,13 +15,15 @@ def parse_display_version(value: str) -> tuple[int, int, int]:
     if not match:
         raise ValueError(f"invalid V5 display version: {value!r}")
     minor, patch = int(match[1]), int(match[2])
-    if minor == 4 or 40 <= patch <= 49 or patch % 5:
+    if minor == 4 or patch >= 100 or 40 <= patch <= 49 or patch % 5:
         raise ValueError(f"reserved or off-sequence V5 version: {value!r}")
     return 5, minor, patch
 
 
 def next_display_version(value: str) -> str:
     major, minor, patch = parse_display_version(value)
+    if '-beta.' in value:
+        return value.split('-beta.', 1)[0]
     patch += 5
     if patch >= 100:
         minor += 1
@@ -35,7 +37,8 @@ def next_display_version(value: str) -> str:
 
 def package_version(value: str) -> str:
     major, minor, patch = parse_display_version(value)
-    return f"{major}.{minor}.{patch}"
+    suffix = 'b' + value.split('-beta.', 1)[1] if '-beta.' in value else ''
+    return f"{major}.{minor}.{patch}{suffix}"
 
 
 def check_repository(root: Path = ROOT) -> str:

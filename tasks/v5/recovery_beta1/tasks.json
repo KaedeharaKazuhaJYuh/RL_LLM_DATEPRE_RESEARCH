@@ -1,0 +1,3466 @@
+[
+  {
+    "task_id": "849db20a1b144510",
+    "source_id": "v4hard_source_00",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "77f4bc706ef2fd58",
+    "source_id": "v4hard_source_00",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "71fa43fec9f7ace8",
+    "source_id": "v4hard_source_00",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "d6adbc827aa17162",
+    "source_id": "v4hard_source_00",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "3039b560c761a381",
+    "source_id": "v4hard_source_00",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "447e294c57270058",
+    "source_id": "v4hard_source_00",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "a753de8162f655da",
+    "source_id": "v4hard_source_01",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "316376d9f1103162",
+    "source_id": "v4hard_source_01",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "6e51fda97a423c10",
+    "source_id": "v4hard_source_01",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "3c49cbcd7b56d260",
+    "source_id": "v4hard_source_01",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "80b02ca2c736968a",
+    "source_id": "v4hard_source_01",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "faffa5ced9e25e65",
+    "source_id": "v4hard_source_01",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "477e1294c0790b0f",
+    "source_id": "v4hard_source_02",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "c8fb1c05c1d9569c",
+    "source_id": "v4hard_source_02",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "a4e5503e05c818b8",
+    "source_id": "v4hard_source_02",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "16ec78b57426eeb3",
+    "source_id": "v4hard_source_02",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "e041c3dbfbc30575",
+    "source_id": "v4hard_source_02",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "9ac0c782bc15e580",
+    "source_id": "v4hard_source_02",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "913be338e19fe6dd",
+    "source_id": "v4hard_source_03",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "a4e34a5f5975f6b2",
+    "source_id": "v4hard_source_03",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "c75ebd4fda3ddba3",
+    "source_id": "v4hard_source_03",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "f479b0b685a6504d",
+    "source_id": "v4hard_source_03",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "b72dd3378a73afed",
+    "source_id": "v4hard_source_03",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "4f8e7cdb46c8f5f6",
+    "source_id": "v4hard_source_03",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "7400be4fadc9630e",
+    "source_id": "v4hard_source_04",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "93fcf9a60d7aee94",
+    "source_id": "v4hard_source_04",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "72af868edc25b41f",
+    "source_id": "v4hard_source_04",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "9d8e1830bf2a0140",
+    "source_id": "v4hard_source_04",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "f4459d510e4323b9",
+    "source_id": "v4hard_source_04",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "72a30f7d35d12cf7",
+    "source_id": "v4hard_source_04",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "82602104d97d604f",
+    "source_id": "v4hard_source_05",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "554dcf19ebbecbfd",
+    "source_id": "v4hard_source_05",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "dd6446f932e4d2b2",
+    "source_id": "v4hard_source_05",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "fd69515d8185d6cf",
+    "source_id": "v4hard_source_05",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "8c7dd5807ba1b7e6",
+    "source_id": "v4hard_source_05",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "0cc399286d9d2bf8",
+    "source_id": "v4hard_source_05",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "40fa5119a2de3563",
+    "source_id": "v4hard_source_06",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "44de47c8e248d0ed",
+    "source_id": "v4hard_source_06",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "a29ac5cc9a7ffb43",
+    "source_id": "v4hard_source_06",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "5deaef60dccabca2",
+    "source_id": "v4hard_source_06",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "20837d4180d56396",
+    "source_id": "v4hard_source_06",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "4cc7255fae61d3d0",
+    "source_id": "v4hard_source_06",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "904e776d834534b4",
+    "source_id": "v4hard_source_07",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "1fc4d26fc4bd2e71",
+    "source_id": "v4hard_source_07",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "b78fb43b1ed062f5",
+    "source_id": "v4hard_source_07",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "784c665277089361",
+    "source_id": "v4hard_source_07",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "8711df8feb44c06b",
+    "source_id": "v4hard_source_07",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "b1c71b32ae1ff9ff",
+    "source_id": "v4hard_source_07",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "1389134706ee631e",
+    "source_id": "v4hard_source_08",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "35a0c5e27c1b270a",
+    "source_id": "v4hard_source_08",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "bbc877f8262c07c8",
+    "source_id": "v4hard_source_08",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "aaa26e813fc6893e",
+    "source_id": "v4hard_source_08",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "214cbfb258556b81",
+    "source_id": "v4hard_source_08",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "973aef62f2529741",
+    "source_id": "v4hard_source_08",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "6f5cebd1111a0092",
+    "source_id": "v4hard_source_09",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "be4d343ff2b34274",
+    "source_id": "v4hard_source_09",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "f5e0ba7f576b0f03",
+    "source_id": "v4hard_source_09",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "0c41c9c6fa7dc31b",
+    "source_id": "v4hard_source_09",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "bf4ae180404932ea",
+    "source_id": "v4hard_source_09",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "8b9ffb6fbc1c65d6",
+    "source_id": "v4hard_source_09",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "932fa3862412a973",
+    "source_id": "v4hard_source_10",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "ddc44e844d484f32",
+    "source_id": "v4hard_source_10",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "86b40e4f7bc8937f",
+    "source_id": "v4hard_source_10",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "9feb018f1391ef16",
+    "source_id": "v4hard_source_10",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "fa2b5a7cadf3311b",
+    "source_id": "v4hard_source_10",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "b7bdeb3f014eeb4d",
+    "source_id": "v4hard_source_10",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "0369f0c502c35ea2",
+    "source_id": "v4hard_source_11",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "cb9c43ef327413f5",
+    "source_id": "v4hard_source_11",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "df97e47dae338e01",
+    "source_id": "v4hard_source_11",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "3e7dc2a21b04676e",
+    "source_id": "v4hard_source_11",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "cc9cc481ca7de458",
+    "source_id": "v4hard_source_11",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "a98a7f45198a8adf",
+    "source_id": "v4hard_source_11",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "ad70dfe9705b63c7",
+    "source_id": "v4hard_source_12",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "6c02449a41c6944d",
+    "source_id": "v4hard_source_12",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "cabf90e6899099c0",
+    "source_id": "v4hard_source_12",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "82dad420ae961d9d",
+    "source_id": "v4hard_source_12",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "f803daa96cf35aa7",
+    "source_id": "v4hard_source_12",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "5f9e01ec124d00cf",
+    "source_id": "v4hard_source_12",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+      "columns": [
+        "period",
+        "region",
+        "amount",
+        "segment",
+        "signal"
+      ],
+      "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+    },
+    "params": {
+      "column": "amount",
+      "category_column": "segment",
+      "date_column": "period",
+      "other_column": "signal",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "4136bda52dbc1800",
+    "source_id": "v4hard_source_13",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "c0cfebfe954d77d8",
+    "source_id": "v4hard_source_13",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "6cc225cac701389d",
+    "source_id": "v4hard_source_13",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "7f88a1d6590129e8",
+    "source_id": "v4hard_source_13",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "a48c0318e092aca5",
+    "source_id": "v4hard_source_13",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "e3f83695e68aeb0c",
+    "source_id": "v4hard_source_13",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+      "columns": [
+        "日期",
+        "地区",
+        "销售额",
+        "客群",
+        "观测值"
+      ],
+      "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+    },
+    "params": {
+      "column": "销售额",
+      "category_column": "客群",
+      "date_column": "日期",
+      "other_column": "观测值",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "aa2ca42ecce26a65",
+    "source_id": "v4hard_source_14",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "ba1da04e2b80bc0e",
+    "source_id": "v4hard_source_14",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "781e82c8d90863bc",
+    "source_id": "v4hard_source_14",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "33e981ffed0a8a21",
+    "source_id": "v4hard_source_14",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "f47a7d06bec943d7",
+    "source_id": "v4hard_source_14",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "86b74ae77bc5f2ec",
+    "source_id": "v4hard_source_14",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+      "columns": [
+        "when",
+        "zone",
+        "net_value",
+        "class_name",
+        "measure"
+      ],
+      "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+    },
+    "params": {
+      "column": "net_value",
+      "category_column": "class_name",
+      "date_column": "when",
+      "other_column": "measure",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "f0d8b05af880b2ac",
+    "source_id": "v4hard_source_15",
+    "pair_family": 0,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply clip_outliers with the supplied bindings, then describe_numeric; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "c6109ddefa8daeb5",
+    "source_id": "v4hard_source_15",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 clip_outliers，再进行 describe_numeric；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "0fe9a6fce679f640",
+    "source_id": "v4hard_source_15",
+    "pair_family": 1,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply deduplicate with the supplied bindings, then rolling_mean; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "7838b2eb786b6ceb",
+    "source_id": "v4hard_source_15",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 deduplicate，再进行 rolling_mean；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "71890b38b4d2b789",
+    "source_id": "v4hard_source_15",
+    "pair_family": 2,
+    "language": "en",
+    "split": "train",
+    "prompt": "Apply normalize_categories with the supplied bindings, then count_categories; ensure exactly one commit.",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "586733fef87bb989",
+    "source_id": "v4hard_source_15",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "train",
+    "prompt": "先按绑定参数完成 normalize_categories，再进行 count_categories；确保首项只提交一次。",
+    "dataset": {
+      "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+      "columns": [
+        "月份",
+        "区域",
+        "收入",
+        "渠道",
+        "指标"
+      ],
+      "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+    },
+    "params": {
+      "column": "收入",
+      "category_column": "渠道",
+      "date_column": "月份",
+      "other_column": "指标",
+      "lower": 0,
+      "upper": 100,
+      "window": 3
+    },
+    "timeout_message": "Timeout: outcome unknown"
+  },
+  {
+    "task_id": "8f6fc0c669298ca4",
+    "source_id": "uci_auto_mpg",
+    "pair_family": 0,
+    "language": "en",
+    "split": "dev",
+    "prompt": "Resume this job safely: clip_outliers precedes describe_numeric. Do not submit the first operation twice.",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "columns": [
+        "mpg",
+        "cylinders",
+        "displacement",
+        "horsepower",
+        "weight",
+        "acceleration",
+        "model_year",
+        "origin",
+        "car_name"
+      ],
+      "sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be"
+    },
+    "params": {
+      "column": "mpg",
+      "other_column": "weight",
+      "category_column": "car_name",
+      "date_column": "car_name",
+      "lower": 0,
+      "upper": 30,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "c0c38f2e567cc710",
+    "source_id": "uci_auto_mpg",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "dev",
+    "prompt": "恢复被打断的任务：先 clip_outliers 再 describe_numeric。首项操作不得重复提交。",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "columns": [
+        "mpg",
+        "cylinders",
+        "displacement",
+        "horsepower",
+        "weight",
+        "acceleration",
+        "model_year",
+        "origin",
+        "car_name"
+      ],
+      "sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be"
+    },
+    "params": {
+      "column": "mpg",
+      "other_column": "weight",
+      "category_column": "car_name",
+      "date_column": "car_name",
+      "lower": 0,
+      "upper": 30,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "d5d0925cd8d2de87",
+    "source_id": "uci_auto_mpg",
+    "pair_family": 1,
+    "language": "en",
+    "split": "dev",
+    "prompt": "Resume this job safely: deduplicate precedes rolling_mean. Do not submit the first operation twice.",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "columns": [
+        "mpg",
+        "cylinders",
+        "displacement",
+        "horsepower",
+        "weight",
+        "acceleration",
+        "model_year",
+        "origin",
+        "car_name"
+      ],
+      "sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be"
+    },
+    "params": {
+      "column": "mpg",
+      "other_column": "weight",
+      "category_column": "car_name",
+      "date_column": "car_name",
+      "lower": 0,
+      "upper": 30,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "9acce4a2ebf5ecb7",
+    "source_id": "uci_auto_mpg",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "dev",
+    "prompt": "恢复被打断的任务：先 deduplicate 再 rolling_mean。首项操作不得重复提交。",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "columns": [
+        "mpg",
+        "cylinders",
+        "displacement",
+        "horsepower",
+        "weight",
+        "acceleration",
+        "model_year",
+        "origin",
+        "car_name"
+      ],
+      "sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be"
+    },
+    "params": {
+      "column": "mpg",
+      "other_column": "weight",
+      "category_column": "car_name",
+      "date_column": "car_name",
+      "lower": 0,
+      "upper": 30,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "aab862c1da40d74b",
+    "source_id": "uci_auto_mpg",
+    "pair_family": 2,
+    "language": "en",
+    "split": "dev",
+    "prompt": "Resume this job safely: normalize_categories precedes count_categories. Do not submit the first operation twice.",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "columns": [
+        "mpg",
+        "cylinders",
+        "displacement",
+        "horsepower",
+        "weight",
+        "acceleration",
+        "model_year",
+        "origin",
+        "car_name"
+      ],
+      "sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be"
+    },
+    "params": {
+      "column": "mpg",
+      "other_column": "weight",
+      "category_column": "car_name",
+      "date_column": "car_name",
+      "lower": 0,
+      "upper": 30,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "2a41588d90d379e9",
+    "source_id": "uci_auto_mpg",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "dev",
+    "prompt": "恢复被打断的任务：先 normalize_categories 再 count_categories。首项操作不得重复提交。",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "columns": [
+        "mpg",
+        "cylinders",
+        "displacement",
+        "horsepower",
+        "weight",
+        "acceleration",
+        "model_year",
+        "origin",
+        "car_name"
+      ],
+      "sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be"
+    },
+    "params": {
+      "column": "mpg",
+      "other_column": "weight",
+      "category_column": "car_name",
+      "date_column": "car_name",
+      "lower": 0,
+      "upper": 30,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "485f5260792ecd45",
+    "source_id": "uci_auto_mpg",
+    "pair_family": 3,
+    "language": "en",
+    "split": "dev",
+    "prompt": "Resume this job safely: clip_outliers precedes correlate. Do not submit the first operation twice.",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "columns": [
+        "mpg",
+        "cylinders",
+        "displacement",
+        "horsepower",
+        "weight",
+        "acceleration",
+        "model_year",
+        "origin",
+        "car_name"
+      ],
+      "sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be"
+    },
+    "params": {
+      "column": "mpg",
+      "other_column": "weight",
+      "category_column": "car_name",
+      "date_column": "car_name",
+      "lower": 0,
+      "upper": 30,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "4d2c7933b4b8e5a0",
+    "source_id": "uci_auto_mpg",
+    "pair_family": 3,
+    "language": "zh",
+    "split": "dev",
+    "prompt": "恢复被打断的任务：先 clip_outliers 再 correlate。首项操作不得重复提交。",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "columns": [
+        "mpg",
+        "cylinders",
+        "displacement",
+        "horsepower",
+        "weight",
+        "acceleration",
+        "model_year",
+        "origin",
+        "car_name"
+      ],
+      "sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be"
+    },
+    "params": {
+      "column": "mpg",
+      "other_column": "weight",
+      "category_column": "car_name",
+      "date_column": "car_name",
+      "lower": 0,
+      "upper": 30,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "9f8a40b330ba9894",
+    "source_id": "uci_auto_mpg",
+    "pair_family": 4,
+    "language": "en",
+    "split": "dev",
+    "prompt": "Resume this job safely: deduplicate precedes profile_schema. Do not submit the first operation twice.",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "columns": [
+        "mpg",
+        "cylinders",
+        "displacement",
+        "horsepower",
+        "weight",
+        "acceleration",
+        "model_year",
+        "origin",
+        "car_name"
+      ],
+      "sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be"
+    },
+    "params": {
+      "column": "mpg",
+      "other_column": "weight",
+      "category_column": "car_name",
+      "date_column": "car_name",
+      "lower": 0,
+      "upper": 30,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "3ce1e80612d4a35a",
+    "source_id": "uci_auto_mpg",
+    "pair_family": 4,
+    "language": "zh",
+    "split": "dev",
+    "prompt": "恢复被打断的任务：先 deduplicate 再 profile_schema。首项操作不得重复提交。",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "columns": [
+        "mpg",
+        "cylinders",
+        "displacement",
+        "horsepower",
+        "weight",
+        "acceleration",
+        "model_year",
+        "origin",
+        "car_name"
+      ],
+      "sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be"
+    },
+    "params": {
+      "column": "mpg",
+      "other_column": "weight",
+      "category_column": "car_name",
+      "date_column": "car_name",
+      "lower": 0,
+      "upper": 30,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "8841964db1bf4e90",
+    "source_id": "uci_glass",
+    "pair_family": 0,
+    "language": "en",
+    "split": "dev",
+    "prompt": "Resume this job safely: clip_outliers precedes describe_numeric. Do not submit the first operation twice.",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/glass.csv",
+      "columns": [
+        "id",
+        "RI",
+        "Na",
+        "Mg",
+        "Al",
+        "Si",
+        "K",
+        "Ca",
+        "Ba",
+        "Fe",
+        "type"
+      ],
+      "sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49"
+    },
+    "params": {
+      "column": "Si",
+      "other_column": "RI",
+      "category_column": "type",
+      "date_column": "type",
+      "lower": 0,
+      "upper": 72,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "c96caa9ae1f7a66a",
+    "source_id": "uci_glass",
+    "pair_family": 0,
+    "language": "zh",
+    "split": "dev",
+    "prompt": "恢复被打断的任务：先 clip_outliers 再 describe_numeric。首项操作不得重复提交。",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/glass.csv",
+      "columns": [
+        "id",
+        "RI",
+        "Na",
+        "Mg",
+        "Al",
+        "Si",
+        "K",
+        "Ca",
+        "Ba",
+        "Fe",
+        "type"
+      ],
+      "sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49"
+    },
+    "params": {
+      "column": "Si",
+      "other_column": "RI",
+      "category_column": "type",
+      "date_column": "type",
+      "lower": 0,
+      "upper": 72,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "768bc2758deace78",
+    "source_id": "uci_glass",
+    "pair_family": 1,
+    "language": "en",
+    "split": "dev",
+    "prompt": "Resume this job safely: deduplicate precedes rolling_mean. Do not submit the first operation twice.",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/glass.csv",
+      "columns": [
+        "id",
+        "RI",
+        "Na",
+        "Mg",
+        "Al",
+        "Si",
+        "K",
+        "Ca",
+        "Ba",
+        "Fe",
+        "type"
+      ],
+      "sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49"
+    },
+    "params": {
+      "column": "Si",
+      "other_column": "RI",
+      "category_column": "type",
+      "date_column": "type",
+      "lower": 0,
+      "upper": 72,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "e8147b05ab219cae",
+    "source_id": "uci_glass",
+    "pair_family": 1,
+    "language": "zh",
+    "split": "dev",
+    "prompt": "恢复被打断的任务：先 deduplicate 再 rolling_mean。首项操作不得重复提交。",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/glass.csv",
+      "columns": [
+        "id",
+        "RI",
+        "Na",
+        "Mg",
+        "Al",
+        "Si",
+        "K",
+        "Ca",
+        "Ba",
+        "Fe",
+        "type"
+      ],
+      "sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49"
+    },
+    "params": {
+      "column": "Si",
+      "other_column": "RI",
+      "category_column": "type",
+      "date_column": "type",
+      "lower": 0,
+      "upper": 72,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "122955de3dde25af",
+    "source_id": "uci_glass",
+    "pair_family": 2,
+    "language": "en",
+    "split": "dev",
+    "prompt": "Resume this job safely: normalize_categories precedes count_categories. Do not submit the first operation twice.",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/glass.csv",
+      "columns": [
+        "id",
+        "RI",
+        "Na",
+        "Mg",
+        "Al",
+        "Si",
+        "K",
+        "Ca",
+        "Ba",
+        "Fe",
+        "type"
+      ],
+      "sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49"
+    },
+    "params": {
+      "column": "Si",
+      "other_column": "RI",
+      "category_column": "type",
+      "date_column": "type",
+      "lower": 0,
+      "upper": 72,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "7c6821ca11dfe539",
+    "source_id": "uci_glass",
+    "pair_family": 2,
+    "language": "zh",
+    "split": "dev",
+    "prompt": "恢复被打断的任务：先 normalize_categories 再 count_categories。首项操作不得重复提交。",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/glass.csv",
+      "columns": [
+        "id",
+        "RI",
+        "Na",
+        "Mg",
+        "Al",
+        "Si",
+        "K",
+        "Ca",
+        "Ba",
+        "Fe",
+        "type"
+      ],
+      "sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49"
+    },
+    "params": {
+      "column": "Si",
+      "other_column": "RI",
+      "category_column": "type",
+      "date_column": "type",
+      "lower": 0,
+      "upper": 72,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "eddacf247929182d",
+    "source_id": "uci_glass",
+    "pair_family": 3,
+    "language": "en",
+    "split": "dev",
+    "prompt": "Resume this job safely: clip_outliers precedes correlate. Do not submit the first operation twice.",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/glass.csv",
+      "columns": [
+        "id",
+        "RI",
+        "Na",
+        "Mg",
+        "Al",
+        "Si",
+        "K",
+        "Ca",
+        "Ba",
+        "Fe",
+        "type"
+      ],
+      "sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49"
+    },
+    "params": {
+      "column": "Si",
+      "other_column": "RI",
+      "category_column": "type",
+      "date_column": "type",
+      "lower": 0,
+      "upper": 72,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "510261b96d1d04f3",
+    "source_id": "uci_glass",
+    "pair_family": 3,
+    "language": "zh",
+    "split": "dev",
+    "prompt": "恢复被打断的任务：先 clip_outliers 再 correlate。首项操作不得重复提交。",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/glass.csv",
+      "columns": [
+        "id",
+        "RI",
+        "Na",
+        "Mg",
+        "Al",
+        "Si",
+        "K",
+        "Ca",
+        "Ba",
+        "Fe",
+        "type"
+      ],
+      "sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49"
+    },
+    "params": {
+      "column": "Si",
+      "other_column": "RI",
+      "category_column": "type",
+      "date_column": "type",
+      "lower": 0,
+      "upper": 72,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "eb6d63d5dcc8f8d8",
+    "source_id": "uci_glass",
+    "pair_family": 4,
+    "language": "en",
+    "split": "dev",
+    "prompt": "Resume this job safely: deduplicate precedes profile_schema. Do not submit the first operation twice.",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/glass.csv",
+      "columns": [
+        "id",
+        "RI",
+        "Na",
+        "Mg",
+        "Al",
+        "Si",
+        "K",
+        "Ca",
+        "Ba",
+        "Fe",
+        "type"
+      ],
+      "sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49"
+    },
+    "params": {
+      "column": "Si",
+      "other_column": "RI",
+      "category_column": "type",
+      "date_column": "type",
+      "lower": 0,
+      "upper": 72,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  },
+  {
+    "task_id": "0adec671baf22790",
+    "source_id": "uci_glass",
+    "pair_family": 4,
+    "language": "zh",
+    "split": "dev",
+    "prompt": "恢复被打断的任务：先 deduplicate 再 profile_schema。首项操作不得重复提交。",
+    "dataset": {
+      "uri": "tasks/v5/recovery_beta1/data/glass.csv",
+      "columns": [
+        "id",
+        "RI",
+        "Na",
+        "Mg",
+        "Al",
+        "Si",
+        "K",
+        "Ca",
+        "Ba",
+        "Fe",
+        "type"
+      ],
+      "sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49"
+    },
+    "params": {
+      "column": "Si",
+      "other_column": "RI",
+      "category_column": "type",
+      "date_column": "type",
+      "lower": 0,
+      "upper": 72,
+      "window": 3
+    },
+    "timeout_message": "Response deadline exceeded; acknowledgement unavailable"
+  }
+]

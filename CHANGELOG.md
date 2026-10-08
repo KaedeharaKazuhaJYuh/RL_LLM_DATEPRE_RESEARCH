@@ -168,3 +168,8 @@ Independent functional verifier; real CSV mutations; task-aware LinUCB with froz
 - 建立 50 个数据分析任务、任务 schema、参考输出和基础验证规则。
 - 实现 Rule Router、LinUCB Bandit、LLM 适配器、数据工具和实验运行器。
 - 接入 DeepSeek 的 OpenAI-compatible API 调用方式。
+# V5.0.15-beta.1 — 2026-10-08
+
+- 完成条件恢复 RL beta 研究实现：固定首个工具动作和后续分析步骤，学习提交确认、重试、继续或终止，使用真实持久回执、隔离分支和四类故障状态。
+- 冻结两份未用于本项目的 UCI CC BY 4.0 数据来源（Auto MPG、Glass）、训练/留出任务、五个训练臂、三种种子和来源×任务族验收门槛。训练与留出结果仍待 CUDA 环境执行；本机无 CUDA，未生成模型效果结论。
+- 修复 GRPO 采样分布与温度概率不一致、原生滚动均值非法窗口校验、Go HTTP 尾部 JSON 验证，并新增恢复状态、提交回执和分支隔离测试。
