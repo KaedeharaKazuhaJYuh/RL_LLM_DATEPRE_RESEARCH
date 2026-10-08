@@ -1,6 +1,6 @@
 # RL + LLM Data Analysis Agent — V5.0.15-beta.1
 
-V5.0.15-beta.1 完成了[条件恢复 RL 协议](reports/V5_0_15_BETA_1_PROTOCOL.md)、真实公开来源、状态分支环境、五臂训练器和冻结评测器；RL 训练需要 CUDA，本机未完成模型矩阵时不发布效果结论。研究假设、arXiv 查新与边界见[beta.1 规划](reports/V5_0_15_BETA_1_RL_PLAN.md)和[查新报告](reports/V5_0_15_BETA_1_ARXIV_IDEAS.md)。
+V5.0.15-beta.1 完成了[条件恢复 RL 协议](reports/V5_0_15_BETA_1_PROTOCOL.md)、真实公开来源、状态分支环境、五臂训练器和冻结评测器；当前 Codex 沙箱无法访问 NVIDIA 设备，因此未在此环境发布模型效果结论。研究假设、arXiv 查新与边界见[beta.1 规划](reports/V5_0_15_BETA_1_RL_PLAN.md)和[查新报告](reports/V5_0_15_BETA_1_ARXIV_IDEAS.md)。
 
 V5.0.10 完成[发布审计](reports/V5_0_10.md)：固定开发负载的可选批量推理在三次重复中墙钟中位数由 88.61 秒降至 17.58 秒，约 5.04 倍，但 1/48 题动作不同，模型效果评测仍默认串行。新公开来源和新措辞的三种子对照中，原 SFT 为 35/72，等 episode、匹配实际优化步数的继续 SFT 为 38/72，RL 为 39/72；净增只有 1 条且集中于一组相关题，不足以设为默认模型。协议、逐题审计与限制见[模型报告](reports/V5_0_10.md)及[预设方案](reports/V5_0_10_MODEL_PROTOCOL.md)。
 
