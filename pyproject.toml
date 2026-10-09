@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rl-llm-data-agent"
-version = "5.0.15b1"
+version = "5.0.15b2"
 description = "Verifiable RL and LLM data-analysis research with optional native tools and local experiment orchestration"
 requires-python = ">=3.11"
 dependencies = ["numpy==2.3.5"]

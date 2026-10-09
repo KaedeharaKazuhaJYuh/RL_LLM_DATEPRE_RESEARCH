@@ -1,5 +1,7 @@
 # FaultDA-Bench 研究规划
 
+本文件为早期草案。后续研究以用户提供的 [研究协议 v1](FAULTDA_BENCH_RESEARCH_PROTOCOL_V1.md) 为准；下文若与 v1 的来源隔离、状态可观察性、实际非幂等副作用或指标定义不同，以 v1 为准。V5 的条件恢复 pilot 不等于完成 FaultDA-Bench。
+
 ## 定位
 
 FaultDA-Bench（Fault-aware Data Analysis Agent Benchmark）面向“状态不确定性与故障恢复的可验证数据分析 Agent”评测。它从当前项目的训练环境中独立出来，目标不是再训练一个模型，而是建立一个可复现、可扩展、能区分规划错误与环境故障的公开基准。
