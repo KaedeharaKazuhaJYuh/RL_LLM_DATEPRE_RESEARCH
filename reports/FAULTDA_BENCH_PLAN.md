@@ -1,6 +1,6 @@
 # FaultDA-Bench 研究规划
 
-本文件为早期草案。后续研究以用户提供的 [研究协议 v1](FAULTDA_BENCH_RESEARCH_PROTOCOL_V1.md) 为准；下文若与 v1 的来源隔离、状态可观察性、实际非幂等副作用或指标定义不同，以 v1 为准。V5 的条件恢复 pilot 不等于完成 FaultDA-Bench。
+本文件为早期草案。当前定位与实施顺序以[研究协议 v2](FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md)为准；用户提供的[研究协议 v1](FAULTDA_BENCH_RESEARCH_PROTOCOL_V1.md)保留，数据隔离等未被 v2 修订的约束继续生效。下文仅作历史规划，不表示原创性已成立。V5 的条件恢复 pilot 不等于完成 FaultDA-Bench。
 
 ## 定位
 
