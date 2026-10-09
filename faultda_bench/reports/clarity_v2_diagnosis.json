@@ -1,0 +1,119 @@
+{
+  "input_report_sha256": "cbd231f74fd816df3b3dc4bffa1080c14ebf493fbe182ad8240fd39b5783a3b3",
+  "derivation_code_sha256": "bec66958d5918cfb1d1353eae9b651d235f6d8dfaf605542625bc1b135cbe0a5",
+  "scope": "post-hoc diagnostic, no claim about model internal reasoning or causal mechanism",
+  "arms": {
+    "original": {
+      "escalated": 8,
+      "correct_terminal": 8,
+      "has_correct_stage": 8,
+      "wrong_terminal_with_correct_stage": 0,
+      "episodes": [
+        {
+          "order_index": 1,
+          "task_id": "group-01",
+          "correct_terminal": true,
+          "correct_stage_observed": true
+        },
+        {
+          "order_index": 4,
+          "task_id": "window-01",
+          "correct_terminal": true,
+          "correct_stage_observed": true
+        },
+        {
+          "order_index": 8,
+          "task_id": "window-01",
+          "correct_terminal": true,
+          "correct_stage_observed": true
+        },
+        {
+          "order_index": 10,
+          "task_id": "group-01",
+          "correct_terminal": true,
+          "correct_stage_observed": true
+        },
+        {
+          "order_index": 17,
+          "task_id": "window-01",
+          "correct_terminal": true,
+          "correct_stage_observed": true
+        },
+        {
+          "order_index": 18,
+          "task_id": "group-01",
+          "correct_terminal": true,
+          "correct_stage_observed": true
+        },
+        {
+          "order_index": 20,
+          "task_id": "group-01",
+          "correct_terminal": true,
+          "correct_stage_observed": true
+        },
+        {
+          "order_index": 22,
+          "task_id": "window-01",
+          "correct_terminal": true,
+          "correct_stage_observed": true
+        }
+      ]
+    },
+    "explicit": {
+      "escalated": 8,
+      "correct_terminal": 6,
+      "has_correct_stage": 8,
+      "wrong_terminal_with_correct_stage": 2,
+      "episodes": [
+        {
+          "order_index": 0,
+          "task_id": "group-01",
+          "correct_terminal": false,
+          "correct_stage_observed": true
+        },
+        {
+          "order_index": 5,
+          "task_id": "window-01",
+          "correct_terminal": true,
+          "correct_stage_observed": true
+        },
+        {
+          "order_index": 9,
+          "task_id": "window-01",
+          "correct_terminal": true,
+          "correct_stage_observed": true
+        },
+        {
+          "order_index": 11,
+          "task_id": "group-01",
+          "correct_terminal": true,
+          "correct_stage_observed": true
+        },
+        {
+          "order_index": 16,
+          "task_id": "window-01",
+          "correct_terminal": true,
+          "correct_stage_observed": true
+        },
+        {
+          "order_index": 19,
+          "task_id": "group-01",
+          "correct_terminal": true,
+          "correct_stage_observed": true
+        },
+        {
+          "order_index": 21,
+          "task_id": "group-01",
+          "correct_terminal": false,
+          "correct_stage_observed": true
+        },
+        {
+          "order_index": 23,
+          "task_id": "window-01",
+          "correct_terminal": true,
+          "correct_stage_observed": true
+        }
+      ]
+    }
+  }
+}

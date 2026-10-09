@@ -1,6 +1,8 @@
 # RL + LLM Data Analysis Agent — V5.0.15-beta.2
 
-当前 `faultda-bench` 研究分支已完成[首个开发版本 0.2.0-dev](faultda_bench/README.md)：12 个历史数据派生任务、联合扰动、CAS 修复与独立验证，完成 5,184 次离线执行和 12 次 DeepSeek 试运行。强组合规则基线解决当前可观察任务；DeepSeek 完成 4/12，其余 8 次终态正确但升级，尚无新机制或 RL 提升结论。详见[版本报告](faultda_bench/reports/SEMANTIC_V1_RELEASE.md)。旧 P0 与 V5.0.15-beta.2 结果保留，下面是继承的模型研究基线。
+当前 `faultda-bench` 研究分支已完成[0.2.05-dev 迭代](faultda_bench/reports/CLARITY_V2_RELEASE.md)：24 个跨来源开发任务、2,304 次离线执行及字段映射/输出说明复核。强组合基线仍解决当前可观察任务；24 次 DeepSeek 配对诊断中，两种说明均完成 4/12，没有效果提升证据。旧版分数不能简单归因于模型恢复能力，人工审阅与第二模型对照仍待完成。
+
+[首版 0.2.0-dev](faultda_bench/reports/SEMANTIC_V1_RELEASE.md)的 5,184 次离线与 12 次 API 记录、旧 P0 和 V5.0.15-beta.2 结果均保留。使用方法见[基准说明](faultda_bench/README.md)，下面保留继承的模型研究基线。
 
 V5.0.15-beta.2 接续 beta.1 的[条件恢复 RL 协议](reports/V5_0_15_BETA_1_PROTOCOL.md)，完成三种子五臂 CUDA 训练、冻结评测、逐题审计与[语义变换契约反例](reports/V5_0_15_SEMANTIC_CONTRACTS.md)。结果和限制见[beta.2 报告](reports/V5_0_15_BETA_2.md)。本轮只研究给定正确首操作与固定后续步骤的四动作恢复策略，不代表完整规划能力。研究假设与 arXiv 查新见[初始规划](reports/V5_0_15_BETA_1_RL_PLAN.md)和[查新报告](reports/V5_0_15_BETA_1_ARXIV_IDEAS.md)。
 

@@ -1,0 +1,3454 @@
+{
+  "version": "0.2.05-dev",
+  "tasks": [
+    {
+      "id": "uci_auto_mpg-group-01",
+      "source_id": "uci_auto_mpg",
+      "family_source_cell": "uci_auto_mpg/group",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "source_sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be",
+      "selection_indices": [
+        0,
+        49,
+        99,
+        149,
+        199,
+        248,
+        298,
+        348
+      ],
+      "contract": {
+        "family": "group",
+        "column": "mpg",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object mapping each dimension.group to the sum of value for that group.",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column mpg. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column cylinders; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "0",
+            "key": "8",
+            "value": "18.0"
+          },
+          {
+            "id": "49",
+            "key": "4",
+            "value": "23.0"
+          },
+          {
+            "id": "99",
+            "key": "6",
+            "value": "18.0"
+          },
+          {
+            "id": "149",
+            "key": "4",
+            "value": "24.0"
+          },
+          {
+            "id": "199",
+            "key": "6",
+            "value": "20.0"
+          },
+          {
+            "id": "248",
+            "key": "4",
+            "value": "36.1"
+          },
+          {
+            "id": "298",
+            "key": "8",
+            "value": "23.0"
+          },
+          {
+            "id": "348",
+            "key": "4",
+            "value": "37.7"
+          }
+        ],
+        "v2": [
+          {
+            "id": "0",
+            "key": "8",
+            "value": "19.0"
+          },
+          {
+            "id": "49",
+            "key": "4",
+            "value": "23.0"
+          },
+          {
+            "id": "99",
+            "key": "6",
+            "value": "18.0"
+          },
+          {
+            "id": "149",
+            "key": "4",
+            "value": "24.0"
+          },
+          {
+            "id": "199",
+            "key": "6",
+            "value": "20.0"
+          },
+          {
+            "id": "248",
+            "key": "4",
+            "value": "36.1"
+          },
+          {
+            "id": "298",
+            "key": "8",
+            "value": "23.0"
+          },
+          {
+            "id": "348",
+            "key": "4",
+            "value": "37.7"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "4",
+          "group": "4"
+        },
+        {
+          "key": "6",
+          "group": "6"
+        },
+        {
+          "key": "8",
+          "group": "8"
+        },
+        {
+          "key": "4",
+          "group": "4"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_auto_mpg-version-01",
+      "source_id": "uci_auto_mpg",
+      "family_source_cell": "uci_auto_mpg/version",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "source_sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be",
+      "selection_indices": [
+        0,
+        49,
+        99,
+        149,
+        199,
+        248,
+        298,
+        348
+      ],
+      "contract": {
+        "family": "version",
+        "column": "mpg",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object with exactly one key total containing sum(value).",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column mpg. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column cylinders; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "0",
+            "key": "8",
+            "value": "18.0"
+          },
+          {
+            "id": "49",
+            "key": "4",
+            "value": "23.0"
+          },
+          {
+            "id": "99",
+            "key": "6",
+            "value": "18.0"
+          },
+          {
+            "id": "149",
+            "key": "4",
+            "value": "24.0"
+          },
+          {
+            "id": "199",
+            "key": "6",
+            "value": "20.0"
+          },
+          {
+            "id": "248",
+            "key": "4",
+            "value": "36.1"
+          },
+          {
+            "id": "298",
+            "key": "8",
+            "value": "23.0"
+          },
+          {
+            "id": "348",
+            "key": "4",
+            "value": "37.7"
+          }
+        ],
+        "v2": [
+          {
+            "id": "0",
+            "key": "8",
+            "value": "19.0"
+          },
+          {
+            "id": "49",
+            "key": "4",
+            "value": "23.0"
+          },
+          {
+            "id": "99",
+            "key": "6",
+            "value": "18.0"
+          },
+          {
+            "id": "149",
+            "key": "4",
+            "value": "24.0"
+          },
+          {
+            "id": "199",
+            "key": "6",
+            "value": "20.0"
+          },
+          {
+            "id": "248",
+            "key": "4",
+            "value": "36.1"
+          },
+          {
+            "id": "298",
+            "key": "8",
+            "value": "23.0"
+          },
+          {
+            "id": "348",
+            "key": "4",
+            "value": "37.7"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "4",
+          "group": "4"
+        },
+        {
+          "key": "6",
+          "group": "6"
+        },
+        {
+          "key": "8",
+          "group": "8"
+        },
+        {
+          "key": "4",
+          "group": "4"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_auto_mpg-group-02",
+      "source_id": "uci_auto_mpg",
+      "family_source_cell": "uci_auto_mpg/group",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "source_sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be",
+      "selection_indices": [
+        1,
+        50,
+        100,
+        150,
+        200,
+        249,
+        299,
+        349
+      ],
+      "contract": {
+        "family": "group",
+        "column": "weight",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object mapping each dimension.group to the sum of value for that group.",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column weight. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column cylinders; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "1",
+            "key": "8",
+            "value": "3693."
+          },
+          {
+            "id": "50",
+            "key": "4",
+            "value": "2123."
+          },
+          {
+            "id": "100",
+            "key": "6",
+            "value": "3021."
+          },
+          {
+            "id": "150",
+            "key": "4",
+            "value": "2391."
+          },
+          {
+            "id": "200",
+            "key": "6",
+            "value": "3574."
+          },
+          {
+            "id": "249",
+            "key": "8",
+            "value": "3365."
+          },
+          {
+            "id": "299",
+            "key": "4",
+            "value": "3190."
+          },
+          {
+            "id": "349",
+            "key": "4",
+            "value": "1985."
+          }
+        ],
+        "v2": [
+          {
+            "id": "1",
+            "key": "8",
+            "value": "3695"
+          },
+          {
+            "id": "50",
+            "key": "4",
+            "value": "2123."
+          },
+          {
+            "id": "100",
+            "key": "6",
+            "value": "3021."
+          },
+          {
+            "id": "150",
+            "key": "4",
+            "value": "2391."
+          },
+          {
+            "id": "200",
+            "key": "6",
+            "value": "3574."
+          },
+          {
+            "id": "249",
+            "key": "8",
+            "value": "3365."
+          },
+          {
+            "id": "299",
+            "key": "4",
+            "value": "3190."
+          },
+          {
+            "id": "349",
+            "key": "4",
+            "value": "1985."
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "4",
+          "group": "4"
+        },
+        {
+          "key": "6",
+          "group": "6"
+        },
+        {
+          "key": "8",
+          "group": "8"
+        },
+        {
+          "key": "4",
+          "group": "4"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_auto_mpg-version-02",
+      "source_id": "uci_auto_mpg",
+      "family_source_cell": "uci_auto_mpg/version",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "source_sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be",
+      "selection_indices": [
+        1,
+        50,
+        100,
+        150,
+        200,
+        249,
+        299,
+        349
+      ],
+      "contract": {
+        "family": "version",
+        "column": "weight",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object with exactly one key total containing sum(value).",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column weight. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column cylinders; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "1",
+            "key": "8",
+            "value": "3693."
+          },
+          {
+            "id": "50",
+            "key": "4",
+            "value": "2123."
+          },
+          {
+            "id": "100",
+            "key": "6",
+            "value": "3021."
+          },
+          {
+            "id": "150",
+            "key": "4",
+            "value": "2391."
+          },
+          {
+            "id": "200",
+            "key": "6",
+            "value": "3574."
+          },
+          {
+            "id": "249",
+            "key": "8",
+            "value": "3365."
+          },
+          {
+            "id": "299",
+            "key": "4",
+            "value": "3190."
+          },
+          {
+            "id": "349",
+            "key": "4",
+            "value": "1985."
+          }
+        ],
+        "v2": [
+          {
+            "id": "1",
+            "key": "8",
+            "value": "3695"
+          },
+          {
+            "id": "50",
+            "key": "4",
+            "value": "2123."
+          },
+          {
+            "id": "100",
+            "key": "6",
+            "value": "3021."
+          },
+          {
+            "id": "150",
+            "key": "4",
+            "value": "2391."
+          },
+          {
+            "id": "200",
+            "key": "6",
+            "value": "3574."
+          },
+          {
+            "id": "249",
+            "key": "8",
+            "value": "3365."
+          },
+          {
+            "id": "299",
+            "key": "4",
+            "value": "3190."
+          },
+          {
+            "id": "349",
+            "key": "4",
+            "value": "1985."
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "4",
+          "group": "4"
+        },
+        {
+          "key": "6",
+          "group": "6"
+        },
+        {
+          "key": "8",
+          "group": "8"
+        },
+        {
+          "key": "4",
+          "group": "4"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_auto_mpg-group-03",
+      "source_id": "uci_auto_mpg",
+      "family_source_cell": "uci_auto_mpg/group",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "source_sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be",
+      "selection_indices": [
+        2,
+        51,
+        101,
+        151,
+        201,
+        250,
+        300,
+        350
+      ],
+      "contract": {
+        "family": "group",
+        "column": "mpg",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object mapping each dimension.group to the sum of value for that group.",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column mpg. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column cylinders; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "2",
+            "key": "8",
+            "value": "18.0"
+          },
+          {
+            "id": "51",
+            "key": "4",
+            "value": "30.0"
+          },
+          {
+            "id": "101",
+            "key": "6",
+            "value": "23.0"
+          },
+          {
+            "id": "151",
+            "key": "4",
+            "value": "31.0"
+          },
+          {
+            "id": "201",
+            "key": "6",
+            "value": "18.5"
+          },
+          {
+            "id": "250",
+            "key": "8",
+            "value": "19.4"
+          },
+          {
+            "id": "300",
+            "key": "8",
+            "value": "23.9"
+          },
+          {
+            "id": "350",
+            "key": "4",
+            "value": "34.7"
+          }
+        ],
+        "v2": [
+          {
+            "id": "2",
+            "key": "8",
+            "value": "21.0"
+          },
+          {
+            "id": "51",
+            "key": "4",
+            "value": "30.0"
+          },
+          {
+            "id": "101",
+            "key": "6",
+            "value": "23.0"
+          },
+          {
+            "id": "151",
+            "key": "4",
+            "value": "31.0"
+          },
+          {
+            "id": "201",
+            "key": "6",
+            "value": "18.5"
+          },
+          {
+            "id": "250",
+            "key": "8",
+            "value": "19.4"
+          },
+          {
+            "id": "300",
+            "key": "8",
+            "value": "23.9"
+          },
+          {
+            "id": "350",
+            "key": "4",
+            "value": "34.7"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "4",
+          "group": "4"
+        },
+        {
+          "key": "6",
+          "group": "6"
+        },
+        {
+          "key": "8",
+          "group": "8"
+        },
+        {
+          "key": "4",
+          "group": "4"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_auto_mpg-version-03",
+      "source_id": "uci_auto_mpg",
+      "family_source_cell": "uci_auto_mpg/version",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "source_sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be",
+      "selection_indices": [
+        2,
+        51,
+        101,
+        151,
+        201,
+        250,
+        300,
+        350
+      ],
+      "contract": {
+        "family": "version",
+        "column": "mpg",
+        "missing": "exclude",
+        "version_policy": "latest",
+        "snapshot_version": "v1",
+        "output": "JSON object with exactly one key total containing sum(value).",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column mpg. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column cylinders; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "2",
+            "key": "8",
+            "value": "18.0"
+          },
+          {
+            "id": "51",
+            "key": "4",
+            "value": "30.0"
+          },
+          {
+            "id": "101",
+            "key": "6",
+            "value": "23.0"
+          },
+          {
+            "id": "151",
+            "key": "4",
+            "value": "31.0"
+          },
+          {
+            "id": "201",
+            "key": "6",
+            "value": "18.5"
+          },
+          {
+            "id": "250",
+            "key": "8",
+            "value": "19.4"
+          },
+          {
+            "id": "300",
+            "key": "8",
+            "value": "23.9"
+          },
+          {
+            "id": "350",
+            "key": "4",
+            "value": "34.7"
+          }
+        ],
+        "v2": [
+          {
+            "id": "2",
+            "key": "8",
+            "value": "21.0"
+          },
+          {
+            "id": "51",
+            "key": "4",
+            "value": "30.0"
+          },
+          {
+            "id": "101",
+            "key": "6",
+            "value": "23.0"
+          },
+          {
+            "id": "151",
+            "key": "4",
+            "value": "31.0"
+          },
+          {
+            "id": "201",
+            "key": "6",
+            "value": "18.5"
+          },
+          {
+            "id": "250",
+            "key": "8",
+            "value": "19.4"
+          },
+          {
+            "id": "300",
+            "key": "8",
+            "value": "23.9"
+          },
+          {
+            "id": "350",
+            "key": "4",
+            "value": "34.7"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "4",
+          "group": "4"
+        },
+        {
+          "key": "6",
+          "group": "6"
+        },
+        {
+          "key": "8",
+          "group": "8"
+        },
+        {
+          "key": "4",
+          "group": "4"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_auto_mpg-group-04",
+      "source_id": "uci_auto_mpg",
+      "family_source_cell": "uci_auto_mpg/group",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "source_sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be",
+      "selection_indices": [
+        3,
+        52,
+        102,
+        152,
+        202,
+        251,
+        301,
+        351
+      ],
+      "contract": {
+        "family": "group",
+        "column": "weight",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object mapping each dimension.group to the sum of value for that group.",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column weight. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column cylinders; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "3",
+            "key": "8",
+            "value": "3433."
+          },
+          {
+            "id": "52",
+            "key": "4",
+            "value": "2065."
+          },
+          {
+            "id": "102",
+            "key": "4",
+            "value": "1950."
+          },
+          {
+            "id": "152",
+            "key": "6",
+            "value": "3264."
+          },
+          {
+            "id": "202",
+            "key": "6",
+            "value": "3193."
+          },
+          {
+            "id": "251",
+            "key": "8",
+            "value": "3570."
+          },
+          {
+            "id": "301",
+            "key": "4",
+            "value": "2200."
+          },
+          {
+            "id": "351",
+            "key": "4",
+            "value": "2045."
+          }
+        ],
+        "v2": [
+          {
+            "id": "3",
+            "key": "8",
+            "value": "3437"
+          },
+          {
+            "id": "52",
+            "key": "4",
+            "value": "2065."
+          },
+          {
+            "id": "102",
+            "key": "4",
+            "value": "1950."
+          },
+          {
+            "id": "152",
+            "key": "6",
+            "value": "3264."
+          },
+          {
+            "id": "202",
+            "key": "6",
+            "value": "3193."
+          },
+          {
+            "id": "251",
+            "key": "8",
+            "value": "3570."
+          },
+          {
+            "id": "301",
+            "key": "4",
+            "value": "2200."
+          },
+          {
+            "id": "351",
+            "key": "4",
+            "value": "2045."
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "4",
+          "group": "4"
+        },
+        {
+          "key": "6",
+          "group": "6"
+        },
+        {
+          "key": "8",
+          "group": "8"
+        },
+        {
+          "key": "4",
+          "group": "4"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_auto_mpg-version-04",
+      "source_id": "uci_auto_mpg",
+      "family_source_cell": "uci_auto_mpg/version",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "source_sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be",
+      "selection_indices": [
+        3,
+        52,
+        102,
+        152,
+        202,
+        251,
+        301,
+        351
+      ],
+      "contract": {
+        "family": "version",
+        "column": "weight",
+        "missing": "exclude",
+        "version_policy": "latest",
+        "snapshot_version": "v1",
+        "output": "JSON object with exactly one key total containing sum(value).",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column weight. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column cylinders; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "3",
+            "key": "8",
+            "value": "3433."
+          },
+          {
+            "id": "52",
+            "key": "4",
+            "value": "2065."
+          },
+          {
+            "id": "102",
+            "key": "4",
+            "value": "1950."
+          },
+          {
+            "id": "152",
+            "key": "6",
+            "value": "3264."
+          },
+          {
+            "id": "202",
+            "key": "6",
+            "value": "3193."
+          },
+          {
+            "id": "251",
+            "key": "8",
+            "value": "3570."
+          },
+          {
+            "id": "301",
+            "key": "4",
+            "value": "2200."
+          },
+          {
+            "id": "351",
+            "key": "4",
+            "value": "2045."
+          }
+        ],
+        "v2": [
+          {
+            "id": "3",
+            "key": "8",
+            "value": "3437"
+          },
+          {
+            "id": "52",
+            "key": "4",
+            "value": "2065."
+          },
+          {
+            "id": "102",
+            "key": "4",
+            "value": "1950."
+          },
+          {
+            "id": "152",
+            "key": "6",
+            "value": "3264."
+          },
+          {
+            "id": "202",
+            "key": "6",
+            "value": "3193."
+          },
+          {
+            "id": "251",
+            "key": "8",
+            "value": "3570."
+          },
+          {
+            "id": "301",
+            "key": "4",
+            "value": "2200."
+          },
+          {
+            "id": "351",
+            "key": "4",
+            "value": "2045."
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "4",
+          "group": "4"
+        },
+        {
+          "key": "6",
+          "group": "6"
+        },
+        {
+          "key": "8",
+          "group": "8"
+        },
+        {
+          "key": "4",
+          "group": "4"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_glass-group-01",
+      "source_id": "uci_glass",
+      "family_source_cell": "uci_glass/group",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/glass.csv",
+      "source_sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49",
+      "selection_indices": [
+        0,
+        26,
+        53,
+        80,
+        107,
+        133,
+        160,
+        187
+      ],
+      "contract": {
+        "family": "group",
+        "column": "Na",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object mapping each dimension.group to the sum of value for that group.",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column Na. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column type; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "0",
+            "key": "1",
+            "value": "13.64"
+          },
+          {
+            "id": "26",
+            "key": "1",
+            "value": "13.21"
+          },
+          {
+            "id": "53",
+            "key": "1",
+            "value": "13.14"
+          },
+          {
+            "id": "80",
+            "key": "2",
+            "value": "12.86"
+          },
+          {
+            "id": "107",
+            "key": "2",
+            "value": "12.30"
+          },
+          {
+            "id": "133",
+            "key": "2",
+            "value": "13.71"
+          },
+          {
+            "id": "160",
+            "key": "3",
+            "value": "13.33"
+          },
+          {
+            "id": "187",
+            "key": "7",
+            "value": "13.44"
+          }
+        ],
+        "v2": [
+          {
+            "id": "0",
+            "key": "1",
+            "value": "14.64"
+          },
+          {
+            "id": "26",
+            "key": "1",
+            "value": "13.21"
+          },
+          {
+            "id": "53",
+            "key": "1",
+            "value": "13.14"
+          },
+          {
+            "id": "80",
+            "key": "2",
+            "value": "12.86"
+          },
+          {
+            "id": "107",
+            "key": "2",
+            "value": "12.30"
+          },
+          {
+            "id": "133",
+            "key": "2",
+            "value": "13.71"
+          },
+          {
+            "id": "160",
+            "key": "3",
+            "value": "13.33"
+          },
+          {
+            "id": "187",
+            "key": "7",
+            "value": "13.44"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "2",
+          "group": "2"
+        },
+        {
+          "key": "3",
+          "group": "3"
+        },
+        {
+          "key": "7",
+          "group": "7"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_glass-version-01",
+      "source_id": "uci_glass",
+      "family_source_cell": "uci_glass/version",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/glass.csv",
+      "source_sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49",
+      "selection_indices": [
+        0,
+        26,
+        53,
+        80,
+        107,
+        133,
+        160,
+        187
+      ],
+      "contract": {
+        "family": "version",
+        "column": "Na",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object with exactly one key total containing sum(value).",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column Na. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column type; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "0",
+            "key": "1",
+            "value": "13.64"
+          },
+          {
+            "id": "26",
+            "key": "1",
+            "value": "13.21"
+          },
+          {
+            "id": "53",
+            "key": "1",
+            "value": "13.14"
+          },
+          {
+            "id": "80",
+            "key": "2",
+            "value": "12.86"
+          },
+          {
+            "id": "107",
+            "key": "2",
+            "value": "12.30"
+          },
+          {
+            "id": "133",
+            "key": "2",
+            "value": "13.71"
+          },
+          {
+            "id": "160",
+            "key": "3",
+            "value": "13.33"
+          },
+          {
+            "id": "187",
+            "key": "7",
+            "value": "13.44"
+          }
+        ],
+        "v2": [
+          {
+            "id": "0",
+            "key": "1",
+            "value": "14.64"
+          },
+          {
+            "id": "26",
+            "key": "1",
+            "value": "13.21"
+          },
+          {
+            "id": "53",
+            "key": "1",
+            "value": "13.14"
+          },
+          {
+            "id": "80",
+            "key": "2",
+            "value": "12.86"
+          },
+          {
+            "id": "107",
+            "key": "2",
+            "value": "12.30"
+          },
+          {
+            "id": "133",
+            "key": "2",
+            "value": "13.71"
+          },
+          {
+            "id": "160",
+            "key": "3",
+            "value": "13.33"
+          },
+          {
+            "id": "187",
+            "key": "7",
+            "value": "13.44"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "2",
+          "group": "2"
+        },
+        {
+          "key": "3",
+          "group": "3"
+        },
+        {
+          "key": "7",
+          "group": "7"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_glass-group-02",
+      "source_id": "uci_glass",
+      "family_source_cell": "uci_glass/group",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/glass.csv",
+      "source_sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49",
+      "selection_indices": [
+        1,
+        27,
+        54,
+        81,
+        108,
+        134,
+        161,
+        188
+      ],
+      "contract": {
+        "family": "group",
+        "column": "Si",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object mapping each dimension.group to the sum of value for that group.",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column Si. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column type; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "1",
+            "key": "1",
+            "value": "72.73"
+          },
+          {
+            "id": "27",
+            "key": "1",
+            "value": "73.04"
+          },
+          {
+            "id": "54",
+            "key": "1",
+            "value": "72.98"
+          },
+          {
+            "id": "81",
+            "key": "2",
+            "value": "73.17"
+          },
+          {
+            "id": "108",
+            "key": "2",
+            "value": "72.67"
+          },
+          {
+            "id": "134",
+            "key": "2",
+            "value": "72.78"
+          },
+          {
+            "id": "161",
+            "key": "3",
+            "value": "72.65"
+          },
+          {
+            "id": "188",
+            "key": "7",
+            "value": "70.26"
+          }
+        ],
+        "v2": [
+          {
+            "id": "1",
+            "key": "1",
+            "value": "74.73"
+          },
+          {
+            "id": "27",
+            "key": "1",
+            "value": "73.04"
+          },
+          {
+            "id": "54",
+            "key": "1",
+            "value": "72.98"
+          },
+          {
+            "id": "81",
+            "key": "2",
+            "value": "73.17"
+          },
+          {
+            "id": "108",
+            "key": "2",
+            "value": "72.67"
+          },
+          {
+            "id": "134",
+            "key": "2",
+            "value": "72.78"
+          },
+          {
+            "id": "161",
+            "key": "3",
+            "value": "72.65"
+          },
+          {
+            "id": "188",
+            "key": "7",
+            "value": "70.26"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "2",
+          "group": "2"
+        },
+        {
+          "key": "3",
+          "group": "3"
+        },
+        {
+          "key": "7",
+          "group": "7"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_glass-version-02",
+      "source_id": "uci_glass",
+      "family_source_cell": "uci_glass/version",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/glass.csv",
+      "source_sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49",
+      "selection_indices": [
+        1,
+        27,
+        54,
+        81,
+        108,
+        134,
+        161,
+        188
+      ],
+      "contract": {
+        "family": "version",
+        "column": "Si",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object with exactly one key total containing sum(value).",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column Si. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column type; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "1",
+            "key": "1",
+            "value": "72.73"
+          },
+          {
+            "id": "27",
+            "key": "1",
+            "value": "73.04"
+          },
+          {
+            "id": "54",
+            "key": "1",
+            "value": "72.98"
+          },
+          {
+            "id": "81",
+            "key": "2",
+            "value": "73.17"
+          },
+          {
+            "id": "108",
+            "key": "2",
+            "value": "72.67"
+          },
+          {
+            "id": "134",
+            "key": "2",
+            "value": "72.78"
+          },
+          {
+            "id": "161",
+            "key": "3",
+            "value": "72.65"
+          },
+          {
+            "id": "188",
+            "key": "7",
+            "value": "70.26"
+          }
+        ],
+        "v2": [
+          {
+            "id": "1",
+            "key": "1",
+            "value": "74.73"
+          },
+          {
+            "id": "27",
+            "key": "1",
+            "value": "73.04"
+          },
+          {
+            "id": "54",
+            "key": "1",
+            "value": "72.98"
+          },
+          {
+            "id": "81",
+            "key": "2",
+            "value": "73.17"
+          },
+          {
+            "id": "108",
+            "key": "2",
+            "value": "72.67"
+          },
+          {
+            "id": "134",
+            "key": "2",
+            "value": "72.78"
+          },
+          {
+            "id": "161",
+            "key": "3",
+            "value": "72.65"
+          },
+          {
+            "id": "188",
+            "key": "7",
+            "value": "70.26"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "2",
+          "group": "2"
+        },
+        {
+          "key": "3",
+          "group": "3"
+        },
+        {
+          "key": "7",
+          "group": "7"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_glass-group-03",
+      "source_id": "uci_glass",
+      "family_source_cell": "uci_glass/group",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/glass.csv",
+      "source_sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49",
+      "selection_indices": [
+        2,
+        28,
+        55,
+        82,
+        109,
+        135,
+        162,
+        189
+      ],
+      "contract": {
+        "family": "group",
+        "column": "Na",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object mapping each dimension.group to the sum of value for that group.",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column Na. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column type; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "2",
+            "key": "1",
+            "value": "13.53"
+          },
+          {
+            "id": "28",
+            "key": "1",
+            "value": "12.56"
+          },
+          {
+            "id": "55",
+            "key": "1",
+            "value": "12.45"
+          },
+          {
+            "id": "82",
+            "key": "2",
+            "value": "13.41"
+          },
+          {
+            "id": "109",
+            "key": "2",
+            "value": "13.72"
+          },
+          {
+            "id": "135",
+            "key": "2",
+            "value": "13.19"
+          },
+          {
+            "id": "162",
+            "key": "3",
+            "value": "14.19"
+          },
+          {
+            "id": "189",
+            "key": "7",
+            "value": "15.79"
+          }
+        ],
+        "v2": [
+          {
+            "id": "2",
+            "key": "1",
+            "value": "16.53"
+          },
+          {
+            "id": "28",
+            "key": "1",
+            "value": "12.56"
+          },
+          {
+            "id": "55",
+            "key": "1",
+            "value": "12.45"
+          },
+          {
+            "id": "82",
+            "key": "2",
+            "value": "13.41"
+          },
+          {
+            "id": "109",
+            "key": "2",
+            "value": "13.72"
+          },
+          {
+            "id": "135",
+            "key": "2",
+            "value": "13.19"
+          },
+          {
+            "id": "162",
+            "key": "3",
+            "value": "14.19"
+          },
+          {
+            "id": "189",
+            "key": "7",
+            "value": "15.79"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "2",
+          "group": "2"
+        },
+        {
+          "key": "3",
+          "group": "3"
+        },
+        {
+          "key": "7",
+          "group": "7"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_glass-version-03",
+      "source_id": "uci_glass",
+      "family_source_cell": "uci_glass/version",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/glass.csv",
+      "source_sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49",
+      "selection_indices": [
+        2,
+        28,
+        55,
+        82,
+        109,
+        135,
+        162,
+        189
+      ],
+      "contract": {
+        "family": "version",
+        "column": "Na",
+        "missing": "exclude",
+        "version_policy": "latest",
+        "snapshot_version": "v1",
+        "output": "JSON object with exactly one key total containing sum(value).",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column Na. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column type; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "2",
+            "key": "1",
+            "value": "13.53"
+          },
+          {
+            "id": "28",
+            "key": "1",
+            "value": "12.56"
+          },
+          {
+            "id": "55",
+            "key": "1",
+            "value": "12.45"
+          },
+          {
+            "id": "82",
+            "key": "2",
+            "value": "13.41"
+          },
+          {
+            "id": "109",
+            "key": "2",
+            "value": "13.72"
+          },
+          {
+            "id": "135",
+            "key": "2",
+            "value": "13.19"
+          },
+          {
+            "id": "162",
+            "key": "3",
+            "value": "14.19"
+          },
+          {
+            "id": "189",
+            "key": "7",
+            "value": "15.79"
+          }
+        ],
+        "v2": [
+          {
+            "id": "2",
+            "key": "1",
+            "value": "16.53"
+          },
+          {
+            "id": "28",
+            "key": "1",
+            "value": "12.56"
+          },
+          {
+            "id": "55",
+            "key": "1",
+            "value": "12.45"
+          },
+          {
+            "id": "82",
+            "key": "2",
+            "value": "13.41"
+          },
+          {
+            "id": "109",
+            "key": "2",
+            "value": "13.72"
+          },
+          {
+            "id": "135",
+            "key": "2",
+            "value": "13.19"
+          },
+          {
+            "id": "162",
+            "key": "3",
+            "value": "14.19"
+          },
+          {
+            "id": "189",
+            "key": "7",
+            "value": "15.79"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "2",
+          "group": "2"
+        },
+        {
+          "key": "3",
+          "group": "3"
+        },
+        {
+          "key": "7",
+          "group": "7"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_glass-group-04",
+      "source_id": "uci_glass",
+      "family_source_cell": "uci_glass/group",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/glass.csv",
+      "source_sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49",
+      "selection_indices": [
+        3,
+        29,
+        56,
+        83,
+        110,
+        136,
+        163,
+        190
+      ],
+      "contract": {
+        "family": "group",
+        "column": "Si",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object mapping each dimension.group to the sum of value for that group.",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column Si. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column type; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "3",
+            "key": "1",
+            "value": "72.61"
+          },
+          {
+            "id": "29",
+            "key": "1",
+            "value": "72.86"
+          },
+          {
+            "id": "56",
+            "key": "1",
+            "value": "72.98"
+          },
+          {
+            "id": "83",
+            "key": "2",
+            "value": "72.87"
+          },
+          {
+            "id": "110",
+            "key": "2",
+            "value": "73.21"
+          },
+          {
+            "id": "136",
+            "key": "2",
+            "value": "73.07"
+          },
+          {
+            "id": "163",
+            "key": "5",
+            "value": "69.89"
+          },
+          {
+            "id": "190",
+            "key": "7",
+            "value": "73.10"
+          }
+        ],
+        "v2": [
+          {
+            "id": "3",
+            "key": "1",
+            "value": "76.61"
+          },
+          {
+            "id": "29",
+            "key": "1",
+            "value": "72.86"
+          },
+          {
+            "id": "56",
+            "key": "1",
+            "value": "72.98"
+          },
+          {
+            "id": "83",
+            "key": "2",
+            "value": "72.87"
+          },
+          {
+            "id": "110",
+            "key": "2",
+            "value": "73.21"
+          },
+          {
+            "id": "136",
+            "key": "2",
+            "value": "73.07"
+          },
+          {
+            "id": "163",
+            "key": "5",
+            "value": "69.89"
+          },
+          {
+            "id": "190",
+            "key": "7",
+            "value": "73.10"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "2",
+          "group": "2"
+        },
+        {
+          "key": "5",
+          "group": "5"
+        },
+        {
+          "key": "7",
+          "group": "7"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_glass-version-04",
+      "source_id": "uci_glass",
+      "family_source_cell": "uci_glass/version",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/glass.csv",
+      "source_sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49",
+      "selection_indices": [
+        3,
+        29,
+        56,
+        83,
+        110,
+        136,
+        163,
+        190
+      ],
+      "contract": {
+        "family": "version",
+        "column": "Si",
+        "missing": "exclude",
+        "version_policy": "latest",
+        "snapshot_version": "v1",
+        "output": "JSON object with exactly one key total containing sum(value).",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column Si. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column type; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "3",
+            "key": "1",
+            "value": "72.61"
+          },
+          {
+            "id": "29",
+            "key": "1",
+            "value": "72.86"
+          },
+          {
+            "id": "56",
+            "key": "1",
+            "value": "72.98"
+          },
+          {
+            "id": "83",
+            "key": "2",
+            "value": "72.87"
+          },
+          {
+            "id": "110",
+            "key": "2",
+            "value": "73.21"
+          },
+          {
+            "id": "136",
+            "key": "2",
+            "value": "73.07"
+          },
+          {
+            "id": "163",
+            "key": "5",
+            "value": "69.89"
+          },
+          {
+            "id": "190",
+            "key": "7",
+            "value": "73.10"
+          }
+        ],
+        "v2": [
+          {
+            "id": "3",
+            "key": "1",
+            "value": "76.61"
+          },
+          {
+            "id": "29",
+            "key": "1",
+            "value": "72.86"
+          },
+          {
+            "id": "56",
+            "key": "1",
+            "value": "72.98"
+          },
+          {
+            "id": "83",
+            "key": "2",
+            "value": "72.87"
+          },
+          {
+            "id": "110",
+            "key": "2",
+            "value": "73.21"
+          },
+          {
+            "id": "136",
+            "key": "2",
+            "value": "73.07"
+          },
+          {
+            "id": "163",
+            "key": "5",
+            "value": "69.89"
+          },
+          {
+            "id": "190",
+            "key": "7",
+            "value": "73.10"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "2",
+          "group": "2"
+        },
+        {
+          "key": "5",
+          "group": "5"
+        },
+        {
+          "key": "7",
+          "group": "7"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_occupancy-group-01",
+      "source_id": "uci_occupancy",
+      "family_source_cell": "uci_occupancy/group",
+      "split": "historical_development",
+      "source_path": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "source_sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "selection_indices": [
+        0,
+        30,
+        60,
+        90,
+        120,
+        150,
+        180,
+        210
+      ],
+      "contract": {
+        "family": "group",
+        "column": "Temperature",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object mapping each dimension.group to the sum of value for that group.",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column Temperature. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column Occupancy; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "0",
+            "key": "1",
+            "value": "23.7"
+          },
+          {
+            "id": "30",
+            "key": "0",
+            "value": "21.1"
+          },
+          {
+            "id": "60",
+            "key": "0",
+            "value": "20.6"
+          },
+          {
+            "id": "90",
+            "key": "0",
+            "value": "20.236"
+          },
+          {
+            "id": "120",
+            "key": "1",
+            "value": "22.58"
+          },
+          {
+            "id": "150",
+            "key": "1",
+            "value": "22.6"
+          },
+          {
+            "id": "180",
+            "key": "0",
+            "value": "20.89"
+          },
+          {
+            "id": "210",
+            "key": "0",
+            "value": "20.7"
+          }
+        ],
+        "v2": [
+          {
+            "id": "0",
+            "key": "1",
+            "value": "24.7"
+          },
+          {
+            "id": "30",
+            "key": "0",
+            "value": "21.1"
+          },
+          {
+            "id": "60",
+            "key": "0",
+            "value": "20.6"
+          },
+          {
+            "id": "90",
+            "key": "0",
+            "value": "20.236"
+          },
+          {
+            "id": "120",
+            "key": "1",
+            "value": "22.58"
+          },
+          {
+            "id": "150",
+            "key": "1",
+            "value": "22.6"
+          },
+          {
+            "id": "180",
+            "key": "0",
+            "value": "20.89"
+          },
+          {
+            "id": "210",
+            "key": "0",
+            "value": "20.7"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "0"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "0",
+          "group": "0"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_occupancy-version-01",
+      "source_id": "uci_occupancy",
+      "family_source_cell": "uci_occupancy/version",
+      "split": "historical_development",
+      "source_path": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "source_sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "selection_indices": [
+        0,
+        30,
+        60,
+        90,
+        120,
+        150,
+        180,
+        210
+      ],
+      "contract": {
+        "family": "version",
+        "column": "Temperature",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object with exactly one key total containing sum(value).",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column Temperature. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column Occupancy; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "0",
+            "key": "1",
+            "value": "23.7"
+          },
+          {
+            "id": "30",
+            "key": "0",
+            "value": "21.1"
+          },
+          {
+            "id": "60",
+            "key": "0",
+            "value": "20.6"
+          },
+          {
+            "id": "90",
+            "key": "0",
+            "value": "20.236"
+          },
+          {
+            "id": "120",
+            "key": "1",
+            "value": "22.58"
+          },
+          {
+            "id": "150",
+            "key": "1",
+            "value": "22.6"
+          },
+          {
+            "id": "180",
+            "key": "0",
+            "value": "20.89"
+          },
+          {
+            "id": "210",
+            "key": "0",
+            "value": "20.7"
+          }
+        ],
+        "v2": [
+          {
+            "id": "0",
+            "key": "1",
+            "value": "24.7"
+          },
+          {
+            "id": "30",
+            "key": "0",
+            "value": "21.1"
+          },
+          {
+            "id": "60",
+            "key": "0",
+            "value": "20.6"
+          },
+          {
+            "id": "90",
+            "key": "0",
+            "value": "20.236"
+          },
+          {
+            "id": "120",
+            "key": "1",
+            "value": "22.58"
+          },
+          {
+            "id": "150",
+            "key": "1",
+            "value": "22.6"
+          },
+          {
+            "id": "180",
+            "key": "0",
+            "value": "20.89"
+          },
+          {
+            "id": "210",
+            "key": "0",
+            "value": "20.7"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "0"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "0",
+          "group": "0"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_occupancy-group-02",
+      "source_id": "uci_occupancy",
+      "family_source_cell": "uci_occupancy/group",
+      "split": "historical_development",
+      "source_path": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "source_sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "selection_indices": [
+        1,
+        31,
+        61,
+        91,
+        121,
+        151,
+        181,
+        211
+      ],
+      "contract": {
+        "family": "group",
+        "column": "CO2",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object mapping each dimension.group to the sum of value for that group.",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column CO2. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column Occupancy; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "1",
+            "key": "1",
+            "value": "824"
+          },
+          {
+            "id": "31",
+            "key": "0",
+            "value": "537.75"
+          },
+          {
+            "id": "61",
+            "key": "0",
+            "value": "446"
+          },
+          {
+            "id": "91",
+            "key": "0",
+            "value": "436.5"
+          },
+          {
+            "id": "121",
+            "key": "1",
+            "value": "1017"
+          },
+          {
+            "id": "151",
+            "key": "0",
+            "value": "1196.66666666667"
+          },
+          {
+            "id": "181",
+            "key": "0",
+            "value": "554.333333333333"
+          },
+          {
+            "id": "211",
+            "key": "0",
+            "value": "461"
+          }
+        ],
+        "v2": [
+          {
+            "id": "1",
+            "key": "1",
+            "value": "826"
+          },
+          {
+            "id": "31",
+            "key": "0",
+            "value": "537.75"
+          },
+          {
+            "id": "61",
+            "key": "0",
+            "value": "446"
+          },
+          {
+            "id": "91",
+            "key": "0",
+            "value": "436.5"
+          },
+          {
+            "id": "121",
+            "key": "1",
+            "value": "1017"
+          },
+          {
+            "id": "151",
+            "key": "0",
+            "value": "1196.66666666667"
+          },
+          {
+            "id": "181",
+            "key": "0",
+            "value": "554.333333333333"
+          },
+          {
+            "id": "211",
+            "key": "0",
+            "value": "461"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "0"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "0",
+          "group": "0"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_occupancy-version-02",
+      "source_id": "uci_occupancy",
+      "family_source_cell": "uci_occupancy/version",
+      "split": "historical_development",
+      "source_path": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "source_sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "selection_indices": [
+        1,
+        31,
+        61,
+        91,
+        121,
+        151,
+        181,
+        211
+      ],
+      "contract": {
+        "family": "version",
+        "column": "CO2",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object with exactly one key total containing sum(value).",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column CO2. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column Occupancy; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "1",
+            "key": "1",
+            "value": "824"
+          },
+          {
+            "id": "31",
+            "key": "0",
+            "value": "537.75"
+          },
+          {
+            "id": "61",
+            "key": "0",
+            "value": "446"
+          },
+          {
+            "id": "91",
+            "key": "0",
+            "value": "436.5"
+          },
+          {
+            "id": "121",
+            "key": "1",
+            "value": "1017"
+          },
+          {
+            "id": "151",
+            "key": "0",
+            "value": "1196.66666666667"
+          },
+          {
+            "id": "181",
+            "key": "0",
+            "value": "554.333333333333"
+          },
+          {
+            "id": "211",
+            "key": "0",
+            "value": "461"
+          }
+        ],
+        "v2": [
+          {
+            "id": "1",
+            "key": "1",
+            "value": "826"
+          },
+          {
+            "id": "31",
+            "key": "0",
+            "value": "537.75"
+          },
+          {
+            "id": "61",
+            "key": "0",
+            "value": "446"
+          },
+          {
+            "id": "91",
+            "key": "0",
+            "value": "436.5"
+          },
+          {
+            "id": "121",
+            "key": "1",
+            "value": "1017"
+          },
+          {
+            "id": "151",
+            "key": "0",
+            "value": "1196.66666666667"
+          },
+          {
+            "id": "181",
+            "key": "0",
+            "value": "554.333333333333"
+          },
+          {
+            "id": "211",
+            "key": "0",
+            "value": "461"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "0"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "0",
+          "group": "0"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_occupancy-group-03",
+      "source_id": "uci_occupancy",
+      "family_source_cell": "uci_occupancy/group",
+      "split": "historical_development",
+      "source_path": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "source_sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "selection_indices": [
+        2,
+        32,
+        62,
+        92,
+        122,
+        152,
+        182,
+        212
+      ],
+      "contract": {
+        "family": "group",
+        "column": "Temperature",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object mapping each dimension.group to the sum of value for that group.",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column Temperature. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column Occupancy; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "2",
+            "key": "1",
+            "value": "23.6"
+          },
+          {
+            "id": "32",
+            "key": "0",
+            "value": "21.1"
+          },
+          {
+            "id": "62",
+            "key": "0",
+            "value": "20.6"
+          },
+          {
+            "id": "92",
+            "key": "0",
+            "value": "20.236"
+          },
+          {
+            "id": "122",
+            "key": "1",
+            "value": "23"
+          },
+          {
+            "id": "152",
+            "key": "0",
+            "value": "22.245"
+          },
+          {
+            "id": "182",
+            "key": "0",
+            "value": "20.89"
+          },
+          {
+            "id": "212",
+            "key": "0",
+            "value": "20.6"
+          }
+        ],
+        "v2": [
+          {
+            "id": "2",
+            "key": "1",
+            "value": "26.6"
+          },
+          {
+            "id": "32",
+            "key": "0",
+            "value": "21.1"
+          },
+          {
+            "id": "62",
+            "key": "0",
+            "value": "20.6"
+          },
+          {
+            "id": "92",
+            "key": "0",
+            "value": "20.236"
+          },
+          {
+            "id": "122",
+            "key": "1",
+            "value": "23"
+          },
+          {
+            "id": "152",
+            "key": "0",
+            "value": "22.245"
+          },
+          {
+            "id": "182",
+            "key": "0",
+            "value": "20.89"
+          },
+          {
+            "id": "212",
+            "key": "0",
+            "value": "20.6"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "0"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "0",
+          "group": "0"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_occupancy-version-03",
+      "source_id": "uci_occupancy",
+      "family_source_cell": "uci_occupancy/version",
+      "split": "historical_development",
+      "source_path": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "source_sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "selection_indices": [
+        2,
+        32,
+        62,
+        92,
+        122,
+        152,
+        182,
+        212
+      ],
+      "contract": {
+        "family": "version",
+        "column": "Temperature",
+        "missing": "exclude",
+        "version_policy": "latest",
+        "snapshot_version": "v1",
+        "output": "JSON object with exactly one key total containing sum(value).",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column Temperature. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column Occupancy; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "2",
+            "key": "1",
+            "value": "23.6"
+          },
+          {
+            "id": "32",
+            "key": "0",
+            "value": "21.1"
+          },
+          {
+            "id": "62",
+            "key": "0",
+            "value": "20.6"
+          },
+          {
+            "id": "92",
+            "key": "0",
+            "value": "20.236"
+          },
+          {
+            "id": "122",
+            "key": "1",
+            "value": "23"
+          },
+          {
+            "id": "152",
+            "key": "0",
+            "value": "22.245"
+          },
+          {
+            "id": "182",
+            "key": "0",
+            "value": "20.89"
+          },
+          {
+            "id": "212",
+            "key": "0",
+            "value": "20.6"
+          }
+        ],
+        "v2": [
+          {
+            "id": "2",
+            "key": "1",
+            "value": "26.6"
+          },
+          {
+            "id": "32",
+            "key": "0",
+            "value": "21.1"
+          },
+          {
+            "id": "62",
+            "key": "0",
+            "value": "20.6"
+          },
+          {
+            "id": "92",
+            "key": "0",
+            "value": "20.236"
+          },
+          {
+            "id": "122",
+            "key": "1",
+            "value": "23"
+          },
+          {
+            "id": "152",
+            "key": "0",
+            "value": "22.245"
+          },
+          {
+            "id": "182",
+            "key": "0",
+            "value": "20.89"
+          },
+          {
+            "id": "212",
+            "key": "0",
+            "value": "20.6"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "0"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "0",
+          "group": "0"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_occupancy-group-04",
+      "source_id": "uci_occupancy",
+      "family_source_cell": "uci_occupancy/group",
+      "split": "historical_development",
+      "source_path": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "source_sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "selection_indices": [
+        3,
+        33,
+        63,
+        93,
+        123,
+        153,
+        183,
+        213
+      ],
+      "contract": {
+        "family": "group",
+        "column": "CO2",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "JSON object mapping each dimension.group to the sum of value for that group.",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column CO2. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column Occupancy; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "3",
+            "key": "1",
+            "value": "992.6"
+          },
+          {
+            "id": "33",
+            "key": "0",
+            "value": "514.2"
+          },
+          {
+            "id": "63",
+            "key": "0",
+            "value": "445.6"
+          },
+          {
+            "id": "93",
+            "key": "0",
+            "value": "439.75"
+          },
+          {
+            "id": "123",
+            "key": "1",
+            "value": "993.4"
+          },
+          {
+            "id": "153",
+            "key": "0",
+            "value": "1066"
+          },
+          {
+            "id": "183",
+            "key": "0",
+            "value": "551.25"
+          },
+          {
+            "id": "213",
+            "key": "0",
+            "value": "465.75"
+          }
+        ],
+        "v2": [
+          {
+            "id": "3",
+            "key": "1",
+            "value": "996.6"
+          },
+          {
+            "id": "33",
+            "key": "0",
+            "value": "514.2"
+          },
+          {
+            "id": "63",
+            "key": "0",
+            "value": "445.6"
+          },
+          {
+            "id": "93",
+            "key": "0",
+            "value": "439.75"
+          },
+          {
+            "id": "123",
+            "key": "1",
+            "value": "993.4"
+          },
+          {
+            "id": "153",
+            "key": "0",
+            "value": "1066"
+          },
+          {
+            "id": "183",
+            "key": "0",
+            "value": "551.25"
+          },
+          {
+            "id": "213",
+            "key": "0",
+            "value": "465.75"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "0"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "0",
+          "group": "0"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    },
+    {
+      "id": "uci_occupancy-version-04",
+      "source_id": "uci_occupancy",
+      "family_source_cell": "uci_occupancy/version",
+      "split": "historical_development",
+      "source_path": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "source_sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "selection_indices": [
+        3,
+        33,
+        63,
+        93,
+        123,
+        153,
+        183,
+        213
+      ],
+      "contract": {
+        "family": "version",
+        "column": "CO2",
+        "missing": "exclude",
+        "version_policy": "latest",
+        "snapshot_version": "v1",
+        "output": "JSON object with exactly one key total containing sum(value).",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid.",
+        "input_binding": {
+          "value": "Normalized tool field for original measurement column CO2. Use value as the numeric measure.",
+          "id": "Unique row identifier within this task slice.",
+          "key": "Normalized tool field for source column Occupancy; join to dimension.key."
+        }
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "3",
+            "key": "1",
+            "value": "992.6"
+          },
+          {
+            "id": "33",
+            "key": "0",
+            "value": "514.2"
+          },
+          {
+            "id": "63",
+            "key": "0",
+            "value": "445.6"
+          },
+          {
+            "id": "93",
+            "key": "0",
+            "value": "439.75"
+          },
+          {
+            "id": "123",
+            "key": "1",
+            "value": "993.4"
+          },
+          {
+            "id": "153",
+            "key": "0",
+            "value": "1066"
+          },
+          {
+            "id": "183",
+            "key": "0",
+            "value": "551.25"
+          },
+          {
+            "id": "213",
+            "key": "0",
+            "value": "465.75"
+          }
+        ],
+        "v2": [
+          {
+            "id": "3",
+            "key": "1",
+            "value": "996.6"
+          },
+          {
+            "id": "33",
+            "key": "0",
+            "value": "514.2"
+          },
+          {
+            "id": "63",
+            "key": "0",
+            "value": "445.6"
+          },
+          {
+            "id": "93",
+            "key": "0",
+            "value": "439.75"
+          },
+          {
+            "id": "123",
+            "key": "1",
+            "value": "993.4"
+          },
+          {
+            "id": "153",
+            "key": "0",
+            "value": "1066"
+          },
+          {
+            "id": "183",
+            "key": "0",
+            "value": "551.25"
+          },
+          {
+            "id": "213",
+            "key": "0",
+            "value": "465.75"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "0"
+        },
+        {
+          "key": "1",
+          "group": "1"
+        },
+        {
+          "key": "0",
+          "group": "0"
+        }
+      ],
+      "catalog": {
+        "snapshot": "v1",
+        "latest": "v2"
+      }
+    }
+  ],
+  "source_clusters": 3,
+  "design": "three sources x two intents x four variants; shared slices are correlated",
+  "attribution": {
+    "uci_auto_mpg": {
+      "sha256": "5fc1507522b73b8050d3aa45df51eefe1b666ae5f428a5f1347b6483339f1003",
+      "doi": "10.24432/C5859H",
+      "citation": "Quinlan, R. (1993). Auto MPG. UCI.",
+      "url": "https://archive.ics.uci.edu/static/public/9/auto+mpg.zip",
+      "license": "CC BY 4.0",
+      "transformations": "whitespace source parsed to CSV; ? becomes empty; all rows retained"
+    },
+    "uci_glass": {
+      "sha256": "499c07a17115bf63100bb19cc1fdefad7f464bf5dc2b168930fa2071fd6b6e65",
+      "doi": "10.24432/C5WW2P",
+      "citation": "German, B. (1987). Glass Identification. UCI.",
+      "url": "https://archive.ics.uci.edu/static/public/42/glass+identification.zip",
+      "license": "CC BY 4.0",
+      "transformations": "whitespace source parsed to CSV; ? becomes empty; all rows retained"
+    },
+    "uci_occupancy": {
+      "source_id": "uci_occupancy",
+      "rows": 240,
+      "upstream_rows": 2665,
+      "selection": "240 evenly spaced source-order rows, index floor(i*N/240)",
+      "sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "archive_sha256": "4ae3f46aa98eedff564a9f6924d1635173e2fd2c816004342a9be93076d3a81a",
+      "upstream_url": "https://archive.ics.uci.edu/static/public/357/occupancy+detection.zip",
+      "doi": "10.24432/C5X01N",
+      "citation": "Candanedo, L. (2016). Occupancy Detection. UCI Machine Learning Repository.",
+      "license": "CC BY 4.0",
+      "personal_data_columns": []
+    }
+  },
+  "human_review": "pending; generated review sheet is not human approval",
+  "transformations": "Eight evenly spaced rows shifted by variant; natural source categories as business keys; one duplicated dimension mapping; synthetic one-value v2 revision. Windows excluded from crossed design because two sources lack real timestamps.",
+  "limitations": [
+    "historical development only",
+    "controlled binding",
+    "no held-out source",
+    "three sources do not support confirmatory inference"
+  ]
+}
