@@ -49,7 +49,11 @@ def check_repository(root: Path = ROOT) -> str:
     if actual != expected:
         raise ValueError(f"pyproject.toml version {actual!r} must be {expected!r}")
     readme = (root / "README.md").read_text(encoding="utf-8")
-    if not readme.startswith(f"# RL + LLM Data Analysis Agent — V{version}"):
+    heading = readme.splitlines()[0] if readme else ''
+    model_readme = heading == f"# RL + LLM Data Analysis Agent — V{version}"
+    inherited = re.findall(r'^<!-- inherited-release: V([^\n]+) -->$', readme, re.MULTILINE)
+    benchmark_readme = heading == '# FaultDA-Bench' and inherited == [version]
+    if not (model_readme or benchmark_readme):
         raise ValueError("README heading does not match VERSION")
     if "本项目的 GitHub 推送仍由用户自行完成。" in readme:
         raise ValueError("README contains a retired publishing note")
