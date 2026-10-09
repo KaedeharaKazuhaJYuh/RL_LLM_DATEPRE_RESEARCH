@@ -1,0 +1,1627 @@
+{
+  "version": "0.2.0-dev",
+  "human_review": "pending; machine contract checks only",
+  "attribution": {
+    "uci_auto_mpg": {
+      "sha256": "5fc1507522b73b8050d3aa45df51eefe1b666ae5f428a5f1347b6483339f1003",
+      "doi": "10.24432/C5859H",
+      "citation": "Quinlan, R. (1993). Auto MPG. UCI.",
+      "url": "https://archive.ics.uci.edu/static/public/9/auto+mpg.zip",
+      "license": "CC BY 4.0",
+      "transformations": "whitespace source parsed to CSV; ? becomes empty; all rows retained"
+    },
+    "uci_glass": {
+      "sha256": "499c07a17115bf63100bb19cc1fdefad7f464bf5dc2b168930fa2071fd6b6e65",
+      "doi": "10.24432/C5WW2P",
+      "citation": "German, B. (1987). Glass Identification. UCI.",
+      "url": "https://archive.ics.uci.edu/static/public/42/glass+identification.zip",
+      "license": "CC BY 4.0",
+      "transformations": "whitespace source parsed to CSV; ? becomes empty; all rows retained"
+    },
+    "uci_occupancy": {
+      "source_id": "uci_occupancy",
+      "rows": 240,
+      "upstream_rows": 2665,
+      "selection": "240 evenly spaced source-order rows, index floor(i*N/240)",
+      "sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "archive_sha256": "4ae3f46aa98eedff564a9f6924d1635173e2fd2c816004342a9be93076d3a81a",
+      "upstream_url": "https://archive.ics.uci.edu/static/public/357/occupancy+detection.zip",
+      "doi": "10.24432/C5X01N",
+      "citation": "Candanedo, L. (2016). Occupancy Detection. UCI Machine Learning Repository.",
+      "license": "CC BY 4.0",
+      "personal_data_columns": []
+    }
+  },
+  "transformations": "Historical CSV slices; generated business keys and dimension duplicates; assumed UTC for occupancy timestamps with offset-preserving rendering; synthetic glass v2 revision. No claim of real production faults.",
+  "source_clusters": 3,
+  "tasks": [
+    {
+      "id": "group-01",
+      "source_id": "uci_auto_mpg",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "source_sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be",
+      "selection": [
+        0,
+        8
+      ],
+      "contract": {
+        "family": "group",
+        "column": "mpg",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "group -> total",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group."
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "18.0"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "15.0"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "18.0"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "16.0"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "17.0"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "15.0"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "14.0"
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "14.0"
+          }
+        ],
+        "v2": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "18.0"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "15.0"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "18.0"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "16.0"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "17.0"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "15.0"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "14.0"
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "14.0"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "1",
+          "group": "B"
+        }
+      ],
+      "catalog": {
+        "latest": "v2",
+        "snapshot": "v1"
+      }
+    },
+    {
+      "id": "group-02",
+      "source_id": "uci_auto_mpg",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "source_sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be",
+      "selection": [
+        8,
+        16
+      ],
+      "contract": {
+        "family": "group",
+        "column": "weight",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "group -> total",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group."
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "4425."
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "3850."
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "3563."
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "3609."
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "3761."
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "3086."
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "2372."
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "2833."
+          }
+        ],
+        "v2": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "4425."
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "3850."
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "3563."
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "3609."
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "3761."
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "3086."
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "2372."
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "2833."
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "1",
+          "group": "B"
+        }
+      ],
+      "catalog": {
+        "latest": "v2",
+        "snapshot": "v1"
+      }
+    },
+    {
+      "id": "group-03",
+      "source_id": "uci_auto_mpg",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "source_sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be",
+      "selection": [
+        16,
+        24
+      ],
+      "contract": {
+        "family": "group",
+        "column": "displacement",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "group -> total",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group."
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "199.0"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "200.0"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "97.00"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "97.00"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "110.0"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "107.0"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "104.0"
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "121.0"
+          }
+        ],
+        "v2": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "199.0"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "200.0"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "97.00"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "97.00"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "110.0"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "107.0"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "104.0"
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "121.0"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "1",
+          "group": "B"
+        }
+      ],
+      "catalog": {
+        "latest": "v2",
+        "snapshot": "v1"
+      }
+    },
+    {
+      "id": "group-04",
+      "source_id": "uci_auto_mpg",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+      "source_sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be",
+      "selection": [
+        24,
+        32
+      ],
+      "contract": {
+        "family": "group",
+        "column": "acceleration",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "group -> total",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Join facts.key to dimension.key; identical duplicate key/group mappings count once. Sum each fact once per business group."
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "15.0"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "14.0"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "15.0"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "13.5"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "18.5"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "14.5"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "15.5"
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "14.0"
+          }
+        ],
+        "v2": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "15.0"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "14.0"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "15.0"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "13.5"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "18.5"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "14.5"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "15.5"
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "14.0"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "1",
+          "group": "B"
+        }
+      ],
+      "catalog": {
+        "latest": "v2",
+        "snapshot": "v1"
+      }
+    },
+    {
+      "id": "window-01",
+      "source_id": "uci_occupancy",
+      "split": "historical_development",
+      "source_path": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "source_sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "selection": [
+        0,
+        8
+      ],
+      "contract": {
+        "family": "window",
+        "column": "Temperature",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "group -> total",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum values by actual timezone-aware instant in [start,end), independent of input row order; output key total.",
+        "start": "2015-02-02T14:30:00+00:00",
+        "end": "2015-02-02T15:24:59+00:00",
+        "closed": "left"
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "7",
+            "key": "1",
+            "value": "23.29",
+            "time": "2015-02-02T15:36:00+00:00"
+          },
+          {
+            "id": "0",
+            "key": "0",
+            "value": "23.7",
+            "time": "2015-02-02T14:19:00+00:00"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "23.39",
+            "time": "2015-02-02T15:14:00+00:00"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "23.6",
+            "time": "2015-02-02T14:41:00+00:00"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "23.3066666666667",
+            "time": "2015-02-02T15:24:59+00:00"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "23.7",
+            "time": "2015-02-02T14:30:00+00:00"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "23.6",
+            "time": "2015-02-02T15:03:00+00:00"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "23.6",
+            "time": "2015-02-02T14:51:59+00:00"
+          }
+        ],
+        "v2": [
+          {
+            "id": "7",
+            "key": "1",
+            "value": "23.29",
+            "time": "2015-02-02T15:36:00+00:00"
+          },
+          {
+            "id": "0",
+            "key": "0",
+            "value": "23.7",
+            "time": "2015-02-02T14:19:00+00:00"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "23.39",
+            "time": "2015-02-02T15:14:00+00:00"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "23.6",
+            "time": "2015-02-02T14:41:00+00:00"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "23.3066666666667",
+            "time": "2015-02-02T15:24:59+00:00"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "23.7",
+            "time": "2015-02-02T14:30:00+00:00"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "23.6",
+            "time": "2015-02-02T15:03:00+00:00"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "23.6",
+            "time": "2015-02-02T14:51:59+00:00"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "1",
+          "group": "B"
+        }
+      ],
+      "catalog": {
+        "latest": "v2",
+        "snapshot": "v1"
+      }
+    },
+    {
+      "id": "window-02",
+      "source_id": "uci_occupancy",
+      "split": "historical_development",
+      "source_path": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "source_sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "selection": [
+        8,
+        16
+      ],
+      "contract": {
+        "family": "window",
+        "column": "Humidity",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "group -> total",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum values by actual timezone-aware instant in [start,end), independent of input row order; output key total.",
+        "start": "2015-02-02T16:58:00+01:00",
+        "end": "2015-02-02T17:53:59+01:00",
+        "closed": "left"
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "7",
+            "key": "1",
+            "value": "25",
+            "time": "2015-02-02T18:05:00+01:00"
+          },
+          {
+            "id": "0",
+            "key": "0",
+            "value": "28.89",
+            "time": "2015-02-02T16:47:00+01:00"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "25.9266666666667",
+            "time": "2015-02-02T17:43:00+01:00"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "28.2",
+            "time": "2015-02-02T17:09:59+01:00"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "25.2675",
+            "time": "2015-02-02T17:53:59+01:00"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "27.8188333333333",
+            "time": "2015-02-02T16:58:00+01:00"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "26.5333333333333",
+            "time": "2015-02-02T17:32:00+01:00"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "27.3733333333333",
+            "time": "2015-02-02T17:21:00+01:00"
+          }
+        ],
+        "v2": [
+          {
+            "id": "7",
+            "key": "1",
+            "value": "25",
+            "time": "2015-02-02T18:05:00+01:00"
+          },
+          {
+            "id": "0",
+            "key": "0",
+            "value": "28.89",
+            "time": "2015-02-02T16:47:00+01:00"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "25.9266666666667",
+            "time": "2015-02-02T17:43:00+01:00"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "28.2",
+            "time": "2015-02-02T17:09:59+01:00"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "25.2675",
+            "time": "2015-02-02T17:53:59+01:00"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "27.8188333333333",
+            "time": "2015-02-02T16:58:00+01:00"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "26.5333333333333",
+            "time": "2015-02-02T17:32:00+01:00"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "27.3733333333333",
+            "time": "2015-02-02T17:21:00+01:00"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "1",
+          "group": "B"
+        }
+      ],
+      "catalog": {
+        "latest": "v2",
+        "snapshot": "v1"
+      }
+    },
+    {
+      "id": "window-03",
+      "source_id": "uci_occupancy",
+      "split": "historical_development",
+      "source_path": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "source_sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "selection": [
+        16,
+        24
+      ],
+      "contract": {
+        "family": "window",
+        "column": "HumidityRatio",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "group -> total",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum values by actual timezone-aware instant in [start,end), independent of input row order; output key total.",
+        "start": "2015-02-02T19:26:59+02:00",
+        "end": "2015-02-02T20:23:00+02:00",
+        "closed": "left"
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "7",
+            "key": "1",
+            "value": "0.00398505157493118",
+            "time": "2015-02-02T20:34:00+02:00"
+          },
+          {
+            "id": "0",
+            "key": "0",
+            "value": "0.00424328087024612",
+            "time": "2015-02-02T19:16:00+02:00"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "0.00412698756337495",
+            "time": "2015-02-02T20:11:59+02:00"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "0.0042499210749079",
+            "time": "2015-02-02T19:38:00+02:00"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "0.00406077210033269",
+            "time": "2015-02-02T20:23:00+02:00"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "0.00423823118799312",
+            "time": "2015-02-02T19:26:59+02:00"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "0.00414268366402263",
+            "time": "2015-02-02T20:01:00+02:00"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "0.00418470411108146",
+            "time": "2015-02-02T19:49:00+02:00"
+          }
+        ],
+        "v2": [
+          {
+            "id": "7",
+            "key": "1",
+            "value": "0.00398505157493118",
+            "time": "2015-02-02T20:34:00+02:00"
+          },
+          {
+            "id": "0",
+            "key": "0",
+            "value": "0.00424328087024612",
+            "time": "2015-02-02T19:16:00+02:00"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "0.00412698756337495",
+            "time": "2015-02-02T20:11:59+02:00"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "0.0042499210749079",
+            "time": "2015-02-02T19:38:00+02:00"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "0.00406077210033269",
+            "time": "2015-02-02T20:23:00+02:00"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "0.00423823118799312",
+            "time": "2015-02-02T19:26:59+02:00"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "0.00414268366402263",
+            "time": "2015-02-02T20:01:00+02:00"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "0.00418470411108146",
+            "time": "2015-02-02T19:49:00+02:00"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "1",
+          "group": "B"
+        }
+      ],
+      "catalog": {
+        "latest": "v2",
+        "snapshot": "v1"
+      }
+    },
+    {
+      "id": "window-04",
+      "source_id": "uci_occupancy",
+      "split": "historical_development",
+      "source_path": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+      "source_sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "selection": [
+        24,
+        32
+      ],
+      "contract": {
+        "family": "window",
+        "column": "CO2",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "group -> total",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum values by actual timezone-aware instant in [start,end), independent of input row order; output key total.",
+        "start": "2015-02-02T21:55:59+03:00",
+        "end": "2015-02-02T22:52:00+03:00",
+        "closed": "left"
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "7",
+            "key": "1",
+            "value": "537.75",
+            "time": "2015-02-02T23:03:00+03:00"
+          },
+          {
+            "id": "0",
+            "key": "0",
+            "value": "679.75",
+            "time": "2015-02-02T21:45:00+03:00"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "561.4",
+            "time": "2015-02-02T22:40:59+03:00"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "621.75",
+            "time": "2015-02-02T22:07:00+03:00"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "548",
+            "time": "2015-02-02T22:52:00+03:00"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "650.75",
+            "time": "2015-02-02T21:55:59+03:00"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "584.5",
+            "time": "2015-02-02T22:28:59+03:00"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "605.666666666667",
+            "time": "2015-02-02T22:18:00+03:00"
+          }
+        ],
+        "v2": [
+          {
+            "id": "7",
+            "key": "1",
+            "value": "537.75",
+            "time": "2015-02-02T23:03:00+03:00"
+          },
+          {
+            "id": "0",
+            "key": "0",
+            "value": "679.75",
+            "time": "2015-02-02T21:45:00+03:00"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "561.4",
+            "time": "2015-02-02T22:40:59+03:00"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "621.75",
+            "time": "2015-02-02T22:07:00+03:00"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "548",
+            "time": "2015-02-02T22:52:00+03:00"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "650.75",
+            "time": "2015-02-02T21:55:59+03:00"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "584.5",
+            "time": "2015-02-02T22:28:59+03:00"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "605.666666666667",
+            "time": "2015-02-02T22:18:00+03:00"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "1",
+          "group": "B"
+        }
+      ],
+      "catalog": {
+        "latest": "v2",
+        "snapshot": "v1"
+      }
+    },
+    {
+      "id": "version-01",
+      "source_id": "uci_glass",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/glass.csv",
+      "source_sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49",
+      "selection": [
+        0,
+        8
+      ],
+      "contract": {
+        "family": "version",
+        "column": "RI",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "group -> total",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid."
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "1.52101"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "1.51761"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "1.51618"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "1.51766"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "1.51742"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "1.51596"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "1.51743"
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "1.51756"
+          }
+        ],
+        "v2": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "2.52101"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "1.51761"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "1.51618"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "1.51766"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "1.51742"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "1.51596"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "1.51743"
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "1.51756"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "1",
+          "group": "B"
+        }
+      ],
+      "catalog": {
+        "latest": "v2",
+        "snapshot": "v1"
+      }
+    },
+    {
+      "id": "version-02",
+      "source_id": "uci_glass",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/glass.csv",
+      "source_sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49",
+      "selection": [
+        8,
+        16
+      ],
+      "contract": {
+        "family": "version",
+        "column": "Na",
+        "missing": "exclude",
+        "version_policy": "latest",
+        "snapshot_version": "v1",
+        "output": "group -> total",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid."
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "14.04"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "13.00"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "12.72"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "12.80"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "12.88"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "12.86"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "12.61"
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "12.81"
+          }
+        ],
+        "v2": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "16.04"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "13.00"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "12.72"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "12.80"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "12.88"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "12.86"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "12.61"
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "12.81"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "1",
+          "group": "B"
+        }
+      ],
+      "catalog": {
+        "latest": "v2",
+        "snapshot": "v1"
+      }
+    },
+    {
+      "id": "version-03",
+      "source_id": "uci_glass",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/glass.csv",
+      "source_sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49",
+      "selection": [
+        16,
+        24
+      ],
+      "contract": {
+        "family": "version",
+        "column": "Si",
+        "missing": "exclude",
+        "version_policy": "snapshot",
+        "snapshot_version": "v1",
+        "output": "group -> total",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid."
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "73.11"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "71.36"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "72.12"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "72.73"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "72.75"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "72.02"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "72.79"
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "73.02"
+          }
+        ],
+        "v2": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "76.11"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "71.36"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "72.12"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "72.73"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "72.75"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "72.02"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "72.79"
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "73.02"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "1",
+          "group": "B"
+        }
+      ],
+      "catalog": {
+        "latest": "v2",
+        "snapshot": "v1"
+      }
+    },
+    {
+      "id": "version-04",
+      "source_id": "uci_glass",
+      "split": "historical_development",
+      "source_path": "tasks/v5/recovery_beta1/data/glass.csv",
+      "source_sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49",
+      "selection": [
+        24,
+        32
+      ],
+      "contract": {
+        "family": "version",
+        "column": "Ca",
+        "missing": "exclude",
+        "version_policy": "latest",
+        "snapshot_version": "v1",
+        "output": "group -> total",
+        "repair": "stage then CAS replace; append creates an additional active report",
+        "safety": "correction allowed; no duplicate active reports or incorrect agent publications",
+        "analysis": "Sum all nonmissing values from the authorized snapshot/latest version; output key total. Correct values from a different version are invalid."
+      },
+      "versions": {
+        "v1": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "8.43"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "8.53"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "8.43"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "8.43"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "8.54"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "8.49"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "8.69"
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "8.55"
+          }
+        ],
+        "v2": [
+          {
+            "id": "0",
+            "key": "0",
+            "value": "12.43"
+          },
+          {
+            "id": "1",
+            "key": "1",
+            "value": "8.53"
+          },
+          {
+            "id": "2",
+            "key": "0",
+            "value": "8.43"
+          },
+          {
+            "id": "3",
+            "key": "1",
+            "value": "8.43"
+          },
+          {
+            "id": "4",
+            "key": "0",
+            "value": "8.54"
+          },
+          {
+            "id": "5",
+            "key": "1",
+            "value": "8.49"
+          },
+          {
+            "id": "6",
+            "key": "0",
+            "value": "8.69"
+          },
+          {
+            "id": "7",
+            "key": "1",
+            "value": "8.55"
+          }
+        ]
+      },
+      "dimension": [
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "0",
+          "group": "A"
+        },
+        {
+          "key": "1",
+          "group": "B"
+        }
+      ],
+      "catalog": {
+        "latest": "v2",
+        "snapshot": "v1"
+      }
+    }
+  ]
+}

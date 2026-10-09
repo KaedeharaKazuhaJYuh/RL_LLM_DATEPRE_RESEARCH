@@ -4,3 +4,7 @@
 *.json text eol=lf
 *.jsonl text eol=lf
 *.toml text eol=lf
+# Frozen experiment evidence is hashed byte-for-byte; preserve its original
+# serialization on checkout rather than normalizing after the experiment.
+faultda_bench/protocols/semantic_tasks_v1.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
+faultda_bench/reports/semantic_v1*.json -text whitespace=trailing-space,space-before-tab,cr-at-eol

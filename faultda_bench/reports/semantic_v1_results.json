@@ -1,0 +1,8238 @@
+{
+  "version": "0.2.0-dev",
+  "track": "controlled_binding_program_baselines",
+  "manifest_sha256": "425452911e1bb25b4ef3f7b16f5a7ead530fe50ebc36f97bdf58adbeb78c6785",
+  "code_sha256": {
+    "__init__.py": "9154e6b5439356d966b0b1c5a5e7965e3347f563a054168bfd497b8e511c0a6e",
+    "compute.py": "c3900fc16b3a531ba1baa6042fb7e3b2f56dca5b32877e8a357b1925424a90c7",
+    "deepseek.py": "26c302163a13e8905ecb6c56b01378c5208676bc3b4d7861b6d592b7b779d3ab",
+    "environment.py": "54ff6b19f32163120f92aae416615de3e2cf406a826617330ae289cea14f4008",
+    "oracle.py": "0e7f457555f80f367b6ab0ff7e6ab4def42e9b85c6601a2e42ccfa7dbaf886eb",
+    "policies.py": "dc05a9bac78a9c19e3f0cda57f8f0f3c50151d2c872fc1759ec00b743bbea89c",
+    "run.py": "b9c58ea5c5af74a0c1848507fd0da29b6adcbff886bd018e813b0d0a242095b7",
+    "tasks.py": "cc095e08bc33e24581cf626c4a3347678078927f82f88c2693d22ff6edfedae0"
+  },
+  "source_clusters": 3,
+  "limitations": [
+    "historical development only",
+    "no LLM scores",
+    "no human review yet",
+    "one intent family per source: source and intent are confounded",
+    "three clusters insufficient for confirmatory inference"
+  ],
+  "summary": [
+    {
+      "policy": "abstain",
+      "evidence": "E0",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E0",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E0",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E0",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E0",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E0",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E1",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E1",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E1",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E1",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E1",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E1",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E2",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E2",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E2",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E2",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E2",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "abstain",
+      "evidence": "E2",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E0",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_claims": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "false_completion_among_all": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 8.0,
+        "decisions": 10.0,
+        "response_bytes": 800.5
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": -1.0
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E0",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_claims": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "false_completion_among_all": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 8.0,
+        "decisions": 10.0,
+        "response_bytes": 800.5
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": -1.0
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E0",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_claims": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "false_completion_among_all": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 8.0,
+        "decisions": 10.0,
+        "response_bytes": 800.5
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": -1.0
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E0",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_claims": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "false_completion_among_all": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 8.0,
+        "decisions": 10.0,
+        "response_bytes": 800.5
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": -1.0
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E0",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_claims": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "false_completion_among_all": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 8.0,
+        "decisions": 10.0,
+        "response_bytes": 800.5
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": -1.0
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E0",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_claims": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "false_completion_among_all": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 8.0,
+        "decisions": 10.0,
+        "response_bytes": 800.5
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": -1.0
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E1",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_claims": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "false_completion_among_all": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 8.0,
+        "decisions": 10.0,
+        "response_bytes": 800.5
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": -1.0
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E1",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_claims": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "false_completion_among_all": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 8.0,
+        "decisions": 10.0,
+        "response_bytes": 800.5
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": -1.0
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E1",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_claims": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "false_completion_among_all": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 8.0,
+        "decisions": 10.0,
+        "response_bytes": 800.5
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": -1.0
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E1",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_claims": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "false_completion_among_all": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 8.0,
+        "decisions": 10.0,
+        "response_bytes": 800.5
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": -1.0
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E1",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_claims": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "false_completion_among_all": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 8.0,
+        "decisions": 10.0,
+        "response_bytes": 800.5
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": -1.0
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E1",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_claims": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "false_completion_among_all": {
+        "numerator": 36,
+        "denominator": 48,
+        "value": 0.75
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 8.0,
+        "decisions": 10.0,
+        "response_bytes": 800.5
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": -1.0
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E2",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 12,
+        "denominator": 24,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_escalation_E2": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 4.0,
+        "decisions": 6.0,
+        "response_bytes": 262.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": null
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E2",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 12,
+        "denominator": 24,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_escalation_E2": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 4.0,
+        "decisions": 6.0,
+        "response_bytes": 262.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": null
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E2",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 12,
+        "denominator": 24,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_escalation_E2": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 4.0,
+        "decisions": 6.0,
+        "response_bytes": 262.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": null
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E2",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 12,
+        "denominator": 24,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_escalation_E2": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 4.0,
+        "decisions": 6.0,
+        "response_bytes": 262.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": null
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E2",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 12,
+        "denominator": 24,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_escalation_E2": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 4.0,
+        "decisions": 6.0,
+        "response_bytes": 262.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": null
+    },
+    {
+      "policy": "blind_retry",
+      "evidence": "E2",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_completion": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 12,
+        "denominator": 24,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 12,
+        "denominator": 48,
+        "value": 0.25
+      },
+      "safe_escalation_E2": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 4.0,
+        "decisions": 6.0,
+        "response_bytes": 262.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": null
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E0",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 146.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E0",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 146.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E0",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 146.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E0",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 146.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E0",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 146.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E0",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 146.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E1",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 146.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E1",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 146.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E1",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 146.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E1",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 146.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E1",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 146.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E1",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_completion": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "false_completion_among_all": {
+        "numerator": 24,
+        "denominator": 48,
+        "value": 0.5
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 146.0
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 12,
+        "value": 0.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E2",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E2",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E2",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E2",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E2",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "generic_verify",
+      "evidence": "E2",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E0",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 1606.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E0",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 1606.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E0",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 1606.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E0",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 1606.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E0",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 1606.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E0",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 2.0,
+        "mutations": 2.0,
+        "decisions": 4.0,
+        "response_bytes": 1606.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E1",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E1",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E1",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 4.0,
+        "mutations": 2.0,
+        "decisions": 6.0,
+        "response_bytes": 1630.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E1",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 4.0,
+        "mutations": 2.0,
+        "decisions": 6.0,
+        "response_bytes": 1630.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E1",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 4.0,
+        "mutations": 2.0,
+        "decisions": 6.0,
+        "response_bytes": 1630.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E1",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 4.0,
+        "mutations": 2.0,
+        "decisions": 6.0,
+        "response_bytes": 1630.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E2",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E2",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E2",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E2",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E2",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "static_semantic",
+      "evidence": "E2",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E0",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 1.0,
+        "mutations": 2.0,
+        "decisions": 3.0,
+        "response_bytes": 1560.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E0",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 1.0,
+        "mutations": 2.0,
+        "decisions": 3.0,
+        "response_bytes": 1560.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E0",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 1.0,
+        "mutations": 2.0,
+        "decisions": 3.0,
+        "response_bytes": 1560.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E0",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 1.0,
+        "mutations": 2.0,
+        "decisions": 3.0,
+        "response_bytes": 1560.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E0",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 1.0,
+        "mutations": 2.0,
+        "decisions": 3.0,
+        "response_bytes": 1560.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E0",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 1.0,
+        "mutations": 2.0,
+        "decisions": 3.0,
+        "response_bytes": 1560.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E1",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E1",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E1",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 3.0,
+        "mutations": 2.0,
+        "decisions": 5.0,
+        "response_bytes": 1584.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E1",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 3.0,
+        "mutations": 2.0,
+        "decisions": 5.0,
+        "response_bytes": 1584.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E1",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 3.0,
+        "mutations": 2.0,
+        "decisions": 5.0,
+        "response_bytes": 1584.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E1",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "safe_completion": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 3.0,
+        "mutations": 2.0,
+        "decisions": 5.0,
+        "response_bytes": 1584.4166666666667
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E2",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E2",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E2",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E2",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E2",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "task_semantic",
+      "evidence": "E2",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E0",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "safe_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "false_completion_among_all": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 3.0,
+        "mutations": 2.0,
+        "decisions": 5.0,
+        "response_bytes": 2264.6875
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 4,
+        "denominator": 12,
+        "value": 0.3333333333333333
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E0",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "safe_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "false_completion_among_all": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 3.0,
+        "mutations": 2.0,
+        "decisions": 5.0,
+        "response_bytes": 2264.6875
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 4,
+        "denominator": 12,
+        "value": 0.3333333333333333
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E0",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "safe_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "false_completion_among_all": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 3.0,
+        "mutations": 2.0,
+        "decisions": 5.0,
+        "response_bytes": 2264.6875
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 4,
+        "denominator": 12,
+        "value": 0.3333333333333333
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E0",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "safe_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "false_completion_among_all": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 3.0,
+        "mutations": 2.0,
+        "decisions": 5.0,
+        "response_bytes": 2264.6875
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 4,
+        "denominator": 12,
+        "value": 0.3333333333333333
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E0",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "safe_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "false_completion_among_all": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 3.0,
+        "mutations": 2.0,
+        "decisions": 5.0,
+        "response_bytes": 2264.6875
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 4,
+        "denominator": 12,
+        "value": 0.3333333333333333
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E0",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "safe_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "false_completion_among_all": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 3.0,
+        "mutations": 2.0,
+        "decisions": 5.0,
+        "response_bytes": 2264.6875
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 4,
+        "denominator": 12,
+        "value": 0.3333333333333333
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E1",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E1",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E1",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "safe_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "false_completion_among_all": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 4.5,
+        "mutations": 2.0,
+        "decisions": 6.5,
+        "response_bytes": 720.0625
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 4,
+        "denominator": 12,
+        "value": 0.3333333333333333
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E1",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "safe_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "false_completion_among_all": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 4.5,
+        "mutations": 2.0,
+        "decisions": 6.5,
+        "response_bytes": 720.0625
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 4,
+        "denominator": 12,
+        "value": 0.3333333333333333
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E1",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "safe_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "false_completion_among_all": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 4.5,
+        "mutations": 2.0,
+        "decisions": 6.5,
+        "response_bytes": 720.0625
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 4,
+        "denominator": 12,
+        "value": 0.3333333333333333
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E1",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "safe_completion": {
+        "numerator": 32,
+        "denominator": 48,
+        "value": 0.6666666666666666
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "false_completion_among_all": {
+        "numerator": 16,
+        "denominator": 48,
+        "value": 0.3333333333333333
+      },
+      "safe_escalation_E2": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "cost_per_success": {
+        "checks": 4.5,
+        "mutations": 2.0,
+        "decisions": 6.5,
+        "response_bytes": 720.0625
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "01": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        },
+        "10": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "11": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 4,
+        "denominator": 12,
+        "value": 0.3333333333333333
+      },
+      "interaction": 0.0
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E2",
+      "budget": 2,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E2",
+      "budget": 2,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E2",
+      "budget": 4,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E2",
+      "budget": 4,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E2",
+      "budget": 6,
+      "deduplicate": false,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    },
+    {
+      "policy": "version_refresh",
+      "evidence": "E2",
+      "budget": 6,
+      "deduplicate": true,
+      "episodes": 48,
+      "contract_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_completion": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "forbidden_effect_rate": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "false_completion_among_claims": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_completion_among_all": {
+        "numerator": 0,
+        "denominator": 48,
+        "value": 0.0
+      },
+      "safe_escalation_E2": {
+        "numerator": 48,
+        "denominator": 48,
+        "value": 1.0
+      },
+      "over_escalation_observable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "cost_per_success": {
+        "checks": null,
+        "mutations": null,
+        "decisions": null,
+        "response_bytes": null
+      },
+      "cells_failure": {
+        "00": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "01": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "10": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "11": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        }
+      },
+      "conditional_joint_completion": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "interaction": null
+    }
+  ],
+  "audit": {
+    "file": "semantic_v1_results.jsonl.gz",
+    "sha256": "7a386a965ec7f3a6a11d994bbedb26bbff9e56605acb60c3bc2a9be6f5421a53",
+    "episodes": 5184
+  }
+}
