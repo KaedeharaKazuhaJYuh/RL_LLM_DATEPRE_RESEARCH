@@ -13,7 +13,7 @@ dependencies = ["numpy==2.3.5"]
 test = ["pytest>=8,<9"]
 
 [tool.setuptools.packages.find]
-include = ["agent*", "research*", "experiments*", "verifier*", "scripts*"]
+include = ["agent*", "research*", "experiments*", "verifier*", "scripts*", "faultda_bench*"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]

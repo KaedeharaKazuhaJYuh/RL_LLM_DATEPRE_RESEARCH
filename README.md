@@ -1,5 +1,7 @@
 # RL + LLM Data Analysis Agent — V5.0.15-beta.2
 
+当前 `faultda-bench` 研究分支已启动独立基准的 [P0 状态与副作用原型](faultda_bench/README.md)：真实报告追加、查询失败、安全升级、独立验证与指标分母；开发探针包含 84 次固定程序执行，尚非 LLM 或 RL 成果。近期相关工作与原始设想有明显重叠，[首阶段研究记录](faultda_bench/reports/P0_START.md)明确保留创新性核查门槛。V5.0.15-beta.2 是本分支继承的模型研究基线，下面保留其结果。
+
 V5.0.15-beta.2 接续 beta.1 的[条件恢复 RL 协议](reports/V5_0_15_BETA_1_PROTOCOL.md)，完成三种子五臂 CUDA 训练、冻结评测、逐题审计与[语义变换契约反例](reports/V5_0_15_SEMANTIC_CONTRACTS.md)。结果和限制见[beta.2 报告](reports/V5_0_15_BETA_2.md)。本轮只研究给定正确首操作与固定后续步骤的四动作恢复策略，不代表完整规划能力。研究假设与 arXiv 查新见[初始规划](reports/V5_0_15_BETA_1_RL_PLAN.md)和[查新报告](reports/V5_0_15_BETA_1_ARXIV_IDEAS.md)。
 
 冻结结果：继续 SFT **28/240**，GRPO/branch **0/240**，普通反事实与 paired 均为 **4/240**；paired 的故障通过数为 **0/180**，确认门槛未通过，新 RL 权重不设为默认。策略未读取 CSV 内容，两个来源属于执行覆盖，不能作为策略来源泛化证据。完整[逐题审计](reports/v5_0_15_beta2_results.json)保留负结果；后续 FaultDA-Bench 按[用户提供的研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V1.md)推进。
