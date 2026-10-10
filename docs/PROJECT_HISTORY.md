@@ -29,10 +29,12 @@ V5.0.15-beta.2 完成条件恢复的三种子五臂 CUDA 实验。继续 SFT 28/
 | P0 | 非幂等报告追加、持久状态、查询失败、安全升级、独立验证 | 机制探针，不作为原创核心；与已有恢复研究重叠 |
 | 0.2.0-dev | 三类分析、语义修复、六个固定基线、DeepSeek 接入 | 简单组合基线解决当前可观察任务，没有新的联合失败证据 |
 | 0.2.05-dev | 字段映射复核、三来源×两意图设计、说明配对诊断 | 说明修正未提高完成率；来源交叉仍不是全新来源验证 |
+| 0.2.10-dev | 公开元数据抽取、历史布局及条件恢复诊断 | 两布局事实问答均 12/12，条件完成均 4/9；发现正确报告被再次写错 |
+| 0.2.15-dev | 数值语义判断、公开规则动作建议、逐步状态退化检测 | 原始策略安全完成 2/6，辅助策略 6/6，强规则同为 6/6；不属于 RL 提升 |
 
 查新使研究定位收窄为提交歧义、分析语义与证据成本的联合诊断，撤回过宽的原创性候选。[定位修订](../faultda_bench/docs/OVERLAP_AUDIT_2026_10_09.md)
 
-原始结果和反例完整保留：[P0](../faultda_bench/reports/P0_START.md) · [首个开发版](../faultda_bench/reports/SEMANTIC_V1_RELEASE.md) · [当前诊断](../faultda_bench/reports/CLARITY_V2_RELEASE.md)。不将同一任务的故障、预算、模型和措辞重复次数视作独立任务数量。
+原始结果和反例完整保留：[P0](../faultda_bench/reports/P0_START.md) · [首个开发版](../faultda_bench/reports/SEMANTIC_V1_RELEASE.md) · [说明对照](../faultda_bench/reports/CLARITY_V2_RELEASE.md) · [证据诊断](../faultda_bench/reports/EVIDENCE_V3_RELEASE.md) · [语义与建议对照](../faultda_bench/reports/DECISION_V4_RELEASE.md)。不将同一任务的故障、预算、模型和措辞重复次数视作独立任务数量。
 
 ## 如何引用仓库内结果
 

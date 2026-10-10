@@ -68,7 +68,19 @@ python -m faultda_bench.evidence.verify faultda_bench/reports/evidence_v3_api.js
 
 重新运行使用 `python -m faultda_bench.evidence.run --output work/evidence_new.json`；添加 `--api` 会进行付费 DeepSeek 调用，上限 24 次独立事实请求与 144 次动作请求。结果是带预设正确候选的条件诊断，不是自主端到端成功率。见[冻结协议](../faultda_bench/docs/EVIDENCE_V3_PROTOCOL.md)。
 
-## 5. 历史版本与模型实验
+## 5. 第四开发版：语义与建议对照
+
+```sh
+python -m unittest tests.test_faultda_decision -v
+python -m faultda_bench.decision.verify faultda_bench/reports/decision_v4_offline.json
+python -m faultda_bench.decision.verify faultda_bench/reports/decision_v4_api.json
+```
+
+上述验证无 API 调用，默认实际重放全部 48 条轨迹。重新运行可用 `python -m faultda_bench.decision.run --output work/decision_new.json`；添加 `--api` 将调用付费 DeepSeek，最多 12 次独立语义问答及 72 次动作请求，不重试。输出路径必须不存在。
+
+规则建议不是自动执行器，语义问答答案不传入动作上下文。初态已经完成提交并提供 inspect，不是自主完整解题。人工审阅仍待完成，见[本轮协议](../faultda_bench/docs/DECISION_V4_PROTOCOL.md)与[结果报告](../faultda_bench/reports/DECISION_V4_RELEASE.md)。
+
+## 6. 历史版本与模型实验
 
 | 范围 | 入口与说明 |
 | --- | --- |
