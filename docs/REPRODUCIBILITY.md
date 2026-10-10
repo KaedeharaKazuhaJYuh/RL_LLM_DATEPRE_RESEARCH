@@ -56,7 +56,19 @@ python -m faultda_bench.clarity.verify work/clarity_my_run.json --replay
 
 这一步会产生服务费用：24 episode，每条最多 8 请求，总上限 192，不自动重试。首次请求前保存模型、提示、顺序和代码哈希，结果中保留服务实际返回的模型标识。两臂说明长度不同，等请求预算不是等 token；旧成绩不能被新调用覆盖。
 
-## 4. 历史版本与模型实验
+## 4. 第三开发版诊断
+
+无需 API 即可重放本轮全部 96 条记录：
+
+```sh
+python -m unittest tests.test_faultda_evidence -v
+python -m faultda_bench.evidence.verify faultda_bench/reports/evidence_v3_offline.json
+python -m faultda_bench.evidence.verify faultda_bench/reports/evidence_v3_api.json
+```
+
+重新运行使用 `python -m faultda_bench.evidence.run --output work/evidence_new.json`；添加 `--api` 会进行付费 DeepSeek 调用，上限 24 次独立事实请求与 144 次动作请求。结果是带预设正确候选的条件诊断，不是自主端到端成功率。见[冻结协议](../faultda_bench/docs/EVIDENCE_V3_PROTOCOL.md)。
+
+## 5. 历史版本与模型实验
 
 | 范围 | 入口与说明 |
 | --- | --- |
