@@ -33,7 +33,7 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 | 跨来源离线开发实验，2,304 次执行 | 强组合基线在 E0/E1、检查预算 4 时各完成 96/96 | 这些条件共享 24 题，不是独立样本；尚未支持额外耦合失败 |
 | 历史说明与证据布局诊断 | 说明修正和历史重排均未提高各自实验的完成数 | 不同协议不可混池；详细负结果见历史汇总 |
 | DeepSeek 语义与动作建议对照，6 对 | 原始策略安全完成 2/6，规则建议辅助为 6/6；强规则也为 6/6 | 三个旧实例、单次条件诊断；辅助系统收益，不是 RL 或模型能力提升 |
-| 工程验证 | 149 项测试通过，本轮 48 条轨迹重放一致 | 验证实现与记录一致，不代表研究假设成立 |
+| 工程验证 | 151 项测试通过；第四版 48 条轨迹及新增 6 条归因构造记录 | 验证实现与记录一致，不代表研究假设成立 |
 
 上述实验使用不同范围，不能合并成一个总成功率。完整分母、调用量、协议与局限见[本轮报告](faultda_bench/reports/DECISION_V4_RELEASE.md)，早期记录见[组件索引](faultda_bench/README.md)。本研究分支未进行新的 RL 训练。
 
@@ -75,4 +75,4 @@ python -m faultda_bench.decision.verify faultda_bench/reports/decision_v4_api.js
 
 目前仅使用三个已见来源，属于受控参数绑定；合成维表重复和版本修订不等于真实生产事件。工具 JSON 接口不是任意不可信代码的 OS 安全沙箱。数据引用、许可与派生方式见[任务清单](faultda_bench/protocols/cross_source_v2.json)。
 
-当前优先完成 [24 题独立人工审阅](faultda_bench/reports/SCIENTIFIC_REVIEW_24.md)与科学验收，第二模型家族暂缓。现有证据尚不足以支持新的机制或超出强基线的发现，先调整研究假设，再决定是否扩源。详见[科学验收预审](faultda_bench/reports/SCIENTIFIC_GATE_2026_10_11.md)与[下一阶段清单](faultda_bench/docs/NEXT_STAGE_CHECKLIST.md)；自动化预审不等于独立验收通过。
+现有 [24 题独立人工审阅](faultda_bench/reports/SCIENTIFIC_REVIEW_24.md)已通过；科学审阅建议维持 HOLD，当前收束为工程与复现。新增三段式历史归因回归用例仍待独立确认，第二模型家族暂缓。现有证据尚不足以支持新的机制或超出强基线的发现，详见[审阅接收记录](faultda_bench/reports/HUMAN_REVIEW_ROUND2_INTAKE.md)与[下一阶段清单](faultda_bench/docs/NEXT_STAGE_CHECKLIST.md)。

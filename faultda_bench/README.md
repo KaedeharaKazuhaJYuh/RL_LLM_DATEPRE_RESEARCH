@@ -18,7 +18,7 @@
 
 ## 协议与证据
 
-下一阶段按[执行清单](docs/NEXT_STAGE_CHECKLIST.md)推进：优先 [24 题人工审阅](reports/SCIENTIFIC_REVIEW_24.md)与[科学验收](reports/SCIENTIFIC_GATE_2026_10_11.md)，第二模型接入暂缓。当前科学材料为内部预审，独立结论尚未填写。
+下一阶段按[执行清单](docs/NEXT_STAGE_CHECKLIST.md)推进：[24 题人工审阅](reports/SCIENTIFIC_REVIEW_24.md)已通过，科学审阅建议 HOLD，收束工程与复现；[接收记录](reports/HUMAN_REVIEW_ROUND2_INTAKE.md)列明依据。新增专项用例的独立复核待补，第二模型接入暂缓。
 
 | 阶段 | 实施协议 | 结果报告 |
 | --- | --- | --- |
