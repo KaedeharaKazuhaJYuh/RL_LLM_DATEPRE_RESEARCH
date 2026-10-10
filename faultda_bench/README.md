@@ -18,6 +18,8 @@
 
 ## 协议与证据
 
+下一阶段按[执行清单](docs/NEXT_STAGE_CHECKLIST.md)推进：优先 [24 题人工审阅](reports/SCIENTIFIC_REVIEW_24.md)与[科学验收](reports/SCIENTIFIC_GATE_2026_10_11.md)，第二模型接入暂缓。当前科学材料为内部预审，独立结论尚未填写。
+
 | 阶段 | 实施协议 | 结果报告 |
 | --- | --- | --- |
 | P0 `0.1.0-p0` | [状态与副作用](docs/P0_IMPLEMENTATION_PROTOCOL.md) | [84 次探针](reports/P0_START.md) |

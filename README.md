@@ -75,4 +75,4 @@ python -m faultda_bench.decision.verify faultda_bench/reports/decision_v4_api.js
 
 目前仅使用三个已见来源，属于受控参数绑定；合成维表重复和版本修订不等于真实生产事件。工具 JSON 接口不是任意不可信代码的 OS 安全沙箱。数据引用、许可与派生方式见[任务清单](faultda_bench/protocols/cross_source_v2.json)。
 
-下一步优先完成[任务与语义诊断人工审阅](faultda_bench/reports/DECISION_V4_REVIEW.md)，再扩大建议对照，检查错误建议依赖与并发状态下的停止行为，逐步扩展新来源与不同模型家族。具体安排见[本轮报告](faultda_bench/reports/DECISION_V4_RELEASE.md)。全新来源确认、权限隔离和 RL 研究仍需分别验收。
+当前优先完成 [24 题独立人工审阅](faultda_bench/reports/SCIENTIFIC_REVIEW_24.md)与科学验收，第二模型家族暂缓。现有证据尚不足以支持新的机制或超出强基线的发现，先调整研究假设，再决定是否扩源。详见[科学验收预审](faultda_bench/reports/SCIENTIFIC_GATE_2026_10_11.md)与[下一阶段清单](faultda_bench/docs/NEXT_STAGE_CHECKLIST.md)；自动化预审不等于独立验收通过。
