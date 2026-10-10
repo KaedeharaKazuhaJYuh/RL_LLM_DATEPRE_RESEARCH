@@ -1,0 +1,19 @@
+{
+  "version": "0.2.20-dev",
+  "protocol": "regression_v5_results.protocol.json",
+  "protocol_sha256": "00e2d25750cc9a15a087617fa1cd511c9e3042ccd21f2c6fa29ad5aac6206688",
+  "journal": "regression_v5_results.jsonl",
+  "journal_sha256": "10528a52948a69d56f357dafc8d0afc122fc7087563b67d0b95916d7851b4daa",
+  "summary": {
+    "scripted_cases": 6,
+    "intents": [
+      "group",
+      "version",
+      "window"
+    ],
+    "requirements_met": 6,
+    "restored_but_unsafe": 3,
+    "budget_rejections": 3
+  },
+  "api_requests": 0
+}

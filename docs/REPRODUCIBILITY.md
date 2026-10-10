@@ -80,7 +80,18 @@ python -m faultda_bench.decision.verify faultda_bench/reports/decision_v4_api.js
 
 规则建议不是自动执行器，语义问答答案不传入动作上下文。初态已经完成提交并提供 inspect，不是自主完整解题。人工审阅仍待完成，见[本轮协议](../faultda_bench/docs/DECISION_V4_PROTOCOL.md)与[结果报告](../faultda_bench/reports/DECISION_V4_RELEASE.md)。
 
-## 6. 历史版本与模型实验
+## 6. 第五开发版：冻结历史归因套件
+
+```sh
+python -m unittest tests.test_faultda_regression_suite -v
+python -m faultda_bench.regression.verify faultda_bench/reports/regression_v5_results.json
+```
+
+完整六条路径默认实际重放；重新生成使用 `python -m faultda_bench.regression.suite --output work/regression_new.json`，输出路径必须不存在。无 API/GPU 需求。
+
+六条是预定错误注入的工程构造，不是 LLM 评测或独立任务增量。三个最终修好但不安全，三个因预算拒绝而保持错误。[协议](../faultda_bench/docs/REGRESSION_V5_PROTOCOL.md) · [结果](../faultda_bench/reports/REGRESSION_V5_RELEASE.md) · [人工复审表](../faultda_bench/reports/REGRESSION_V5_REVIEW.md)。旧实验命令继续保留在上述各节。
+
+## 7. 历史版本与模型实验
 
 | 范围 | 入口与说明 |
 | --- | --- |
