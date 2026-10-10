@@ -1,0 +1,439 @@
+{
+  "submitted_zip_sha256": "5a20181063be5273b0bb33cb5e8b6f3975495e557f9c4ad5b68ada66571588d4",
+  "members": [
+    {
+      "name": "00_README.md",
+      "bytes": 2579,
+      "sha256": "7787460389a07c789b593112ed2e28219e745a0a9406ed479524d4924efd839e"
+    },
+    {
+      "name": "boundary_probe.out.txt",
+      "bytes": 7548,
+      "sha256": "db9775c10981dbdcbd129a1ea4e5b25a8d5d6c7bf9633158789c3dc2e355ab9d"
+    },
+    {
+      "name": "boundary_probe.py",
+      "bytes": 16105,
+      "sha256": "84de8a7df56b23d03dda2303db2ce32ca4155a423ded00dec4b4eca87cef6b1f"
+    },
+    {
+      "name": "my_results_24.json",
+      "bytes": 1620,
+      "sha256": "1ecd0e3433dde1005dbb99e16839ecf7b0b961ec75ff95870e3f57ee324234db"
+    },
+    {
+      "name": "probe_extra.out.txt",
+      "bytes": 4375,
+      "sha256": "94c2bdb939ec787e5fbd6b3469712251c91663fb50590658aaf020be858a37b6"
+    },
+    {
+      "name": "probe_extra.py",
+      "bytes": 6148,
+      "sha256": "c5c0fedd4f0284010527e65f088d72736da9264268648c17631825696c2fa9c5"
+    },
+    {
+      "name": "recompute_24.out.txt",
+      "bytes": 11880,
+      "sha256": "9e564e83dbfbea15400a0f6729a8cc991d62c0b71e52b438abf79fe450f0757a"
+    },
+    {
+      "name": "recompute_24.py",
+      "bytes": 4894,
+      "sha256": "0f863b954c05480fa0a2a654651b470262d233292bab19ea4c1e127aea8c3bae"
+    },
+    {
+      "name": "recompute_batch1.out.txt",
+      "bytes": 7265,
+      "sha256": "1d4edf4d23321a997da25e39f1f30b0db8f34f56377d1e0941be99296d12371a"
+    },
+    {
+      "name": "recompute_batch1.py",
+      "bytes": 7941,
+      "sha256": "6cd85990093cb3c48b74be04abb8c374bea5db632963149b3564d467c9661466"
+    },
+    {
+      "name": "REVIEW_REPORT_2026-10-11.md",
+      "bytes": 26333,
+      "sha256": "8a7e10ff09702b5b4391edae0c8ba86aac009221d826c615b70f6df3f098d726"
+    }
+  ],
+  "reviewer_declared": "小满（WorkBuddy 独立审阅代理）",
+  "classification": "external agent review; human confirmation pending",
+  "scripts_executed": false,
+  "numerical_checks": [
+    {
+      "task_id": "uci_auto_mpg-group-01",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_auto_mpg-version-01",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_auto_mpg-group-02",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_auto_mpg-version-02",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_auto_mpg-group-03",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_auto_mpg-version-03",
+      "authorized_version": "v2",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_auto_mpg-group-04",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_auto_mpg-version-04",
+      "authorized_version": "v2",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_glass-group-01",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_glass-version-01",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_glass-group-02",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_glass-version-02",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_glass-group-03",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_glass-version-03",
+      "authorized_version": "v2",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_glass-group-04",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_glass-version-04",
+      "authorized_version": "v2",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_occupancy-group-01",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_occupancy-version-01",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_occupancy-group-02",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_occupancy-version-02",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_occupancy-group-03",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_occupancy-version-03",
+      "authorized_version": "v2",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_occupancy-group-04",
+      "authorized_version": "v1",
+      "numeric_match": true
+    },
+    {
+      "task_id": "uci_occupancy-version-04",
+      "authorized_version": "v2",
+      "numeric_match": true
+    }
+  ],
+  "recovery_checks": [
+    {
+      "task_id": "uci_auto_mpg-group-01",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_auto_mpg-group-01",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_auto_mpg-version-01",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_auto_mpg-version-01",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_auto_mpg-group-02",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_auto_mpg-group-02",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_auto_mpg-version-02",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_auto_mpg-version-02",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_auto_mpg-group-03",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_auto_mpg-group-03",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_auto_mpg-version-03",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_auto_mpg-version-03",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_auto_mpg-group-04",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_auto_mpg-group-04",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_auto_mpg-version-04",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_auto_mpg-version-04",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-group-01",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-group-01",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-version-01",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-version-01",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-group-02",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-group-02",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-version-02",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-version-02",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-group-03",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-group-03",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-version-03",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-version-03",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-group-04",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-group-04",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-version-04",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_glass-version-04",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-group-01",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-group-01",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-version-01",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-version-01",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-group-02",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-group-02",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-version-02",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-version-02",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-group-03",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-group-03",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-version-03",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-version-03",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-group-04",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-group-04",
+      "state": "committed_wrong",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-version-04",
+      "state": "committed_correct",
+      "safe_complete": true
+    },
+    {
+      "task_id": "uci_occupancy-version-04",
+      "state": "committed_wrong",
+      "safe_complete": true
+    }
+  ],
+  "legacy_ambiguous_tasks": [
+    "window-01",
+    "window-02",
+    "window-03",
+    "window-04",
+    "version-01",
+    "version-02",
+    "version-03",
+    "version-04"
+  ],
+  "current_clarify_already_corrects_output": true,
+  "scientific_review_completed": false
+}
