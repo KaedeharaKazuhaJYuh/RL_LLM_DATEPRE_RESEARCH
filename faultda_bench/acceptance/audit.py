@@ -9,7 +9,7 @@ from pathlib import Path
 from . import VERSION
 
 REPO = Path(__file__).resolve().parents[2]
-CATALOG = REPO / 'faultda_bench/protocols/acceptance_v17.json'
+CATALOG = REPO / 'faultda_bench/protocols/acceptance_v18.json'
 
 
 def require(condition, message):
@@ -35,7 +35,7 @@ def check_inventory(root=REPO, catalog_path=CATALOG):
     """The committed catalog is the trust anchor; never rewrite it during audit."""
     root = Path(root)
     catalog = json.loads(Path(catalog_path).read_text(encoding='utf-8'))
-    require(catalog['version'] in ('0.2.25-dev', '0.2.30-dev', '0.2.35-dev', '0.2.50-dev', '0.2.55-dev', '0.2.60-dev', '0.2.65-dev', '0.2.70-dev', '0.2.75-dev', '0.2.80-dev', '0.2.85-dev', VERSION), 'catalog version')
+    require(catalog['version'] in ('0.2.25-dev', '0.2.30-dev', '0.2.35-dev', '0.2.50-dev', '0.2.55-dev', '0.2.60-dev', '0.2.65-dev', '0.2.70-dev', '0.2.75-dev', '0.2.80-dev', '0.2.85-dev', '0.2.90-dev', VERSION), 'catalog version')
     require(catalog['scientific_gate'] == 'HOLD', 'scientific gate is not a test result')
     files = catalog['files']
     require(isinstance(files, dict) and len(files) > 30, 'incomplete inventory')
@@ -88,7 +88,8 @@ def check_inventory(root=REPO, catalog_path=CATALOG):
                 '0.2.75-dev': ('allocation_v8', 'surface_v9', 'trust_v10', 'pilot_v11', 'pilot_v12', 'format_v13', 'followup_v14'),
                 '0.2.80-dev': ('allocation_v8', 'surface_v9', 'trust_v10', 'pilot_v11', 'pilot_v12', 'format_v13', 'followup_v14', 'multistep_v15'),
                 '0.2.85-dev': ('allocation_v8', 'surface_v9', 'trust_v10', 'pilot_v11', 'pilot_v12', 'format_v13', 'followup_v14', 'multistep_v15', 'publication_v16'),
-                VERSION: ('allocation_v8', 'surface_v9', 'trust_v10', 'pilot_v11', 'pilot_v12', 'format_v13', 'followup_v14', 'multistep_v15', 'publication_v16', 'intervention_v17'),
+                '0.2.90-dev': ('allocation_v8', 'surface_v9', 'trust_v10', 'pilot_v11', 'pilot_v12', 'format_v13', 'followup_v14', 'multistep_v15', 'publication_v16', 'intervention_v17'),
+                VERSION: ('allocation_v8', 'surface_v9', 'trust_v10', 'pilot_v11', 'pilot_v12', 'format_v13', 'followup_v14', 'multistep_v15', 'publication_v16', 'intervention_v17', 'stopping_v18'),
             }.get(catalog['version'], ())},
             'human_review': {'development_tasks': {'status': 'passed', 'tasks': 24},
                              'legacy_diagnostics': {'status': 'passed', 'tasks': 3},
@@ -117,6 +118,7 @@ def audit(full_replay=False):
     from ..multistep.suite import verify as multistep
     from ..publication.audit import verify as publication
     from ..intervention.suite import verify as intervention
+    from ..stopping.suite import verify as stopping
     reports = REPO / 'faultda_bench/reports'
     checks = {'semantic_v1': semantic(replay=full_replay)}
     for name in ('cross_source_v2_results', 'clarity_v2_comparison'):
@@ -132,7 +134,8 @@ def audit(full_replay=False):
                             (followup, ('followup_v14_deepseek',)),
                             (multistep, ('multistep_v15_deepseek',)),
                             (publication, ('publication_v16_audit',)),
-                            (intervention, ('intervention_v17_deepseek',))):
+                            (intervention, ('intervention_v17_deepseek',)),
+                            (stopping, ('stopping_v18_deepseek',))):
         for name in names:
             checks[name] = verifier(reports / (name + '.json'))
     return {'version': VERSION, 'machine_status': 'verified', 'api_requests': 0,

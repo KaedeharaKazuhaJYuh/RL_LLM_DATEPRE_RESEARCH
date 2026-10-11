@@ -141,3 +141,7 @@ python -m faultda_bench.regression.verify faultda_bench/reports/regression_v5_re
 ## 三臂真实对照：0.2.90-dev
 
 `python -m faultda_bench.intervention.suite --verify faultda_bench/reports/intervention_v17_deepseek.json` 重放 54 条公开请求、拟动作/执行动作、工具反馈与评分，不联网。统一入口核验 130 份文件。设计文件保留上一版快照，可执行 plan/protocol 与本轮结果单独保存。两个清单臂守卫零触发；不能将离线拒绝测试当真实拦截成绩，或把升级改成完成。限制和消耗见[报告](../faultda_bench/reports/INTERVENTION_V17_RELEASE.md)。
+
+## 数值与停止诊断：0.2.95-dev
+
+`python -m faultda_bench.stopping.suite --verify faultda_bench/reports/stopping_v18_deepseek.json` 重建六个已读取公开状态、48 次独立请求、判断分数及单步效果，不联网。统一核验 136 份冻结文件。判断答案不传给动作调用，不能用独立探针建立同一次推理的因果链；stage 后非终态不能自动当完整任务失败。设置与消耗见[报告](../faultda_bench/reports/STOPPING_V18_RELEASE.md)。
