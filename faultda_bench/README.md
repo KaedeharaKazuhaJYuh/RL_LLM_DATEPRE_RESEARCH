@@ -1,11 +1,12 @@
 # FaultDA-Bench 组件索引
 
-项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.2.20-dev`。
+项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.2.25-dev`。
 
 ## 实现分层
 
 | 组件 | 职责 |
 | --- | --- |
+| [acceptance/](acceptance/) | 冻结证据统一核验、原始审阅文件核对及分层验收状态 |
 | [regression/](regression/) | 三段式历史归因冻结计划、完整工具/台账重放和篡改检测 |
 | [decision/](decision/) | 数值语义判断、可选动作建议、正确状态退化检测及输入重放 |
 | [evidence/](evidence/) | 公开事实抽取、无损历史布局对照、条件恢复与并发修订诊断 |
@@ -30,6 +31,8 @@
 | `0.2.15-dev` | [语义判断与状态保持](docs/DECISION_V4_PROTOCOL.md) | [第四开发版](reports/DECISION_V4_RELEASE.md) |
 | `0.2.20-dev` | [三段式工程套件](docs/REGRESSION_V5_PROTOCOL.md) | [第五开发版](reports/REGRESSION_V5_RELEASE.md) |
 
+| `0.2.25-dev` | [统一证据验收](docs/ACCEPTANCE_V6_PROTOCOL.md) | [第六开发版](reports/ACCEPTANCE_V6_RELEASE.md) |
+
 总体研究约束见[研究协议 v2](../reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md)；[原始 v1](../reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V1.md)和[相关工作复核](docs/OVERLAP_AUDIT_2026_10_09.md)保留。不同阶段的指标和样本不能混池汇总。
 
-[24 题人工审阅表](reports/CROSS_SOURCE_REVIEW.md)目前仍待人工填写；程序测试不等于独立人工认可。历史 source_id 注册表包含别名和派生来源，不能把其条目数当独立数据集数量。
+[24 题独立人工审阅](reports/SCIENTIFIC_REVIEW_24.md)已通过；新增六条专项路径仍待复审，程序测试不等于独立人工认可。历史 source_id 注册表包含别名和派生来源，不能把其条目数当独立数据集数量。

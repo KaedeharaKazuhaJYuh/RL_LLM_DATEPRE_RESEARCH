@@ -14,6 +14,12 @@ jobs:
       - run: python -m scripts.release_version --check
       - run: mkdir -p work
       - run: python -m unittest discover -s tests -v
+      - name: Audit frozen FaultDA evidence (offline)
+        run: python -m faultda_bench.acceptance.audit --output work/faultda_acceptance.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: faultda-evidence-acceptance
+          path: work/faultda_acceptance.json
       - run: python -m research.benchmark
       - run: git diff --exit-code -- tasks/v2 data/variants/value_v1 tasks/variants/value_v1/data
   go-local-runner:

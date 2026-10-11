@@ -103,3 +103,7 @@ python -m faultda_bench.regression.verify faultda_bench/reports/regression_v5_re
 | Intel NPU | [NPU 接入](../reports/V4_NPU_ENABLEMENT.md)，使用独立依赖环境，不替换 CUDA 训练环境 |
 
 历史命令应输出到新的 `work/` 路径。部分旧 CLI 默认写入原始报告位置，直接运行前应查看其帮助和对应协议，避免覆盖冻结证据。新旧评分不混用，模型权重不随源码仓库分发。
+
+## 统一证据验收（0.2.25-dev）
+
+完整仓库根目录运行 `python -m faultda_bench.acceptance.audit`，不需要 API、GPU 或网络。默认核对历史大套件的文件和汇总，并重放第三至第五开发版轨迹；加 `--full-replay` 也重放早期大套件。`--output work/acceptance.json` 只创建新文件，不覆盖已有证据。请勿加 `-O`，历史验证器使用断言。科学 HOLD 与人工待审不会冒充通过，也不阻止工程核验返回成功。详细边界见[验收协议](../faultda_bench/docs/ACCEPTANCE_V6_PROTOCOL.md)。
