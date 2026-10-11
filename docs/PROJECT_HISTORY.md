@@ -40,6 +40,8 @@ V5.0.15-beta.2 完成条件恢复的三种子五臂 CUDA 实验。继续 SFT 28/
 
 | 0.2.50-dev | stage 返回证据审查、暂存参考规则、144 次读写成本对照 | 补齐遗漏的合法基线；检查收益伴随写成本交换，科学 HOLD 不变 |
 
+| 0.2.55-dev | 同源计算错误、真实错误候选与公开数据发布守卫，144 次对照 | 结果一致不保证正确；独立守卫安全升级但未修好工具，科学 HOLD 不变 |
+
 查新使研究定位收窄为提交歧义、分析语义与证据成本的联合诊断，撤回过宽的原创性候选。[定位修订](../faultda_bench/docs/OVERLAP_AUDIT_2026_10_09.md)
 
 原始结果和反例完整保留：[P0](../faultda_bench/reports/P0_START.md) · [首个开发版](../faultda_bench/reports/SEMANTIC_V1_RELEASE.md) · [说明对照](../faultda_bench/reports/CLARITY_V2_RELEASE.md) · [证据诊断](../faultda_bench/reports/EVIDENCE_V3_RELEASE.md) · [语义与建议对照](../faultda_bench/reports/DECISION_V4_RELEASE.md)。不将同一任务的故障、预算、模型和措辞重复次数视作独立任务数量。

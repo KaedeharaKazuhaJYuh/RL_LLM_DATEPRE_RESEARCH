@@ -9,7 +9,7 @@ from pathlib import Path
 from . import VERSION
 
 REPO = Path(__file__).resolve().parents[2]
-CATALOG = REPO / 'faultda_bench/protocols/acceptance_v9.json'
+CATALOG = REPO / 'faultda_bench/protocols/acceptance_v10.json'
 
 
 def require(condition, message):
@@ -35,7 +35,7 @@ def check_inventory(root=REPO, catalog_path=CATALOG):
     """The committed catalog is the trust anchor; never rewrite it during audit."""
     root = Path(root)
     catalog = json.loads(Path(catalog_path).read_text(encoding='utf-8'))
-    require(catalog['version'] in ('0.2.25-dev', '0.2.30-dev', '0.2.35-dev', VERSION), 'catalog version')
+    require(catalog['version'] in ('0.2.25-dev', '0.2.30-dev', '0.2.35-dev', '0.2.50-dev', VERSION), 'catalog version')
     require(catalog['scientific_gate'] == 'HOLD', 'scientific gate is not a test result')
     files = catalog['files']
     require(isinstance(files, dict) and len(files) > 30, 'incomplete inventory')
@@ -78,9 +78,11 @@ def check_inventory(root=REPO, catalog_path=CATALOG):
                              'reviewed_version': new_receipt['reviewed_version'],
                              'identity_basis': new_receipt['identity_basis']}
     return {'files_verified': len(files), 'catalog_sha256': digest(Path(catalog_path).read_bytes()),
-            'new_experiment_review': ({'allocation_v8': 'pending', 'surface_v9': 'pending'}
-                                      if catalog['version'] == VERSION else
-                                      {'allocation_v8': 'pending'} if catalog['version'] == '0.2.35-dev' else {}),
+            'new_experiment_review': {name: 'pending' for name in {
+                '0.2.35-dev': ('allocation_v8',),
+                '0.2.50-dev': ('allocation_v8', 'surface_v9'),
+                VERSION: ('allocation_v8', 'surface_v9', 'trust_v10'),
+            }.get(catalog['version'], ())},
             'human_review': {'development_tasks': {'status': 'passed', 'tasks': 24},
                              'legacy_diagnostics': {'status': 'passed', 'tasks': 3},
                              'new_regression_cases': regression_review,
@@ -101,6 +103,7 @@ def audit(full_replay=False):
     from ..regression.verify import verify as regression
     from ..allocation.verify import verify as allocation
     from ..surface.verify import verify as surface
+    from ..trust.verify import verify as trust
     reports = REPO / 'faultda_bench/reports'
     checks = {'semantic_v1': semantic(replay=full_replay)}
     for name in ('cross_source_v2_results', 'clarity_v2_comparison'):
@@ -109,7 +112,8 @@ def audit(full_replay=False):
                             (decision, ('decision_v4_offline', 'decision_v4_api')),
                             (regression, ('regression_v5_results',)),
                             (allocation, ('allocation_v8_results',)),
-                            (surface, ('surface_v9_results',))):
+                            (surface, ('surface_v9_results',)),
+                            (trust, ('trust_v10_results',))):
         for name in names:
             checks[name] = verifier(reports / (name + '.json'))
     return {'version': VERSION, 'machine_status': 'verified', 'api_requests': 0,
