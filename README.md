@@ -4,10 +4,10 @@
 
 FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误、检查证据需要成本时，Agent 能否获取必要信息，完成正确修复，并避免重复副作用。当前是可运行的开发基准，尚未完成独立最终测试。
 
-当前基准版本：`0.2.35-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
+当前基准版本：`0.2.50-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
-[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/ALLOCATION_V8_RELEASE.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
+[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/SURFACE_V9_RELEASE.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
 
 ## 研究问题
 
@@ -33,10 +33,11 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 | 跨来源离线开发实验，2,304 次执行 | 强组合基线在 E0/E1、检查预算 4 时各完成 96/96 | 这些条件共享 24 题，不是独立样本；尚未支持额外耦合失败 |
 | 历史说明与证据布局诊断 | 说明修正和历史重排均未提高各自实验的完成数 | 不同协议不可混池；详细负结果见历史汇总 |
 | DeepSeek 语义与动作建议对照，6 对 | 原始策略安全完成 2/6，规则建议辅助为 6/6；强规则也为 6/6 | 三个旧实例、单次条件诊断；辅助系统收益，不是 RL 或模型能力提升 |
+| 工具证据与基线审查，144 次程序执行 | E1/检查预算 2：读取参考 0/12，暂存参考 12/12 | 后者多花写成本，属于补强规则基线；没有模型提升或总体等成本结论 |
 | 检查顺序负对照，576 次程序执行 | 按需检查与强规则差值为 0；固定优先检查同样解决可观察条件 | 同一选择器负对照；没有新方法收益，新实验尚未独立复审 |
 | 历史归因专项 | 六条冻结脚本路径均符合预定要求；159 项测试通过 | 三条最终修好仍不安全，三条预算拒绝；属于工程验收，无新模型成绩 |
 
-上述实验使用不同范围，不能合并成一个总成功率。最新工程记录见[本轮报告](faultda_bench/reports/ALLOCATION_V8_RELEASE.md)，模型对照见[第四版报告](faultda_bench/reports/DECISION_V4_RELEASE.md)，早期记录见[组件索引](faultda_bench/README.md)。本研究分支未进行新的 RL 训练。
+上述实验使用不同范围，不能合并成一个总成功率。最新工程记录见[本轮报告](faultda_bench/reports/SURFACE_V9_RELEASE.md)，模型对照见[第四版报告](faultda_bench/reports/DECISION_V4_RELEASE.md)，早期记录见[组件索引](faultda_bench/README.md)。本研究分支未进行新的 RL 训练。
 
 ## 快速复核
 
@@ -48,7 +49,7 @@ python -m unittest tests.test_faultda_regression_chain tests.test_faultda_regres
 python -m faultda_bench.acceptance.audit
 ```
 
-统一入口核对 71 份冻结文件、历史结果汇总和近期轨迹重放，分别记录已有人工审阅、六例专项复审通过和科学 HOLD；可用 `--full-replay` 重放早期大规模套件。重新生成实验、可选付费 API 调用和旧版本复现见[复现指南](docs/REPRODUCIBILITY.md)；新实验使用新输出路径，不覆盖冻结记录。仅安装 wheel 不包含全部任务数据，不能替代完整仓库。
+统一入口核对 78 份冻结文件、历史结果汇总和近期轨迹重放，分别记录已有人工审阅、六例专项复审通过和科学 HOLD；可用 `--full-replay` 重放早期大规模套件。重新生成实验、可选付费 API 调用和旧版本复现见[复现指南](docs/REPRODUCIBILITY.md)；新实验使用新输出路径，不覆盖冻结记录。仅安装 wheel 不包含全部任务数据，不能替代完整仓库。
 
 ## 项目演进
 
@@ -75,4 +76,4 @@ python -m faultda_bench.acceptance.audit
 
 目前仅使用三个已见来源，属于受控参数绑定；合成维表重复和版本修订不等于真实生产事件。工具 JSON 接口不是任意不可信代码的 OS 安全沙箱。数据引用、许可与派生方式见[任务清单](faultda_bench/protocols/cross_source_v2.json)。
 
-现有 [24 题独立人工审阅](faultda_bench/reports/SCIENTIFIC_REVIEW_24.md)已通过；科学审阅建议维持 HOLD，当前收束为工程与复现。新增六条冻结路径已由张雨田署名独立复审通过，见[接收记录](faultda_bench/reports/REGRESSION_REVIEW_INTAKE_2026_10_11.md)；原待审表保留作历史。下一步先明确可证伪研究假设和等成本对照，第二模型家族暂缓。现有证据尚不足以支持新的机制或超出强基线的发现，详见[审阅接收记录](faultda_bench/reports/HUMAN_REVIEW_ROUND2_INTAKE.md)与[执行清单](faultda_bench/docs/NEXT_STAGE_CHECKLIST.md)。
+现有 [24 题独立人工审阅](faultda_bench/reports/SCIENTIFIC_REVIEW_24.md)已通过；科学审阅建议维持 HOLD，当前收束为工程与复现。新增六条冻结路径已由张雨田署名独立复审通过，见[接收记录](faultda_bench/reports/REGRESSION_REVIEW_INTAKE_2026_10_11.md)；原待审表保留作历史。下一步用读取与暂存参考两条强基线审查信息选择假设，分别计量读写成本，第二模型家族暂缓。现有证据尚不足以支持新的机制或超出强基线的发现，详见[审阅接收记录](faultda_bench/reports/HUMAN_REVIEW_ROUND2_INTAKE.md)与[执行清单](faultda_bench/docs/NEXT_STAGE_CHECKLIST.md)。

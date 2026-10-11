@@ -1,2 +1,2 @@
 """Evidence inventory; machine verification does not certify scientific novelty."""
-VERSION = '0.2.35-dev'
+VERSION = '0.2.50-dev'

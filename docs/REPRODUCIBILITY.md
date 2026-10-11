@@ -111,3 +111,5 @@ python -m faultda_bench.regression.verify faultda_bench/reports/regression_v5_re
 专项复审登记 `0.2.30-dev` 更新默认清单为 65 份文件；新增六例状态为通过，科学 HOLD 不变。历史第六版清单保留待审状态，详见[第七版协议](../faultda_bench/docs/ACCEPTANCE_V7_PROTOCOL.md)。
 
 `0.2.35-dev` 默认清单为 71 份冻结文件，统一入口另重建检查分配的 576 次运行。单独运行 `python -m faultda_bench.allocation.verify faultda_bench/reports/allocation_v8_results.json`；重新生成用 `python -m faultda_bench.allocation.suite --output work/new_allocation.json`，只接受新输出路径。本实验无模型调用，旧人工签字不覆盖新实验。
+
+`0.2.50-dev` 统一入口核验 78 份冻结文件，另重建工具证据对照 144 次运行。单独运行 `python -m faultda_bench.surface.verify faultda_bench/reports/surface_v9_results.json`；重新生成用 `python -m faultda_bench.surface.suite --output work/new_surface.json`。新实验没有独立复审，暂存写成本计入结果，不表示总体等成本或模型提升。
