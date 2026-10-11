@@ -1,6 +1,6 @@
 # FaultDA-Bench 组件索引
 
-项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.2.70-dev`。
+项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.2.75-dev`。
 
 ## 实现分层
 
@@ -50,6 +50,8 @@
 | `0.2.65-dev` | [真实诊断接收](docs/MODEL_PILOT_V12_INTAKE.md) | [第十二开发版](reports/MODEL_PILOT_V12_RELEASE.md) |
 
 | `0.2.70-dev` | [动作输出诊断](docs/FORMAT_V13_PROTOCOL.md) | [第十三开发版](reports/FORMAT_V13_RELEASE.md) |
+
+| `0.2.75-dev` | [多步设计冻结](protocols/multistep_v15_design.json) | [后续状态复核](reports/FOLLOWUP_V14_RELEASE.md) |
 
 总体研究约束见[研究协议 v2](../reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md)；[原始 v1](../reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V1.md)和[相关工作复核](docs/OVERLAP_AUDIT_2026_10_09.md)保留。不同阶段的指标和样本不能混池汇总。
 

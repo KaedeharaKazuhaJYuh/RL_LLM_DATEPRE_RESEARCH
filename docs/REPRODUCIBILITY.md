@@ -125,3 +125,7 @@ python -m faultda_bench.regression.verify faultda_bench/reports/regression_v5_re
 ## 输出诊断：0.2.70-dev
 
 离线运行 `python -m faultda_bench.formatdiag.verify faultda_bench/reports/format_v13_deepseek.json` 重建 24 个请求，统一入口核对 105 份冻结文件。原始响应正文没有保存，因此不能独立重放解析分类，也不认证供应商来源。四项网络替身测试与具体边界见[诊断协议](../faultda_bench/docs/FORMAT_V13_PROTOCOL.md)，实际成绩见[报告](../faultda_bench/reports/FORMAT_V13_RELEASE.md)。不要覆盖冻结计划或结果。
+
+## 后续状态复核：0.2.75-dev
+
+`python -m faultda_bench.followup.suite --verify faultda_bench/reports/followup_v14_deepseek.json` 重建六历史状态及十二请求，不联网。统一入口核验 112 份冻结文件。详见[接收报告](../faultda_bench/reports/FOLLOWUP_V14_RELEASE.md)。完整多步仅有设计冻结文件，尚无执行结果；不能用格式成功替代预算合法性或恢复成绩。

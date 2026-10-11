@@ -1,0 +1,19 @@
+{
+  "version": "0.2.75-dev",
+  "backend": "deepseek_live_single_decision",
+  "protocol_sha256": "5f88faaf44a141a0a80df29c347c07fdcab5817f7cd6cee4fef369475cfade69",
+  "trace_sha256": "fd870f07eb3625a84423a6fc126598ca2f826270bad76327fe23d8a1fec3e997",
+  "summary": {
+    "planned": 12,
+    "requests": 12,
+    "categories": {
+      "valid_action": 12
+    },
+    "length_finish": 0,
+    "usage_available_calls": 12,
+    "reported_prompt_tokens": 16742,
+    "reported_completion_tokens": 231,
+    "scientific_gate": "HOLD",
+    "recovery_or_rl_claim": false
+  }
+}
