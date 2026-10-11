@@ -115,3 +115,5 @@ python -m faultda_bench.regression.verify faultda_bench/reports/regression_v5_re
 `0.2.50-dev` 统一入口核验 78 份冻结文件，另重建工具证据对照 144 次运行。单独运行 `python -m faultda_bench.surface.verify faultda_bench/reports/surface_v9_results.json`；重新生成用 `python -m faultda_bench.surface.suite --output work/new_surface.json`。新实验没有独立复审，暂存写成本计入结果，不表示总体等成本或模型提升。
 
 `0.2.55-dev` 统一入口核验 86 份冻结文件，另重建计算工具缺陷对照 144 次运行。单独运行 `python -m faultda_bench.trust.verify faultda_bench/reports/trust_v10_results.json`；重新生成用 `python -m faultda_bench.trust.suite --output work/new_trust.json`。故障是真实计算结果加 1 的受控注入，不能把安全升级说成修复完成，旧人工签字不覆盖新实验。
+
+`0.2.60-dev` 统一入口核验 94 份冻结文件，另重建模型诊断准备中的 36 条规则轨迹及公开提示哈希。运行 `python -m faultda_bench.pilot.verify faultda_bench/reports/pilot_v11_offline.json`；默认生成入口是离线，明确的 `--backend deepseek` 才使用已有本机凭据。实际九条件试跑命令及消耗、评分边界见[固定协议](../faultda_bench/docs/MODEL_PILOT_V11_PROTOCOL.md)。本轮没有真实 API 调用。

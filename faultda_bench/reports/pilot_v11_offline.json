@@ -1,0 +1,51 @@
+{
+  "version": "0.2.60-dev",
+  "backend": "offline_rules",
+  "protocol": "pilot_v11_offline.protocol.json",
+  "protocol_sha256": "a48314effdc47560abee286650d2761a570e9aedfcb0e0cd360bbc2e2935dbd3",
+  "trace": "pilot_v11_offline.jsonl",
+  "trace_sha256": "cf756e31acd9bd9e79e18023f8cc01fde0cdc56be0e43d695282614c6382c3fd",
+  "summary": {
+    "executions": 36,
+    "task_clusters": 3,
+    "by_arm": {
+      "abstain": {
+        "safe_complete": 0,
+        "false_completion": 0,
+        "safe_escalation": 9,
+        "agent_wrong_publications": 0
+      },
+      "guarded_read": {
+        "safe_complete": 6,
+        "false_completion": 0,
+        "safe_escalation": 3,
+        "agent_wrong_publications": 0
+      },
+      "read_reference": {
+        "safe_complete": 6,
+        "false_completion": 3,
+        "safe_escalation": 0,
+        "agent_wrong_publications": 3
+      },
+      "stage_reference": {
+        "safe_complete": 3,
+        "false_completion": 6,
+        "safe_escalation": 0,
+        "agent_wrong_publications": 3
+      }
+    },
+    "request_attempts": 0,
+    "usage_available_calls": 0,
+    "reported_prompt_tokens": null,
+    "reported_completion_tokens": null,
+    "actual_models": [],
+    "terminal_counts": {
+      "escalate": 12,
+      "stop": 24
+    },
+    "api_censored_cases": 0,
+    "model_cases_without_request": 0,
+    "scientific_gate": "HOLD",
+    "model_improvement_claim": false
+  }
+}
