@@ -9,7 +9,7 @@ from pathlib import Path
 from . import VERSION
 
 REPO = Path(__file__).resolve().parents[2]
-CATALOG = REPO / 'faultda_bench/protocols/acceptance_v6.json'
+CATALOG = REPO / 'faultda_bench/protocols/acceptance_v7.json'
 
 
 def require(condition, message):
@@ -35,7 +35,7 @@ def check_inventory(root=REPO, catalog_path=CATALOG):
     """The committed catalog is the trust anchor; never rewrite it during audit."""
     root = Path(root)
     catalog = json.loads(Path(catalog_path).read_text(encoding='utf-8'))
-    require(catalog['version'] == VERSION, 'catalog version')
+    require(catalog['version'] in ('0.2.25-dev', VERSION), 'catalog version')
     require(catalog['scientific_gate'] == 'HOLD', 'scientific gate is not a test result')
     files = catalog['files']
     require(isinstance(files, dict) and len(files) > 30, 'incomplete inventory')
@@ -59,10 +59,28 @@ def check_inventory(root=REPO, catalog_path=CATALOG):
             data = archive.read(record['name'])
             require(digest(data) == record['sha256'] and len(data) == record['bytes'],
                     'original human review mismatch')
+    regression_review = {'status': 'pending', 'cases': 6}
+    if catalog['version'] == VERSION:
+        review_base = 'faultda_bench/reports/regression_review_2026_10_11/'
+        require(all(review_base + n in files for n in ('receipt.json', 'submitted_review.md')),
+                'new review provenance missing')
+        new_receipt = json.loads(pinned_path(root, review_base + 'receipt.json').read_text(encoding='utf-8'))
+        original = pinned_path(root, review_base + 'submitted_review.md').read_bytes()
+        require(digest(original) == new_receipt['submitted_review_sha256']
+                and len(original) == new_receipt['submitted_review_bytes'], 'new review original mismatch')
+        require(new_receipt['reviewed_version'] == '0.2.20-dev'
+                and type(new_receipt['cases_passed']) is int and new_receipt['cases_passed'] == 6,
+                'new review scope')
+        expected = [[task, reuse] for task in ('group-01', 'window-01', 'version-01') for reuse in (True, False)]
+        require(json.dumps(new_receipt['case_keys']) == json.dumps(expected), 'review case coverage')
+        require(new_receipt['scientific_gate'] == 'HOLD', 'review cannot lift scientific gate')
+        regression_review = {'status': 'passed', 'cases': 6, 'reviewer': new_receipt['reviewer'],
+                             'reviewed_version': new_receipt['reviewed_version'],
+                             'identity_basis': new_receipt['identity_basis']}
     return {'files_verified': len(files), 'catalog_sha256': digest(Path(catalog_path).read_bytes()),
             'human_review': {'development_tasks': {'status': 'passed', 'tasks': 24},
                              'legacy_diagnostics': {'status': 'passed', 'tasks': 3},
-                             'new_regression_cases': {'status': 'pending', 'cases': 6},
+                             'new_regression_cases': regression_review,
                              'identity_basis': 'user-confirmed personal human review',
                              'declared_boundary_checks': 22,
                              'boundary_scripts_independently_replayed': False},

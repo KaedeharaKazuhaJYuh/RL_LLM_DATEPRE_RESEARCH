@@ -34,6 +34,8 @@ V5.0.15-beta.2 完成条件恢复的三种子五臂 CUDA 实验。继续 SFT 28/
 | 0.2.20-dev | 三段式历史归因冻结套件、预算反例、独立重放与篡改检测 | 六条脚本路径符合工程要求；科学 HOLD 不变，无新模型成绩 |
 | 0.2.25-dev | 63 份冻结证据统一核验、审阅原件核对、自动检查与分层验收 | 机器 verified、专项待复审与科学 HOLD 分开记录；164 项测试通过 |
 
+| 0.2.30-dev | 六例专项署名复审接收、65 文件证据快照、历史审阅状态保留 | 专项工程通过；166 项测试通过，科学 HOLD 不变 |
+
 查新使研究定位收窄为提交歧义、分析语义与证据成本的联合诊断，撤回过宽的原创性候选。[定位修订](../faultda_bench/docs/OVERLAP_AUDIT_2026_10_09.md)
 
 原始结果和反例完整保留：[P0](../faultda_bench/reports/P0_START.md) · [首个开发版](../faultda_bench/reports/SEMANTIC_V1_RELEASE.md) · [说明对照](../faultda_bench/reports/CLARITY_V2_RELEASE.md) · [证据诊断](../faultda_bench/reports/EVIDENCE_V3_RELEASE.md) · [语义与建议对照](../faultda_bench/reports/DECISION_V4_RELEASE.md)。不将同一任务的故障、预算、模型和措辞重复次数视作独立任务数量。

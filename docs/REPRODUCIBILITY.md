@@ -107,3 +107,5 @@ python -m faultda_bench.regression.verify faultda_bench/reports/regression_v5_re
 ## 统一证据验收（0.2.25-dev）
 
 完整仓库根目录运行 `python -m faultda_bench.acceptance.audit`，不需要 API、GPU 或网络。默认核对历史大套件的文件和汇总，并重放第三至第五开发版轨迹；加 `--full-replay` 也重放早期大套件。`--output work/acceptance.json` 只创建新文件，不覆盖已有证据。请勿加 `-O`，历史验证器使用断言。科学 HOLD 与人工待审不会冒充通过，也不阻止工程核验返回成功。详细边界见[验收协议](../faultda_bench/docs/ACCEPTANCE_V6_PROTOCOL.md)。
+
+专项复审登记 `0.2.30-dev` 更新默认清单为 65 份文件；新增六例状态为通过，科学 HOLD 不变。历史第六版清单保留待审状态，详见[第七版协议](../faultda_bench/docs/ACCEPTANCE_V7_PROTOCOL.md)。

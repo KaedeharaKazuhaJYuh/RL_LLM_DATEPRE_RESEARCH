@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-11",
+  "reviewer": "张雨田",
+  "identity_basis": "User-supplied signed review; document declares independent personal review and no participation in suite development.",
+  "reviewed_version": "0.2.20-dev",
+  "scope": "six scripted regression cases only",
+  "cases_passed": 6,
+  "case_keys": [
+    [
+      "group-01",
+      true
+    ],
+    [
+      "group-01",
+      false
+    ],
+    [
+      "window-01",
+      true
+    ],
+    [
+      "window-01",
+      false
+    ],
+    [
+      "version-01",
+      true
+    ],
+    [
+      "version-01",
+      false
+    ]
+  ],
+  "submitted_review_sha256": "5a6ae8adc5145c4681c1fd4b5aa46dcabe03cb0ff6bc0199adf0f56f184b3cfc",
+  "submitted_review_bytes": 5501,
+  "package_manifest_files_verified": 39,
+  "reviewer_declared_tests": 10,
+  "reviewer_reaudited_development_tasks": false,
+  "scientific_gate": "HOLD",
+  "reviewer_did_not_cover": [
+    "full repository tests",
+    "historical API trajectory replay"
+  ]
+}

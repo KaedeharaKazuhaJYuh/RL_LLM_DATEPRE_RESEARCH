@@ -1,6 +1,6 @@
 # FaultDA-Bench 组件索引
 
-项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.2.25-dev`。
+项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.2.30-dev`。
 
 ## 实现分层
 
@@ -20,7 +20,7 @@
 
 ## 协议与证据
 
-下一阶段按[执行清单](docs/NEXT_STAGE_CHECKLIST.md)推进：[24 题人工审阅](reports/SCIENTIFIC_REVIEW_24.md)已通过，科学审阅建议 HOLD，收束工程与复现；[接收记录](reports/HUMAN_REVIEW_ROUND2_INTAKE.md)列明依据。新增专项用例的独立复核待补，第二模型接入暂缓。
+下一阶段按[执行清单](docs/NEXT_STAGE_CHECKLIST.md)推进：[24 题人工审阅](reports/SCIENTIFIC_REVIEW_24.md)已通过，科学审阅建议 HOLD，收束工程与复现；[接收记录](reports/HUMAN_REVIEW_ROUND2_INTAKE.md)列明依据。新增六例的独立复审已通过，见[接收记录](reports/REGRESSION_REVIEW_INTAKE_2026_10_11.md)，第二模型接入暂缓。
 
 | 阶段 | 实施协议 | 结果报告 |
 | --- | --- | --- |
@@ -33,6 +33,8 @@
 
 | `0.2.25-dev` | [统一证据验收](docs/ACCEPTANCE_V6_PROTOCOL.md) | [第六开发版](reports/ACCEPTANCE_V6_RELEASE.md) |
 
+| `0.2.30-dev` | [专项复审登记](docs/ACCEPTANCE_V7_PROTOCOL.md) | [第七开发版](reports/ACCEPTANCE_V7_RELEASE.md) |
+
 总体研究约束见[研究协议 v2](../reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md)；[原始 v1](../reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V1.md)和[相关工作复核](docs/OVERLAP_AUDIT_2026_10_09.md)保留。不同阶段的指标和样本不能混池汇总。
 
-[24 题独立人工审阅](reports/SCIENTIFIC_REVIEW_24.md)已通过；新增六条专项路径仍待复审，程序测试不等于独立人工认可。历史 source_id 注册表包含别名和派生来源，不能把其条目数当独立数据集数量。
+[24 题独立人工审阅](reports/SCIENTIFIC_REVIEW_24.md)已通过；新增六条专项路径已复审通过，程序测试不等于独立人工认可。历史 source_id 注册表包含别名和派生来源，不能把其条目数当独立数据集数量。

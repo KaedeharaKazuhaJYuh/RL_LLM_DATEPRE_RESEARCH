@@ -12,9 +12,22 @@ class AcceptanceTests(unittest.TestCase):
     def test_real_inventory_separates_review_from_science(self):
         result = check_inventory()
         self.assertEqual(result['human_review']['development_tasks']['tasks'], 24)
-        self.assertEqual(result['human_review']['new_regression_cases']['status'], 'pending')
+        self.assertEqual(result['human_review']['new_regression_cases']['status'], 'passed')
         self.assertEqual(result['scientific_gate'], 'HOLD')
         self.assertIs(result['scientific_release_ready'], False)
+
+    def test_historical_snapshot_still_pending(self):
+        result = check_inventory(catalog_path=REPO / 'faultda_bench/protocols/acceptance_v6.json')
+        self.assertEqual(result['human_review']['new_regression_cases']['status'], 'pending')
+
+    def test_missing_new_review_cannot_use_old_signature(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root, path, catalog = self.fixture(folder)
+            name = 'faultda_bench/reports/regression_review_2026_10_11/receipt.json'
+            del catalog['files'][name]
+            path.write_text(json.dumps(catalog), encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'new review provenance'):
+                check_inventory(root, path)
 
     def fixture(self, folder):
         root = Path(folder)
