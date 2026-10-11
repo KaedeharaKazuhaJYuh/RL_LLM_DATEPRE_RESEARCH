@@ -4,10 +4,10 @@
 
 FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误、检查证据需要成本时，Agent 能否获取必要信息，完成正确修复，并避免重复副作用。当前是可运行的开发基准，尚未完成独立最终测试。
 
-当前基准版本：`0.2.85-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
+当前基准版本：`0.2.90-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
-[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/PUBLICATION_V16_RELEASE.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
+[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/INTERVENTION_V17_RELEASE.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
 
 ## 研究问题
 
@@ -36,7 +36,7 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 | 暂存计算缺陷，144 次程序执行 | 同源错误下报告与候选一致仍虚假完成；独立数值守卫拒绝错误发布 | 程序反例与规则守卫，损坏工具未修复；不是模型或 RL 提升 |
 | 历史归因专项 | 六条冻结脚本路径均符合预定要求并已独立复审 | 三条最终修好仍不安全，三条预算拒绝；属于工程验收，无新模型成绩 |
 
-上述实验使用不同范围，不能合并成一个总成功率。最近 18 条多步 DeepSeek 诊断为 0 安全完成、6 安全升级、12 次错误发布。逐发布重放发现：错误中 2 次只有语义参数偏差、7 次只有计算偏差、3 次两者都有。保守公共守卫因证据不足会同时拦截 12 次错误和 4 次正确发布，尚无自适应干预收益。三臂对照设计已冻结但未运行，本轮 API 请求为零。全仓 201 项测试通过，科学 HOLD 保持。详细结果见[本轮报告](faultda_bench/reports/PUBLICATION_V16_RELEASE.md)，历史结果见[组件索引](faultda_bench/README.md)。本研究分支未进行新的 RL 训练。
+上述实验使用不同范围，不能合并成一个总成功率。最新 54 条三臂对照共 305 次真实 DeepSeek 请求：原策略错误发布 13 次，清单两臂各零错误、18 次安全升级；三个臂安全完成均为零。清单两臂没有发布提议，守卫实际调用为零，不能归功于守卫或称恢复效果提升。下一步诊断已有证据的数值验证和正确停止。全仓 205 项测试通过，科学 HOLD 保持。详细结果见[本轮报告](faultda_bench/reports/INTERVENTION_V17_RELEASE.md)，历史结果见[组件索引](faultda_bench/README.md)。本研究分支未进行新的 RL 训练。
 
 ## 快速复核
 
@@ -44,11 +44,11 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 
 ```sh
 python -m pip install -e .
-python -m unittest tests.test_faultda_publication -v
+python -m unittest tests.test_faultda_intervention -v
 python -m faultda_bench.acceptance.audit
 ```
 
-统一入口核对 124 份冻结文件、历史结果汇总和近期轨迹重放，分别记录已有人工审阅、六例专项复审通过和科学 HOLD；可用 `--full-replay` 重放早期大规模套件。重新生成实验、可选付费 API 调用和旧版本复现见[复现指南](docs/REPRODUCIBILITY.md)；新实验使用新输出路径，不覆盖冻结记录。仅安装 wheel 不包含全部任务数据，不能替代完整仓库。
+统一入口核对 130 份冻结文件、历史结果汇总和近期轨迹重放，分别记录已有人工审阅、六例专项复审通过和科学 HOLD；可用 `--full-replay` 重放早期大规模套件。重新生成实验、可选付费 API 调用和旧版本复现见[复现指南](docs/REPRODUCIBILITY.md)；新实验使用新输出路径，不覆盖冻结记录。仅安装 wheel 不包含全部任务数据，不能替代完整仓库。
 
 ## 项目演进
 

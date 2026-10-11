@@ -137,3 +137,7 @@ python -m faultda_bench.regression.verify faultda_bench/reports/regression_v5_re
 ## 发布归因：0.2.85-dev
 
 `python -m faultda_bench.publication.audit --verify faultda_bench/reports/publication_v16_audit.json` 重建 17 个发布前公开状态，不联网。统一核验 124 份文件。守卫对同一前缀的判断不是守卫后的完整模型结果；三臂仅为设计冻结，尚无真实对照分数。详见[报告](../faultda_bench/reports/PUBLICATION_V16_RELEASE.md)。
+
+## 三臂真实对照：0.2.90-dev
+
+`python -m faultda_bench.intervention.suite --verify faultda_bench/reports/intervention_v17_deepseek.json` 重放 54 条公开请求、拟动作/执行动作、工具反馈与评分，不联网。统一入口核验 130 份文件。设计文件保留上一版快照，可执行 plan/protocol 与本轮结果单独保存。两个清单臂守卫零触发；不能将离线拒绝测试当真实拦截成绩，或把升级改成完成。限制和消耗见[报告](../faultda_bench/reports/INTERVENTION_V17_RELEASE.md)。
