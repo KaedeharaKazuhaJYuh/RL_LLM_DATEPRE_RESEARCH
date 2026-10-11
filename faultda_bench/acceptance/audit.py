@@ -9,7 +9,7 @@ from pathlib import Path
 from . import VERSION
 
 REPO = Path(__file__).resolve().parents[2]
-CATALOG = REPO / 'faultda_bench/protocols/acceptance_v7.json'
+CATALOG = REPO / 'faultda_bench/protocols/acceptance_v8.json'
 
 
 def require(condition, message):
@@ -35,7 +35,7 @@ def check_inventory(root=REPO, catalog_path=CATALOG):
     """The committed catalog is the trust anchor; never rewrite it during audit."""
     root = Path(root)
     catalog = json.loads(Path(catalog_path).read_text(encoding='utf-8'))
-    require(catalog['version'] in ('0.2.25-dev', VERSION), 'catalog version')
+    require(catalog['version'] in ('0.2.25-dev', '0.2.30-dev', VERSION), 'catalog version')
     require(catalog['scientific_gate'] == 'HOLD', 'scientific gate is not a test result')
     files = catalog['files']
     require(isinstance(files, dict) and len(files) > 30, 'incomplete inventory')
@@ -60,7 +60,7 @@ def check_inventory(root=REPO, catalog_path=CATALOG):
             require(digest(data) == record['sha256'] and len(data) == record['bytes'],
                     'original human review mismatch')
     regression_review = {'status': 'pending', 'cases': 6}
-    if catalog['version'] == VERSION:
+    if catalog['version'] != '0.2.25-dev':
         review_base = 'faultda_bench/reports/regression_review_2026_10_11/'
         require(all(review_base + n in files for n in ('receipt.json', 'submitted_review.md')),
                 'new review provenance missing')
@@ -96,13 +96,15 @@ def audit(full_replay=False):
     from ..evidence.verify import verify as evidence
     from ..decision.verify import verify as decision
     from ..regression.verify import verify as regression
+    from ..allocation.verify import verify as allocation
     reports = REPO / 'faultda_bench/reports'
     checks = {'semantic_v1': semantic(replay=full_replay)}
     for name in ('cross_source_v2_results', 'clarity_v2_comparison'):
         checks[name] = clarity(reports / (name + '.json'), replay=full_replay)
     for verifier, names in ((evidence, ('evidence_v3_offline', 'evidence_v3_api')),
                             (decision, ('decision_v4_offline', 'decision_v4_api')),
-                            (regression, ('regression_v5_results',))):
+                            (regression, ('regression_v5_results',)),
+                            (allocation, ('allocation_v8_results',))):
         for name in names:
             checks[name] = verifier(reports / (name + '.json'))
     return {'version': VERSION, 'machine_status': 'verified', 'api_requests': 0,

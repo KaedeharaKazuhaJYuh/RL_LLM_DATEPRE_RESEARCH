@@ -36,6 +36,8 @@ V5.0.15-beta.2 完成条件恢复的三种子五臂 CUDA 实验。继续 SFT 28/
 
 | 0.2.30-dev | 六例专项署名复审接收、65 文件证据快照、历史审阅状态保留 | 专项工程通过；166 项测试通过，科学 HOLD 不变 |
 
+| 0.2.35-dev | 共用执行器的四臂检查分配、实际成本分层、576 次离线负对照 | 按需与强规则零差值；新实验待独立审阅，科学 HOLD 不变 |
+
 查新使研究定位收窄为提交歧义、分析语义与证据成本的联合诊断，撤回过宽的原创性候选。[定位修订](../faultda_bench/docs/OVERLAP_AUDIT_2026_10_09.md)
 
 原始结果和反例完整保留：[P0](../faultda_bench/reports/P0_START.md) · [首个开发版](../faultda_bench/reports/SEMANTIC_V1_RELEASE.md) · [说明对照](../faultda_bench/reports/CLARITY_V2_RELEASE.md) · [证据诊断](../faultda_bench/reports/EVIDENCE_V3_RELEASE.md) · [语义与建议对照](../faultda_bench/reports/DECISION_V4_RELEASE.md)。不将同一任务的故障、预算、模型和措辞重复次数视作独立任务数量。

@@ -1,11 +1,12 @@
 # FaultDA-Bench 组件索引
 
-项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.2.30-dev`。
+项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.2.35-dev`。
 
 ## 实现分层
 
 | 组件 | 职责 |
 | --- | --- |
+| [allocation/](allocation/) | 固定/随机/按需检查与强规则的共同执行器负对照 |
 | [acceptance/](acceptance/) | 冻结证据统一核验、原始审阅文件核对及分层验收状态 |
 | [regression/](regression/) | 三段式历史归因冻结计划、完整工具/台账重放和篡改检测 |
 | [decision/](decision/) | 数值语义判断、可选动作建议、正确状态退化检测及输入重放 |
@@ -34,6 +35,8 @@
 | `0.2.25-dev` | [统一证据验收](docs/ACCEPTANCE_V6_PROTOCOL.md) | [第六开发版](reports/ACCEPTANCE_V6_RELEASE.md) |
 
 | `0.2.30-dev` | [专项复审登记](docs/ACCEPTANCE_V7_PROTOCOL.md) | [第七开发版](reports/ACCEPTANCE_V7_RELEASE.md) |
+
+| `0.2.35-dev` | [检查分配负对照](docs/ALLOCATION_V8_PROTOCOL.md) | [第八开发版](reports/ALLOCATION_V8_RELEASE.md) |
 
 总体研究约束见[研究协议 v2](../reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md)；[原始 v1](../reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V1.md)和[相关工作复核](docs/OVERLAP_AUDIT_2026_10_09.md)保留。不同阶段的指标和样本不能混池汇总。
 

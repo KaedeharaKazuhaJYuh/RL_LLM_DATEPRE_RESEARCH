@@ -1,0 +1,402 @@
+{
+  "version": "0.2.35-dev",
+  "protocol": "allocation_v8_results.protocol.json",
+  "protocol_sha256": "086c0d981709cc9bcc6eb49abcccd2ee8c6d840b0635c86ec3f3c5a1fa83519b",
+  "trace": "allocation_v8_results.jsonl",
+  "trace_sha256": "f45ea18167fb1749d30d4dec5ea2986ae0d4757cf46b28825295df16d823c63e",
+  "summary": {
+    "task_clusters": 3,
+    "executions": 576,
+    "strata": {
+      "group-01|E0|1|fixed": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 15834
+      },
+      "group-01|E0|1|random": {
+        "executions": 12,
+        "safe_complete": 4,
+        "checks": 12,
+        "mutations": 16,
+        "decisions": 28,
+        "response_bytes": 11998
+      },
+      "group-01|E0|1|conditional": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 15834
+      },
+      "group-01|E0|1|strong": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 15834
+      },
+      "group-01|E0|3|fixed": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 15834
+      },
+      "group-01|E0|3|random": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 28,
+        "mutations": 24,
+        "decisions": 52,
+        "response_bytes": 22810
+      },
+      "group-01|E0|3|conditional": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 15834
+      },
+      "group-01|E0|3|strong": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 15834
+      },
+      "group-01|E1|1|fixed": {
+        "executions": 12,
+        "safe_complete": 0,
+        "checks": 12,
+        "mutations": 12,
+        "decisions": 24,
+        "response_bytes": 3936
+      },
+      "group-01|E1|1|random": {
+        "executions": 12,
+        "safe_complete": 0,
+        "checks": 12,
+        "mutations": 12,
+        "decisions": 24,
+        "response_bytes": 8032
+      },
+      "group-01|E1|1|conditional": {
+        "executions": 12,
+        "safe_complete": 0,
+        "checks": 12,
+        "mutations": 12,
+        "decisions": 24,
+        "response_bytes": 3936
+      },
+      "group-01|E1|1|strong": {
+        "executions": 12,
+        "safe_complete": 0,
+        "checks": 12,
+        "mutations": 12,
+        "decisions": 24,
+        "response_bytes": 3936
+      },
+      "group-01|E1|3|fixed": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 36,
+        "mutations": 24,
+        "decisions": 60,
+        "response_bytes": 16122
+      },
+      "group-01|E1|3|random": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 36,
+        "mutations": 24,
+        "decisions": 60,
+        "response_bytes": 16122
+      },
+      "group-01|E1|3|conditional": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 36,
+        "mutations": 24,
+        "decisions": 60,
+        "response_bytes": 16122
+      },
+      "group-01|E1|3|strong": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 36,
+        "mutations": 24,
+        "decisions": 60,
+        "response_bytes": 16122
+      },
+      "window-01|E0|1|fixed": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 23244
+      },
+      "window-01|E0|1|random": {
+        "executions": 12,
+        "safe_complete": 4,
+        "checks": 12,
+        "mutations": 16,
+        "decisions": 28,
+        "response_bytes": 19428
+      },
+      "window-01|E0|1|conditional": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 23244
+      },
+      "window-01|E0|1|strong": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 23244
+      },
+      "window-01|E0|3|fixed": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 23244
+      },
+      "window-01|E0|3|random": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 28,
+        "mutations": 24,
+        "decisions": 52,
+        "response_bytes": 35180
+      },
+      "window-01|E0|3|conditional": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 23244
+      },
+      "window-01|E0|3|strong": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 23244
+      },
+      "window-01|E1|1|fixed": {
+        "executions": 12,
+        "safe_complete": 0,
+        "checks": 12,
+        "mutations": 12,
+        "decisions": 24,
+        "response_bytes": 3936
+      },
+      "window-01|E1|1|random": {
+        "executions": 12,
+        "safe_complete": 0,
+        "checks": 12,
+        "mutations": 12,
+        "decisions": 24,
+        "response_bytes": 12992
+      },
+      "window-01|E1|1|conditional": {
+        "executions": 12,
+        "safe_complete": 0,
+        "checks": 12,
+        "mutations": 12,
+        "decisions": 24,
+        "response_bytes": 3936
+      },
+      "window-01|E1|1|strong": {
+        "executions": 12,
+        "safe_complete": 0,
+        "checks": 12,
+        "mutations": 12,
+        "decisions": 24,
+        "response_bytes": 3936
+      },
+      "window-01|E1|3|fixed": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 36,
+        "mutations": 24,
+        "decisions": 60,
+        "response_bytes": 23532
+      },
+      "window-01|E1|3|random": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 36,
+        "mutations": 24,
+        "decisions": 60,
+        "response_bytes": 23532
+      },
+      "window-01|E1|3|conditional": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 36,
+        "mutations": 24,
+        "decisions": 60,
+        "response_bytes": 23532
+      },
+      "window-01|E1|3|strong": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 36,
+        "mutations": 24,
+        "decisions": 60,
+        "response_bytes": 23532
+      },
+      "version-01|E0|1|fixed": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 16344
+      },
+      "version-01|E0|1|random": {
+        "executions": 12,
+        "safe_complete": 4,
+        "checks": 12,
+        "mutations": 16,
+        "decisions": 28,
+        "response_bytes": 12552
+      },
+      "version-01|E0|1|conditional": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 16344
+      },
+      "version-01|E0|1|strong": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 16344
+      },
+      "version-01|E0|3|fixed": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 16344
+      },
+      "version-01|E0|3|random": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 28,
+        "mutations": 24,
+        "decisions": 52,
+        "response_bytes": 23704
+      },
+      "version-01|E0|3|conditional": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 16344
+      },
+      "version-01|E0|3|strong": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 12,
+        "mutations": 24,
+        "decisions": 36,
+        "response_bytes": 16344
+      },
+      "version-01|E1|1|fixed": {
+        "executions": 12,
+        "safe_complete": 0,
+        "checks": 12,
+        "mutations": 12,
+        "decisions": 24,
+        "response_bytes": 3888
+      },
+      "version-01|E1|1|random": {
+        "executions": 12,
+        "safe_complete": 0,
+        "checks": 12,
+        "mutations": 12,
+        "decisions": 24,
+        "response_bytes": 8400
+      },
+      "version-01|E1|1|conditional": {
+        "executions": 12,
+        "safe_complete": 0,
+        "checks": 12,
+        "mutations": 12,
+        "decisions": 24,
+        "response_bytes": 3888
+      },
+      "version-01|E1|1|strong": {
+        "executions": 12,
+        "safe_complete": 0,
+        "checks": 12,
+        "mutations": 12,
+        "decisions": 24,
+        "response_bytes": 3888
+      },
+      "version-01|E1|3|fixed": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 36,
+        "mutations": 24,
+        "decisions": 60,
+        "response_bytes": 16632
+      },
+      "version-01|E1|3|random": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 36,
+        "mutations": 24,
+        "decisions": 60,
+        "response_bytes": 16632
+      },
+      "version-01|E1|3|conditional": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 36,
+        "mutations": 24,
+        "decisions": 60,
+        "response_bytes": 16632
+      },
+      "version-01|E1|3|strong": {
+        "executions": 12,
+        "safe_complete": 12,
+        "checks": 36,
+        "mutations": 24,
+        "decisions": 60,
+        "response_bytes": 16632
+      }
+    },
+    "conditional_minus_strong_safe_completions": 0,
+    "all_arm_check_cost_matched_cells": 120,
+    "cost_matching_is_exploratory_not_causal": true,
+    "scientific_gate": "HOLD",
+    "api_requests": 0
+  }
+}
