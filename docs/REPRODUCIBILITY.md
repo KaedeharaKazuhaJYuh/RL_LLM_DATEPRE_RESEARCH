@@ -121,3 +121,7 @@ python -m faultda_bench.regression.verify faultda_bench/reports/regression_v5_re
 ## 真实诊断接收：0.2.65-dev
 
 已冻结真实结果，不需 API 或凭据即可运行 `python -m faultda_bench.pilot.verify faultda_bench/reports/pilot_v12_deepseek.json`。统一验收核对 97 份文件，并重放全部九条记录，含三条限额终止；接收版本 0.2.65-dev，实际执行协议仍为 0.2.60-dev。记录与消耗见[实际诊断报告](../faultda_bench/reports/MODEL_PILOT_V12_RELEASE.md)。上述 0.2.60-dev 的“没有真实调用”仅描述此前协议准备阶段。不得覆盖当前文件或将限额条件自动重试混入结果。
+
+## 输出诊断：0.2.70-dev
+
+离线运行 `python -m faultda_bench.formatdiag.verify faultda_bench/reports/format_v13_deepseek.json` 重建 24 个请求，统一入口核对 105 份冻结文件。原始响应正文没有保存，因此不能独立重放解析分类，也不认证供应商来源。四项网络替身测试与具体边界见[诊断协议](../faultda_bench/docs/FORMAT_V13_PROTOCOL.md)，实际成绩见[报告](../faultda_bench/reports/FORMAT_V13_RELEASE.md)。不要覆盖冻结计划或结果。

@@ -46,6 +46,8 @@ V5.0.15-beta.2 完成条件恢复的三种子五臂 CUDA 实验。继续 SFT 28/
 
 | 0.2.65-dev | 九条件真实 DeepSeek 诊断，96 次请求、九条离线重放 | 一条安全完成、三条限额删失；80 次动作格式失败，先排查输出设置，科学 HOLD 不变 |
 
+| 0.2.70-dev | 三初始快照 × 两推理配置 × 两预算 × 两重复，24 次单步请求 | 关闭推理 12/12 合法动作，低推理 7/12；非多步恢复，响应分类不可独立重放，科学 HOLD |
+
 查新使研究定位收窄为提交歧义、分析语义与证据成本的联合诊断，撤回过宽的原创性候选。[定位修订](../faultda_bench/docs/OVERLAP_AUDIT_2026_10_09.md)
 
 原始结果和反例完整保留：[P0](../faultda_bench/reports/P0_START.md) · [首个开发版](../faultda_bench/reports/SEMANTIC_V1_RELEASE.md) · [说明对照](../faultda_bench/reports/CLARITY_V2_RELEASE.md) · [证据诊断](../faultda_bench/reports/EVIDENCE_V3_RELEASE.md) · [语义与建议对照](../faultda_bench/reports/DECISION_V4_RELEASE.md)。不将同一任务的故障、预算、模型和措辞重复次数视作独立任务数量。

@@ -9,7 +9,7 @@ from pathlib import Path
 from . import VERSION
 
 REPO = Path(__file__).resolve().parents[2]
-CATALOG = REPO / 'faultda_bench/protocols/acceptance_v12.json'
+CATALOG = REPO / 'faultda_bench/protocols/acceptance_v13.json'
 
 
 def require(condition, message):
@@ -35,7 +35,7 @@ def check_inventory(root=REPO, catalog_path=CATALOG):
     """The committed catalog is the trust anchor; never rewrite it during audit."""
     root = Path(root)
     catalog = json.loads(Path(catalog_path).read_text(encoding='utf-8'))
-    require(catalog['version'] in ('0.2.25-dev', '0.2.30-dev', '0.2.35-dev', '0.2.50-dev', '0.2.55-dev', '0.2.60-dev', VERSION), 'catalog version')
+    require(catalog['version'] in ('0.2.25-dev', '0.2.30-dev', '0.2.35-dev', '0.2.50-dev', '0.2.55-dev', '0.2.60-dev', '0.2.65-dev', VERSION), 'catalog version')
     require(catalog['scientific_gate'] == 'HOLD', 'scientific gate is not a test result')
     files = catalog['files']
     require(isinstance(files, dict) and len(files) > 30, 'incomplete inventory')
@@ -83,7 +83,8 @@ def check_inventory(root=REPO, catalog_path=CATALOG):
                 '0.2.50-dev': ('allocation_v8', 'surface_v9'),
                 '0.2.55-dev': ('allocation_v8', 'surface_v9', 'trust_v10'),
                 '0.2.60-dev': ('allocation_v8', 'surface_v9', 'trust_v10', 'pilot_v11'),
-                VERSION: ('allocation_v8', 'surface_v9', 'trust_v10', 'pilot_v11', 'pilot_v12'),
+                '0.2.65-dev': ('allocation_v8', 'surface_v9', 'trust_v10', 'pilot_v11', 'pilot_v12'),
+                VERSION: ('allocation_v8', 'surface_v9', 'trust_v10', 'pilot_v11', 'pilot_v12', 'format_v13'),
             }.get(catalog['version'], ())},
             'human_review': {'development_tasks': {'status': 'passed', 'tasks': 24},
                              'legacy_diagnostics': {'status': 'passed', 'tasks': 3},
@@ -107,6 +108,7 @@ def audit(full_replay=False):
     from ..surface.verify import verify as surface
     from ..trust.verify import verify as trust
     from ..pilot.verify import verify as pilot
+    from ..formatdiag.verify import verify as formatdiag
     reports = REPO / 'faultda_bench/reports'
     checks = {'semantic_v1': semantic(replay=full_replay)}
     for name in ('cross_source_v2_results', 'clarity_v2_comparison'):
@@ -117,7 +119,8 @@ def audit(full_replay=False):
                             (allocation, ('allocation_v8_results',)),
                             (surface, ('surface_v9_results',)),
                             (trust, ('trust_v10_results',)),
-                            (pilot, ('pilot_v11_offline', 'pilot_v12_deepseek'))):
+                            (pilot, ('pilot_v11_offline', 'pilot_v12_deepseek')),
+                            (formatdiag, ('format_v13_deepseek',))):
         for name in names:
             checks[name] = verifier(reports / (name + '.json'))
     return {'version': VERSION, 'machine_status': 'verified', 'api_requests': 0,
