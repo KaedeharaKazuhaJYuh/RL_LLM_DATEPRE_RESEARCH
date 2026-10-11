@@ -133,3 +133,7 @@ python -m faultda_bench.regression.verify faultda_bench/reports/regression_v5_re
 ## 完整多步诊断：0.2.80-dev
 
 `python -m faultda_bench.multistep.suite --verify faultda_bench/reports/multistep_v15_deepseek.json` 重放全部十八条工具反馈、效果与公开请求，不联网。统一核验 118 份冻结文件。真实 API 入口必须显式提供新 --protocol/--output 路径；单例 17 请求，全局最多 306，无重试，实际消耗见[报告](../faultda_bench/reports/MULTISTEP_V15_RELEASE.md)。旧设计文档仍保留当时“尚未运行”状态；本轮可执行协议及结果是后续证据。原响应未保存，分类不可独立重放；不以末尾升级覆盖先前错误发布。
+
+## 发布归因：0.2.85-dev
+
+`python -m faultda_bench.publication.audit --verify faultda_bench/reports/publication_v16_audit.json` 重建 17 个发布前公开状态，不联网。统一核验 124 份文件。守卫对同一前缀的判断不是守卫后的完整模型结果；三臂仅为设计冻结，尚无真实对照分数。详见[报告](../faultda_bench/reports/PUBLICATION_V16_RELEASE.md)。
