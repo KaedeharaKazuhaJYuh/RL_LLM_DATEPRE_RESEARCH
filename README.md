@@ -4,10 +4,10 @@
 
 FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误、检查证据需要成本时，Agent 能否获取必要信息，完成正确修复，并避免重复副作用。当前是可运行的开发基准，尚未完成独立最终测试。
 
-当前基准版本：`0.2.75-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
+当前基准版本：`0.2.80-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
-[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/FOLLOWUP_V14_RELEASE.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
+[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/MULTISTEP_V15_RELEASE.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
 
 ## 研究问题
 
@@ -36,7 +36,7 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 | 暂存计算缺陷，144 次程序执行 | 同源错误下报告与候选一致仍虚假完成；独立数值守卫拒绝错误发布 | 程序反例与规则守卫，损坏工具未修复；不是模型或 RL 提升 |
 | 历史归因专项 | 六条冻结脚本路径均符合预定要求并已独立复审 | 三条最终修好仍不安全，三条预算拒绝；属于工程验收，无新模型成绩 |
 
-上述实验使用不同范围，不能合并成一个总成功率。九条件 DeepSeek 实际诊断已发送 96 次请求：一条安全完成、五条步骤耗尽、三条限额删失（两条未请求）。80 次动作格式失败；优先排查输出设置，不能据此称恢复能力或 RL 获得提升。九条轨迹重放通过。随后 24 次单步配置诊断中，关闭推理两档各 6/6 合法动作，低强度推理为 5/6 和 2/6；仅三个初始快照，尚未验证完整恢复。后续六快照复核 12/12 外层动作合法，但晚期决策预算为零，不能执行。已冻结 18 条完整多步实验设计，尚未运行；全仓 195 项测试通过。暂存工具降低读取次数也可能增加写成本，不能称总体成本最优。最新工程记录见[本轮报告](faultda_bench/reports/FOLLOWUP_V14_RELEASE.md)，模型对照见[第四版报告](faultda_bench/reports/DECISION_V4_RELEASE.md)，早期记录见[组件索引](faultda_bench/README.md)。本研究分支未进行新的 RL 训练。
+上述实验使用不同范围，不能合并成一个总成功率。最新 18 条完整多步诊断发送 120 次真实 DeepSeek 请求，全部外层动作合法；安全完成 0/18、安全升级 6/18、错误发布 12 次。格式稳定没有转化为安全恢复，下一步检查发布前语义验证。三个旧任务簇、两次重复，不宣称显著性或 RL 提升。全部轨迹重放、全仓 198 项测试通过，科学 HOLD 保持。详细结果见[本轮报告](faultda_bench/reports/MULTISTEP_V15_RELEASE.md)，历史结果见[组件索引](faultda_bench/README.md)。本研究分支未进行新的 RL 训练。
 
 ## 快速复核
 
@@ -44,11 +44,11 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 
 ```sh
 python -m pip install -e .
-python -m unittest tests.test_faultda_formatdiag -v
+python -m unittest tests.test_faultda_multistep -v
 python -m faultda_bench.acceptance.audit
 ```
 
-统一入口核对 112 份冻结文件、历史结果汇总和近期轨迹重放，分别记录已有人工审阅、六例专项复审通过和科学 HOLD；可用 `--full-replay` 重放早期大规模套件。重新生成实验、可选付费 API 调用和旧版本复现见[复现指南](docs/REPRODUCIBILITY.md)；新实验使用新输出路径，不覆盖冻结记录。仅安装 wheel 不包含全部任务数据，不能替代完整仓库。
+统一入口核对 118 份冻结文件、历史结果汇总和近期轨迹重放，分别记录已有人工审阅、六例专项复审通过和科学 HOLD；可用 `--full-replay` 重放早期大规模套件。重新生成实验、可选付费 API 调用和旧版本复现见[复现指南](docs/REPRODUCIBILITY.md)；新实验使用新输出路径，不覆盖冻结记录。仅安装 wheel 不包含全部任务数据，不能替代完整仓库。
 
 ## 项目演进
 
