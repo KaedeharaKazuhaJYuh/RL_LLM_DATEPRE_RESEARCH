@@ -173,3 +173,8 @@ python -m unittest tests.test_faultda_semantics305 tests.test_faultda_semantics3
 实跑计划上限 240 请求，实际 144；仅使用当前已配置的 DeepSeek 凭据。若另行重跑，必须先生成新的 `--freeze` 文件，再明确给出新 `--protocol`/`--output`，不得覆盖或混入当前结果。完整设置与解释边界见[协议](../faultda_bench/docs/SEMANTICS_0305_PROTOCOL.md)和[结果](../faultda_bench/reports/SEMANTICS_0305_RELEASE.md)。
 
 原 `.github/workflows/tests.yml` 是旧冻结证据的一部分，保持字节不变；新的 `.github/workflows/faultda-current.yml` 核验当前版本。新工作流和导航文档不进入不可改写的历史清单，后续版本可更新；公开复审时以固定 Git 提交核对工作流，不能声称本地验证已经通过远端 CI。
+
+
+## 公开一致性检查：0.3.10-dev
+
+运行 `python -m faultda_bench.consistency310.suite` 复核八条旧响应和六个反例。最新统一入口 `python -m faultda_bench.consistency310.audit --output work/acceptance_0310.json`，保留全部旧证据并新增本版检查；不调用 API，不修订历史动作。详见 [收尾报告](../faultda_bench/reports/CONSISTENCY_0310_RELEASE.md)。

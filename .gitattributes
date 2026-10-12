@@ -10,3 +10,5 @@ faultda_bench/protocols/semantic_tasks_v1.json -text whitespace=trailing-space,s
 faultda_bench/reports/semantic_v1*.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
 
 faultda_bench/reports/regression_review_2026_10_11/submitted_review.md -text whitespace=-blank-at-eol
+faultda_bench/docs/CONSISTENCY_0310_PROTOCOL.md text eol=lf
+faultda_bench/reports/CONSISTENCY_0310_RELEASE.md text eol=lf

@@ -1,0 +1,9 @@
+{
+  "version": "0.3.10-dev",
+  "full_tests": 244,
+  "test_status": "passed",
+  "seconds": 74.06,
+  "new_api_calls": 0,
+  "scientific_gate": "HOLD",
+  "new_human_review": false
+}

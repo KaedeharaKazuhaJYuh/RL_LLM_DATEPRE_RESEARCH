@@ -1,6 +1,6 @@
 # FaultDA-Bench 组件索引
 
-项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.3.05-dev`。
+项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.3.10-dev`。
 
 ## 实现分层
 
@@ -67,6 +67,7 @@
 | `0.3.0-dev` | [窗口诊断与验收](docs/ROWDIAG_030_PROTOCOL.md) | [版本收尾](reports/ROWDIAG_030_RELEASE.md) |
 
 | `0.3.05-dev` | [三因素与时间表达](docs/SEMANTICS_0305_PROTOCOL.md) | [本版收尾](reports/SEMANTICS_0305_RELEASE.md) |
+| `0.3.10-dev` | [公开一致性检查](docs/CONSISTENCY_0310_PROTOCOL.md) | [本版收尾](reports/CONSISTENCY_0310_RELEASE.md) |
 
 总体研究约束见[研究协议 v2](../reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md)；[原始 v1](../reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V1.md)和[相关工作复核](docs/OVERLAP_AUDIT_2026_10_09.md)保留。不同阶段的指标和样本不能混池汇总。
 
