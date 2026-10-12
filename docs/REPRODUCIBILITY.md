@@ -145,3 +145,18 @@ python -m faultda_bench.regression.verify faultda_bench/reports/regression_v5_re
 ## 数值与停止诊断：0.2.95-dev
 
 `python -m faultda_bench.stopping.suite --verify faultda_bench/reports/stopping_v18_deepseek.json` 重建六个已读取公开状态、48 次独立请求、判断分数及单步效果，不联网。统一核验 136 份冻结文件。判断答案不传给动作调用，不能用独立探针建立同一次推理的因果链；stage 后非终态不能自动当完整任务失败。设置与消耗见[报告](../faultda_bench/reports/STOPPING_V18_RELEASE.md)。
+
+## 窗口边界与接续决策：0.3.0-dev
+
+当前统一入口为 `python -m faultda_bench.release030.audit`，核对 175 份文件，保留历史 acceptance-v18 并追加三个新实验。`--output work/acceptance_030.json` 只创建新文件；`--full-replay` 另重放早期大套件。旧 `faultda_bench.acceptance.audit` 仍只代表 0.2.95-dev，不能单独验收本版本。
+
+三个新实验可分别离线重放，不需要凭据或网络：
+
+```sh
+python -m scripts.verify_rowdiag_v19 faultda_bench/reports/rowdiag_v19_deepseek.json
+python -m faultda_bench.rowdiag.isolated --verify faultda_bench/reports/rowdiag_v20_deepseek.json
+python -m faultda_bench.rowdiag.boundary --verify faultda_bench/reports/boundary_v21_deepseek.json
+python -m unittest tests.test_faultda_rowdiag tests.test_faultda_rowdiag_isolated tests.test_faultda_boundary tests.test_faultda_release030 -v
+```
+
+新实验保存响应正文，可重新解析与分类；不认证供应商真实性。原 v19 动态清单用显式兼容入口固定原依赖集，代码与协议不修改。实跑只能显式给定新 `--freeze`、`--protocol`、`--output` 路径；现有计划/结果禁止覆盖。本版本共 84 次真实请求，单任务簇诊断，不以重复次数扩大样本。设置、成本与限制见[收尾报告](../faultda_bench/reports/ROWDIAG_030_RELEASE.md)。

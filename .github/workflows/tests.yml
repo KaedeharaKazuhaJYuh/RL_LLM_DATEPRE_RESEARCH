@@ -15,7 +15,7 @@ jobs:
       - run: mkdir -p work
       - run: python -m unittest discover -s tests -v
       - name: Audit frozen FaultDA evidence (offline)
-        run: python -m faultda_bench.acceptance.audit --output work/faultda_acceptance.json
+        run: python -m faultda_bench.release030.audit --output work/faultda_acceptance.json
       - uses: actions/upload-artifact@v4
         with:
           name: faultda-evidence-acceptance
