@@ -6,7 +6,7 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 
 当前基准版本：`0.2.95-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
 
-`0.3.0-dev` 正在开发：首轮逐行诊断与接续动作已实跑，但诊断响应未符合结构要求，尚无数值归因结论或完成率提升。见[本轮接收记录](faultda_bench/reports/ROWDIAG_V19_INTAKE.md)。
+`0.3.0-dev` 正在开发：隔离提示后的六次逐行诊断均合法，均错误纳入窗口右端点行；对其自报行的求和正确，但规范总值错误。单任务诊断未带来安全完成提升。见[最新接收记录](faultda_bench/reports/ROWDIAG_V20_INTAKE.md)。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
 [复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/STOPPING_V18_RELEASE.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
