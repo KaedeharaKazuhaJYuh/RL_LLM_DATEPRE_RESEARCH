@@ -5,6 +5,8 @@
 FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误、检查证据需要成本时，Agent 能否获取必要信息，完成正确修复，并避免重复副作用。当前是可运行的开发基准，尚未完成独立最终测试。
 
 当前基准版本：`0.2.95-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
+
+`0.3.0-dev` 正在开发：首轮逐行诊断与接续动作已实跑，但诊断响应未符合结构要求，尚无数值归因结论或完成率提升。见[本轮接收记录](faultda_bench/reports/ROWDIAG_V19_INTAKE.md)。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
 [复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/STOPPING_V18_RELEASE.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
