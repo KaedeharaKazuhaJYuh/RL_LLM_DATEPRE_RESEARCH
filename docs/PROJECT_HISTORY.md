@@ -60,6 +60,8 @@ V5.0.15-beta.2 完成条件恢复的三种子五臂 CUDA 实验。继续 SFT 28/
 
 | 0.3.0-dev | 84 次真实调用；逐行事实、边界最小对照、响应正文重放和十二条有限多步轨迹 | 显式比较改善同一时区精确端点诊断，但等价时区仍错；正确局部验证未带来任务安全完成，科学 HOLD |
 
+| 0.3.05-dev | 144 次真实调用、十六个时间探针、三十二条三因素轨迹、八条公开规则 | 正确 UTC 事实与错误边界标签共存；前置验证全对但安全完成 2/32，13 条错误发布；无稳定收益，科学 HOLD |
+
 查新使研究定位收窄为提交歧义、分析语义与证据成本的联合诊断，撤回过宽的原创性候选。[定位修订](../faultda_bench/docs/OVERLAP_AUDIT_2026_10_09.md)
 
 原始结果和反例完整保留：[P0](../faultda_bench/reports/P0_START.md) · [首个开发版](../faultda_bench/reports/SEMANTIC_V1_RELEASE.md) · [说明对照](../faultda_bench/reports/CLARITY_V2_RELEASE.md) · [证据诊断](../faultda_bench/reports/EVIDENCE_V3_RELEASE.md) · [语义与建议对照](../faultda_bench/reports/DECISION_V4_RELEASE.md)。不将同一任务的故障、预算、模型和措辞重复次数视作独立任务数量。

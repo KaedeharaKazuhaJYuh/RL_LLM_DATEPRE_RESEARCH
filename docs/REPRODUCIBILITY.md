@@ -160,3 +160,16 @@ python -m unittest tests.test_faultda_rowdiag tests.test_faultda_rowdiag_isolate
 ```
 
 新实验保存响应正文，可重新解析与分类；不认证供应商真实性。原 v19 动态清单用显式兼容入口固定原依赖集，代码与协议不修改。实跑只能显式给定新 `--freeze`、`--protocol`、`--output` 路径；现有计划/结果禁止覆盖。本版本共 84 次真实请求，单任务簇诊断，不以重复次数扩大样本。设置、成本与限制见[收尾报告](../faultda_bench/reports/ROWDIAG_030_RELEASE.md)。
+
+## 三因素说明与时间表达：0.3.05-dev
+
+最新统一入口为 `python -m faultda_bench.semantics305.audit`，核对 191 份文件，保留 0.3.0-dev 清单/代码并重放本版八条公开规则、十六次数值探针和三十二条模型轨迹。可用 `--output work/acceptance_0305.json` 创建新结果；`--full-replay` 追加早期大规模轨迹。验收不联网、不需要凭据，api_requests=0 仅表示验收没有调用，不否定历史实跑。
+
+```sh
+python -m faultda_bench.semantics305.suite --verify faultda_bench/reports/semantics_v22_deepseek.json
+python -m unittest tests.test_faultda_semantics305 tests.test_faultda_semantics305_acceptance -v
+```
+
+实跑计划上限 240 请求，实际 144；仅使用当前已配置的 DeepSeek 凭据。若另行重跑，必须先生成新的 `--freeze` 文件，再明确给出新 `--protocol`/`--output`，不得覆盖或混入当前结果。完整设置与解释边界见[协议](../faultda_bench/docs/SEMANTICS_0305_PROTOCOL.md)和[结果](../faultda_bench/reports/SEMANTICS_0305_RELEASE.md)。
+
+原 `.github/workflows/tests.yml` 是旧冻结证据的一部分，保持字节不变；新的 `.github/workflows/faultda-current.yml` 核验当前版本。新工作流和导航文档不进入不可改写的历史清单，后续版本可更新；公开复审时以固定 Git 提交核对工作流，不能声称本地验证已经通过远端 CI。

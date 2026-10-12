@@ -1,0 +1,207 @@
+{
+  "version": "0.3.05-dev",
+  "machine_status": "verified",
+  "api_requests": 0,
+  "historical_large_suites_replayed": false,
+  "checks": {
+    "semantic_v1": {
+      "offline_episodes": 5184,
+      "pilot_episodes": 12,
+      "status": "verified"
+    },
+    "cross_source_v2_results": {
+      "episodes": 2304,
+      "replayed": false,
+      "status": "verified"
+    },
+    "clarity_v2_comparison": {
+      "episodes": 24,
+      "replayed": false,
+      "status": "verified"
+    },
+    "evidence_v3_offline": {
+      "episodes": 72,
+      "status": "verified",
+      "replayed": true
+    },
+    "evidence_v3_api": {
+      "episodes": 24,
+      "status": "verified",
+      "replayed": true
+    },
+    "decision_v4_offline": {
+      "episodes": 36,
+      "replayed": true,
+      "status": "verified"
+    },
+    "decision_v4_api": {
+      "episodes": 12,
+      "replayed": true,
+      "status": "verified"
+    },
+    "regression_v5_results": {
+      "version": "0.2.20-dev",
+      "cases": 6,
+      "status": "verified",
+      "replayed": true,
+      "api_requests": 0
+    },
+    "allocation_v8_results": {
+      "version": "0.2.35-dev",
+      "executions": 576,
+      "replayed": true,
+      "status": "verified",
+      "api_requests": 0
+    },
+    "surface_v9_results": {
+      "version": "0.2.50-dev",
+      "executions": 144,
+      "replayed": true,
+      "status": "verified",
+      "api_requests": 0
+    },
+    "trust_v10_results": {
+      "version": "0.2.55-dev",
+      "executions": 144,
+      "replayed": true,
+      "status": "verified",
+      "api_requests": 0
+    },
+    "pilot_v11_offline": {
+      "version": "0.2.60-dev",
+      "backend": "offline_rules",
+      "executions": 36,
+      "replayed": true,
+      "request_attempts": 0,
+      "status": "verified",
+      "provider_authenticity_verified": false
+    },
+    "pilot_v12_deepseek": {
+      "version": "0.2.60-dev",
+      "backend": "deepseek_live",
+      "executions": 9,
+      "replayed": true,
+      "request_attempts": 96,
+      "status": "verified",
+      "provider_authenticity_verified": false
+    },
+    "format_v13_deepseek": {
+      "version": "0.2.70-dev",
+      "executions": 24,
+      "status": "verified",
+      "requests_rebuilt": true,
+      "response_classification_independently_replayed": false,
+      "provider_authenticity_verified": false
+    },
+    "followup_v14_deepseek": {
+      "status": "verified",
+      "snapshots_rebuilt": 6,
+      "requests_rebuilt": 12,
+      "response_classification_independently_replayed": false,
+      "provider_authenticity_verified": false
+    },
+    "multistep_v15_deepseek": {
+      "status": "verified",
+      "executions": 18,
+      "tool_effects_and_public_requests_replayed": true,
+      "response_classification_independently_replayed": false,
+      "provider_authenticity_verified": false
+    },
+    "publication_v16_audit": {
+      "status": "verified",
+      "publication_attempts": 17,
+      "replayed": true,
+      "api_requests": 0
+    },
+    "intervention_v17_deepseek": {
+      "status": "verified",
+      "executions": 54,
+      "public_requests_tools_and_interventions_replayed": true,
+      "response_classification_independently_replayed": false,
+      "provider_authenticity_verified": false,
+      "cpu_times_independently_replayed": false
+    },
+    "stopping_v18_deepseek": {
+      "status": "verified",
+      "probes": 48,
+      "public_states_requests_scores_and_one_step_effects_replayed": true,
+      "response_classification_independently_replayed": false,
+      "provider_authenticity_verified": false
+    },
+    "rowdiag_v19_deepseek": {
+      "status": "verified",
+      "episodes": 12,
+      "response_classification_replayed": true,
+      "provider_authenticity_verified": false
+    },
+    "rowdiag_v20_deepseek": {
+      "status": "verified",
+      "episodes": 12,
+      "response_classification_replayed": true,
+      "provider_authenticity_verified": false
+    },
+    "boundary_v21_deepseek": {
+      "status": "verified",
+      "boundary_probes": 16,
+      "trajectories": 12,
+      "response_classification_replayed": true,
+      "provider_authenticity_verified": false,
+      "scientific_gate": "HOLD"
+    },
+    "semantics_v22_deepseek": {
+      "status": "verified",
+      "rule_controls": 8,
+      "timezone_probes": 16,
+      "trajectories": 32,
+      "response_classification_replayed": true,
+      "provider_authenticity_verified": false,
+      "scientific_gate": "HOLD"
+    }
+  },
+  "files_verified": 191,
+  "catalog_sha256": "f4702379a5b541f21766fcc2c2ebaaad16a3e7e51b6f71fe577a14b0e4eb8962",
+  "new_experiment_review": {
+    "allocation_v8": "pending",
+    "surface_v9": "pending",
+    "trust_v10": "pending",
+    "pilot_v11": "pending",
+    "pilot_v12": "pending",
+    "format_v13": "pending",
+    "followup_v14": "pending",
+    "multistep_v15": "pending",
+    "publication_v16": "pending",
+    "intervention_v17": "pending",
+    "stopping_v18": "pending",
+    "rowdiag_v19": "pending",
+    "rowdiag_v20": "pending",
+    "boundary_v21": "pending",
+    "semantics_v22": "pending"
+  },
+  "human_review": {
+    "development_tasks": {
+      "status": "passed",
+      "tasks": 24
+    },
+    "legacy_diagnostics": {
+      "status": "passed",
+      "tasks": 3
+    },
+    "new_regression_cases": {
+      "status": "passed",
+      "cases": 6,
+      "reviewer": "张雨田",
+      "reviewed_version": "0.2.20-dev",
+      "identity_basis": "User-supplied signed review; document declares independent personal review and no participation in suite development."
+    },
+    "identity_basis": "user-confirmed personal human review",
+    "declared_boundary_checks": 22,
+    "boundary_scripts_independently_replayed": false
+  },
+  "scientific_gate": "HOLD",
+  "scientific_release_ready": false,
+  "historical_acceptance_version": "0.2.95-dev",
+  "engineering_release_ready": true,
+  "provider_authenticity_verified": false,
+  "external_publication_confirmed": false,
+  "previous_release_version": "0.3.0-dev"
+}

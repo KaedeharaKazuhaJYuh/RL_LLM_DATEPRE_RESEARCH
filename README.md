@@ -4,10 +4,10 @@
 
 FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误、检查证据需要成本时，Agent 能否获取必要信息，完成正确修复，并避免重复副作用。当前是可运行的开发基准，尚未完成独立最终测试。
 
-当前基准版本：`0.3.0-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
+当前基准版本：`0.3.05-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
-[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/ROWDIAG_030_RELEASE.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
+[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/SEMANTICS_0305_RELEASE.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
 
 ## 研究问题
 
@@ -36,7 +36,7 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 | 暂存计算缺陷，144 次程序执行 | 同源错误下报告与候选一致仍虚假完成；独立数值守卫拒绝错误发布 | 程序反例与规则守卫，损坏工具未修复；不是模型或 RL 提升 |
 | 历史归因专项 | 六条冻结脚本路径均符合预定要求并已独立复审 | 三条最终修好仍不安全，三条预算拒绝；属于工程验收，无新模型成绩 |
 
-上述实验使用不同范围，不能合并成一个总成功率。0.3.0-dev 完成逐行、边界与模型验证后多步诊断，共 84 次真实请求。显式逐行时间比较使单个任务的精确右端点诊断从 0/2 正确变为 2/2，但等价时区表达仍失败；十二条接续轨迹均零安全完成，正确局部验证也未阻止一次后续错误发布。科学 HOLD 保持，不宣称泛化或 RL 提升。详细结果见[本轮报告](faultda_bench/reports/ROWDIAG_030_RELEASE.md)，历史结果见[组件索引](faultda_bench/README.md)。本研究分支未进行新的 RL 训练。
+上述实验使用不同范围，不能合并成一个总成功率。0.3.05-dev 完成去重/幂等/验证记录说明的三因素对照和时间表达诊断，共 144 次真实请求。UTC 转换事实正确仍可能输出矛盾的端点标签；32 次轨迹前置验证均正确，但安全完成仅 2/32，13 条轨迹发生错误发布。单任务簇证据尚不支持稳定提升，科学 HOLD，不宣称泛化或 RL 增益。详细结果见[本轮报告](faultda_bench/reports/SEMANTICS_0305_RELEASE.md)，历史结果见[组件索引](faultda_bench/README.md)。本研究分支未进行新的 RL 训练。
 
 ## 快速复核
 
@@ -45,10 +45,10 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 ```sh
 python -m pip install -e .
 python -m unittest tests.test_faultda_stopping -v
-python -m faultda_bench.release030.audit
+python -m faultda_bench.semantics305.audit
 ```
 
-统一入口核对 175 份冻结文件、历史结果汇总与三批新轨迹，重新解析新响应正文和模型结果传递；分别记录已有人工审阅、新实验待复审与科学 HOLD。本地哈希不认证供应商或历史真实性；可用 `--full-replay` 重放早期大规模套件。重新生成实验、可选付费 API 调用和旧版本复现见[复现指南](docs/REPRODUCIBILITY.md)；新实验使用新输出路径，不覆盖冻结记录。仅安装 wheel 不包含全部任务数据，不能替代完整仓库。
+统一入口核对 191 份冻结文件、历史结果汇总和新实验，重新解析响应正文、时间事实与模型结果传递；分别记录已有人工审阅、新实验待复审与科学 HOLD。本地哈希不认证供应商或历史真实性；可用 `--full-replay` 重放早期大规模套件。重新生成实验、可选付费 API 调用和旧版本复现见[复现指南](docs/REPRODUCIBILITY.md)；新实验使用新输出路径，不覆盖冻结记录。仅安装 wheel 不包含全部任务数据，不能替代完整仓库。
 
 ## 项目演进
 
@@ -75,4 +75,4 @@ python -m faultda_bench.release030.audit
 
 目前仅使用三个已见来源，属于受控参数绑定；合成维表重复和版本修订不等于真实生产事件。工具 JSON 接口不是任意不可信代码的 OS 安全沙箱。数据引用、许可与派生方式见[任务清单](faultda_bench/protocols/cross_source_v2.json)。
 
-现有 [24 题独立人工审阅](faultda_bench/reports/SCIENTIFIC_REVIEW_24.md)及六条历史专项复审已通过，签字不覆盖新增实验。0.3.0-dev 工程收尾后，下一步独立复审本轮证据，并对分析去重/请求幂等的说明、时区表达与验证后决策做正交对照；第二模型家族暂缓。科学 HOLD，现有证据不足以支持新的机制或超出强基线的发现。见[复审表](faultda_bench/reports/ROWDIAG_030_REVIEW_GUIDE.md)与[执行清单](faultda_bench/docs/NEXT_STAGE_CHECKLIST.md)。
+现有 [24 题独立人工审阅](faultda_bench/reports/SCIENTIFIC_REVIEW_24.md)及六条历史专项复审已通过，签字不覆盖新增实验。下一步独立复审本轮证据，检验结构化事实/时间标签/拟发布候选的一致性；程序检查帮助与纯模型能力必须分开对照，暂不继续堆叠长提示。第二模型家族暂缓。科学 HOLD，现有证据不足以支持新的机制或超出强基线的发现。见[复审表](faultda_bench/reports/SEMANTICS_0305_REVIEW_GUIDE.md)与[执行清单](faultda_bench/docs/NEXT_STAGE_CHECKLIST.md)。

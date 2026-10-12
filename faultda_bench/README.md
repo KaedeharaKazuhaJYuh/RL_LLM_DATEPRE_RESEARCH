@@ -1,11 +1,12 @@
 # FaultDA-Bench 组件索引
 
-项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.3.0-dev`。
+项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.3.05-dev`。
 
 ## 实现分层
 
 | 组件 | 职责 |
 | --- | --- |
+| [semantics305/](semantics305/) | 三因素说明对照、等价时区事实诊断、公开强规则及本版验收 |
 | [rowdiag/](rowdiag/) | 逐行选取/时间比较/求和诊断、响应正文重放与有限多步接续 |
 | [release030/](release030/) | 新版统一验收，保留历史代码字节与旧人工签字范围 |
 | [pilot/](pilot/) | 共同公开可靠性说明、离线对照、固定计划及有上限的 DeepSeek 入口 |
@@ -64,6 +65,8 @@
 | `0.2.95-dev` | [判断/单步动作计划](reports/stopping_v18_plan.json) | [数值与停止诊断](reports/STOPPING_V18_RELEASE.md) |
 
 | `0.3.0-dev` | [窗口诊断与验收](docs/ROWDIAG_030_PROTOCOL.md) | [版本收尾](reports/ROWDIAG_030_RELEASE.md) |
+
+| `0.3.05-dev` | [三因素与时间表达](docs/SEMANTICS_0305_PROTOCOL.md) | [本版收尾](reports/SEMANTICS_0305_RELEASE.md) |
 
 总体研究约束见[研究协议 v2](../reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md)；[原始 v1](../reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V1.md)和[相关工作复核](docs/OVERLAP_AUDIT_2026_10_09.md)保留。不同阶段的指标和样本不能混池汇总。
 
