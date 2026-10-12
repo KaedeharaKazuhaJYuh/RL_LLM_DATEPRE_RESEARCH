@@ -178,3 +178,16 @@ python -m unittest tests.test_faultda_semantics305 tests.test_faultda_semantics3
 ## 公开一致性检查：0.3.10-dev
 
 运行 `python -m faultda_bench.consistency310.suite` 复核八条旧响应和六个反例。最新统一入口 `python -m faultda_bench.consistency310.audit --output work/acceptance_0310.json`，保留全部旧证据并新增本版检查；不调用 API，不修订历史动作。详见 [收尾报告](../faultda_bench/reports/CONSISTENCY_0310_RELEASE.md)。
+
+
+## 真实反馈与守卫：0.3.15-dev
+
+当前统一入口：`python -m faultda_bench.feedback315.audit --output work/acceptance_0315.json`。独立重放：
+
+```sh
+python -m faultda_bench.feedback315.suite --verify faultda_bench/reports/feedback_v24_deepseek.json
+python -m faultda_bench.feedback315.analysis
+python -m unittest tests.test_faultda_feedback315 tests.test_faultda_feedback315_acceptance -v
+```
+
+验收不联网。历史真实请求共 130 次；计划上限 216。重新实跑必须先生成新的 `--freeze` 计划并指定独立 `--protocol`/`--output` 路径，旧结果禁止覆盖。checker 增加公开数据程序计算，guard 增加执行器拦截，不属于纯模型权限。原始响应及动作完整保存；本地时间不认证，来源真实性与独立复审未通过。见[协议](../faultda_bench/docs/FEEDBACK_0315_PROTOCOL.md)、[报告](../faultda_bench/reports/FEEDBACK_0315_RELEASE.md)。
