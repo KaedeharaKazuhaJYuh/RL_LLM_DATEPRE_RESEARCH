@@ -15,3 +15,6 @@ faultda_bench/reports/CONSISTENCY_0310_RELEASE.md text eol=lf
 
 faultda_bench/docs/FEEDBACK_0315_PROTOCOL.md text eol=lf
 faultda_bench/reports/FEEDBACK_0315_*.md text eol=lf
+
+faultda_bench/docs/HANDOFF_0320_PROTOCOL.md text eol=lf
+faultda_bench/reports/HANDOFF_0320_*.md text eol=lf

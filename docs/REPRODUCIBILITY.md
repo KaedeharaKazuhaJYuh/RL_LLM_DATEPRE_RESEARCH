@@ -191,3 +191,16 @@ python -m unittest tests.test_faultda_feedback315 tests.test_faultda_feedback315
 ```
 
 验收不联网。历史真实请求共 130 次；计划上限 216。重新实跑必须先生成新的 `--freeze` 计划并指定独立 `--protocol`/`--output` 路径，旧结果禁止覆盖。checker 增加公开数据程序计算，guard 增加执行器拦截，不属于纯模型权限。原始响应及动作完整保存；本地时间不认证，来源真实性与独立复审未通过。见[协议](../faultda_bench/docs/FEEDBACK_0315_PROTOCOL.md)、[报告](../faultda_bench/reports/FEEDBACK_0315_RELEASE.md)。
+
+
+## 共享记录与真实动作接续：0.3.20-dev
+
+当前统一验收：`python -m faultda_bench.handoff320.audit --output work/acceptance_0320.json`，离线且不需要凭据。
+
+```sh
+python -m faultda_bench.handoff320.suite --verify faultda_bench/reports/handoff_v25_deepseek.json
+python -m faultda_bench.handoff320.analysis
+python -m unittest tests.test_faultda_handoff320 tests.test_faultda_handoff320_acceptance -v
+```
+
+历史记录源来自前版 none 组八条第一轮，未挑失败；本版新增 177 请求，上限 320。新实跑须先写独立 `--freeze` 计划，再指定新 `--protocol`/`--output` 路径，旧输出禁止覆盖。每次修订用当前实际状态，实际 JSON 进入后续独立动作请求，无守卫。timing 只校验有限非负，不认证历史性能。详见[协议](../faultda_bench/docs/HANDOFF_0320_PROTOCOL.md)、[报告](../faultda_bench/reports/HANDOFF_0320_RELEASE.md)。
