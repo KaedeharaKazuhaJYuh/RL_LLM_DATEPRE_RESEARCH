@@ -214,3 +214,8 @@ python -m unittest tests.test_faultda_handoff320 tests.test_faultda_handoff320_a
 ## 强策略资格核验：0.3.30-dev
 
 当前入口 `python -m faultda_bench.qualify330.audit --output work/acceptance_0330.json`；单独 `python -m faultda_bench.qualify330.suite`，测试 `python -m unittest tests.test_faultda_qualify330 tests.test_faultda_qualify330_acceptance -v`。零API，72策略轨迹另两对歧义状态。新design_only草案未执行；旧草案不覆盖，独立复审pending。参见[协议](../faultda_bench/docs/QUALIFY_0330_PROTOCOL.md)、[报告](../faultda_bench/reports/QUALIFY_0330_RELEASE.md)。
+
+
+## 离线可执行协议：0.3.35-dev
+
+当前入口 `python -m faultda_bench.runtime335.audit --output work/acceptance_0335.json`。单独 `python -m faultda_bench.runtime335.suite --verify faultda_bench/reports/runtime_v28_dry.json`；演练须先写新--freeze计划，再指定新--dry-run/--output，旧输出不可覆盖。CLI无live/API入口，不创建供应商客户端；16条fixture轨迹不属于模型成绩。复审状态pending。见[协议](../faultda_bench/docs/RUNTIME_0335_PROTOCOL.md)、[报告](../faultda_bench/reports/RUNTIME_0335_RELEASE.md)。

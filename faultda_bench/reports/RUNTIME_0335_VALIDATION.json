@@ -1,0 +1,15 @@
+{
+  "version": "0.3.35-dev",
+  "tests": 313,
+  "test_status": "passed",
+  "test_seconds": 62.345,
+  "actual_provider_requests": 0,
+  "new_model_results": 0,
+  "scripted_record_envelopes": 8,
+  "scripted_trajectories": 16,
+  "scripted_transport_envelopes": 80,
+  "independent_review": "pending",
+  "scientific_gate": "HOLD",
+  "provider_authenticity_verified": false,
+  "external_publication_confirmed": false
+}

@@ -92,3 +92,8 @@ V5.0.15-beta.2 完成条件恢复的三种子五臂 CUDA 实验。继续 SFT 28/
 ## 0.3.30-dev
 
 72条离线资格轨迹，零API。补连续两次提交前失败和CAS重试—核对强策略；20/24完成，先核对16/24，无条件重试后停六次虚假完成。不同恢复策略与成本，非模型增益。两对相同公开观察的真实提交不同；不据此说inspect唯一最优。独立复审pending，原模型设计not_ready，新草案design_only，科学HOLD。见[报告](../faultda_bench/reports/QUALIFY_0330_RELEASE.md)。
+
+
+## 0.3.35-dev
+
+离线执行器：八份共享生成记录、十六条fixture轨迹、80脚本包络，零API/新模型结果。提示匹配、记录原样传递和无守卫边界验证，独立待审四范围保持pending/HOLD。按编号跳过40–49，下一版0.3.50-dev。见[报告](../faultda_bench/reports/RUNTIME_0335_RELEASE.md)。
