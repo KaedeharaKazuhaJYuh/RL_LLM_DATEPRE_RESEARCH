@@ -18,3 +18,6 @@ faultda_bench/reports/FEEDBACK_0315_*.md text eol=lf
 
 faultda_bench/docs/HANDOFF_0320_PROTOCOL.md text eol=lf
 faultda_bench/reports/HANDOFF_0320_*.md text eol=lf
+
+faultda_bench/docs/RECOVER_0325_PROTOCOL.md text eol=lf
+faultda_bench/reports/RECOVER_0325_*.md text eol=lf

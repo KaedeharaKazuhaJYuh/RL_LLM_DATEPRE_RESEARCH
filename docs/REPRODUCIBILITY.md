@@ -204,3 +204,8 @@ python -m unittest tests.test_faultda_handoff320 tests.test_faultda_handoff320_a
 ```
 
 历史记录源来自前版 none 组八条第一轮，未挑失败；本版新增 177 请求，上限 320。新实跑须先写独立 `--freeze` 计划，再指定新 `--protocol`/`--output` 路径，旧输出禁止覆盖。每次修订用当前实际状态，实际 JSON 进入后续独立动作请求，无守卫。timing 只校验有限非负，不认证历史性能。详见[协议](../faultda_bench/docs/HANDOFF_0320_PROTOCOL.md)、[报告](../faultda_bench/reports/HANDOFF_0320_RELEASE.md)。
+
+
+## 可合法恢复状态：0.3.25-dev
+
+当前统一入口：`python -m faultda_bench.recover325.audit --output work/acceptance_0325.json`。单独重放 `python -m faultda_bench.recover325.suite`，测试 `python -m unittest tests.test_faultda_recover325 tests.test_faultda_recover325_acceptance -v`。零 API；64条实际工具控制、九次旧发布的后验事实检查，不是新模型轨迹。结果禁止覆盖；旧材料保留，新的 design_only 草案未执行。参见[协议](../faultda_bench/docs/RECOVER_0325_PROTOCOL.md)、[报告](../faultda_bench/reports/RECOVER_0325_RELEASE.md)。

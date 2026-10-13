@@ -12,8 +12,8 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install numpy==2.3.5
       - run: mkdir -p work
-      - run: python -m unittest tests.test_faultda_semantics305 tests.test_faultda_semantics305_acceptance tests.test_faultda_consistency310 tests.test_faultda_feedback315 tests.test_faultda_feedback315_acceptance tests.test_faultda_handoff320 tests.test_faultda_handoff320_acceptance -v
-      - run: python -m faultda_bench.handoff320.audit --output work/faultda_current_acceptance.json
+      - run: python -m unittest tests.test_faultda_semantics305 tests.test_faultda_semantics305_acceptance tests.test_faultda_consistency310 tests.test_faultda_feedback315 tests.test_faultda_feedback315_acceptance tests.test_faultda_handoff320 tests.test_faultda_handoff320_acceptance tests.test_faultda_recover325 tests.test_faultda_recover325_acceptance -v
+      - run: python -m faultda_bench.recover325.audit --output work/faultda_current_acceptance.json
       - uses: actions/upload-artifact@v4
         with:
           name: faultda-current-evidence-acceptance
