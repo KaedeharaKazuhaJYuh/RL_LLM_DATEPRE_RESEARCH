@@ -21,3 +21,6 @@ faultda_bench/reports/HANDOFF_0320_*.md text eol=lf
 
 faultda_bench/docs/RECOVER_0325_PROTOCOL.md text eol=lf
 faultda_bench/reports/RECOVER_0325_*.md text eol=lf
+
+faultda_bench/docs/QUALIFY_0330_PROTOCOL.md text eol=lf
+faultda_bench/reports/QUALIFY_0330_*.md text eol=lf

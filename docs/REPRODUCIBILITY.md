@@ -209,3 +209,8 @@ python -m unittest tests.test_faultda_handoff320 tests.test_faultda_handoff320_a
 ## 可合法恢复状态：0.3.25-dev
 
 当前统一入口：`python -m faultda_bench.recover325.audit --output work/acceptance_0325.json`。单独重放 `python -m faultda_bench.recover325.suite`，测试 `python -m unittest tests.test_faultda_recover325 tests.test_faultda_recover325_acceptance -v`。零 API；64条实际工具控制、九次旧发布的后验事实检查，不是新模型轨迹。结果禁止覆盖；旧材料保留，新的 design_only 草案未执行。参见[协议](../faultda_bench/docs/RECOVER_0325_PROTOCOL.md)、[报告](../faultda_bench/reports/RECOVER_0325_RELEASE.md)。
+
+
+## 强策略资格核验：0.3.30-dev
+
+当前入口 `python -m faultda_bench.qualify330.audit --output work/acceptance_0330.json`；单独 `python -m faultda_bench.qualify330.suite`，测试 `python -m unittest tests.test_faultda_qualify330 tests.test_faultda_qualify330_acceptance -v`。零API，72策略轨迹另两对歧义状态。新design_only草案未执行；旧草案不覆盖，独立复审pending。参见[协议](../faultda_bench/docs/QUALIFY_0330_PROTOCOL.md)、[报告](../faultda_bench/reports/QUALIFY_0330_RELEASE.md)。

@@ -1,0 +1,15 @@
+{
+  "version": "0.3.30-dev",
+  "tests": 301,
+  "test_status": "passed",
+  "test_seconds": 60.725,
+  "new_api_calls": 0,
+  "program_strategy_trajectories": 72,
+  "ambiguous_pairs": 2,
+  "model_execution_ready": false,
+  "independent_human_review": "pending",
+  "independent_scientific_review": "pending",
+  "scientific_gate": "HOLD",
+  "provider_authenticity_verified": false,
+  "external_publication_confirmed": false
+}

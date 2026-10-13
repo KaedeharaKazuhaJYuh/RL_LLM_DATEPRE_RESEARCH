@@ -1,0 +1,46 @@
+{
+  "version": "0.3.30-dev",
+  "status": "design_only",
+  "model_run_performed": false,
+  "scientific_gate": "HOLD",
+  "supersedes_for_future_execution": "recover_v27_design.json (historical file preserved)",
+  "views": [
+    "utc_end",
+    "plus8_end"
+  ],
+  "profiles": [
+    "normal",
+    "before_once",
+    "after_once",
+    "before_twice"
+  ],
+  "checks": 4,
+  "policies_for_strong_controls": [
+    "inspect_first",
+    "retry_once_reconcile"
+  ],
+  "model_arms": [
+    "direct",
+    "shared_model_record"
+  ],
+  "unique_states": 8,
+  "model_trajectories": 16,
+  "shared_record_requests": 8,
+  "max_action_requests": 128,
+  "max_total_new_requests": 136,
+  "action_horizon": 8,
+  "repeated_failure_declared_publicly": true,
+  "independent_task_clusters": 1,
+  "required_before_runtime": [
+    "Independent human review of repeated-fault legality and public trust scope",
+    "Independent scientific decision whether question exceeds ordinary verified retry/reconciliation",
+    "Freeze executable model protocol, classifier, prompt boundaries and actual-cost analysis; no private corrected record or numerical executor guard"
+  ],
+  "primary_endpoints": [
+    "safe_complete by fault condition",
+    "safe_escalation distinct from completion",
+    "false completion, incorrect publication and duplicate effects",
+    "actual API/token/read/write/decision costs"
+  ],
+  "scope_note": "Small paired engineering diagnostic only; no equivalence to one-source scientific confirmation. Record generation is genuine overhead, not equal cost. No automatic run, credentials or pending provider requests."
+}
