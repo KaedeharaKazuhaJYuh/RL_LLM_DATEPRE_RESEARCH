@@ -97,3 +97,8 @@ V5.0.15-beta.2 完成条件恢复的三种子五臂 CUDA 实验。继续 SFT 28/
 ## 0.3.35-dev
 
 离线执行器：八份共享生成记录、十六条fixture轨迹、80脚本包络，零API/新模型结果。提示匹配、记录原样传递和无守卫边界验证，独立待审四范围保持pending/HOLD。按编号跳过40–49，下一版0.3.50-dev。见[报告](../faultda_bench/reports/RUNTIME_0335_RELEASE.md)。
+
+
+## 0.3.50-dev
+
+用户要求复审后直接决定实跑；内部技术复审修正六/八步提示、平衡组顺序，完成75次DeepSeek请求。两组均0/8完成，记录组7/8物化正确仍全升级，成本更高；无RL增益。旧独立科学/人审pending，HOLD。下一版0.3.55-dev核查状态时效表示。见[报告](../faultda_bench/reports/LIVE_0350_RELEASE.md)。

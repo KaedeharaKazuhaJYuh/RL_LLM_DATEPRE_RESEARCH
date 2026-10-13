@@ -219,3 +219,8 @@ python -m unittest tests.test_faultda_handoff320 tests.test_faultda_handoff320_a
 ## 离线可执行协议：0.3.35-dev
 
 当前入口 `python -m faultda_bench.runtime335.audit --output work/acceptance_0335.json`。单独 `python -m faultda_bench.runtime335.suite --verify faultda_bench/reports/runtime_v28_dry.json`；演练须先写新--freeze计划，再指定新--dry-run/--output，旧输出不可覆盖。CLI无live/API入口，不创建供应商客户端；16条fixture轨迹不属于模型成绩。复审状态pending。见[协议](../faultda_bench/docs/RUNTIME_0335_PROTOCOL.md)、[报告](../faultda_bench/reports/RUNTIME_0335_RELEASE.md)。
+
+
+## 技术复审后的工程实跑：0.3.50-dev
+
+当前验收 `python -m faultda_bench.live350.audit --output work/acceptance_0350.json` 不联网。单独 `python -m faultda_bench.live350.suite --verify faultda_bench/reports/live_v29_deepseek.json` 和 `python -m faultda_bench.live350.analysis`。历史真实请求75、上限136。新实跑必须先freeze独立新计划，再给独立--protocol/--output；旧响应与JSONL不可覆盖。内部复审不解除科学HOLD。见[协议](../faultda_bench/docs/LIVE_0350_PROTOCOL.md)、[报告](../faultda_bench/reports/LIVE_0350_RELEASE.md)。

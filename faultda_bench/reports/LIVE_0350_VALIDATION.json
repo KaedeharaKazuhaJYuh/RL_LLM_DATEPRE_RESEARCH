@@ -1,0 +1,14 @@
+{
+  "version": "0.3.50-dev",
+  "tests": 324,
+  "test_status": "passed",
+  "test_seconds": 66.905,
+  "actual_provider_requests": 75,
+  "record_generation_requests": 8,
+  "action_requests": 67,
+  "internal_technical_review": "completed",
+  "independent_review": "pending",
+  "scientific_gate": "HOLD",
+  "provider_authenticity_verified": false,
+  "external_publication_confirmed": false
+}
