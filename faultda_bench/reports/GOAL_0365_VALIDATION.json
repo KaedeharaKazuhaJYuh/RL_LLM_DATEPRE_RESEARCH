@@ -1,0 +1,24 @@
+{
+  "version": "0.3.65-dev",
+  "tests_total": 354,
+  "full_suite": {
+    "tests": 353,
+    "seconds": 77.313,
+    "status": "passed"
+  },
+  "additional_numeric_boundary_tests": 1,
+  "affected_module_recheck": {
+    "tests": 12,
+    "seconds": 6.675,
+    "status": "passed"
+  },
+  "actual_provider_requests": 80,
+  "single_decisions": 80,
+  "snapshots": 20,
+  "internal_technical_review": "completed",
+  "independent_review": "pending",
+  "scientific_gate": "HOLD",
+  "provider_authenticity_verified": false,
+  "external_publication_confirmed": false,
+  "measurement_limitation": "Historical risk prompt definition and scorer responsibility boundary require clarification; no capability inference from this field."
+}

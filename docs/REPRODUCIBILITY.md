@@ -1,11 +1,14 @@
 # 复现与运行指南
 
+最新（2026-10-14）：**0.3.65-dev 已完成**，80 次真实单步请求；四臂 ready stop 为 0/6、0/6、1/6、0/6，诊断组引入不安全停止与四次错误发布。354 项测试通过，科学 HOLD。[本版报告](../faultda_bench/reports/GOAL_0365_RELEASE.md)。0.3.70-dev 先修订历史风险/责任操作定义并对齐目标、评分和反例，再决定最小实跑。
+
+
 最新（2026-10-14）：**0.3.60-dev 已完成**，20 个停止证据快照、40 次真实单步请求；两臂在六个 ready 状态均未 stop，辅助未改善该指标。342 项测试通过，科学 HOLD。[本版报告](../faultda_bench/reports/STOP_0360_RELEASE.md)。0.3.65-dev 先审查目标/终止说明，再拆分数值—状态—完成判断—动作诊断，复核后决定最小实跑。
 
 
 最新（2026-10-14）：**0.3.55-dev 已完成**，96 次真实请求、16 条轨迹。版本索引辅助与对照均 0/8 安全完成，最终正确报告均 6/8。331 项测试通过；科学 HOLD，独立复审待办。[本版报告](../faultda_bench/reports/STATE_0355_RELEASE.md)。下一步 0.3.60-dev 先做停止证据充分性的离线反例矩阵，区分数值、提交绑定与停止；复核后决定实跑价值。
 
-当前统一验收：`python -m faultda_bench.stop360.audit`；单轮精确重放：`python -m faultda_bench.stop360.suite --verify faultda_bench/reports/stop_v31_deepseek.json`。均为离线，不发 API 请求；旧入口保留其冻结范围。
+当前统一验收：`python -m faultda_bench.goal365.audit`；单轮精确重放：`python -m faultda_bench.goal365.suite --verify faultda_bench/reports/goal_v32_deepseek.json`。均为离线，不发 API 请求；旧入口保留其冻结范围。
 
 
 所有命令从完整仓库根目录执行。基础环境需要 Python 3.11+；项目依赖中的 NumPy 版本由 `pyproject.toml` 固定。建议使用独立虚拟环境，执行：
