@@ -1,0 +1,22 @@
+{
+  "version": "0.3.55-dev",
+  "tests_total": 331,
+  "full_suite": {
+    "tests": 327,
+    "seconds": 99.691,
+    "status": "passed"
+  },
+  "additional_inventory_tests": {
+    "tests": 4,
+    "seconds": 0.068,
+    "status": "passed"
+  },
+  "actual_provider_requests": 96,
+  "record_generation_requests": 8,
+  "action_requests": 88,
+  "internal_technical_review": "completed",
+  "independent_review": "pending",
+  "scientific_gate": "HOLD",
+  "provider_authenticity_verified": false,
+  "external_publication_confirmed": false
+}

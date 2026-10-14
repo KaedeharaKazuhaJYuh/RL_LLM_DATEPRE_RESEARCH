@@ -30,3 +30,6 @@ faultda_bench/reports/RUNTIME_0335_*.md text eol=lf
 
 faultda_bench/docs/LIVE_0350_PROTOCOL.md text eol=lf
 faultda_bench/reports/LIVE_0350_*.md text eol=lf
+
+faultda_bench/docs/STATE_0355_PROTOCOL.md text eol=lf
+faultda_bench/reports/STATE_0355_*.md text eol=lf

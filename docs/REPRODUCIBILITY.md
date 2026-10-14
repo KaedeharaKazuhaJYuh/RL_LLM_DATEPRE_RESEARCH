@@ -1,5 +1,10 @@
 # 复现与运行指南
 
+最新（2026-10-14）：**0.3.55-dev 已完成**，96 次真实请求、16 条轨迹。版本索引辅助与对照均 0/8 安全完成，最终正确报告均 6/8。331 项测试通过；科学 HOLD，独立复审待办。[本版报告](../faultda_bench/reports/STATE_0355_RELEASE.md)。下一步 0.3.60-dev 先做停止证据充分性的离线反例矩阵，区分数值、提交绑定与停止；复核后决定实跑价值。
+
+当前统一验收：`python -m faultda_bench.state355.audit`；单轮精确重放：`python -m faultda_bench.state355.suite --verify faultda_bench/reports/state_v30_deepseek.json`。均为离线，不发 API 请求；旧入口保留其冻结范围。
+
+
 所有命令从完整仓库根目录执行。基础环境需要 Python 3.11+；项目依赖中的 NumPy 版本由 `pyproject.toml` 固定。建议使用独立虚拟环境，执行：
 
 ```sh
