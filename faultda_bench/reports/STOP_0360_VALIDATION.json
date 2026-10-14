@@ -1,0 +1,23 @@
+{
+  "version": "0.3.60-dev",
+  "tests_total": 342,
+  "full_suite": {
+    "tests": 338,
+    "seconds": 68.22,
+    "status": "passed"
+  },
+  "additional_inventory_tests": 4,
+  "affected_module_recheck": {
+    "tests": 11,
+    "seconds": 2.554,
+    "status": "passed"
+  },
+  "actual_provider_requests": 40,
+  "single_decisions": 40,
+  "snapshots": 20,
+  "internal_technical_review": "completed",
+  "independent_review": "pending",
+  "scientific_gate": "HOLD",
+  "provider_authenticity_verified": false,
+  "external_publication_confirmed": false
+}
