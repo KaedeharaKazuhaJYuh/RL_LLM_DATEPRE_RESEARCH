@@ -1,5 +1,8 @@
 # 复现与运行指南
 
+最新（2026-10-15）：**0.3.80-dev 已完成**，400 项测试通过，内部 GO 后实跑 8 次请求/4 条轨迹，终止动作符合证据 3/4，固定强规则 4/4；无不安全 stop，仍有证据充分后的升级与错误数值理由。独立审阅 pending，科学 HOLD。[本版报告](../faultda_bench/reports/RECEIPT_0380_RELEASE.md)。0.3.85-dev 先做完整四轨迹的离线归因/复审，必要时预注册全部回执后快照诊断，不选择性补跑。
+
+
 最新（2026-10-15）：**0.3.75-dev 已完成**，4 个历史来源快照、12 次只读程序对照、40 例复审注册/空表、385 项测试通过。固定请求回执读取可区分相同当前终态下的历史，属于新增证据权限。NO-GO，新增 API 0；未收到新增独立签字，科学 HOLD。[本版报告](../faultda_bench/reports/LINEAGE_0375_RELEASE.md)。0.3.80-dev 先补齐新工具动作解析/执行链和同权限强基线，再冻结最小实跑协议。
 
 
@@ -14,7 +17,7 @@
 
 最新（2026-10-14）：**0.3.55-dev 已完成**，96 次真实请求、16 条轨迹。版本索引辅助与对照均 0/8 安全完成，最终正确报告均 6/8。331 项测试通过；科学 HOLD，独立复审待办。[本版报告](../faultda_bench/reports/STATE_0355_RELEASE.md)。下一步 0.3.60-dev 先做停止证据充分性的离线反例矩阵，区分数值、提交绑定与停止；复核后决定实跑价值。
 
-当前统一验收：`python -m faultda_bench.lineage375.audit`；本版历史来源反例重放：`python -m faultda_bench.lineage375.suite`；复审注册表核对：`python -m faultda_bench.lineage375.review`。均为离线，不发 API 请求；旧入口保留其冻结范围。
+当前统一验收：`python -m faultda_bench.receipt380.audit`；本版真实交互重放：`python -m faultda_bench.receipt380.suite --verify faultda_bench/reports/receipt_v35_deepseek.json`；旧复审注册表核对：`python -m faultda_bench.lineage375.review`。均为离线，不发 API 请求；旧入口保留其冻结范围。
 
 
 所有命令从完整仓库根目录执行。基础环境需要 Python 3.11+；项目依赖中的 NumPy 版本由 `pyproject.toml` 固定。建议使用独立虚拟环境，执行：

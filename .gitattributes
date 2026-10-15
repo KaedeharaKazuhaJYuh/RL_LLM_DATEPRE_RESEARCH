@@ -46,3 +46,6 @@ faultda_bench/docs/PLAN_0370_2026_10_15.md text eol=lf
 
 faultda_bench/docs/LINEAGE_0375_PROTOCOL.md text eol=lf
 faultda_bench/reports/LINEAGE_0375_*.md text eol=lf
+
+faultda_bench/docs/RECEIPT_0380_PROTOCOL.md text eol=lf
+faultda_bench/reports/RECEIPT_0380_*.md text eol=lf
