@@ -1,0 +1,16 @@
+{
+  "version": "0.3.75-dev",
+  "tests": 385,
+  "test_status": "passed",
+  "test_seconds": 87.886,
+  "scripted_snapshots": 4,
+  "scripted_controls": 12,
+  "review_scope_cases": 40,
+  "received_new_independent_reviews": 0,
+  "new_provider_requests": 0,
+  "internal_technical_review": "completed",
+  "independent_review": "pending",
+  "scientific_gate": "HOLD",
+  "provider_authenticity_verified": false,
+  "external_publication_confirmed": false
+}

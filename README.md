@@ -4,10 +4,10 @@
 
 FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误、检查证据需要成本时，Agent 能否获取必要信息，完成正确修复，并避免重复副作用。当前是可运行的开发基准，尚未完成独立最终测试。
 
-当前基准版本：`0.3.70-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
+当前基准版本：`0.3.75-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
-[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/RESPONSIBILITY_0370_RELEASE.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
+[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/LINEAGE_0375_RELEASE.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
 
 ## 研究问题
 
@@ -30,7 +30,7 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 
 | 实验 | 结果 | 解释边界 |
 | --- | --- | --- |
-| 责任与风险定义（0.3.70，离线） | 36 个反例、80 条旧动作迁移，初始/历史/当前责任分离 | 无新增 API 或模型成绩；独立复审待办，NO-GO 预算 0 |
+| 责任与历史来源（离线） | 36 个责任反例与 80 条旧动作迁移；新增 4 个历史来源快照、12 次读取对照 | 不同范围单独报告；固定元数据规则已能区分新快照，未证明策略/RL 增益 |
 | 近期停止诊断（最新 0.3.65，80 次真实单步请求） | ready stop 为 0/6、0/6、1/6、0/6；诊断组有违规停止/错误发布 | 无稳定提升，历史 risk 字段定义需修订；提示干预不是 RL 提升 |
 | 跨来源离线开发实验，2,304 次执行 | 强组合基线在 E0/E1、检查预算 4 时各完成 96/96 | 这些条件共享 24 题，不是独立样本；尚未支持额外耦合失败 |
 | 历史诊断与检查分配 | 说明/布局修正未提高完成数；按需检查与强规则负对照为零差值 | 不同协议不可混池，早期记录归入历史汇总 |
@@ -38,7 +38,7 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 | 暂存计算缺陷，144 次程序执行 | 同源错误下报告与候选一致仍虚假完成；独立数值守卫拒绝错误发布 | 程序反例与规则守卫，损坏工具未修复；不是模型或 RL 提升 |
 | 历史归因专项 | 六条冻结脚本路径均符合预定要求并已独立复审 | 三条最终修好仍不安全，三条预算拒绝；属于工程验收，无新模型成绩 |
 
-上述实验使用不同范围，不能合并成功率。最新 0.3.70-dev 完成责任定义、公开证据与实际账本的分离：36 个反例通过，旧 80 条动作迁移保持原分数，并修正责任边界取自可变 pre trace 的问题。新增 API 请求为 0，技术决策 NO-GO；尚无新增模型成绩，科学 HOLD。详见[本版报告](faultda_bench/reports/RESPONSIBILITY_0370_RELEASE.md)。
+上述实验使用不同范围，不能合并成功率。最新 0.3.75-dev 构造四个历史来源快照：完整现有公共历史和当前正确报告相同，实际历史安全性不同。12 次同检查次数的程序对照中，status/inspect 均不能消除历史歧义，新增请求回执读取可以区分；这是新增证据权限，不是模型或 RL 成绩。四十例复审表已准备，尚无新增签字。NO-GO，新增 API 0，科学 HOLD。详见[本版报告](faultda_bench/reports/LINEAGE_0375_RELEASE.md)。
 
 ## 快速复核
 
@@ -46,11 +46,11 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 
 ```sh
 python -m pip install -e .
-python -m unittest tests.test_faultda_responsibility370 tests.test_faultda_responsibility370_acceptance -v
-python -m faultda_bench.responsibility370.audit
+python -m unittest tests.test_faultda_lineage375 tests.test_faultda_lineage375_acceptance -v
+python -m faultda_bench.lineage375.audit
 ```
 
-统一入口核对 371 份冻结文件、历史结果汇总和新实验，重新解析响应正文、程序反馈、提出与执行动作及模型结果传递；分别记录已有人工审阅、新实验待复审与科学 HOLD。本地哈希不认证供应商或历史真实性；早期大规模套件的独立重放入口见复现指南。重新生成实验、可选付费 API 调用和旧版本复现见[复现指南](docs/REPRODUCIBILITY.md)；新实验使用新输出路径，不覆盖冻结记录。仅安装 wheel 不包含全部任务数据，不能替代完整仓库。
+统一入口核对 391 份冻结文件、历史结果汇总和新实验，重新解析响应正文、程序反馈、提出与执行动作及模型结果传递；分别记录已有人工审阅、新实验待复审与科学 HOLD。本地哈希不认证供应商或历史真实性；早期大规模套件的独立重放入口见复现指南。重新生成实验、可选付费 API 调用和旧版本复现见[复现指南](docs/REPRODUCIBILITY.md)；新实验使用新输出路径，不覆盖冻结记录。仅安装 wheel 不包含全部任务数据，不能替代完整仓库。
 
 ## 项目演进
 
@@ -77,4 +77,4 @@ python -m faultda_bench.responsibility370.audit
 
 目前仅使用三个已见来源，属于受控参数绑定；合成维表重复和版本修订不等于真实生产事件。工具 JSON 接口不是任意不可信代码的 OS 安全沙箱。数据引用、许可与派生方式见[任务清单](faultda_bench/protocols/cross_source_v2.json)。
 
-现有 [24 题独立人工审阅](faultda_bench/reports/SCIENTIFIC_REVIEW_24.md)及六条历史专项复审已通过，签字不覆盖新增实验。本轮为内部技术复审后的工程实跑，新独立人审/科学结论仍待完成；下一步围绕责任定义和关键反例接收独立复审，再提出离线证据尚不能回答的最小可辨别问题；先冻结假设与预算，再决定是否实跑。第二模型暂缓，科学HOLD，不宣称超出强基线的模型发现。见[复审指南](faultda_bench/reports/RESPONSIBILITY_0370_REVIEW_GUIDE.md)。
+现有 [24 题独立人工审阅](faultda_bench/reports/SCIENTIFIC_REVIEW_24.md)及六条历史专项复审已通过，签字不覆盖新增实验。本轮为内部技术复审后的工程实跑，新独立人审/科学结论仍待完成；下一步先接收责任与历史来源反例的独立复审，补齐 receipt_lookup 的版本化动作解析/执行链与同权限强基线；冻结最小配对条件和预算后，再决定是否实跑。第二模型暂缓，科学HOLD，不宣称超出强基线的模型发现。见[复审指南](faultda_bench/reports/LINEAGE_0375_REVIEW_GUIDE.md)。

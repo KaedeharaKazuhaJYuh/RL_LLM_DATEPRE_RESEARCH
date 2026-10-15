@@ -43,3 +43,6 @@ faultda_bench/reports/GOAL_0365_*.md text eol=lf
 faultda_bench/docs/RESPONSIBILITY_0370_PROTOCOL.md text eol=lf
 faultda_bench/reports/RESPONSIBILITY_0370_*.md text eol=lf
 faultda_bench/docs/PLAN_0370_2026_10_15.md text eol=lf
+
+faultda_bench/docs/LINEAGE_0375_PROTOCOL.md text eol=lf
+faultda_bench/reports/LINEAGE_0375_*.md text eol=lf
