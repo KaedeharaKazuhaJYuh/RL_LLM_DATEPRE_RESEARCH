@@ -1,0 +1,53 @@
+{
+  "version": "0.3.85-dev",
+  "date": "2026-10-15",
+  "full_tests": {
+    "count": 422,
+    "seconds": 92.324,
+    "status": "OK"
+  },
+  "focused_tests": 22,
+  "source_replay": "verified",
+  "new_actual_provider_requests": 4,
+  "live_summary": {
+    "snapshots": 4,
+    "actual_provider_requests": 4,
+    "all_fields_correct": 0,
+    "schema_valid": 4,
+    "field_correct": {
+      "selected_row_ids": 0,
+      "reference_total": 0,
+      "current_report_correct": 0,
+      "receipt_request_id": 1,
+      "receipt_committed": 2,
+      "receipt_revision": 1,
+      "receipt_event_id": 1,
+      "receipt_responsibility": 1,
+      "initial_error_responsibility": 4,
+      "confirmed_violation_event_ids": 0,
+      "unresolved_risk_event_ids": 4,
+      "unknown_event_ids": 2,
+      "safe_stop_supported": 2,
+      "terminal_action": 2
+    },
+    "selected_arithmetic": {
+      "correct": 2,
+      "incorrect": 2,
+      "unscorable": 0
+    },
+    "usage_available_calls": 4,
+    "prompt_tokens": 12922,
+    "completion_tokens": 655,
+    "sent_request_bytes": 50908,
+    "provider_errors": 0,
+    "length_finishes": 0,
+    "independent_task_clusters": 1,
+    "executed_tools": 0,
+    "policy_improvement_claim": false,
+    "independent_review": "pending",
+    "scientific_gate": "HOLD"
+  },
+  "independent_review": "pending",
+  "scientific_gate": "HOLD",
+  "provider_authenticity_verified": false
+}

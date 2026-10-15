@@ -1,0 +1,39 @@
+{
+  "version": "0.3.85-dev",
+  "source_sha256": "baedf7932d1ffdb80dae781ffa868b365737bfa7357d533c7da2f5744c4ab324",
+  "offline_sha256": "1a5f6c7eae308cf3468bcbe61ced1cb503185f5d23e1391b92dfbd8a71a16828",
+  "code_sha256": {
+    "faultda_bench/postreceipt385/__init__.py": "238f8e2b80db04ae38dc87f71c5d6c4f63d792568f346c812b140d4424e38ed1",
+    "faultda_bench/postreceipt385/suite.py": "28d13e081e8c626f65fe758064b697c4e2097256b75d6cff5020ab4c0a74712f"
+  },
+  "internal_review_sha256": "84701e65a4cc5bd9b7b40fd899c109b000ca8693eb1a090dea3691b1e9b65fb4",
+  "cases": [
+    {
+      "case_id": "postreceipt-0",
+      "observation_sha256": "4d2ee574601d9894b334791aa4edbdb6d3a76f265c79707bab59e6226825341b"
+    },
+    {
+      "case_id": "postreceipt-1",
+      "observation_sha256": "d6bfb42cec7e7508d15d65d87614b344f6e100f9cd42bace247a80c72969cb79"
+    },
+    {
+      "case_id": "postreceipt-2",
+      "observation_sha256": "78280e185d5209c439c308b2c2e38af3d3fd6c7b9b89b643eaf74552ba92b670"
+    },
+    {
+      "case_id": "postreceipt-3",
+      "observation_sha256": "b582c1c0ed14de16d92c5a27c171c91ad94c1c724e984f890d966b2add68823e"
+    }
+  ],
+  "max_transport_requests": 4,
+  "max_request_bytes": 65536,
+  "max_sent_request_bytes_total": 262144,
+  "max_completion_tokens_per_request": 2048,
+  "max_completion_tokens_total": 8192,
+  "input_token_limit": "not pre-counted; hard byte caps and actual provider usage reported",
+  "hypothesis": "On all four frozen post-receipt snapshots, identify which explicitly reported fact categories disagree with public reference. No causal explanation of prior unstated reasoning.",
+  "primary": "all_fields_correct per snapshot; separately report row membership, selected-row arithmetic, current correctness, receipt attribution, historical status and terminal permission",
+  "scope": "One diagnostic prompt, one request per snapshot, no retries, no tool execution, no training. Prompt intervention not an RL gain or same-protocol action improvement. Four states share one task cluster.",
+  "independent_review": "pending",
+  "scientific_gate": "HOLD"
+}

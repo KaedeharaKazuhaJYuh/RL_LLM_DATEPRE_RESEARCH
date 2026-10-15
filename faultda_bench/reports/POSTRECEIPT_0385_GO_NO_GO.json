@@ -1,0 +1,16 @@
+{
+  "version": "0.3.85-dev",
+  "date": "2026-10-15",
+  "decision": "GO_bounded_diagnostic",
+  "plan_sha256": "8f0c2f1513f28f036b49ed1efb3d8a0e4e81866bb85dcb2b0810ed24325a97da",
+  "dry_sha256": "7dc2b8b5b9f7f268f4d10485179be59f82c10beb0eb86505a2653e83473ae285",
+  "offline_sha256": "1a5f6c7eae308cf3468bcbe61ced1cb503185f5d23e1391b92dfbd8a71a16828",
+  "max_transport_requests": 4,
+  "preflight_tests_passed": 12,
+  "preflight_result": "12 tests OK, 0.039s; source exact replay and all-four snapshot checks passed",
+  "new_tool_executions": 0,
+  "retry_policy": "none; failures stay in denominator",
+  "independent_review": "pending",
+  "scientific_gate": "HOLD",
+  "authority": "Internal technical review under existing user authorization; not independent acceptance."
+}

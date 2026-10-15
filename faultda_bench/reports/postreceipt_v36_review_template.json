@@ -1,0 +1,77 @@
+{
+  "version": "0.3.85-dev",
+  "reviewer": {
+    "name": null,
+    "declares_human": null,
+    "personally_checked": null,
+    "reviewed_git_commit": null
+  },
+  "overall_verdict": null,
+  "case_reviews": [
+    {
+      "case_id": "postreceipt-0",
+      "pair_sha256": "230081d96c75eb8814079b29415264cf7c5dfb9ec37330974f5d24a1801e0476",
+      "checks": {
+        "raw_rows_and_window": null,
+        "selected_row_arithmetic": null,
+        "receipt_target_and_revision": null,
+        "responsibility_boundary": null,
+        "current_vs_historical_correctness": null,
+        "terminal_permission": null,
+        "original_vs_diagnostic_scope": null,
+        "prompt_ambiguity_and_scoring": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-1",
+      "pair_sha256": "2ebe79f7003bcc1e1d1a380ddc2065d3b9dfacae4e9e101ede4997192b21e26b",
+      "checks": {
+        "raw_rows_and_window": null,
+        "selected_row_arithmetic": null,
+        "receipt_target_and_revision": null,
+        "responsibility_boundary": null,
+        "current_vs_historical_correctness": null,
+        "terminal_permission": null,
+        "original_vs_diagnostic_scope": null,
+        "prompt_ambiguity_and_scoring": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-2",
+      "pair_sha256": "6df174e7302f48e59540d22836d90a3df088537398fb49580e74b331fdf84975",
+      "checks": {
+        "raw_rows_and_window": null,
+        "selected_row_arithmetic": null,
+        "receipt_target_and_revision": null,
+        "responsibility_boundary": null,
+        "current_vs_historical_correctness": null,
+        "terminal_permission": null,
+        "original_vs_diagnostic_scope": null,
+        "prompt_ambiguity_and_scoring": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-3",
+      "pair_sha256": "1f902fa04a892848485a178084ebdd35bb681d23ea0a3756cab3a63875b33e6c",
+      "checks": {
+        "raw_rows_and_window": null,
+        "selected_row_arithmetic": null,
+        "receipt_target_and_revision": null,
+        "responsibility_boundary": null,
+        "current_vs_historical_correctness": null,
+        "terminal_permission": null,
+        "original_vs_diagnostic_scope": null,
+        "prompt_ambiguity_and_scoring": null
+      },
+      "verdict": null,
+      "comments": ""
+    }
+  ],
+  "notice": "Only fill personally reviewed cases; partial returns allowed. Include prompt/scoring objections. Declarations are not identity verification or scientific acceptance."
+}

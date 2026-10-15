@@ -4,10 +4,10 @@
 
 FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误、检查证据需要成本时，Agent 能否获取必要信息，完成正确修复，并避免重复副作用。当前是可运行的开发基准，尚未完成独立最终测试。
 
-当前基准版本：`0.3.80-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
+当前基准版本：`0.3.85-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
-[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/RECEIPT_0380_RELEASE.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
+[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/POSTRECEIPT_0385_RELEASE.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
 
 ## 研究问题
 
@@ -30,6 +30,7 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 
 | 实验 | 结果 | 解释边界 |
 | --- | --- | --- |
+| 回执后事实诊断（0.3.85，4 次真实请求） | 四例均出现行选择错误，全字段正确 0/4；回执事件/责任正确 1/4 | 显式自报诊断，提示与旧动作不同；不能推断旧内部原因或新的科研机制 |
 | 回执交互（0.3.80，8 次真实请求） | 四轨迹均查询证据，正确终止 3/4；固定强规则 4/4 | 新协议下的单簇工程诊断，不与旧成功率直接比较，不是 RL 提升 |
 | 责任与历史来源（离线） | 36 个责任反例与 80 条旧动作迁移；新增 4 个历史来源快照、12 次读取对照 | 不同范围单独报告；固定元数据规则已能区分新快照，未证明策略/RL 增益 |
 | 历史停止诊断（0.3.65，80 次真实单步请求） | ready stop 为 0/6、0/6、1/6、0/6；诊断组有违规停止/错误发布 | 无稳定提升，历史 risk 字段定义需修订；提示干预不是 RL 提升 |
@@ -39,7 +40,7 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 | 暂存计算缺陷，144 次程序执行 | 同源错误下报告与候选一致仍虚假完成；独立数值守卫拒绝错误发布 | 程序反例与规则守卫，损坏工具未修复；不是模型或 RL 提升 |
 | 历史归因专项 | 六条冻结脚本路径均符合预定要求并已独立复审 | 三条最终修好仍不安全，三条预算拒绝；属于工程验收，无新模型成绩 |
 
-上述实验使用不同范围，不能合并成功率。最新 0.3.80-dev 接通版本化回执动作并执行 8 次真实 DeepSeek 请求：四条轨迹均选对请求证据，3/4 终止动作符合证据，固定强规则为 4/4。仍有一条证据充分后升级，且一条正确升级包含错误数值理由。协议/权限不同，不能与旧版零完成直接比较，也不构成 RL 提升。科学 HOLD，详见[本版报告](faultda_bench/reports/RECEIPT_0380_RELEASE.md)。
+上述实验使用不同范围，不能合并成功率。最新 0.3.85-dev 完成全部四条回执后快照的离线审计和四次真实结构化诊断：四例均错误选行，三例错指回执事件/责任；不能用新诊断指标与旧 3/4 终止成绩比较能力变化。旧数值理由的加法正确、所选数值集合错误；缺少行 ID 的原因保持有限归因。没有 RL 提升或已证实的新机制，独立复审 pending，科学 HOLD。详见[本版报告](faultda_bench/reports/POSTRECEIPT_0385_RELEASE.md)。
 
 ## 快速复核
 
@@ -47,11 +48,11 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 
 ```sh
 python -m pip install -e .
-python -m unittest tests.test_faultda_receipt380 tests.test_faultda_receipt380_acceptance -v
-python -m faultda_bench.receipt380.audit
+python -m unittest tests.test_faultda_postreceipt385 tests.test_faultda_postreceipt385_review tests.test_faultda_postreceipt385_acceptance -v
+python -m faultda_bench.postreceipt385.audit
 ```
 
-统一入口核对 412 份冻结文件、历史结果汇总和新实验，重新解析响应正文、程序反馈、提出与执行动作及模型结果传递；分别记录已有人工审阅、新实验待复审与科学 HOLD。本地哈希不认证供应商或历史真实性；早期大规模套件的独立重放入口见复现指南。重新生成实验、可选付费 API 调用和旧版本复现见[复现指南](docs/REPRODUCIBILITY.md)；新实验使用新输出路径，不覆盖冻结记录。仅安装 wheel 不包含全部任务数据，不能替代完整仓库。
+统一入口核对 436 份冻结文件、历史结果汇总和新实验，重新解析响应正文、程序反馈、提出与执行动作及模型结果传递；分别记录已有人工审阅、新实验待复审与科学 HOLD。本地哈希不认证供应商或历史真实性；早期大规模套件的独立重放入口见复现指南。重新生成实验、可选付费 API 调用和旧版本复现见[复现指南](docs/REPRODUCIBILITY.md)；新实验使用新输出路径，不覆盖冻结记录。仅安装 wheel 不包含全部任务数据，不能替代完整仓库。
 
 ## 项目演进
 
