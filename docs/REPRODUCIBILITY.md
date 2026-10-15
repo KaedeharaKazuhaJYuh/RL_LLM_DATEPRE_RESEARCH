@@ -1,5 +1,8 @@
 # 复现与运行指南
 
+最新（2026-10-15）：**0.3.70-dev 已完成**，36 例反例、80 条旧动作迁移、371 项测试通过；三类责任和风险定义对齐，旧分数不变。NO-GO，新增 API 预算/请求均为 0；独立科学审阅 pending，HOLD。[本版报告](../faultda_bench/reports/RESPONSIBILITY_0370_RELEASE.md)。0.3.75-dev 先接收责任/反例复审并明确未被离线证据解决的问题，再决定最小实跑。
+
+
 最新（2026-10-14）：**0.3.65-dev 已完成**，80 次真实单步请求；四臂 ready stop 为 0/6、0/6、1/6、0/6，诊断组引入不安全停止与四次错误发布。354 项测试通过，科学 HOLD。[本版报告](../faultda_bench/reports/GOAL_0365_RELEASE.md)。0.3.70-dev 先修订历史风险/责任操作定义并对齐目标、评分和反例，再决定最小实跑。
 
 
@@ -8,7 +11,7 @@
 
 最新（2026-10-14）：**0.3.55-dev 已完成**，96 次真实请求、16 条轨迹。版本索引辅助与对照均 0/8 安全完成，最终正确报告均 6/8。331 项测试通过；科学 HOLD，独立复审待办。[本版报告](../faultda_bench/reports/STATE_0355_RELEASE.md)。下一步 0.3.60-dev 先做停止证据充分性的离线反例矩阵，区分数值、提交绑定与停止；复核后决定实跑价值。
 
-当前统一验收：`python -m faultda_bench.goal365.audit`；单轮精确重放：`python -m faultda_bench.goal365.suite --verify faultda_bench/reports/goal_v32_deepseek.json`。均为离线，不发 API 请求；旧入口保留其冻结范围。
+当前统一验收：`python -m faultda_bench.responsibility370.audit`；本版反例与迁移重放：`python -m faultda_bench.responsibility370.suite`。均为离线，不发 API 请求；旧入口保留其冻结范围。
 
 
 所有命令从完整仓库根目录执行。基础环境需要 Python 3.11+；项目依赖中的 NumPy 版本由 `pyproject.toml` 固定。建议使用独立虚拟环境，执行：

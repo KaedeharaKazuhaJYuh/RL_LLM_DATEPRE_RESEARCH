@@ -39,3 +39,7 @@ faultda_bench/reports/STOP_0360_*.md text eol=lf
 
 faultda_bench/docs/GOAL_0365_PROTOCOL.md text eol=lf
 faultda_bench/reports/GOAL_0365_*.md text eol=lf
+
+faultda_bench/docs/RESPONSIBILITY_0370_PROTOCOL.md text eol=lf
+faultda_bench/reports/RESPONSIBILITY_0370_*.md text eol=lf
+faultda_bench/docs/PLAN_0370_2026_10_15.md text eol=lf

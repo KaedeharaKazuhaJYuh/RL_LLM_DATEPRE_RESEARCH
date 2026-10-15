@@ -12,8 +12,8 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install numpy==2.3.5
       - run: mkdir -p work
-      - run: python -m unittest tests.test_faultda_semantics305 tests.test_faultda_semantics305_acceptance tests.test_faultda_consistency310 tests.test_faultda_feedback315 tests.test_faultda_feedback315_acceptance tests.test_faultda_handoff320 tests.test_faultda_handoff320_acceptance tests.test_faultda_recover325 tests.test_faultda_recover325_acceptance tests.test_faultda_qualify330 tests.test_faultda_qualify330_acceptance tests.test_faultda_runtime335 tests.test_faultda_runtime335_acceptance tests.test_faultda_live350 tests.test_faultda_live350_acceptance tests.test_faultda_state355 tests.test_faultda_state355_acceptance tests.test_faultda_stop360 tests.test_faultda_stop360_acceptance tests.test_faultda_goal365 tests.test_faultda_goal365_acceptance -v
-      - run: python -m faultda_bench.goal365.audit --output work/faultda_current_acceptance.json
+      - run: python -m unittest tests.test_faultda_semantics305 tests.test_faultda_semantics305_acceptance tests.test_faultda_consistency310 tests.test_faultda_feedback315 tests.test_faultda_feedback315_acceptance tests.test_faultda_handoff320 tests.test_faultda_handoff320_acceptance tests.test_faultda_recover325 tests.test_faultda_recover325_acceptance tests.test_faultda_qualify330 tests.test_faultda_qualify330_acceptance tests.test_faultda_runtime335 tests.test_faultda_runtime335_acceptance tests.test_faultda_live350 tests.test_faultda_live350_acceptance tests.test_faultda_state355 tests.test_faultda_state355_acceptance tests.test_faultda_stop360 tests.test_faultda_stop360_acceptance tests.test_faultda_goal365 tests.test_faultda_goal365_acceptance tests.test_faultda_responsibility370 tests.test_faultda_responsibility370_acceptance -v
+      - run: python -m faultda_bench.responsibility370.audit --output work/faultda_current_acceptance.json
       - uses: actions/upload-artifact@v4
         with:
           name: faultda-current-evidence-acceptance

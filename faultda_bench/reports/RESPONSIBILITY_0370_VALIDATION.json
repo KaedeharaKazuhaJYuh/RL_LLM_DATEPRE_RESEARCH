@@ -1,0 +1,16 @@
+{
+  "version": "0.3.70-dev",
+  "tests": 371,
+  "test_status": "passed",
+  "test_seconds": 100.129,
+  "program_snapshots": 36,
+  "indistinguishable_pairs": 6,
+  "old_decisions_replayed": 80,
+  "legacy_scores_changed": false,
+  "new_provider_requests": 0,
+  "internal_technical_review": "completed",
+  "independent_review": "pending",
+  "scientific_gate": "HOLD",
+  "provider_authenticity_verified": false,
+  "external_publication_confirmed": false
+}
