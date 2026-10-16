@@ -1,0 +1,36 @@
+{
+  "version": "0.5.0-dev",
+  "date": "2026-10-16",
+  "full_tests": {
+    "count": 496,
+    "seconds": 116.904,
+    "status": "OK"
+  },
+  "focused_tests": 23,
+  "annotated_existing_responses": 24,
+  "migrated_public_views": 72,
+  "old_primary_scores_replaced": false,
+  "new_provider_requests": 0,
+  "new_model_tool_actions": 0,
+  "interpretation_summary": {
+    "contextual": {
+      "responses": 12,
+      "legacy_lookup_all_correct": 0,
+      "alternate_publish_all_correct": 12,
+      "reported_publish_role_consistent": 12,
+      "reported_publish_role_inconsistent": 0,
+      "reported_publish_unbound": 0
+    },
+    "explicit": {
+      "responses": 12,
+      "legacy_lookup_all_correct": 6,
+      "alternate_publish_all_correct": 0,
+      "reported_publish_role_consistent": 6,
+      "reported_publish_role_inconsistent": 4,
+      "reported_publish_unbound": 2
+    }
+  },
+  "independent_review": "pending",
+  "scientific_gate": "HOLD",
+  "provider_authenticity_verified": false
+}

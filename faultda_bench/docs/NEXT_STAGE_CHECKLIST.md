@@ -1,5 +1,8 @@
 # 下一阶段执行与验收清单
 
+最新（2026-10-16）：**0.5.0-dev 已完成**。保留旧 0/12、6/12 主分数，另注释 contextual 的 last-publish 合理解释（12/12，不替换主分数）；72 条 actor/origin 视图可逆迁移。496 项测试通过，新增 API 0。研究主张收束为接口/工程有效性，新独立复审 pending，科学 HOLD。下一版 0.5.05-dev 先整理复审、查新及可证伪竞争解释。
+[本版报告](../reports/VALIDITY_0500_RELEASE.md) · [复审指南](../reports/VALIDITY_0500_REVIEW_GUIDE.md)。
+
 最新（2026-10-16）：**0.3.95-dev 已完成**。24 个自洽程序状态、72 条真实工具读取/终止对照；技术 GO 后 24 次真实 DeepSeek 诊断，模糊/显式指代五字段正确为 0/12、6/12。不是 RL 或模型工具成绩；473 项测试通过，独立复审 pending，科学 HOLD。下一版 0.5.0-dev（跳过 0.4.*）先收束措辞/脚本 actor 解释与科学判定。
 [本版报告](../reports/COHERENT_0395_RELEASE.md) · [复审指南](../reports/COHERENT_0395_REVIEW_GUIDE.md)。
 

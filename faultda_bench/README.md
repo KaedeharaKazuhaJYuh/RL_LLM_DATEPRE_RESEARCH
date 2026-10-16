@@ -1,14 +1,15 @@
 # FaultDA-Bench 组件索引
 
-最新（2026-10-16）：**0.3.95-dev 已完成**。24 个自洽程序状态、72 条真实工具读取/终止对照；技术 GO 后 24 次真实 DeepSeek 诊断，模糊/显式指代五字段正确为 0/12、6/12。不是 RL 或模型工具成绩；473 项测试通过，独立复审 pending，科学 HOLD。下一版 0.5.0-dev（跳过 0.4.*）先收束措辞/脚本 actor 解释与科学判定。
-[本版报告](reports/COHERENT_0395_RELEASE.md) · [复审指南](reports/COHERENT_0395_REVIEW_GUIDE.md)。
+最新（2026-10-16）：**0.5.0-dev 已完成**。保留旧 0/12、6/12 主分数，另注释 contextual 的 last-publish 合理解释（12/12，不替换主分数）；72 条 actor/origin 视图可逆迁移。496 项测试通过，新增 API 0。研究主张收束为接口/工程有效性，新独立复审 pending，科学 HOLD。下一版 0.5.05-dev 先整理复审、查新及可证伪竞争解释。
+[本版报告](reports/VALIDITY_0500_RELEASE.md) · [复审指南](reports/VALIDITY_0500_REVIEW_GUIDE.md)。
 
-项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.3.95-dev`。
+项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.5.0-dev`。
 
 ## 实现分层
 
 | 组件 | 职责 |
 | --- | --- |
+| [validity500/](validity500/) | 旧分数保留、参照解释注释、中性 actor/origin 视图与结论审计 |
 | [coherent395/](coherent395/) | 自洽 CSV/SQLite 轨迹、真实回执指代配对与复审 |
 | [probes390/](probes390/) | 聚焦事实探针、固定答案负对照、离线资格与复审 |
 | [postreceipt385/](postreceipt385/) | 全部四个回执后快照、独立行算术、真实事实诊断与四对复审 |

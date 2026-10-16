@@ -58,3 +58,6 @@ faultda_bench/reports/PROBES_0390_*.md text eol=lf
 
 faultda_bench/docs/COHERENT_0395_PROTOCOL.md text eol=lf
 faultda_bench/reports/COHERENT_0395_*.md text eol=lf
+
+faultda_bench/docs/VALIDITY_0500_PROTOCOL.md text eol=lf
+faultda_bench/reports/VALIDITY_0500_*.md text eol=lf
