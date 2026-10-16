@@ -1,11 +1,13 @@
 # 复现与运行指南
 
-最新（2026-10-15）：**0.3.85-dev 已完成**。四个完整回执后快照离线审计，新增四次真实 DeepSeek 事实诊断，全字段正确 0/4；字段/行选择/加法/责任独立计分，不能与旧终止动作成绩直接比较。422 项测试通过，独立复审 pending，科学 HOLD。下一版先审查说明歧义和最小单因素离线对照，不无界叠加提示。
-[本版报告](../faultda_bench/reports/POSTRECEIPT_0385_RELEASE.md) · [复审指南](../faultda_bench/reports/POSTRECEIPT_0385_REVIEW_GUIDE.md)。
+最新（2026-10-16）：**0.3.90-dev 已完成**。四类聚焦探针，16 个原始事实检查与 11 个合成反例；参考 27/27，固定旧答案可通过原始题，区分度不足。32 单元澄清对照为 design_only；NO-GO，新增 API 0。445 项测试通过。独立复审 pending、科学 HOLD；下一版先构造答案变化且状态自洽的工具任务。
+[本版报告](../faultda_bench/reports/PROBES_0390_RELEASE.md) · [复审指南](../faultda_bench/reports/PROBES_0390_REVIEW_GUIDE.md)。
+
+本版零 API 重放：`python -m faultda_bench.probes390.suite`；复审范围核对：`python -m faultda_bench.probes390.review`。模块只有离线冻结/重放，无 live 入口；32 单元为未批准草案。合成事实变化不用于恢复任务终止评分。以下旧诊断入口保留原冻结范围。
 
 本版诊断重放（零 API）：`python -m faultda_bench.postreceipt385.suite --verify faultda_bench/reports/postreceipt_v36_deepseek.json`；四对复审范围核对：`python -m faultda_bench.postreceipt385.review`。新增实跑不可覆盖冻结文件；本版既有四次请求已经完成，不必再次调用。入口的旧计划固定为本轮协议，不作为无界实验运行器。
 
-当前统一验收：`python -m faultda_bench.postreceipt385.audit`；本版真实交互重放：`python -m faultda_bench.receipt380.suite --verify faultda_bench/reports/receipt_v35_deepseek.json`；旧复审注册表核对：`python -m faultda_bench.lineage375.review`。均为离线，不发 API 请求；旧入口保留其冻结范围。
+当前统一验收：`python -m faultda_bench.probes390.audit`；本版真实交互重放：`python -m faultda_bench.receipt380.suite --verify faultda_bench/reports/receipt_v35_deepseek.json`；旧复审注册表核对：`python -m faultda_bench.lineage375.review`。均为离线，不发 API 请求；旧入口保留其冻结范围。
 
 
 所有命令从完整仓库根目录执行。基础环境需要 Python 3.11+；项目依赖中的 NumPy 版本由 `pyproject.toml` 固定。建议使用独立虚拟环境，执行：

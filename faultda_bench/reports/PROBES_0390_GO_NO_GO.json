@@ -1,0 +1,20 @@
+{
+  "version": "0.3.90-dev",
+  "date": "2026-10-16",
+  "decision": "NO_GO_LIVE",
+  "approved_transport_requests": 0,
+  "actual_provider_requests": 0,
+  "candidate_requests_NOT_APPROVED": 32,
+  "offline_sha256": "066a0a4de736e7bda742e09546213a948d0b8d0655b2ab7a356fcb1405d2ae7b",
+  "draft_sha256": "291abd12232f3a2b9379e87082eca12082253b04772fbd9b50740f1612ec2c8f",
+  "internal_review_sha256": "4de0eae49b5365ea91fa5836f1193c1f031b0b8d3561948a2f024336e6fbd029",
+  "focused_tests_passed": 23,
+  "reasons": [
+    "Constant numeric/role answers pass every original snapshot; need answer variation in coherent states.",
+    "Synthetic probe counterexamples are not coherent recovery tasks and cannot be used to grade terminal safety.",
+    "Focused output and wording validity remain unconfirmed; a further prompt-sensitivity run does not yet distinguish a scientific mechanism."
+  ],
+  "next_action": "Construct and verify coherent counterbalanced states offline, specify competing hypotheses and a new bounded go/no-go. Keep existing human review scopes unchanged.",
+  "independent_review": "pending",
+  "scientific_gate": "HOLD"
+}

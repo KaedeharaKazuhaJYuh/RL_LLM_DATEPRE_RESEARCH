@@ -52,3 +52,6 @@ faultda_bench/reports/RECEIPT_0380_*.md text eol=lf
 
 faultda_bench/docs/POSTRECEIPT_0385_PROTOCOL.md text eol=lf
 faultda_bench/reports/POSTRECEIPT_0385_*.md text eol=lf
+
+faultda_bench/docs/PROBES_0390_PROTOCOL.md text eol=lf
+faultda_bench/reports/PROBES_0390_*.md text eol=lf
