@@ -1,5 +1,8 @@
 # 研究演进与历史证据
 
+最新（2026-10-16）：**0.3.95-dev 已完成**。24 个自洽程序状态、72 条真实工具读取/终止对照；技术 GO 后 24 次真实 DeepSeek 诊断，模糊/显式指代五字段正确为 0/12、6/12。不是 RL 或模型工具成绩；473 项测试通过，独立复审 pending，科学 HOLD。下一版 0.5.0-dev（跳过 0.4.*）先收束措辞/脚本 actor 解释与科学判定。
+[本版报告](../faultda_bench/reports/COHERENT_0395_RELEASE.md) · [复审指南](../faultda_bench/reports/COHERENT_0395_REVIEW_GUIDE.md)。
+
 最新（2026-10-16）：**0.3.90-dev 已完成**。四类聚焦探针，16 个原始事实检查与 11 个合成反例；参考 27/27，固定旧答案可通过原始题，区分度不足。32 单元澄清对照为 design_only；NO-GO，新增 API 0。445 项测试通过。独立复审 pending、科学 HOLD；下一版先构造答案变化且状态自洽的工具任务。
 [本版报告](../faultda_bench/reports/PROBES_0390_RELEASE.md) · [复审指南](../faultda_bench/reports/PROBES_0390_REVIEW_GUIDE.md)。
 

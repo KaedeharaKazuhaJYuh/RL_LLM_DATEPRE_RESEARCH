@@ -1,14 +1,15 @@
 # FaultDA-Bench 组件索引
 
-最新（2026-10-16）：**0.3.90-dev 已完成**。四类聚焦探针，16 个原始事实检查与 11 个合成反例；参考 27/27，固定旧答案可通过原始题，区分度不足。32 单元澄清对照为 design_only；NO-GO，新增 API 0。445 项测试通过。独立复审 pending、科学 HOLD；下一版先构造答案变化且状态自洽的工具任务。
-[本版报告](reports/PROBES_0390_RELEASE.md) · [复审指南](reports/PROBES_0390_REVIEW_GUIDE.md)。
+最新（2026-10-16）：**0.3.95-dev 已完成**。24 个自洽程序状态、72 条真实工具读取/终止对照；技术 GO 后 24 次真实 DeepSeek 诊断，模糊/显式指代五字段正确为 0/12、6/12。不是 RL 或模型工具成绩；473 项测试通过，独立复审 pending，科学 HOLD。下一版 0.5.0-dev（跳过 0.4.*）先收束措辞/脚本 actor 解释与科学判定。
+[本版报告](reports/COHERENT_0395_RELEASE.md) · [复审指南](reports/COHERENT_0395_REVIEW_GUIDE.md)。
 
-项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.3.90-dev`。
+项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.3.95-dev`。
 
 ## 实现分层
 
 | 组件 | 职责 |
 | --- | --- |
+| [coherent395/](coherent395/) | 自洽 CSV/SQLite 轨迹、真实回执指代配对与复审 |
 | [probes390/](probes390/) | 聚焦事实探针、固定答案负对照、离线资格与复审 |
 | [postreceipt385/](postreceipt385/) | 全部四个回执后快照、独立行算术、真实事实诊断与四对复审 |
 | [receipt380/](receipt380/) | 新回执动作的真实两步交互与同权限规则对照 |

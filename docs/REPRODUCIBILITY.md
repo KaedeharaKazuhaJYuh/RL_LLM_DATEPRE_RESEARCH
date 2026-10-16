@@ -1,13 +1,15 @@
 # 复现与运行指南
 
-最新（2026-10-16）：**0.3.90-dev 已完成**。四类聚焦探针，16 个原始事实检查与 11 个合成反例；参考 27/27，固定旧答案可通过原始题，区分度不足。32 单元澄清对照为 design_only；NO-GO，新增 API 0。445 项测试通过。独立复审 pending、科学 HOLD；下一版先构造答案变化且状态自洽的工具任务。
-[本版报告](../faultda_bench/reports/PROBES_0390_RELEASE.md) · [复审指南](../faultda_bench/reports/PROBES_0390_REVIEW_GUIDE.md)。
+最新（2026-10-16）：**0.3.95-dev 已完成**。24 个自洽程序状态、72 条真实工具读取/终止对照；技术 GO 后 24 次真实 DeepSeek 诊断，模糊/显式指代五字段正确为 0/12、6/12。不是 RL 或模型工具成绩；473 项测试通过，独立复审 pending，科学 HOLD。下一版 0.5.0-dev（跳过 0.4.*）先收束措辞/脚本 actor 解释与科学判定。
+[本版报告](../faultda_bench/reports/COHERENT_0395_RELEASE.md) · [复审指南](../faultda_bench/reports/COHERENT_0395_REVIEW_GUIDE.md)。
 
-本版零 API 重放：`python -m faultda_bench.probes390.suite`；复审范围核对：`python -m faultda_bench.probes390.review`。模块只有离线冻结/重放，无 live 入口；32 单元为未批准草案。合成事实变化不用于恢复任务终止评分。以下旧诊断入口保留原冻结范围。
+本版完整零 API 验收：`python -m faultda_bench.coherent395.audit`；实际响应重放：`python -m faultda_bench.coherent395.pilot --verify faultda_bench/reports/coherent_v38_deepseek.json`；36 组复审范围：`python -m faultda_bench.coherent395.review`。源环境重建会创建临时真实 CSV/SQLite，所有动作均标记为程序脚本。24 次实跑已完成，无需重复付费；新执行必须重新明确计划与预算，不复用本次 GO 作为无界调用许可。旧输出不可覆盖。
+
+0.3.90 历史离线入口：`python -m faultda_bench.probes390.suite`；复审范围核对：`python -m faultda_bench.probes390.review`。模块只有离线冻结/重放，无 live 入口；32 单元为未批准草案。合成事实变化不用于恢复任务终止评分。以下旧诊断入口保留原冻结范围。
 
 本版诊断重放（零 API）：`python -m faultda_bench.postreceipt385.suite --verify faultda_bench/reports/postreceipt_v36_deepseek.json`；四对复审范围核对：`python -m faultda_bench.postreceipt385.review`。新增实跑不可覆盖冻结文件；本版既有四次请求已经完成，不必再次调用。入口的旧计划固定为本轮协议，不作为无界实验运行器。
 
-当前统一验收：`python -m faultda_bench.probes390.audit`；本版真实交互重放：`python -m faultda_bench.receipt380.suite --verify faultda_bench/reports/receipt_v35_deepseek.json`；旧复审注册表核对：`python -m faultda_bench.lineage375.review`。均为离线，不发 API 请求；旧入口保留其冻结范围。
+当前统一验收：`python -m faultda_bench.coherent395.audit`；本版真实交互重放：`python -m faultda_bench.receipt380.suite --verify faultda_bench/reports/receipt_v35_deepseek.json`；旧复审注册表核对：`python -m faultda_bench.lineage375.review`。均为离线，不发 API 请求；旧入口保留其冻结范围。
 
 
 所有命令从完整仓库根目录执行。基础环境需要 Python 3.11+；项目依赖中的 NumPy 版本由 `pyproject.toml` 固定。建议使用独立虚拟环境，执行：
