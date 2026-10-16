@@ -1,14 +1,18 @@
 # FaultDA-Bench 组件索引
 
+最新（2026-10-17）：**0.5.05-dev** 接收张雨田 37 组人工技术复审，合理备选指代保留、最终裁决未进行；完成两类证据/决策假设、相关工作与强规则对照、跨任务准入草案。新设计未独立验收；科学 HOLD，新增 API 0。
+[本版报告](reports/REVIEW_0505_RELEASE.md)。
+
 最新（2026-10-16）：**0.5.0-dev 已完成**。保留旧 0/12、6/12 主分数，另注释 contextual 的 last-publish 合理解释（12/12，不替换主分数）；72 条 actor/origin 视图可逆迁移。496 项测试通过，新增 API 0。研究主张收束为接口/工程有效性，新独立复审 pending，科学 HOLD。下一版 0.5.05-dev 先整理复审、查新及可证伪竞争解释。
 [本版报告](reports/VALIDITY_0500_RELEASE.md) · [复审指南](reports/VALIDITY_0500_REVIEW_GUIDE.md)。
 
-项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.5.0-dev`。
+项目定位、当前结果和限制见[仓库首页](../README.md)；操作步骤见[复现指南](../docs/REPRODUCIBILITY.md)。当前开发版本为 `0.5.05-dev`。
 
 ## 实现分层
 
 | 组件 | 职责 |
 | --- | --- |
+| [review505/](review505/) | 37 组人审接收、命题级证据对照、设计准入及隔离复核包 |
 | [validity500/](validity500/) | 旧分数保留、参照解释注释、中性 actor/origin 视图与结论审计 |
 | [coherent395/](coherent395/) | 自洽 CSV/SQLite 轨迹、真实回执指代配对与复审 |
 | [probes390/](probes390/) | 聚焦事实探针、固定答案负对照、离线资格与复审 |

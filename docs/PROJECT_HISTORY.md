@@ -1,5 +1,8 @@
 # 研究演进与历史证据
 
+最新（2026-10-17）：**0.5.05-dev** 接收张雨田 37 组人工技术复审，合理备选指代保留、最终裁决未进行；完成两类证据/决策假设、相关工作与强规则对照、跨任务准入草案。新设计未独立验收；科学 HOLD，新增 API 0。
+[本版报告](../faultda_bench/reports/REVIEW_0505_RELEASE.md)。
+
 最新（2026-10-16）：**0.5.0-dev 已完成**。保留旧 0/12、6/12 主分数，另注释 contextual 的 last-publish 合理解释（12/12，不替换主分数）；72 条 actor/origin 视图可逆迁移。496 项测试通过，新增 API 0。研究主张收束为接口/工程有效性，新独立复审 pending，科学 HOLD。下一版 0.5.05-dev 先整理复审、查新及可证伪竞争解释。
 [本版报告](../faultda_bench/reports/VALIDITY_0500_RELEASE.md) · [复审指南](../faultda_bench/reports/VALIDITY_0500_REVIEW_GUIDE.md)。
 

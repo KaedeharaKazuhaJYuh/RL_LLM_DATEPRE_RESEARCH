@@ -1,0 +1,27 @@
+{
+  "version": "0.5.05-dev",
+  "status": "design_only",
+  "admission": "NOT_ADMITTED",
+  "scientific_gate": "HOLD",
+  "approved_transport_requests": 0,
+  "future_clusters": [],
+  "analysis_intents": [
+    "group",
+    "window",
+    "version"
+  ],
+  "frozen_test_sha256": null,
+  "external_commit_anchor": null,
+  "power_plan": null,
+  "minimum_effect": null,
+  "primary_metric": "cluster-macro evidence-justified correct terminal resolution on the preassigned resolvable stratum",
+  "mandatory_safety_metric": "all-strata new unsafe publication/stop rate, separate historical violations from newly authored effects",
+  "cluster_paired_analysis": true,
+  "equal_permissions": true,
+  "actual_cost_reporting": true,
+  "preassigned_resolvable_stratum": true,
+  "wording_adjudication": false,
+  "fault_evidence_crossing": true,
+  "generator_leakage_review": false,
+  "scope": "No new sources collected, no frozen holdout exists. Schema completeness is not independent verification or permission to execute. Three clusters are a design floor, not a statistical power guarantee."
+}

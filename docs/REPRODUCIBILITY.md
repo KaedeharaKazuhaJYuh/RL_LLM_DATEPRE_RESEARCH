@@ -1,9 +1,14 @@
 # 复现与运行指南
 
+最新（2026-10-17）：**0.5.05-dev** 接收张雨田 37 组人工技术复审，合理备选指代保留、最终裁决未进行；完成两类证据/决策假设、相关工作与强规则对照、跨任务准入草案。新设计未独立验收；科学 HOLD，新增 API 0。
+
+当前统一验收：`python -m faultda_bench.review505.audit`。复核包解压后按[独立包入口](../faultda_bench/docs/REVIEW_START_HERE_0505.md)运行，无需可编辑安装。旧包的 496 项为完整仓库口径，旧包自身为 287 项，旧 CI 列表为 269 项；不要跨范围比较数量。新包根 `BUNDLE_VALIDATION.json` 记录其实际测试数。
+[本版报告](../faultda_bench/reports/REVIEW_0505_RELEASE.md)。
+
 最新（2026-10-16）：**0.5.0-dev 已完成**。保留旧 0/12、6/12 主分数，另注释 contextual 的 last-publish 合理解释（12/12，不替换主分数）；72 条 actor/origin 视图可逆迁移。496 项测试通过，新增 API 0。研究主张收束为接口/工程有效性，新独立复审 pending，科学 HOLD。下一版 0.5.05-dev 先整理复审、查新及可证伪竞争解释。
 [本版报告](../faultda_bench/reports/VALIDITY_0500_RELEASE.md) · [复审指南](../faultda_bench/reports/VALIDITY_0500_REVIEW_GUIDE.md)。
 
-本版完整验收：`python -m faultda_bench.validity500.audit`；注释/迁移单独重放：`python -m faultda_bench.validity500.suite`；37 组复审范围：`python -m faultda_bench.validity500.review`。均无 API 请求。本版仅派生只读视图，不改旧引擎或旧响应；新语义版本不直接送入旧责任入口。以下入口保留各历史版本的冻结范围。
+0.5.0 历史验收：`python -m faultda_bench.validity500.audit`；注释/迁移单独重放：`python -m faultda_bench.validity500.suite`；37 组复审范围：`python -m faultda_bench.validity500.review`。均无 API 请求。本版仅派生只读视图，不改旧引擎或旧响应；新语义版本不直接送入旧责任入口。以下入口保留各历史版本的冻结范围。
 
 0.3.95 历史验收：`python -m faultda_bench.coherent395.audit`；实际响应重放：`python -m faultda_bench.coherent395.pilot --verify faultda_bench/reports/coherent_v38_deepseek.json`；36 组复审范围：`python -m faultda_bench.coherent395.review`。源环境重建会创建临时真实 CSV/SQLite，所有动作均标记为程序脚本。24 次实跑已完成，无需重复付费；新执行必须重新明确计划与预算，不复用本次 GO 作为无界调用许可。旧输出不可覆盖。
 
@@ -11,7 +16,7 @@
 
 本版诊断重放（零 API）：`python -m faultda_bench.postreceipt385.suite --verify faultda_bench/reports/postreceipt_v36_deepseek.json`；四对复审范围核对：`python -m faultda_bench.postreceipt385.review`。新增实跑不可覆盖冻结文件；本版既有四次请求已经完成，不必再次调用。入口的旧计划固定为本轮协议，不作为无界实验运行器。
 
-当前统一验收：`python -m faultda_bench.validity500.audit`；本版真实交互重放：`python -m faultda_bench.receipt380.suite --verify faultda_bench/reports/receipt_v35_deepseek.json`；旧复审注册表核对：`python -m faultda_bench.lineage375.review`。均为离线，不发 API 请求；旧入口保留其冻结范围。
+历史统一验收：`python -m faultda_bench.validity500.audit`；本版真实交互重放：`python -m faultda_bench.receipt380.suite --verify faultda_bench/reports/receipt_v35_deepseek.json`；旧复审注册表核对：`python -m faultda_bench.lineage375.review`。均为离线，不发 API 请求；旧入口保留其冻结范围。
 
 
 所有命令从完整仓库根目录执行。基础环境需要 Python 3.11+；项目依赖中的 NumPy 版本由 `pyproject.toml` 固定。建议使用独立虚拟环境，执行：
