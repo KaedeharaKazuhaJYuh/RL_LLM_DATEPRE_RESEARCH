@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-18",
+  "release_baseline": "0.5.10-dev",
+  "baseline_commit": "97b8a218babc10be8b2bbd9dbb34080a671431b9",
+  "execution_base_commit": "a41983bb519d2eb5e47f8a31c43b5059b30bdfe0",
+  "plan_sha256": "ae50441773c03710c16d3c9b458364ad02debdbc5456dbc558dcdd4a12dcddd5",
+  "results_sha256": "3606a0f5efd995c6d72009d40dc07d1c5876d293291322db4ceedad9328d5e6e",
+  "technical_qualification": "passed_on_one_existing_task",
+  "scientific_experiment_decision": "NO_GO_NEEDS_REVISION",
+  "scientific_gate": "HOLD",
+  "approved_transport_requests": 0,
+  "new_provider_requests": 0,
+  "new_model_episodes": 0,
+  "new_external_sources": 0,
+  "independent_task_clusters": 1,
+  "independent_human_review": "pending",
+  "model_hypothesis_statistically_tested": false,
+  "reasons": [
+    "Cheap public always-restage rule bypasses initial candidate error within common budget.",
+    "Measured program checks/mutations/decisions/response_bytes interactions are zero; model error and token-cost interactions are unmeasured.",
+    "Existing semantic implementation already includes related fault factors and interaction estimand; nontrivial increment remains unestablished."
+  ],
+  "limitations": [
+    "00 includes common environment repair seed and reconciled initial timeout; it is not a fully healthy control.",
+    "8 program trajectories are not model performance or cross-task evidence.",
+    "Core source hashes are not a complete transitive dependency closure."
+  ],
+  "internal_crosscheck": {
+    "kind": "automated_assistant_read_only_JSON_and_stdlib_recalculation",
+    "independent_human_review": false,
+    "scientific_acceptance": false,
+    "checks": [
+      "Same initial ledger; same U-pair handoff observations",
+      "Raw Decimal total 117.89, initial report 118.89; wrong candidate is uncommitted",
+      "Same logical publication contents/request/CAS; U only ack visibility",
+      "Actual/public safe stop; no Agent historical/new violation",
+      "Resource counts and zero program-cost contrasts"
+    ]
+  },
+  "next_action": "Independent review of concrete nontrivial analysis dependency and the cheap-bypass counterexample. Revise or reject the hypothesis before new-source/model work."
+}
