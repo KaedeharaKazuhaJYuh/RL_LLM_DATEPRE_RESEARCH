@@ -1,0 +1,280 @@
+{
+  "version": "0.5.10-dev",
+  "packet_sha256": "83f8e869acddc1e968b52e76a1fa55295fcf3e51d78c757423970c3640b39f80",
+  "reviewer": {
+    "name": null,
+    "declares_human": null,
+    "personally_checked": null,
+    "relationship": null,
+    "reviewed_git_commit": null
+  },
+  "referent_reviews": [
+    {
+      "case_id": "referent|utc_end|base|historical|bad_never_committed|first",
+      "arms": {
+        "contextual": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        },
+        "explicit": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        }
+      },
+      "prompt_first_declared": null
+    },
+    {
+      "case_id": "referent|utc_end|base|historical|bad_committed|first",
+      "arms": {
+        "contextual": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        },
+        "explicit": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        }
+      },
+      "prompt_first_declared": null
+    },
+    {
+      "case_id": "referent|utc_end|base|scripted_current|bad_never_committed|second",
+      "arms": {
+        "contextual": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        },
+        "explicit": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        }
+      },
+      "prompt_first_declared": null
+    },
+    {
+      "case_id": "referent|utc_end|base|scripted_current|bad_committed|second",
+      "arms": {
+        "contextual": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        },
+        "explicit": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        }
+      },
+      "prompt_first_declared": null
+    },
+    {
+      "case_id": "referent|utc_end|trim_start|historical|bad_never_committed|second",
+      "arms": {
+        "contextual": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        },
+        "explicit": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        }
+      },
+      "prompt_first_declared": null
+    },
+    {
+      "case_id": "referent|utc_end|trim_start|historical|bad_committed|second",
+      "arms": {
+        "contextual": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        },
+        "explicit": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        }
+      },
+      "prompt_first_declared": null
+    },
+    {
+      "case_id": "referent|utc_end|trim_start|scripted_current|bad_never_committed|first",
+      "arms": {
+        "contextual": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        },
+        "explicit": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        }
+      },
+      "prompt_first_declared": null
+    },
+    {
+      "case_id": "referent|utc_end|trim_start|scripted_current|bad_committed|first",
+      "arms": {
+        "contextual": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        },
+        "explicit": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        }
+      },
+      "prompt_first_declared": null
+    },
+    {
+      "case_id": "referent|utc_end|early_end|historical|bad_never_committed|first",
+      "arms": {
+        "contextual": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        },
+        "explicit": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        }
+      },
+      "prompt_first_declared": null
+    },
+    {
+      "case_id": "referent|utc_end|early_end|historical|bad_committed|first",
+      "arms": {
+        "contextual": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        },
+        "explicit": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        }
+      },
+      "prompt_first_declared": null
+    },
+    {
+      "case_id": "referent|utc_end|early_end|scripted_current|bad_never_committed|second",
+      "arms": {
+        "contextual": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        },
+        "explicit": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        }
+      },
+      "prompt_first_declared": null
+    },
+    {
+      "case_id": "referent|utc_end|early_end|scripted_current|bad_committed|second",
+      "arms": {
+        "contextual": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        },
+        "explicit": {
+          "interpretation": null,
+          "rationale": null,
+          "evidence_history_indices": [],
+          "actor_scope_clear": null,
+          "origin_scripted_clear": null
+        }
+      },
+      "prompt_first_declared": null
+    }
+  ],
+  "design_reviews": [
+    {
+      "case_id": "design|increment",
+      "verdict": null,
+      "rationale": null,
+      "evidence_references": []
+    },
+    {
+      "case_id": "design|independence",
+      "verdict": null,
+      "rationale": null,
+      "evidence_references": []
+    },
+    {
+      "case_id": "design|metrics",
+      "verdict": null,
+      "rationale": null,
+      "evidence_references": []
+    },
+    {
+      "case_id": "design|decision",
+      "verdict": null,
+      "rationale": null,
+      "evidence_references": []
+    }
+  ],
+  "notice": "Only fill personally checked items. Return opinions and objections, not replacement scores. Declarations do not authenticate identity or admit live experiments."
+}

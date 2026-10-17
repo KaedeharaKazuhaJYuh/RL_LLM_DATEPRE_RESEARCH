@@ -65,3 +65,6 @@ faultda_bench/reports/VALIDITY_0500_*.md text eol=lf
 faultda_bench/docs/*0505*.md text eol=lf
 faultda_bench/reports/REVIEW_0505_*.md text eol=lf
 faultda_bench/reports/review505/HUMAN_REVIEW_2026_10_16_ZHANG.md -text whitespace=-blank-at-eol
+
+faultda_bench/docs/*0510*.md text eol=lf
+faultda_bench/reports/REVIEW_0510_*.md text eol=lf

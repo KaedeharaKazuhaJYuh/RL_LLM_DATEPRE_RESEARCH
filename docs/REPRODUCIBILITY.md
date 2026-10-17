@@ -1,8 +1,13 @@
 # 复现与运行指南
 
+最新（2026-10-18）：**0.5.10-dev** 完成 12 对指代裁决材料、4 项设计审阅问题、空白返回模板与范围校验；实现区分安全完成/合理升级/错误终止的指标资格核对。72 条旧程序对照只有一个历史簇，不是新模型结果。新独立裁决与设计审阅仍 pending，HOLD，新增 API 0。
+
+当前统一验收：`python -m faultda_bench.review510.audit`。人工填写与包内核对见[本轮指南](../faultda_bench/docs/REVIEW_0510_GUIDE.md)。本版完整仓库 527 项，包内子集 318 项，CI 选择 300 项；旧入口保留原范围。
+[本版报告](../faultda_bench/reports/REVIEW_0510_RELEASE.md)。
+
 最新（2026-10-17）：**0.5.05-dev** 接收张雨田 37 组人工技术复审，合理备选指代保留、最终裁决未进行；完成两类证据/决策假设、相关工作与强规则对照、跨任务准入草案。新设计未独立验收；科学 HOLD，新增 API 0。
 
-当前统一验收：`python -m faultda_bench.review505.audit`。复核包解压后按[独立包入口](../faultda_bench/docs/REVIEW_START_HERE_0505.md)运行，无需可编辑安装。旧包的 496 项为完整仓库口径，旧包自身为 287 项，旧 CI 列表为 269 项；不要跨范围比较数量。新包根 `BUNDLE_VALIDATION.json` 记录其实际测试数。
+0.5.05 历史验收：`python -m faultda_bench.review505.audit`。复核包解压后按[独立包入口](../faultda_bench/docs/REVIEW_START_HERE_0505.md)运行，无需可编辑安装。旧包的 496 项为完整仓库口径，旧包自身为 287 项，旧 CI 列表为 269 项；不要跨范围比较数量。新包根 `BUNDLE_VALIDATION.json` 记录其实际测试数。
 [本版报告](../faultda_bench/reports/REVIEW_0505_RELEASE.md)。
 
 最新（2026-10-16）：**0.5.0-dev 已完成**。保留旧 0/12、6/12 主分数，另注释 contextual 的 last-publish 合理解释（12/12，不替换主分数）；72 条 actor/origin 视图可逆迁移。496 项测试通过，新增 API 0。研究主张收束为接口/工程有效性，新独立复审 pending，科学 HOLD。下一版 0.5.05-dev 先整理复审、查新及可证伪竞争解释。
