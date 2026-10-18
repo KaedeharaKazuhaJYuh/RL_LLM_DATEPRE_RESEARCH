@@ -1,0 +1,10 @@
+{
+  "source_sha256": "240abd50b4acd33753c8f8e3ba3cad8326972360363e7675feb15b32290c2249",
+  "explicit_core_fact_fields_correct": "12/12",
+  "scripted_current_role_mismatches": "6/6",
+  "invalid_stage_event_references": [
+    "utc_end|base|scripted_current|bad_never_committed|second",
+    "utc_end|base|scripted_current|bad_committed|second"
+  ],
+  "scope": "Retrospective field decomposition only; no new score, causal attribution or model tool execution."
+}

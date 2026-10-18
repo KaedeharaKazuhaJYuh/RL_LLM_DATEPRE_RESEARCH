@@ -1,0 +1,158 @@
+{
+  "version": "0.5.15-dev",
+  "intake": {
+    "status": "received_scoped_opinions",
+    "referent_pair_opinions": 12,
+    "design_opinions_received": 4,
+    "design_verdicts": "revise",
+    "final_referent_adjudication": "pending_explicitly_not_final",
+    "reviewer_identity_authenticated": false,
+    "scientific_gate": "HOLD",
+    "approved_transport_requests": 0
+  },
+  "retrospective_fact_fields": {
+    "source_sha256": "240abd50b4acd33753c8f8e3ba3cad8326972360363e7675feb15b32290c2249",
+    "explicit_core_fact_fields_correct": "12/12",
+    "scripted_current_role_mismatches": "6/6",
+    "invalid_stage_event_references": [
+      "utc_end|base|scripted_current|bad_never_committed|second",
+      "utc_end|base|scripted_current|bad_committed|second"
+    ],
+    "scope": "Retrospective field decomposition only; no new score, causal attribution or model tool execution."
+  },
+  "lineage": {
+    "version": "0.5.15-dev",
+    "status": "verified_local_lineage",
+    "input_sha256": {
+      "faultda_bench/protocols/historical_sources.json": "f8133a2c61130e8d1ea9811dc2744f8b93a632798310001a5bdf19dd7f68bfe8",
+      "tasks/v5/beta_holdout_v1/manifest.json": "6387bc6780dc6b5b594e5e8fa4709da9a343b6e786270e87ea56a00bb6ba994c",
+      "tasks/v5/beta_holdout_v1/data/occupancy.csv": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "faultda_bench/protocols/semantic_tasks_v1.json": "425452911e1bb25b4ef3f7b16f5a7ead530fe50ebc36f97bdf58adbeb78c6785",
+      "faultda_bench/reports/coherent_v38_offline.json": "4374c41dad85e6237d8609fdec45949ef98e469d9888a0ea5e9fd9326767ce40",
+      "faultda_bench/reports/review510/review_packet.json": "ea5c4f250d420d5fa3c046ad187f7c1c3fb08c0012c63629ed589267a26a798e",
+      "tasks/v5/beta_holdout_v1/tasks.json": "f27799c695d6614ae65d4ff50b88924018bb6bbbc131489bd86a718e361de0ed",
+      "reports/v5_beta1_paired_audit.json": "20db0ec37765db45a2d01ac8deaacd2184e955f6631c806116d7938e8a3f6b9f",
+      "reports/V5_BETA_1_PREREGISTRATION.md": "ce17201c5ba08805c1d56fc513f7e663fefa22ba220319683e14d57c21b0a453",
+      "reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V1.md": "b435d21d471203319e0c67f064dbb8522de748e17b1501e4e6ac88855a38b2d4",
+      "faultda_bench/semantic/tasks.py": "cc095e08bc33e24581cf626c4a3347678078927f82f88c2693d22ff6edfedae0",
+      "faultda_bench/coherent395/suite.py": "bd26c5920d1506320aa9692eff760aaa3917a9c9b91182a1a6bed09b24583d4c"
+    },
+    "source_lineage": {
+      "source_id": "uci_occupancy",
+      "source_sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+      "original_manifest_external_test": true,
+      "original_manifest_one_time_evaluation": true,
+      "frozen_manifest_rewritten": false,
+      "existing_registry_split": "seen_development",
+      "current_qualification": "seen_development_only",
+      "future_unseen_external_test_eligible": false,
+      "final_test_sources": []
+    },
+    "eight_row_trace": [
+      {
+        "source_row_index": 0,
+        "original_source_id": "140",
+        "task_row_id": "0",
+        "original_date": "2015-02-02 14:19:00",
+        "utc_time": "2015-02-02T14:19:00+00:00",
+        "Temperature": "23.7"
+      },
+      {
+        "source_row_index": 1,
+        "original_source_id": "151",
+        "task_row_id": "1",
+        "original_date": "2015-02-02 14:30:00",
+        "utc_time": "2015-02-02T14:30:00+00:00",
+        "Temperature": "23.7"
+      },
+      {
+        "source_row_index": 2,
+        "original_source_id": "162",
+        "task_row_id": "2",
+        "original_date": "2015-02-02 14:41:00",
+        "utc_time": "2015-02-02T14:41:00+00:00",
+        "Temperature": "23.6"
+      },
+      {
+        "source_row_index": 3,
+        "original_source_id": "173",
+        "task_row_id": "3",
+        "original_date": "2015-02-02 14:51:59",
+        "utc_time": "2015-02-02T14:51:59+00:00",
+        "Temperature": "23.6"
+      },
+      {
+        "source_row_index": 4,
+        "original_source_id": "184",
+        "task_row_id": "4",
+        "original_date": "2015-02-02 15:03:00",
+        "utc_time": "2015-02-02T15:03:00+00:00",
+        "Temperature": "23.6"
+      },
+      {
+        "source_row_index": 5,
+        "original_source_id": "195",
+        "task_row_id": "5",
+        "original_date": "2015-02-02 15:14:00",
+        "utc_time": "2015-02-02T15:14:00+00:00",
+        "Temperature": "23.39"
+      },
+      {
+        "source_row_index": 6,
+        "original_source_id": "206",
+        "task_row_id": "6",
+        "original_date": "2015-02-02 15:24:59",
+        "utc_time": "2015-02-02T15:24:59+00:00",
+        "Temperature": "23.3066666666667"
+      },
+      {
+        "source_row_index": 7,
+        "original_source_id": "217",
+        "task_row_id": "7",
+        "original_date": "2015-02-02 15:36:00",
+        "utc_time": "2015-02-02T15:36:00+00:00",
+        "Temperature": "23.29"
+      }
+    ],
+    "observed_reuse": {
+      "semantic_task": "window-01",
+      "source_slice": [
+        0,
+        8
+      ],
+      "coherent_task_views": 6,
+      "prompt_pairs": 12,
+      "distinct_source_slices": 1,
+      "independent_task_clusters": 1,
+      "time_renderings_or_window_endpoints_add_independence": false
+    },
+    "historical_usage": {
+      "consumed_evaluation_record_present": true,
+      "paired_audit_seeds": 3,
+      "historical_beta_tasks": 12,
+      "historical_beta_sources": [
+        "uci_banknote",
+        "uci_occupancy"
+      ],
+      "later_development_reuse_confirmed": true,
+      "earlier_training_leakage_proved": false,
+      "chronology_independently_attested": false
+    },
+    "limits": [
+      "Local files establish current traceability, not independent historical attestation.",
+      "Later development reuse does not prove leakage during the original evaluation.",
+      "The inherited external_test label describes the historical protocol, not future eligibility.",
+      "Exact identity screening cannot prove absence of omitted ancestry or aliases."
+    ],
+    "new_provider_requests": 0,
+    "scientific_gate": "HOLD"
+  },
+  "new_admitted_test_panel": false,
+  "metric_scope": "Prospective common-panel declarations and coverage only; old 72 controls remain retrospective.",
+  "new_model_experiments": 0,
+  "new_provider_requests": 0,
+  "new_sources_collected": 0,
+  "new_training_runs": 0,
+  "scientific_gate": "HOLD",
+  "approved_transport_requests": 0
+}

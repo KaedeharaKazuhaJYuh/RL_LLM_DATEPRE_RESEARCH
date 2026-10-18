@@ -1,0 +1,125 @@
+{
+  "version": "0.5.15-dev",
+  "reviewer": "张雨田",
+  "date": "2026-10-18",
+  "source_sha256": "08f81c87913a9931694f00421ea7408ca3690b46c49b95dc117001fdd5e83703",
+  "source_bytes": 13381,
+  "packet_sha256": "83f8e869acddc1e968b52e76a1fa55295fcf3e51d78c757423970c3640b39f80",
+  "reviewed_artifacts": [
+    {
+      "commit": "97b8a218babc10be8b2bbd9dbb34080a671431b9",
+      "archive": "FaultDA_0.5.10-dev_Review_2026-10-18_97b8a21.zip",
+      "archive_sha256": "355925b5744588c6fc0f434ec3b6a9219e21dfee244e2e3cb8b1b1aef5e63b3c"
+    },
+    {
+      "commit": "727fb42ecb50ccf2e92e89fa08c1ae93849c1251",
+      "archive": "FaultDA_Design_Witness_Supplement_2026-10-18_727fb42.zip",
+      "archive_sha256": "a72f244cf9199a539614c1d2c761c38e10a1c07f328dd583a42da334ce51a37e"
+    }
+  ],
+  "basis": "User supplied this named human-review Markdown; repository intake is a transcription, not a reviewer-filled JSON or authenticated signature.",
+  "human_review_opinions_received": true,
+  "reviewer_identity_authenticated": false,
+  "technical_verdict_received": "pass_with_scientific_revisions",
+  "referent_opinions": [
+    {
+      "case_id": "referent|utc_end|base|historical|bad_never_committed|first",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": true
+    },
+    {
+      "case_id": "referent|utc_end|base|historical|bad_committed|first",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": true
+    },
+    {
+      "case_id": "referent|utc_end|base|scripted_current|bad_never_committed|second",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": false
+    },
+    {
+      "case_id": "referent|utc_end|base|scripted_current|bad_committed|second",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": false
+    },
+    {
+      "case_id": "referent|utc_end|trim_start|historical|bad_never_committed|second",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": true
+    },
+    {
+      "case_id": "referent|utc_end|trim_start|historical|bad_committed|second",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": true
+    },
+    {
+      "case_id": "referent|utc_end|trim_start|scripted_current|bad_never_committed|first",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": false
+    },
+    {
+      "case_id": "referent|utc_end|trim_start|scripted_current|bad_committed|first",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": false
+    },
+    {
+      "case_id": "referent|utc_end|early_end|historical|bad_never_committed|first",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": true
+    },
+    {
+      "case_id": "referent|utc_end|early_end|historical|bad_committed|first",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": true
+    },
+    {
+      "case_id": "referent|utc_end|early_end|scripted_current|bad_never_committed|second",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": false
+    },
+    {
+      "case_id": "referent|utc_end|early_end|scripted_current|bad_committed|second",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": false
+    }
+  ],
+  "design_opinions": {
+    "design|increment": "revise",
+    "design|independence": "revise",
+    "design|metrics": "revise",
+    "design|decision": "revise"
+  },
+  "final_referent_adjudication": "pending_explicitly_not_final",
+  "final_adjudication_registered": false,
+  "scope_reason": "The source final paragraph explicitly says this record is not registered as final independent adjudication. Section 3 opinions are retained without overriding that limit.",
+  "reviewer_interpretation": "Wording collision may explain responsibility mismatches; this causal attribution is an opinion, not an experimentally isolated mechanism.",
+  "old_scores_replaced": false,
+  "old_37_group_scope_expanded": false,
+  "new_0515_changes_independently_reviewed": false,
+  "scientific_gate": "HOLD",
+  "approved_transport_requests": 0
+}
