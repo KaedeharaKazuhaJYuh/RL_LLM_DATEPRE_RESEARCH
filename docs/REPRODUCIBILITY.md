@@ -1,6 +1,8 @@
 # 复现与运行指南
 
-当前 **0.5.30-dev**：`python -m faultda_bench.review530.audit`；重点范围测试见[三项聚焦复审](../faultda_bench/docs/FOCUSED_0530_REVIEW.md)。本轮未重跑全仓库，旧全仓库回归576项属于0.5.25；独立包子集另验证并记录数量。无新增模型/API或科学准入。
+当前 **0.5.35-dev**：`python -m faultda_bench.release535.audit`；追加 `--historical` 重放旧完整历史语义审计。范围测试：`python -m unittest tests.test_faultda_release535 tests.test_binding_probe tests.test_trajectory_evidence_audit tests.test_termination_case_analysis -v`。版本报告见 [0.5.35](../faultda_bench/reports/RELEASE_0535.md)。所有新入口离线，新终止协议仅为未准入草案，不调用模型。
+
+0.5.30 历史入口 **0.5.30-dev**：`python -m faultda_bench.review530.audit`；重点范围测试见[三项聚焦复审](../faultda_bench/docs/FOCUSED_0530_REVIEW.md)。本轮未重跑全仓库，旧全仓库回归576项属于0.5.25；独立包子集另验证并记录数量。无新增模型/API或科学准入。
 
 0.5.25 历史入口：`python -m faultda_bench.review525.audit`；重点验证 `python -m unittest tests.test_faultda_review525 -v`。公开解析及比较前置校验见[本轮协议](../faultda_bench/docs/PREFLIGHT_0525_PROTOCOL.md)。无新增API或研究准入。以下版本记录保留各自历史范围。
 

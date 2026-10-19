@@ -86,3 +86,11 @@ faultda_bench/reports/REVIEW_0525_*.md text eol=lf
 faultda_bench/docs/*0530*.md text eol=lf
 faultda_bench/reports/REVIEW_0530_*.md text eol=lf
 faultda_bench/reports/review530/*.md text eol=lf
+
+# 0.5.35 offline diagnostic evidence: byte-stable checkout.
+faultda_bench/docs/RESEARCH_RESTART_2026_10_19.md text eol=lf
+faultda_bench/reports/RELEASE_0535.md text eol=lf
+research/BINDING_PROBE_FINDINGS_2026_10_19.md text eol=lf
+research/RESEARCH_CONTRIBUTION_DESIGN_2026_10_19.md text eol=lf
+research/TERMINATION_FINDINGS_2026_10_19.md text eol=lf
+research/TRAJECTORY_AUDIT_FINDINGS_2026_10_19.md text eol=lf

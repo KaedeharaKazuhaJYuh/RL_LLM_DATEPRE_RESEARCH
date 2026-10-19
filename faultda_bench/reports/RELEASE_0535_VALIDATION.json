@@ -1,0 +1,37 @@
+{
+  "version": "0.5.35-dev",
+  "date": "2026-10-19",
+  "timezone": "Asia/Taipei",
+  "base_commit": "e4e41271a61e5e907d3cc03649baca424c39e49f",
+  "full_repository_tests": {
+    "discovered": 600,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 144.924,
+    "log_sha256": "eec279dd405f519684b756214eeef1fa6c313d54bdadf7edff0e7fca77458667"
+  },
+  "focused_tests": {
+    "count": 16,
+    "failures": 0,
+    "errors": 0
+  },
+  "frozen_files_final": 639,
+  "historical_audit": {
+    "result_file": "faultda_bench/reports/RELEASE_0535_HISTORICAL_AUDIT.json",
+    "result_sha256": "a3cc30025855d0d1a259d55ec3ca132626246a873cf6ad4af67ba0032143693a",
+    "executed_with_inventory_files": 637,
+    "note": "Two validation records added after semantic replay; no audited source code or old frozen evidence changed."
+  },
+  "raw_response_replays": {
+    "stop_v31_decisions": 40,
+    "receipt_v35_requests": 8,
+    "provider_authenticity_verified": false
+  },
+  "new_api_calls": 0,
+  "scientific_gate": "HOLD",
+  "independent_review": "not_arranged",
+  "model_or_rl_improvement_claim": false,
+  "new_protocol_status": "DRAFT_NOT_ADMITTED",
+  "full_repository_scope": "Python unittest; no new standalone Go, C++ performance, GPU or NPU benchmark in this release"
+}

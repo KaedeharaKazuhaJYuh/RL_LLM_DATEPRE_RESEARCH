@@ -1,13 +1,14 @@
 # FaultDA-Bench 组件索引
 
-当前开发版本为 **0.5.30-dev**。12 对既有指代裁决已登记，R 机制路线暂停；本轮将比较检查绑定到实际公开输入包和辅助源，并提供三项聚焦复审空表。旧72条仍是脚本快照，未获准新模型比较；独立接口人审 pending，科学 HOLD、API 0。
+当前开发版本为 **0.5.35-dev**。完成绑定反例、历史证据索引、终止案例复算与对照设计草案；单步未停止不等于完整恢复失败。没有新增模型能力结论；科学 HOLD、API 0，聚焦人审尚未安排。
 
-[当前报告](reports/REVIEW_0530_RELEASE.md) · [仓库首页](../README.md) · [复现指南](../docs/REPRODUCIBILITY.md) · [历史汇总](../docs/PROJECT_HISTORY.md)
+[当前报告](reports/RELEASE_0535.md) · [仓库首页](../README.md) · [复现指南](../docs/REPRODUCIBILITY.md) · [历史汇总](../docs/PROJECT_HISTORY.md)
 
 ## 实现分层
 
 | 组件 | 职责 |
 | --- | --- |
+| [release535/](release535/) | 本轮累计冻结与三个研究分析输出的离线重算 |
 | [review530/](review530/) | 严格臂字段、实际输入包与辅助源绑定、聚焦人审交接 |
 | [review525/](review525/) | 公开目标解析与同输入/工具预算/预处理声明检查 |
 | [review520/](review520/) | 最终指代登记、结构化 actor/来源接口与研究路线决定 |
