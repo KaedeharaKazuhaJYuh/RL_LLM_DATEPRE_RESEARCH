@@ -1,0 +1,68 @@
+{
+  "version": "0.5.20-dev",
+  "access_date": "2026-10-19",
+  "review_kind": "internal_primary_text_comparison_not_independent_scientific_review",
+  "sources": [
+    {
+      "id": "arxiv:2610.05622v1",
+      "url": "https://arxiv.org/html/2610.05622v1",
+      "submitted": "2026-10-04",
+      "read_sections": [
+        "2.2",
+        "2.3",
+        "2.4",
+        "3",
+        "5",
+        "Appendix D",
+        "Appendix E",
+        "Appendix G",
+        "Appendix K",
+        "Appendix N.1"
+      ],
+      "unconfirmed": [
+        "complete source-code permissions equivalence",
+        "FaultDA-equivalent actor handoff",
+        "complete equal per-operation budget comparison"
+      ]
+    },
+    {
+      "id": "arxiv:2608.02645v1",
+      "url": "https://arxiv.org/html/2608.02645v1",
+      "submitted": "2026-07-31",
+      "read_sections": [
+        "2.3",
+        "4.2",
+        "4.3",
+        "4.4",
+        "4.5",
+        "4.6",
+        "4.7",
+        "5.4",
+        "8"
+      ],
+      "unconfirmed": [
+        "complete source-code audit",
+        "FaultDA-equivalent actor handoff",
+        "complete actual-cost matching"
+      ]
+    },
+    {
+      "id": "arxiv:2607.04623v1",
+      "url": "https://arxiv.org/html/2607.04623v1",
+      "submitted": "2026-07-06",
+      "read_sections": [
+        "abstract",
+        "III-C",
+        "VI-C"
+      ],
+      "unconfirmed": [
+        "complete source-code audit",
+        "all end-to-end protocol settings"
+      ]
+    }
+  ],
+  "papers_experimentally_reproduced": false,
+  "literature_report_sha256": "b62e582c9cccb19dfd80701f5d7bbab815fdecedba53302d2e1eaa3574b75917",
+  "scientific_gate": "HOLD",
+  "approved_transport_requests": 0
+}

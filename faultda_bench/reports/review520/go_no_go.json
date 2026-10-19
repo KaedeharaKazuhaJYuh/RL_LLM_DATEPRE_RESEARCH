@@ -1,0 +1,27 @@
+{
+  "version": "0.5.20-dev",
+  "date": "2026-10-19",
+  "mechanism_route": "NO_GO_CURRENT_R_INCREMENT_NOT_ESTABLISHED",
+  "engineering_route": "retain_engineering_diagnostic_benchmark",
+  "decision_origin": "internal_project_routing_not_independent_scientific_acceptance",
+  "R_scope": "capability_diagnostic_question_only_no_observed_gap_or_new_mechanism",
+  "W4_main_experiment": "remains_rejected_design",
+  "final_referent_adjudication": "registered_existing_12_with_objections",
+  "new_actor_interface_independent_review": "pending",
+  "new_design_scientific_review": "pending",
+  "unseen_tasks_prepared": false,
+  "new_sources_collected": 0,
+  "new_model_tool_executions": 0,
+  "new_provider_requests": 0,
+  "new_training_runs": 0,
+  "scientific_gate": "HOLD",
+  "decision": "NO_GO_LIVE",
+  "approved_transport_requests": 0,
+  "evidence_bindings": {
+    "faultda_bench/reports/review520/consent_relay_2026_10_19.json": "350020d51896bc90306ac8a52998968764e7ac8110dc7bca2b800f33377f69f8",
+    "faultda_bench/reports/review520/final_referent_registration.json": "70389f31d5bec1a8aa6b1f0381556dc32ec0ac70cf9a568eec1fff6c01190e03",
+    "faultda_bench/docs/R_COMPARISON_0520.md": "b62e582c9cccb19dfd80701f5d7bbab815fdecedba53302d2e1eaa3574b75917",
+    "faultda_bench/docs/ACTOR_0520_PROTOCOL.md": "4969627479f28caadbc3af98403205a017d53e150e9f126787467bea631543dc",
+    "faultda_bench/reports/review520/actor_views.json": "f05a4e7a87a0a17bb9fd01463c77b949f24eb0b889ad369eea96fffbb7d3da77"
+  }
+}

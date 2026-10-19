@@ -76,3 +76,6 @@ faultda_bench/docs/FOUR_CELL_WITNESS_2026_10_18.md text eol=lf
 faultda_bench/docs/*0515*.md text eol=lf
 faultda_bench/reports/REVIEW_0515_*.md text eol=lf
 faultda_bench/reports/review515/HUMAN_REVIEW_2026_10_18_ZHANG.md -text whitespace=-blank-at-eol
+
+faultda_bench/docs/*0520*.md text eol=lf
+faultda_bench/reports/REVIEW_0520_*.md text eol=lf
