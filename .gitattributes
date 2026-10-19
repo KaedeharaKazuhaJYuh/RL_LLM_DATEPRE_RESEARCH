@@ -79,3 +79,6 @@ faultda_bench/reports/review515/HUMAN_REVIEW_2026_10_18_ZHANG.md -text whitespac
 
 faultda_bench/docs/*0520*.md text eol=lf
 faultda_bench/reports/REVIEW_0520_*.md text eol=lf
+
+faultda_bench/docs/*0525*.md text eol=lf
+faultda_bench/reports/REVIEW_0525_*.md text eol=lf

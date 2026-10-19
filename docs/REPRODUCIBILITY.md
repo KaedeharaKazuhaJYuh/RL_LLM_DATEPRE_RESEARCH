@@ -1,8 +1,10 @@
 # 复现与运行指南
 
+当前 **0.5.25-dev**：`python -m faultda_bench.review525.audit`；重点验证 `python -m unittest tests.test_faultda_review525 -v`。公开解析及比较前置校验见[本轮协议](../faultda_bench/docs/PREFLIGHT_0525_PROTOCOL.md)。无新增API或研究准入。以下版本记录保留各自历史范围。
+
 最新（2026-10-19）：**0.5.20-dev** 依据用户转达审阅者明确同意，正式登记原 12 对指代裁决，保留歧义与异议。完成 R 与具体前作设置对照；暂停当前机制路线，保留工程诊断 Benchmark。新增 actor/来源/回执双事件只读接口，旧 72 条均为脚本派生，不是模型成绩；新接口独立人审 pending，科学 HOLD，API 0。
 
-当前入口：`python -m faultda_bench.review520.audit`；[本轮复核指南](../faultda_bench/docs/REVIEW_0520_GUIDE.md)。以下旧 pending 为当时状态，不取消已登记裁决。
+0.5.20 历史入口：`python -m faultda_bench.review520.audit`；[本轮复核指南](../faultda_bench/docs/REVIEW_0520_GUIDE.md)。以下旧 pending 为当时状态，不取消已登记裁决。
 
 最新（2026-10-18）：**0.5.15-dev** 接收张雨田 12 对指代意见和四项设计 revise；原文明确不登记最终裁决，该项仍 pending。落实既有已见来源约束，新增血缘/祖先准入拦截与共同分母结构检查；否决 W4 主实验设计，未统计证伪模型假设。无新模型、来源、训练或 API，科学 HOLD。
 
