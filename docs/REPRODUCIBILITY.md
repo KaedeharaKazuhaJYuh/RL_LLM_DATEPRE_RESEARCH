@@ -1,6 +1,8 @@
 # 复现与运行指南
 
-当前 **0.5.25-dev**：`python -m faultda_bench.review525.audit`；重点验证 `python -m unittest tests.test_faultda_review525 -v`。公开解析及比较前置校验见[本轮协议](../faultda_bench/docs/PREFLIGHT_0525_PROTOCOL.md)。无新增API或研究准入。以下版本记录保留各自历史范围。
+当前 **0.5.30-dev**：`python -m faultda_bench.review530.audit`；重点范围测试见[三项聚焦复审](../faultda_bench/docs/FOCUSED_0530_REVIEW.md)。本轮未重跑全仓库，旧全仓库回归576项属于0.5.25；独立包子集另验证并记录数量。无新增模型/API或科学准入。
+
+0.5.25 历史入口：`python -m faultda_bench.review525.audit`；重点验证 `python -m unittest tests.test_faultda_review525 -v`。公开解析及比较前置校验见[本轮协议](../faultda_bench/docs/PREFLIGHT_0525_PROTOCOL.md)。无新增API或研究准入。以下版本记录保留各自历史范围。
 
 最新（2026-10-19）：**0.5.20-dev** 依据用户转达审阅者明确同意，正式登记原 12 对指代裁决，保留歧义与异议。完成 R 与具体前作设置对照；暂停当前机制路线，保留工程诊断 Benchmark。新增 actor/来源/回执双事件只读接口，旧 72 条均为脚本派生，不是模型成绩；新接口独立人审 pending，科学 HOLD，API 0。
 

@@ -82,3 +82,7 @@ faultda_bench/reports/REVIEW_0520_*.md text eol=lf
 
 faultda_bench/docs/*0525*.md text eol=lf
 faultda_bench/reports/REVIEW_0525_*.md text eol=lf
+
+faultda_bench/docs/*0530*.md text eol=lf
+faultda_bench/reports/REVIEW_0530_*.md text eol=lf
+faultda_bench/reports/review530/*.md text eol=lf
