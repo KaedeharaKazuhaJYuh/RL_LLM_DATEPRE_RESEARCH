@@ -2,6 +2,7 @@
 
 - 当前证据 CI 改用 Python 3.11，补跑 release535/termination550/termination555/stats560 及版本检查，执行 0.5.55 优化审计与 stats560 审计并上传结果；历史作业不变。
 - 新增 `faultda_bench/stats560/`：Wilson、百分位/簇自助区间、精确符号/McNemar 检验、Holm 校正与样本量边界；离线审计按冻结目录核对输入哈希，只对已冻结结果再计数，不写冻结位置。
+- stats560 摘要在 `build_summary()` 边界统一量化浮点到 12 位有效数字（`core.round_floats`），修掉 Python 3.12 把内置 `sum()` 改为补偿求和后 `sign_test_power` 差 1–2 个 ULP 导致的历史 CI 失败；3.11 与 3.12 产物现在逐字节相同，计数与统计结论不变。
 - 新增英文概览 `docs/en/FAULTDA_BENCH_OVERVIEW.md`；`unittest discover` 不再依赖预建 `work/`。科学 HOLD，无新实验、API 或重打分；VERSION 与 pyproject 不变。详见 [0.5.60 报告](faultda_bench/reports/RELEASE_0560.md)。
 
 # V5.0.15-beta.2 — 2026-10-09

@@ -11,20 +11,20 @@
     "note": "errors were FileNotFoundError from a missing gitignored work/ directory"
   },
   "full_repository_tests": {
-    "count": 640,
+    "count": 649,
     "skipped": 2,
     "failures": 0,
     "errors": 0,
-    "seconds": 47.163,
-    "log_sha256": "d8f9ef736f366944349fb717a1dd0abd72a4cd42769bf6b8c6e4c1a933457346"
+    "seconds": 46.023,
+    "log_sha256": "95e384c2e8ea5cc6def7b93c21c624888b22bf6751e648a1857f4bf52f24d876"
   },
   "pytest": {
-    "passed": 638,
+    "passed": 647,
     "skipped": 2,
     "failed": 0
   },
   "focused_tests": {
-    "count": 32,
+    "count": 41,
     "failures": 0,
     "errors": 0,
     "modules": [
@@ -34,7 +34,7 @@
     ]
   },
   "current_ci_job_replay": {
-    "unittest_count": 416,
+    "unittest_count": 425,
     "steps_exit_zero": true
   },
   "frozen_files_verified": 660,
@@ -44,7 +44,26 @@
     "paired_tests": 15,
     "holm_family_size": 15,
     "unavailable": 5,
-    "summary_sha256": "695614039c43b4ad40b11da46f2391a9ce6cbe612f14017dcb454e0fdf836b49"
+    "summary_sha256": "8d9d3612b669c47ac76ca7a5d6cb228cc3b8836675da53293818022718bc401a",
+    "summary_md_sha256": "0ba78ec94daa870c1712b77fee26b694c66748f5646a25d181f181b71f410688",
+    "float_significant_digits": 12
+  },
+  "cross_version_reproducibility": {
+    "cause": "CPython 3.12 made builtin sum() compensated (Neumaier), so float sums such as sign_test_power differ from 3.11 by 1-2 ULP; the committed-vs-rebuilt equality assertion failed on the Python 3.12 CI job",
+    "fix": "core.round_floats quantizes every emitted float to 12 significant digits, applied once at the build_summary() boundary",
+    "interpreters_verified": [
+      "3.11.15",
+      "3.12.13"
+    ],
+    "artifacts_byte_identical_across_interpreters": true,
+    "full_repository_tests_python_3_12": {
+      "count": 649,
+      "skipped": 2,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 48.788
+    },
+    "statistical_conclusions_changed": false
   },
   "new_provider_requests": 0,
   "new_model_executions": 0,

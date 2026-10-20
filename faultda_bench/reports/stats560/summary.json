@@ -18,7 +18,8 @@
     "confidence": 0.95,
     "n_resamples": 10000,
     "seed": 560,
-    "bootstrap": "percentile"
+    "bootstrap": "percentile",
+    "float_significant_digits": 12
   },
   "comparisons": [
     {
@@ -45,7 +46,7 @@
           "rate": 0.0,
           "wilson_95": [
             0.0,
-            0.2424940066552408
+            0.242494006655
           ],
           "cluster_bootstrap": {
             "window": {
@@ -72,8 +73,8 @@
           "n": 12,
           "rate": 0.5,
           "wilson_95": [
-            0.2537815976337061,
-            0.7462184023662939
+            0.253781597634,
+            0.746218402366
           ],
           "cluster_bootstrap": {
             "window": {
@@ -116,14 +117,14 @@
           "metric": "safe_complete",
           "successes": 4,
           "n": 12,
-          "rate": 0.3333333333333333,
+          "rate": 0.333333333333,
           "wilson_95": [
-            0.1381200910912132,
-            0.6093779111272004
+            0.138120091091,
+            0.609377911127
           ],
           "cluster_bootstrap": {
             "task_id": {
-              "estimate": 0.3333333333333333,
+              "estimate": 0.333333333333,
               "low": 0.0,
               "high": 1.0,
               "n": 12,
@@ -141,14 +142,14 @@
           "metric": "safe_complete",
           "successes": 4,
           "n": 12,
-          "rate": 0.3333333333333333,
+          "rate": 0.333333333333,
           "wilson_95": [
-            0.1381200910912132,
-            0.6093779111272004
+            0.138120091091,
+            0.609377911127
           ],
           "cluster_bootstrap": {
             "task_id": {
-              "estimate": 0.3333333333333333,
+              "estimate": 0.333333333333,
               "low": 0.0,
               "high": 1.0,
               "n": 12,
@@ -188,7 +189,7 @@
           "rate": 0.0,
           "wilson_95": [
             0.0,
-            0.009904714241677028
+            0.00990471424168
           ],
           "cluster_bootstrap": {
             "task_id": {
@@ -223,8 +224,8 @@
           "n": 384,
           "rate": 0.25,
           "wilson_95": [
-            0.20931062075587414,
-            0.29564173636496427
+            0.209310620756,
+            0.295641736365
           ],
           "cluster_bootstrap": {
             "task_id": {
@@ -259,8 +260,8 @@
           "n": 384,
           "rate": 0.5,
           "wilson_95": [
-            0.4502387845765474,
-            0.5497612154234526
+            0.450238784577,
+            0.549761215423
           ],
           "cluster_bootstrap": {
             "task_id": {
@@ -295,8 +296,8 @@
           "n": 384,
           "rate": 0.5625,
           "wilson_95": [
-            0.5125061491660563,
-            0.611255761553734
+            0.512506149166,
+            0.611255761554
           ],
           "cluster_bootstrap": {
             "task_id": {
@@ -331,8 +332,8 @@
           "n": 384,
           "rate": 0.75,
           "wilson_95": [
-            0.7043582636350356,
-            0.7906893792441259
+            0.704358263635,
+            0.790689379244
           ],
           "cluster_bootstrap": {
             "task_id": {
@@ -367,8 +368,8 @@
           "n": 384,
           "rate": 0.75,
           "wilson_95": [
-            0.7043582636350356,
-            0.7906893792441259
+            0.704358263635,
+            0.790689379244
           ],
           "cluster_bootstrap": {
             "task_id": {
@@ -423,7 +424,7 @@
           "n": 72,
           "rate": 1.0,
           "wilson_95": [
-            0.9493488274035422,
+            0.949348827404,
             1.0
           ],
           "cluster_bootstrap": {
@@ -461,16 +462,16 @@
           "condition": "raw",
           "successes": 24,
           "n": 72,
-          "rate": 0.3333333333333333,
+          "rate": 0.333333333333,
           "wilson_95": [
-            0.23534643443153788,
-            0.44820395643394795
+            0.235346434432,
+            0.448203956434
           ],
           "cluster_bootstrap": {
             "task": {
-              "estimate": 0.3333333333333333,
-              "low": 0.3333333333333333,
-              "high": 0.3333333333333333,
+              "estimate": 0.333333333333,
+              "low": 0.333333333333,
+              "high": 0.333333333333,
               "n": 72,
               "n_clusters": 6,
               "n_resamples": 10000,
@@ -480,9 +481,9 @@
               "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
             },
             "state": {
-              "estimate": 0.3333333333333333,
-              "low": 0.19444444444444445,
-              "high": 0.4722222222222222,
+              "estimate": 0.333333333333,
+              "low": 0.194444444444,
+              "high": 0.472222222222,
               "n": 72,
               "n_clusters": 24,
               "n_resamples": 10000,
@@ -501,16 +502,16 @@
           "condition": "raw",
           "successes": 24,
           "n": 72,
-          "rate": 0.3333333333333333,
+          "rate": 0.333333333333,
           "wilson_95": [
-            0.23534643443153788,
-            0.44820395643394795
+            0.235346434432,
+            0.448203956434
           ],
           "cluster_bootstrap": {
             "task": {
-              "estimate": 0.3333333333333333,
-              "low": 0.3333333333333333,
-              "high": 0.3333333333333333,
+              "estimate": 0.333333333333,
+              "low": 0.333333333333,
+              "high": 0.333333333333,
               "n": 72,
               "n_clusters": 6,
               "n_resamples": 10000,
@@ -520,9 +521,9 @@
               "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
             },
             "state": {
-              "estimate": 0.3333333333333333,
-              "low": 0.19444444444444445,
-              "high": 0.4722222222222222,
+              "estimate": 0.333333333333,
+              "low": 0.194444444444,
+              "high": 0.472222222222,
               "n": 72,
               "n_clusters": 24,
               "n_resamples": 10000,
@@ -543,8 +544,8 @@
           "n": 72,
           "rate": 0.5,
           "wilson_95": [
-            0.3874709230948976,
-            0.6125290769051024
+            0.387470923095,
+            0.612529076905
           ],
           "cluster_bootstrap": {
             "task": {
@@ -561,8 +562,8 @@
             },
             "state": {
               "estimate": 0.5,
-              "low": 0.2916666666666667,
-              "high": 0.7083333333333334,
+              "low": 0.291666666667,
+              "high": 0.708333333333,
               "n": 72,
               "n_clusters": 24,
               "n_resamples": 10000,
@@ -581,16 +582,16 @@
           "condition": "raw",
           "successes": 48,
           "n": 72,
-          "rate": 0.6666666666666666,
+          "rate": 0.666666666667,
           "wilson_95": [
-            0.5517960435660519,
-            0.764653565568462
+            0.551796043566,
+            0.764653565568
           ],
           "cluster_bootstrap": {
             "task": {
-              "estimate": 0.6666666666666666,
-              "low": 0.6666666666666666,
-              "high": 0.6666666666666666,
+              "estimate": 0.666666666667,
+              "low": 0.666666666667,
+              "high": 0.666666666667,
               "n": 72,
               "n_clusters": 6,
               "n_resamples": 10000,
@@ -600,9 +601,9 @@
               "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
             },
             "state": {
-              "estimate": 0.6666666666666666,
-              "low": 0.5277777777777778,
-              "high": 0.8055555555555556,
+              "estimate": 0.666666666667,
+              "low": 0.527777777778,
+              "high": 0.805555555556,
               "n": 72,
               "n_clusters": 24,
               "n_resamples": 10000,
@@ -624,7 +625,7 @@
           "rate": 0.0,
           "wilson_95": [
             0.0,
-            0.05065117259645778
+            0.0506511725965
           ],
           "cluster_bootstrap": {
             "task": {
@@ -663,7 +664,7 @@
           "n": 72,
           "rate": 1.0,
           "wilson_95": [
-            0.9493488274035422,
+            0.949348827404,
             1.0
           ],
           "cluster_bootstrap": {
@@ -701,16 +702,16 @@
           "condition": "shared_numeric",
           "successes": 24,
           "n": 72,
-          "rate": 0.3333333333333333,
+          "rate": 0.333333333333,
           "wilson_95": [
-            0.23534643443153788,
-            0.44820395643394795
+            0.235346434432,
+            0.448203956434
           ],
           "cluster_bootstrap": {
             "task": {
-              "estimate": 0.3333333333333333,
-              "low": 0.3333333333333333,
-              "high": 0.3333333333333333,
+              "estimate": 0.333333333333,
+              "low": 0.333333333333,
+              "high": 0.333333333333,
               "n": 72,
               "n_clusters": 6,
               "n_resamples": 10000,
@@ -720,9 +721,9 @@
               "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
             },
             "state": {
-              "estimate": 0.3333333333333333,
-              "low": 0.19444444444444445,
-              "high": 0.4722222222222222,
+              "estimate": 0.333333333333,
+              "low": 0.194444444444,
+              "high": 0.472222222222,
               "n": 72,
               "n_clusters": 24,
               "n_resamples": 10000,
@@ -741,16 +742,16 @@
           "condition": "shared_numeric",
           "successes": 24,
           "n": 72,
-          "rate": 0.3333333333333333,
+          "rate": 0.333333333333,
           "wilson_95": [
-            0.23534643443153788,
-            0.44820395643394795
+            0.235346434432,
+            0.448203956434
           ],
           "cluster_bootstrap": {
             "task": {
-              "estimate": 0.3333333333333333,
-              "low": 0.3333333333333333,
-              "high": 0.3333333333333333,
+              "estimate": 0.333333333333,
+              "low": 0.333333333333,
+              "high": 0.333333333333,
               "n": 72,
               "n_clusters": 6,
               "n_resamples": 10000,
@@ -760,9 +761,9 @@
               "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
             },
             "state": {
-              "estimate": 0.3333333333333333,
-              "low": 0.19444444444444445,
-              "high": 0.4722222222222222,
+              "estimate": 0.333333333333,
+              "low": 0.194444444444,
+              "high": 0.472222222222,
               "n": 72,
               "n_clusters": 24,
               "n_resamples": 10000,
@@ -783,8 +784,8 @@
           "n": 72,
           "rate": 0.5,
           "wilson_95": [
-            0.3874709230948976,
-            0.6125290769051024
+            0.387470923095,
+            0.612529076905
           ],
           "cluster_bootstrap": {
             "task": {
@@ -801,8 +802,8 @@
             },
             "state": {
               "estimate": 0.5,
-              "low": 0.2916666666666667,
-              "high": 0.7083333333333334,
+              "low": 0.291666666667,
+              "high": 0.708333333333,
               "n": 72,
               "n_clusters": 24,
               "n_resamples": 10000,
@@ -821,16 +822,16 @@
           "condition": "shared_numeric",
           "successes": 48,
           "n": 72,
-          "rate": 0.6666666666666666,
+          "rate": 0.666666666667,
           "wilson_95": [
-            0.5517960435660519,
-            0.764653565568462
+            0.551796043566,
+            0.764653565568
           ],
           "cluster_bootstrap": {
             "task": {
-              "estimate": 0.6666666666666666,
-              "low": 0.6666666666666666,
-              "high": 0.6666666666666666,
+              "estimate": 0.666666666667,
+              "low": 0.666666666667,
+              "high": 0.666666666667,
               "n": 72,
               "n_clusters": 6,
               "n_resamples": 10000,
@@ -840,9 +841,9 @@
               "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
             },
             "state": {
-              "estimate": 0.6666666666666666,
-              "low": 0.5277777777777778,
-              "high": 0.8055555555555556,
+              "estimate": 0.666666666667,
+              "low": 0.527777777778,
+              "high": 0.805555555556,
               "n": 72,
               "n_clusters": 24,
               "n_resamples": 10000,
@@ -864,7 +865,7 @@
           "rate": 0.0,
           "wilson_95": [
             0.0,
-            0.05065117259645778
+            0.0506511725965
           ],
           "cluster_bootstrap": {
             "task": {
@@ -923,8 +924,8 @@
           "n": 144,
           "rate": 1.0,
           "wilson_95": [
-            0.9740163628569632,
-            0.9999999999999999
+            0.974016362857,
+            1.0
           ],
           "cluster_bootstrap": {
             "task": {
@@ -961,16 +962,16 @@
           "condition": "pooled",
           "successes": 48,
           "n": 144,
-          "rate": 0.3333333333333333,
+          "rate": 0.333333333333,
           "wilson_95": [
-            0.26155286452605253,
-            0.41377501452162635
+            0.261552864526,
+            0.413775014522
           ],
           "cluster_bootstrap": {
             "task": {
-              "estimate": 0.3333333333333333,
-              "low": 0.3333333333333333,
-              "high": 0.3333333333333333,
+              "estimate": 0.333333333333,
+              "low": 0.333333333333,
+              "high": 0.333333333333,
               "n": 144,
               "n_clusters": 6,
               "n_resamples": 10000,
@@ -980,9 +981,9 @@
               "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
             },
             "state": {
-              "estimate": 0.3333333333333333,
-              "low": 0.19444444444444445,
-              "high": 0.4722222222222222,
+              "estimate": 0.333333333333,
+              "low": 0.194444444444,
+              "high": 0.472222222222,
               "n": 144,
               "n_clusters": 24,
               "n_resamples": 10000,
@@ -1031,8 +1032,8 @@
         }
       },
       "min_discordant_for_alpha_0_05": 6,
-      "exact_power_if_discordant_favour_a_0_8": 0.2622080000000001,
-      "mde_two_proportions_n": 0.571871187941724,
+      "exact_power_if_discordant_favour_a_0_8": 0.262208,
+      "mde_two_proportions_n": 0.571871187942,
       "holm_adjusted_p": 0.125
     },
     {
@@ -1065,7 +1066,7 @@
       },
       "min_discordant_for_alpha_0_05": 6,
       "exact_power_if_discordant_favour_a_0_8": 0.0,
-      "mde_two_proportions_n": 0.571871187941724,
+      "mde_two_proportions_n": 0.571871187942,
       "holm_adjusted_p": 1.0
     },
     {
@@ -1109,7 +1110,7 @@
       },
       "min_discordant_for_alpha_0_05": 6,
       "exact_power_if_discordant_favour_a_0_8": 0.0,
-      "mde_two_proportions_n": 0.1010934987396999,
+      "mde_two_proportions_n": 0.10109349874,
       "holm_adjusted_p": 1.0
     },
     {
@@ -1123,7 +1124,7 @@
       "b_only": 0,
       "neither": 96,
       "discordant": 72,
-      "p_value": 4.235164736271502e-22,
+      "p_value": 4.23516473627e-22,
       "method": "exact_mcnemar_two_sided",
       "difference": 0.1875,
       "difference_cluster_bootstrap": {
@@ -1152,9 +1153,9 @@
         }
       },
       "min_discordant_for_alpha_0_05": 6,
-      "exact_power_if_discordant_favour_a_0_8": 0.9998252873727448,
-      "mde_two_proportions_n": 0.1010934987396999,
-      "holm_adjusted_p": 5.505714157152952e-21
+      "exact_power_if_discordant_favour_a_0_8": 0.999825287373,
+      "mde_two_proportions_n": 0.10109349874,
+      "holm_adjusted_p": 5.50571415715e-21
     },
     {
       "comparison": "C3",
@@ -1167,7 +1168,7 @@
       "b_only": 48,
       "neither": 120,
       "discordant": 120,
-      "p_value": 0.035323682537769574,
+      "p_value": 0.0353236825378,
       "method": "exact_mcnemar_two_sided",
       "difference": 0.0625,
       "difference_cluster_bootstrap": {
@@ -1196,8 +1197,8 @@
         }
       },
       "min_discordant_for_alpha_0_05": 6,
-      "exact_power_if_discordant_favour_a_0_8": 0.9999998528209091,
-      "mde_two_proportions_n": 0.1010934987396999,
+      "exact_power_if_discordant_favour_a_0_8": 0.999999852821,
+      "mde_two_proportions_n": 0.10109349874,
       "holm_adjusted_p": 0.125
     },
     {
@@ -1211,7 +1212,7 @@
       "b_only": 0,
       "neither": 192,
       "discordant": 96,
-      "p_value": 2.524354896707238e-29,
+      "p_value": 2.52435489671e-29,
       "method": "exact_mcnemar_two_sided",
       "difference": 0.25,
       "difference_cluster_bootstrap": {
@@ -1240,9 +1241,9 @@
         }
       },
       "min_discordant_for_alpha_0_05": 6,
-      "exact_power_if_discordant_favour_a_0_8": 0.9999916596887876,
-      "mde_two_proportions_n": 0.1010934987396999,
-      "holm_adjusted_p": 3.7865323450608567e-28
+      "exact_power_if_discordant_favour_a_0_8": 0.999991659689,
+      "mde_two_proportions_n": 0.10109349874,
+      "holm_adjusted_p": 3.78653234506e-28
     },
     {
       "comparison": "C3",
@@ -1255,7 +1256,7 @@
       "b_only": 0,
       "neither": 288,
       "discordant": 96,
-      "p_value": 2.524354896707238e-29,
+      "p_value": 2.52435489671e-29,
       "method": "exact_mcnemar_two_sided",
       "difference": 0.25,
       "difference_cluster_bootstrap": {
@@ -1284,9 +1285,9 @@
         }
       },
       "min_discordant_for_alpha_0_05": 6,
-      "exact_power_if_discordant_favour_a_0_8": 0.9999916596887876,
-      "mde_two_proportions_n": 0.1010934987396999,
-      "holm_adjusted_p": 3.7865323450608567e-28
+      "exact_power_if_discordant_favour_a_0_8": 0.999991659689,
+      "mde_two_proportions_n": 0.10109349874,
+      "holm_adjusted_p": 3.78653234506e-28
     },
     {
       "comparison": "C4",
@@ -1300,14 +1301,14 @@
       "b_only": 0,
       "neither": 0,
       "discordant": 48,
-      "p_value": 7.105427357601002e-15,
+      "p_value": 7.1054273576e-15,
       "method": "exact_mcnemar_two_sided",
-      "difference": 0.6666666666666666,
+      "difference": 0.666666666667,
       "difference_cluster_bootstrap": {
         "task": {
-          "estimate": 0.6666666666666666,
-          "low": 0.6666666666666666,
-          "high": 0.6666666666666666,
+          "estimate": 0.666666666667,
+          "low": 0.666666666667,
+          "high": 0.666666666667,
           "n": 72,
           "n_clusters": 6,
           "n_resamples": 10000,
@@ -1317,9 +1318,9 @@
           "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
         },
         "state": {
-          "estimate": 0.6666666666666666,
-          "low": 0.5277777777777778,
-          "high": 0.8055555555555556,
+          "estimate": 0.666666666667,
+          "low": 0.527777777778,
+          "high": 0.805555555556,
           "n": 72,
           "n_clusters": 24,
           "n_resamples": 10000,
@@ -1332,9 +1333,9 @@
         }
       },
       "min_discordant_for_alpha_0_05": 6,
-      "exact_power_if_discordant_favour_a_0_8": 0.9906814118010133,
-      "mde_two_proportions_n": 0.23346543484274732,
-      "holm_adjusted_p": 8.526512829121202e-14
+      "exact_power_if_discordant_favour_a_0_8": 0.990681411801,
+      "mde_two_proportions_n": 0.233465434843,
+      "holm_adjusted_p": 8.52651282912e-14
     },
     {
       "comparison": "C4",
@@ -1348,14 +1349,14 @@
       "b_only": 0,
       "neither": 0,
       "discordant": 24,
-      "p_value": 1.1920928955078125e-07,
+      "p_value": 1.19209289551e-07,
       "method": "exact_mcnemar_two_sided",
-      "difference": 0.3333333333333333,
+      "difference": 0.333333333333,
       "difference_cluster_bootstrap": {
         "task": {
-          "estimate": 0.3333333333333333,
-          "low": 0.3333333333333333,
-          "high": 0.3333333333333333,
+          "estimate": 0.333333333333,
+          "low": 0.333333333333,
+          "high": 0.333333333333,
           "n": 72,
           "n_clusters": 6,
           "n_resamples": 10000,
@@ -1365,9 +1366,9 @@
           "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
         },
         "state": {
-          "estimate": 0.3333333333333333,
-          "low": 0.19444444444444445,
-          "high": 0.4722222222222222,
+          "estimate": 0.333333333333,
+          "low": 0.194444444444,
+          "high": 0.472222222222,
           "n": 72,
           "n_clusters": 24,
           "n_resamples": 10000,
@@ -1380,9 +1381,9 @@
         }
       },
       "min_discordant_for_alpha_0_05": 6,
-      "exact_power_if_discordant_favour_a_0_8": 0.8110710651463473,
-      "mde_two_proportions_n": 0.23346543484274732,
-      "holm_adjusted_p": 1.1920928955078125e-06
+      "exact_power_if_discordant_favour_a_0_8": 0.811071065146,
+      "mde_two_proportions_n": 0.233465434843,
+      "holm_adjusted_p": 1.19209289551e-06
     },
     {
       "comparison": "C4",
@@ -1398,12 +1399,12 @@
       "discordant": 12,
       "p_value": 0.00048828125,
       "method": "exact_mcnemar_two_sided",
-      "difference": -0.16666666666666666,
+      "difference": -0.166666666667,
       "difference_cluster_bootstrap": {
         "task": {
-          "estimate": -0.16666666666666666,
-          "low": -0.16666666666666666,
-          "high": -0.16666666666666666,
+          "estimate": -0.166666666667,
+          "low": -0.166666666667,
+          "high": -0.166666666667,
           "n": 72,
           "n_clusters": 6,
           "n_resamples": 10000,
@@ -1413,9 +1414,9 @@
           "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
         },
         "state": {
-          "estimate": -0.16666666666666666,
-          "low": -0.2361111111111111,
-          "high": -0.09722222222222222,
+          "estimate": -0.166666666667,
+          "low": -0.236111111111,
+          "high": -0.0972222222222,
           "n": 72,
           "n_clusters": 24,
           "n_resamples": 10000,
@@ -1428,8 +1429,8 @@
         }
       },
       "min_discordant_for_alpha_0_05": 6,
-      "exact_power_if_discordant_favour_a_0_8": 0.5583502745600002,
-      "mde_two_proportions_n": 0.23346543484274732,
+      "exact_power_if_discordant_favour_a_0_8": 0.55835027456,
+      "mde_two_proportions_n": 0.233465434843,
       "holm_adjusted_p": 0.0029296875
     },
     {
@@ -1444,14 +1445,14 @@
       "b_only": 0,
       "neither": 48,
       "discordant": 24,
-      "p_value": 1.1920928955078125e-07,
+      "p_value": 1.19209289551e-07,
       "method": "exact_mcnemar_two_sided",
-      "difference": 0.3333333333333333,
+      "difference": 0.333333333333,
       "difference_cluster_bootstrap": {
         "task": {
-          "estimate": 0.3333333333333333,
-          "low": 0.3333333333333333,
-          "high": 0.3333333333333333,
+          "estimate": 0.333333333333,
+          "low": 0.333333333333,
+          "high": 0.333333333333,
           "n": 72,
           "n_clusters": 6,
           "n_resamples": 10000,
@@ -1461,9 +1462,9 @@
           "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
         },
         "state": {
-          "estimate": 0.3333333333333333,
-          "low": 0.19444444444444445,
-          "high": 0.4722222222222222,
+          "estimate": 0.333333333333,
+          "low": 0.194444444444,
+          "high": 0.472222222222,
           "n": 72,
           "n_clusters": 24,
           "n_resamples": 10000,
@@ -1476,9 +1477,9 @@
         }
       },
       "min_discordant_for_alpha_0_05": 6,
-      "exact_power_if_discordant_favour_a_0_8": 0.8110710651463473,
-      "mde_two_proportions_n": 0.23346543484274732,
-      "holm_adjusted_p": 1.1920928955078125e-06
+      "exact_power_if_discordant_favour_a_0_8": 0.811071065146,
+      "mde_two_proportions_n": 0.233465434843,
+      "holm_adjusted_p": 1.19209289551e-06
     },
     {
       "comparison": "C4",
@@ -1492,14 +1493,14 @@
       "b_only": 0,
       "neither": 0,
       "discordant": 48,
-      "p_value": 7.105427357601002e-15,
+      "p_value": 7.1054273576e-15,
       "method": "exact_mcnemar_two_sided",
-      "difference": 0.6666666666666666,
+      "difference": 0.666666666667,
       "difference_cluster_bootstrap": {
         "task": {
-          "estimate": 0.6666666666666666,
-          "low": 0.6666666666666666,
-          "high": 0.6666666666666666,
+          "estimate": 0.666666666667,
+          "low": 0.666666666667,
+          "high": 0.666666666667,
           "n": 72,
           "n_clusters": 6,
           "n_resamples": 10000,
@@ -1509,9 +1510,9 @@
           "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
         },
         "state": {
-          "estimate": 0.6666666666666666,
-          "low": 0.5277777777777778,
-          "high": 0.8055555555555556,
+          "estimate": 0.666666666667,
+          "low": 0.527777777778,
+          "high": 0.805555555556,
           "n": 72,
           "n_clusters": 24,
           "n_resamples": 10000,
@@ -1524,9 +1525,9 @@
         }
       },
       "min_discordant_for_alpha_0_05": 6,
-      "exact_power_if_discordant_favour_a_0_8": 0.9906814118010133,
-      "mde_two_proportions_n": 0.23346543484274732,
-      "holm_adjusted_p": 8.526512829121202e-14
+      "exact_power_if_discordant_favour_a_0_8": 0.990681411801,
+      "mde_two_proportions_n": 0.233465434843,
+      "holm_adjusted_p": 8.52651282912e-14
     },
     {
       "comparison": "C4",
@@ -1540,14 +1541,14 @@
       "b_only": 0,
       "neither": 0,
       "discordant": 24,
-      "p_value": 1.1920928955078125e-07,
+      "p_value": 1.19209289551e-07,
       "method": "exact_mcnemar_two_sided",
-      "difference": 0.3333333333333333,
+      "difference": 0.333333333333,
       "difference_cluster_bootstrap": {
         "task": {
-          "estimate": 0.3333333333333333,
-          "low": 0.3333333333333333,
-          "high": 0.3333333333333333,
+          "estimate": 0.333333333333,
+          "low": 0.333333333333,
+          "high": 0.333333333333,
           "n": 72,
           "n_clusters": 6,
           "n_resamples": 10000,
@@ -1557,9 +1558,9 @@
           "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
         },
         "state": {
-          "estimate": 0.3333333333333333,
-          "low": 0.19444444444444445,
-          "high": 0.4722222222222222,
+          "estimate": 0.333333333333,
+          "low": 0.194444444444,
+          "high": 0.472222222222,
           "n": 72,
           "n_clusters": 24,
           "n_resamples": 10000,
@@ -1572,9 +1573,9 @@
         }
       },
       "min_discordant_for_alpha_0_05": 6,
-      "exact_power_if_discordant_favour_a_0_8": 0.8110710651463473,
-      "mde_two_proportions_n": 0.23346543484274732,
-      "holm_adjusted_p": 1.1920928955078125e-06
+      "exact_power_if_discordant_favour_a_0_8": 0.811071065146,
+      "mde_two_proportions_n": 0.233465434843,
+      "holm_adjusted_p": 1.19209289551e-06
     },
     {
       "comparison": "C4",
@@ -1590,12 +1591,12 @@
       "discordant": 12,
       "p_value": 0.00048828125,
       "method": "exact_mcnemar_two_sided",
-      "difference": -0.16666666666666666,
+      "difference": -0.166666666667,
       "difference_cluster_bootstrap": {
         "task": {
-          "estimate": -0.16666666666666666,
-          "low": -0.16666666666666666,
-          "high": -0.16666666666666666,
+          "estimate": -0.166666666667,
+          "low": -0.166666666667,
+          "high": -0.166666666667,
           "n": 72,
           "n_clusters": 6,
           "n_resamples": 10000,
@@ -1605,9 +1606,9 @@
           "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
         },
         "state": {
-          "estimate": -0.16666666666666666,
-          "low": -0.2361111111111111,
-          "high": -0.09722222222222222,
+          "estimate": -0.166666666667,
+          "low": -0.236111111111,
+          "high": -0.0972222222222,
           "n": 72,
           "n_clusters": 24,
           "n_resamples": 10000,
@@ -1620,8 +1621,8 @@
         }
       },
       "min_discordant_for_alpha_0_05": 6,
-      "exact_power_if_discordant_favour_a_0_8": 0.5583502745600002,
-      "mde_two_proportions_n": 0.23346543484274732,
+      "exact_power_if_discordant_favour_a_0_8": 0.55835027456,
+      "mde_two_proportions_n": 0.233465434843,
       "holm_adjusted_p": 0.0029296875
     },
     {
@@ -1636,14 +1637,14 @@
       "b_only": 0,
       "neither": 48,
       "discordant": 24,
-      "p_value": 1.1920928955078125e-07,
+      "p_value": 1.19209289551e-07,
       "method": "exact_mcnemar_two_sided",
-      "difference": 0.3333333333333333,
+      "difference": 0.333333333333,
       "difference_cluster_bootstrap": {
         "task": {
-          "estimate": 0.3333333333333333,
-          "low": 0.3333333333333333,
-          "high": 0.3333333333333333,
+          "estimate": 0.333333333333,
+          "low": 0.333333333333,
+          "high": 0.333333333333,
           "n": 72,
           "n_clusters": 6,
           "n_resamples": 10000,
@@ -1653,9 +1654,9 @@
           "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
         },
         "state": {
-          "estimate": 0.3333333333333333,
-          "low": 0.19444444444444445,
-          "high": 0.4722222222222222,
+          "estimate": 0.333333333333,
+          "low": 0.194444444444,
+          "high": 0.472222222222,
           "n": 72,
           "n_clusters": 24,
           "n_resamples": 10000,
@@ -1668,9 +1669,9 @@
         }
       },
       "min_discordant_for_alpha_0_05": 6,
-      "exact_power_if_discordant_favour_a_0_8": 0.8110710651463473,
-      "mde_two_proportions_n": 0.23346543484274732,
-      "holm_adjusted_p": 1.1920928955078125e-06
+      "exact_power_if_discordant_favour_a_0_8": 0.811071065146,
+      "mde_two_proportions_n": 0.233465434843,
+      "holm_adjusted_p": 1.19209289551e-06
     }
   ],
   "holm_family_size": 15,
@@ -1705,10 +1706,10 @@
     "alpha": 0.05,
     "min_discordant_for_significance": 6,
     "mde_two_proportions_normal_approximation": {
-      "12": 0.571871187941724,
-      "72": 0.23346543484274732,
-      "144": 0.1650849921499727,
-      "384": 0.1010934987396999
+      "12": 0.571871187942,
+      "72": 0.233465434843,
+      "144": 0.16508499215,
+      "384": 0.10109349874
     },
     "note": "With 12 pairs no split below 6 discordant pairs can reach p <= 0.05; MDE uses baseline 0.5, alpha 0.05, power 0.80 and ignores clustering, so the true detectable effect is larger."
   }

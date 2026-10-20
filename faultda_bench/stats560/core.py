@@ -11,6 +11,42 @@ import numpy as np
 Z95 = NormalDist().inv_cdf(0.975)
 _CHUNK = 1000
 
+#: Significant decimal digits kept by :func:`round_floats` in emitted artifacts.
+QUANTIZE_DIGITS = 12
+
+
+def round_floats(value, digits=QUANTIZE_DIGITS):
+    """Recursively round every float to ``digits`` significant decimal digits.
+
+    Reproducibility measure only. A double carries 15-17 significant digits, so
+    dropping to 12 discards the last few bits, where CPython and platform
+    libraries legitimately disagree: CPython 3.12 gave builtin ``sum()``
+    compensated (Neumaier) accumulation, which shifts float sums such as
+    :func:`sign_test_power` by 1-2 ULP relative to 3.11. Quantizing makes the
+    emitted JSON/Markdown byte-identical across versions and platforms; it
+    changes no count, no ordering and no statistical conclusion.
+
+    Significant digits rather than decimal places: the audit reports exact
+    sign-test p-values down to ~1e-29, and rounding those to 12 decimal places
+    would print them as ``0.0``, asserting an exact zero the test never
+    produced. 12 significant digits keeps every p-value and interval bound
+    meaningful while still discarding the unstable low bits.
+
+    Ints, bools, strings and ``None`` pass through unchanged, ``-0.0``
+    normalises to ``0.0``, and dict key order is preserved. Sequences become
+    lists, matching the JSON form the artifacts are written in.
+    """
+    if value is None or isinstance(value, (bool, int, str)):
+        return value
+    if isinstance(value, float):
+        rounded = float(f'{value:.{digits}g}')
+        return 0.0 if rounded == 0.0 else rounded
+    if isinstance(value, dict):
+        return {key: round_floats(item, digits) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [round_floats(item, digits) for item in value]
+    return value
+
 
 def _z(confidence):
     if not 0 < confidence < 1:

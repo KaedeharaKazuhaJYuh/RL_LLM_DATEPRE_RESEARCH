@@ -6,6 +6,7 @@
 
 - **CI 对齐**：`.github/workflows/faultda-current.yml` 改用 Python 3.11（与 `requires-python` 一致），在原 review530 测试后补跑 release535、binding_probe、trajectory_evidence_audit、termination_case_analysis、termination550、termination555、termination555_runtime、stats560 与 release_version 测试，并执行 `scripts.release_version --check`、`termination555.performance_audit` 与 `stats560.audit`，上传四份结果。历史 `tests.yml` 未改（属冻结文件）。
 - **不确定性报告**：新增 `faultda_bench/stats560/`（numpy+标准库）与离线审计 `python -m faultda_bench.stats560.audit --output <path>`。输入经 [`stats560_inputs_v1.json`](../protocols/stats560_inputs_v1.json) 绑定 `acceptance_v46.json` 冻结哈希；各臂计数必须与冻结摘要一致，C5 须与 C4 完整规则逐行相同。方法与边界见[说明](../docs/UNCERTAINTY_0560.md)，完整输出见[摘要](stats560/summary.md)。
+- **跨版本浮点确定性**：`build_summary()` 返回前只在一处调用 `core.round_floats`，把摘要里每个浮点量化到 12 位有效数字（记录在 `settings.float_significant_digits`）。CPython 3.12 把内置 `sum()` 改为补偿求和，`sign_test_power` 相对 3.11 差 1–2 个 ULP（96 个不一致对：`...887876` vs `...887874`），曾使历史 `tests.yml`（Python 3.12）上的「提交摘要 == 新运行」断言失败。选有效数字而非小数位，是因为本审计的精确 p 值最小到 `2.5e-29`，按 12 位小数会被写成 `0.0`。量化只为跨平台逐字节一致，不改变任何计数、排序或统计结论；`summary.md` 逐字节未变。方法见[说明](../docs/UNCERTAINTY_0560.md)。
 - **测试入口**：三个旧测试类在 `setUpClass` 中创建被忽略的 `work/`，干净检出时 `python -m unittest discover -s tests` 不再出现 7 个 `FileNotFoundError`；`python -m pytest` 同样可用（`pip install -e .[test]`）。
 - **英文概览**：[docs/en/FAULTDA_BENCH_OVERVIEW.md](../../docs/en/FAULTDA_BENCH_OVERVIEW.md)，所有数字注明来源文件，并列出 KDD 准备缺口。
 - `VERSION`（5.0.15-beta.2）与 `pyproject.toml` 未改：后者在 660 份冻结文件内，改动会使冻结核验失败，因此未添加项目元数据。
@@ -70,9 +71,11 @@
 | 命令 | 结果 |
 | --- | --- |
 | `python -m pip install -e .` | 成功（系统用户目录只读，改在虚拟环境中安装） |
-| `python -m unittest discover -s tests -v`（运行前删除 `work/`） | 640 项，0 失败，0 错误，2 跳过，47.163 秒；改前基线 625 项，0 失败，7 错误，2 跳过 |
-| `python -m pytest -q` | 638 通过，2 跳过 |
-| `python -m unittest tests.test_faultda_termination555_runtime tests.test_faultda_termination555 tests.test_faultda_stats560 -v` | 32 项通过（其中 stats560 15 项） |
+| `python -m unittest discover -s tests`（运行前删除 `work/`） | 649 项，0 失败，0 错误，2 跳过，45.686 秒；改前基线 625 项，0 失败，7 错误，2 跳过 |
+| `python -m pytest -q` | 647 通过，2 跳过 |
+| `python -m unittest tests.test_faultda_termination555_runtime tests.test_faultda_termination555 tests.test_faultda_stats560 -v` | 41 项通过（其中 stats560 24 项） |
+| **Python 3.12.13 + numpy 2.3.5**（`unittest discover -s tests`） | 649 项，0 失败，0 错误，2 跳过，48.788 秒 |
+| **Python 3.12.13 下的 `stats560.audit --output`** | 与提交摘要 `.json`/`.md` 均逐字节相同（sha256 `8d9d3612…`），证明跨版本一致 |
 | `python -m faultda_bench.termination555.performance_audit`（另加 `--historical`） | `verified_optimized_offline_only`，660 份冻结文件与 11 份优化文件核验；历史重放通过 |
 | `python -m faultda_bench.stats560.audit --output work/stats560.json` | 5 组比较、15 项配对检验（一个 Holm 族）、5 项不可用；输出与提交摘要逐字节相同 |
 | `python -m scripts.release_version --check` | `V5.0.15-beta.2: release metadata consistent` |

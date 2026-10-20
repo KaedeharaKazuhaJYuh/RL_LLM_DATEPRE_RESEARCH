@@ -11,8 +11,9 @@ import re
 from pathlib import Path
 
 from . import VERSION
-from .core import (cluster_bootstrap_ci, holm_bonferroni, mcnemar_exact,
-                   mde_two_proportions, min_discordant_for_significance,
+from .core import (QUANTIZE_DIGITS, cluster_bootstrap_ci, holm_bonferroni,
+                   mcnemar_exact, mde_two_proportions,
+                   min_discordant_for_significance, round_floats,
                    sign_test_power, wilson_interval)
 from ..acceptance.audit import pinned_path
 
@@ -305,6 +306,12 @@ UNAVAILABLE = [
 
 
 def build_summary(root=ROOT, *, n_resamples=10000, seed=560):
+    """Build the audit summary; every emitted float is quantized exactly here.
+
+    ``round_floats`` is applied once, at this boundary, so the committed
+    artifact, any ``--output`` artifact and the tests all observe the same
+    quantized values. See :func:`..core.round_floats` for why.
+    """
     data = verified_inputs(root)
     b = _Builder(n_resamples, seed)
     c1, t1 = _c1(b, data)
@@ -314,12 +321,13 @@ def build_summary(root=ROOT, *, n_resamples=10000, seed=560):
     tests = t1 + t2 + t3 + t4
     for test, adjusted in zip(tests, holm_bonferroni([t['p_value'] for t in tests])):
         test['holm_adjusted_p'] = adjusted
-    return {
+    return round_floats({
         'version': VERSION, 'status': 'descriptive_reanalysis_of_frozen_results',
         'scientific_gate': 'HOLD', 'new_model_executions': 0, 'new_provider_requests': 0,
         'rescored': False, 'inputs': {name: _sha(data[name]) for name in INPUTS},
         'settings': {'confidence': 0.95, 'n_resamples': n_resamples, 'seed': seed,
-                     'bootstrap': 'percentile'},
+                     'bootstrap': 'percentile',
+                     'float_significant_digits': QUANTIZE_DIGITS},
         'comparisons': [c1, c2, c3, c4, c5], 'paired_tests': tests,
         'holm_family_size': len(tests), 'unavailable': UNAVAILABLE,
         'power': {
@@ -329,7 +337,7 @@ def build_summary(root=ROOT, *, n_resamples=10000, seed=560):
                 str(n): mde_two_proportions(n) for n in (12, 72, 144, 384)},
             'note': 'With 12 pairs no split below 6 discordant pairs can reach p <= 0.05; '
                     'MDE uses baseline 0.5, alpha 0.05, power 0.80 and ignores clustering, '
-                    'so the true detectable effect is larger.'}}
+                    'so the true detectable effect is larger.'}})
 
 
 def _fmt(x):

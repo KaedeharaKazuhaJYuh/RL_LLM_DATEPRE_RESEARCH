@@ -1,5 +1,6 @@
 import hashlib
 import json
+import math
 import shutil
 import tempfile
 import unittest
@@ -110,6 +111,84 @@ class StatisticsTests(unittest.TestCase):
             core.cluster_bootstrap_ci([1, 0], ['a'])
 
 
+def _leaves(value):
+    if isinstance(value, dict):
+        for item in value.values():
+            yield from _leaves(item)
+    elif isinstance(value, list):
+        for item in value:
+            yield from _leaves(item)
+    else:
+        yield value
+
+
+class QuantizationTests(unittest.TestCase):
+    """Pin the quantization contract that keeps artifacts byte-identical."""
+
+    def test_rounds_to_documented_precision(self):
+        self.assertEqual(12, core.QUANTIZE_DIGITS)
+        cases = {0.3333333333333333: 0.333333333333,
+                 0.2537815976337061: 0.253781597634,
+                 0.009904714241677028: 0.00990471424168,
+                 1.1920928955078125e-07: 1.19209289551e-07,
+                 7.105427357601002e-15: 7.1054273576e-15,
+                 2.524354896707238e-29: 2.52435489671e-29}
+        for value, want in cases.items():
+            self.assertEqual(want, core.round_floats(value))
+        for exact in (0.0, 0.5, 1.0, 0.03125, 0.95, -0.166666666667):
+            self.assertEqual(exact, core.round_floats(exact))
+
+    def test_keeps_small_p_values_meaningful(self):
+        # Rounding to 12 decimal places would emit these exact-test p-values as
+        # 0.0; 12 significant digits keeps them non-zero.
+        for tiny in (7.105427357601002e-15, 2.524354896707238e-29,
+                     4.235164736271502e-22):
+            self.assertNotEqual(0.0, core.round_floats(tiny))
+            self.assertAlmostEqual(1.0, core.round_floats(tiny) / tiny, places=11)
+
+    def test_is_idempotent(self):
+        for value in (0.3333333333333333, 0.9999916596887876, 7.105427357601002e-15,
+                      0.009904714241677028, 1 / 7, math.pi, -math.e):
+            once = core.round_floats(value)
+            self.assertEqual(once, core.round_floats(once))
+        nested = {'a': [0.1 + 0.2, {'b': 1 / 3}], 'c': (2 / 3, 1e-20)}
+        once = core.round_floats(nested)
+        self.assertEqual(once, core.round_floats(once))
+
+    def test_absorbs_cross_version_ulp_drift(self):
+        # sign_test_power uses builtin sum(); CPython 3.12 made that compensated,
+        # so 3.11 and 3.12 disagree in the last bits. Quantization erases it.
+        for low, high in ((0.9999916596887874, 0.9999916596887876),
+                          (0.9906814118010133, 0.9906814118010135),
+                          (0.999999997457585, 0.9999999974575852)):
+            self.assertNotEqual(low, high)
+            self.assertEqual(core.round_floats(low), core.round_floats(high))
+
+    def test_normalises_negative_zero(self):
+        for value in (-0.0, -1.0 * 0.0, 0.0 / -3.0):
+            self.assertEqual(-1.0, math.copysign(1.0, value))
+            result = core.round_floats(value)
+            self.assertEqual(0.0, result)
+            self.assertEqual(1.0, math.copysign(1.0, result))
+        nested = core.round_floats({'a': [-0.0, 0.0]})
+        self.assertEqual([1.0, 1.0], [math.copysign(1.0, v) for v in nested['a']])
+        # a genuinely tiny negative is not a zero and keeps its sign
+        self.assertEqual(-1e-300, core.round_floats(-1e-300))
+
+    def test_leaves_non_floats_untouched(self):
+        for value in (0, 1, -5, 10 ** 30, True, False, None, '', '0.1234567890123'):
+            self.assertIs(value, core.round_floats(value))
+
+    def test_keeps_key_order_and_structure(self):
+        source = {'b': 1 / 3, 'a': {'n': 12, 'ok': True, 'x': None}, 'c': [1 / 7, 'v']}
+        result = core.round_floats(source)
+        self.assertEqual(['b', 'a', 'c'], list(result))
+        self.assertEqual(['n', 'ok', 'x'], list(result['a']))
+        self.assertEqual({'n': 12, 'ok': True, 'x': None}, result['a'])
+        self.assertEqual([0.142857142857, 'v'], result['c'])
+        self.assertEqual(1 / 3, source['b'])
+
+
 class Stats560AuditTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -198,6 +277,32 @@ class Stats560AuditTests(unittest.TestCase):
             self.assertEqual(existed, target.exists())
             self.assertFalse(target.with_suffix('.md').exists())
         self.assertEqual(before, self._frozen_hashes())
+
+    def test_no_unquantized_float_reaches_the_summary(self):
+        floats = [v for v in _leaves(self.summary) if isinstance(v, float)]
+        self.assertGreater(len(floats), 100)
+        for value in floats:
+            self.assertEqual(value, core.round_floats(value))
+        self.assertEqual([], [v for v in floats
+                              if v == 0.0 and math.copysign(1.0, v) < 0])
+        self.assertEqual(self.summary, core.round_floats(self.summary))
+        self.assertEqual(core.QUANTIZE_DIGITS,
+                         self.summary['settings']['float_significant_digits'])
+
+    def test_summary_floats_survive_ulp_perturbation(self):
+        # Proof that the emitted artifact cannot move by last-bit differences:
+        # nudging any non-zero value by up to 3 ULP quantizes back to itself.
+        # Exact zeros come from integer counts and are bit-exact everywhere.
+        checked = 0
+        for value in {v for v in _leaves(self.summary) if isinstance(v, float) and v}:
+            for direction in (math.inf, -math.inf):
+                nudged = value
+                for _ in range(3):
+                    nudged = math.nextafter(nudged, direction)
+                    self.assertNotEqual(value, nudged)
+                    self.assertEqual(value, core.round_floats(nudged))
+                    checked += 1
+        self.assertGreater(checked, 300)
 
     def test_committed_summary_matches_fresh_run(self):
         if not COMMITTED.exists():
