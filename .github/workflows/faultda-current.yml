@@ -12,11 +12,9 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install numpy==2.3.5
       - run: mkdir -p work
-      - run: python -m unittest tests.test_faultda_semantics305 tests.test_faultda_semantics305_acceptance tests.test_faultda_consistency310 tests.test_faultda_feedback315 tests.test_faultda_feedback315_acceptance tests.test_faultda_handoff320 tests.test_faultda_handoff320_acceptance tests.test_faultda_recover325 tests.test_faultda_recover325_acceptance tests.test_faultda_qualify330 tests.test_faultda_qualify330_acceptance tests.test_faultda_runtime335 tests.test_faultda_runtime335_acceptance tests.test_faultda_live350 tests.test_faultda_live350_acceptance tests.test_faultda_state355 tests.test_faultda_state355_acceptance tests.test_faultda_stop360 tests.test_faultda_stop360_acceptance tests.test_faultda_goal365 tests.test_faultda_goal365_acceptance tests.test_faultda_responsibility370 tests.test_faultda_responsibility370_acceptance tests.test_faultda_lineage375 tests.test_faultda_lineage375_acceptance tests.test_faultda_receipt380 tests.test_faultda_receipt380_acceptance tests.test_faultda_postreceipt385 tests.test_faultda_postreceipt385_review tests.test_faultda_postreceipt385_acceptance tests.test_faultda_probes390 tests.test_faultda_probes390_review tests.test_faultda_probes390_acceptance tests.test_faultda_coherent395 tests.test_faultda_coherent395_pilot tests.test_faultda_coherent395_review tests.test_faultda_coherent395_acceptance tests.test_faultda_validity500 tests.test_faultda_validity500_review tests.test_faultda_validity500_acceptance tests.test_faultda_review505 tests.test_faultda_review505_bundle tests.test_faultda_review510 tests.test_faultda_review515_intake tests.test_faultda_review515_lineage tests.test_faultda_review515_panel tests.test_faultda_review520_registration tests.test_faultda_review520_actor tests.test_faultda_review525 tests.test_faultda_review530 tests.test_faultda_release535 tests.test_binding_probe tests.test_trajectory_evidence_audit tests.test_termination_case_analysis tests.test_faultda_termination550 tests.test_faultda_termination555 tests.test_faultda_termination555_runtime tests.test_faultda_stats560 tests.test_release_version -v
-      - run: python -m faultda_bench.review530.audit --output work/faultda_current_acceptance.json
-      - run: python -m scripts.release_version --check
-      - run: python -m faultda_bench.termination555.performance_audit --output work/faultda_termination555_acceptance.json
-      - run: python -m faultda_bench.stats560.audit --output work/stats560.json
+      - run: python -m faultda_bench.current_evidence --list
+      - run: python -m faultda_bench.current_evidence --run-tests --verbose
+      - run: python -m faultda_bench.current_evidence --run-audits
       - uses: actions/upload-artifact@v4
         with:
           name: faultda-current-evidence-acceptance

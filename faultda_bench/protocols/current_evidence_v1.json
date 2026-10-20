@@ -1,0 +1,244 @@
+{
+  "registry": "current_evidence",
+  "schema": 1,
+  "version": "0.5.60-dev",
+  "scientific_gate": "HOLD",
+  "purpose": "Single source of truth for the FaultDA current-evidence acceptance job. .github/workflows/faultda-current.yml must invoke `python -m faultda_bench.current_evidence` and must not inline any tests.test_faultda_ module list.",
+  "python_version": "3.11",
+  "discovery": {
+    "root": "tests",
+    "glob": "test_faultda_*.py",
+    "policy": "Every file matching glob under root appears exactly once in test_modules or in excluded. A file in neither fails tests/test_faultda_current_evidence.py::RegistryCompletenessTests."
+  },
+  "test_modules": [
+    "tests.test_faultda_semantics305",
+    "tests.test_faultda_semantics305_acceptance",
+    "tests.test_faultda_consistency310",
+    "tests.test_faultda_feedback315",
+    "tests.test_faultda_feedback315_acceptance",
+    "tests.test_faultda_handoff320",
+    "tests.test_faultda_handoff320_acceptance",
+    "tests.test_faultda_recover325",
+    "tests.test_faultda_recover325_acceptance",
+    "tests.test_faultda_qualify330",
+    "tests.test_faultda_qualify330_acceptance",
+    "tests.test_faultda_runtime335",
+    "tests.test_faultda_runtime335_acceptance",
+    "tests.test_faultda_live350",
+    "tests.test_faultda_live350_acceptance",
+    "tests.test_faultda_state355",
+    "tests.test_faultda_state355_acceptance",
+    "tests.test_faultda_stop360",
+    "tests.test_faultda_stop360_acceptance",
+    "tests.test_faultda_goal365",
+    "tests.test_faultda_goal365_acceptance",
+    "tests.test_faultda_responsibility370",
+    "tests.test_faultda_responsibility370_acceptance",
+    "tests.test_faultda_lineage375",
+    "tests.test_faultda_lineage375_acceptance",
+    "tests.test_faultda_receipt380",
+    "tests.test_faultda_receipt380_acceptance",
+    "tests.test_faultda_postreceipt385",
+    "tests.test_faultda_postreceipt385_review",
+    "tests.test_faultda_postreceipt385_acceptance",
+    "tests.test_faultda_probes390",
+    "tests.test_faultda_probes390_review",
+    "tests.test_faultda_probes390_acceptance",
+    "tests.test_faultda_coherent395",
+    "tests.test_faultda_coherent395_pilot",
+    "tests.test_faultda_coherent395_review",
+    "tests.test_faultda_coherent395_acceptance",
+    "tests.test_faultda_validity500",
+    "tests.test_faultda_validity500_review",
+    "tests.test_faultda_validity500_acceptance",
+    "tests.test_faultda_review505",
+    "tests.test_faultda_review505_bundle",
+    "tests.test_faultda_review510",
+    "tests.test_faultda_review515_intake",
+    "tests.test_faultda_review515_lineage",
+    "tests.test_faultda_review515_panel",
+    "tests.test_faultda_review520_registration",
+    "tests.test_faultda_review520_actor",
+    "tests.test_faultda_review525",
+    "tests.test_faultda_review530",
+    "tests.test_faultda_release535",
+    "tests.test_binding_probe",
+    "tests.test_trajectory_evidence_audit",
+    "tests.test_termination_case_analysis",
+    "tests.test_faultda_termination550",
+    "tests.test_faultda_termination555",
+    "tests.test_faultda_termination555_runtime",
+    "tests.test_faultda_stats560",
+    "tests.test_faultda_current_evidence",
+    "tests.test_release_version"
+  ],
+  "excluded": [
+    {
+      "module": "tests.test_faultda_acceptance",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_allocation",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_boundary",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_clarity",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_decision",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_evidence",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_followup",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_formatdiag",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_intervention",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_multistep",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_p0",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_pilot",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_publication",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_regression_chain",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_regression_suite",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_release030",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_rowdiag",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_rowdiag_isolated",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_semantic",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_stopping",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_surface",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    },
+    {
+      "module": "tests.test_faultda_trust",
+      "category": "pre_0_3_05_historical",
+      "reason": "Pre-0.3.05 historical FaultDA evidence. Verified on every run by the frozen `V5 verification` workflow (`python -m unittest discover -s tests` plus `python -m faultda_bench.release030.audit`, which pins acceptance_v19.json). Not part of the current-version evidence entry point."
+    }
+  ],
+  "excluded_policy": "An entry may only be excluded when another, frozen CI job already verifies it every run. category must be one of the declared values and reason must name the job that covers it.",
+  "excluded_categories": [
+    "pre_0_3_05_historical"
+  ],
+  "audits": [
+    {
+      "id": "review530_current_acceptance",
+      "module": "faultda_bench.review530.audit",
+      "args": [
+        "--output",
+        "work/faultda_current_acceptance.json"
+      ],
+      "outputs": [
+        "work/faultda_current_acceptance.json"
+      ]
+    },
+    {
+      "id": "release_version_check",
+      "module": "scripts.release_version",
+      "args": [
+        "--check"
+      ],
+      "outputs": []
+    },
+    {
+      "id": "termination555_performance",
+      "module": "faultda_bench.termination555.performance_audit",
+      "args": [
+        "--output",
+        "work/faultda_termination555_acceptance.json"
+      ],
+      "outputs": [
+        "work/faultda_termination555_acceptance.json"
+      ]
+    },
+    {
+      "id": "stats560_uncertainty",
+      "module": "faultda_bench.stats560.audit",
+      "args": [
+        "--output",
+        "work/stats560.json"
+      ],
+      "outputs": [
+        "work/stats560.json",
+        "work/stats560.md"
+      ]
+    }
+  ],
+  "artifact": {
+    "name": "faultda-current-evidence-acceptance",
+    "paths": [
+      "work/faultda_current_acceptance.json",
+      "work/faultda_termination555_acceptance.json",
+      "work/stats560.json",
+      "work/stats560.md"
+    ]
+  }
+}
