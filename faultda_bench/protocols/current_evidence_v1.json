@@ -70,6 +70,7 @@
     "tests.test_faultda_termination555_runtime",
     "tests.test_faultda_stats560",
     "tests.test_faultda_current_evidence",
+    "tests.test_faultda_release560",
     "tests.test_release_version"
   ],
   "excluded": [
@@ -230,6 +231,17 @@
         "work/stats560.json",
         "work/stats560.md"
       ]
+    },
+    {
+      "id": "release560_freeze_v47",
+      "module": "faultda_bench.release560.audit",
+      "args": [
+        "--output",
+        "work/faultda_release560_acceptance.json"
+      ],
+      "outputs": [
+        "work/faultda_release560_acceptance.json"
+      ]
     }
   ],
   "artifact": {
@@ -238,7 +250,8 @@
       "work/faultda_current_acceptance.json",
       "work/faultda_termination555_acceptance.json",
       "work/stats560.json",
-      "work/stats560.md"
+      "work/stats560.md",
+      "work/faultda_release560_acceptance.json"
     ]
   }
 }

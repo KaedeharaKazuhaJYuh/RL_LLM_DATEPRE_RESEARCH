@@ -12,10 +12,10 @@ WORKFLOW = ROOT / '.github/workflows/faultda-current.yml'
 FROZEN_WORKFLOW = ROOT / '.github/workflows/tests.yml'
 
 # Pinned so that adding a module to the registry is a deliberate edit. Phase B
-# of 0.5.60 registers tests.test_faultda_release560 and raises this to 61.
-EXPECTED_TEST_MODULES = 60
+# of 0.5.60 registered tests.test_faultda_release560 and the v47 freeze audit.
+EXPECTED_TEST_MODULES = 61
 EXPECTED_EXCLUDED = 22
-EXPECTED_AUDITS = 4
+EXPECTED_AUDITS = 5
 
 
 class RegistryLoadTests(unittest.TestCase):
@@ -55,10 +55,12 @@ class RegistryLoadTests(unittest.TestCase):
         self.assertEqual('faultda-current-evidence-acceptance', described['artifact_name'])
         self.assertEqual(['work/faultda_current_acceptance.json',
                           'work/faultda_termination555_acceptance.json',
-                          'work/stats560.json', 'work/stats560.md'],
+                          'work/stats560.json', 'work/stats560.md',
+                          'work/faultda_release560_acceptance.json'],
                          described['artifact_paths'])
         self.assertEqual(['review530_current_acceptance', 'release_version_check',
-                          'termination555_performance', 'stats560_uncertainty'],
+                          'termination555_performance', 'stats560_uncertainty',
+                          'release560_freeze_v47'],
                          [a['id'] for a in described['audits']])
         self.assertIn('tests.test_faultda_current_evidence', described['test_modules'])
         self.assertEqual('tests.test_release_version', described['test_modules'][-1])
