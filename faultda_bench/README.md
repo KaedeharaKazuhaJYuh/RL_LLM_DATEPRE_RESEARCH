@@ -1,13 +1,15 @@
 # FaultDA-Bench 组件索引
 
-当前开发版本为 **0.5.55-dev**。144个旧输入新增案例、信息条件、完整请求和评分真值注册；不认证环境身份或供应商实际输入，无新模型、HOLD、API0，新独立人审尚未安排。
+当前开发版本为 **0.5.55-dev**，版本内性能修订1。批次快照减少重复I/O和解析，本机批处理约7.10倍提速，能耗未测；144个旧输入新增案例、信息条件、完整请求和评分真值注册；不认证环境身份或供应商实际输入，无新模型、HOLD、API0，新独立人审尚未安排。
 
-[当前报告](reports/RELEASE_0555.md) · [仓库首页](../README.md) · [复现指南](../docs/REPRODUCIBILITY.md) · [历史汇总](../docs/PROJECT_HISTORY.md)
+[版本内性能报告](reports/PERFORMANCE_0555.md) · [原版本报告](reports/RELEASE_0555.md) · [仓库首页](../README.md) · [复现指南](../docs/REPRODUCIBILITY.md) · [历史汇总](../docs/PROJECT_HISTORY.md)
 
 ## 实现分层
 
 | 组件 | 职责 |
 | --- | --- |
+| [runtime.py](termination555/runtime.py) | 显式快照批次、独立输入副本、同评分缓存及批末释放 |
+| [performance_audit.py](termination555/performance_audit.py) | 版本内优化核验、同结果重放和测量边界 |
 | [termination555/](termination555/) | 案例与信息条件、完整请求正文及原始评分真值绑定 |
 | [termination550/](termination550/) | 显式时限、公开数值辅助与终止程序负对照 |
 | [release535/](release535/) | 本轮累计冻结与三个研究分析输出的离线重算 |

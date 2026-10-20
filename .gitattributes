@@ -102,3 +102,7 @@ faultda_bench/reports/RELEASE_0550.md text eol=lf
 # 0.5.55 registered diagnostic evidence.
 faultda_bench/docs/TERMINATION_0555_BINDING.md text eol=lf
 faultda_bench/reports/RELEASE_0555.md text eol=lf
+
+# 0.5.55 within-version performance evidence.
+faultda_bench/docs/ARCHITECTURE_ENERGY_0555.md text eol=lf
+faultda_bench/reports/PERFORMANCE_0555.md text eol=lf

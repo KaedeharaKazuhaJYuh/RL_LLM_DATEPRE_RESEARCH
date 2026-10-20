@@ -1,0 +1,156 @@
+{
+  "version": "0.5.55-dev",
+  "revision": "within-version-performance-1",
+  "operation": "BatchSnapshot.load + qualify + close; includes complete base integrity validation",
+  "profiled_seconds": 1.7128358,
+  "total_calls": 3978075,
+  "primitive_calls": 3363247,
+  "top_cumulative_functions": [
+    {
+      "file": "runtime.py",
+      "line": 80,
+      "function": "load",
+      "primitive_calls": 1,
+      "calls": 1,
+      "own_seconds": 0.0032417,
+      "cumulative_seconds": 1.4001701000000002
+    },
+    {
+      "file": "copy.py",
+      "line": 118,
+      "function": "deepcopy",
+      "primitive_calls": 17570,
+      "calls": 556644,
+      "own_seconds": 0.3524293,
+      "cumulative_seconds": 0.7338795
+    },
+    {
+      "file": "copy.py",
+      "line": 217,
+      "function": "_deepcopy_dict",
+      "primitive_calls": 11522,
+      "calls": 79780,
+      "own_seconds": 0.12081410000000001,
+      "cumulative_seconds": 0.7067086
+    },
+    {
+      "file": "runtime.py",
+      "line": 38,
+      "function": "_verified_bytes",
+      "primitive_calls": 1,
+      "calls": 1,
+      "own_seconds": 0.0117794,
+      "cumulative_seconds": 0.6150682000000001
+    },
+    {
+      "file": "design.py",
+      "line": 37,
+      "function": "packet",
+      "primitive_calls": 722,
+      "calls": 722,
+      "own_seconds": 0.0039622,
+      "cumulative_seconds": 0.5169195000000001
+    },
+    {
+      "file": "design.py",
+      "line": 82,
+      "function": "grade",
+      "primitive_calls": 288,
+      "calls": 288,
+      "own_seconds": 0.0023167,
+      "cumulative_seconds": 0.5155283
+    },
+    {
+      "file": "copy.py",
+      "line": 191,
+      "function": "_deepcopy_list",
+      "primitive_calls": 14262,
+      "calls": 17872,
+      "own_seconds": 0.014589800000000002,
+      "cumulative_seconds": 0.4747578
+    },
+    {
+      "file": "semantics.py",
+      "line": 7,
+      "function": "public_evidence",
+      "primitive_calls": 432,
+      "calls": 432,
+      "own_seconds": 0.036291500000000004,
+      "cumulative_seconds": 0.4514418
+    },
+    {
+      "file": "design.py",
+      "line": 56,
+      "function": "validate",
+      "primitive_calls": 578,
+      "calls": 578,
+      "own_seconds": 0.0052991,
+      "cumulative_seconds": 0.4178616
+    },
+    {
+      "file": "runtime.py",
+      "line": 175,
+      "function": "qualify",
+      "primitive_calls": 1,
+      "calls": 1,
+      "own_seconds": 0.0013286,
+      "cumulative_seconds": 0.3117219
+    },
+    {
+      "file": "runtime.py",
+      "line": 50,
+      "function": "<lambda>",
+      "primitive_calls": 1335,
+      "calls": 1335,
+      "own_seconds": 0.0007335,
+      "cumulative_seconds": 0.29945140000000003
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'read' of '_io.BufferedReader' objects>",
+      "primitive_calls": 1336,
+      "calls": 1336,
+      "own_seconds": 0.2987749,
+      "cumulative_seconds": 0.2987749
+    },
+    {
+      "file": "audit.py",
+      "line": 24,
+      "function": "pinned_path",
+      "primitive_calls": 661,
+      "calls": 661,
+      "own_seconds": 0.0037254000000000002,
+      "cumulative_seconds": 0.25448010000000004
+    },
+    {
+      "file": "design.py",
+      "line": 76,
+      "function": "rule",
+      "primitive_calls": 144,
+      "calls": 144,
+      "own_seconds": 0.0008188000000000001,
+      "cumulative_seconds": 0.25280440000000004
+    },
+    {
+      "file": "pathlib.py",
+      "line": 1228,
+      "function": "resolve",
+      "primitive_calls": 1322,
+      "calls": 1322,
+      "own_seconds": 0.0022487,
+      "cumulative_seconds": 0.2063403
+    },
+    {
+      "file": "<frozen ntpath>",
+      "line": 664,
+      "function": "realpath",
+      "primitive_calls": 1322,
+      "calls": 1322,
+      "own_seconds": 0.0048702,
+      "cumulative_seconds": 0.15311360000000002
+    }
+  ],
+  "note": "Instrumented profile for next-step architecture decisions, not the paired benchmark timing",
+  "new_provider_requests": 0
+}

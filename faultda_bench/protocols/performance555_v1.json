@@ -1,0 +1,25 @@
+{
+  "version": "0.5.55-dev",
+  "revision": "within-version-performance-1",
+  "baseline_commit": "cd8311ebbb5f89f70f17d4a2bfbbea1ad42c3ae1",
+  "base_catalog": "faultda_bench/protocols/acceptance_v46.json",
+  "base_catalog_sha256": "e592b097f2d07a02b66fe9e2551e84d23b5f14b3461bc1dd736b9db1a3b6dcda",
+  "scientific_gate": "HOLD",
+  "new_provider_requests": 0,
+  "independent_review": "not_arranged",
+  "energy_improvement_percent": null,
+  "optimization_files": {
+    "faultda_bench/termination555/runtime.py": "2b4f0633a54d80e25d70bd1ec3b71e4518aa286f984b84d9e78a3e4df883bc16",
+    "faultda_bench/termination555/benchmark.py": "e910f10d7b428952d190890d57fb14cb3bbb7e128f7927308ee1e7c772d9c72a",
+    "faultda_bench/termination555/performance_audit.py": "fcc124bd367631251a770d0efc14930b3f8cf3480a1c83481dee2d380259f8f2",
+    "tests/test_faultda_termination555_runtime.py": "cff922aaebca7c5aba7cf5974e40699eb22f7ab09f6782bd2ce0994f3a6a58a1",
+    "faultda_bench/docs/ARCHITECTURE_ENERGY_0555.md": "717d7489b795776752a8dca06890922b4f84fb8c15e178e52b56c30d04123ff2",
+    "faultda_bench/reports/PERFORMANCE_0555.md": "0676a9f0787d2ac817f4e4175bda1114ad44a00940c77058c344ba6e3065d038",
+    "faultda_bench/reports/termination555_performance/paired_benchmark.json": "17099d59d843b6a4cb6a8f315b400e7011dc0fd32d14dbaf756f309801e8ab33",
+    "faultda_bench/reports/termination555_performance/baseline_profile.json": "3334c8789fe301fe40c553e339a12e1c340d1811b32ab9edb2bd1b1b296f7710",
+    "faultda_bench/reports/termination555_performance/optimized_profile.json": "1116a54fbebcf80176e39ace294fca43e00640641511f49113af777798f7da65",
+    "faultda_bench/reports/termination555_performance/energy_probe.json": "2a8ebac5a1533e7897b2d64193ebc964abf048808f617320805e164aa28f868f",
+    "faultda_bench/reports/termination555_performance/validation.json": "450287f63eb1a4355453d5d02e18ed0e86a7fcdf55e166df5b9e493322d69d37"
+  },
+  "scope": "Within-version engine optimization; preserves original 660-file freeze; no model or energy capability claim"
+}

@@ -4,10 +4,10 @@
 
 FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误、检查证据需要成本时，Agent 能否获取必要信息，完成正确修复，并避免重复副作用。当前是可运行的开发基准，尚未完成独立最终测试。
 
-当前基准版本：`0.5.55-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
+当前基准版本：`0.5.55-dev`（版本内性能修订1） · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
-[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/RELEASE_0555.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
+[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [版本报告](faultda_bench/reports/RELEASE_0555.md) · [版本内性能优化](faultda_bench/reports/PERFORMANCE_0555.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
 
 ## 研究问题
 
@@ -30,6 +30,7 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 
 | 范围 | 已有结果 | 解释边界 |
 | --- | --- | --- |
+| 注册/评分批处理优化 | 本机144案例、3组成对测量：6.372秒→0.898秒，输入与评分一致 | 不改变模型能力；CPU/整机能耗未测，不能报告节电比例 |
 | 显式单步终止诊断 | 72 个旧观察 × 两种信息条件；完整规则及总停/总升级程序负对照 | 只有一个已见开发簇；未运行新模型，不是完整恢复成绩 |
 | 自洽工具环境 | 24 个程序状态、72 条读取/终止对照，保留时区等价与隐藏历史对照 | 同一历史任务/数据簇；程序动作不是 LLM 工具成绩 |
 | 真实回执事实诊断 | 24 次真实请求；旧 lookup 主分数 0/12 与 6/12，模糊句按 last-publish 备选参照可匹配 12/12 | 12 对既有意见已据用户转达审阅者同意正式登记；歧义与异议保留，旧分数不变 |
@@ -45,11 +46,11 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 
 ```sh
 python -m pip install -e .
-python -m unittest tests.test_faultda_termination555 -v
-python -m faultda_bench.termination555.audit
+python -m unittest tests.test_faultda_termination555_runtime tests.test_faultda_termination555 -v
+python -m faultda_bench.termination555.performance_audit
 ```
 
-统一入口核对累计冻结字节并重放案例、信息条件、请求正文与评分绑定；加上 `--historical` 可重放旧历史语义验收。保持科学 HOLD。完整仓库测试与复核包子集分别计数；复核包可直接按[包内入口](faultda_bench/docs/FOCUSED_0530_REVIEW.md)运行。哈希只校验一致性，不认证供应商或历史真实性。旧版入口保留在[复现指南](docs/REPRODUCIBILITY.md)，新输出不得覆盖冻结记录。
+优化入口核对660份冻结文件与新增优化清单，在显式批次中重放相同案例、请求与评分；原慢速入口保留为参考；加上 `--historical` 可重放旧历史语义验收。保持科学 HOLD。完整仓库测试与复核包子集分别计数；复核包可直接按[包内入口](faultda_bench/docs/FOCUSED_0530_REVIEW.md)运行。哈希只校验一致性，不认证供应商或历史真实性。旧版入口保留在[复现指南](docs/REPRODUCIBILITY.md)，新输出不得覆盖冻结记录。
 
 ## 项目演进
 
