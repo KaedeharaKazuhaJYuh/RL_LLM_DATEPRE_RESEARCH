@@ -1,0 +1,15 @@
+{
+  "version": "0.5.55-dev",
+  "status": "verified_registered_offline_only",
+  "frozen_files": 658,
+  "historical_version_verified": "0.5.50-dev",
+  "historical_semantic_audit_replayed": true,
+  "registered_packets": 144,
+  "case_identity_authenticated": false,
+  "provider_or_runtime_input_attested": false,
+  "new_provider_requests": 0,
+  "new_model_executions": 0,
+  "scientific_gate": "HOLD",
+  "independent_review": "not_arranged",
+  "design_admitted": false
+}

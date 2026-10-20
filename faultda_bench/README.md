@@ -1,13 +1,14 @@
 # FaultDA-Bench 组件索引
 
-当前开发版本为 **0.5.50-dev**。实现显式单步终止诊断：72个旧观察、两种信息条件及程序负对照，模型实跑为零。单步诊断不是完整恢复，独立接口/科学复审尚未安排，HOLD、API 0。
+当前开发版本为 **0.5.55-dev**。144个旧输入新增案例、信息条件、完整请求和评分真值注册；不认证环境身份或供应商实际输入，无新模型、HOLD、API0，新独立人审尚未安排。
 
-[当前报告](reports/RELEASE_0550.md) · [仓库首页](../README.md) · [复现指南](../docs/REPRODUCIBILITY.md) · [历史汇总](../docs/PROJECT_HISTORY.md)
+[当前报告](reports/RELEASE_0555.md) · [仓库首页](../README.md) · [复现指南](../docs/REPRODUCIBILITY.md) · [历史汇总](../docs/PROJECT_HISTORY.md)
 
 ## 实现分层
 
 | 组件 | 职责 |
 | --- | --- |
+| [termination555/](termination555/) | 案例与信息条件、完整请求正文及原始评分真值绑定 |
 | [termination550/](termination550/) | 显式时限、公开数值辅助与终止程序负对照 |
 | [release535/](release535/) | 本轮累计冻结与三个研究分析输出的离线重算 |
 | [review530/](review530/) | 严格臂字段、实际输入包与辅助源绑定、聚焦人审交接 |
