@@ -10,8 +10,8 @@ from faultda_bench.stats560.core import round_floats
 
 ROOT = audit.ROOT
 COMMITTED = ROOT / audit.MANIFEST
-EXPECTED_FILES = 691
-EXPECTED_ADDITIONS = 31
+EXPECTED_FILES = 690
+EXPECTED_ADDITIONS = 30
 EXPECTED_BASE_FILES = 660
 
 
@@ -133,7 +133,8 @@ class Release560Tests(unittest.TestCase):
         for name in ('README.md', 'faultda_bench/README.md', 'CHANGELOG.md',
                      'docs/PROJECT_HISTORY.md', 'docs/REPRODUCIBILITY.md', 'VERSION',
                      '.github/workflows/faultda-current.yml',
-                     'faultda_bench/protocols/current_evidence_v1.json'):
+                     'faultda_bench/protocols/current_evidence_v1.json',
+                     'tests/test_faultda_current_evidence.py'):
             with self.subTest(name=name):
                 self.assertIn(name, excluded)
         for name in ('.github/workflows/tests.yml', 'pyproject.toml'):

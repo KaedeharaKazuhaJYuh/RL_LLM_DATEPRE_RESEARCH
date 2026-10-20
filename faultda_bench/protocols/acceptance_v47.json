@@ -9,8 +9,8 @@
   "base_catalog_files": 660,
   "performance_catalog": "faultda_bench/protocols/performance555_v1.json",
   "freeze_rule": {
-    "included": "A file is frozen when it is finished evidence of a shipped version, or the code/test that produces or verifies that evidence. Concretely: everything already frozen in v46; the 0.5.55 within-version performance manifest and its optimization files; the 0.5.60 stats560 module, input manifest, committed summary artifacts, release report, validation JSON and uncertainty doc, with their test file; and the 0.5.60 version-integrity runner, v47 audit, their test files and the freeze report.",
-    "excluded": "A file is NOT frozen when it records the project's current state rather than a fixed version's evidence, and therefore changes by design on every release. Freezing such a file would make the next release fail this audit.",
+    "included": "A file is frozen when it is finished evidence of a shipped version, or the code/test that produces or verifies that evidence. Concretely: everything already frozen in v46; the 0.5.55 within-version performance manifest and its optimization files; the 0.5.60 stats560 module, input manifest, committed summary artifacts, release report, validation JSON and uncertainty doc, with their test file; and the 0.5.60 version-integrity runner, v47 audit, the v47 audit's test file and the freeze report.",
+    "excluded": "A file is NOT frozen when it records the project's current state rather than a fixed version's evidence, and therefore changes by design on every release. Freezing such a file would make the next release fail this audit. A test that asserts the current contents of a living file is itself current state: it has to be edited whenever the file it guards legitimately changes.",
     "rationale": "The freeze exists to prove that evidence did not move after it was reviewed. A living document carries no evidence and must stay editable; an acceptance manifest that hashed one would convert every future release into a self-inflicted audit failure.",
     "self_reference": "A manifest never hashes itself; acceptance_v47.json is absent from files, following v6..v46."
   },
@@ -24,6 +24,7 @@
     ".gitattributes": "Living config: gains a `text eol=lf` line for every new Markdown artifact.",
     ".github/workflows/faultda-current.yml": "Living CI config for the CURRENT version; must stay editable so a new version can add an audit step.",
     "faultda_bench/protocols/current_evidence_v1.json": "Living registry: the single source of truth for the current-evidence job, which must gain test modules and audits every release. Integrity is enforced by tests/test_faultda_current_evidence.py, not by a hash.",
+    "tests/test_faultda_current_evidence.py": "Living guard: it pins the current contents of the living registry (module, exclusion and audit counts, the audit ids and the uploaded artifact paths), so registering the next release's tests must edit it. Freezing it would reintroduce, one level up, the self-inflicted audit failure the registry itself is excluded to avoid.",
     "docs/en/FAULTDA_BENCH_OVERVIEW.md": "Living document: English mirror of README.md; refreshed whenever README is. It carries no evidence — the figures it cites live in the frozen stats560 summary artifacts.",
     "faultda_bench/protocols/acceptance_v47.json": "A manifest cannot hash itself; v48 will freeze it, exactly as v46 froze v45."
   },
@@ -715,9 +716,8 @@
     "faultda_bench/current_evidence/runner.py": "d5086356e1b699dc36a1a49674d3350ea1e0c6aa9bcc7d08825b41cee5427405",
     "faultda_bench/current_evidence/__main__.py": "74fff10eb2bd330c92909b27a5a9ae84f41b3f268a5c04f51f849276919f19c6",
     "faultda_bench/release560/__init__.py": "b7e03631537a7109299cda385c07f27aeceefc17ac8341a22e0b825764366546",
-    "faultda_bench/release560/audit.py": "52a106ea120fc69426516303319802fdaa75f03f06de13566a1822e1274c84bc",
-    "tests/test_faultda_current_evidence.py": "cf795cbf86ce615469626297f37662e1c603831c2f570cb49be146a2cd2ce861",
-    "tests/test_faultda_release560.py": "64e7667dd235fc026398334be4710885b4378e6352ac5342096182983000249d",
-    "faultda_bench/reports/RELEASE_0560_FREEZE.md": "1495c01869eb0803c8c9d4990ba714d4cab2613a54671424fc5fad0177288c3d"
+    "faultda_bench/release560/audit.py": "35fb710acf21b16928269026e0fa5abeb016c824a579dd1ef2697ca198fdbb1b",
+    "tests/test_faultda_release560.py": "a54c5d91e97db0fd8f0018a7dff5407b2e08d8fc97e960d81d185426dad64f48",
+    "faultda_bench/reports/RELEASE_0560_FREEZE.md": "e30a64df7ab80c2d47f1942df0a0774b4b2b8382d13aee271c716f35fa5bad08"
   }
 }

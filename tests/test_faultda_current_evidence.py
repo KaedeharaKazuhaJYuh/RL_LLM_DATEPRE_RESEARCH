@@ -13,6 +13,9 @@ FROZEN_WORKFLOW = ROOT / '.github/workflows/tests.yml'
 
 # Pinned so that adding a module to the registry is a deliberate edit. Phase B
 # of 0.5.60 registered tests.test_faultda_release560 and the v47 freeze audit.
+# These pins track the living registry, which gains entries every release, so
+# acceptance_v47 deliberately does not freeze this module: a hash here would
+# make registering the next release's tests fail the freeze audit.
 EXPECTED_TEST_MODULES = 61
 EXPECTED_EXCLUDED = 22
 EXPECTED_AUDITS = 5
@@ -183,12 +186,17 @@ class WorkflowGuardTests(unittest.TestCase):
     def test_workflow_uploads_exactly_the_registered_artifact(self):
         self.assertIn('name: ' + self.registry['artifact']['name'], self.text)
         lines = self.text.splitlines()
-        start = lines.index('          path: |')
+        starts = [index for index, line in enumerate(lines) if line.strip() == 'path: |']
+        self.assertEqual(1, len(starts),
+                         'faultda-current.yml must declare exactly one `path: |` upload block; '
+                         'found %d' % len(starts))
+        indent = len(lines[starts[0]]) - len(lines[starts[0]].lstrip())
         paths = []
-        for line in lines[start + 1:]:
-            if not line.strip() or not line.startswith('            '):
+        for line in lines[starts[0] + 1:]:
+            stripped = line.strip()
+            if not stripped or len(line) - len(stripped) <= indent:
                 break
-            paths.append(line.strip())
+            paths.append(stripped)
         self.assertEqual(self.registry['artifact']['paths'], paths)
 
     def test_workflow_defines_only_the_offline_evidence_job(self):

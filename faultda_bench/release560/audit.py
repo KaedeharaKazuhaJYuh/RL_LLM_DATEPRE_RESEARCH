@@ -55,7 +55,6 @@ ADDITIONS = (
     'faultda_bench/current_evidence/__main__.py',
     'faultda_bench/release560/__init__.py',
     'faultda_bench/release560/audit.py',
-    'tests/test_faultda_current_evidence.py',
     'tests/test_faultda_release560.py',
     'faultda_bench/reports/RELEASE_0560_FREEZE.md',
 )
@@ -72,11 +71,13 @@ FREEZE_RULE = {
                 'already frozen in v46; the 0.5.55 within-version performance manifest and its '
                 'optimization files; the 0.5.60 stats560 module, input manifest, committed '
                 'summary artifacts, release report, validation JSON and uncertainty doc, with '
-                'their test file; and the 0.5.60 version-integrity runner, v47 audit, their '
-                'test files and the freeze report.',
+                'their test file; and the 0.5.60 version-integrity runner, v47 audit, the v47 '
+                'audit\'s test file and the freeze report.',
     'excluded': 'A file is NOT frozen when it records the project\'s current state rather than '
                 'a fixed version\'s evidence, and therefore changes by design on every release. '
-                'Freezing such a file would make the next release fail this audit.',
+                'Freezing such a file would make the next release fail this audit. A test that '
+                'asserts the current contents of a living file is itself current state: it has '
+                'to be edited whenever the file it guards legitimately changes.',
     'rationale': 'The freeze exists to prove that evidence did not move after it was reviewed. '
                  'A living document carries no evidence and must stay editable; an acceptance '
                  'manifest that hashed one would convert every future release into a '
@@ -103,6 +104,11 @@ EXCLUDED_LIVING_DOCUMENTS = {
         'Living registry: the single source of truth for the current-evidence job, which must '
         'gain test modules and audits every release. Integrity is enforced by '
         'tests/test_faultda_current_evidence.py, not by a hash.',
+    'tests/test_faultda_current_evidence.py':
+        'Living guard: it pins the current contents of the living registry (module, exclusion '
+        'and audit counts, the audit ids and the uploaded artifact paths), so registering the '
+        'next release\'s tests must edit it. Freezing it would reintroduce, one level up, the '
+        'self-inflicted audit failure the registry itself is excluded to avoid.',
     'docs/en/FAULTDA_BENCH_OVERVIEW.md':
         'Living document: English mirror of README.md; refreshed whenever README is. It carries '
         'no evidence — the figures it cites live in the frozen stats560 summary artifacts.',
