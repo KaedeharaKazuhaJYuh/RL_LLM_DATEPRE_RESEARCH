@@ -10,6 +10,11 @@ from research.v4_sequence_env import SequenceEnv
 
 
 class RealCSVTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        # work/ is gitignored scratch; create it so a clean checkout can run the suite.
+        (ROOT / 'work').mkdir(exist_ok=True)
+
     def test_frozen_sources_and_paraphrases(self):
         protocol = ROOT / 'tasks/v4/real_csv_v1'
         manifest = json.loads((protocol / 'manifest.json').read_text(encoding='utf-8'))
