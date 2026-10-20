@@ -11,20 +11,21 @@
     "note": "errors were FileNotFoundError from a missing gitignored work/ directory"
   },
   "full_repository_tests": {
-    "count": 649,
+    "count": 676,
     "skipped": 2,
     "failures": 0,
     "errors": 0,
-    "seconds": 46.023,
-    "log_sha256": "95e384c2e8ea5cc6def7b93c21c624888b22bf6751e648a1857f4bf52f24d876"
+    "seconds": 51.679,
+    "log_sha256": "f3efafd6f836c19136a3d8959fa888e9079b94db6bec6dae55d5f8f9f80912c3",
+    "note": "earlier 0.5.60 baseline was 649 before the current-evidence registry (+24 tests) and the metric-semantics correction (+3 tests)"
   },
   "pytest": {
-    "passed": 647,
+    "passed": 674,
     "skipped": 2,
     "failed": 0
   },
   "focused_tests": {
-    "count": 41,
+    "count": 44,
     "failures": 0,
     "errors": 0,
     "modules": [
@@ -34,8 +35,14 @@
     ]
   },
   "current_ci_job_replay": {
-    "unittest_count": 425,
-    "steps_exit_zero": true
+    "entry_point": "python -m faultda_bench.current_evidence",
+    "registry": "faultda_bench/protocols/current_evidence_v1.json",
+    "registered_test_modules": 60,
+    "excluded_modules": 22,
+    "audits": 4,
+    "unittest_count": 452,
+    "steps_exit_zero": true,
+    "note": "the workflow no longer inlines a module list; 22 pre-0.3.05 modules are explicitly excluded with reasons and stay covered by the frozen V5 verification job"
   },
   "frozen_files_verified": 660,
   "optimization_files_verified": 11,
@@ -44,8 +51,8 @@
     "paired_tests": 15,
     "holm_family_size": 15,
     "unavailable": 5,
-    "summary_sha256": "8d9d3612b669c47ac76ca7a5d6cb228cc3b8836675da53293818022718bc401a",
-    "summary_md_sha256": "0ba78ec94daa870c1712b77fee26b694c66748f5646a25d181f181b71f410688",
+    "summary_sha256": "dd93c5267fbcbd3b6afbff111aaaaa6c58ef5cb96be1c6d4e98ac6f691cbac37",
+    "summary_md_sha256": "1f577be4e9a9b6b03e013a63595bfdd5e4167eb9b7546dec1fb5c0ef9f9ef2e7",
     "float_significant_digits": 12
   },
   "cross_version_reproducibility": {
@@ -57,11 +64,11 @@
     ],
     "artifacts_byte_identical_across_interpreters": true,
     "full_repository_tests_python_3_12": {
-      "count": 649,
+      "count": 676,
       "skipped": 2,
       "failures": 0,
       "errors": 0,
-      "seconds": 48.788
+      "seconds": 50.232
     },
     "statistical_conclusions_changed": false
   },
@@ -73,5 +80,48 @@
   "model_or_rl_improvement_claim": false,
   "pyproject_changed": false,
   "license_added": false,
-  "scope": "Python unittest/pytest, offline audits and descriptive re-analysis of frozen results; no GPU/NPU, training or provider experiment"
+  "scope": "Python unittest/pytest, offline audits and descriptive re-analysis of frozen results; no GPU/NPU, training or provider experiment",
+  "metric_semantics_correction": {
+    "trigger": "independent termination-protocol review, Q2",
+    "applied_before_freeze": true,
+    "existing_values_removed": 0,
+    "holm_family_size_changed": false,
+    "definitional_identity_rows_flagged": 7,
+    "identity_arm": "complete_public_rule",
+    "identity_metric": "supported_correct_termination",
+    "identity_basis": "design.rule() acts iff public_evidence(obs)[\"evidence_supported_stop\"], the same function and payload design.grade() scores the metric from, so the arm cannot score otherwise; p values on those rows are not evidence",
+    "added_section": "terminal_outcome_accounting",
+    "derived_truth_unsafe_stops": {
+      "complete_public_rule": 0,
+      "always_stop": 36,
+      "always_escalate": 0,
+      "denominator": 72
+    },
+    "derived_outcome_correct_vs_private_truth": {
+      "complete_public_rule": 60,
+      "always_stop": 36,
+      "always_escalate": 36,
+      "denominator": 72
+    },
+    "metrics_0510_primary_correct_termination": {
+      "complete_public_rule": 48,
+      "always_stop": 24,
+      "always_escalate": 24,
+      "denominator": 48,
+      "note": "resolvable stratum only; the unresolved stratum carries its own denominator of 24, as METRICS_0510_PROTOCOL.md requires and 0.5.50 did not do"
+    },
+    "safe_completion_resolvable_ties": {
+      "complete_public_rule": 24,
+      "always_stop": 24,
+      "denominator": 48,
+      "note": "reported because it is the honest limit of the result: the rule finds no safe completion always_stop misses; its measured value is in not stopping unsafely"
+    },
+    "raw_vs_shared_numeric_measures_nothing": true,
+    "conditions_identical_asserted": true,
+    "unavailable_protocol_quantity": "new_violation_events: not computable, the terminal diagnostic simulates no action effects",
+    "review_figures_independently_reproduced": true,
+    "rescored": false,
+    "new_model_executions": 0,
+    "new_provider_requests": 0
+  }
 }

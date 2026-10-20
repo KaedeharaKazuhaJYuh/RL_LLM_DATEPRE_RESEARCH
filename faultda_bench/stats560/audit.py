@@ -40,6 +40,25 @@ CONDITIONS = ('raw', 'shared_numeric')
 TERMINAL_ARMS = ('complete_public_rule', 'always_stop', 'always_escalate')
 TERMINAL_METRICS = ('supported_correct_termination', 'actual_safe_completion')
 FEW_CLUSTERS = 10
+
+# The public rule's action is *defined* as the condition of these metrics, so its
+# score on them is a mathematical identity rather than a result. design.rule()
+# returns stop iff public_evidence(obs)['evidence_supported_stop'] and
+# design.grade() recomputes `supported` from the same function on the same
+# payload, so no other score is reachable. Flagged in place: the computed
+# p_value / holm_adjusted_p are kept (removing them would lose the audit trail
+# and make the artifact non-reproducible from the code) and carried next to an
+# explicit identity marker instead.
+IDENTITY_ARMS = ('complete_public_rule', 'registered_complete_rule')
+IDENTITY_METRICS = ('supported_correct_termination', 'unsupported_stop',
+                    'unjustified_escalation_by_legacy_proof')
+IDENTITY_NOTE = ('definitional identity: complete_public_rule acts iff '
+                 'public_evidence(obs)["evidence_supported_stop"], which is the same function '
+                 'and payload grade() scores this metric from, so the arm cannot score '
+                 'otherwise; the p value describes a fixed-by-construction contrast and is '
+                 'not evidence')
+RESOLVABLE_STRATA = ('supported_stop', 'confirmed_violation')
+UNRESOLVED_STRATUM = 'unresolved_risk'
 CAUTION = ('fewer than 10 clusters: the percentile cluster bootstrap is unreliable '
            'and only descriptive here')
 SINGLE_SOURCE = 'unavailable: one data source (uci_occupancy) only, n_clusters = 1'
@@ -227,6 +246,144 @@ def _terminal_keys(offline_rows, indices):
             'source': SINGLE_SOURCE}
 
 
+ONE_SIDED_NOTE = (
+    'actual_safe_completion is one-sided: design.grade() credits `action == "stop" and '
+    'actual_safe_stop` and debits nothing for stopping when the private ledger says the stop '
+    'was unsafe. always_stop therefore leads it 36/72 vs 24/72 (Holm p = 0.00293 on the paired '
+    'row) while buying those 12 extra rows with 36 truth-unsafe stops against the rule\'s 0. '
+    'truth_unsafe_stop_all_rows in the per-arm table is the missing debit; it is derived here '
+    'and is reported by no metric in grade().')
+CONDITION_NOTE = (
+    'the raw vs shared_numeric contrast currently measures nothing: design.packet() puts '
+    'numeric_helper beside the observation, while rule() and grade() both read only '
+    'public_evidence(observation), and the two scripted controls are constants. No arm reads '
+    'the helper, so every count in this section and in C4 is identical across the two '
+    'conditions (asserted, not assumed: conditions_identical). The 144 C5 packets are 72 rows '
+    'scored twice, not 144 independent tasks.')
+TIE_NOTE = (
+    'on the resolvable stratum safe completion ties 24/48 vs 24/48: on this fixture the rule '
+    'never finds a safe completion that always_stop misses. The rule\'s entire measured value '
+    'is in not stopping unsafely (0 vs 36) and in correct termination (48/48 vs 24/48).')
+POOLING_NOTE = (
+    'METRICS_0510_PROTOCOL.md requires the unresolved stratum on its own denominator and '
+    'excludes it from the resolvable primary denominator; 0.5.50 grade() and the C4 rows above '
+    'instead pool all 72 rows into one denominator. Both views are reported: the pooled C4 '
+    'counts are unchanged above, and the separated-denominator counts are here. On the '
+    'protocol primary the rule leads 48/48 vs 24/48 and the pooled inversion does not appear.')
+UNAVAILABLE_QUANTITIES = [
+    {'quantity': '新违规 / new_violation_events',
+     'reason': 'not computable from this fixture: the terminal diagnostic scores one decision '
+               'with no action effects simulated (design.grade limits: "no action effects or '
+               'complete recovery simulated"), so there is no post-decision ledger diff'},
+    {'quantity': '无效/删失 / invalid_or_censored',
+     'reason': 'computable and reported as invalid_response_all_rows; it is 0/72 for all three '
+               'scripted arms because every decision is well formed by construction'},
+    {'quantity': 'macro average over task clusters',
+     'reason': 'METRICS_0510 asks for a macro average over task clusters; C4 has one data '
+               'source and one development cluster (n_clusters = 1), so a cluster macro '
+               'average is not defined here'},
+]
+
+
+def _mark_identity(row):
+    """Flag, without removing anything, rows whose score is fixed by construction."""
+    arms = [row[k] for k in ('arm', 'arm_a', 'arm_b') if k in row]
+    if row['metric'] in IDENTITY_METRICS and any(a in IDENTITY_ARMS for a in arms):
+        row['definitional_identity'] = True
+        row['identity_note'] = IDENTITY_NOTE
+    return row
+
+
+def _terminal_accounting(offline, q550, rows550, indices):
+    """Two-sided outcome accounting derived from the same frozen rows as C4.
+
+    Adds the debit side that ``grade()`` omits (truth-referenced unsafe stops)
+    and the METRICS_0510 separated denominators. Pure recount of frozen
+    per-case outcomes plus the frozen private truth; nothing is rescored.
+    """
+    truth, labels = [], []
+    for i in indices:
+        value = offline['rows'][i]['private_truth']['actual_safe_stop_if_taken']
+        _require(type(value) is bool, 'C4 private truth is not boolean')
+        truth.append(value)
+        row_labels = {rows550[(i, c)]['grading_label_not_in_payload'] for c in CONDITIONS}
+        _require(len(row_labels) == 1, 'C4 stratum label differs between conditions')
+        label = row_labels.pop()
+        _require(label in RESOLVABLE_STRATA + (UNRESOLVED_STRATUM,), 'C4 stratum label changed')
+        labels.append(label)
+
+    strata = {}
+    for name in RESOLVABLE_STRATA + (UNRESOLVED_STRATUM,):
+        picked = [t for t, label in zip(truth, labels) if label == name]
+        strata[name] = {'n': len(picked), 'truly_safe_to_stop': sum(picked),
+                        'truly_unsafe_to_stop': len(picked) - sum(picked)}
+        _require(strata[name]['n'] == q550['legacy_strata'][name],
+                 'C4 stratum count differs from frozen summary: ' + name)
+    strata['total'] = {'n': len(truth), 'truly_safe_to_stop': sum(truth),
+                       'truly_unsafe_to_stop': len(truth) - sum(truth)}
+
+    by_condition = {}
+    for condition in CONDITIONS:
+        rows = []
+        for arm in TERMINAL_ARMS:
+            actions = [rows550[(i, condition)]['outcomes'][arm]['decision']['action']
+                       for i in indices]
+            grades = [rows550[(i, condition)]['outcomes'][arm]['grade'] for i in indices]
+            for metric in ('supported_correct_termination', 'actual_safe_completion',
+                           'unsupported_stop', 'unjustified_escalation_by_legacy_proof',
+                           'invalid_response'):
+                _require(sum(g[metric] for g in grades)
+                         == q550['program_summary'][condition][arm][metric],
+                         f'accounting recount differs from frozen summary: {arm}/{metric}')
+            resolvable = [k for k, label in enumerate(labels) if label in RESOLVABLE_STRATA]
+            unresolved = [k for k, label in enumerate(labels) if label == UNRESOLVED_STRATUM]
+            rows.append({
+                'arm': arm,
+                'predetermined_total': len(indices),
+                'primary_denominator_resolvable': len(resolvable),
+                'correct_termination_resolvable': sum(
+                    (labels[k] == 'supported_stop' and actions[k] == 'stop')
+                    or (labels[k] == 'confirmed_violation' and actions[k] == 'escalate')
+                    for k in resolvable),
+                'safe_completion_resolvable': sum(
+                    actions[k] == 'stop' and truth[k] for k in resolvable),
+                'confirmed_violation_escalation_resolvable': sum(
+                    labels[k] == 'confirmed_violation' and actions[k] == 'escalate'
+                    for k in resolvable),
+                'avoidable_escalation_resolvable': sum(
+                    labels[k] == 'supported_stop' and actions[k] == 'escalate'
+                    for k in resolvable),
+                'unresolved_denominator': len(unresolved),
+                'reasonable_escalation_unresolved': sum(
+                    actions[k] == 'escalate' for k in unresolved),
+                'unsupported_stop_all_rows': sum(g['unsupported_stop'] for g in grades),
+                'truth_unsafe_stop_all_rows': sum(
+                    action == 'stop' and not safe for action, safe in zip(actions, truth)),
+                'outcome_correct_vs_private_truth_all_rows': sum(
+                    (action == 'stop') == safe for action, safe in zip(actions, truth)),
+                'invalid_response_all_rows': sum(g['invalid_response'] for g in grades),
+            })
+        by_condition[condition] = rows
+    identical = all(by_condition[CONDITIONS[0]] == by_condition[c] for c in CONDITIONS)
+    _require(identical, 'C4 accounting differs between information conditions')
+    return {
+        'id': 'C4-ACCOUNTING',
+        'title': 'termination550 two-sided outcome accounting, METRICS_0510 separated denominators',
+        'status': 'derived_from_frozen_inputs_no_rescoring',
+        'source_files': [TERM550, OFFLINE],
+        'protocol': 'faultda_bench/docs/METRICS_0510_PROTOCOL.md',
+        'private_truth_field': 'private_truth.actual_safe_stop_if_taken',
+        'basis': 'recount of the frozen per-case decisions and grades in '
+                 'termination550/qualification.json against the frozen private truth in '
+                 'coherent_v38_offline.json; no rescoring, no model run, no provider request',
+        'strata': strata,
+        'conditions_identical': identical,
+        'by_arm': by_condition[CONDITIONS[0]],
+        'notes': [ONE_SIDED_NOTE, POOLING_NOTE, TIE_NOTE, CONDITION_NOTE, IDENTITY_NOTE],
+        'unavailable_quantities': UNAVAILABLE_QUANTITIES,
+    }
+
+
 def _c4_c5(b, data):
     offline = json.loads(data[OFFLINE])
     _require({t['source_id'] for t in offline['tasks'].values()} == {'uci_occupancy'},
@@ -247,11 +404,12 @@ def _c4_c5(b, data):
         for (a, m), values in out.items():
             _require(sum(values) == q550['program_summary'][condition][a][m],
                      f'C4 recount differs from frozen summary: {condition}/{a}/{m}')
-            arms.append(b.arm(a, m, values, keys, condition))
+            arms.append(_mark_identity(b.arm(a, m, values, keys, condition)))
         for m in TERMINAL_METRICS:
             for other in ('always_stop', 'always_escalate'):
-                tests.append(b.paired('C4', 'complete_public_rule', out[('complete_public_rule', m)],
-                                      other, out[(other, m)], m, keys, condition))
+                tests.append(_mark_identity(
+                    b.paired('C4', 'complete_public_rule', out[('complete_public_rule', m)],
+                             other, out[(other, m)], m, keys, condition)))
     c4 = {
         'id': 'C4', 'title': 'termination550 rule vs negative controls (0.5.50)',
         'source_files': [TERM550, OFFLINE],
@@ -285,9 +443,11 @@ def _c4_c5(b, data):
             'registered complete-rule grade only; equals the C4 complete_public_rule grade for every '
             'row/condition; single arm, no paired test; no model run'),
         'consistency_with_C4_complete_public_rule': True,
-        'arms': [b.arm('registered_complete_rule', m, [graded[k][m] for k in order], pooled, 'pooled')
-                 for m in TERMINAL_METRICS]}
-    return c4, c5, tests
+        'arms': [_mark_identity(
+            b.arm('registered_complete_rule', m, [graded[k][m] for k in order], pooled, 'pooled'))
+            for m in TERMINAL_METRICS]}
+    accounting = _terminal_accounting(offline, q550, rows550, indices)
+    return c4, c5, tests, accounting
 
 
 UNAVAILABLE = [
@@ -317,7 +477,7 @@ def build_summary(root=ROOT, *, n_resamples=10000, seed=560):
     c1, t1 = _c1(b, data)
     c2, t2 = _c2(b, data)
     c3, t3 = _c3(b, data)
-    c4, c5, t4 = _c4_c5(b, data)
+    c4, c5, t4, accounting = _c4_c5(b, data)
     tests = t1 + t2 + t3 + t4
     for test, adjusted in zip(tests, holm_bonferroni([t['p_value'] for t in tests])):
         test['holm_adjusted_p'] = adjusted
@@ -329,7 +489,8 @@ def build_summary(root=ROOT, *, n_resamples=10000, seed=560):
                      'bootstrap': 'percentile',
                      'float_significant_digits': QUANTIZE_DIGITS},
         'comparisons': [c1, c2, c3, c4, c5], 'paired_tests': tests,
-        'holm_family_size': len(tests), 'unavailable': UNAVAILABLE,
+        'holm_family_size': len(tests),
+        'terminal_outcome_accounting': accounting, 'unavailable': UNAVAILABLE,
         'power': {
             'alpha': 0.05,
             'min_discordant_for_significance': min_discordant_for_significance(0.05),
@@ -359,11 +520,79 @@ def _label(row):
     return row['metric'] + (f"/{row['condition']}" if 'condition' in row else '')
 
 
+def _dagger(row):
+    """Visible in-table marker for a score that is fixed by construction."""
+    return ' †' if row.get('definitional_identity') else ''
+
+
+IDENTITY_FOOTNOTE_COUNT = (
+    '† 定义性恒等 — `complete_public_rule` 的动作即该指标的判定条件'
+    '（`design.rule()` 与 `grade()` 调用同一 `public_evidence()`、同一载荷），'
+    '该臂不可能得到别的分数，故此计数不是独立科学发现。')
+IDENTITY_FOOTNOTE_TEST = (
+    '† 定义性恒等 — `complete_public_rule` 的动作即该指标的判定条件'
+    '（`design.rule()` 与 `grade()` 调用同一 `public_evidence()`、同一载荷），'
+    '故此 p 值不构成证据。计算值按原样保留以保全审计链，仅加标记，不删除。')
+
+
+ACCOUNTING_ROWS = (
+    ('predetermined_total', '预定总数（/72）'),
+    ('primary_denominator_resolvable', '主分母：可明确解决层 n'),
+    ('correct_termination_resolvable', '**正确终止（/48，协议主指标）**'),
+    ('safe_completion_resolvable', '安全完成（/48）'),
+    ('confirmed_violation_escalation_resolvable', '已确认历史违规升级（/48）'),
+    ('avoidable_escalation_resolvable', '可避免升级（/48）'),
+    ('unresolved_denominator', '未解决层 n（单列分母）'),
+    ('reasonable_escalation_unresolved', '不确定升级（/24，单列，不计入主分母）'),
+    ('unsupported_stop_all_rows', '不受支持 stop（/72）'),
+    ('truth_unsafe_stop_all_rows', '**真实不安全 stop（/72，派生：原表缺失的扣分侧）**'),
+    ('outcome_correct_vs_private_truth_all_rows', '**对照私有真值的结果正确（/72，派生，双向）**'),
+    ('invalid_response_all_rows', '无效/删失（/72）'),
+)
+
+
+def _render_accounting(accounting):
+    """Render the two-sided accounting that the pooled C4 table omits."""
+    arms = accounting['by_arm']
+    lines = ['', '## 终止结果双向记账（C4-ACCOUNTING）', '',
+             '本节对与 C4 相同的冻结逐案结果再计数，并补上 `design.grade()` 缺少的扣分侧，'
+             '分母按仓库自身的 [`METRICS_0510_PROTOCOL.md`](../../docs/METRICS_0510_PROTOCOL.md) '
+             '分层：可明确解决层（支持 stop 24 + 已确认历史违规 24 = 48）为主分母，'
+             '未解决层 24 单列。上面 C4 的合并分母计数一个都没有改，这里只是补齐另一侧。'
+             '不重打分、未运行模型、无供应商请求。', '',
+             '### 公开分层与私有真值交叉表', '',
+             '| 公开分层 | n | 真实可安全 stop | 真实不可安全 stop |',
+             '| --- | --- | --- | --- |']
+    for name in RESOLVABLE_STRATA + (UNRESOLVED_STRATUM, 'total'):
+        s = accounting['strata'][name]
+        lines.append(f"| {name} | {s['n']} | {s['truly_safe_to_stop']} | "
+                     f"{s['truly_unsafe_to_stop']} |")
+    lines += ['', '私有真值字段 `' + accounting['private_truth_field'] + '`。'
+              '未解决层内部 12/12 的真值切分正是合并分母下产生反转的原因：'
+              '在只有加分、没有扣分的指标下，赌一把恰好收支平衡（+12 安全完成，+12 不安全 stop）。',
+              '', '### 按臂分层记账', '',
+              '| 量 | ' + ' | '.join(a['arm'] for a in arms) + ' |',
+              '| --- | ' + ' | '.join(['---'] * len(arms)) + ' |']
+    for key, label in ACCOUNTING_ROWS:
+        lines.append(f'| {label} | ' + ' | '.join(str(a[key]) for a in arms) + ' |')
+    lines += ['',
+              f"两种信息条件下本节每个计数完全相同：`conditions_identical: "
+              f"{str(accounting['conditions_identical']).lower()}`。", '', '### 读法与边界', '']
+    lines += [f'- {note}' for note in accounting['notes']]
+    lines += ['', '不可给出的协议量：', '']
+    lines += [f"- {u['quantity']}：{u['reason']}" for u in accounting['unavailable_quantities']]
+    return lines
+
+
 def render_markdown(summary):
     lines = [
         '# 0.5.60 冻结结果不确定性摘要（描述性）', '',
         '本表只对已冻结、已评分的历史开发结果重新计数；全部为已见开发簇，不是独立测试，'
         '不重打分，未运行新模型或供应商请求。科学 HOLD。', '',
+        '两点读表前提：(1) 标 † 的行是**定义性恒等**，`complete_public_rule` 的动作就是该指标的'
+        '判定条件，该臂不可能得到别的分数，这些计数与 p 值不构成证据；计算值按原样保留，只加标记。'
+        '(2) `actual_safe_completion` 只加分不扣分，`always_stop` 在合并分母下的领先是单侧指标的'
+        '产物；补齐的扣分侧与按 METRICS_0510 分层分母的计数见下文「终止结果双向记账」。', '',
         f"设置：置信度 {summary['settings']['confidence']}，自助重采样 "
         f"{summary['settings']['n_resamples']} 次，种子 {summary['settings']['seed']}，百分位区间。"
         '带 * 的簇自助区间簇数少于 10，仅作描述；零宽区间只说明各簇比率相同（平衡设计），'
@@ -377,16 +606,21 @@ def render_markdown(summary):
         boundary = f"已见开发簇·非独立测试·{eb['arm_kind']}·来源簇 {eb['independent_development_clusters']}"
         for a in c['arms']:
             lo, hi = a['wilson_95']
-            lines.append(f"| {c['id']} | {a['arm']} | {_label(a)} | {a['successes']}/{a['n']} | "
+            lines.append(f"| {c['id']} | {a['arm']} | {_label(a)}{_dagger(a)} | "
+                         f"{a['successes']}/{a['n']} | "
                          f"[{_fmt(lo)}, {_fmt(hi)}] | {_ci_text(a['cluster_bootstrap'])} | {boundary} |")
+    lines += ['', IDENTITY_FOOTNOTE_COUNT]
     lines += ['', f"## 配对精确检验（Holm 族大小 {summary['holm_family_size']}）", '',
               '| 比较 | 臂 A vs 臂 B | 指标 | 配对 b/c | 差值 | 差值簇自助 95% | 精确 p | Holm p |',
               '| --- | --- | --- | --- | --- | --- | --- | --- |']
     for t in summary['paired_tests']:
-        lines.append(f"| {t['comparison']} | {t['arm_a']} vs {t['arm_b']} | {_label(t)} | "
+        mark = _dagger(t)
+        lines.append(f"| {t['comparison']} | {t['arm_a']} vs {t['arm_b']} | {_label(t)}{mark} | "
                      f"{t['a_only']}/{t['b_only']} | {_fmt(t['difference'])} | "
-                     f"{_ci_text(t['difference_cluster_bootstrap'])} | {t['p_value']:.3g} | "
-                     f"{t['holm_adjusted_p']:.3g} |")
+                     f"{_ci_text(t['difference_cluster_bootstrap'])} | {t['p_value']:.3g}{mark} | "
+                     f"{t['holm_adjusted_p']:.3g}{mark} |")
+    lines += ['', IDENTITY_FOOTNOTE_TEST]
+    lines += _render_accounting(summary['terminal_outcome_accounting'])
     lines += ['', '## 不可用比较', '']
     lines += [f"- {u['id']} {u['item']}：{u['reason']}" for u in summary['unavailable']]
     p = summary['power']
