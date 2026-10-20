@@ -710,14 +710,14 @@
     "faultda_bench/docs/UNCERTAINTY_0560.md": "2da95e2d6e502fa2d7cad701197bf1908ed514927d4443c09102e5ff4c997474",
     "faultda_bench/reports/stats560/summary.json": "dd93c5267fbcbd3b6afbff111aaaaa6c58ef5cb96be1c6d4e98ac6f691cbac37",
     "faultda_bench/reports/stats560/summary.md": "1f577be4e9a9b6b03e013a63595bfdd5e4167eb9b7546dec1fb5c0ef9f9ef2e7",
-    "faultda_bench/reports/RELEASE_0560.md": "4e3f1c66a0ab6b8f455dff28c27c4911b53a60f6ef637b724e5cba5b0490be72",
-    "faultda_bench/reports/RELEASE_0560_VALIDATION.json": "953373d274533a5dbce893c73fad6e90dfd0b64e7d750ae43a7fb013c6f2763b",
+    "faultda_bench/reports/RELEASE_0560.md": "ba50e3a87b6e248d76a82d6b01f5d7e73fe807a51be3e98a825a747585bcfaaa",
+    "faultda_bench/reports/RELEASE_0560_VALIDATION.json": "7ec79dc658d0f8b19fef07d925a9e83d14da58d19d029451354200cb4d3db9cc",
     "faultda_bench/current_evidence/__init__.py": "3470182962d13b11af9a9fab881e5d1f6085b85b2c7f5bc960c47936ec69ba35",
     "faultda_bench/current_evidence/runner.py": "d5086356e1b699dc36a1a49674d3350ea1e0c6aa9bcc7d08825b41cee5427405",
     "faultda_bench/current_evidence/__main__.py": "74fff10eb2bd330c92909b27a5a9ae84f41b3f268a5c04f51f849276919f19c6",
     "faultda_bench/release560/__init__.py": "b7e03631537a7109299cda385c07f27aeceefc17ac8341a22e0b825764366546",
     "faultda_bench/release560/audit.py": "35fb710acf21b16928269026e0fa5abeb016c824a579dd1ef2697ca198fdbb1b",
     "tests/test_faultda_release560.py": "a54c5d91e97db0fd8f0018a7dff5407b2e08d8fc97e960d81d185426dad64f48",
-    "faultda_bench/reports/RELEASE_0560_FREEZE.md": "e30a64df7ab80c2d47f1942df0a0774b4b2b8382d13aee271c716f35fa5bad08"
+    "faultda_bench/reports/RELEASE_0560_FREEZE.md": "b5e6261ce1c1874f6f08404bb736093306e542c4b7a5d70346495c9d166ebb40"
   }
 }

@@ -4,7 +4,7 @@
 
 ## 本版内容
 
-- **CI 对齐与防漂移**：`.github/workflows/faultda-current.yml` 改用 Python 3.11（与 `requires-python` 一致）。YAML 里**不再内联任何模块清单**：单一事实来源移到 [`current_evidence_v1.json`](../protocols/current_evidence_v1.json)，由 `python -m faultda_bench.current_evidence --list/--run-tests/--run-audits` 执行，上传四份结果。两道守卫：完整性测试要求每个 `tests/test_faultda_*.py` 要么登记、要么带理由排除（原先 77 个文件中有 22 个静默缺失），YAML 守卫要求工作流不得重新内联清单且必须调用该入口。历史 `tests.yml` 未改（属冻结文件）。
+- **CI 对齐与防漂移**：`.github/workflows/faultda-current.yml` 改用 Python 3.11（与 `requires-python` 一致）。YAML 里**不再内联任何模块清单**：单一事实来源移到 [`current_evidence_v1.json`](../protocols/current_evidence_v1.json)，由 `python -m faultda_bench.current_evidence --list/--run-tests/--run-audits` 执行，上传五份结果。两道守卫：完整性测试要求每个 `tests/test_faultda_*.py` 要么登记、要么带理由排除（原先 77 个文件中有 22 个静默缺失），YAML 守卫要求工作流不得重新内联清单且必须调用该入口。历史 `tests.yml` 未改（属冻结文件）。
 - **指标语义修正（独立复审 Q2，冻结前改正，只增不删）**：原表把 `complete_public_rule` 在 `supported_correct_termination` 上的 72/72 当作结果并做显著性检验，而它是定义性恒等；`actual_safe_completion` 又只加分不扣分，使 `always_stop` 看似胜出。本版就地标注 7 行恒等（`definitional_identity` + `†`），并新增 `terminal_outcome_accounting`：补上派生的"真实不安全 stop"（规则 0/72、`always_stop` 36/72）与按 `METRICS_0510_PROTOCOL.md` 分层的分母（协议主指标规则 48/48 对 24/48），同时记录 `raw`/`shared_numeric` 当前不测量任何东西。**既有计数、p 值与 Holm 族大小 15 一个未改**，只补另一侧与标记。详见[说明](../docs/UNCERTAINTY_0560.md)。
 - **不确定性报告**：新增 `faultda_bench/stats560/`（numpy+标准库）与离线审计 `python -m faultda_bench.stats560.audit --output <path>`。输入经 [`stats560_inputs_v1.json`](../protocols/stats560_inputs_v1.json) 绑定 `acceptance_v46.json` 冻结哈希；各臂计数必须与冻结摘要一致，C5 须与 C4 完整规则逐行相同。方法与边界见[说明](../docs/UNCERTAINTY_0560.md)，完整输出见[摘要](stats560/summary.md)。
 - **跨版本浮点确定性**：`build_summary()` 返回前只在一处调用 `core.round_floats`，把摘要里每个浮点量化到 12 位有效数字（记录在 `settings.float_significant_digits`）。CPython 3.12 把内置 `sum()` 改为补偿求和，`sign_test_power` 相对 3.11 差 1–2 个 ULP（96 个不一致对：`...887876` vs `...887874`），曾使历史 `tests.yml`（Python 3.12）上的「提交摘要 == 新运行」断言失败。选有效数字而非小数位，是因为本审计的精确 p 值最小到 `2.5e-29`，按 12 位小数会被写成 `0.0`。量化只为跨平台逐字节一致，不改变任何计数、排序或统计结论；`summary.md` 逐字节未变。方法见[说明](../docs/UNCERTAINTY_0560.md)。
@@ -113,18 +113,20 @@
 
 ## 实际验证（本机，Python 3.11.15，`.agents` 外部虚拟环境，numpy 2.3.5）
 
+下表全部计数**实测于提交 `bffcab1` 的树**，只描述该提交。测试数与登记表条目按设计每版增长，因此这些数字是某一时点的快照，不是长期成立的断言；没有任何测试把它们与活动数量断言相等。
+
 | 命令 | 结果 |
 | --- | --- |
 | `python -m pip install -e .` | 成功（系统用户目录只读，改在虚拟环境中安装） |
-| `python -m unittest discover -s tests`（运行前删除 `work/`） | 676 项，0 失败，0 错误，2 跳过，50.762 秒；0.5.60 早前基线 649 项，改前基线 625 项（0 失败，7 错误，2 跳过） |
-| `python -m pytest -q` | 674 通过，2 跳过 |
+| `python -m unittest discover -s tests`（运行前删除 `work/`） | 683 项，0 失败，0 错误，2 跳过，48.870 秒；0.5.60 早前基线 649 项，改前基线 625 项（0 失败，7 错误，2 跳过） |
+| `python -m pytest -q` | 681 通过，2 跳过 |
 | `python -m unittest tests.test_faultda_termination555_runtime tests.test_faultda_termination555 tests.test_faultda_stats560 -v` | 44 项通过（其中 stats560 27 项） |
-| **Python 3.12.13 + numpy 2.3.5**（`unittest discover -s tests`） | 676 项，0 失败，0 错误，2 跳过，50.232 秒 |
+| **Python 3.12.13 + numpy 2.3.5**（`unittest discover -s tests`） | 683 项，0 失败，0 错误，2 跳过，52.810 秒 |
 | **Python 3.12.13 下的 `stats560.audit --output`** | 与提交摘要 `.json`/`.md` 均逐字节相同（`.json` sha256 `dd93c526…`，`.md` `1f577be4…`），证明跨版本一致 |
 | `python -m faultda_bench.termination555.performance_audit`（另加 `--historical`） | `verified_optimized_offline_only`，660 份冻结文件与 11 份优化文件核验；历史重放通过 |
 | `python -m faultda_bench.stats560.audit --output work/stats560.json` | 5 组比较、15 项配对检验（一个 Holm 族）、5 项不可用、1 组双向记账（7 行标注恒等）；输出与提交摘要逐字节相同 |
 | `python -m scripts.release_version --check` | `V5.0.15-beta.2: release metadata consistent` |
-| 当前证据 CI 作业本地逐步重放（`current_evidence --list` / `--run-tests` / `--run-audits`） | 全部步骤退出码 0；登记的 unittest 452 项通过，四份产物齐备 |
+| 当前证据 CI 作业本地逐步重放（`current_evidence --list` / `--run-tests` / `--run-audits`） | 全部步骤退出码 0；登记的 unittest 459 项通过，五份产物齐备 |
 | YAML 解析 `faultda-current.yml` | PyYAML（仅验证用）与 Ruby YAML 均通过；`grep -c 'tests\.test_'` 为 0，YAML 守卫测试通过 |
 | 冻结核对 | 671 个冻结/优化文件哈希全部一致，均不在相对 `faultda-bench` 的改动中 |
 

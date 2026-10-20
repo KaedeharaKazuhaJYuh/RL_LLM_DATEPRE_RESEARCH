@@ -3,6 +3,8 @@
   "date": "2026-10-20",
   "timezone": "Asia/Taipei",
   "base_commit": "540f7fba19d6c3f05dfbc9a111ac7e4a474c2cbf",
+  "counts_measured_at_commit": "bffcab1cf39fee1801a74ca2b3c4f1520ea189c7",
+  "counts_are_point_in_time": "Every count below was measured on the tree of counts_measured_at_commit and describes that commit only. Test counts and the current-evidence registry grow every release by design, so these figures are a snapshot, not a standing claim, and no test asserts them equal to a live quantity; the registry's own drift guard asserts the registry against the test files on disk instead.",
   "baseline_full_repository_tests": {
     "count": 625,
     "skipped": 2,
@@ -11,16 +13,16 @@
     "note": "errors were FileNotFoundError from a missing gitignored work/ directory"
   },
   "full_repository_tests": {
-    "count": 676,
+    "count": 683,
     "skipped": 2,
     "failures": 0,
     "errors": 0,
-    "seconds": 51.679,
-    "log_sha256": "f3efafd6f836c19136a3d8959fa888e9079b94db6bec6dae55d5f8f9f80912c3",
-    "note": "earlier 0.5.60 baseline was 649 before the current-evidence registry (+24 tests) and the metric-semantics correction (+3 tests)"
+    "seconds": 48.87,
+    "log_sha256": "14b498d6b2e00da80f79253b6730556f8709c2443809145fdc3f6facee21d613",
+    "note": "snapshot at counts_measured_at_commit; the earlier 0.5.60 baseline was 649 before the current-evidence registry (+24 tests) and the metric-semantics correction (+3 tests), then 676 before the v47 freeze audit added tests/test_faultda_release560.py (+7 tests)"
   },
   "pytest": {
-    "passed": 674,
+    "passed": 681,
     "skipped": 2,
     "failed": 0
   },
@@ -37,12 +39,13 @@
   "current_ci_job_replay": {
     "entry_point": "python -m faultda_bench.current_evidence",
     "registry": "faultda_bench/protocols/current_evidence_v1.json",
-    "registered_test_modules": 60,
+    "registered_test_modules": 61,
     "excluded_modules": 22,
-    "audits": 4,
-    "unittest_count": 452,
+    "audits": 5,
+    "artifact_paths": 5,
+    "unittest_count": 459,
     "steps_exit_zero": true,
-    "note": "the workflow no longer inlines a module list; 22 pre-0.3.05 modules are explicitly excluded with reasons and stay covered by the frozen V5 verification job"
+    "note": "snapshot at counts_measured_at_commit; the workflow no longer inlines a module list; 22 pre-0.3.05 modules are explicitly excluded with reasons and stay covered by the frozen V5 verification job. The fifth audit is release560_freeze_v47, whose result is the fifth uploaded artifact."
   },
   "frozen_files_verified": 660,
   "optimization_files_verified": 11,
@@ -64,11 +67,11 @@
     ],
     "artifacts_byte_identical_across_interpreters": true,
     "full_repository_tests_python_3_12": {
-      "count": 676,
+      "count": 683,
       "skipped": 2,
       "failures": 0,
       "errors": 0,
-      "seconds": 50.232
+      "seconds": 52.81
     },
     "statistical_conclusions_changed": false
   },
