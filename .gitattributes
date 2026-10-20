@@ -94,3 +94,7 @@ research/BINDING_PROBE_FINDINGS_2026_10_19.md text eol=lf
 research/RESEARCH_CONTRIBUTION_DESIGN_2026_10_19.md text eol=lf
 research/TERMINATION_FINDINGS_2026_10_19.md text eol=lf
 research/TRAJECTORY_AUDIT_FINDINGS_2026_10_19.md text eol=lf
+
+# 0.5.50 offline termination design evidence.
+faultda_bench/docs/TERMINATION_0550_DESIGN.md text eol=lf
+faultda_bench/reports/RELEASE_0550.md text eol=lf

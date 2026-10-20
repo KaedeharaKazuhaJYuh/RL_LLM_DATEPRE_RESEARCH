@@ -4,10 +4,10 @@
 
 FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误、检查证据需要成本时，Agent 能否获取必要信息，完成正确修复，并避免重复副作用。当前是可运行的开发基准，尚未完成独立最终测试。
 
-当前基准版本：`0.5.35-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
+当前基准版本：`0.5.50-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
-[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/RELEASE_0535.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
+[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [最新结果](faultda_bench/reports/RELEASE_0550.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
 
 ## 研究问题
 
@@ -30,13 +30,14 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 
 | 范围 | 已有结果 | 解释边界 |
 | --- | --- | --- |
+| 显式单步终止诊断 | 72 个旧观察 × 两种信息条件；完整规则及总停/总升级程序负对照 | 只有一个已见开发簇；未运行新模型，不是完整恢复成绩 |
 | 自洽工具环境 | 24 个程序状态、72 条读取/终止对照，保留时区等价与隐藏历史对照 | 同一历史任务/数据簇；程序动作不是 LLM 工具成绩 |
 | 真实回执事实诊断 | 24 次真实请求；旧 lookup 主分数 0/12 与 6/12，模糊句按 last-publish 备选参照可匹配 12/12 | 12 对既有意见已据用户转达审阅者同意正式登记；歧义与异议保留，旧分数不变 |
 | 责任与来源 | 72 条公开视图可逆迁移；actor 范围与 scripted/unknown 生成来源分开 | active_actor 不等于模型生成；没有新模型实验 |
 | 终止指标资格 | 72 条既有程序对照：24 安全完成、24 历史违规升级、24 不确定升级 | 单个历史簇的事后资格核对；未来主分母须独立审查、各臂共用 |
 | 历史跨来源开发 | 三个来源、24 题及多种强程序/学习对照；分条件结果归入历史汇总 | 既有签字仅覆盖已确认范围，未确立额外机制或稳定外部 RL 优势 |
 
-当前积累是可执行环境、证据重放与有效性控制。张雨田的 12 对指代意见已据用户明确转达的同意正式登记，四项设计 revise 保留。结构化接口分开责任、来源与回执目标；新增公开请求解析和严格输入包绑定，拒绝额外臂字段、未核实辅助摘要及超出当前快照的预算。人类接口有效性审查仍待完成；声明一致不等于执行或实际成本相同。已落实已见来源准入拦截，旧 holdout 的后续开发复用不能成为新独立测试，也不能反推早期训练泄漏。科学 HOLD；本轮没有新增模型实验、RL 或跨任务提升。详见[本版报告](faultda_bench/reports/RELEASE_0535.md)与[历史证据](docs/PROJECT_HISTORY.md)。
+当前积累是可执行环境、证据重放与有效性控制。张雨田的 12 对指代意见已据用户明确转达的同意正式登记，四项设计 revise 保留。结构化接口分开责任、来源与回执目标；新增公开请求解析和严格输入包绑定，拒绝额外臂字段、未核实辅助摘要及超出当前快照的预算。人类接口有效性审查仍待完成；声明一致不等于执行或实际成本相同。已落实已见来源准入拦截，旧 holdout 的后续开发复用不能成为新独立测试，也不能反推早期训练泄漏。科学 HOLD；本轮没有新增模型实验、RL 或跨任务提升。详见[本版报告](faultda_bench/reports/RELEASE_0550.md)与[历史证据](docs/PROJECT_HISTORY.md)。
 
 ## 快速复核
 
@@ -44,11 +45,11 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 
 ```sh
 python -m pip install -e .
-python -m unittest tests.test_faultda_release535 tests.test_termination_case_analysis -v
-python -m faultda_bench.release535.audit
+python -m unittest tests.test_faultda_termination550 -v
+python -m faultda_bench.termination550.audit
 ```
 
-统一入口核对累计冻结字节并重算本轮研究输出；加上 `--historical` 可重放旧历史语义验收。保持科学 HOLD。完整仓库测试与复核包子集分别计数；复核包可直接按[包内入口](faultda_bench/docs/FOCUSED_0530_REVIEW.md)运行。哈希只校验一致性，不认证供应商或历史真实性。旧版入口保留在[复现指南](docs/REPRODUCIBILITY.md)，新输出不得覆盖冻结记录。
+统一入口核对累计冻结字节并重放本轮终止诊断的程序对照；加上 `--historical` 可重放旧历史语义验收。保持科学 HOLD。完整仓库测试与复核包子集分别计数；复核包可直接按[包内入口](faultda_bench/docs/FOCUSED_0530_REVIEW.md)运行。哈希只校验一致性，不认证供应商或历史真实性。旧版入口保留在[复现指南](docs/REPRODUCIBILITY.md)，新输出不得覆盖冻结记录。
 
 ## 项目演进
 
@@ -75,4 +76,4 @@ python -m faultda_bench.release535.audit
 
 目前仅使用三个已见来源，属于受控参数绑定；合成维表重复和版本修订不等于真实生产事件。工具 JSON 接口不是任意不可信代码的 OS 安全沙箱。数据引用、许可与派生方式见[任务清单](faultda_bench/protocols/cross_source_v2.json)。
 
-现有 [24 题独立人工审阅](faultda_bench/reports/SCIENTIFIC_REVIEW_24.md)、六条历史专项和最新 37 组技术复审仅覆盖各自明确范围。最终指代登记、结构化责任/来源接口见[本轮指南](faultda_bench/docs/FOCUSED_0530_REVIEW.md)。当前 R 没有可证明的非平凡增量，暂停机制路线，不继续扩格。本轮完成六组历史实验的证据索引、16 个终止输入复算及终止对照草案，发现单步评测截断不能当作完整恢复失败。下一步审查终止设计与具体增量；草案不批准新实跑。第二模型暂缓；当前无新增 API 批准，不宣称超出强基线的模型/RL 发现。
+现有 [24 题独立人工审阅](faultda_bench/reports/SCIENTIFIC_REVIEW_24.md)、六条历史专项和最新 37 组技术复审仅覆盖各自明确范围。最终指代登记、结构化责任/来源接口见[本轮指南](faultda_bench/docs/FOCUSED_0530_REVIEW.md)。当前 R 没有可证明的非平凡增量，暂停机制路线，不继续扩格。此前发现单步评测截断不能当作完整恢复失败；本轮实现显式一步、仅终止的开发诊断输入及程序负对照，原模型成绩不重打分。下一步审查终止设计与具体增量；草案不批准新实跑。第二模型暂缓；当前无新增 API 批准，不宣称超出强基线的模型/RL 发现。
