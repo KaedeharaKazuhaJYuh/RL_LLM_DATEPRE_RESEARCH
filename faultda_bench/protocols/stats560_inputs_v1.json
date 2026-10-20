@@ -1,0 +1,18 @@
+{
+  "version": "0.5.60-dev",
+  "scientific_gate": "HOLD",
+  "base_catalog": "faultda_bench/protocols/acceptance_v46.json",
+  "base_catalog_sha256": "e592b097f2d07a02b66fe9e2551e84d23b5f14b3461bc1dd736b9db1a3b6dcda",
+  "new_provider_requests": 0,
+  "new_model_executions": 0,
+  "inputs": {
+    "faultda_bench/reports/coherent_v38_accounting.json": "240abd50b4acd33753c8f8e3ba3cad8326972360363e7675feb15b32290c2249",
+    "faultda_bench/reports/clarity_v2_comparison.json": "cbd231f74fd816df3b3dc4bffa1080c14ebf493fbe182ad8240fd39b5783a3b3",
+    "faultda_bench/reports/cross_source_v2_results.json": "7100307e2009ce9343c1b89b4fa6cb9ea5ca8cea44b4d1e8e0386a915b3788b4",
+    "faultda_bench/reports/cross_source_v2_results.jsonl.gz": "1828538ce94498f50397d2880e5ab1419a27c461dbedd352ec7b7711e5ce7d19",
+    "faultda_bench/reports/coherent_v38_offline.json": "4374c41dad85e6237d8609fdec45949ef98e469d9888a0ea5e9fd9326767ce40",
+    "faultda_bench/reports/termination550/qualification.json": "2b58cc2907926bde22357afcdeaa57f3e35ea2faa97673d10cb0fba2dd4313b9",
+    "faultda_bench/reports/termination555/qualification.json": "cf6ef0cd4dd240c2ee6bf9ad46a625084f88842a00280856bbaa9b7758196bf1"
+  },
+  "scope": "Descriptive re-analysis of frozen historical development results; not an independent test; no rescoring"
+}

@@ -9,6 +9,11 @@ from research.v4_sequence_env import SequenceEnv
 
 
 class HardProtocolTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        # work/ is gitignored scratch; create it so a clean checkout can run the suite.
+        (ROOT / 'work').mkdir(exist_ok=True)
+
     def test_three_step_clean_and_fault_expert_fit_declared_budget(self):
         with tempfile.TemporaryDirectory(prefix='hard_protocol_', dir=ROOT / 'work') as folder:
             protocol = Path(folder) / 'protocol'
