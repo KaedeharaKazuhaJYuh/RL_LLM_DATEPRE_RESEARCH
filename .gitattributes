@@ -106,3 +106,9 @@ faultda_bench/reports/RELEASE_0555.md text eol=lf
 # 0.5.55 within-version performance evidence.
 faultda_bench/docs/ARCHITECTURE_ENERGY_0555.md text eol=lf
 faultda_bench/reports/PERFORMANCE_0555.md text eol=lf
+
+# 0.5.60 descriptive uncertainty reporting.
+faultda_bench/docs/UNCERTAINTY_0560.md text eol=lf
+faultda_bench/reports/RELEASE_0560.md text eol=lf
+faultda_bench/reports/stats560/summary.md text eol=lf
+docs/en/FAULTDA_BENCH_OVERVIEW.md text eol=lf

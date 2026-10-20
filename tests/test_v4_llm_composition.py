@@ -8,6 +8,11 @@ from research.v4_llm_composition_protocol import build
 
 
 class CompositionProtocolTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        # work/ is gitignored scratch; create it so a clean checkout can run the suite.
+        (ROOT / 'work').mkdir(exist_ok=True)
+
     def test_train_extension_preserves_dev_and_held_out_triples(self):
         parent = ROOT / 'tasks/v4/llm_hard_v1'
         with tempfile.TemporaryDirectory(prefix='composition_', dir=ROOT / 'work') as folder:

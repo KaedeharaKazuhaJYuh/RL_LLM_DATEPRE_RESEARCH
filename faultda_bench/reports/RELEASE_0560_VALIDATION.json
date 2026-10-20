@@ -1,0 +1,58 @@
+{
+  "version": "0.5.60-dev",
+  "date": "2026-10-20",
+  "timezone": "Asia/Taipei",
+  "base_commit": "540f7fba19d6c3f05dfbc9a111ac7e4a474c2cbf",
+  "baseline_full_repository_tests": {
+    "count": 625,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 7,
+    "note": "errors were FileNotFoundError from a missing gitignored work/ directory"
+  },
+  "full_repository_tests": {
+    "count": 640,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 47.163,
+    "log_sha256": "d8f9ef736f366944349fb717a1dd0abd72a4cd42769bf6b8c6e4c1a933457346"
+  },
+  "pytest": {
+    "passed": 638,
+    "skipped": 2,
+    "failed": 0
+  },
+  "focused_tests": {
+    "count": 32,
+    "failures": 0,
+    "errors": 0,
+    "modules": [
+      "tests.test_faultda_termination555_runtime",
+      "tests.test_faultda_termination555",
+      "tests.test_faultda_stats560"
+    ]
+  },
+  "current_ci_job_replay": {
+    "unittest_count": 416,
+    "steps_exit_zero": true
+  },
+  "frozen_files_verified": 660,
+  "optimization_files_verified": 11,
+  "stats560": {
+    "comparisons": 5,
+    "paired_tests": 15,
+    "holm_family_size": 15,
+    "unavailable": 5,
+    "summary_sha256": "695614039c43b4ad40b11da46f2391a9ce6cbe612f14017dcb454e0fdf836b49"
+  },
+  "new_provider_requests": 0,
+  "new_model_executions": 0,
+  "rescored": false,
+  "scientific_gate": "HOLD",
+  "independent_review": "not_arranged",
+  "model_or_rl_improvement_claim": false,
+  "pyproject_changed": false,
+  "license_added": false,
+  "scope": "Python unittest/pytest, offline audits and descriptive re-analysis of frozen results; no GPU/NPU, training or provider experiment"
+}

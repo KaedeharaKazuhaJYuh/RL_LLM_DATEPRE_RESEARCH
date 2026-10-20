@@ -1,3 +1,9 @@
+# FaultDA-Bench 0.5.60-dev — 2026-10-20
+
+- 当前证据 CI 改用 Python 3.11，补跑 release535/termination550/termination555/stats560 及版本检查，执行 0.5.55 优化审计与 stats560 审计并上传结果；历史作业不变。
+- 新增 `faultda_bench/stats560/`：Wilson、百分位/簇自助区间、精确符号/McNemar 检验、Holm 校正与样本量边界；离线审计按冻结目录核对输入哈希，只对已冻结结果再计数，不写冻结位置。
+- 新增英文概览 `docs/en/FAULTDA_BENCH_OVERVIEW.md`；`unittest discover` 不再依赖预建 `work/`。科学 HOLD，无新实验、API 或重打分；VERSION 与 pyproject 不变。详见 [0.5.60 报告](faultda_bench/reports/RELEASE_0560.md)。
+
 # V5.0.15-beta.2 — 2026-10-09
 
 - 完成 beta.1 剩余 CUDA 训练与 18 组冻结评测：SFT 28/240、GRPO/branch 0/240、counterfactual/paired 4/240；paired 故障恢复 0/180，未达到预注册门槛，不设为默认模型。

@@ -1,8 +1,10 @@
 # 复现与运行指南
 
-**0.5.55-dev版本内性能修订1**：快速入口 `python -m faultda_bench.termination555.performance_audit`；`--historical` 仍执行旧完整语义链。新增会话不监控文件实时变化，下批次重新装载核验。原 `termination555.audit` 不改。重测用 `python -m faultda_bench.termination555.benchmark --pairs 3 --output work/new_measurement.json`；本机成对数据、内存和能耗边界见[架构说明](../faultda_bench/docs/ARCHITECTURE_ENERGY_0555.md)。
+当前 **0.5.60-dev**：`python -m faultda_bench.stats560.audit --output work/stats560.json`（同时写 `.md`，不覆盖已有文件，拒绝冻结位置）；范围测试 `python -m unittest tests.test_faultda_stats560 -v`。只对冻结结果做描述性再计数，见[方法与边界](../faultda_bench/docs/UNCERTAINTY_0560.md)。`python -m unittest discover -s tests` 不再需要预先创建 `work/`；也可 `python -m pip install -e .[test]` 后运行 `python -m pytest`。
 
-当前 **0.5.55-dev**：`python -m faultda_bench.termination555.audit`（可附加 `--historical`）；范围测试 `python -m unittest tests.test_faultda_termination555 -v`。新入口绑定指定案例、信息条件、完整请求及原始评分真值，不发送模型请求。见[信任边界](../faultda_bench/docs/TERMINATION_0555_BINDING.md)。
+0.5.55 历史入口 **0.5.55-dev版本内性能修订1**：快速入口 `python -m faultda_bench.termination555.performance_audit`；`--historical` 仍执行旧完整语义链。新增会话不监控文件实时变化，下批次重新装载核验。原 `termination555.audit` 不改。重测用 `python -m faultda_bench.termination555.benchmark --pairs 3 --output work/new_measurement.json`；本机成对数据、内存和能耗边界见[架构说明](../faultda_bench/docs/ARCHITECTURE_ENERGY_0555.md)。
+
+0.5.55 历史入口 **0.5.55-dev**：`python -m faultda_bench.termination555.audit`（可附加 `--historical`）；范围测试 `python -m unittest tests.test_faultda_termination555 -v`。新入口绑定指定案例、信息条件、完整请求及原始评分真值，不发送模型请求。见[信任边界](../faultda_bench/docs/TERMINATION_0555_BINDING.md)。
 
 0.5.50 历史入口 **0.5.50-dev**：`python -m faultda_bench.termination550.audit`（附加 `--historical` 重放完整历史语义验收）；范围测试 `python -m unittest tests.test_faultda_termination550 -v`。72个旧开发观察的两种信息条件只用于程序设计验证，没有新模型运行。见[设计边界](../faultda_bench/docs/TERMINATION_0550_DESIGN.md)。
 
