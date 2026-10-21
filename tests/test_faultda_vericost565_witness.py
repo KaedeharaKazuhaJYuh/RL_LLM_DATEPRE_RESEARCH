@@ -1,9 +1,10 @@
+from unittest.mock import patch
 import json
 import tempfile
 import unittest
 from pathlib import Path
 
-from faultda_bench.vericost565 import costs, policies, witness
+from faultda_bench.vericost565 import certificate, costs, policies, witness
 from faultda_bench.vericost565.canon import dumps
 
 FIXTURE = witness.FIXTURE
@@ -74,7 +75,14 @@ class Gate0MapTests(unittest.TestCase):
     def test_worker_count_does_not_change_a_single_byte(self):
         """Measured CPU time aside, the map is merged in task order and is worker-independent."""
         single = witness.fixture(1)
-        parallel = witness.fixture(3)
+        # Spawned workers do not inherit the parent test's temporary profile registry.
+        # Seed the fixture explicitly in each real child; do not change the producer.
+        real_pool = witness.multiprocessing.Pool
+        def fixture_pool(workers):
+            return real_pool(workers, initializer=policies.set_worker_profiles,
+                             initargs=(certificate.fixtures()[:2],))
+        with patch.object(witness.multiprocessing, 'Pool', side_effect=fixture_pool):
+            parallel = witness.fixture(3)
         self.assertEqual(dumps(single), dumps(parallel))
         self.assertEqual(dumps(single), FIXTURE.read_text(encoding='utf-8'))
 

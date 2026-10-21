@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / 'faultda_bench/protocols/acceptance_v49_ci.json'
 ARCHIVE = ROOT / 'faultda_bench/protocols/ci565_original_bytes.json'
 V48_SHA = '855a6fdd6a5ed907033b44131624bfd80a1cd306e3fc122d79e74192634c8f40'
-ARCHIVE_SHA = '57e37f1b1a3bc5eb6c822ef30fd0bc0fc892baf3209214a3d687c2c86d3f190d'
+ARCHIVE_SHA = '4cff006f3369c19dec5a4b82d9f805022a4e053cb07eb76eb758244cfa46197c'
 SOURCE_COMMIT = '5b7e2b5a78b2c479ce75877c39f5c12dd1de5b72'
 
 

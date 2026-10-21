@@ -14,7 +14,7 @@ from tests import test_faultda_vericost565_determinism as determinism
 class CIIntegrationTests(unittest.TestCase):
     def test_archived_bytes_and_current_corrections_are_all_verified(self):
         result = ci565.audit()
-        self.assertEqual(result['explicit_ci_corrections'], 6)
+        self.assertEqual(result['explicit_ci_corrections'], 7)
         self.assertEqual(result['v47_files_unchanged'], 690)
         self.assertTrue(result['historical_v48_catalog_unchanged'])
         self.assertFalse(result['experiment_outputs_changed'])
