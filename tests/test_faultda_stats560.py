@@ -304,6 +304,84 @@ class Stats560AuditTests(unittest.TestCase):
                     checked += 1
         self.assertGreater(checked, 300)
 
+    def test_terminal_accounting_adds_the_missing_debit_side(self):
+        acc = self.summary['terminal_outcome_accounting']
+        self.assertEqual('derived_from_frozen_inputs_no_rescoring', acc['status'])
+        self.assertIs(True, acc['conditions_identical'])
+        self.assertEqual({'n': 24, 'truly_safe_to_stop': 24, 'truly_unsafe_to_stop': 0},
+                         acc['strata']['supported_stop'])
+        self.assertEqual({'n': 24, 'truly_safe_to_stop': 0, 'truly_unsafe_to_stop': 24},
+                         acc['strata']['confirmed_violation'])
+        self.assertEqual({'n': 24, 'truly_safe_to_stop': 12, 'truly_unsafe_to_stop': 12},
+                         acc['strata']['unresolved_risk'])
+        self.assertEqual({'n': 72, 'truly_safe_to_stop': 36, 'truly_unsafe_to_stop': 36},
+                         acc['strata']['total'])
+        by_arm = {a['arm']: a for a in acc['by_arm']}
+        self.assertEqual(['complete_public_rule', 'always_stop', 'always_escalate'],
+                         [a['arm'] for a in acc['by_arm']])
+        # The protocol primary on separated denominators: the rule leads and the
+        # pooled actual_safe_completion inversion does not appear.
+        self.assertEqual([48, 24, 24], [by_arm[a]['correct_termination_resolvable']
+                                        for a in by_arm])
+        # The debit grade() never applies: always_stop buys its 12 pooled rows
+        # with 36 truth-unsafe stops; the rule makes none.
+        self.assertEqual([0, 36, 0], [by_arm[a]['truth_unsafe_stop_all_rows'] for a in by_arm])
+        self.assertEqual([60, 36, 36], [by_arm[a]['outcome_correct_vs_private_truth_all_rows']
+                                        for a in by_arm])
+        self.assertEqual([0, 48, 0], [by_arm[a]['unsupported_stop_all_rows'] for a in by_arm])
+        # The honest nuance: safe completion ties on the resolvable stratum.
+        self.assertEqual(24, by_arm['complete_public_rule']['safe_completion_resolvable'])
+        self.assertEqual(24, by_arm['always_stop']['safe_completion_resolvable'])
+        self.assertEqual([0, 0, 24], [by_arm[a]['avoidable_escalation_resolvable'] for a in by_arm])
+        self.assertEqual([24, 0, 24], [by_arm[a]['reasonable_escalation_unresolved']
+                                       for a in by_arm])
+        for arm in by_arm.values():
+            self.assertEqual(72, arm['predetermined_total'])
+            self.assertEqual(48, arm['primary_denominator_resolvable'])
+            self.assertEqual(24, arm['unresolved_denominator'])
+            self.assertEqual(0, arm['invalid_response_all_rows'])
+
+    def test_definitional_identities_are_flagged_and_nothing_is_removed(self):
+        rows = self.summary['paired_tests'] + [
+            a for c in self.summary['comparisons'] for a in c['arms']]
+        flagged = [r for r in rows if r.get('definitional_identity')]
+        # 2 C4 arm rows + 1 C5 arm row + 4 C4 paired tests.
+        self.assertEqual(7, len(flagged))
+        for row in flagged:
+            self.assertEqual('supported_correct_termination', row['metric'])
+            self.assertIn(row.get('arm', row.get('arm_a')), audit.IDENTITY_ARMS)
+            self.assertIn('definitional identity', row['identity_note'])
+        for row in rows:
+            if not row.get('definitional_identity'):
+                self.assertNotIn('identity_note', row)
+        # The computed values are preserved, not suppressed.
+        identity_tests = [r for r in self.summary['paired_tests']
+                          if r.get('definitional_identity') and r['arm_b'] == 'always_stop']
+        self.assertEqual(2, len(identity_tests))
+        for row in identity_tests:
+            self.assertEqual(7.1054273576e-15, row['p_value'])
+            self.assertEqual(8.52651282912e-14, row['holm_adjusted_p'])
+        # The one-sided metric's own rows stay exactly as published.
+        one_sided = [r for r in self.summary['paired_tests']
+                     if r['metric'] == 'actual_safe_completion' and r['arm_b'] == 'always_stop']
+        self.assertEqual(2, len(one_sided))
+        for row in one_sided:
+            self.assertFalse(row.get('definitional_identity', False))
+            self.assertEqual(0.00048828125, row['p_value'])
+            self.assertEqual(0.0029296875, row['holm_adjusted_p'])
+        self.assertEqual(15, self.summary['holm_family_size'])
+
+    def test_markdown_marks_identities_and_renders_the_accounting(self):
+        text = audit.render_markdown(self.summary)
+        self.assertIn('supported_correct_termination/raw † | 72/72', text)
+        self.assertIn('7.11e-15 † | 8.53e-14 †', text)
+        self.assertIn('† 定义性恒等', text)
+        self.assertIn('## 终止结果双向记账', text)
+        self.assertIn('真实不安全 stop', text)
+        self.assertIn('conditions_identical: true', text)
+        # The pre-existing pooled rows are still rendered unchanged.
+        self.assertIn('| C4 | always_stop | actual_safe_completion/raw | 36/72 |', text)
+
     def test_committed_summary_matches_fresh_run(self):
         if not COMMITTED.exists():
             self.skipTest('committed stats560 summary not generated yet')

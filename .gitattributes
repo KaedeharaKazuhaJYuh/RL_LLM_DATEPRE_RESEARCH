@@ -112,3 +112,6 @@ faultda_bench/docs/UNCERTAINTY_0560.md text eol=lf
 faultda_bench/reports/RELEASE_0560.md text eol=lf
 faultda_bench/reports/stats560/summary.md text eol=lf
 docs/en/FAULTDA_BENCH_OVERVIEW.md text eol=lf
+
+# 0.5.60 版本完整性冻结。
+faultda_bench/reports/RELEASE_0560_FREEZE.md text eol=lf

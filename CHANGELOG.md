@@ -3,6 +3,8 @@
 - 当前证据 CI 改用 Python 3.11，补跑 release535/termination550/termination555/stats560 及版本检查，执行 0.5.55 优化审计与 stats560 审计并上传结果；历史作业不变。
 - 新增 `faultda_bench/stats560/`：Wilson、百分位/簇自助区间、精确符号/McNemar 检验、Holm 校正与样本量边界；离线审计按冻结目录核对输入哈希，只对已冻结结果再计数，不写冻结位置。
 - stats560 摘要在 `build_summary()` 边界统一量化浮点到 12 位有效数字（`core.round_floats`），修掉 Python 3.12 把内置 `sum()` 改为补偿求和后 `sign_test_power` 差 1–2 个 ULP 导致的历史 CI 失败；3.11 与 3.12 产物现在逐字节相同，计数与统计结论不变。
+- 当前证据 CI 的单一事实来源移入 [`current_evidence_v1.json`](faultda_bench/protocols/current_evidence_v1.json)：测试模块、带类别与理由的排除项、审计入口与上传清单都登记在册，由 `python -m faultda_bench.current_evidence --list/--run-tests/--run-audits` 执行；`faultda-current.yml` **不再内联任何模块清单**。两道防漂移守卫：完整性测试要求每个 `tests/test_faultda_*.py` 要么登记、要么带理由排除（原先 77 个文件中有 22 个静默缺失 CI），YAML 守卫要求工作流不得重新内联清单、必须调用该入口且上传清单与 `artifact.paths` 逐行相同。
+- 新增 [`acceptance_v47.json`](faultda_bench/protocols/acceptance_v47.json) 与审计 `python -m faultda_bench.release560.audit`（登记为第五项审计）：**增量**冻结 v46 原有 660 份（原序、原哈希，一个未改）加 30 份新增，合计 **690** 份，含此前无清单覆盖的 0.5.55 性能清单及其 11 份优化文件。活文档按规则排除——README、CHANGELOG、`VERSION`、`.gitattributes`、`faultda-current.yml`、登记表、登记表的守卫测试与英文镜像记录的是当前状态而非固定版本的证据，每版都会变，冻结它们只会让下一个版本自己把审计弄失败；清单也不哈希自己。审计带四道守卫测试并以 `--emit-manifest` 保证清单可复现。详见 [0.5.60 冻结说明](faultda_bench/reports/RELEASE_0560_FREEZE.md)。
 - 新增英文概览 `docs/en/FAULTDA_BENCH_OVERVIEW.md`；`unittest discover` 不再依赖预建 `work/`。科学 HOLD，无新实验、API 或重打分；VERSION 与 pyproject 不变。详见 [0.5.60 报告](faultda_bench/reports/RELEASE_0560.md)。
 
 # V5.0.15-beta.2 — 2026-10-09

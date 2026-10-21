@@ -454,7 +454,9 @@
             "source": {
               "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
             }
-          }
+          },
+          "definitional_identity": true,
+          "identity_note": "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence"
         },
         {
           "arm": "complete_public_rule",
@@ -694,7 +696,9 @@
             "source": {
               "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
             }
-          }
+          },
+          "definitional_identity": true,
+          "identity_note": "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence"
         },
         {
           "arm": "complete_public_rule",
@@ -954,7 +958,9 @@
             "source": {
               "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
             }
-          }
+          },
+          "definitional_identity": true,
+          "identity_note": "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence"
         },
         {
           "arm": "registered_complete_rule",
@@ -1335,6 +1341,8 @@
       "min_discordant_for_alpha_0_05": 6,
       "exact_power_if_discordant_favour_a_0_8": 0.990681411801,
       "mde_two_proportions_n": 0.233465434843,
+      "definitional_identity": true,
+      "identity_note": "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence",
       "holm_adjusted_p": 8.52651282912e-14
     },
     {
@@ -1383,6 +1391,8 @@
       "min_discordant_for_alpha_0_05": 6,
       "exact_power_if_discordant_favour_a_0_8": 0.811071065146,
       "mde_two_proportions_n": 0.233465434843,
+      "definitional_identity": true,
+      "identity_note": "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence",
       "holm_adjusted_p": 1.19209289551e-06
     },
     {
@@ -1527,6 +1537,8 @@
       "min_discordant_for_alpha_0_05": 6,
       "exact_power_if_discordant_favour_a_0_8": 0.990681411801,
       "mde_two_proportions_n": 0.233465434843,
+      "definitional_identity": true,
+      "identity_note": "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence",
       "holm_adjusted_p": 8.52651282912e-14
     },
     {
@@ -1575,6 +1587,8 @@
       "min_discordant_for_alpha_0_05": 6,
       "exact_power_if_discordant_favour_a_0_8": 0.811071065146,
       "mde_two_proportions_n": 0.233465434843,
+      "definitional_identity": true,
+      "identity_note": "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence",
       "holm_adjusted_p": 1.19209289551e-06
     },
     {
@@ -1675,6 +1689,109 @@
     }
   ],
   "holm_family_size": 15,
+  "terminal_outcome_accounting": {
+    "id": "C4-ACCOUNTING",
+    "title": "termination550 two-sided outcome accounting, METRICS_0510 separated denominators",
+    "status": "derived_from_frozen_inputs_no_rescoring",
+    "source_files": [
+      "faultda_bench/reports/termination550/qualification.json",
+      "faultda_bench/reports/coherent_v38_offline.json"
+    ],
+    "protocol": "faultda_bench/docs/METRICS_0510_PROTOCOL.md",
+    "private_truth_field": "private_truth.actual_safe_stop_if_taken",
+    "basis": "recount of the frozen per-case decisions and grades in termination550/qualification.json against the frozen private truth in coherent_v38_offline.json; no rescoring, no model run, no provider request",
+    "strata": {
+      "supported_stop": {
+        "n": 24,
+        "truly_safe_to_stop": 24,
+        "truly_unsafe_to_stop": 0
+      },
+      "confirmed_violation": {
+        "n": 24,
+        "truly_safe_to_stop": 0,
+        "truly_unsafe_to_stop": 24
+      },
+      "unresolved_risk": {
+        "n": 24,
+        "truly_safe_to_stop": 12,
+        "truly_unsafe_to_stop": 12
+      },
+      "total": {
+        "n": 72,
+        "truly_safe_to_stop": 36,
+        "truly_unsafe_to_stop": 36
+      }
+    },
+    "conditions_identical": true,
+    "by_arm": [
+      {
+        "arm": "complete_public_rule",
+        "predetermined_total": 72,
+        "primary_denominator_resolvable": 48,
+        "correct_termination_resolvable": 48,
+        "safe_completion_resolvable": 24,
+        "confirmed_violation_escalation_resolvable": 24,
+        "avoidable_escalation_resolvable": 0,
+        "unresolved_denominator": 24,
+        "reasonable_escalation_unresolved": 24,
+        "unsupported_stop_all_rows": 0,
+        "truth_unsafe_stop_all_rows": 0,
+        "outcome_correct_vs_private_truth_all_rows": 60,
+        "invalid_response_all_rows": 0
+      },
+      {
+        "arm": "always_stop",
+        "predetermined_total": 72,
+        "primary_denominator_resolvable": 48,
+        "correct_termination_resolvable": 24,
+        "safe_completion_resolvable": 24,
+        "confirmed_violation_escalation_resolvable": 0,
+        "avoidable_escalation_resolvable": 0,
+        "unresolved_denominator": 24,
+        "reasonable_escalation_unresolved": 0,
+        "unsupported_stop_all_rows": 48,
+        "truth_unsafe_stop_all_rows": 36,
+        "outcome_correct_vs_private_truth_all_rows": 36,
+        "invalid_response_all_rows": 0
+      },
+      {
+        "arm": "always_escalate",
+        "predetermined_total": 72,
+        "primary_denominator_resolvable": 48,
+        "correct_termination_resolvable": 24,
+        "safe_completion_resolvable": 0,
+        "confirmed_violation_escalation_resolvable": 24,
+        "avoidable_escalation_resolvable": 24,
+        "unresolved_denominator": 24,
+        "reasonable_escalation_unresolved": 24,
+        "unsupported_stop_all_rows": 0,
+        "truth_unsafe_stop_all_rows": 0,
+        "outcome_correct_vs_private_truth_all_rows": 36,
+        "invalid_response_all_rows": 0
+      }
+    ],
+    "notes": [
+      "actual_safe_completion is one-sided: design.grade() credits `action == \"stop\" and actual_safe_stop` and debits nothing for stopping when the private ledger says the stop was unsafe. always_stop therefore leads it 36/72 vs 24/72 (Holm p = 0.00293 on the paired row) while buying those 12 extra rows with 36 truth-unsafe stops against the rule's 0. truth_unsafe_stop_all_rows in the per-arm table is the missing debit; it is derived here and is reported by no metric in grade().",
+      "METRICS_0510_PROTOCOL.md requires the unresolved stratum on its own denominator and excludes it from the resolvable primary denominator; 0.5.50 grade() and the C4 rows above instead pool all 72 rows into one denominator. Both views are reported: the pooled C4 counts are unchanged above, and the separated-denominator counts are here. On the protocol primary the rule leads 48/48 vs 24/48 and the pooled inversion does not appear.",
+      "on the resolvable stratum safe completion ties 24/48 vs 24/48: on this fixture the rule never finds a safe completion that always_stop misses. The rule's entire measured value is in not stopping unsafely (0 vs 36) and in correct termination (48/48 vs 24/48).",
+      "the raw vs shared_numeric contrast currently measures nothing: design.packet() puts numeric_helper beside the observation, while rule() and grade() both read only public_evidence(observation), and the two scripted controls are constants. No arm reads the helper, so every count in this section and in C4 is identical across the two conditions (asserted, not assumed: conditions_identical). The 144 C5 packets are 72 rows scored twice, not 144 independent tasks.",
+      "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence"
+    ],
+    "unavailable_quantities": [
+      {
+        "quantity": "新违规 / new_violation_events",
+        "reason": "not computable from this fixture: the terminal diagnostic scores one decision with no action effects simulated (design.grade limits: \"no action effects or complete recovery simulated\"), so there is no post-decision ledger diff"
+      },
+      {
+        "quantity": "无效/删失 / invalid_or_censored",
+        "reason": "computable and reported as invalid_response_all_rows; it is 0/72 for all three scripted arms because every decision is well formed by construction"
+      },
+      {
+        "quantity": "macro average over task clusters",
+        "reason": "METRICS_0510 asks for a macro average over task clusters; C4 has one data source and one development cluster (n_clusters = 1), so a cluster macro average is not defined here"
+      }
+    ]
+  },
   "unavailable": [
     {
       "id": "U1",

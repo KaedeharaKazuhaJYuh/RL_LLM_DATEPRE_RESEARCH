@@ -32,11 +32,27 @@
 
 `python -m faultda_bench.stats560.audit --output work/stats560.json` 同时写 `.json` 与 `.md`，以独占模式打开，不覆盖已有文件。仓库内只允许写入 `work/` 或 `faultda_bench/reports/stats560/`；冻结清单中的文件和 `faultda_bench/protocols/` 一律拒绝。提交的[摘要](../reports/stats560/summary.md)由默认设置生成，测试核对其与新运行完全一致。
 
+## 指标语义修正：定义性恒等与双向记账
+
+独立复审（终止协议复审 Q2）指出原表有三个呈现缺陷，本版在冻结前改正，**只增不删**：原有计数、p 值与 Holm 值一个未改，Holm 族仍为 15。
+
+**1. 定义性恒等就地标注。** `design.rule()` 在 `public_evidence(obs)['evidence_supported_stop']` 为真时返回 `stop`，而 `design.grade()` 用同一函数、同一载荷重算 `supported`，所以 `complete_public_rule` 在 `supported_correct_termination` 上的 72/72 是数学恒等，不是结果；`unsupported_stop = 0` 与 `unjustified_escalation_by_legacy_proof = 0` 同理。凡该臂落在这三个指标上的行（含 C5 的 `registered_complete_rule`，其逐行等同 C4 完整规则），`summary.json` 加 `definitional_identity: true` 与 `identity_note`，`summary.md` 在指标名与 p 值后标 `†` 并在表下给脚注。**不删除任何计算值**：删掉 p 值会丢失审计链，使产物无法由代码复现；恒等的处理方式是标注，不是隐藏。受影响 7 行（C4 各臂 2 + C5 1 + C4 配对检验 4）。
+
+**2. 补上单侧指标缺失的扣分侧。** `actual_safe_completion` 定义为 `action == 'stop' and actual_safe_stop`，只加分、不对"真实不安全却 stop"扣分。因此 `always_stop` 在合并分母下以 36/72 对 24/72 领先（Holm p = 0.00293）——该计数不对称是真的，但它靠 **36 次真实不安全的 stop** 换来，而规则是 **0 次**。新增 `terminal_outcome_accounting` 从同一批冻结行派生出扣分侧：`truth_unsafe_stop_all_rows`（规则 0/72、`always_stop` 36/72、`always_escalate` 0/72）与双向的 `outcome_correct_vs_private_truth_all_rows`（60/72、36/72、36/72）。`grade()` 里没有任何真值参照的惩罚指标，这个量此前无处可见。
+
+**3. 按仓库自身协议分层分母。** [`METRICS_0510_PROTOCOL.md`](METRICS_0510_PROTOCOL.md) 要求未解决证据层单列、不计入可明确解决层主分母；0.5.50 的 `grade()` 与 C4 却把 72 行并入一个分母。新章节按协议给出分层计数：主分母 48（支持 stop 24 + 已确认历史违规 24），未解决层 24 单列。协议主指标"正确终止"上规则为 **48/48**，两个退化对照各 24/48，合并分母下的反转不出现。保留一个诚实的细节：可明确解决层上安全完成 **24/48 对 24/48 打平**——在本夹具上规则并未找到 `always_stop` 漏掉的安全完成，规则的全部可测价值在于不做不安全的 stop。协议所列量中"新违规"在本夹具不可计算（终止诊断只评一个决策、不模拟动作效果），按不可用列出而非编造。
+
+**4. 记录 `raw` 与 `shared_numeric` 当前不测量任何东西。** `design.packet()` 把 `numeric_helper` 放在 observation 旁边，而 `rule()` 与 `grade()` 只读 `public_evidence(observation)`，两个脚本对照是常量，没有任何臂读取该助手。因此两种条件下每个计数完全相同——这一点由审计断言（`conditions_identical`）而非假设，并写在数字旁边。C5 的 144 包是 72 行评两次，不是 144 个独立任务。
+
+分层交叉表同时说明反转的来源：`unresolved_risk` 层内部真值 12/12 对半切，使"赌一把"在真值上恰好收支平衡（+12 安全完成，+12 不安全 stop），所以在只有上行、没有下行的指标下赌必胜。该 12/12 切分是夹具属性，不携带科学含义。
+
+本节是对已冻结输入的描述性再计数：不重打分、未运行模型、无供应商请求，科学仍为 HOLD。
+
 ## 比较与不可用项
 
-- C1 coherent395 回执事实（真实 DeepSeek，12 对，窗口簇 3）；C2 clarity v2 说明对照（真实 DeepSeek，12 对，任务=来源簇 3）；C3 跨来源六个程序策略（384 格，任务簇 24、来源簇 3）；C4 termination550 完整规则与总停/总升级负对照（每种信息条件 72 行，任务簇 6、状态簇 24）；C5 termination555 注册评分（144 包，单臂）。
+- C1 coherent395 回执事实（真实 DeepSeek，12 对，窗口簇 3）；C2 clarity v2 说明对照（真实 DeepSeek，12 对，任务=来源簇 3）；C3 跨来源六个程序策略（384 格，任务簇 24、来源簇 3）；C4 termination550 完整规则与总停/总升级负对照（每种信息条件 72 行，任务簇 6、状态簇 24）；C5 termination555 注册评分（144 包，单臂）；C4-ACCOUNTING termination550 双向结果记账（按 METRICS_0510 分层分母，派生自同一批冻结行，不做检验）。
 - U1 终止包上的模型臂从未运行；U2 C5 无配对臂；U3 24 题上无冻结的学习策略逐案结果，继承 V5 结果协议不同、不合并；U4 C1/C4/C5 只有一个数据来源，无法做来源级簇自助；U5 没有独立留出测试与人类接口有效性审查。
 
 ## 解释边界
 
-全部为已见历史开发簇，不是独立测试。精确检验假定配对独立，而这里配对在簇内相关，C3、C4 还是确定性脚本，p 值只描述计数不对称。簇少于 10 的簇自助区间只作描述；零宽区间来自平衡设计，不代表确定性。本模块不提出新的科学发现或模型提升。
+全部为已见历史开发簇，不是独立测试。精确检验假定配对独立，而这里配对在簇内相关，C3、C4 还是确定性脚本，p 值只描述计数不对称。标 `†` 的行更弱一层：该臂的分数由构造固定，p 值连计数不对称都不描述，不构成证据。簇少于 10 的簇自助区间只作描述；零宽区间来自平衡设计，不代表确定性。C4-ACCOUNTING 的分层计数与派生量同样来自单一来源、单一开发簇的旧数据，只说明本夹具上三个脚本臂的结果结构，不支持任何关于模型能力或泛化的结论。本模块不提出新的科学发现或模型提升。
