@@ -1,0 +1,68 @@
+{
+  "schema": "vericost565.certificate.v1",
+  "version": "0.5.65-dev",
+  "split": "development",
+  "status": "pass",
+  "parts": {
+    "C1": {
+      "status": "pass",
+      "case_counts": {
+        "cases": 144,
+        "responder_sequences": 99792,
+        "alphabet": 162
+      },
+      "max_violation": 1.11022302463e-16
+    },
+    "C2": {
+      "status": "pass",
+      "case_counts": {
+        "latents": 706,
+        "sequences": 11674,
+        "env_steps": 596192,
+        "observe_groups": 55706,
+        "alive_subset": 26858,
+        "alive_exact": 13972,
+        "state_sufficiency": 19054
+      },
+      "max_violation": 1.11022302463e-16,
+      "c2_scope": "full"
+    },
+    "C3": {
+      "status": "pass",
+      "case_counts": {
+        "on_path": 13219,
+        "off_path": 744659,
+        "deviations": 27178268,
+        "compact_vs_general": 13219
+      },
+      "max_violation": 3.33066907388e-16,
+      "c3_scope": "full",
+      "max_state_gap": 2.22044604925e-16
+    },
+    "C4": {
+      "status": "pass",
+      "case_counts": {
+        "arms": 3,
+        "checks": 4320,
+        "guard_rejections": 1
+      },
+      "max_violation": 3.33066907388e-16
+    },
+    "C5": {
+      "status": "pass",
+      "case_counts": {
+        "population": 19686,
+        "profiles": 36
+      },
+      "max_violation": 0.0
+    }
+  },
+  "tol": 1e-09,
+  "mi_threshold_bits": 1e-12,
+  "code_sha256": {
+    "faultda_bench/vericost565/dp.py": "0c29035bc7ba816e7914c2549bbe2c2c1082a01731f29d1dd66c999609b70f90",
+    "faultda_bench/vericost565/environment.py": "9fa91fdcabe34f1b5b3c84b4d46ef35c9bd451084ec914f32270c0e0c9f2ba4b",
+    "faultda_bench/vericost565/certificate.py": "54fb0e2426d02964c317597f150bfc19ef582369cb8e741f85592cd66b27c871"
+  },
+  "instances_index_sha256": "08213e21f04536dd3d6914f466443df3721103bec2cc07ffe39c74fcd31fe86b"
+}

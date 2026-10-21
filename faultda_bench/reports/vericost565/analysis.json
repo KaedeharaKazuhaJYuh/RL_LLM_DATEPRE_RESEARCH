@@ -1,0 +1,3732 @@
+{
+  "schema": "vericost565.analysis.v1",
+  "version": "0.5.65-dev",
+  "split": "development",
+  "seen_cluster": true,
+  "independent_test": false,
+  "generalization_claim": "none",
+  "inputs": {
+    "amendments": "95b71409400f2d0ce15143c6c8967d78949ddfa73d46eaa8503625e7bd364826",
+    "certificate": "668c4f32fedd5c1bb78b72d22d22f07275622dc84a85b5f5e6eac4c52e08b8a7",
+    "gate0_d1": "7f1c930b3e5a0d0ebc00717fbd22475ffef1c7890b7671c4a436939c5a5faa7f",
+    "gate0_rev1": "9526551122d3dea7f858ab288a08d78c148f5d3806ea97bf976fb07379c7c20a",
+    "golden_fixture": "71282346a447913d5c23a95751faafe861658c9ceafa6ce928ea04e3383830e6",
+    "instances_index": "08213e21f04536dd3d6914f466443df3721103bec2cc07ffe39c74fcd31fe86b",
+    "learned_eval": "a0e5db53556e3794076e320f02e330a9af72f947d3bcc5cb6079e19149710e8a",
+    "learned_policies": "8ae44fb0a6cb4e63f8623abdb2eb901cecdd4ec004d76b39229601de8aa0e00f",
+    "learned_policies_d1": "5bdef867ff76f07d746ff59aa3bf93e1c068d4cbe60791c681926b67a753dc2e",
+    "offline_eval": "1a2635ebf1b4c782de3a2f4bf0ac391718889743404d9097876c26110ad458ec",
+    "plan": "4bd75e39ef295475cbf5192601ee16d7f13af46c6a7cf4e72e15a98d14a472a2",
+    "prereg": "73ba39b19410251c37d2349549269e2bce1628370d16bd1716efc400d043faf9"
+  },
+  "code_sha256": {
+    "faultda_bench/vericost565/analysis.py": "061748133437651f1b723be28eaf2b32264bee111939862c5282497a73d8e6d1",
+    "faultda_bench/vericost565/suite.py": "967ff6767bc5f68c32b21b969b85e77531d6b8f3483f51e60906b7a89e8e0571"
+  },
+  "clusters": [
+    "synthetic",
+    "uci_auto_mpg",
+    "uci_glass",
+    "uci_occupancy"
+  ],
+  "n_clusters": 4,
+  "min_attainable_signflip_p": 0.0625,
+  "profiles": 30,
+  "arms": [
+    "bf",
+    "F",
+    "F_size",
+    "F_hist",
+    "F_hist_plus",
+    "always_full_recompute",
+    "escalate_all",
+    "never_verify",
+    "static_semantic",
+    "guarded_read",
+    "q_only",
+    "thompson",
+    "linucb"
+  ],
+  "primary_regime": "k0.30_L3",
+  "under_power_declaration": {
+    "n_clusters": 4,
+    "min_attainable_signflip_p": 0.0625,
+    "alpha_O2": 0.05,
+    "statement_en": "The development set has four clusters, so the exact one-sided cluster sign-flip floor is 2^-4 = 0.0625 > alpha = 0.05 and no p value can ever clear alpha. Every O-verdict is therefore INCONCLUSIVE (under_powered) unless it is FALSIFIED by the point estimate or by dominance, which are exactly decidable because every arm value is an exact expectation. This is declared before any number is produced.",
+    "statement_zh": "开发集只有 4 个 cluster，精确单侧 cluster 符号翻转检验的最小可得 p 为 2^-4 = 0.0625，大于 alpha = 0.05，因此任何 p 都不可能达到显著；除被点估计或支配关系判为 FALSIFIED 之外，O 系列结论只能是 INCONCLUSIVE（under_powered）。该声明在产生任何数字之前写入。"
+  },
+  "power": {
+    "n": 4,
+    "alpha": 0.05,
+    "power": 0.8,
+    "df": 3,
+    "formula": "(t_{1-alpha,n-1} + t_{0.8,n-1}) / sqrt(n)",
+    "t_quantiles": [
+      2.3533634348,
+      0.978472312363
+    ],
+    "dz": 1.66591787358,
+    "sd": 0.595368090067,
+    "mde": 0.991834342603
+  },
+  "O1": {
+    "epsilon": 0.05,
+    "models": {
+      "d1": {
+        "decision_set": "dev_syn",
+        "decision": {
+          "hard_stop": false,
+          "primary_inadmissible": false,
+          "trigger": false,
+          "scope": "measurement",
+          "live_round_verdict": "PASS",
+          "model_used": "d1",
+          "model": "d1",
+          "epsilon": 0.05,
+          "admissible_regimes": 8,
+          "min_fixed_r_primary": 0.0352313961227,
+          "trigger_rev1": true
+        },
+        "sets": {
+          "all": {
+            "clusters": [
+              "synthetic",
+              "uci_auto_mpg",
+              "uci_glass",
+              "uci_occupancy"
+            ],
+            "profiles": 30,
+            "size_buckets_present": [
+              "n500",
+              "n5000",
+              "n50000",
+              "seen8"
+            ],
+            "single_rule_literal": {
+              "within_epsilon_all_admissible": false,
+              "member": null,
+              "members": 0,
+              "admissible_regimes": [
+                "k0.03_L1",
+                "k0.03_L3",
+                "k0.10_L1",
+                "k0.10_L3",
+                "k0.30_L1",
+                "k0.30_L3",
+                "k1.00_L1",
+                "k1.00_L3"
+              ]
+            },
+            "decision": {
+              "hard_stop": false,
+              "primary_inadmissible": false,
+              "trigger": false,
+              "scope": "measurement",
+              "live_round_verdict": "PASS",
+              "model_used": "d1",
+              "model": "d1",
+              "epsilon": 0.05,
+              "admissible_regimes": 8,
+              "min_fixed_r_primary": 0.00778666998316,
+              "trigger_rev1": true
+            },
+            "regimes": [
+              {
+                "regime_id": "k0.03_L1",
+                "kappa": 0.03,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.958346466455,
+                "admissible": true,
+                "min_fixed_r": 0.00195768865393,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 0.00595496997296,
+                  "F_hist": 0.00195768865393,
+                  "F_hist_plus": 0.00192084047226,
+                  "F_size": 0.00595496997296,
+                  "always_full_recompute": 0.00595496997296,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0103964107898,
+                  "never_verify": 0.791307207779,
+                  "static_semantic": 0.00595496997296
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.03_L3",
+                "kappa": 0.03,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.956226435114,
+                "admissible": true,
+                "min_fixed_r": 0.00211305365448,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 0.00375109174938,
+                  "F_hist": 0.00211305365448,
+                  "F_hist_plus": 0.00190171515101,
+                  "F_size": 0.00375109174938,
+                  "always_full_recompute": 0.00375109174938,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.00820237959973,
+                  "never_verify": 1.62746644306,
+                  "static_semantic": 0.00375109174938
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.10_L1",
+                "kappa": 0.1,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.878858265915,
+                "admissible": true,
+                "min_fixed_r": 0.000974195808132,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 0.0417888305725,
+                  "F_hist": 0.000974195808132,
+                  "F_hist_plus": 0.000876035736077,
+                  "F_size": 0.00458279621856,
+                  "always_full_recompute": 0.0417888305725,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0579326513981,
+                  "never_verify": 0.772432020319,
+                  "static_semantic": 0.0417888305725
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.10_L3",
+                "kappa": 0.1,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.869276525811,
+                "admissible": true,
+                "min_fixed_r": 0.00636280243926,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 0.0312267940773,
+                  "F_hist": 0.00636280243926,
+                  "F_hist_plus": 0.00600172267159,
+                  "F_size": 0.0133260393591,
+                  "always_full_recompute": 0.0312267940773,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0475485627605,
+                  "never_verify": 1.69022915285,
+                  "static_semantic": 0.0312267940773
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.30_L1",
+                "kappa": 0.3,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.725266607138,
+                "admissible": true,
+                "min_fixed_r": 0.0118160381394,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 0.274204251167,
+                  "F_hist": 0.0118160381394,
+                  "F_hist_plus": 0.00702989373428,
+                  "F_size": 0.038336365016,
+                  "always_full_recompute": 0.274204251167,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.332892174628,
+                  "never_verify": 0.724239337601,
+                  "static_semantic": 0.274204251167
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k0.30_L3",
+                "kappa": 0.3,
+                "L": 3,
+                "primary": true,
+                "expected_u_star": 0.695359509823,
+                "admissible": true,
+                "min_fixed_r": 0.00778666998316,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 0.242988105009,
+                  "F_hist": 0.00778666998316,
+                  "F_hist_plus": 0.00733013304679,
+                  "F_size": 0.0308379832298,
+                  "always_full_recompute": 0.242988105009,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.304200169454,
+                  "never_verify": 1.86286301046,
+                  "static_semantic": 0.242988105009
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k1.00_L1",
+                "kappa": 1.0,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.37344355248,
+                "admissible": true,
+                "min_fixed_r": 0.0842600989798,
+                "within_epsilon": false,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 0.464443826459,
+                  "F_hist": 0.0842600989798,
+                  "F_hist_plus": 0.0767161117282,
+                  "F_size": 0.281630683245,
+                  "always_full_recompute": 2.5495834075,
+                  "escalate_all": 1.0,
+                  "guarded_read": 2.9295104482,
+                  "never_verify": 0.464443826459,
+                  "static_semantic": 2.5495834075
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k1.00_L3",
+                "kappa": 1.0,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.259392218457,
+                "admissible": true,
+                "min_fixed_r": 0.10992093206,
+                "within_epsilon": false,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 1.0,
+                  "F_hist": 0.10992093206,
+                  "F_hist_plus": 0.0989546812306,
+                  "F_size": 0.691278965954,
+                  "always_full_recompute": 3.23091477456,
+                  "escalate_all": 1.0,
+                  "guarded_read": 3.77789071935,
+                  "never_verify": 3.3130994583,
+                  "static_semantic": 3.23091477456
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              }
+            ]
+          },
+          "dev_seen": {
+            "clusters": [
+              "uci_auto_mpg",
+              "uci_glass",
+              "uci_occupancy"
+            ],
+            "profiles": 24,
+            "size_buckets_present": [
+              "seen8"
+            ],
+            "single_rule_literal": {
+              "within_epsilon_all_admissible": false,
+              "member": null,
+              "members": 0,
+              "admissible_regimes": [
+                "k0.03_L1",
+                "k0.03_L3",
+                "k0.10_L1",
+                "k0.10_L3",
+                "k0.30_L1",
+                "k0.30_L3",
+                "k1.00_L1",
+                "k1.00_L3"
+              ]
+            },
+            "decision": {
+              "hard_stop": false,
+              "primary_inadmissible": false,
+              "trigger": false,
+              "scope": "measurement",
+              "live_round_verdict": "PASS",
+              "model_used": "d1",
+              "model": "d1",
+              "epsilon": 0.05,
+              "admissible_regimes": 8,
+              "min_fixed_r_primary": 0.00134671495789,
+              "trigger_rev1": true
+            },
+            "regimes": [
+              {
+                "regime_id": "k0.03_L1",
+                "kappa": 0.03,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.970305555556,
+                "admissible": true,
+                "min_fixed_r": 0.0,
+                "within_epsilon": true,
+                "argmin_family": "F",
+                "argmin_member": "always_full_recompute",
+                "argmin_cells": null,
+                "families": {
+                  "F": 0.0,
+                  "F_hist": 1.52559918645e-16,
+                  "F_hist_plus": 0.0,
+                  "F_size": 0.0,
+                  "always_full_recompute": 0.0,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.00338604217703,
+                  "never_verify": 0.793879362171,
+                  "static_semantic": 0.0
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.03_L3",
+                "kappa": 0.03,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.970305555556,
+                "admissible": true,
+                "min_fixed_r": 0.0,
+                "within_epsilon": true,
+                "argmin_family": "F",
+                "argmin_member": "always_full_recompute",
+                "argmin_cells": null,
+                "families": {
+                  "F": 0.0,
+                  "F_hist": 1.52559918645e-16,
+                  "F_hist_plus": 0.0,
+                  "F_size": 0.0,
+                  "always_full_recompute": 0.0,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.00338604217703,
+                  "never_verify": 1.61836191349,
+                  "static_semantic": 0.0
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.10_L1",
+                "kappa": 0.1,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.901055327048,
+                "admissible": true,
+                "min_fixed_r": 4.08504657379e-05,
+                "within_epsilon": true,
+                "argmin_family": "F",
+                "argmin_member": "always_full_recompute",
+                "argmin_cells": null,
+                "families": {
+                  "F": 4.08504657379e-05,
+                  "F_hist": 4.08504657379e-05,
+                  "F_hist_plus": 4.08504657379e-05,
+                  "F_size": 4.08504657379e-05,
+                  "always_full_recompute": 4.08504657379e-05,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0121951005511,
+                  "never_verify": 0.778038047169,
+                  "static_semantic": 4.08504657379e-05
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.10_L3",
+                "kappa": 0.1,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.901018518519,
+                "admissible": true,
+                "min_fixed_r": -1.64291558469e-16,
+                "within_epsilon": true,
+                "argmin_family": "F",
+                "argmin_member": "always_full_recompute",
+                "argmin_cells": null,
+                "families": {
+                  "F": -1.64291558469e-16,
+                  "F_hist": -1.64291558469e-16,
+                  "F_hist_plus": -1.64291558469e-16,
+                  "F_size": -1.64291558469e-16,
+                  "always_full_recompute": -1.64291558469e-16,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0121547466124,
+                  "never_verify": 1.66591306135,
+                  "static_semantic": -1.64291558469e-16
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.30_L1",
+                "kappa": 0.3,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.728729026889,
+                "admissible": true,
+                "min_fixed_r": 0.00993096842446,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 3,
+                "families": {
+                  "F": 0.0352304771549,
+                  "F_hist": 0.00993096842446,
+                  "F_hist_plus": 0.00438836908822,
+                  "F_size": 0.0352304771549,
+                  "always_full_recompute": 0.0352304771549,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0803157614578,
+                  "never_verify": 0.725549562841,
+                  "static_semantic": 0.0352304771549
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.30_L3",
+                "kappa": 0.3,
+                "L": 3,
+                "primary": true,
+                "expected_u_star": 0.704003647798,
+                "admissible": true,
+                "min_fixed_r": 0.00134671495789,
+                "within_epsilon": true,
+                "argmin_family": "F",
+                "argmin_member": "always_full_recompute",
+                "argmin_cells": null,
+                "families": {
+                  "F": 0.00134671495789,
+                  "F_hist": 0.00134671495789,
+                  "F_hist_plus": 0.00134671495789,
+                  "F_size": 0.00134671495789,
+                  "always_full_recompute": 0.00134671495789,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0480154438201,
+                  "never_verify": 1.85226831122,
+                  "static_semantic": 0.00134671495789
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k1.00_L1",
+                "kappa": 1.0,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.324520671518,
+                "admissible": true,
+                "min_fixed_r": 0.117704355448,
+                "within_epsilon": false,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 3,
+                "families": {
+                  "F": 0.383706439826,
+                  "F_hist": 0.117704355448,
+                  "F_hist_plus": 0.107788392548,
+                  "F_size": 0.383706439826,
+                  "always_full_recompute": 0.968614679806,
+                  "escalate_all": 1.0,
+                  "guarded_read": 1.30608630325,
+                  "never_verify": 0.383706439826,
+                  "static_semantic": 0.968614679806
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k1.00_L3",
+                "kappa": 1.0,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.203260468429,
+                "admissible": true,
+                "min_fixed_r": 0.144218908806,
+                "within_epsilon": false,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 3,
+                "families": {
+                  "F": 0.949890968648,
+                  "F_hist": 0.144218908806,
+                  "F_hist_plus": 0.128828335882,
+                  "F_size": 0.949890968648,
+                  "always_full_recompute": 0.949890968648,
+                  "escalate_all": 1.0,
+                  "guarded_read": 1.48868987383,
+                  "never_verify": 3.95187748329,
+                  "static_semantic": 0.949890968648
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              }
+            ]
+          },
+          "dev_syn": {
+            "clusters": [
+              "synthetic"
+            ],
+            "profiles": 6,
+            "size_buckets_present": [
+              "n500",
+              "n5000",
+              "n50000"
+            ],
+            "single_rule_literal": {
+              "within_epsilon_all_admissible": false,
+              "member": null,
+              "members": 0,
+              "admissible_regimes": [
+                "k0.03_L1",
+                "k0.03_L3",
+                "k0.10_L1",
+                "k0.10_L3",
+                "k0.30_L1",
+                "k0.30_L3",
+                "k1.00_L1",
+                "k1.00_L3"
+              ]
+            },
+            "decision": {
+              "hard_stop": false,
+              "primary_inadmissible": false,
+              "trigger": false,
+              "scope": "measurement",
+              "live_round_verdict": "PASS",
+              "model_used": "d1",
+              "model": "d1",
+              "epsilon": 0.05,
+              "admissible_regimes": 8,
+              "min_fixed_r_primary": 0.0352313961227,
+              "trigger_rev1": true
+            },
+            "regimes": [
+              {
+                "regime_id": "k0.03_L1",
+                "kappa": 0.03,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.910510110051,
+                "admissible": true,
+                "min_fixed_r": 0.0103027082467,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 0.0313391601501,
+                  "F_hist": 0.0103027082467,
+                  "F_hist_plus": 0.0101087876943,
+                  "F_size": 0.0313391601501,
+                  "always_full_recompute": 0.0313391601501,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0402794380573,
+                  "never_verify": 0.780342911306,
+                  "static_semantic": 0.0313391601501
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.03_L3",
+                "kappa": 0.03,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.89990995335,
+                "admissible": true,
+                "min_fixed_r": 0.0112264441331,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 0.0199291777913,
+                  "F_hist": 0.0112264441331,
+                  "F_hist_plus": 0.0101036236608,
+                  "F_size": 0.0199291777913,
+                  "always_full_recompute": 0.0199291777913,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.028974764398,
+                  "never_verify": 1.66673337456,
+                  "static_semantic": 0.0199291777913
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.10_L1",
+                "kappa": 0.1,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.790070021384,
+                "admissible": true,
+                "min_fixed_r": 0.0052320249624,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 0.232238987397,
+                  "F_hist": 0.0052320249624,
+                  "F_hist_plus": 0.0046860683486,
+                  "F_size": 0.0253027035938,
+                  "always_full_recompute": 0.232238987397,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.266582835414,
+                  "never_verify": 0.746857880204,
+                  "static_semantic": 0.232238987397
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k0.10_L3",
+                "kappa": 0.1,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.742308554983,
+                "admissible": true,
+                "min_fixed_r": 0.037255631514,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 0.182839864134,
+                  "F_hist": 0.037255631514,
+                  "F_hist_plus": 0.0351414287079,
+                  "F_size": 0.078026941217,
+                  "always_full_recompute": 0.182839864134,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.219393457051,
+                  "never_verify": 1.80828921608,
+                  "static_semantic": 0.182839864134
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k0.30_L1",
+                "kappa": 0.3,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.711416928133,
+                "admissible": true,
+                "min_fixed_r": 0.019539807224,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 0.425811943016,
+                  "F_hist": 0.019539807224,
+                  "F_hist_plus": 0.0178531148791,
+                  "F_size": 0.05106223953,
+                  "always_full_recompute": 1.2533607424,
+                  "escalate_all": 1.0,
+                  "guarded_read": 1.36778328563,
+                  "never_verify": 0.718870901027,
+                  "static_semantic": 1.2533607424
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k0.30_L3",
+                "kappa": 0.3,
+                "L": 3,
+                "primary": true,
+                "expected_u_star": 0.66078295792,
+                "admissible": true,
+                "min_fixed_r": 0.0352313961227,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 0.793709279553,
+                  "F_hist": 0.0352313961227,
+                  "F_hist_plus": 0.0328292662214,
+                  "F_size": 0.156518951195,
+                  "always_full_recompute": 1.27277507524,
+                  "escalate_all": 1.0,
+                  "guarded_read": 1.39596550144,
+                  "never_verify": 1.90801373251,
+                  "static_semantic": 1.27277507524
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k1.00_L1",
+                "kappa": 1.0,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.56913507633,
+                "admissible": true,
+                "min_fixed_r": 0.00798047385115,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 0.409916619456,
+                  "F_hist": 0.00798047385115,
+                  "F_hist_plus": 0.0058464861745,
+                  "F_size": 0.0488164045322,
+                  "always_full_recompute": 6.15545522598,
+                  "escalate_all": 1.0,
+                  "guarded_read": 6.63221453789,
+                  "never_verify": 0.64858957334,
+                  "static_semantic": 6.15545522598
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k1.00_L3",
+                "kappa": 1.0,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.483919218569,
+                "admissible": true,
+                "min_fixed_r": 0.0522962496574,
+                "within_epsilon": false,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 1.0,
+                  "F_hist": 0.0522962496574,
+                  "F_hist_plus": 0.0487633864427,
+                  "F_size": 0.256780026528,
+                  "always_full_recompute": 7.06330621097,
+                  "escalate_all": 1.0,
+                  "guarded_read": 7.62402055535,
+                  "never_verify": 2.23987636154,
+                  "static_semantic": 7.06330621097
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              }
+            ]
+          }
+        }
+      },
+      "rev1": {
+        "decision_set": "dev_syn",
+        "decision": {
+          "hard_stop": true,
+          "primary_inadmissible": false,
+          "trigger": true,
+          "scope": "measurement",
+          "live_round_verdict": "pending_d1",
+          "model_used": "d1",
+          "model": "rev1",
+          "epsilon": 0.05,
+          "admissible_regimes": 8,
+          "min_fixed_r_primary": 0.0315391087846,
+          "trigger_rev1": true
+        },
+        "sets": {
+          "all": {
+            "clusters": [
+              "synthetic",
+              "uci_auto_mpg",
+              "uci_glass",
+              "uci_occupancy"
+            ],
+            "profiles": 30,
+            "size_buckets_present": [
+              "n500",
+              "n5000",
+              "n50000",
+              "seen8"
+            ],
+            "single_rule_literal": {
+              "within_epsilon_all_admissible": false,
+              "member": null,
+              "members": 0,
+              "admissible_regimes": [
+                "k0.03_L1",
+                "k0.03_L3",
+                "k0.10_L1",
+                "k0.10_L3",
+                "k0.30_L1",
+                "k0.30_L3",
+                "k1.00_L1",
+                "k1.00_L3"
+              ]
+            },
+            "decision": {
+              "hard_stop": false,
+              "primary_inadmissible": false,
+              "trigger": false,
+              "scope": "measurement",
+              "live_round_verdict": "PASS",
+              "model_used": "rev1",
+              "model": "rev1",
+              "epsilon": 0.05,
+              "admissible_regimes": 8,
+              "min_fixed_r_primary": 0.014189449731,
+              "trigger_rev1": false
+            },
+            "regimes": [
+              {
+                "regime_id": "k0.03_L1",
+                "kappa": 0.03,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.961006268819,
+                "admissible": true,
+                "min_fixed_r": 0.00216697202149,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 0.0087062145869,
+                  "F_hist": 0.00216697202149,
+                  "F_hist_plus": 0.0021663609032,
+                  "F_size": 0.00617881111454,
+                  "always_full_recompute": 0.0087062145869,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0135639916634,
+                  "never_verify": 0.791884812317,
+                  "static_semantic": 0.0087062145869
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.03_L3",
+                "kappa": 0.03,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.95815812665,
+                "admissible": true,
+                "min_fixed_r": 0.00239901486848,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 0.00575957607951,
+                  "F_hist": 0.00239901486848,
+                  "F_hist_plus": 0.00221012976775,
+                  "F_size": 0.00575957607951,
+                  "always_full_recompute": 0.00575957607951,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0106317929853,
+                  "never_verify": 1.6262014414,
+                  "static_semantic": 0.00575957607951
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.10_L1",
+                "kappa": 0.1,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.884918934618,
+                "admissible": true,
+                "min_fixed_r": 0.00270264717474,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 0.048351466107,
+                  "F_hist": 0.00270264717474,
+                  "F_hist_plus": 0.00244091697205,
+                  "F_size": 0.00427135205368,
+                  "always_full_recompute": 0.048351466107,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0659363319459,
+                  "never_verify": 0.773990597132,
+                  "static_semantic": 0.048351466107
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.10_L3",
+                "kappa": 0.1,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.876585823201,
+                "admissible": true,
+                "min_fixed_r": 0.00744675687759,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 0.039304784022,
+                  "F_hist": 0.00744675687759,
+                  "F_hist_plus": 0.00700703045922,
+                  "F_size": 0.00945907254295,
+                  "always_full_recompute": 0.039304784022,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0570568173446,
+                  "never_verify": 1.68447376642,
+                  "static_semantic": 0.039304784022
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.30_L1",
+                "kappa": 0.3,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.746161084315,
+                "admissible": true,
+                "min_fixed_r": 0.017380021018,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 0.294528445269,
+                  "F_hist": 0.017380021018,
+                  "F_hist_plus": 0.0142276431948,
+                  "F_size": 0.0635370827096,
+                  "always_full_recompute": 0.294528445269,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.357093410412,
+                  "never_verify": 0.73196136303,
+                  "static_semantic": 0.294528445269
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k0.30_L3",
+                "kappa": 0.3,
+                "L": 3,
+                "primary": true,
+                "expected_u_star": 0.704592153728,
+                "admissible": true,
+                "min_fixed_r": 0.014189449731,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 0.252907632527,
+                  "F_hist": 0.014189449731,
+                  "F_hist_plus": 0.0138051012414,
+                  "F_size": 0.0309986668882,
+                  "always_full_recompute": 0.252907632527,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.319163752445,
+                  "never_verify": 1.85155645976,
+                  "static_semantic": 0.252907632527
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k1.00_L1",
+                "kappa": 1.0,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.434002912184,
+                "admissible": true,
+                "min_fixed_r": 0.0744909677605,
+                "within_epsilon": false,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 0.451441299213,
+                  "F_hist": 0.0744909677605,
+                  "F_hist_plus": 0.0650944869061,
+                  "F_size": 0.227771871258,
+                  "always_full_recompute": 2.33335956123,
+                  "escalate_all": 1.0,
+                  "guarded_read": 2.69190970702,
+                  "never_verify": 0.539173599104,
+                  "static_semantic": 2.33335956123
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k1.00_L3",
+                "kappa": 1.0,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.326796985252,
+                "admissible": true,
+                "min_fixed_r": 0.135920618803,
+                "within_epsilon": false,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 12,
+                "families": {
+                  "F": 1.0,
+                  "F_hist": 0.135920618803,
+                  "F_hist_plus": 0.123927003349,
+                  "F_size": 0.724493853725,
+                  "always_full_recompute": 2.77076888306,
+                  "escalate_all": 1.0,
+                  "guarded_read": 3.24694159719,
+                  "never_verify": 2.83600224934,
+                  "static_semantic": 2.77076888306
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              }
+            ]
+          },
+          "dev_seen": {
+            "clusters": [
+              "uci_auto_mpg",
+              "uci_glass",
+              "uci_occupancy"
+            ],
+            "profiles": 24,
+            "size_buckets_present": [
+              "seen8"
+            ],
+            "single_rule_literal": {
+              "within_epsilon_all_admissible": false,
+              "member": null,
+              "members": 0,
+              "admissible_regimes": [
+                "k0.03_L1",
+                "k0.03_L3",
+                "k0.10_L1",
+                "k0.10_L3",
+                "k0.30_L1",
+                "k0.30_L3",
+                "k1.00_L1",
+                "k1.00_L3"
+              ]
+            },
+            "decision": {
+              "hard_stop": false,
+              "primary_inadmissible": false,
+              "trigger": false,
+              "scope": "measurement",
+              "live_round_verdict": "PASS",
+              "model_used": "rev1",
+              "model": "rev1",
+              "epsilon": 0.05,
+              "admissible_regimes": 8,
+              "min_fixed_r_primary": 0.0100224687785,
+              "trigger_rev1": false
+            },
+            "regimes": [
+              {
+                "regime_id": "k0.03_L1",
+                "kappa": 0.03,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.970908576389,
+                "admissible": true,
+                "min_fixed_r": 0.000621089202421,
+                "within_epsilon": true,
+                "argmin_family": "F",
+                "argmin_member": "always_full_recompute",
+                "argmin_cells": null,
+                "families": {
+                  "F": 0.000621089202421,
+                  "F_hist": 0.000621089202421,
+                  "F_hist_plus": 0.000621089202421,
+                  "F_size": 0.000621089202421,
+                  "always_full_recompute": 0.000621089202421,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.00427783368864,
+                  "never_verify": 0.794007381474,
+                  "static_semantic": 0.000621089202421
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.03_L3",
+                "kappa": 0.03,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.970908576389,
+                "admissible": true,
+                "min_fixed_r": 0.000621089202421,
+                "within_epsilon": true,
+                "argmin_family": "F",
+                "argmin_member": "always_full_recompute",
+                "argmin_cells": null,
+                "families": {
+                  "F": 0.000621089202421,
+                  "F_hist": 0.000621089202421,
+                  "F_hist_plus": 0.000621089202421,
+                  "F_size": 0.000621089202421,
+                  "always_full_recompute": 0.000621089202421,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.00427783368864,
+                  "never_verify": 1.61797785558,
+                  "static_semantic": 0.000621089202421
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.10_L1",
+                "kappa": 0.1,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.903028587963,
+                "admissible": true,
+                "min_fixed_r": 0.00222592005529,
+                "within_epsilon": true,
+                "argmin_family": "F",
+                "argmin_member": "always_full_recompute",
+                "argmin_cells": null,
+                "families": {
+                  "F": 0.00222592005529,
+                  "F_hist": 0.00222592005529,
+                  "F_hist_plus": 0.00222592005529,
+                  "F_size": 0.00222592005529,
+                  "always_full_recompute": 0.00222592005529,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0153313175686,
+                  "never_verify": 0.778523069296,
+                  "static_semantic": 0.00222592005529
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.10_L3",
+                "kappa": 0.1,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.903028587963,
+                "admissible": true,
+                "min_fixed_r": 0.00222592005529,
+                "within_epsilon": true,
+                "argmin_family": "F",
+                "argmin_member": "always_full_recompute",
+                "argmin_cells": null,
+                "families": {
+                  "F": 0.00222592005529,
+                  "F_hist": 0.00222592005529,
+                  "F_hist_plus": 0.00222592005529,
+                  "F_size": 0.00222592005529,
+                  "always_full_recompute": 0.00222592005529,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0153313175686,
+                  "never_verify": 1.66443079211,
+                  "static_semantic": 0.00222592005529
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.30_L1",
+                "kappa": 0.3,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.748211427407,
+                "admissible": true,
+                "min_fixed_r": 0.0191085914738,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 3,
+                "families": {
+                  "F": 0.0603517537926,
+                  "F_hist": 0.0191085914738,
+                  "F_hist_plus": 0.0152148591996,
+                  "F_size": 0.0603517537926,
+                  "always_full_recompute": 0.0603517537926,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.107803108494,
+                  "never_verify": 0.732695876227,
+                  "static_semantic": 0.0603517537926
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k0.30_L3",
+                "kappa": 0.3,
+                "L": 3,
+                "primary": true,
+                "expected_u_star": 0.710173244728,
+                "admissible": true,
+                "min_fixed_r": 0.0100224687785,
+                "within_epsilon": true,
+                "argmin_family": "F",
+                "argmin_member": "always_full_recompute",
+                "argmin_cells": null,
+                "families": {
+                  "F": 0.0100224687785,
+                  "F_hist": 0.0100224687785,
+                  "F_hist_plus": 0.0100224687785,
+                  "F_size": 0.0100224687785,
+                  "always_full_recompute": 0.0100224687785,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0600154051457,
+                  "never_verify": 1.84486427003,
+                  "static_semantic": 0.0100224687785
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k1.00_L1",
+                "kappa": 1.0,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.394826979996,
+                "admissible": true,
+                "min_fixed_r": 0.0999024644006,
+                "within_epsilon": false,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 3,
+                "families": {
+                  "F": 0.301686619882,
+                  "F_hist": 0.0999024644006,
+                  "F_hist_plus": 0.0876452416035,
+                  "F_size": 0.301686619882,
+                  "always_full_recompute": 0.974203421495,
+                  "escalate_all": 1.0,
+                  "guarded_read": 1.27394354086,
+                  "never_verify": 0.493449003911,
+                  "static_semantic": 0.974203421495
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k1.00_L3",
+                "kappa": 1.0,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.280302295053,
+                "admissible": true,
+                "min_fixed_r": 0.180085602665,
+                "within_epsilon": false,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 3,
+                "families": {
+                  "F": 0.963663568351,
+                  "F_hist": 0.180085602665,
+                  "F_hist_plus": 0.163627390972,
+                  "F_size": 0.963663568351,
+                  "always_full_recompute": 0.963663568351,
+                  "escalate_all": 1.0,
+                  "guarded_read": 1.38587019384,
+                  "never_verify": 3.14054615531,
+                  "static_semantic": 0.963663568351
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              }
+            ]
+          },
+          "dev_syn": {
+            "clusters": [
+              "synthetic"
+            ],
+            "profiles": 6,
+            "size_buckets_present": [
+              "n500",
+              "n5000",
+              "n50000"
+            ],
+            "single_rule_literal": {
+              "within_epsilon_all_admissible": false,
+              "member": null,
+              "members": 0,
+              "admissible_regimes": [
+                "k0.03_L1",
+                "k0.03_L3",
+                "k0.10_L1",
+                "k0.10_L3",
+                "k0.30_L1",
+                "k0.30_L3",
+                "k1.00_L1",
+                "k1.00_L3"
+              ]
+            },
+            "decision": {
+              "hard_stop": true,
+              "primary_inadmissible": false,
+              "trigger": true,
+              "scope": "measurement",
+              "live_round_verdict": "pending_d1",
+              "model_used": "d1",
+              "model": "rev1",
+              "epsilon": 0.05,
+              "admissible_regimes": 8,
+              "min_fixed_r_primary": 0.0315391087846,
+              "trigger_rev1": true
+            },
+            "regimes": [
+              {
+                "regime_id": "k0.03_L1",
+                "kappa": 0.03,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.921397038539,
+                "admissible": true,
+                "min_fixed_r": 0.00868277714933,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 0.0427845423811,
+                  "F_hist": 0.00868277714933,
+                  "F_hist_plus": 0.00867959020343,
+                  "F_size": 0.0296042819766,
+                  "always_full_recompute": 0.0427845423811,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.0527046011611,
+                  "never_verify": 0.782938308205,
+                  "static_semantic": 0.0427845423811
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.03_L3",
+                "kappa": 0.03,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.907156327693,
+                "admissible": true,
+                "min_fixed_r": 0.0100105068447,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 0.0277579938883,
+                  "F_hist": 0.0100105068447,
+                  "F_hist_plus": 0.00901298420865,
+                  "F_size": 0.0277579938883,
+                  "always_full_recompute": 0.0277579938883,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.037833779619,
+                  "never_verify": 1.66140750131,
+                  "static_semantic": 0.0277579938883
+                },
+                "single_rule_literal": {
+                  "within_epsilon": true,
+                  "member": "always_full_recompute",
+                  "members": 1
+                }
+              },
+              {
+                "regime_id": "k0.10_L1",
+                "kappa": 0.1,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.81248032124,
+                "admissible": true,
+                "min_fixed_r": 0.00482207434742,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 0.145878986679,
+                  "F_hist": 0.00482207434742,
+                  "F_hist_plus": 0.00339674744367,
+                  "F_size": 0.0133649067946,
+                  "always_full_recompute": 0.253415813544,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.290915440891,
+                  "never_verify": 0.753840191853,
+                  "static_semantic": 0.253415813544
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k0.10_L3",
+                "kappa": 0.1,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.770814764155,
+                "admissible": true,
+                "min_fixed_r": 0.0319121154715,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 0.213060014089,
+                  "F_hist": 0.0319121154715,
+                  "F_hist_plus": 0.0294117874915,
+                  "F_size": 0.0433543417111,
+                  "always_full_recompute": 0.213060014089,
+                  "escalate_all": 1.0,
+                  "guarded_read": 0.25258664317,
+                  "never_verify": 1.77839712977,
+                  "static_semantic": 0.213060014089
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k0.30_L1",
+                "kappa": 0.3,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.737959711946,
+                "admissible": true,
+                "min_fixed_r": 0.0103696861875,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 0.318235743082,
+                  "F_hist": 0.0103696861875,
+                  "F_hist_plus": 0.0102239216682,
+                  "F_size": 0.076455400375,
+                  "always_full_recompute": 1.24424791509,
+                  "escalate_all": 1.0,
+                  "guarded_read": 1.3681071534,
+                  "never_verify": 0.728982494895,
+                  "static_semantic": 1.24424791509
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k0.30_L3",
+                "kappa": 0.3,
+                "L": 3,
+                "primary": true,
+                "expected_u_star": 0.682267789726,
+                "admissible": true,
+                "min_fixed_r": 0.0315391087846,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 0.545039998481,
+                  "F_hist": 0.0315391087846,
+                  "F_hist_plus": 0.0295544853406,
+                  "F_size": 0.118335251719,
+                  "always_full_recompute": 1.26418530052,
+                  "escalate_all": 1.0,
+                  "guarded_read": 1.39815487845,
+                  "never_verify": 1.87942008847,
+                  "static_semantic": 1.26418530052
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k1.00_L1",
+                "kappa": 1.0,
+                "L": 1,
+                "primary": false,
+                "expected_u_star": 0.590706640934,
+                "admissible": true,
+                "min_fixed_r": 0.00655102071841,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 0.431465423689,
+                  "F_hist": 0.00655102071841,
+                  "F_hist_plus": 0.00480299358736,
+                  "F_size": 0.0301540694293,
+                  "always_full_recompute": 5.96718709462,
+                  "escalate_all": 1.0,
+                  "guarded_read": 6.48297119391,
+                  "never_verify": 0.661422462284,
+                  "static_semantic": 5.96718709462
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              },
+              {
+                "regime_id": "k1.00_L3",
+                "kappa": 1.0,
+                "L": 3,
+                "primary": false,
+                "expected_u_star": 0.512775746047,
+                "admissible": true,
+                "min_fixed_r": 0.039351727369,
+                "within_epsilon": true,
+                "argmin_family": "F_hist",
+                "argmin_member": null,
+                "argmin_cells": 9,
+                "families": {
+                  "F": 0.874863720974,
+                  "F_hist": 0.039351727369,
+                  "F_hist_plus": 0.0371201693595,
+                  "F_size": 0.201537606798,
+                  "always_full_recompute": 6.72209279822,
+                  "escalate_all": 1.0,
+                  "guarded_read": 7.31626499743,
+                  "never_verify": 2.17010214431,
+                  "static_semantic": 6.72209279822
+                },
+                "single_rule_literal": {
+                  "within_epsilon": false,
+                  "member": null,
+                  "members": 0
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "scope": "measurement",
+    "hard_stop": true,
+    "trigger": true,
+    "note": "the three instance sets disagree; every set carries its own decision block and the pre-registered decision set is dev_syn (plan D1)"
+  },
+  "O2": {
+    "arm": "q_only",
+    "reference": "bf",
+    "regime_id": "k0.30_L3",
+    "delta_u": -1.55222169109,
+    "delta_u_total": -6.20888676435,
+    "delta_u_by_cluster": {
+      "synthetic": -2.44327118094,
+      "uci_auto_mpg": -1.3029029437,
+      "uci_glass": -1.20536320603,
+      "uci_occupancy": -1.25734943368
+    },
+    "delta_safe": -0.257396515255,
+    "delta_cost": -0.0576311217151,
+    "expected_u": 0.487631486637,
+    "reference_expected_u": 0.694594378782,
+    "regret": 0.307923762624,
+    "reference_regret": 0.014189449731,
+    "dominated": false,
+    "clusters_with_positive_delta": 0,
+    "n_clusters": 4,
+    "signflip_p": 1.0,
+    "cluster_binomial_p": 1.0,
+    "bootstrap_ci": {
+      "ratio": {
+        "kind": "ratio",
+        "draws": 10000,
+        "seed": 5652026,
+        "level": 0.95,
+        "point": -0.293734312893,
+        "lo": -0.476548585633,
+        "hi": -0.216085122564,
+        "clusters": 4,
+        "degenerate": false,
+        "role": "descriptive only; no verdict condition reads a bootstrap bound"
+      },
+      "macro": {
+        "kind": "macro",
+        "draws": 10000,
+        "seed": 5652026,
+        "level": 0.95,
+        "point": -0.314931120737,
+        "lo": -0.503467682211,
+        "hi": -0.216149562513,
+        "clusters": 4,
+        "degenerate": false,
+        "role": "descriptive only; no verdict condition reads a bootstrap bound"
+      }
+    },
+    "verdict": "FALSIFIED",
+    "alpha": 0.05,
+    "under_powered": true,
+    "reason": "falsified by the point estimate: mean cluster delta U is -1.55222169109 and dominated is False. the exact one-sided cluster sign-flip floor over 4 clusters is 0.0625 > alpha_O2 0.05, so no p value can clear alpha; the verdict is decided by the point estimate and dominance alone (plan R7/D9)",
+    "cross_check_learned_eval": {
+      "delta_u_by_cluster": {
+        "synthetic": -2.44327118094,
+        "uci_auto_mpg": -1.3029029437,
+        "uci_glass": -1.20536320603,
+        "uci_occupancy": -1.25734943368
+      },
+      "mean_delta_u": -1.55222169109,
+      "sd_delta_u": 0.595368090067,
+      "note": "learned_eval.json evaluates the same arms independently of offline_eval.json; the two per-cluster delta U vectors must agree"
+    }
+  },
+  "O2_exploratory": {
+    "thompson": {
+      "arm": "thompson",
+      "reference": "bf",
+      "regime_id": "k0.30_L3",
+      "delta_u": -0.0526826156682,
+      "delta_u_total": -0.210730462673,
+      "delta_u_by_cluster": {
+        "synthetic": -0.210730462673,
+        "uci_auto_mpg": 0.0,
+        "uci_glass": 0.0,
+        "uci_occupancy": 0.0
+      },
+      "delta_safe": -0.00258867283513,
+      "delta_cost": 0.00105053078827,
+      "expected_u": 0.687570030026,
+      "reference_expected_u": 0.694594378782,
+      "regret": 0.0241588323286,
+      "reference_regret": 0.014189449731,
+      "dominated": true,
+      "clusters_with_positive_delta": 0,
+      "n_clusters": 4,
+      "signflip_p": 1.0,
+      "cluster_binomial_p": 1.0,
+      "bootstrap_ci": {
+        "ratio": {
+          "kind": "ratio",
+          "draws": 10000,
+          "seed": 5652026,
+          "level": 0.95,
+          "point": -0.00996938259758,
+          "lo": -0.0352145990387,
+          "hi": 0.0,
+          "clusters": 4,
+          "degenerate": false,
+          "role": "descriptive only; no verdict condition reads a bootstrap bound"
+        },
+        "macro": {
+          "kind": "macro",
+          "draws": 10000,
+          "seed": 5652026,
+          "level": 0.95,
+          "point": -0.0128694862588,
+          "lo": -0.0386084587764,
+          "hi": 0.0,
+          "clusters": 4,
+          "degenerate": false,
+          "role": "descriptive only; no verdict condition reads a bootstrap bound"
+        }
+      },
+      "verdict": "FALSIFIED",
+      "alpha": 0.05,
+      "under_powered": true,
+      "reason": "falsified by the point estimate: mean cluster delta U is -0.0526826156682 and dominated is True. the exact one-sided cluster sign-flip floor over 4 clusters is 0.0625 > alpha_O2 0.05, so no p value can clear alpha; the verdict is decided by the point estimate and dominance alone (plan R7/D9)",
+      "label": "exploratory"
+    },
+    "linucb": {
+      "arm": "linucb",
+      "reference": "bf",
+      "regime_id": "k0.30_L3",
+      "delta_u": -0.747777519439,
+      "delta_u_total": -2.99111007776,
+      "delta_u_by_cluster": {
+        "synthetic": -2.86744397978,
+        "uci_auto_mpg": -0.04942299101,
+        "uci_glass": -0.027770228346,
+        "uci_occupancy": -0.046472878623
+      },
+      "delta_safe": 0.0173497288571,
+      "delta_cost": 0.105170692574,
+      "expected_u": 0.594890709523,
+      "reference_expected_u": 0.694594378782,
+      "regret": 0.155694955762,
+      "reference_regret": 0.014189449731,
+      "dominated": false,
+      "clusters_with_positive_delta": 0,
+      "n_clusters": 4,
+      "signflip_p": 1.0,
+      "cluster_binomial_p": 1.0,
+      "bootstrap_ci": {
+        "ratio": {
+          "kind": "ratio",
+          "draws": 10000,
+          "seed": 5652026,
+          "level": 0.95,
+          "point": -0.141505506031,
+          "lo": -0.480717696029,
+          "hi": -0.00580906326908,
+          "clusters": 4,
+          "degenerate": false,
+          "role": "descriptive only; no verdict condition reads a bootstrap bound"
+        },
+        "macro": {
+          "kind": "macro",
+          "draws": 10000,
+          "seed": 5652026,
+          "level": 0.95,
+          "point": -0.18055690934,
+          "lo": -0.527449473784,
+          "hi": -0.00578999010039,
+          "clusters": 4,
+          "degenerate": false,
+          "role": "descriptive only; no verdict condition reads a bootstrap bound"
+        }
+      },
+      "verdict": "FALSIFIED",
+      "alpha": 0.05,
+      "under_powered": true,
+      "reason": "falsified by the point estimate: mean cluster delta U is -0.747777519439 and dominated is False. the exact one-sided cluster sign-flip floor over 4 clusters is 0.0625 > alpha_O2 0.05, so no p value can clear alpha; the verdict is decided by the point estimate and dominance alone (plan R7/D9)",
+      "label": "exploratory"
+    }
+  },
+  "O3": {
+    "regret_by_arm": {
+      "k0.03_L1": {
+        "F": 0.00870621458694,
+        "F_hist": 0.00216697202152,
+        "F_hist_plus": 0.00216636090324,
+        "F_size": 0.00617881111459,
+        "always_full_recompute": 0.00870621458694,
+        "bf": 0.00216697202152,
+        "escalate_all": 1.0,
+        "guarded_read": 0.0135639916635,
+        "linucb": 0.00688558187801,
+        "never_verify": 0.791884812317,
+        "q_only": 0.420261145832,
+        "static_semantic": 0.00870621458694,
+        "thompson": 0.00911720188371
+      },
+      "k0.03_L3": {
+        "F": 0.00575957607954,
+        "F_hist": 0.00239901486849,
+        "F_hist_plus": 0.00221012976776,
+        "F_size": 0.00575957607954,
+        "always_full_recompute": 0.00575957607954,
+        "bf": 0.00239901486849,
+        "escalate_all": 1.0,
+        "guarded_read": 0.0106317929854,
+        "linucb": 0.00659874241058,
+        "never_verify": 1.6262014414,
+        "q_only": 0.524685416356,
+        "static_semantic": 0.00575957607954,
+        "thompson": 0.0139555100229
+      },
+      "k0.10_L1": {
+        "F": 0.0483514661071,
+        "F_hist": 0.00270264717483,
+        "F_hist_plus": 0.00244091697216,
+        "F_size": 0.00427135205377,
+        "always_full_recompute": 0.0483514661071,
+        "bf": 0.00270264717483,
+        "escalate_all": 1.0,
+        "guarded_read": 0.065936331946,
+        "linucb": 0.0292883119522,
+        "never_verify": 0.773990597132,
+        "q_only": 0.447412390861,
+        "static_semantic": 0.0483514661071,
+        "thompson": 0.0110245280097
+      },
+      "k0.10_L3": {
+        "F": 0.0393047840221,
+        "F_hist": 0.00744675687768,
+        "F_hist_plus": 0.0070070304593,
+        "F_size": 0.00945907254304,
+        "always_full_recompute": 0.0393047840221,
+        "bf": 0.00744675687768,
+        "escalate_all": 1.0,
+        "guarded_read": 0.0570568173447,
+        "linucb": 0.031369370404,
+        "never_verify": 1.68447376642,
+        "q_only": 0.45025711769,
+        "static_semantic": 0.0393047840221,
+        "thompson": 0.0192163584541
+      },
+      "k0.30_L1": {
+        "F": 0.294528445269,
+        "F_hist": 0.0173800210179,
+        "F_hist_plus": 0.0142276431946,
+        "F_size": 0.0635370827095,
+        "always_full_recompute": 0.294528445269,
+        "bf": 0.0173800210179,
+        "escalate_all": 1.0,
+        "guarded_read": 0.357093410412,
+        "linucb": 0.101786504003,
+        "never_verify": 0.73196136303,
+        "q_only": 0.505330549699,
+        "static_semantic": 0.294528445269,
+        "thompson": 0.0205886729368
+      },
+      "k0.30_L3": {
+        "F": 0.252907632527,
+        "F_hist": 0.014189449731,
+        "F_hist_plus": 0.0138051012414,
+        "F_size": 0.0309986668882,
+        "always_full_recompute": 0.252907632527,
+        "bf": 0.014189449731,
+        "escalate_all": 1.0,
+        "guarded_read": 0.319163752445,
+        "linucb": 0.155694955762,
+        "never_verify": 1.85155645976,
+        "q_only": 0.307923762624,
+        "static_semantic": 0.252907632527,
+        "thompson": 0.0241588323286
+      },
+      "k1.00_L1": {
+        "F": 0.451441299213,
+        "F_hist": 0.0744909677602,
+        "F_hist_plus": 0.065094486906,
+        "F_size": 0.227771871257,
+        "always_full_recompute": 2.33335956123,
+        "bf": 0.0744909677602,
+        "escalate_all": 1.0,
+        "guarded_read": 2.69190970702,
+        "linucb": 0.301283716598,
+        "never_verify": 0.539173599104,
+        "q_only": 0.356463230321,
+        "static_semantic": 2.33335956123,
+        "thompson": 0.0867087838406
+      },
+      "k1.00_L3": {
+        "F": 1.0,
+        "F_hist": 0.135920618803,
+        "F_hist_plus": 0.123927003349,
+        "F_size": 0.724493853725,
+        "always_full_recompute": 2.77076888306,
+        "bf": 0.135920618803,
+        "escalate_all": 1.0,
+        "guarded_read": 3.2469415972,
+        "linucb": 0.331545992192,
+        "never_verify": 2.83600224934,
+        "q_only": 0.4875916603,
+        "static_semantic": 2.77076888306,
+        "thompson": 0.150996320957
+      }
+    },
+    "gap_recovered": {
+      "k0.03_L1": {
+        "q_only": -192.939350236,
+        "thompson": -3.20734637696,
+        "linucb": -2.1775130503,
+        "denominator": 0.062474210911,
+        "gap_floor": 0.01,
+        "undefined": false
+      },
+      "k0.03_L3": {
+        "q_only": -217.70869716,
+        "thompson": -4.81718363075,
+        "linucb": -1.75060504928,
+        "denominator": 0.068959067766,
+        "gap_floor": 0.01,
+        "undefined": false
+      },
+      "k0.10_L1": {
+        "q_only": -164.545985813,
+        "thompson": -3.0791591712,
+        "linucb": -9.83689806978,
+        "denominator": 0.071748709758,
+        "gap_floor": 0.01,
+        "undefined": false
+      },
+      "k0.10_L3": {
+        "q_only": -59.4635178893,
+        "thompson": -1.58050031306,
+        "linucb": -3.21248751897,
+        "denominator": 0.195831645234,
+        "gap_floor": 0.01,
+        "undefined": false
+      },
+      "k0.30_L1": {
+        "q_only": -28.0753704601,
+        "thompson": -0.18461726344,
+        "linucb": -4.85652364273,
+        "denominator": 0.389048859844,
+        "gap_floor": 0.01,
+        "undefined": false
+      },
+      "k0.30_L3": {
+        "q_only": -20.7008952751,
+        "thompson": -0.7025912059,
+        "linucb": -9.97258587986,
+        "denominator": 0.299933248386,
+        "gap_floor": 0.01,
+        "undefined": false
+      },
+      "k1.00_L1": {
+        "q_only": -3.78532150997,
+        "thompson": -0.164017416444,
+        "linucb": -3.04456708856,
+        "denominator": 0.969878908179,
+        "gap_floor": 0.01,
+        "undefined": false
+      },
+      "k1.00_L3": {
+        "q_only": -2.58732666606,
+        "thompson": -0.110915490871,
+        "linucb": -1.43926193915,
+        "denominator": 1.33255345375,
+        "gap_floor": 0.01,
+        "undefined": false
+      }
+    },
+    "frontier": [
+      {
+        "arm": "bf",
+        "regime_id": "k0.03_L1",
+        "expected_safe": 0.998467847968,
+        "expected_cost_units": 0.0380119008139,
+        "expected_u": 0.958923795122,
+        "regret": 0.00216697202152,
+        "dominated_by": [
+          "F_hist_plus"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "F",
+        "regime_id": "k0.03_L1",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.0473604579769,
+        "expected_u": 0.952639542023,
+        "regret": 0.00870621458694,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_size",
+        "regime_id": "k0.03_L1",
+        "expected_safe": 0.9935775,
+        "expected_cost_units": 0.0320866073961,
+        "expected_u": 0.955068392604,
+        "regret": 0.00617881111459,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_hist",
+        "regime_id": "k0.03_L1",
+        "expected_safe": 0.998467847968,
+        "expected_cost_units": 0.0380119008139,
+        "expected_u": 0.958923795122,
+        "regret": 0.00216697202152,
+        "dominated_by": [
+          "F_hist_plus"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "F_hist_plus",
+        "regime_id": "k0.03_L1",
+        "expected_safe": 0.998467847968,
+        "expected_cost_units": 0.0380113135254,
+        "expected_u": 0.95892438241,
+        "regret": 0.00216636090324,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "always_full_recompute",
+        "regime_id": "k0.03_L1",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.0473604579769,
+        "expected_u": 0.952639542023,
+        "regret": 0.00870621458694,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "escalate_all",
+        "regime_id": "k0.03_L1",
+        "expected_safe": 0.0,
+        "expected_cost_units": 0.0,
+        "expected_u": 0.0,
+        "regret": 1.0,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "never_verify",
+        "regime_id": "k0.03_L1",
+        "expected_safe": 0.6,
+        "expected_cost_units": 0.0,
+        "expected_u": 0.2,
+        "regret": 0.791884812317,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "static_semantic",
+        "regime_id": "k0.03_L1",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.0473604579769,
+        "expected_u": 0.952639542023,
+        "regret": 0.00870621458694,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "guarded_read",
+        "regime_id": "k0.03_L1",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.0520288121999,
+        "expected_u": 0.9479711878,
+        "regret": 0.0135639916635,
+        "dominated_by": [
+          "F",
+          "always_full_recompute",
+          "static_semantic"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "q_only",
+        "regime_id": "k0.03_L1",
+        "expected_safe": 0.59452818188,
+        "expected_cost_units": 0.0214037222264,
+        "expected_u": 0.557132673134,
+        "regret": 0.420261145832,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "thompson",
+        "regime_id": "k0.03_L1",
+        "expected_safe": 0.995498030246,
+        "expected_cost_units": 0.0388522480729,
+        "expected_u": 0.952244580655,
+        "regret": 0.00911720188371,
+        "dominated_by": [
+          "F_hist",
+          "F_hist_plus",
+          "bf"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "linucb",
+        "regime_id": "k0.03_L1",
+        "expected_safe": 0.997635733045,
+        "expected_cost_units": 0.0411195541182,
+        "expected_u": 0.95438918147,
+        "regret": 0.00688558187801,
+        "dominated_by": [
+          "F_hist",
+          "F_hist_plus",
+          "bf"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "bf",
+        "regime_id": "k0.03_L3",
+        "expected_safe": 0.998467847968,
+        "expected_cost_units": 0.0380119008139,
+        "expected_u": 0.955859491058,
+        "regret": 0.00239901486849,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F",
+        "regime_id": "k0.03_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.0473604579769,
+        "expected_u": 0.952639542023,
+        "regret": 0.00575957607954,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_size",
+        "regime_id": "k0.03_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.0473604579769,
+        "expected_u": 0.952639542023,
+        "regret": 0.00575957607954,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_hist",
+        "regime_id": "k0.03_L3",
+        "expected_safe": 0.998467847968,
+        "expected_cost_units": 0.0380119008139,
+        "expected_u": 0.955859491058,
+        "regret": 0.00239901486849,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_hist_plus",
+        "regime_id": "k0.03_L3",
+        "expected_safe": 0.998590427846,
+        "expected_cost_units": 0.0383212385306,
+        "expected_u": 0.956040472852,
+        "regret": 0.00221012976776,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "always_full_recompute",
+        "regime_id": "k0.03_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.0473604579769,
+        "expected_u": 0.952639542023,
+        "regret": 0.00575957607954,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "escalate_all",
+        "regime_id": "k0.03_L3",
+        "expected_safe": 0.0,
+        "expected_cost_units": 0.0,
+        "expected_u": 0.0,
+        "regret": 1.0,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "never_verify",
+        "regime_id": "k0.03_L3",
+        "expected_safe": 0.6,
+        "expected_cost_units": 0.0,
+        "expected_u": -0.6,
+        "regret": 1.6262014414,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "static_semantic",
+        "regime_id": "k0.03_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.0473604579769,
+        "expected_u": 0.952639542023,
+        "regret": 0.00575957607954,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "guarded_read",
+        "regime_id": "k0.03_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.0520288121999,
+        "expected_u": 0.9479711878,
+        "regret": 0.0106317929854,
+        "dominated_by": [
+          "F",
+          "F_size",
+          "always_full_recompute",
+          "static_semantic"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "q_only",
+        "regime_id": "k0.03_L3",
+        "expected_safe": 0.491339353636,
+        "expected_cost_units": 0.0239429059248,
+        "expected_u": 0.455426531034,
+        "regret": 0.524685416356,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "thompson",
+        "regime_id": "k0.03_L3",
+        "expected_safe": 0.995644148288,
+        "expected_cost_units": 0.0377900518408,
+        "expected_u": 0.94478654131,
+        "regret": 0.0139555100229,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "linucb",
+        "regime_id": "k0.03_L3",
+        "expected_safe": 0.998192268517,
+        "expected_cost_units": 0.0427019870317,
+        "expected_u": 0.951835487983,
+        "regret": 0.00659874241058,
+        "dominated_by": [
+          "F_hist",
+          "F_hist_plus",
+          "bf"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "bf",
+        "regime_id": "k0.10_L1",
+        "expected_safe": 0.980773064894,
+        "expected_cost_units": 0.0911520224233,
+        "expected_u": 0.88252731096,
+        "regret": 0.00270264717483,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F",
+        "regime_id": "k0.10_L1",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.157868193256,
+        "expected_u": 0.842131806744,
+        "regret": 0.0483514661071,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_size",
+        "regime_id": "k0.10_L1",
+        "expected_safe": 0.980333333333,
+        "expected_cost_units": 0.0927716990236,
+        "expected_u": 0.88113913431,
+        "regret": 0.00427135205377,
+        "dominated_by": [
+          "F_hist",
+          "bf"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "F_hist",
+        "regime_id": "k0.10_L1",
+        "expected_safe": 0.980773064894,
+        "expected_cost_units": 0.0911520224233,
+        "expected_u": 0.88252731096,
+        "regret": 0.00270264717483,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_hist_plus",
+        "regime_id": "k0.10_L1",
+        "expected_safe": 0.980114737114,
+        "expected_cost_units": 0.0895327021177,
+        "expected_u": 0.882758920972,
+        "regret": 0.00244091697216,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "always_full_recompute",
+        "regime_id": "k0.10_L1",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.157868193256,
+        "expected_u": 0.842131806744,
+        "regret": 0.0483514661071,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "escalate_all",
+        "regime_id": "k0.10_L1",
+        "expected_safe": 0.0,
+        "expected_cost_units": 0.0,
+        "expected_u": 0.0,
+        "regret": 1.0,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "never_verify",
+        "regime_id": "k0.10_L1",
+        "expected_safe": 0.6,
+        "expected_cost_units": 0.0,
+        "expected_u": 0.2,
+        "regret": 0.773990597132,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "static_semantic",
+        "regime_id": "k0.10_L1",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.157868193256,
+        "expected_u": 0.842131806744,
+        "regret": 0.0483514661071,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "guarded_read",
+        "regime_id": "k0.10_L1",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.173429374,
+        "expected_u": 0.826570626,
+        "regret": 0.065936331946,
+        "dominated_by": [
+          "F",
+          "always_full_recompute",
+          "static_semantic"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "q_only",
+        "regime_id": "k0.10_L1",
+        "expected_safe": 0.562332766962,
+        "expected_cost_units": 0.0522324504985,
+        "expected_u": 0.488995238362,
+        "regret": 0.447412390861,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "thompson",
+        "regime_id": "k0.10_L1",
+        "expected_safe": 0.977581825041,
+        "expected_cost_units": 0.0923527920862,
+        "expected_u": 0.875163121037,
+        "regret": 0.0110245280097,
+        "dominated_by": [
+          "F_hist",
+          "F_hist_plus",
+          "bf"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "linucb",
+        "regime_id": "k0.10_L1",
+        "expected_safe": 0.995850048619,
+        "expected_cost_units": 0.133690665213,
+        "expected_u": 0.859001152809,
+        "regret": 0.0292883119522,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "bf",
+        "regime_id": "k0.10_L3",
+        "expected_safe": 0.982555239516,
+        "expected_cost_units": 0.102064244642,
+        "expected_u": 0.870058101694,
+        "regret": 0.00744675687768,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F",
+        "regime_id": "k0.10_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.157868193256,
+        "expected_u": 0.842131806744,
+        "regret": 0.0393047840221,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_size",
+        "regime_id": "k0.10_L3",
+        "expected_safe": 0.980333333333,
+        "expected_cost_units": 0.0927716990236,
+        "expected_u": 0.86829413431,
+        "regret": 0.00945907254304,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_hist",
+        "regime_id": "k0.10_L3",
+        "expected_safe": 0.982555239516,
+        "expected_cost_units": 0.102064244642,
+        "expected_u": 0.870058101694,
+        "regret": 0.00744675687768,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_hist_plus",
+        "regime_id": "k0.10_L3",
+        "expected_safe": 0.982361574257,
+        "expected_cost_units": 0.0997605313619,
+        "expected_u": 0.870443559638,
+        "regret": 0.0070070304593,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "always_full_recompute",
+        "regime_id": "k0.10_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.157868193256,
+        "expected_u": 0.842131806744,
+        "regret": 0.0393047840221,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "escalate_all",
+        "regime_id": "k0.10_L3",
+        "expected_safe": 0.0,
+        "expected_cost_units": 0.0,
+        "expected_u": 0.0,
+        "regret": 1.0,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "never_verify",
+        "regime_id": "k0.10_L3",
+        "expected_safe": 0.6,
+        "expected_cost_units": 0.0,
+        "expected_u": -0.6,
+        "regret": 1.68447376642,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "static_semantic",
+        "regime_id": "k0.10_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.157868193256,
+        "expected_u": 0.842131806744,
+        "regret": 0.0393047840221,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "guarded_read",
+        "regime_id": "k0.10_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.173429374,
+        "expected_u": 0.826570626,
+        "regret": 0.0570568173447,
+        "dominated_by": [
+          "F",
+          "always_full_recompute",
+          "static_semantic"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "q_only",
+        "regime_id": "k0.10_L3",
+        "expected_safe": 0.551314713804,
+        "expected_cost_units": 0.0639121494912,
+        "expected_u": 0.481896817038,
+        "regret": 0.45025711769,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "thompson",
+        "regime_id": "k0.10_L3",
+        "expected_safe": 0.97903786036,
+        "expected_cost_units": 0.099111305832,
+        "expected_u": 0.859741035807,
+        "regret": 0.0192163584541,
+        "dominated_by": [
+          "F_size"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "linucb",
+        "regime_id": "k0.10_L3",
+        "expected_safe": 0.997088242154,
+        "expected_cost_units": 0.141192335522,
+        "expected_u": 0.849087877823,
+        "regret": 0.031369370404,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "bf",
+        "regime_id": "k0.30_L1",
+        "expected_safe": 0.945611511941,
+        "expected_cost_units": 0.168953479536,
+        "expected_u": 0.733192788987,
+        "regret": 0.0173800210179,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F",
+        "regime_id": "k0.30_L1",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.473604579769,
+        "expected_u": 0.526395420231,
+        "regret": 0.294528445269,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_size",
+        "regime_id": "k0.30_L1",
+        "expected_safe": 0.973910833333,
+        "expected_cost_units": 0.24906948088,
+        "expected_u": 0.698752185786,
+        "regret": 0.0635370827095,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_hist",
+        "regime_id": "k0.30_L1",
+        "expected_safe": 0.945611511941,
+        "expected_cost_units": 0.168953479536,
+        "expected_u": 0.733192788987,
+        "regret": 0.0173800210179,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_hist_plus",
+        "regime_id": "k0.30_L1",
+        "expected_safe": 0.948745499596,
+        "expected_cost_units": 0.172990836738,
+        "expected_u": 0.735544970642,
+        "regret": 0.0142276431946,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "always_full_recompute",
+        "regime_id": "k0.30_L1",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.473604579769,
+        "expected_u": 0.526395420231,
+        "regret": 0.294528445269,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "escalate_all",
+        "regime_id": "k0.30_L1",
+        "expected_safe": 0.0,
+        "expected_cost_units": 0.0,
+        "expected_u": 0.0,
+        "regret": 1.0,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "never_verify",
+        "regime_id": "k0.30_L1",
+        "expected_safe": 0.6,
+        "expected_cost_units": 0.0,
+        "expected_u": 0.2,
+        "regret": 0.73196136303,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "static_semantic",
+        "regime_id": "k0.30_L1",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.473604579769,
+        "expected_u": 0.526395420231,
+        "regret": 0.294528445269,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "guarded_read",
+        "regime_id": "k0.30_L1",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.520288121999,
+        "expected_u": 0.479711878001,
+        "regret": 0.357093410412,
+        "dominated_by": [
+          "F",
+          "always_full_recompute",
+          "static_semantic"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "q_only",
+        "regime_id": "k0.30_L1",
+        "expected_safe": 0.482754295998,
+        "expected_cost_units": 0.068588001178,
+        "expected_u": 0.369103093414,
+        "regret": 0.505330549699,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "thompson",
+        "regime_id": "k0.30_L1",
+        "expected_safe": 0.944078524948,
+        "expected_cost_units": 0.168281676746,
+        "expected_u": 0.730798617792,
+        "regret": 0.0205886729368,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "linucb",
+        "regime_id": "k0.30_L1",
+        "expected_safe": 0.957812197223,
+        "expected_cost_units": 0.252538946318,
+        "expected_u": 0.67021195612,
+        "regret": 0.101786504003,
+        "dominated_by": [
+          "F_size"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "bf",
+        "regime_id": "k0.30_L3",
+        "expected_safe": 0.962999380101,
+        "expected_cost_units": 0.257198394593,
+        "expected_u": 0.694594378782,
+        "regret": 0.014189449731,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F",
+        "regime_id": "k0.30_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.473604579769,
+        "expected_u": 0.526395420231,
+        "regret": 0.252907632527,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_size",
+        "regime_id": "k0.30_L3",
+        "expected_safe": 0.980333333333,
+        "expected_cost_units": 0.278315097071,
+        "expected_u": 0.682750736262,
+        "regret": 0.0309986668882,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_hist",
+        "regime_id": "k0.30_L3",
+        "expected_safe": 0.962999380101,
+        "expected_cost_units": 0.257198394593,
+        "expected_u": 0.694594378782,
+        "regret": 0.014189449731,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_hist_plus",
+        "regime_id": "k0.30_L3",
+        "expected_safe": 0.964627147064,
+        "expected_cost_units": 0.257739118188,
+        "expected_u": 0.694865187712,
+        "regret": 0.0138051012414,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "always_full_recompute",
+        "regime_id": "k0.30_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.473604579769,
+        "expected_u": 0.526395420231,
+        "regret": 0.252907632527,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "escalate_all",
+        "regime_id": "k0.30_L3",
+        "expected_safe": 0.0,
+        "expected_cost_units": 0.0,
+        "expected_u": 0.0,
+        "regret": 1.0,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "never_verify",
+        "regime_id": "k0.30_L3",
+        "expected_safe": 0.6,
+        "expected_cost_units": 0.0,
+        "expected_u": -0.6,
+        "regret": 1.85155645976,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "static_semantic",
+        "regime_id": "k0.30_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.473604579769,
+        "expected_u": 0.526395420231,
+        "regret": 0.252907632527,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "guarded_read",
+        "regime_id": "k0.30_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 0.520288121999,
+        "expected_u": 0.479711878001,
+        "regret": 0.319163752445,
+        "dominated_by": [
+          "F",
+          "always_full_recompute",
+          "static_semantic"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "q_only",
+        "regime_id": "k0.30_L3",
+        "expected_safe": 0.705602864846,
+        "expected_cost_units": 0.199567272878,
+        "expected_u": 0.487631486637,
+        "regret": 0.307923762624,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "thompson",
+        "regime_id": "k0.30_L3",
+        "expected_safe": 0.960410707266,
+        "expected_cost_units": 0.258248925381,
+        "expected_u": 0.687570030026,
+        "regret": 0.0241588323286,
+        "dominated_by": [
+          "F_hist",
+          "F_hist_plus",
+          "bf"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "linucb",
+        "regime_id": "k0.30_L3",
+        "expected_safe": 0.980349108958,
+        "expected_cost_units": 0.362369087167,
+        "expected_u": 0.594890709523,
+        "regret": 0.155694955762,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "bf",
+        "regime_id": "k1.00_L1",
+        "expected_safe": 0.854052175637,
+        "expected_cost_units": 0.345914388723,
+        "expected_u": 0.401673615245,
+        "regret": 0.0744909677602,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F",
+        "regime_id": "k1.00_L1",
+        "expected_safe": 0.6,
+        "expected_cost_units": 0.184256926354,
+        "expected_u": 0.238076073646,
+        "regret": 0.451441299213,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "F_size",
+        "regime_id": "k1.00_L1",
+        "expected_safe": 0.814541666667,
+        "expected_cost_units": 0.314178243255,
+        "expected_u": 0.335149256745,
+        "regret": 0.227771871257,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_hist",
+        "regime_id": "k1.00_L1",
+        "expected_safe": 0.854052175637,
+        "expected_cost_units": 0.345914388723,
+        "expected_u": 0.401673615245,
+        "regret": 0.0744909677602,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_hist_plus",
+        "regime_id": "k1.00_L1",
+        "expected_safe": 0.849747473791,
+        "expected_cost_units": 0.332260228425,
+        "expected_u": 0.4057517153,
+        "regret": 0.065094486906,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "always_full_recompute",
+        "regime_id": "k1.00_L1",
+        "expected_safe": 1.0,
+        "expected_cost_units": 1.57868193256,
+        "expected_u": -0.578681932563,
+        "regret": 2.33335956123,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "escalate_all",
+        "regime_id": "k1.00_L1",
+        "expected_safe": 0.0,
+        "expected_cost_units": 0.0,
+        "expected_u": 0.0,
+        "regret": 1.0,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "never_verify",
+        "regime_id": "k1.00_L1",
+        "expected_safe": 0.6,
+        "expected_cost_units": 0.0,
+        "expected_u": 0.2,
+        "regret": 0.539173599104,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "static_semantic",
+        "regime_id": "k1.00_L1",
+        "expected_safe": 1.0,
+        "expected_cost_units": 1.57868193256,
+        "expected_u": -0.578681932563,
+        "regret": 2.33335956123,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "guarded_read",
+        "regime_id": "k1.00_L1",
+        "expected_safe": 1.0,
+        "expected_cost_units": 1.73429374,
+        "expected_u": -0.734293740001,
+        "regret": 2.69190970702,
+        "dominated_by": [
+          "always_full_recompute",
+          "static_semantic"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "q_only",
+        "regime_id": "k1.00_L1",
+        "expected_safe": 0.343140217779,
+        "expected_cost_units": 0.0176862922533,
+        "expected_u": 0.279296832138,
+        "regret": 0.356463230321,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "thompson",
+        "regime_id": "k1.00_L1",
+        "expected_safe": 0.851576434621,
+        "expected_cost_units": 0.34861271379,
+        "expected_u": 0.396371047485,
+        "regret": 0.0867087838406,
+        "dominated_by": [
+          "F_hist",
+          "bf"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "linucb",
+        "regime_id": "k1.00_L1",
+        "expected_safe": 0.82156888113,
+        "expected_cost_units": 0.400619786678,
+        "expected_u": 0.303244901787,
+        "regret": 0.301283716598,
+        "dominated_by": [
+          "F_hist",
+          "F_hist_plus",
+          "bf",
+          "thompson"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "bf",
+        "regime_id": "k1.00_L3",
+        "expected_safe": 0.891234011381,
+        "expected_cost_units": 0.459431330197,
+        "expected_u": 0.282378536793,
+        "regret": 0.135920618803,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F",
+        "regime_id": "k1.00_L3",
+        "expected_safe": 0.0,
+        "expected_cost_units": 0.0,
+        "expected_u": 0.0,
+        "regret": 1.0,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "F_size",
+        "regime_id": "k1.00_L3",
+        "expected_safe": 0.913666666667,
+        "expected_cost_units": 0.804364588645,
+        "expected_u": 0.090034578021,
+        "regret": 0.724493853725,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_hist",
+        "regime_id": "k1.00_L3",
+        "expected_safe": 0.891234011381,
+        "expected_cost_units": 0.459431330197,
+        "expected_u": 0.282378536793,
+        "regret": 0.135920618803,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "F_hist_plus",
+        "regime_id": "k1.00_L3",
+        "expected_safe": 0.89822042798,
+        "expected_cost_units": 0.483453961986,
+        "expected_u": 0.286298014166,
+        "regret": 0.123927003349,
+        "dominated_by": [
+          "thompson"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "always_full_recompute",
+        "regime_id": "k1.00_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 1.57868193256,
+        "expected_u": -0.578681932563,
+        "regret": 2.77076888306,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "escalate_all",
+        "regime_id": "k1.00_L3",
+        "expected_safe": 0.0,
+        "expected_cost_units": 0.0,
+        "expected_u": 0.0,
+        "regret": 1.0,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "never_verify",
+        "regime_id": "k1.00_L3",
+        "expected_safe": 0.6,
+        "expected_cost_units": 0.0,
+        "expected_u": -0.6,
+        "regret": 2.83600224934,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "static_semantic",
+        "regime_id": "k1.00_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 1.57868193256,
+        "expected_u": -0.578681932563,
+        "regret": 2.77076888306,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "guarded_read",
+        "regime_id": "k1.00_L3",
+        "expected_safe": 1.0,
+        "expected_cost_units": 1.73429374,
+        "expected_u": -0.734293740001,
+        "regret": 3.2469415972,
+        "dominated_by": [
+          "always_full_recompute",
+          "static_semantic"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "q_only",
+        "regime_id": "k1.00_L3",
+        "expected_safe": 0.279105666562,
+        "expected_cost_units": 0.0282496897414,
+        "expected_u": 0.167453500632,
+        "regret": 0.4875916603,
+        "dominated_by": [
+          "never_verify"
+        ],
+        "pareto": false
+      },
+      {
+        "arm": "thompson",
+        "regime_id": "k1.00_L3",
+        "expected_safe": 0.900874757237,
+        "expected_cost_units": 0.462763690785,
+        "expected_u": 0.277451842779,
+        "regret": 0.150996320957,
+        "dominated_by": [],
+        "pareto": true
+      },
+      {
+        "arm": "linucb",
+        "regime_id": "k1.00_L3",
+        "expected_safe": 0.71505184632,
+        "expected_cost_units": 0.376069326065,
+        "expected_u": 0.218448754531,
+        "regret": 0.331545992192,
+        "dominated_by": [],
+        "pareto": true
+      }
+    ],
+    "gap_recovered_rule": "(sum E[U_pi] - sum E[U_bf]) / (sum E[U*] - sum E[U_bf]); reported as undefined if the denominator point estimate <= 0.01"
+  },
+  "realized": {
+    "regime_id": "k0.30_L3",
+    "by_arm": {
+      "F": {
+        "episodes": 90,
+        "safe_complete": 90,
+        "safe_rate": 1.0,
+        "wilson_95": [
+          0.959064374436,
+          1.0
+        ],
+        "cluster_icc_u": 0.230122189276,
+        "logistic_safe_on_cost": {
+          "intercept": null,
+          "slope": null,
+          "iterations": 0,
+          "converged": false,
+          "degenerate": true,
+          "n": 90
+        }
+      },
+      "F_hist": {
+        "episodes": 90,
+        "safe_complete": 88,
+        "safe_rate": 0.977777777778,
+        "wilson_95": [
+          0.922554733114,
+          0.993884558014
+        ],
+        "cluster_icc_u": 0.0381079867868,
+        "logistic_safe_on_cost": {
+          "intercept": -37.1806139716,
+          "slope": 33971.2781163,
+          "iterations": 48,
+          "converged": false,
+          "degenerate": true,
+          "n": 90
+        }
+      },
+      "F_hist_plus": {
+        "episodes": 90,
+        "safe_complete": 88,
+        "safe_rate": 0.977777777778,
+        "wilson_95": [
+          0.922554733114,
+          0.993884558014
+        ],
+        "cluster_icc_u": 0.0381079867868,
+        "logistic_safe_on_cost": {
+          "intercept": -37.1806139716,
+          "slope": 33971.2781163,
+          "iterations": 48,
+          "converged": false,
+          "degenerate": true,
+          "n": 90
+        }
+      },
+      "F_size": {
+        "episodes": 90,
+        "safe_complete": 90,
+        "safe_rate": 1.0,
+        "wilson_95": [
+          0.959064374436,
+          1.0
+        ],
+        "cluster_icc_u": 0.30679488186,
+        "logistic_safe_on_cost": {
+          "intercept": null,
+          "slope": null,
+          "iterations": 0,
+          "converged": false,
+          "degenerate": true,
+          "n": 90
+        }
+      },
+      "always_full_recompute": {
+        "episodes": 90,
+        "safe_complete": 90,
+        "safe_rate": 1.0,
+        "wilson_95": [
+          0.959064374436,
+          1.0
+        ],
+        "cluster_icc_u": 0.230122189276,
+        "logistic_safe_on_cost": {
+          "intercept": null,
+          "slope": null,
+          "iterations": 0,
+          "converged": false,
+          "degenerate": true,
+          "n": 90
+        }
+      },
+      "bf": {
+        "episodes": 90,
+        "safe_complete": 88,
+        "safe_rate": 0.977777777778,
+        "wilson_95": [
+          0.922554733114,
+          0.993884558014
+        ],
+        "cluster_icc_u": 0.0381079867868,
+        "logistic_safe_on_cost": {
+          "intercept": -37.1806139716,
+          "slope": 33971.2781163,
+          "iterations": 48,
+          "converged": false,
+          "degenerate": true,
+          "n": 90
+        }
+      },
+      "escalate_all": {
+        "episodes": 90,
+        "safe_complete": 0,
+        "safe_rate": 0.0,
+        "wilson_95": [
+          3.46944695195e-18,
+          0.0409356255643
+        ],
+        "cluster_icc_u": 0.0,
+        "logistic_safe_on_cost": {
+          "intercept": null,
+          "slope": null,
+          "iterations": 0,
+          "converged": false,
+          "degenerate": true,
+          "n": 90
+        }
+      },
+      "guarded_read": {
+        "episodes": 90,
+        "safe_complete": 90,
+        "safe_rate": 1.0,
+        "wilson_95": [
+          0.959064374436,
+          1.0
+        ],
+        "cluster_icc_u": 0.212888145472,
+        "logistic_safe_on_cost": {
+          "intercept": null,
+          "slope": null,
+          "iterations": 0,
+          "converged": false,
+          "degenerate": true,
+          "n": 90
+        }
+      },
+      "linucb": {
+        "episodes": 90,
+        "safe_complete": 88,
+        "safe_rate": 0.977777777778,
+        "wilson_95": [
+          0.922554733114,
+          0.993884558014
+        ],
+        "cluster_icc_u": 0.175214344567,
+        "logistic_safe_on_cost": {
+          "intercept": 0.808315532574,
+          "slope": 20.3928988588,
+          "iterations": 12,
+          "converged": true,
+          "degenerate": false,
+          "n": 90
+        }
+      },
+      "never_verify": {
+        "episodes": 90,
+        "safe_complete": 51,
+        "safe_rate": 0.566666666667,
+        "wilson_95": [
+          0.463640975237,
+          0.664234274688
+        ],
+        "cluster_icc_u": 0.0,
+        "logistic_safe_on_cost": {
+          "intercept": null,
+          "slope": null,
+          "iterations": 0,
+          "converged": false,
+          "degenerate": true,
+          "n": 90
+        }
+      },
+      "q_only": {
+        "episodes": 90,
+        "safe_complete": 64,
+        "safe_rate": 0.711111111111,
+        "wilson_95": [
+          0.61035956402,
+          0.794578727408
+        ],
+        "cluster_icc_u": 0.256870110475,
+        "logistic_safe_on_cost": {
+          "intercept": -1.88976447209,
+          "slope": 18.3572617485,
+          "iterations": 8,
+          "converged": true,
+          "degenerate": false,
+          "n": 90
+        }
+      },
+      "static_semantic": {
+        "episodes": 90,
+        "safe_complete": 90,
+        "safe_rate": 1.0,
+        "wilson_95": [
+          0.959064374436,
+          1.0
+        ],
+        "cluster_icc_u": 0.230122189276,
+        "logistic_safe_on_cost": {
+          "intercept": null,
+          "slope": null,
+          "iterations": 0,
+          "converged": false,
+          "degenerate": true,
+          "n": 90
+        }
+      },
+      "thompson": {
+        "episodes": 90,
+        "safe_complete": 88,
+        "safe_rate": 0.977777777778,
+        "wilson_95": [
+          0.922554733114,
+          0.993884558014
+        ],
+        "cluster_icc_u": 0.00764768908631,
+        "logistic_safe_on_cost": {
+          "intercept": -37.1761755862,
+          "slope": 33860.1613061,
+          "iterations": 48,
+          "converged": false,
+          "degenerate": true,
+          "n": 90
+        }
+      }
+    },
+    "mcnemar_vs_bf": {
+      "q_only": {
+        "arm_only": 0,
+        "bf_only": 24,
+        "discordant": 24,
+        "mcnemar_exact_p": 1.19209289551e-07,
+        "method": "exact_mcnemar_two_sided"
+      },
+      "thompson": {
+        "arm_only": 0,
+        "bf_only": 0,
+        "discordant": 0,
+        "mcnemar_exact_p": 1.0,
+        "method": "exact_mcnemar_two_sided"
+      },
+      "linucb": {
+        "arm_only": 2,
+        "bf_only": 2,
+        "discordant": 4,
+        "mcnemar_exact_p": 1.0,
+        "method": "exact_mcnemar_two_sided"
+      }
+    },
+    "role": "descriptive; the realized episodes are three frozen cells per profile"
+  },
+  "counts_by_arm": {
+    "bf": {
+      "false_completion": 18,
+      "wrong_publication": 1,
+      "unsupported_escalation": 0,
+      "duplicate_effects": 0,
+      "fallback_rule": 0,
+      "dominated_reads": 0,
+      "episodes": 720
+    },
+    "F": {
+      "false_completion": 21,
+      "wrong_publication": 0,
+      "unsupported_escalation": 0,
+      "duplicate_effects": 0,
+      "fallback_rule": 0,
+      "dominated_reads": 0,
+      "episodes": 720
+    },
+    "F_size": {
+      "false_completion": 17,
+      "wrong_publication": 0,
+      "unsupported_escalation": 0,
+      "duplicate_effects": 0,
+      "fallback_rule": 0,
+      "dominated_reads": 0,
+      "episodes": 720
+    },
+    "F_hist": {
+      "false_completion": 18,
+      "wrong_publication": 1,
+      "unsupported_escalation": 0,
+      "duplicate_effects": 0,
+      "fallback_rule": 0,
+      "dominated_reads": 0,
+      "episodes": 720
+    },
+    "F_hist_plus": {
+      "false_completion": 17,
+      "wrong_publication": 1,
+      "unsupported_escalation": 0,
+      "duplicate_effects": 0,
+      "fallback_rule": 0,
+      "dominated_reads": 0,
+      "episodes": 720
+    },
+    "always_full_recompute": {
+      "false_completion": 0,
+      "wrong_publication": 0,
+      "unsupported_escalation": 0,
+      "duplicate_effects": 0,
+      "fallback_rule": 0,
+      "dominated_reads": 0,
+      "episodes": 720
+    },
+    "escalate_all": {
+      "false_completion": 0,
+      "wrong_publication": 0,
+      "unsupported_escalation": 0,
+      "duplicate_effects": 0,
+      "fallback_rule": 0,
+      "dominated_reads": 0,
+      "episodes": 720
+    },
+    "never_verify": {
+      "false_completion": 312,
+      "wrong_publication": 0,
+      "unsupported_escalation": 0,
+      "duplicate_effects": 0,
+      "fallback_rule": 0,
+      "dominated_reads": 0,
+      "episodes": 720
+    },
+    "static_semantic": {
+      "false_completion": 0,
+      "wrong_publication": 0,
+      "unsupported_escalation": 0,
+      "duplicate_effects": 0,
+      "fallback_rule": 0,
+      "dominated_reads": 0,
+      "episodes": 720
+    },
+    "guarded_read": {
+      "false_completion": 0,
+      "wrong_publication": 0,
+      "unsupported_escalation": 0,
+      "duplicate_effects": 0,
+      "fallback_rule": 0,
+      "dominated_reads": 312,
+      "episodes": 720
+    },
+    "q_only": {
+      "false_completion": 20,
+      "wrong_publication": 0,
+      "unsupported_escalation": 0,
+      "duplicate_effects": 0,
+      "fallback_rule": 0,
+      "dominated_reads": 0,
+      "episodes": 720
+    },
+    "thompson": {
+      "false_completion": 18,
+      "wrong_publication": 1,
+      "unsupported_escalation": 0,
+      "duplicate_effects": 0,
+      "fallback_rule": 0,
+      "dominated_reads": 0,
+      "episodes": 720
+    },
+    "linucb": {
+      "false_completion": 25,
+      "wrong_publication": 1,
+      "unsupported_escalation": 0,
+      "duplicate_effects": 0,
+      "fallback_rule": 0,
+      "dominated_reads": 0,
+      "episodes": 720
+    }
+  },
+  "certificate": {
+    "status": "pass",
+    "tol": 1e-09,
+    "mi_threshold_bits": 1e-12,
+    "parts": {
+      "C1": {
+        "status": "pass",
+        "max_violation": 1.11022302463e-16
+      },
+      "C2": {
+        "status": "pass",
+        "max_violation": 1.11022302463e-16
+      },
+      "C3": {
+        "status": "pass",
+        "max_violation": 3.33066907388e-16
+      },
+      "C4": {
+        "status": "pass",
+        "max_violation": 3.33066907388e-16
+      },
+      "C5": {
+        "status": "pass",
+        "max_violation": 0.0
+      }
+    },
+    "c3_scope": "full",
+    "sha256": "668c4f32fedd5c1bb78b72d22d22f07275622dc84a85b5f5e6eac4c52e08b8a7"
+  },
+  "hypotheses_live": {
+    "H1": {
+      "status": "pending_live",
+      "statement_en": "A raw LLM arm leaves measurable regret against the exact DP, and more than the development-selected best fixed rule.",
+      "supported_iff": "q_raw < 0.025 and Holm-adjusted p_H1 < 0.05"
+    },
+    "H2": {
+      "status": "pending_live",
+      "statement_en": "A Q-gated hybrid arm raises safe completion over the raw arm by at least 0.25 without losing utility and without being dominated.",
+      "supported_iff": "point Delta safe >= 0.25 and Holm-adjusted p_H2 < 0.05 and signflip_p([delta U_c]) < 0.025 and not dominated by always_full_recompute or bf"
+    },
+    "H3": {
+      "status": "pending_live",
+      "statement_en": "On safe_stop packets the raw arm escalates without public support at a pooled rate above 0.30, with a residual that is significantly positive.",
+      "supported_iff": "Holm-adjusted p_H3 < 0.05 and the shared_numeric residual rate is significantly > 0, which because residual_c >= 0 means exactly k >= 6 clusters with residual_c > 0 (2^-6 = 0.015625 < 0.025; 2^-5 = 0.03125 is not): this corrects review 4's \"k >= 5\""
+    }
+  },
+  "ci_test_scope": "the 0.025 inversion threshold applies to the H1-H3 threshold conditions only; O2 is a single one-sided test at alpha_O2",
+  "not_run": {
+    "new_sources": "rescope_no_downloads: no HTTP fetch, no UCI candidate screening, no sources.py, no archive download, no sha pinning, no alias or family screen",
+    "heldout_split": "rescope_heldout_deferred_until_claim_decided: no seeded dev/held-out/reserve split, no held-out task, no gate0_*_heldout.json, no dp_certificate_heldout, no heldout_offline.json, no held-out freeze manifest",
+    "pilot": "owner_scope_no_live_runs: no pilot cells, packets, measures, pilot.json or projection amendment",
+    "a": "owner_scope_no_live_runs: live block A is not run",
+    "b": "owner_scope_no_live_runs: live block B (Direction B terminal packets) is not run",
+    "p1": "owner_scope_no_live_runs: probe P1 is not run",
+    "p2": "owner_scope_no_live_runs: probe P2 is not run",
+    "provider_requests": "rescope_no_provider_path: zero chat/completions and zero balance requests; 0 API calls and CNY 0.000000",
+    "provider_path": "rescope_no_provider_path: client.py, prompts.py and mock.py are not implemented, which is what audit --no-network asserts",
+    "direction_b": "terminal.py, its three packet states, SYSTEM_B, grade(), terminal_packets.json and terminal_programs.json are not implemented",
+    "hybrid_arm": "the flash + Q gate arm, its accept/override rule and the gate_override history fields are not implemented; q_only is kept as a standalone arm",
+    "suite_modes": "suite --dry-run/--live/--resume/--finalize-crashed/--verify/--render-prompts, the vericost565.trace.v1 schema, OUT.requests.jsonl, crash/resume and live preconditions (c),(d),(f),(g),(i) are not implemented",
+    "hypotheses_live": "H1, H2, H3 and their evaluators plus analysis_dryrun_validation.json are not run; the hypotheses stay pre-registered and pending_live",
+    "second_model_and_training": "P1/P2 probe subset, flash-thinking and v4-pro arms, LoRA, SFT, GRPO, any GPU or torch work and a second provider are not run",
+    "generalization_claim": "none: every record carries split=development, seen_cluster=true, independent_test=false"
+  },
+  "api_calls": 0,
+  "cny_spent": "0.000000",
+  "holm_exploratory": {
+    "q_only": 1.0,
+    "thompson": 1.0,
+    "linucb": 1.0
+  }
+}

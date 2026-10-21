@@ -1,0 +1,547 @@
+{
+  "schema": "vericost565.prereg.v1",
+  "version": "0.5.65-dev",
+  "version_scope": {
+    "live_calls": 0,
+    "deliverable": "offline",
+    "cny_spent": "0.000000",
+    "decision_record": [
+      {
+        "source": "the owner, relayed verbatim by the parent session of workflow wf_aa54a053c8676e8c",
+        "location": "notification notify-047ec505-506d-42b8-95f1-33358fd038f1",
+        "date": "2026-10-20",
+        "text_verbatim": "先不考虑实跑吧，其他的可以继续迭代"
+      },
+      {
+        "source": "the same instruction, earlier relay (corroboration)",
+        "location": "notification notify-1c20ccc7-d13f-40f2-a90d-1433a8db5f33",
+        "date": "2026-10-20",
+        "text_verbatim": "先不考虑实跑吧，其他的可以继续迭代"
+      }
+    ],
+    "superseded": [
+      {
+        "source": "user message 5",
+        "text_verbatim": "可以增加api调用和rl"
+      },
+      {
+        "source": "user message 7 (key redacted before writing)",
+        "text_verbatim": "用deepseek v4.1-flash [key redacted] 上限30"
+      },
+      {
+        "source": "task brief, budget section",
+        "text_verbatim": "live DeepSeek API calls ... are explicitly authorized"
+      }
+    ],
+    "carried_forward": "¥30 live authorization carries to a future live version; it is not withdrawn and nothing is spent here",
+    "next_round_live_requires": [
+      "owner re-enables live runs",
+      "gate0 live_round_verdict == PASS"
+    ],
+    "rescope": {
+      "new_sources": "rescope_no_downloads: no HTTP fetch, no new UCI source, no sources.py",
+      "heldout_split": "rescope_heldout_deferred_until_claim_decided: no dev/held-out/reserve split, no held-out task, no held-out certificate or freeze manifest",
+      "live_blocks": "owner_scope_no_live_runs: pilot, A, B, P1 and P2 are not run",
+      "provider_path": "rescope_no_provider_path: client.py, prompts.py and mock.py are not implemented, so the package contains no provider request path",
+      "direction_b": "terminal.py and its packets are not implemented",
+      "hybrid_arm": "the flash + Q gate arm is not implemented; q_only is kept",
+      "suite_modes": "suite keeps --freeze-plan/--offline-eval/--preconditions/--replay only",
+      "instance_sets": "instances come from six synthetic profiles and the 24 seen cross-source tasks; both are split=development, seen_cluster=true",
+      "statistics": "numpy is confined to LinUCB training; every artifact-emitting path is stdlib only so the 3.11/3.12 byte-identity proof is possible"
+    }
+  },
+  "tie_break": "earliest_listed_wins_at_round12",
+  "framing": "measurement",
+  "generalization_claim": "none",
+  "instance_set": {
+    "labels": {
+      "split": "development",
+      "seen_cluster": true,
+      "independent_test": false
+    },
+    "dev_syn": "six synthetic profiles: {equal [1/8]x8, skewed [35,20,12,10,8,6,5,4]} x N in {500, 5000, 50000}",
+    "dev_seen": "the 24 seen cross-source tasks of faultda_bench/protocols/cross_source_v2.json (uci_auto_mpg, uci_glass, uci_occupancy; families group and version)",
+    "clusters": 4,
+    "size_buckets": [
+      "n500",
+      "n5000",
+      "n50000",
+      "seen8"
+    ],
+    "b_ref_deviation_R8": "B_ref is computed per instance set. Synthetic uses the design formula 5000 x median(bytes/N). The seen set uses median bytes(profile) because every seen slice has exactly eight rows; kappa keeps its meaning \"price of a full scan of a reference-size table of that set\".",
+    "parts_rule_D2": "group parts are the distinct dimension.group labels (duplicate key/group mappings counted once); version parts are row_index // ceil(N/8)",
+    "exclusion_rule": "a profile is excluded, with a recorded reason, if it has fewer than two parts or if any part lacks a non-missing non-zero value",
+    "fault_construction": "w_j = v_j/10 exact Decimal, discrepancy 9*w_j for every affected part; the visible-local story adds one spurious engine row carrying exactly the residual, so magnitudes stay class-independent"
+  },
+  "latent_model": {
+    "deployment_types": {
+      "type_A": {
+        "prior": 0.333333333333,
+        "rates": [
+          0.9,
+          0.08,
+          0.02
+        ]
+      },
+      "type_B": {
+        "prior": 0.333333333333,
+        "rates": [
+          0.45,
+          0.5,
+          0.05
+        ]
+      },
+      "type_C": {
+        "prior": 0.333333333333,
+        "rates": [
+          0.45,
+          0.05,
+          0.5
+        ]
+      }
+    },
+    "classes": [
+      "none",
+      "local",
+      "global"
+    ],
+    "history_jobs": 10,
+    "cc_detects_single_part_probability": 0.5,
+    "global_rev1": "every part of the profile",
+    "global_d1": "a seeded non-empty subset, each part independently with q_g = 0.5, redrawn while empty",
+    "horizon": 6,
+    "parts": "G is per profile (8 synthetic and seen version; 2-8 for seen group)"
+  },
+  "fault_mode_mapping": "the brief's \"3 fault modes\" are the three deployment types; each profile is evaluated once per type and the latent is drawn from that type's rates, so the expected latent mix is none 0.60, local 0.21, global 0.19",
+  "regimes": [
+    {
+      "regime_id": "k0.03_L1",
+      "kappa": 0.03,
+      "L": 1,
+      "primary": false
+    },
+    {
+      "regime_id": "k0.03_L3",
+      "kappa": 0.03,
+      "L": 3,
+      "primary": false
+    },
+    {
+      "regime_id": "k0.10_L1",
+      "kappa": 0.1,
+      "L": 1,
+      "primary": false
+    },
+    {
+      "regime_id": "k0.10_L3",
+      "kappa": 0.1,
+      "L": 3,
+      "primary": false
+    },
+    {
+      "regime_id": "k0.30_L1",
+      "kappa": 0.3,
+      "L": 1,
+      "primary": false
+    },
+    {
+      "regime_id": "k0.30_L3",
+      "kappa": 0.3,
+      "L": 3,
+      "primary": true
+    },
+    {
+      "regime_id": "k1.00_L1",
+      "kappa": 1.0,
+      "L": 1,
+      "primary": false
+    },
+    {
+      "regime_id": "k1.00_L3",
+      "kappa": 1.0,
+      "L": 3,
+      "primary": false
+    }
+  ],
+  "primary_regime": "k0.30_L3",
+  "anchor": {
+    "illustrative": true,
+    "selected_from": "rev1 design-time synthetic feasibility",
+    "text": "at BigQuery on-demand $6.25/TiB and V = $100, kappa = 0.3 corresponds to a 4.8 TiB reference-size table; LLM tokens are not part of U"
+  },
+  "arms": {
+    "program": [
+      "F (246 rules)",
+      "F_size",
+      "F_hist (9-cell MAP-type x size lookup)",
+      "F_hist_plus (informational)",
+      "always_full_recompute (priced, not banned)",
+      "escalate_all",
+      "never_verify",
+      "static_semantic (alias of always_full_recompute)",
+      "guarded_read"
+    ],
+    "learned": [
+      "q_only (tabular Q)",
+      "thompson",
+      "linucb"
+    ],
+    "llm_pending": [
+      "raw",
+      "hybrid"
+    ],
+    "llm_exploratory_pending": [
+      "flash_thinking",
+      "v4_pro"
+    ],
+    "dropped": [
+      "hybrid gate (not implemented this version)",
+      "bayes_optimal as an arm"
+    ]
+  },
+  "metrics": [
+    "expected_u",
+    "normalized_regret_vs_dp",
+    "expected_safe_complete",
+    "expected_cost_units",
+    "false_completion",
+    "wrong_publication",
+    "unsupported_escalation",
+    "duplicate_effects",
+    "fallback_rule",
+    "dominated_reads"
+  ],
+  "dp_certificate": {
+    "name": "DP-optimality certificate",
+    "parts": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5"
+    ],
+    "tol": 1e-09,
+    "mi_threshold_bits": 1e-12,
+    "c3_scope_rule": "c3_scope is \"full\" unless the development C3 wall time on eight workers exceeds three hours, in which case off-path depth-2 checks are restricted to the primary regime, c3_scope becomes \"primary_offpath\" and a certificate_scope amendment is appended; C1, C2, C4, C5 and on-path C3 are never reduced",
+    "failure_contract": "any failure raises RuntimeError(\"INV-DP violated: <part>/<case>\") and no output file is written"
+  },
+  "hypotheses_offline": {
+    "under_power_declaration": {
+      "n_clusters": 4,
+      "min_attainable_signflip_p": 0.0625,
+      "alpha_O2": 0.05,
+      "statement_en": "The development set has four clusters, so the exact one-sided cluster sign-flip floor is 2^-4 = 0.0625 > alpha = 0.05 and no p value can ever clear alpha. Every O-verdict is therefore INCONCLUSIVE (under_powered) unless it is FALSIFIED by the point estimate or by dominance, which are exactly decidable because every arm value is an exact expectation. This is declared before any number is produced.",
+      "statement_zh": "开发集只有 4 个 cluster，精确单侧 cluster 符号翻转检验的最小可得 p 为 2^-4 = 0.0625，大于 alpha = 0.05，因此任何 p 都不可能达到显著；除被点估计或支配关系判为 FALSIFIED 之外，O 系列结论只能是 INCONCLUSIVE（under_powered）。该声明在产生任何数字之前写入。"
+    },
+    "O1": {
+      "statement_en": "Gate 0 regime map: per regime and model, E[U*], min_fixed_r, the argmin family and member, F_hist_plus, always_full_recompute and the scope are reported descriptively.",
+      "O1a_dev": "the scope at the primary regime (mechanism or measurement), hard_stop and trigger are reported true/false on the development set",
+      "O1b_heldout_replication": "not run in this version (rescope_heldout_deferred_until_claim_decided)",
+      "confirmatory": false
+    },
+    "O2": {
+      "statement_en": "A CPU-learned policy (q_only) achieves higher expected utility than the development-selected best fixed rule at the primary regime, at no higher expected cost.",
+      "statement_zh": "CPU 学得策略 q_only 在主 regime 上的期望效用高于开发集所选最优固定规则，且期望成本不更高。",
+      "confirmatory_arm": "q_only",
+      "exploratory_arms": [
+        "thompson",
+        "linucb"
+      ],
+      "test": "exact one-sided cluster sign-flip on per-cluster delta U",
+      "alpha": 0.05,
+      "holm": false,
+      "supported_iff": "p < 0.05 and point T > 0 and q_only is not dominated by bf on (E[safe_complete], E[cost_units])",
+      "falsified_iff": "point T <= 0, or q_only is dominated by bf",
+      "inconclusive_otherwise": true,
+      "reported_with": [
+        "bootstrap CI (descriptive)",
+        "delta safe",
+        "delta cost",
+        "the same contrasts at all eight regimes"
+      ]
+    },
+    "O3": {
+      "statement_en": "Learned policies versus the exact DP: regret at the primary regime, the gap recovered and the cost/safety frontier are reported descriptively with CIs.",
+      "gap_recovered": "(sum E[U_pi] - sum E[U_bf]) / (sum E[U*] - sum E[U_bf]); reported as undefined if the denominator point estimate <= 0.01",
+      "confirmatory": false
+    },
+    "null_results": "every null or negative O-result is reported as such; \"learned policies do not beat a 9-cell lookup\" is a finding"
+  },
+  "hypotheses_live_pending": {
+    "status": "pending_live",
+    "note_en": "H1-H3 are pre-registered and not evaluated in this version. No API call is made and they are never presented as findings.",
+    "holm_family": [
+      "H1",
+      "H2",
+      "H3"
+    ],
+    "alpha": 0.05,
+    "H1": {
+      "statement_en": "A raw LLM arm leaves measurable regret against the exact DP, and more than the development-selected best fixed rule.",
+      "statistic": "D_c = regret_raw,c - regret_bf,c, exact cluster sign-flip",
+      "supported_iff": "q_raw < 0.025 and Holm-adjusted p_H1 < 0.05",
+      "falsified_iff": "q_raw >= 0.025, or point D <= 0, or signflip_p([epsilon - regret_raw_c]) < 0.025",
+      "status": "pending_live"
+    },
+    "H2": {
+      "statement_en": "A Q-gated hybrid arm raises safe completion over the raw arm by at least 0.25 without losing utility and without being dominated.",
+      "supported_iff": "point Delta safe >= 0.25 and Holm-adjusted p_H2 < 0.05 and signflip_p([delta U_c]) < 0.025 and not dominated by always_full_recompute or bf",
+      "falsified_iff": "dominated, or signflip_p([-delta U_c]) < 0.025, or signflip_p([0.25 - delta safe_c]) < 0.025",
+      "status": "pending_live"
+    },
+    "H3": {
+      "statement_en": "On safe_stop packets the raw arm escalates without public support at a pooled rate above 0.30, with a residual that is significantly positive.",
+      "supported_iff": "Holm-adjusted p_H3 < 0.05 and the shared_numeric residual rate is significantly > 0, which because residual_c >= 0 means exactly k >= 6 clusters with residual_c > 0 (2^-6 = 0.015625 < 0.025; 2^-5 = 0.03125 is not): this corrects review 4's \"k >= 5\"",
+      "falsified_iff": "point r < 0.30",
+      "status": "pending_live"
+    },
+    "partial_A_rule": "fewer than ceil((2/3) * planned_pairs) usable pairs caps H1 and H2 at INCONCLUSIVE and labels them under-powered"
+  },
+  "verdict_rules": {
+    "ci_test": "signflip_inversion_0.025",
+    "ci_test_scope": "the 0.025 inversion threshold applies to the H1-H3 threshold conditions only; O2 is a single one-sided test at alpha_O2",
+    "alpha_O2": 0.05,
+    "admissibility": 0.1,
+    "epsilon": 0.05,
+    "gap_floor": 0.01,
+    "bootstrap": {
+      "draws": 10000,
+      "seed": 5652026,
+      "kind": "cluster percentile",
+      "role": "descriptive only; no verdict condition reads a bootstrap bound"
+    },
+    "tri_state": [
+      "SUPPORTED",
+      "FALSIFIED",
+      "INCONCLUSIVE"
+    ],
+    "power": {
+      "dz_formula": "(t_{1-alpha,n-1} + t_{0.8,n-1}) / sqrt(n)",
+      "dz_n15_alpha05": 0.68,
+      "dz_n15_holm_worst": 0.84,
+      "n_clusters": 4,
+      "min_attainable_signflip_p": 0.0625,
+      "regret_unit_translation": "d_z x SD(delta U_c) over the development clusters, appended as an amendment before any final evaluation output exists"
+    }
+  },
+  "gate0": {
+    "epsilon": 0.05,
+    "families": [
+      "F",
+      "F_size",
+      "F_hist",
+      "F_hist_plus",
+      "always_full_recompute",
+      "escalate_all",
+      "never_verify",
+      "static_semantic",
+      "guarded_read"
+    ],
+    "min_fixed_r": "min over F, F_size and F_hist of the exact expected normalized regret",
+    "hard_stop": "every admissible regime has min_fixed_r <= epsilon",
+    "primary_inadmissible": "E[U*] < 0.10 at the primary regime",
+    "trigger": "hard_stop or primary_inadmissible",
+    "scope_rule": "mechanism iff (not primary_inadmissible) and min_fixed_r(primary) > epsilon; else measurement",
+    "D1": "the single pre-registered redesign: global faults affect a seeded non-empty subset of parts, each part independently with q_g = 0.5; no other redesign is permitted",
+    "live_round_rule": "both maps are computed on development profiles and committed; model_used = d1 iff trigger(rev1, development), else rev1; the verdict is FAIL_NEGATIVE iff trigger(model_used, development), otherwise PASS with the scope of model_used; in 0.5.65-dev the plan has live_authorized: false whatever the verdict",
+    "change_rule": "any later change to witness or simulator code that changes a committed Gate 0 number is a documented appended amendment and the old file is kept",
+    "learned_values": "no learned-policy value may appear in a gate0 output"
+  },
+  "no_go_table": [
+    {
+      "item": "the strong rule or full recompute dominates (RESEARCH_CONTRIBUTION)",
+      "status": "tripped for a mechanism or method claim at the primary regime if F_hist is within epsilon of the DP; no such claim is made. Full recompute does not dominate (regret about 0.87 at the primary)."
+    },
+    {
+      "item": "RL does not beat a rule or SFT with the same representation",
+      "status": "tested directly by O2; the gate action set covers every F decision apart from part order. If not beaten, no RL-contribution claim."
+    },
+    {
+      "item": "gains come only from privileged evidence or helpers",
+      "status": "not tripped: every arm sees the same public observation."
+    },
+    {
+      "item": "the method equals existing memory repair or active information acquisition",
+      "status": "acknowledged overlap (CGDP, AFA); no method-novelty claim."
+    },
+    {
+      "item": "full recomputation removes the phenomenon at the same budget (RESEARCH_RESTART)",
+      "status": "not tripped: full recompute is priced and its regret reported."
+    },
+    {
+      "item": "it only proves that models sometimes err",
+      "status": "no LLM claim in 0.5.65-dev; at risk for H1 in a future live round."
+    },
+    {
+      "item": "only the old dev cluster shows it",
+      "status": "not addressed in this version: there is no new or held-out source, every result carries split=development, seen_cluster=true, independent_test=false and generalization_claim=none."
+    },
+    {
+      "item": "R_COMPARISON gate 6: if the gap vanishes, stop",
+      "status": "a vanishing gap is reported as the result; nothing is re-run."
+    },
+    {
+      "item": "Protocol V2 section 7: wins only by spending more",
+      "status": "O2 uses cost-inclusive U plus a non-dominance condition."
+    }
+  ],
+  "rejection_conditions_verbatim": [
+    "### 1.3 Rejection conditions the repo defines itself",
+    "",
+    "These must be carried into the pre-registration verbatim.",
+    "",
+    "- **Six gates in `R_COMPARISON_0520.md`:**",
+    "  1. Interface: the target request, receipt and responsibility are confirmed unambiguous.",
+    "  2. Same permission: no private truth or free computation for one side only.",
+    "  3. Same panel: a common, pre-frozen denominator.",
+    "  4. Target: safe completion, confirmed-violation escalation and genuinely-unknown escalation are scored separately.",
+    "  5. Actual cost: checks, writes, decisions, bytes, tokens, helper computation, latency and fees reported separately.",
+    "  6. Science: if the gap vanishes or only reproduces a known recovery error, stop.",
+    "- **NO_GO list in `RESEARCH_RESTART_2026_10_19.md`:** ordinary postconditions already cover it; it reduces to version-key matching; the difference comes from missing information or unequal help; full recomputation removes the phenomenon at the same budget; only the old dev cluster shows it; it only proves that models sometimes err.",
+    "- **NO_GO list in `RESEARCH_CONTRIBUTION_DESIGN_2026_10_19.md`:** the method equals existing memory repair or active information acquisition; gains come only from privileged evidence or helpers; the strong rule or full recompute dominates; RL does not beat a rule or SFT with the same representation.",
+    "- **Protocol V2 §7** (`reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md`): stop the originality claim if the method wins only by spending more or via oracle leakage, or if there is no reproducible gap on reasonable models and sources.",
+    "  - Also requires at least 6 entirely new independent sources for the final test.",
+    "  - Units are source clusters, not episodes.",
+    "  - Minimum effect and power are fixed before the final data is seen.",
+    "- **Data rules** (`faultda_bench/protocols/historical_sources.json`): `final_test_sources` is empty. Policy: new sources must not have been used in V1–V5 training, diagnosis or selection, and must be frozen before model evaluation. `review515/lineage.py` rejects seen lineage, and an unmatched source still needs review.",
+    "- **Sources already seen** (cannot be held-out): UCI abalone, auto_mpg, banknote, drybean, forest, glass, letter, occupancy, online_shoppers, rice, wholesale, wine, plus the synthetic `source_*`, `v3_*`, `v4hard_*` and `v4pilot_*` sources."
+  ],
+  "design_exploration": {
+    "order": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6",
+      "E7",
+      "E7-R0",
+      "E8",
+      "E8-R0",
+      "E9"
+    ],
+    "log_sha256": "bce779a6c988438c9fc62e0025e153fa168deb3f168a43907a2059a40bb615e6",
+    "scripts_sha256": {
+      "gate0.py": "532209df5f7ac7a106841e4ff5ba548d540680688b0f41ea258f5ed1e9febc69",
+      "gate0_v2.py": "194dee2e86d009e1a1c140c759aa3ce269c18f1ed512f0dc82a1de21a88eb122",
+      "gate0_v3.py": "50b593b65eb96d2f70d116ab8cee697691c075a818c6f3016c78f1330012f345",
+      "gate0_v4.py": "9ea4b97274b3bf9b619e266a1c592b8fd72a4e5e33235f5f8562eb155f561f20",
+      "run_exploration.py": "eb56aabe39850979d14d690bbba372925f0463c5048f9d3c9b2657939e155c31"
+    },
+    "not_adopted": [
+      "R2 rates",
+      "H = 5 or H = 3 shorter histories",
+      "L = 5",
+      "moving the primary regime to kappa = 1",
+      "q_g = 0.3"
+    ],
+    "not_reproducible": [
+      "E7: the R1/R2 rate vectors were not recorded in the scratch results, so only the R0 slice is re-run",
+      "E8: the R2 rate vector was not recorded; the H = 3 / q_g = .3 / L = 5 levers are re-run on R0"
+    ],
+    "framing_decision": "measurement; the mechanism framing would need F_hist regret > epsilon at the primary and the only changes achieving that were found by searching on the regret number"
+  },
+  "seeds": {
+    "episode": "sha256(\"vericost565|\" + profile_id + \"|\" + type)",
+    "training_sampler": 565001,
+    "q": 565001,
+    "thompson": 565002,
+    "linucb": 565003,
+    "bootstrap": 5652026
+  },
+  "write_once": {
+    "rule": "every artifact is written through canon.write_json_once, which opens \"xb\"; a second write fails rather than overwriting evidence",
+    "frozen_at_gate0_plan": [
+      "faultda_bench/reports/vericost565/dp_certificate_dev.json",
+      "faultda_bench/reports/vericost565/gate0_rev1_dev.json",
+      "faultda_bench/reports/vericost565/gate0_d1_dev.json",
+      "faultda_bench/reports/vericost565/learned_policies.json",
+      "faultda_bench/reports/vericost565/learned_policies_d1.json",
+      "faultda_bench/reports/vericost565/learned_eval.json",
+      "faultda_bench/protocols/vericost_v1_plan.json"
+    ],
+    "outputs": [
+      "faultda_bench/reports/vericost565/offline_eval.json",
+      "faultda_bench/reports/vericost565/analysis.json",
+      "faultda_bench/reports/vericost565/cross_version.json"
+    ]
+  },
+  "amendment_policy": {
+    "allowed_kinds": [
+      "mde_regret_units",
+      "k_power_table",
+      "gate0_number_change",
+      "certificate_scope",
+      "post_eval_erratum"
+    ],
+    "forbidden": [
+      "hypotheses",
+      "thresholds",
+      "arms",
+      "metrics",
+      "regimes",
+      "primary_regime",
+      "epsilon"
+    ],
+    "entry_fields": [
+      "seq",
+      "utc",
+      "kind",
+      "after_commit",
+      "text",
+      "changes"
+    ],
+    "timing": "mde_regret_units, k_power_table, gate0_number_change and certificate_scope are valid only before the first final-evaluation output exists; afterwards only post_eval_erratum, which may add analysis_erratum<k>.json and may never replace a confirmatory input or output",
+    "append_only": "entries are appended; earlier entries stay byte-equal after canonical re-serialization"
+  },
+  "commit_order": [
+    "C_freeze",
+    "C_gate0a",
+    "C_gate0b",
+    "C_plan",
+    "C_eval",
+    "release"
+  ],
+  "live_protocol": {
+    "status": "deferred_not_run",
+    "live_authorized": false,
+    "api_calls": 0,
+    "cny_spent": "0.000000",
+    "prices": {
+      "deepseek-flash": {
+        "cache_hit": "0.04",
+        "cache_miss": "2",
+        "output": "8"
+      },
+      "deepseek-v4-pro": {
+        "cache_hit": "0.30",
+        "cache_miss": "9",
+        "output": "27"
+      }
+    },
+    "price_unit": "CNY per million tokens",
+    "off_peak": "half price",
+    "peak_windows_beijing": [
+      [
+        "Mon-Fri",
+        "09:00",
+        "12:00"
+      ],
+      [
+        "Mon-Fri",
+        "14:00",
+        "18:00"
+      ]
+    ],
+    "peak_excludes": "CN public holidays",
+    "tz": "Asia/Shanghai",
+    "source_url": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing",
+    "access_date": "2026-10-20",
+    "recorded_by": "design review 5; not re-fetched during implementation (no network use in this version)",
+    "re_verify_before_live": true,
+    "floor_cny": "16.00",
+    "cap_cny": "30.00"
+  },
+  "instances_index_sha256": "08213e21f04536dd3d6914f466443df3721103bec2cc07ffe39c74fcd31fe86b",
+  "golden_fixture_sha256": "71282346a447913d5c23a95751faafe861658c9ceafa6ce928ea04e3383830e6"
+}

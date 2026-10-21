@@ -71,6 +71,22 @@
     "tests.test_faultda_stats560",
     "tests.test_faultda_current_evidence",
     "tests.test_faultda_release560",
+    "tests.test_faultda_vericost565_analysis",
+    "tests.test_faultda_vericost565_audit",
+    "tests.test_faultda_vericost565_canon",
+    "tests.test_faultda_vericost565_certificate",
+    "tests.test_faultda_vericost565_costs",
+    "tests.test_faultda_vericost565_determinism",
+    "tests.test_faultda_vericost565_dp",
+    "tests.test_faultda_vericost565_environment",
+    "tests.test_faultda_vericost565_instances",
+    "tests.test_faultda_vericost565_policies",
+    "tests.test_faultda_vericost565_prereg",
+    "tests.test_faultda_vericost565_release",
+    "tests.test_faultda_vericost565_simulator",
+    "tests.test_faultda_vericost565_suite",
+    "tests.test_faultda_vericost565_witness",
+    "tests.test_faultda_ci565",
     "tests.test_release_version"
   ],
   "excluded": [
@@ -242,6 +258,17 @@
       "outputs": [
         "work/faultda_release560_acceptance.json"
       ]
+    },
+    {
+      "id": "vericost565_ci_v49",
+      "module": "faultda_bench.ci565",
+      "args": [
+        "--output",
+        "work/faultda_ci565_acceptance.json"
+      ],
+      "outputs": [
+        "work/faultda_ci565_acceptance.json"
+      ]
     }
   ],
   "artifact": {
@@ -251,7 +278,8 @@
       "work/faultda_termination555_acceptance.json",
       "work/stats560.json",
       "work/stats560.md",
-      "work/faultda_release560_acceptance.json"
+      "work/faultda_release560_acceptance.json",
+      "work/faultda_ci565_acceptance.json"
     ]
   }
 }

@@ -16,9 +16,9 @@ FROZEN_WORKFLOW = ROOT / '.github/workflows/tests.yml'
 # These pins track the living registry, which gains entries every release, so
 # acceptance_v47 deliberately does not freeze this module: a hash here would
 # make registering the next release's tests fail the freeze audit.
-EXPECTED_TEST_MODULES = 61
+EXPECTED_TEST_MODULES = 77
 EXPECTED_EXCLUDED = 22
-EXPECTED_AUDITS = 5
+EXPECTED_AUDITS = 6
 
 
 class RegistryLoadTests(unittest.TestCase):
@@ -59,11 +59,12 @@ class RegistryLoadTests(unittest.TestCase):
         self.assertEqual(['work/faultda_current_acceptance.json',
                           'work/faultda_termination555_acceptance.json',
                           'work/stats560.json', 'work/stats560.md',
-                          'work/faultda_release560_acceptance.json'],
+                          'work/faultda_release560_acceptance.json',
+                          'work/faultda_ci565_acceptance.json'],
                          described['artifact_paths'])
         self.assertEqual(['review530_current_acceptance', 'release_version_check',
                           'termination555_performance', 'stats560_uncertainty',
-                          'release560_freeze_v47'],
+                          'release560_freeze_v47', 'vericost565_ci_v49'],
                          [a['id'] for a in described['audits']])
         self.assertIn('tests.test_faultda_current_evidence', described['test_modules'])
         self.assertEqual('tests.test_release_version', described['test_modules'][-1])

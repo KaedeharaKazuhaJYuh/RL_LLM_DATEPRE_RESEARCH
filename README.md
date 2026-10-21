@@ -4,10 +4,10 @@
 
 FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误、检查证据需要成本时，Agent 能否获取必要信息，完成正确修复，并避免重复副作用。当前是可运行的开发基准，尚未完成独立最终测试。
 
-当前基准版本：`0.5.60-dev` · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
+当前基准版本：`0.5.65-dev`（离线验证代价诊断） · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
-[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [版本报告](faultda_bench/reports/RELEASE_0560.md) · [English overview](docs/en/FAULTDA_BENCH_OVERVIEW.md) · [0.5.55 性能优化](faultda_bench/reports/PERFORMANCE_0555.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
+[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [版本报告](faultda_bench/reports/RELEASE_0565.md) · [English overview](docs/en/FAULTDA_BENCH_OVERVIEW.md) · [版本内性能优化](faultda_bench/reports/PERFORMANCE_0555.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
 
 ## 研究问题
 
@@ -30,7 +30,6 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 
 | 范围 | 已有结果 | 解释边界 |
 | --- | --- | --- |
-| 不确定性报告（描述性） | 5组冻结结果的Wilson/簇自助区间与精确配对检验，见[stats560 摘要](faultda_bench/reports/stats560/summary.md) | 已见开发簇再计数，非独立测试；不重打分、无新模型 |
 | 注册/评分批处理优化 | 本机144案例、3组成对测量：6.372秒→0.898秒，输入与评分一致 | 不改变模型能力；CPU/整机能耗未测，不能报告节电比例 |
 | 显式单步终止诊断 | 72 个旧观察 × 两种信息条件；完整规则及总停/总升级程序负对照 | 只有一个已见开发簇；未运行新模型，不是完整恢复成绩 |
 | 自洽工具环境 | 24 个程序状态、72 条读取/终止对照，保留时区等价与隐藏历史对照 | 同一历史任务/数据簇；程序动作不是 LLM 工具成绩 |
@@ -39,7 +38,7 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 | 终止指标资格 | 72 条既有程序对照：24 安全完成、24 历史违规升级、24 不确定升级 | 单个历史簇的事后资格核对；未来主分母须独立审查、各臂共用 |
 | 历史跨来源开发 | 三个来源、24 题及多种强程序/学习对照；分条件结果归入历史汇总 | 既有签字仅覆盖已确认范围，未确立额外机制或稳定外部 RL 优势 |
 
-当前积累是可执行环境、证据重放与有效性控制。张雨田的 12 对指代意见已据用户明确转达的同意正式登记，四项设计 revise 保留。结构化接口分开责任、来源与回执目标；新增公开请求解析和严格输入包绑定，拒绝额外臂字段、未核实辅助摘要及超出当前快照的预算。人类接口有效性审查仍待完成；声明一致不等于执行或实际成本相同。已落实已见来源准入拦截，旧 holdout 的后续开发复用不能成为新独立测试，也不能反推早期训练泄漏。科学 HOLD；本轮没有新增模型实验、RL 或跨任务提升。详见[本版报告](faultda_bench/reports/RELEASE_0560.md)与[历史证据](docs/PROJECT_HISTORY.md)。
+当前积累是可执行环境、证据重放与有效性控制。张雨田的 12 对指代意见已据用户明确转达的同意正式登记，四项设计 revise 保留。结构化接口分开责任、来源与回执目标；新增公开请求解析和严格输入包绑定，拒绝额外臂字段、未核实辅助摘要及超出当前快照的预算。人类接口有效性审查仍待完成；声明一致不等于执行或实际成本相同。已落实已见来源准入拦截，旧 holdout 的后续开发复用不能成为新独立测试，也不能反推早期训练泄漏。科学 HOLD；本轮没有新增模型实验、RL 或跨任务提升。详见[本版报告](faultda_bench/reports/RELEASE_0555.md)与[历史证据](docs/PROJECT_HISTORY.md)。
 
 ## 快速复核
 
@@ -49,11 +48,9 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 python -m pip install -e .
 python -m unittest tests.test_faultda_termination555_runtime tests.test_faultda_termination555 -v
 python -m faultda_bench.termination555.performance_audit
-python -m unittest tests.test_faultda_stats560 -v
-python -m faultda_bench.stats560.audit --output work/stats560.json
 ```
 
-stats560 入口先核对输入哈希，再输出区间与配对检验摘要（`.json` 与 `.md`），只是已见开发结果的描述性再计数；完整测试可用 `python -m unittest discover -s tests`。优化入口核对660份冻结文件与新增优化清单，在显式批次中重放相同案例、请求与评分；原慢速入口保留为参考；加上 `--historical` 可重放旧历史语义验收。保持科学 HOLD。完整仓库测试与复核包子集分别计数；复核包可直接按[包内入口](faultda_bench/docs/FOCUSED_0530_REVIEW.md)运行。哈希只校验一致性，不认证供应商或历史真实性。旧版入口保留在[复现指南](docs/REPRODUCIBILITY.md)，新输出不得覆盖冻结记录。
+优化入口核对660份冻结文件与新增优化清单，在显式批次中重放相同案例、请求与评分；原慢速入口保留为参考；加上 `--historical` 可重放旧历史语义验收。保持科学 HOLD。完整仓库测试与复核包子集分别计数；复核包可直接按[包内入口](faultda_bench/docs/FOCUSED_0530_REVIEW.md)运行。哈希只校验一致性，不认证供应商或历史真实性。旧版入口保留在[复现指南](docs/REPRODUCIBILITY.md)，新输出不得覆盖冻结记录。
 
 ## 项目演进
 
