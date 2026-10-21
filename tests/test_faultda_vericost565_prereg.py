@@ -10,6 +10,7 @@ PREREG = ROOT / 'protocols/vericost_v1_prereg.json'
 PREREG_MD = ROOT / 'docs/VERICOST_0565_PREREG.md'
 AMENDMENTS = ROOT / 'protocols/vericost_v1_amendments.json'
 AMENDMENTS_MD = ROOT / 'docs/VERICOST_0565_AMENDMENTS.md'
+LIVE_MD = ROOT / 'docs/VERICOST_0565_LIVE_PROTOCOL.md'
 EXPLORATION = ROOT / 'docs/vericost565_exploration'
 SCRATCH = REPO / '.agents/tasks/vericost565/scratch'
 REJECTIONS = REPO / 'tests/fixtures/vericost565_rejection_conditions.txt'
@@ -151,6 +152,38 @@ class PreregistrationTests(unittest.TestCase):
         self.assertEqual(live['off_peak'], 'half price')
         self.assertEqual(live['tz'], 'Asia/Shanghai')
         self.assertEqual(live['access_date'], '2026-10-20')
+
+    def test_the_live_protocol_document_records_the_same_values(self):
+        live = self.prereg['live_protocol']
+        text = LIVE_MD.read_text(encoding='utf-8')
+        for value in (live['status'], live['cny_spent'], live['tz'], live['access_date'],
+                      live['source_url'], live['peak_excludes'], 're_verify_before_live',
+                      live['floor_cny'], live['cap_cny']):
+            self.assertIn(str(value), text)
+        for model, prices in live['prices'].items():
+            self.assertIn(model, text)
+            for price in prices.values():
+                self.assertIn(price, text)
+        for _, start, end in live['peak_windows_beijing']:
+            self.assertIn(start, text)
+            self.assertIn(end, text)
+        self.assertIn(live['recorded_by'], text)
+        self.assertIn('ceil((2/3) · planned_pairs)', text)
+        self.assertIn('signflip_p([ε − regret_raw_c]) < 0.025', text)
+        self.assertIn('temperature', text)
+
+    def test_the_withdrawn_utc_window_appears_nowhere_in_the_package_or_protocols(self):
+        withdrawn = ('16:30', '00:30', 'preferred_utc_window')
+        scanned = sorted(PACKAGE.glob('*.py')) + sorted((ROOT / 'protocols').glob('*.json'))
+        self.assertGreater(len(scanned), 20)
+        for path in scanned:
+            text = path.read_text(encoding='utf-8')
+            for needle in withdrawn:
+                self.assertNotIn(needle, text, '%s in %s' % (needle, path.name))
+        # The withdrawal itself is recorded, once, in the deferred live protocol document.
+        document = LIVE_MD.read_text(encoding='utf-8')
+        self.assertIn('preferred_utc_window', document)
+        self.assertIn('撤回', document)
 
     def test_amendment_policy_and_the_append_only_pair(self):
         policy = self.prereg['amendment_policy']
