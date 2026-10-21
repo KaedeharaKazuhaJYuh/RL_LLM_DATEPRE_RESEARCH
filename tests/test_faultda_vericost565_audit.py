@@ -169,6 +169,37 @@ class FrozenEvidenceTests(unittest.TestCase):
             self.assertIn(result['status'][path], ('committed', 'uncommitted'), path)
 
 
+class VolatileKeyTests(unittest.TestCase):
+    """Only the two provenance keys are excluded; every measured field still counts."""
+
+    def test_the_offline_digest_ignores_head_commit_and_the_replay_flag_only(self):
+        self.assertEqual(audit.OFFLINE_VOLATILE, ('header.head_commit', 'header.replay'))
+        data = {'header': {'head_commit': 'a' * 40, 'replay': False, 'model': 'rev1'},
+                'expected': [{'arm': 'bf', 'expected_u': 0.5}]}
+        digest = audit._digest(data, audit.OFFLINE_VOLATILE)
+        moved = {'header': {'head_commit': 'b' * 40, 'replay': True, 'model': 'rev1'},
+                 'expected': [{'arm': 'bf', 'expected_u': 0.5}]}
+        self.assertEqual(audit._digest(moved, audit.OFFLINE_VOLATILE), digest)
+        for changed in ({'model': 'd1'}, {'head_commit': 'c' * 40, 'arms': 1}):
+            other = {'header': dict(moved['header'], **changed),
+                     'expected': moved['expected']}
+            self.assertNotEqual(audit._digest(other, audit.OFFLINE_VOLATILE), digest)
+        measured = {'header': dict(moved['header']),
+                    'expected': [{'arm': 'bf', 'expected_u': 0.6}]}
+        self.assertNotEqual(audit._digest(measured, audit.OFFLINE_VOLATILE), digest)
+
+    def test_the_committed_evaluation_digest_survives_both_provenance_keys(self):
+        if not suite.OFFLINE.exists():
+            self.skipTest('offline_eval.json is produced by plan item 17')
+        data = json.loads(suite.OFFLINE.read_text(encoding='utf-8'))
+        digest = audit._canonical(suite.OFFLINE, audit.OFFLINE_VOLATILE)
+        data['header']['replay'] = not data['header']['replay']
+        data['header']['head_commit'] = 'f' * 40
+        self.assertEqual(audit._digest(data, audit.OFFLINE_VOLATILE), digest)
+        data['header']['instance_set'] = 'dev_syn'
+        self.assertNotEqual(audit._digest(data, audit.OFFLINE_VOLATILE), digest)
+
+
 class CrossVersionTests(unittest.TestCase):
     def test_the_recorded_proof_lists_every_artifact_and_the_numpy_exclusion(self):
         if not audit.CROSS.exists():

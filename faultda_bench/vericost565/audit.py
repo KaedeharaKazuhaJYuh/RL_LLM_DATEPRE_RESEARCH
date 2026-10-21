@@ -30,6 +30,10 @@ REPORT = Path('/projects/sandbox/RL_LLM_DATEPRE_RESEARCH/.agents/tasks/'
 PACKAGE = Path(__file__).resolve().parent
 PY312 = Path('/root/.pyenv/versions/3.12.13/bin/python3.12')
 CROSS_WORKERS = 8
+# header.head_commit records where the run happened and header.replay whether it was a fresh
+# production or a regeneration. Both describe how the file was made, not what was measured, so
+# both are excluded from byte comparisons exactly as validation.env_steps_per_second is.
+OFFLINE_VOLATILE = tuple('header.' + key for key in suite.VOLATILE) + ('header.replay',)
 ALLOWLIST = ('README.md', 'faultda_bench/README.md', 'CHANGELOG.md',
              '.github/workflows/faultda-current.yml', 'tests/test_v4_llm_composition.py',
              'tests/test_v4_llm_hard.py', 'tests/test_v4_real_csv.py')
@@ -277,21 +281,26 @@ def secret_scan(root=REPO, env_path=None, branch=BRANCH, report=REPORT):
 def replay_outputs(workers=1, repo=REPO):
     """Re-run the offline evaluation and the analysis into a scratch directory, byte for byte."""
     with tempfile.TemporaryDirectory(prefix='vericost565_replay_') as folder:
-        offline = suite.replay(folder, workers)
-        produced = analysis.report()
-        rebuilt = {'path': str(analysis.OUTPUT),
-                   'identical': compact(canon(produced)) == compact(canon(
-                       json.loads(analysis.OUTPUT.read_text(encoding='utf-8'))))
-                   if analysis.OUTPUT.exists() else None,
-                   'sha256_replay': sha_json(produced)}
-    if offline['identical'] is False or rebuilt['identical'] is False:
+        produced, _ = suite.offline_eval(output_dir=folder, workers=workers, replay=True,
+                                         repo=repo)
+        offline = {'path': str(suite.OFFLINE), 'volatile_keys': list(OFFLINE_VOLATILE),
+                   'sha256_replay': _digest(produced, OFFLINE_VOLATILE),
+                   'identical': _digest(produced, OFFLINE_VOLATILE)
+                   == _canonical(suite.OFFLINE, OFFLINE_VOLATILE)
+                   if suite.OFFLINE.exists() else None}
+        rebuilt = analysis.report()
+        recomputed = {'path': str(analysis.OUTPUT), 'volatile_keys': [],
+                      'sha256_replay': _digest(rebuilt, ()),
+                      'identical': _digest(rebuilt, ()) == _canonical(analysis.OUTPUT, ())
+                      if analysis.OUTPUT.exists() else None}
+    if offline['identical'] is False or recomputed['identical'] is False:
         raise RuntimeError('replay differs from the committed output')
-    return {'offline_eval': offline, 'analysis': rebuilt, 'workers': workers}
+    return {'offline_eval': offline, 'analysis': recomputed, 'workers': workers}
 
 
-def _canonical(path, volatile):
-    """The digest cross-version compares: canonical text with the documented volatile keys gone."""
-    data = canon(json.loads(Path(path).read_text(encoding='utf-8')))
+def _digest(data, volatile):
+    """The digest every comparison uses: canonical text with the documented volatile keys gone."""
+    data = canon(data)
     for key in volatile:
         head, _, leaf = key.rpartition('.')
         block = data
@@ -299,6 +308,10 @@ def _canonical(path, volatile):
             block = block.get(step, {})
         block.pop(leaf, None)
     return hashlib.sha256(compact(data).encode()).hexdigest()
+
+
+def _canonical(path, volatile):
+    return _digest(json.loads(Path(path).read_text(encoding='utf-8')), volatile)
 
 
 def _artifacts():
@@ -323,7 +336,7 @@ def _artifacts():
          'learned_eval.json', (), ROOT / 'reports/vericost565/learned_eval.json'),
         ('faultda_bench/reports/vericost565/offline_eval.json',
          ('faultda_bench.vericost565.suite', '--replay', '{out}', '--workers', '{workers}'),
-         'offline_eval.json', tuple('header.' + key for key in suite.VOLATILE), suite.OFFLINE),
+         'offline_eval.json', OFFLINE_VOLATILE, suite.OFFLINE),
         ('faultda_bench/reports/vericost565/analysis.json',
          ('faultda_bench.vericost565.analysis', '--output', '{out}/analysis.json'),
          'analysis.json', (), analysis.OUTPUT))
