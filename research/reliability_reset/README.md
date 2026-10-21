@@ -4,7 +4,7 @@ This branch starts from the `0.5.65-dev` infrastructure checkpoint and pauses th
 
 Current work is design-only. No new model runs, API calls, downloads, fine-tuning, or held-out task construction have occurred.
 
-- [Paper draft](PAPER_DRAFT.md): proposal and carefully bounded retrospective development audit for possible NeurIPS E&D 2027 / KDD D&B 2027 submission.
+- [Research draft](PAPER_DRAFT.md): proposed measurement question and carefully bounded retrospective development audit.
 - [Reset protocol](RESET_PROTOCOL.md): operational definitions, independence gates, controls, three-week decision rule, and resource limits.
 
-The scientific status remains **HOLD**. The draft is not submission-ready. A positive development pilot would only justify designing a separate held-out study; a negative or non-distinct result means keeping FaultDA-Bench as engineering infrastructure and stopping the top-venue mechanism route.
+The scientific status remains **HOLD**. A positive development pilot would only justify designing a separate held-out study; a negative or non-distinct result means keeping FaultDA-Bench as engineering infrastructure and stopping expansion of the current research claim.
