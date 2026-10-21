@@ -512,6 +512,7 @@
     "faultda_bench/reports/validity_v39_review_registry.json": "6910ef4ae5ab41a8d051350cb6d715fbc7482c7da583c1b34eb2b8be841abc2f",
     "faultda_bench/reports/validity_v39_review_template.json": "e696e0bf04f4c087027a8a05817680b6df787e9794b41e7f138a765b27050177",
     "faultda_bench/reports/vericost565/analysis.json": "9307eb5d9ffa8be92b5e15a9dc1f66a252747017366f63d33907da1b3e6da964",
+    "faultda_bench/reports/vericost565/analysis_erratum1.json": "604db50ede5901700939db1c65f88e38281eacc0b4b2453f349aab1ac9dc2c70",
     "faultda_bench/reports/vericost565/audit_0565.json": "0d8e7ddb38cac1c3ace939a0b0ec6774829e0c1332e8498a7a0a4d545b59b20d",
     "faultda_bench/reports/vericost565/cross_version.json": "eff321c4116e8766a09b3aaa47a0d9263c45631f5d6c445583dc72274df68b12",
     "faultda_bench/reports/vericost565/dp_certificate_dev.json": "668c4f32fedd5c1bb78b72d22d22f07275622dc84a85b5f5e6eac4c52e08b8a7",
@@ -722,7 +723,6 @@
     "tests/test_faultda_vericost565_suite.py": "67eb148c5356b3b3fef663e410053fa46709c726dd1e4532ccf7c01933e5e99c",
     "tests/test_faultda_vericost565_witness.py": "f966caafc31308247b4b5832c9880082d21c9c70ccabb928197279669760d75b",
     "tests/test_termination_case_analysis.py": "2d9e0a3e391337164f9015b60974c57c764bf3be94c176376a9bce88303e10d8",
-    "tests/test_trajectory_evidence_audit.py": "db2901a1fb30bfe95e240306fab64c69869f4574bd91fac2e3d9a215357e7a1c",
-    "faultda_bench/reports/vericost565/analysis_erratum1.json": "604db50ede5901700939db1c65f88e38281eacc0b4b2453f349aab1ac9dc2c70"
+    "tests/test_trajectory_evidence_audit.py": "db2901a1fb30bfe95e240306fab64c69869f4574bd91fac2e3d9a215357e7a1c"
   }
 }
