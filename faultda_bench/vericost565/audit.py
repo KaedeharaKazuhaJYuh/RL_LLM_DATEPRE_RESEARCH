@@ -436,16 +436,16 @@ if __name__ == '__main__':
     if args.cross_version:
         produced = cross_version(args.workers, progress=True)
         target = Path(args.output or CROSS)
-        if target.exists():
+        recorded = target.exists()
+        if recorded:
             # Write-once: a later run re-verifies the recorded proof instead of overwriting it.
-            recorded = json.loads(target.read_text(encoding='utf-8')) == canon(produced)
-            if not recorded:
+            if json.loads(target.read_text(encoding='utf-8')) != canon(produced):
                 print('cross-version proof differs from the recorded file', file=sys.stderr)
                 raise SystemExit(1)
         else:
             write_json_once(target, produced)
         print(compact({'cross_version': str(target), 'sha256': sha_json(produced),
-                       'recorded': target.exists(),
+                       'already_recorded': recorded,
                        'identical': all(row['identical'] for row in produced['artifacts']),
                        'artifacts': [{'path': row['path'], 'identical': row['identical'],
                                       'matches_committed': row['matches_committed']}
