@@ -223,34 +223,25 @@ def _static_signature(observation):
 
 
 def validate(profile, model='rev1'):
-    """Freeze-time validation: realizability, env/simulator agreement, patch rule, static invariance."""
+    """Freeze-time validation: realizability, the materialization contract, the patch rule and C2."""
+    from . import certificate  # certificate imports instances, so the C2 hook resolves lazily
     parts = len(profile['parts'])
     if parts < MIN_PARTS or len(profile['fault_rows']) != parts:
         raise ValueError('unrealizable profile: ' + profile['profile_id'])
-    actions, steps, static, checked = _single_actions(parts), 0, None, 0
     started = time.perf_counter()
-    for latent in simulator.latents(model, parts):
+    latents = simulator.latents(model, parts)
+    for latent in latents:
         mat = materialize(profile, latent)
         if len(mat.override) > parts:
             raise ValueError('override map larger than the part count')
         if mat.rows is not profile['rows']:
             raise ValueError('materialization copied the shared rows')
-        for action, params in actions:
-            env = VeriCostEnv(mat, counts=VALIDATION_COUNTS, regime=costs.PRIMARY)
-            signature = _static_signature(env.observation())
-            if static is None:
-                static = signature
-            elif signature != static:
-                raise ValueError('static observation depends on the latent: ' + profile['profile_id'])
-            env.step(action, params)
-            steps += 1
-            env.close()
         _check_patch_rule(profile, mat, parts)
-        checked += 1
-    seconds = time.perf_counter() - started
-    return {'profile_id': profile['profile_id'], 'latents_checked': checked, 'env_steps': steps,
-            'static_observation_sha256': hashlib.sha256(static.encode()).hexdigest(),
-            'seconds': seconds}
+    report = certificate.c2(profile, model, certificate.FREEZE_TIME)
+    return {'profile_id': profile['profile_id'], 'latents_checked': len(latents),
+            'env_steps': report['case_counts']['env_steps'],
+            'static_observation_sha256': report['static_sha256'],
+            'seconds': time.perf_counter() - started}
 
 
 def _check_patch_rule(profile, mat, parts):
