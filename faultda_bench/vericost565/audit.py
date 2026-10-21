@@ -86,10 +86,15 @@ def v46_unchanged():
 def diff_allowlist(repo=REPO, base=BASE):
     """Only the seven allowlisted paths may be modified, deleted or renamed since the base."""
     changed = suite.lines(repo, 'diff', '--name-only', '--diff-filter=MDR', base + '..HEAD')
-    extra = [name for name in changed if name not in ALLOWLIST]
+    verified = []
+    if Path(repo).resolve() == REPO.resolve():
+        from ..ci565 import verify_integration_paths
+        verified = verify_integration_paths(repo)
+    extra = [name for name in changed if name not in ALLOWLIST and name not in verified]
     if extra:
         raise RuntimeError('path outside the edit allowlist: ' + ','.join(extra))
-    return {'base': base, 'changed': changed, 'allowlist': len(ALLOWLIST)}
+    return {'base': base, 'changed': changed, 'allowlist': len(ALLOWLIST),
+            'verified_integration_paths': verified}
 
 
 def write_once(repo=REPO):

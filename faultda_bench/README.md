@@ -2,13 +2,14 @@
 
 当前开发版本为 **0.5.65-dev**，离线验证代价诊断。新增精确 DP 上界与 C1–C5 最优性证书、按字节计价的离线环境、Gate 0 regime map 与 13 个 arm 的离线对照；主 regime 上廉价固定规则落在 ε 内，无学得策略胜过最佳固定规则，均如实保留。无新来源、无独立测试集、无 provider 请求，API 调用 0 次、花费 ¥0，HOLD，新独立人审尚未安排。
 
-[版本内性能报告](reports/PERFORMANCE_0555.md) · [原版本报告](reports/RELEASE_0555.md) · [仓库首页](../README.md) · [复现指南](../docs/REPRODUCIBILITY.md) · [历史汇总](../docs/PROJECT_HISTORY.md)
+[当前报告](reports/RELEASE_0565.md) · [0.5.60 统计方法](docs/UNCERTAINTY_0560.md) · [版本内性能报告](reports/PERFORMANCE_0555.md) · [原版本报告](reports/RELEASE_0555.md) · [仓库首页](../README.md) · [复现指南](../docs/REPRODUCIBILITY.md) · [历史汇总](../docs/PROJECT_HISTORY.md)
 
 ## 实现分层
 
 | 组件 | 职责 |
 | --- | --- |
 | [vericost565/](vericost565/) | 按字节计价的离线验证代价环境、精确 DP 与 INV-DP 证书、Gate 0 regime map 与离线策略对照 |
+| [stats560/](stats560/) | 冻结结果的区间估计、配对精确检验、多重比较与样本量边界 |
 | [runtime.py](termination555/runtime.py) | 显式快照批次、独立输入副本、同评分缓存及批末释放 |
 | [performance_audit.py](termination555/performance_audit.py) | 版本内优化核验、同结果重放和测量边界 |
 | [termination555/](termination555/) | 案例与信息条件、完整请求正文及原始评分真值绑定 |

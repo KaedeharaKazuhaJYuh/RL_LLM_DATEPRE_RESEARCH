@@ -1,0 +1,62 @@
+{
+  "schema": "faultda.ci-migration.v1",
+  "version": "0.5.65-dev",
+  "revision": "ci-integration-1",
+  "source_commit": "5b7e2b5a78b2c479ce75877c39f5c12dd1de5b72",
+  "upstream_merge_commit": "8a95e6154dcc1b13419a0f225ad648f38295a957",
+  "base_catalog": "faultda_bench/protocols/acceptance_v48.json",
+  "scientific_gate": "HOLD",
+  "experiment_outputs_changed": false,
+  "superseded": {
+    "faultda_bench/vericost565/audit.py": {
+      "original_sha256": "4fb8cdd64e5afbf105b46e7fa66d79d07180484dffb8e8f09fdb5c780a6b3e49",
+      "corrected_sha256": "7e4c504b167bb9f8239990bb24666ef47d495af6dfc4fe4fef1033e1a6c42a6d",
+      "reason": "Narrow, hash-pinned upstream integration paths in the branch edit guard"
+    },
+    "tests/test_faultda_vericost565_audit.py": {
+      "original_sha256": "797b75465de7f4a624c846e8023e8a249334df95b38a990aa3ed713424d163b7",
+      "corrected_sha256": "e40e30ebf649d571539cb49270fd05769e43eed1232bc2272d9b073e9fb02dfb",
+      "reason": "Explicit shallow-history skips, with mandatory full-history current CI coverage"
+    },
+    "tests/test_faultda_vericost565_determinism.py": {
+      "original_sha256": "1e12ae4e7229d32262206e4369b2bddcce7859fc054c0e5513fcd2987c933702",
+      "corrected_sha256": "d8a90154672b3ba1c3b24faf43e335856f05c40623b82fc940750ea4992c0dc8",
+      "reason": "Explicit second-interpreter configuration without developer-home access"
+    },
+    "tests/test_faultda_vericost565_prereg.py": {
+      "original_sha256": "e58c38781c80e06f7dd7c72742bf548043a43019e3cdffc6d758f1db91d047e6",
+      "corrected_sha256": "18b0cb574a27d3c8f9339a6add93774fafdcf14ed7359b80551b374e15dcbd4d",
+      "reason": "Validate shipped exploration files against their preregistered hashes"
+    },
+    "tests/test_faultda_vericost565_suite.py": {
+      "original_sha256": "67eb148c5356b3b3fef663e410053fa46709c726dd1e4532ccf7c01933e5e99c",
+      "corrected_sha256": "d1342b2a053c404404ccd9645673a6b04f3544f19122d089d2f7d8c87deacc11",
+      "reason": "Isolate write-once boundary from separately tested production preconditions"
+    },
+    "tests/test_faultda_vericost565_release.py": {
+      "original_sha256": "5d0ab386004075d1ec2944fc0dfc10f1dd2b66a1c22e77cca7dd00456d7090d8",
+      "corrected_sha256": "fae69453bce2951af51ed9840fcf893437094900ccbb1bc7d5a863528d1f9c15",
+      "reason": "Use registry CI and the explicit historical-byte migration"
+    }
+  },
+  "integration_text_normalization": "CRLF to LF only for living integration documents; frozen evidence remains byte exact",
+  "integration_paths": {
+    ".gitattributes": "03d91be048877fc52ec6f4b2811fe1f89911458d31ae3d6ccd69663f86127841",
+    "docs/PROJECT_HISTORY.md": "58d91a64d365ff9f5e66ce7275029a248925e150cb51763db484d504f69fa2d1",
+    "docs/REPRODUCIBILITY.md": "3ec64732245951e3d7c7e1ddd723499da143e1152da8a4ff755f2a53176d1a24"
+  },
+  "files": {
+    "faultda_bench/vericost565/audit.py": "7e4c504b167bb9f8239990bb24666ef47d495af6dfc4fe4fef1033e1a6c42a6d",
+    "tests/test_faultda_vericost565_audit.py": "e40e30ebf649d571539cb49270fd05769e43eed1232bc2272d9b073e9fb02dfb",
+    "tests/test_faultda_vericost565_determinism.py": "d8a90154672b3ba1c3b24faf43e335856f05c40623b82fc940750ea4992c0dc8",
+    "tests/test_faultda_vericost565_prereg.py": "18b0cb574a27d3c8f9339a6add93774fafdcf14ed7359b80551b374e15dcbd4d",
+    "tests/test_faultda_vericost565_suite.py": "d1342b2a053c404404ccd9645673a6b04f3544f19122d089d2f7d8c87deacc11",
+    "tests/test_faultda_vericost565_release.py": "fae69453bce2951af51ed9840fcf893437094900ccbb1bc7d5a863528d1f9c15",
+    "faultda_bench/ci565.py": "d236584582e88cb6639042ffdeeed55609e5dcb949e88e393fa5ed14802b4e63",
+    "tests/test_faultda_ci565.py": "d5dc0cb90fb8ec5933e30ce2625d3b749f422980830a1a8ecd0f7bc71ab76a55",
+    "faultda_bench/protocols/ci565_original_bytes.json": "57e37f1b1a3bc5eb6c822ef30fd0bc0fc892baf3209214a3d687c2c86d3f190d",
+    "faultda_bench/docs/CI_0565_INTEGRATION.md": "7fd9f775b6994cdadfcb887f0903d71214ba7e2231979e2a14a25921676b6ad0",
+    "faultda_bench/protocols/current_evidence_v1.json": "c2068fbdf17e883449b401e7bb53a6fb341c0823e6eb6e7ee0ae61508bc92b34",
+    "tests/test_faultda_current_evidence.py": "a1aa2e202b4dea4178b3b9b61e567510fae475250ec6cee1aca1b553012334bb"
+  }
+}

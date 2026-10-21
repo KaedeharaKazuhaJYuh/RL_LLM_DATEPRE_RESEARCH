@@ -106,3 +106,22 @@ faultda_bench/reports/RELEASE_0555.md text eol=lf
 # 0.5.55 within-version performance evidence.
 faultda_bench/docs/ARCHITECTURE_ENERGY_0555.md text eol=lf
 faultda_bench/reports/PERFORMANCE_0555.md text eol=lf
+
+# 0.5.60 descriptive uncertainty reporting.
+faultda_bench/docs/UNCERTAINTY_0560.md text eol=lf
+faultda_bench/reports/RELEASE_0560.md text eol=lf
+faultda_bench/reports/stats560/summary.md text eol=lf
+docs/en/FAULTDA_BENCH_OVERVIEW.md text eol=lf
+
+# 0.5.60 版本完整性冻结。
+faultda_bench/reports/RELEASE_0560_FREEZE.md text eol=lf
+
+faultda_bench/docs/CI_0565_INTEGRATION.md text eol=lf
+
+faultda_bench/docs/CLAIM_DECISION_INPUT_0565.md text eol=lf
+faultda_bench/docs/VERICOST_0565_AMENDMENTS.md text eol=lf
+faultda_bench/docs/VERICOST_0565_LIVE_PROTOCOL.md text eol=lf
+faultda_bench/docs/VERICOST_0565_PREREG.md text eol=lf
+faultda_bench/docs/vericost565_exploration/exploration_log.txt text eol=lf
+faultda_bench/reports/RELEASE_0565.md text eol=lf
+tests/fixtures/vericost565_rejection_conditions.txt text eol=lf

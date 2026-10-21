@@ -10,7 +10,19 @@ from faultda_bench.semantic.tasks import REPO
 from faultda_bench.vericost565 import analysis, costs, instances, policies, witness
 from faultda_bench.vericost565.canon import canon, dumps, sha_json
 
-PY312 = Path('/root/.pyenv/versions/3.12.13/bin/python3.12')
+def other_python():
+    # Explicit CI interpreter, never an inaccessible developer home path.
+    candidate = os.environ.get('VERICOST_PY312')
+    if not candidate:
+        return None
+    path = Path(candidate)
+    try:
+        return path if path.is_file() else None
+    except OSError:
+        return None
+
+
+PY312 = other_python()
 EPISODES = 5000
 # The child recomputes the same three digests from this module; numpy is never imported on this
 # path, so the 3.12 interpreter (which has no numpy and cannot install it offline) can run it.
@@ -71,7 +83,7 @@ class DeterminismTests(unittest.TestCase):
         self.assertEqual(values['icc'], [1.0, 0])
         self.assertEqual(values['power']['dz'], 1.66591787358)
 
-    @unittest.skipUnless(PY312.exists(), 'the local 3.12 interpreter is not installed')
+    @unittest.skipUnless(PY312 is not None, 'set VERICOST_PY312 to run the second interpreter; mandatory in current-evidence CI')
     def test_the_3_12_interpreter_produces_the_same_digests(self):
         here = digests()
         done = subprocess.run((str(PY312), '-c', CHILD % str(REPO / 'tests')),

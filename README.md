@@ -7,7 +7,7 @@ FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误
 当前基准版本：`0.5.65-dev`（离线验证代价诊断） · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
-[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [版本报告](faultda_bench/reports/RELEASE_0565.md) · [版本内性能优化](faultda_bench/reports/PERFORMANCE_0555.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
+[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [版本报告](faultda_bench/reports/RELEASE_0565.md) · [English overview](docs/en/FAULTDA_BENCH_OVERVIEW.md) · [版本内性能优化](faultda_bench/reports/PERFORMANCE_0555.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
 
 ## 研究问题
 

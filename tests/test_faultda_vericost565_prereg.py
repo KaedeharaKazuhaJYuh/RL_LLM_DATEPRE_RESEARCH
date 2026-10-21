@@ -113,9 +113,8 @@ class PreregistrationTests(unittest.TestCase):
 
     def test_the_exploration_package_is_an_unmodified_copy(self):
         for name in ('gate0.py', 'gate0_v2.py', 'gate0_v3.py', 'gate0_v4.py'):
-            self.assertEqual(sha(EXPLORATION / name), sha(SCRATCH / name), name)
             self.assertEqual(self.prereg['design_exploration']['scripts_sha256'][name],
-                             sha(SCRATCH / name))
+                             sha(EXPLORATION / name))
         self.assertEqual(self.prereg['design_exploration']['log_sha256'],
                          sha(EXPLORATION / 'exploration_log.txt'))
         self.assertEqual(self.prereg['design_exploration']['order'][0], 'E1')

@@ -39,7 +39,8 @@ class AcceptanceV48Tests(unittest.TestCase):
 
     def test_every_listed_file_still_hashes_to_its_recorded_value(self):
         for name, digest in self.v48['files'].items():
-            self.assertEqual(sha(REPO / name), digest, name)
+            from faultda_bench.ci565 import effective_v48_digest
+            self.assertEqual(sha(REPO / name), effective_v48_digest(name, digest), name)
 
     def test_the_new_evidence_is_registered_and_the_catalog_excludes_itself(self):
         files = self.v48['files']
@@ -150,13 +151,16 @@ class DocumentTests(unittest.TestCase):
 
 
 class SharedEditTests(unittest.TestCase):
-    def test_one_ci_step_is_appended_after_the_existing_unittest_run(self):
-        lines = WORKFLOW.read_text(encoding='utf-8').splitlines()
-        self.assertEqual(lines.count(CI_STEP), 1)
-        index = lines.index(CI_STEP)
-        self.assertIn('- run: python -m unittest tests.test_faultda_semantics305',
-                      lines[index - 1])
-        self.assertEqual(sum(1 for line in lines if 'run:' in line), 5)
+    def test_ci_uses_registry_and_requires_complete_history(self):
+        text = WORKFLOW.read_text(encoding='utf-8')
+        self.assertIn('fetch-depth: 0', text)
+        self.assertIn('Require complete audit history', text)
+        self.assertIn('VERICOST_PY312:', text)
+        self.assertIn('python -m faultda_bench.current_evidence --run-tests --verbose', text)
+        self.assertNotIn('python -m unittest', text)
+        registry = json.loads((ROOT / 'protocols/current_evidence_v1.json').read_text(encoding='utf-8'))
+        expected = {'tests.' + p.stem for p in (REPO / 'tests').glob('test_faultda_vericost565*.py')}
+        self.assertTrue(expected.issubset(registry['test_modules']))
 
     def test_the_changelog_entry_leads_with_the_version_and_the_zero_spend(self):
         lines = CHANGELOG.read_text(encoding='utf-8').splitlines()

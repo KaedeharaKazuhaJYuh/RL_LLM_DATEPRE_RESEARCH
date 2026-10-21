@@ -1,3 +1,4 @@
+from unittest.mock import patch
 import json
 import shutil
 import subprocess
@@ -250,7 +251,8 @@ class PlanTests(unittest.TestCase):
 
     def test_freeze_plan_refuses_to_overwrite_an_existing_plan(self):
         before = PLAN.read_bytes()
-        with self.assertRaises(FileExistsError):
+        # Test the write boundary independently of provenance (covered by PreconditionTests).
+        with patch.object(suite, 'preconditions', return_value={}), self.assertRaises(FileExistsError):
             suite.freeze_plan(PLAN)
         self.assertEqual(PLAN.read_bytes(), before)
 

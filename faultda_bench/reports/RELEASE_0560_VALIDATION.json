@@ -1,0 +1,130 @@
+{
+  "version": "0.5.60-dev",
+  "date": "2026-10-20",
+  "timezone": "Asia/Taipei",
+  "base_commit": "540f7fba19d6c3f05dfbc9a111ac7e4a474c2cbf",
+  "counts_measured_at_commit": "bffcab1cf39fee1801a74ca2b3c4f1520ea189c7",
+  "counts_are_point_in_time": "Every count below was measured on the tree of counts_measured_at_commit and describes that commit only. Test counts and the current-evidence registry grow every release by design, so these figures are a snapshot, not a standing claim, and no test asserts them equal to a live quantity; the registry's own drift guard asserts the registry against the test files on disk instead.",
+  "baseline_full_repository_tests": {
+    "count": 625,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 7,
+    "note": "errors were FileNotFoundError from a missing gitignored work/ directory"
+  },
+  "full_repository_tests": {
+    "count": 683,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 48.87,
+    "log_sha256": "14b498d6b2e00da80f79253b6730556f8709c2443809145fdc3f6facee21d613",
+    "note": "snapshot at counts_measured_at_commit; the earlier 0.5.60 baseline was 649 before the current-evidence registry (+24 tests) and the metric-semantics correction (+3 tests), then 676 before the v47 freeze audit added tests/test_faultda_release560.py (+7 tests)"
+  },
+  "pytest": {
+    "passed": 681,
+    "skipped": 2,
+    "failed": 0
+  },
+  "focused_tests": {
+    "count": 44,
+    "failures": 0,
+    "errors": 0,
+    "modules": [
+      "tests.test_faultda_termination555_runtime",
+      "tests.test_faultda_termination555",
+      "tests.test_faultda_stats560"
+    ]
+  },
+  "current_ci_job_replay": {
+    "entry_point": "python -m faultda_bench.current_evidence",
+    "registry": "faultda_bench/protocols/current_evidence_v1.json",
+    "registered_test_modules": 61,
+    "excluded_modules": 22,
+    "audits": 5,
+    "artifact_paths": 5,
+    "unittest_count": 459,
+    "steps_exit_zero": true,
+    "note": "snapshot at counts_measured_at_commit; the workflow no longer inlines a module list; 22 pre-0.3.05 modules are explicitly excluded with reasons and stay covered by the frozen V5 verification job. The fifth audit is release560_freeze_v47, whose result is the fifth uploaded artifact."
+  },
+  "frozen_files_verified": 660,
+  "optimization_files_verified": 11,
+  "stats560": {
+    "comparisons": 5,
+    "paired_tests": 15,
+    "holm_family_size": 15,
+    "unavailable": 5,
+    "summary_sha256": "dd93c5267fbcbd3b6afbff111aaaaa6c58ef5cb96be1c6d4e98ac6f691cbac37",
+    "summary_md_sha256": "1f577be4e9a9b6b03e013a63595bfdd5e4167eb9b7546dec1fb5c0ef9f9ef2e7",
+    "float_significant_digits": 12
+  },
+  "cross_version_reproducibility": {
+    "cause": "CPython 3.12 made builtin sum() compensated (Neumaier), so float sums such as sign_test_power differ from 3.11 by 1-2 ULP; the committed-vs-rebuilt equality assertion failed on the Python 3.12 CI job",
+    "fix": "core.round_floats quantizes every emitted float to 12 significant digits, applied once at the build_summary() boundary",
+    "interpreters_verified": [
+      "3.11.15",
+      "3.12.13"
+    ],
+    "artifacts_byte_identical_across_interpreters": true,
+    "full_repository_tests_python_3_12": {
+      "count": 683,
+      "skipped": 2,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 52.81
+    },
+    "statistical_conclusions_changed": false
+  },
+  "new_provider_requests": 0,
+  "new_model_executions": 0,
+  "rescored": false,
+  "scientific_gate": "HOLD",
+  "independent_review": "not_arranged",
+  "model_or_rl_improvement_claim": false,
+  "pyproject_changed": false,
+  "license_added": false,
+  "scope": "Python unittest/pytest, offline audits and descriptive re-analysis of frozen results; no GPU/NPU, training or provider experiment",
+  "metric_semantics_correction": {
+    "trigger": "independent termination-protocol review, Q2",
+    "applied_before_freeze": true,
+    "existing_values_removed": 0,
+    "holm_family_size_changed": false,
+    "definitional_identity_rows_flagged": 7,
+    "identity_arm": "complete_public_rule",
+    "identity_metric": "supported_correct_termination",
+    "identity_basis": "design.rule() acts iff public_evidence(obs)[\"evidence_supported_stop\"], the same function and payload design.grade() scores the metric from, so the arm cannot score otherwise; p values on those rows are not evidence",
+    "added_section": "terminal_outcome_accounting",
+    "derived_truth_unsafe_stops": {
+      "complete_public_rule": 0,
+      "always_stop": 36,
+      "always_escalate": 0,
+      "denominator": 72
+    },
+    "derived_outcome_correct_vs_private_truth": {
+      "complete_public_rule": 60,
+      "always_stop": 36,
+      "always_escalate": 36,
+      "denominator": 72
+    },
+    "metrics_0510_primary_correct_termination": {
+      "complete_public_rule": 48,
+      "always_stop": 24,
+      "always_escalate": 24,
+      "denominator": 48,
+      "note": "resolvable stratum only; the unresolved stratum carries its own denominator of 24, as METRICS_0510_PROTOCOL.md requires and 0.5.50 did not do"
+    },
+    "safe_completion_resolvable_ties": {
+      "complete_public_rule": 24,
+      "always_stop": 24,
+      "denominator": 48,
+      "note": "reported because it is the honest limit of the result: the rule finds no safe completion always_stop misses; its measured value is in not stopping unsafely"
+    },
+    "raw_vs_shared_numeric_measures_nothing": true,
+    "conditions_identical_asserted": true,
+    "unavailable_protocol_quantity": "new_violation_events: not computable, the terminal diagnostic simulates no action effects",
+    "review_figures_independently_reproduced": true,
+    "rescored": false,
+    "new_model_executions": 0,
+    "new_provider_requests": 0
+  }
+}
