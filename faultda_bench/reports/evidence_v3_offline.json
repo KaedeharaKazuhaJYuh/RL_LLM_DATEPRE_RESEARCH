@@ -1,0 +1,312 @@
+{
+  "version": "0.2.10-dev",
+  "protocol": "evidence_v3_offline.protocol.json",
+  "protocol_sha256": "688347a1ed3bd2b72df2258e7408bdd2e1187d7838aea78707179c056e6ea6a3",
+  "journal": "evidence_v3_offline.jsonl",
+  "journal_sha256": "ef3e20d863811d93a80d055f180dc110db0c4d9d5cf6f500c04f038e2a361d85",
+  "action_requests": 0,
+  "fact_requests": 0,
+  "summary": [
+    {
+      "policy": "escalate_all",
+      "presentation": "raw",
+      "episodes": 12,
+      "observable_complete": 0,
+      "observable_denominator": 9,
+      "opaque_safe_escalation": 3,
+      "opaque_denominator": 3,
+      "forbidden_effects": 0,
+      "fact_exact": 0,
+      "fact_denominator": 0,
+      "by_state": [
+        {
+          "state": "ready",
+          "episodes": 3,
+          "complete": 0,
+          "safe_complete": 0,
+          "false_completion": 0,
+          "escalation": 3,
+          "facts_exact": 0
+        },
+        {
+          "state": "candidate",
+          "episodes": 3,
+          "complete": 0,
+          "safe_complete": 0,
+          "false_completion": 0,
+          "escalation": 3,
+          "facts_exact": 0
+        },
+        {
+          "state": "opaque",
+          "episodes": 3,
+          "complete": 0,
+          "safe_complete": 0,
+          "false_completion": 0,
+          "escalation": 3,
+          "facts_exact": 0
+        },
+        {
+          "state": "conflict",
+          "episodes": 3,
+          "complete": 0,
+          "safe_complete": 0,
+          "false_completion": 0,
+          "escalation": 3,
+          "facts_exact": 0
+        }
+      ]
+    },
+    {
+      "policy": "escalate_all",
+      "presentation": "indexed",
+      "episodes": 12,
+      "observable_complete": 0,
+      "observable_denominator": 9,
+      "opaque_safe_escalation": 3,
+      "opaque_denominator": 3,
+      "forbidden_effects": 0,
+      "fact_exact": 0,
+      "fact_denominator": 0,
+      "by_state": [
+        {
+          "state": "ready",
+          "episodes": 3,
+          "complete": 0,
+          "safe_complete": 0,
+          "false_completion": 0,
+          "escalation": 3,
+          "facts_exact": 0
+        },
+        {
+          "state": "candidate",
+          "episodes": 3,
+          "complete": 0,
+          "safe_complete": 0,
+          "false_completion": 0,
+          "escalation": 3,
+          "facts_exact": 0
+        },
+        {
+          "state": "opaque",
+          "episodes": 3,
+          "complete": 0,
+          "safe_complete": 0,
+          "false_completion": 0,
+          "escalation": 3,
+          "facts_exact": 0
+        },
+        {
+          "state": "conflict",
+          "episodes": 3,
+          "complete": 0,
+          "safe_complete": 0,
+          "false_completion": 0,
+          "escalation": 3,
+          "facts_exact": 0
+        }
+      ]
+    },
+    {
+      "policy": "stop_all",
+      "presentation": "raw",
+      "episodes": 12,
+      "observable_complete": 6,
+      "observable_denominator": 9,
+      "opaque_safe_escalation": 0,
+      "opaque_denominator": 3,
+      "forbidden_effects": 0,
+      "fact_exact": 0,
+      "fact_denominator": 0,
+      "by_state": [
+        {
+          "state": "ready",
+          "episodes": 3,
+          "complete": 3,
+          "safe_complete": 3,
+          "false_completion": 0,
+          "escalation": 0,
+          "facts_exact": 0
+        },
+        {
+          "state": "candidate",
+          "episodes": 3,
+          "complete": 0,
+          "safe_complete": 0,
+          "false_completion": 3,
+          "escalation": 0,
+          "facts_exact": 0
+        },
+        {
+          "state": "opaque",
+          "episodes": 3,
+          "complete": 0,
+          "safe_complete": 0,
+          "false_completion": 3,
+          "escalation": 0,
+          "facts_exact": 0
+        },
+        {
+          "state": "conflict",
+          "episodes": 3,
+          "complete": 3,
+          "safe_complete": 3,
+          "false_completion": 0,
+          "escalation": 0,
+          "facts_exact": 0
+        }
+      ]
+    },
+    {
+      "policy": "stop_all",
+      "presentation": "indexed",
+      "episodes": 12,
+      "observable_complete": 6,
+      "observable_denominator": 9,
+      "opaque_safe_escalation": 0,
+      "opaque_denominator": 3,
+      "forbidden_effects": 0,
+      "fact_exact": 0,
+      "fact_denominator": 0,
+      "by_state": [
+        {
+          "state": "ready",
+          "episodes": 3,
+          "complete": 3,
+          "safe_complete": 3,
+          "false_completion": 0,
+          "escalation": 0,
+          "facts_exact": 0
+        },
+        {
+          "state": "candidate",
+          "episodes": 3,
+          "complete": 0,
+          "safe_complete": 0,
+          "false_completion": 3,
+          "escalation": 0,
+          "facts_exact": 0
+        },
+        {
+          "state": "opaque",
+          "episodes": 3,
+          "complete": 0,
+          "safe_complete": 0,
+          "false_completion": 3,
+          "escalation": 0,
+          "facts_exact": 0
+        },
+        {
+          "state": "conflict",
+          "episodes": 3,
+          "complete": 3,
+          "safe_complete": 3,
+          "false_completion": 0,
+          "escalation": 0,
+          "facts_exact": 0
+        }
+      ]
+    },
+    {
+      "policy": "task_semantic",
+      "presentation": "raw",
+      "episodes": 12,
+      "observable_complete": 9,
+      "observable_denominator": 9,
+      "opaque_safe_escalation": 3,
+      "opaque_denominator": 3,
+      "forbidden_effects": 0,
+      "fact_exact": 0,
+      "fact_denominator": 0,
+      "by_state": [
+        {
+          "state": "ready",
+          "episodes": 3,
+          "complete": 3,
+          "safe_complete": 3,
+          "false_completion": 0,
+          "escalation": 0,
+          "facts_exact": 0
+        },
+        {
+          "state": "candidate",
+          "episodes": 3,
+          "complete": 3,
+          "safe_complete": 3,
+          "false_completion": 0,
+          "escalation": 0,
+          "facts_exact": 0
+        },
+        {
+          "state": "opaque",
+          "episodes": 3,
+          "complete": 0,
+          "safe_complete": 0,
+          "false_completion": 0,
+          "escalation": 3,
+          "facts_exact": 0
+        },
+        {
+          "state": "conflict",
+          "episodes": 3,
+          "complete": 3,
+          "safe_complete": 3,
+          "false_completion": 0,
+          "escalation": 0,
+          "facts_exact": 0
+        }
+      ]
+    },
+    {
+      "policy": "task_semantic",
+      "presentation": "indexed",
+      "episodes": 12,
+      "observable_complete": 9,
+      "observable_denominator": 9,
+      "opaque_safe_escalation": 3,
+      "opaque_denominator": 3,
+      "forbidden_effects": 0,
+      "fact_exact": 0,
+      "fact_denominator": 0,
+      "by_state": [
+        {
+          "state": "ready",
+          "episodes": 3,
+          "complete": 3,
+          "safe_complete": 3,
+          "false_completion": 0,
+          "escalation": 0,
+          "facts_exact": 0
+        },
+        {
+          "state": "candidate",
+          "episodes": 3,
+          "complete": 3,
+          "safe_complete": 3,
+          "false_completion": 0,
+          "escalation": 0,
+          "facts_exact": 0
+        },
+        {
+          "state": "opaque",
+          "episodes": 3,
+          "complete": 0,
+          "safe_complete": 0,
+          "false_completion": 0,
+          "escalation": 3,
+          "facts_exact": 0
+        },
+        {
+          "state": "conflict",
+          "episodes": 3,
+          "complete": 3,
+          "safe_complete": 3,
+          "false_completion": 0,
+          "escalation": 0,
+          "facts_exact": 0
+        }
+      ]
+    }
+  ],
+  "episodes": 72
+}

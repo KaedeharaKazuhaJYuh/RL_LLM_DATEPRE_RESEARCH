@@ -1,0 +1,325 @@
+{
+  "scope": "six synthetic variants of one toy sum; zero independent tasks",
+  "model_runs": 0,
+  "api_calls": 0,
+  "scientific_gate": "HOLD",
+  "assumptions": [
+    "authentic complete public certificates",
+    "immutable input during operation",
+    "legal idempotent replacement with sufficient budget"
+  ],
+  "rows": [
+    {
+      "case": "healthy",
+      "public": {
+        "rows": [
+          {
+            "id": 1,
+            "amount": "2.10"
+          },
+          {
+            "id": 2,
+            "amount": "3.20"
+          }
+        ],
+        "contract": {
+          "operation": "sum",
+          "field": "amount"
+        },
+        "report": {
+          "data": "dc8644a615bb66c3dbfb18d110ef6b2723a7cdbcf2c0ac6e6fe0c89423e1286e",
+          "contract": "3f52428b0943ba2d798957633e4fce5df74cfc3832f055599ba81a71208c48ff",
+          "answer": "5.30"
+        },
+        "validation": {
+          "report": "1dfc22f3547b08bae976545019ffac020578c88495b0ba42dad0dee6556db456",
+          "passed": true
+        },
+        "receipt": {
+          "request": "publish-1",
+          "report": "1dfc22f3547b08bae976545019ffac020578c88495b0ba42dad0dee6556db456",
+          "committed": true
+        },
+        "target_request": "publish-1",
+        "revision": 1,
+        "validation_revision": 1,
+        "confirmed_active_violation": false,
+        "budget": {
+          "checks": 1,
+          "writes": 1,
+          "decisions": 1
+        }
+      },
+      "weak_action": "stop",
+      "joint_action": "stop",
+      "current_numerically_correct_and_acknowledged": true,
+      "recompute_action": "stop",
+      "recompute_cost": {
+        "checks": 1,
+        "writes": 1,
+        "decisions": 1
+      },
+      "recomputed_numerically_correct_and_acknowledged": true
+    },
+    {
+      "case": "analysis_wrong",
+      "public": {
+        "rows": [
+          {
+            "id": 1,
+            "amount": "2.10"
+          },
+          {
+            "id": 2,
+            "amount": "3.20"
+          }
+        ],
+        "contract": {
+          "operation": "sum",
+          "field": "amount"
+        },
+        "report": {
+          "data": "dc8644a615bb66c3dbfb18d110ef6b2723a7cdbcf2c0ac6e6fe0c89423e1286e",
+          "contract": "3f52428b0943ba2d798957633e4fce5df74cfc3832f055599ba81a71208c48ff",
+          "answer": "6.30"
+        },
+        "validation": {
+          "report": "a2aac537b5a79acc57e1369e85464287db35631145ac111f2103b4cc03285a32",
+          "passed": false
+        },
+        "receipt": {
+          "request": "publish-1",
+          "report": "a2aac537b5a79acc57e1369e85464287db35631145ac111f2103b4cc03285a32",
+          "committed": true
+        },
+        "target_request": "publish-1",
+        "revision": 1,
+        "validation_revision": 1,
+        "confirmed_active_violation": false,
+        "budget": {
+          "checks": 1,
+          "writes": 1,
+          "decisions": 1
+        }
+      },
+      "weak_action": "escalate",
+      "joint_action": "escalate",
+      "current_numerically_correct_and_acknowledged": false,
+      "recompute_action": "stop",
+      "recompute_cost": {
+        "checks": 1,
+        "writes": 1,
+        "decisions": 1
+      },
+      "recomputed_numerically_correct_and_acknowledged": true
+    },
+    {
+      "case": "commit_unknown",
+      "public": {
+        "rows": [
+          {
+            "id": 1,
+            "amount": "2.10"
+          },
+          {
+            "id": 2,
+            "amount": "3.20"
+          }
+        ],
+        "contract": {
+          "operation": "sum",
+          "field": "amount"
+        },
+        "report": {
+          "data": "dc8644a615bb66c3dbfb18d110ef6b2723a7cdbcf2c0ac6e6fe0c89423e1286e",
+          "contract": "3f52428b0943ba2d798957633e4fce5df74cfc3832f055599ba81a71208c48ff",
+          "answer": "5.30"
+        },
+        "validation": {
+          "report": "1dfc22f3547b08bae976545019ffac020578c88495b0ba42dad0dee6556db456",
+          "passed": true
+        },
+        "receipt": {
+          "request": "publish-1",
+          "report": "1dfc22f3547b08bae976545019ffac020578c88495b0ba42dad0dee6556db456",
+          "committed": null
+        },
+        "target_request": "publish-1",
+        "revision": 1,
+        "validation_revision": 1,
+        "confirmed_active_violation": false,
+        "budget": {
+          "checks": 1,
+          "writes": 1,
+          "decisions": 1
+        }
+      },
+      "weak_action": "escalate",
+      "joint_action": "escalate",
+      "current_numerically_correct_and_acknowledged": false,
+      "recompute_action": "stop",
+      "recompute_cost": {
+        "checks": 1,
+        "writes": 1,
+        "decisions": 1
+      },
+      "recomputed_numerically_correct_and_acknowledged": true
+    },
+    {
+      "case": "cross_report",
+      "public": {
+        "rows": [
+          {
+            "id": 1,
+            "amount": "2.10"
+          },
+          {
+            "id": 2,
+            "amount": "3.20"
+          }
+        ],
+        "contract": {
+          "operation": "sum",
+          "field": "amount"
+        },
+        "report": {
+          "data": "dc8644a615bb66c3dbfb18d110ef6b2723a7cdbcf2c0ac6e6fe0c89423e1286e",
+          "contract": "3f52428b0943ba2d798957633e4fce5df74cfc3832f055599ba81a71208c48ff",
+          "answer": "6.30"
+        },
+        "validation": {
+          "report": "1dfc22f3547b08bae976545019ffac020578c88495b0ba42dad0dee6556db456",
+          "passed": true
+        },
+        "receipt": {
+          "request": "publish-1",
+          "report": "a2aac537b5a79acc57e1369e85464287db35631145ac111f2103b4cc03285a32",
+          "committed": true
+        },
+        "target_request": "publish-1",
+        "revision": 1,
+        "validation_revision": 1,
+        "confirmed_active_violation": false,
+        "budget": {
+          "checks": 1,
+          "writes": 1,
+          "decisions": 1
+        }
+      },
+      "weak_action": "stop",
+      "joint_action": "escalate",
+      "current_numerically_correct_and_acknowledged": false,
+      "recompute_action": "stop",
+      "recompute_cost": {
+        "checks": 1,
+        "writes": 1,
+        "decisions": 1
+      },
+      "recomputed_numerically_correct_and_acknowledged": true
+    },
+    {
+      "case": "benign_revision",
+      "public": {
+        "rows": [
+          {
+            "id": 1,
+            "amount": "2.10"
+          },
+          {
+            "id": 2,
+            "amount": "3.20"
+          }
+        ],
+        "contract": {
+          "operation": "sum",
+          "field": "amount"
+        },
+        "report": {
+          "data": "dc8644a615bb66c3dbfb18d110ef6b2723a7cdbcf2c0ac6e6fe0c89423e1286e",
+          "contract": "3f52428b0943ba2d798957633e4fce5df74cfc3832f055599ba81a71208c48ff",
+          "answer": "5.30"
+        },
+        "validation": {
+          "report": "1dfc22f3547b08bae976545019ffac020578c88495b0ba42dad0dee6556db456",
+          "passed": true
+        },
+        "receipt": {
+          "request": "publish-1",
+          "report": "1dfc22f3547b08bae976545019ffac020578c88495b0ba42dad0dee6556db456",
+          "committed": true
+        },
+        "target_request": "publish-1",
+        "revision": 2,
+        "validation_revision": 1,
+        "confirmed_active_violation": false,
+        "budget": {
+          "checks": 1,
+          "writes": 1,
+          "decisions": 1
+        }
+      },
+      "weak_action": "stop",
+      "joint_action": "stop",
+      "current_numerically_correct_and_acknowledged": true,
+      "recompute_action": "stop",
+      "recompute_cost": {
+        "checks": 1,
+        "writes": 1,
+        "decisions": 1
+      },
+      "recomputed_numerically_correct_and_acknowledged": true
+    },
+    {
+      "case": "repaired_history",
+      "public": {
+        "rows": [
+          {
+            "id": 1,
+            "amount": "2.10"
+          },
+          {
+            "id": 2,
+            "amount": "3.20"
+          }
+        ],
+        "contract": {
+          "operation": "sum",
+          "field": "amount"
+        },
+        "report": {
+          "data": "dc8644a615bb66c3dbfb18d110ef6b2723a7cdbcf2c0ac6e6fe0c89423e1286e",
+          "contract": "3f52428b0943ba2d798957633e4fce5df74cfc3832f055599ba81a71208c48ff",
+          "answer": "5.30"
+        },
+        "validation": {
+          "report": "1dfc22f3547b08bae976545019ffac020578c88495b0ba42dad0dee6556db456",
+          "passed": true
+        },
+        "receipt": {
+          "request": "publish-1",
+          "report": "1dfc22f3547b08bae976545019ffac020578c88495b0ba42dad0dee6556db456",
+          "committed": true
+        },
+        "target_request": "publish-1",
+        "revision": 1,
+        "validation_revision": 1,
+        "confirmed_active_violation": true,
+        "budget": {
+          "checks": 1,
+          "writes": 1,
+          "decisions": 1
+        }
+      },
+      "weak_action": "stop",
+      "joint_action": "escalate",
+      "current_numerically_correct_and_acknowledged": true,
+      "recompute_action": "escalate",
+      "recompute_cost": {
+        "checks": 1,
+        "writes": 1,
+        "decisions": 1
+      },
+      "recomputed_numerically_correct_and_acknowledged": true
+    }
+  ]
+}

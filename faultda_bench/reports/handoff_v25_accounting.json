@@ -1,0 +1,746 @@
+{
+  "version": "0.3.20-dev",
+  "source_sha256": "c0591450b5e886e4548af9ea703dde00cc7a07d3cdaa3512247f3b0d72e8a5e6",
+  "plan_sha256": "e2e4ace69e5a2a322b427e71730bfed7688f0605de0c305c0c3eafb0c44550a9",
+  "analysis_sha256": "94e884856e3ac1c5d051cf2437d9370c38061565fe420147a369c745ef89e89a",
+  "matched_cells": [
+    {
+      "seed": 0,
+      "view": "utc_end",
+      "mode": "healthy",
+      "arms": {
+        "flags_only": {
+          "initial_valid": true,
+          "revision_valid": null,
+          "safe_complete": true,
+          "safe_escalation": false,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "publish",
+            "stop"
+          ]
+        },
+        "review_only": {
+          "initial_valid": true,
+          "revision_valid": true,
+          "safe_complete": true,
+          "safe_escalation": false,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "publish",
+            "stop"
+          ]
+        },
+        "checked_review": {
+          "initial_valid": true,
+          "revision_valid": true,
+          "safe_complete": true,
+          "safe_escalation": false,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "publish",
+            "stop"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "view": "utc_end",
+      "mode": "shared_compute",
+      "arms": {
+        "flags_only": {
+          "initial_valid": true,
+          "revision_valid": null,
+          "safe_complete": false,
+          "safe_escalation": false,
+          "wrong_publications": 2,
+          "actions": [
+            "stage",
+            "publish",
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        },
+        "checked_review": {
+          "initial_valid": true,
+          "revision_valid": true,
+          "safe_complete": false,
+          "safe_escalation": false,
+          "wrong_publications": 2,
+          "actions": [
+            "stage",
+            "publish",
+            "stage",
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        },
+        "review_only": {
+          "initial_valid": true,
+          "revision_valid": true,
+          "safe_complete": false,
+          "safe_escalation": false,
+          "wrong_publications": 1,
+          "actions": [
+            "stage",
+            "publish",
+            "stage",
+            "stage",
+            "stage",
+            "escalate"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "view": "utc_end",
+      "mode": "healthy",
+      "arms": {
+        "flags_only": {
+          "initial_valid": true,
+          "revision_valid": null,
+          "safe_complete": true,
+          "safe_escalation": false,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "publish",
+            "stop"
+          ]
+        },
+        "review_only": {
+          "initial_valid": true,
+          "revision_valid": true,
+          "safe_complete": true,
+          "safe_escalation": false,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "publish",
+            "stop"
+          ]
+        },
+        "checked_review": {
+          "initial_valid": true,
+          "revision_valid": true,
+          "safe_complete": true,
+          "safe_escalation": false,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "publish",
+            "stop"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "view": "utc_end",
+      "mode": "shared_compute",
+      "arms": {
+        "checked_review": {
+          "initial_valid": true,
+          "revision_valid": true,
+          "safe_complete": false,
+          "safe_escalation": false,
+          "wrong_publications": 2,
+          "actions": [
+            "stage",
+            "publish",
+            "stage",
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        },
+        "review_only": {
+          "initial_valid": true,
+          "revision_valid": true,
+          "safe_complete": false,
+          "safe_escalation": false,
+          "wrong_publications": 2,
+          "actions": [
+            "stage",
+            "publish",
+            "stage",
+            "publish",
+            "stage",
+            "escalate"
+          ]
+        },
+        "flags_only": {
+          "initial_valid": true,
+          "revision_valid": null,
+          "safe_complete": false,
+          "safe_escalation": false,
+          "wrong_publications": 1,
+          "actions": [
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "view": "plus8_end",
+      "mode": "healthy",
+      "arms": {
+        "checked_review": {
+          "initial_valid": false,
+          "revision_valid": true,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        },
+        "flags_only": {
+          "initial_valid": false,
+          "revision_valid": null,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        },
+        "review_only": {
+          "initial_valid": false,
+          "revision_valid": false,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "publish",
+            "stage",
+            "stage",
+            "escalate"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "view": "plus8_end",
+      "mode": "shared_compute",
+      "arms": {
+        "flags_only": {
+          "initial_valid": false,
+          "revision_valid": null,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        },
+        "review_only": {
+          "initial_valid": false,
+          "revision_valid": false,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        },
+        "checked_review": {
+          "initial_valid": false,
+          "revision_valid": true,
+          "safe_complete": false,
+          "safe_escalation": false,
+          "wrong_publications": 1,
+          "actions": [
+            "stage",
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "view": "plus8_end",
+      "mode": "healthy",
+      "arms": {
+        "checked_review": {
+          "initial_valid": false,
+          "revision_valid": true,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        },
+        "review_only": {
+          "initial_valid": false,
+          "revision_valid": false,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        },
+        "flags_only": {
+          "initial_valid": false,
+          "revision_valid": null,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "view": "plus8_end",
+      "mode": "shared_compute",
+      "arms": {
+        "review_only": {
+          "initial_valid": false,
+          "revision_valid": false,
+          "safe_complete": false,
+          "safe_escalation": false,
+          "wrong_publications": 1,
+          "actions": [
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        },
+        "checked_review": {
+          "initial_valid": false,
+          "revision_valid": true,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        },
+        "flags_only": {
+          "initial_valid": false,
+          "revision_valid": null,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "view": "minus5_end",
+      "mode": "healthy",
+      "arms": {
+        "checked_review": {
+          "initial_valid": false,
+          "revision_valid": true,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        },
+        "review_only": {
+          "initial_valid": false,
+          "revision_valid": false,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "publish",
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        },
+        "flags_only": {
+          "initial_valid": false,
+          "revision_valid": null,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "escalate"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "view": "minus5_end",
+      "mode": "shared_compute",
+      "arms": {
+        "checked_review": {
+          "initial_valid": false,
+          "revision_valid": true,
+          "safe_complete": false,
+          "safe_escalation": false,
+          "wrong_publications": 1,
+          "actions": [
+            "stage",
+            "publish",
+            "stage",
+            "stage",
+            "escalate"
+          ]
+        },
+        "review_only": {
+          "initial_valid": false,
+          "revision_valid": false,
+          "safe_complete": false,
+          "safe_escalation": false,
+          "wrong_publications": 2,
+          "actions": [
+            "stage",
+            "publish",
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        },
+        "flags_only": {
+          "initial_valid": false,
+          "revision_valid": null,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "view": "minus5_end",
+      "mode": "healthy",
+      "arms": {
+        "review_only": {
+          "initial_valid": false,
+          "revision_valid": false,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "publish",
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        },
+        "flags_only": {
+          "initial_valid": false,
+          "revision_valid": null,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "escalate"
+          ]
+        },
+        "checked_review": {
+          "initial_valid": false,
+          "revision_valid": true,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "view": "minus5_end",
+      "mode": "shared_compute",
+      "arms": {
+        "checked_review": {
+          "initial_valid": false,
+          "revision_valid": true,
+          "safe_complete": false,
+          "safe_escalation": false,
+          "wrong_publications": 2,
+          "actions": [
+            "stage",
+            "publish",
+            "stage",
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        },
+        "flags_only": {
+          "initial_valid": false,
+          "revision_valid": null,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "escalate"
+          ]
+        },
+        "review_only": {
+          "initial_valid": false,
+          "revision_valid": false,
+          "safe_complete": false,
+          "safe_escalation": false,
+          "wrong_publications": 2,
+          "actions": [
+            "stage",
+            "publish",
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 6,
+      "view": "plus8_all",
+      "mode": "healthy",
+      "arms": {
+        "flags_only": {
+          "initial_valid": false,
+          "revision_valid": null,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        },
+        "review_only": {
+          "initial_valid": false,
+          "revision_valid": false,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        },
+        "checked_review": {
+          "initial_valid": false,
+          "revision_valid": true,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 6,
+      "view": "plus8_all",
+      "mode": "shared_compute",
+      "arms": {
+        "flags_only": {
+          "initial_valid": false,
+          "revision_valid": null,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        },
+        "checked_review": {
+          "initial_valid": false,
+          "revision_valid": true,
+          "safe_complete": false,
+          "safe_escalation": false,
+          "wrong_publications": 1,
+          "actions": [
+            "stage",
+            "stage",
+            "publish",
+            "stage",
+            "stage",
+            "escalate"
+          ]
+        },
+        "review_only": {
+          "initial_valid": false,
+          "revision_valid": false,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 7,
+      "view": "plus8_all",
+      "mode": "healthy",
+      "arms": {
+        "review_only": {
+          "initial_valid": false,
+          "revision_valid": false,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        },
+        "checked_review": {
+          "initial_valid": false,
+          "revision_valid": false,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        },
+        "flags_only": {
+          "initial_valid": false,
+          "revision_valid": null,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        }
+      }
+    },
+    {
+      "seed": 7,
+      "view": "plus8_all",
+      "mode": "shared_compute",
+      "arms": {
+        "review_only": {
+          "initial_valid": false,
+          "revision_valid": false,
+          "safe_complete": false,
+          "safe_escalation": false,
+          "wrong_publications": 2,
+          "actions": [
+            "stage",
+            "publish",
+            "stage",
+            "stage",
+            "publish",
+            "escalate"
+          ]
+        },
+        "checked_review": {
+          "initial_valid": false,
+          "revision_valid": false,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "stage",
+            "stage",
+            "escalate"
+          ]
+        },
+        "flags_only": {
+          "initial_valid": false,
+          "revision_valid": null,
+          "safe_complete": false,
+          "safe_escalation": true,
+          "wrong_publications": 0,
+          "actions": [
+            "escalate"
+          ]
+        }
+      }
+    }
+  ],
+  "by_arm": {
+    "review_only": {
+      "revision_directions": {
+        "correct->correct": 4,
+        "incorrect->incorrect": 12
+      },
+      "correct_revision_but_no_healthy_completion": 0,
+      "healthy_completed": 2,
+      "faulty_safely_escalated": 2,
+      "api_requests": 79,
+      "revision_requests": 16,
+      "action_requests": 63,
+      "serialized_request_bytes": 806891,
+      "checker_wall_seconds": 1.0899952030740678e-05
+    },
+    "checked_review": {
+      "revision_directions": {
+        "correct->correct": 4,
+        "incorrect->correct": 10,
+        "incorrect->incorrect": 2
+      },
+      "correct_revision_but_no_healthy_completion": 5,
+      "healthy_completed": 2,
+      "faulty_safely_escalated": 2,
+      "api_requests": 69,
+      "revision_requests": 16,
+      "action_requests": 53,
+      "serialized_request_bytes": 700299,
+      "checker_wall_seconds": 0.0011482999980216846
+    },
+    "flags_only": {
+      "revision_directions": {},
+      "correct_revision_but_no_healthy_completion": 0,
+      "healthy_completed": 2,
+      "faulty_safely_escalated": 6,
+      "api_requests": 29,
+      "revision_requests": 0,
+      "action_requests": 29,
+      "serialized_request_bytes": 307233,
+      "checker_wall_seconds": 0.001029099992592819
+    }
+  },
+  "historical_initial_responses": 8,
+  "distinct_initial_record_contents": 4,
+  "independent_task_clusters": 1,
+  "scientific_gate": "HOLD",
+  "inference_tests": null,
+  "timings_authenticated": false,
+  "currency_cost_computed": false
+}

@@ -1,0 +1,13 @@
+# 0.3.35-dev：可执行离线协议与复审入口
+
+当前入口仅 freeze/dry-run/verify，没有live/API选项，不创建供应商客户端或读写凭据。运行八个公开状态的记录生成和direct/shared_model_record十六条动作轨迹，八步horizon，总传输调用上限136。
+
+记录生成由已标记offline-public-rule-fixture的公开规则返回，不是DeepSeek。所有回执category=scripted_fixture、request_sent=false；生成和动作包络完整保存，供应商实际请求数与新模型结果数均零。注入回调是开发测试接口，不是任意Python代码的网络安全沙箱；拒绝不合协议的回执不能证明调用者没有产生其他副作用。
+
+每个状态首先从当前公开契约/行数据生成一个原样工作记录；direct与record组使用独立但公开初始状态逐字相同的环境。direct不接收记录，record组只接收真实回调返回的解析结果。错误结构照传，缺失以unavailable明确标记，不能私有参考回填。评分在可信运行器内，绝不传给策略。
+
+动作无数值执行器守卫、无active_report_verified/stop_permitted_by_checker提示。可靠性声明包括重复提交前失败和提交后确认丢失。合法工具、checks4、mutations6、decisions16及八步机会保留；所有提出的有效动作原样执行。
+
+脚本fixture动作使用retry_once_reconcile，故意不读取治疗记录；两组脚本表现相同仅证明接线/状态重放，不识别模型或记录处理效应。实际供应商传输与错误/usage/费用核算尚未接入此CLI，后续独立复审和科学决定后另加新版本，不把本版演练当实跑。
+
+复审入口包括机器可读pending表及人工清单；它们是项目维护记录，不是独立签名证据，不自动解锁API。旧人审24题/六例范围原样保留，新故障/强基线/模型协议待审。科学HOLD。

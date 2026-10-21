@@ -1,0 +1,10 @@
+{
+  "schema_version": "v4-local-experiment-1",
+  "experiment_id": "v5_eval_batch16",
+  "entrypoint": "v4_eval",
+  "protocol": "tasks/v4/llm_hard_v1",
+  "resource": "gpu",
+  "model": "work/modelscope_deepseek_r1_1p5b",
+  "adapter": "work/v4_llm_hard_sft_100_001/adapter",
+  "batch_size": 16
+}

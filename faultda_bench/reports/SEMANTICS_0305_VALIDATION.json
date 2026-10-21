@@ -1,0 +1,28 @@
+{
+  "version": "0.3.05-dev",
+  "date": "2026-10-12",
+  "engineering_status": "passed",
+  "scientific_gate": "HOLD",
+  "tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "passed": 238,
+    "seconds": 76.565
+  },
+  "unified_audit": {
+    "command": "python -m faultda_bench.semantics305.audit",
+    "frozen_files": 191,
+    "new_experiments": [
+      "semantics_v22"
+    ],
+    "api_requests_during_audit": 0
+  },
+  "new_live_requests": 144,
+  "provider_errors": 0,
+  "length_finishes": 0,
+  "inherited_release_metadata_check": "V5.0.15-beta.2 consistent",
+  "remote_ci_executed_by_this_session": false,
+  "new_experiments_human_reviewed": false,
+  "configured_api_key_absent_from_new_response_artifacts": true,
+  "scientific_release_ready": false,
+  "external_publication_confirmed": false
+}

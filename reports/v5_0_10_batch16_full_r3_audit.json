@@ -1,0 +1,41 @@
+{
+  "schema_version": "v5-batch-audit-1",
+  "input_sha256": {
+    "v5_0_10_serial_full_r3.json": "6c3c6fad62590ec5f4450a73df71f432768744708df46cc8b33e26380fc8d855",
+    "v5_0_10_serial_full_r3_profile.json": "b2ce2f57f05a7062564b251f0636c90aa8308613e47e3a5974f8e5c8182ec4e4",
+    "v5_0_10_batch16_full_r3.json": "086b9ed048cef51084c2b1f65e87c1907cf17a25d89c9b2097501c583670a88c",
+    "v5_0_10_batch16_full_r3_profile.json": "f7c5534f70e836f1d1b3e1f1034d0331a6b37194e3e3072d219c4ef667f78028"
+  },
+  "protocol_sha256": "8a197d3fda055a56e751752e6c2a00c9b28d85851c5106c84d4df3e032b57ee2",
+  "episodes": 48,
+  "batch_size": 16,
+  "exact_episode_matches": 47,
+  "mismatches": [
+    {
+      "index": 10,
+      "task_id": "4d24feb148ae6e85",
+      "serial_actions": [
+        "normalize_dates",
+        "normalize_dates",
+        "count_categories",
+        "aggregate",
+        "stop"
+      ],
+      "batched_actions": [
+        "normalize_dates",
+        "count_categories",
+        "count_categories",
+        "aggregate",
+        "stop"
+      ],
+      "serial_passed": false,
+      "batched_passed": false,
+      "raw_equal": false
+    }
+  ],
+  "serial_wall_seconds": 88.61042350000002,
+  "batched_wall_seconds": 17.232632300000205,
+  "wall_speedup": 5.142013243095715,
+  "serial_peak_cuda_allocated_bytes": 3639815168,
+  "batched_peak_cuda_allocated_bytes": 4197330432
+}

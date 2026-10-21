@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION_PATTERN = re.compile(r"^5\.(0|[1-9][0-9]*)\.(0|05|[1-9][0-9]+)$")
+VERSION_PATTERN = re.compile(r"^5\.(0|[1-9][0-9]*)\.(0|05|[1-9][0-9]+)(?:-beta\.([1-9][0-9]*))?$")
 
 
 def parse_display_version(value: str) -> tuple[int, int, int]:
@@ -15,22 +15,30 @@ def parse_display_version(value: str) -> tuple[int, int, int]:
     if not match:
         raise ValueError(f"invalid V5 display version: {value!r}")
     minor, patch = int(match[1]), int(match[2])
-    if minor == 4 or 40 <= patch <= 49 or patch % 5:
+    if minor == 4 or patch >= 100 or 40 <= patch <= 49 or patch % 5:
         raise ValueError(f"reserved or off-sequence V5 version: {value!r}")
     return 5, minor, patch
 
 
 def next_display_version(value: str) -> str:
     major, minor, patch = parse_display_version(value)
+    if '-beta.' in value:
+        return value.split('-beta.', 1)[0]
     patch += 5
-    if 40 <= patch <= 49:
+    if patch >= 100:
+        minor += 1
+        if minor == 4:
+            minor = 5
+        patch = 0
+    elif 40 <= patch <= 49:
         patch = 50
     return f"{major}.{minor}.{patch:02d}" if patch == 5 else f"{major}.{minor}.{patch}"
 
 
 def package_version(value: str) -> str:
     major, minor, patch = parse_display_version(value)
-    return f"{major}.{minor}.{patch}"
+    suffix = 'b' + value.split('-beta.', 1)[1] if '-beta.' in value else ''
+    return f"{major}.{minor}.{patch}{suffix}"
 
 
 def check_repository(root: Path = ROOT) -> str:
@@ -41,8 +49,14 @@ def check_repository(root: Path = ROOT) -> str:
     if actual != expected:
         raise ValueError(f"pyproject.toml version {actual!r} must be {expected!r}")
     readme = (root / "README.md").read_text(encoding="utf-8")
-    if not readme.startswith(f"# RL + LLM Data Analysis Agent — V{version}"):
+    heading = readme.splitlines()[0] if readme else ''
+    model_readme = heading == f"# RL + LLM Data Analysis Agent — V{version}"
+    inherited = re.findall(r'^<!-- inherited-release: V([^\n]+) -->$', readme, re.MULTILINE)
+    benchmark_readme = heading == '# FaultDA-Bench' and inherited == [version]
+    if not (model_readme or benchmark_readme):
         raise ValueError("README heading does not match VERSION")
+    if "本项目的 GitHub 推送仍由用户自行完成。" in readme:
+        raise ValueError("README contains a retired publishing note")
     return version
 
 

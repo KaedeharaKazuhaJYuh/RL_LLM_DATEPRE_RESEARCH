@@ -1,0 +1,36 @@
+{
+  "version": "0.2.60-dev",
+  "backend": "deepseek_live",
+  "protocol": "pilot_v12_deepseek.protocol.json",
+  "protocol_sha256": "a48314effdc47560abee286650d2761a570e9aedfcb0e0cd360bbc2e2935dbd3",
+  "trace": "pilot_v12_deepseek.jsonl",
+  "trace_sha256": "6b776998fa8486091745f0af85570af209df42bcac1a5cbea8746afb2f440a58",
+  "summary": {
+    "executions": 9,
+    "task_clusters": 3,
+    "by_arm": {
+      "deepseek": {
+        "safe_complete": 1,
+        "false_completion": 0,
+        "safe_escalation": 0,
+        "agent_wrong_publications": 0
+      }
+    },
+    "request_attempts": 96,
+    "usage_available_calls": 96,
+    "reported_prompt_tokens": 134556,
+    "reported_completion_tokens": 65553,
+    "actual_models": [
+      "deepseek-flash"
+    ],
+    "terminal_counts": {
+      "api_budget_exceeded": 3,
+      "budget_exceeded": 5,
+      "stop": 1
+    },
+    "api_censored_cases": 3,
+    "model_cases_without_request": 2,
+    "scientific_gate": "HOLD",
+    "model_improvement_claim": false
+  }
+}

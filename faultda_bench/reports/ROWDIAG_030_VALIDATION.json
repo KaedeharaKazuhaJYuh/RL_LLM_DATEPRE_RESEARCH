@@ -1,0 +1,33 @@
+{
+  "version": "0.3.0-dev",
+  "date": "2026-10-12",
+  "engineering_status": "passed",
+  "scientific_gate": "HOLD",
+  "tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "passed": 227,
+    "seconds": 85.156
+  },
+  "unified_audit": {
+    "command": "python -m faultda_bench.release030.audit",
+    "frozen_files": 175,
+    "new_experiments": [
+      "rowdiag_v19",
+      "rowdiag_v20",
+      "boundary_v21"
+    ],
+    "api_requests_during_audit": 0
+  },
+  "release_metadata_check": "V5.0.15-beta.2 inherited metadata consistent",
+  "remote_ci_executed_by_this_session": false,
+  "new_experiments_human_reviewed": false,
+  "configured_api_key_absent_from_new_response_artifacts": true,
+  "api_calls_by_phase": {
+    "v19": 18,
+    "v20": 18,
+    "v21": 48
+  },
+  "new_live_requests": 84,
+  "scientific_release_ready": false,
+  "external_publication_confirmed": false
+}

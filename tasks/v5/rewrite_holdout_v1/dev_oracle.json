@@ -1,0 +1,38 @@
+{
+  "9258bb6f1330edcb": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "4a4944a3a67816b3": {
+    "plan": [
+      "deduplicate",
+      "rolling_mean"
+    ]
+  },
+  "4dba9e81b727de36": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "b0011e1b6c150c17": {
+    "plan": [
+      "normalize_categories",
+      "count_categories"
+    ]
+  },
+  "b1d4b4e4c29f750b": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  },
+  "a7d6092b97ac1775": {
+    "plan": [
+      "clip_outliers",
+      "describe_numeric"
+    ]
+  }
+}

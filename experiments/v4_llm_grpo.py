@@ -119,12 +119,14 @@ def groups_from_scan(tasks, scan, *, seed, model, protocol_sha256, adapter_sha25
 
 def generate_action(model, tokenizer, task, observation, temperature, max_new_tokens):
     import torch
+    if temperature <= 0:
+        raise ValueError('sampling temperature must be positive')
     message = [{'role': 'user', 'content': input_text(model_input(task, observation))}]
     encoded = tokenizer.apply_chat_template(message, tokenize=True, add_generation_prompt=True,
                                             return_tensors='pt')['input_ids'].to(model.device)
     with torch.no_grad():
         generated = model.generate(encoded, max_new_tokens=max_new_tokens, do_sample=True,
-                                   temperature=temperature, top_p=.95,
+                                   temperature=temperature, top_p=1.0, top_k=0,
                                    pad_token_id=tokenizer.eos_token_id)
     completion = generated[0, encoded.shape[1]:]
     raw = tokenizer.decode(completion, skip_special_tokens=True).strip()
@@ -135,12 +137,14 @@ def generate_action(model, tokenizer, task, observation, temperature, max_new_to
         return None, raw, completion.detach().cpu().tolist()
 
 
-def completion_logprobs(model, prompt_ids, completion_ids):
+def completion_logprobs(model, prompt_ids, completion_ids, temperature=1.0):
     import torch
+    if temperature <= 0:
+        raise ValueError('sampling temperature must be positive')
     ids = torch.tensor([prompt_ids + completion_ids], device=model.device)
     logits = model(input_ids=ids, attention_mask=torch.ones_like(ids)).logits[:, :-1]
     target = ids[:, 1:]
-    logp = torch.log_softmax(logits.float(), dim=-1).gather(-1, target.unsqueeze(-1)).squeeze(-1)
+    logp = torch.log_softmax(logits.float() / temperature, dim=-1).gather(-1, target.unsqueeze(-1)).squeeze(-1)
     start = max(0, len(prompt_ids) - 1)
     return logp[:, start:]
 
@@ -297,10 +301,10 @@ def run(args):
                     for _, trajectory, _ in group:
                         seq = []
                         for step in trajectory:
-                            old_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
+                            old_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'], args.temperature)
                             policy.set_adapter('reference')
                             policy.eval()
-                            ref_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
+                            ref_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'], args.temperature)
                             policy.set_adapter('default')
                             policy.eval()
                             seq.append((old_lp.detach(), ref_lp.detach()))
@@ -316,7 +320,7 @@ def run(args):
                     for advantage, (_, trajectory, _), old_steps in zip(advantages, group, behavior):
                         for step, (old_lp, ref_lp) in zip(trajectory, old_steps):
                             with scope(profile, 'update_forward_backward'):
-                                new_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'])
+                                new_lp = completion_logprobs(policy, step['prompt_ids'], step['completion_ids'], args.temperature)
                                 ratio = torch.exp((new_lp - old_lp).clamp(-20, 20))
                                 clipped = ratio.clamp(1.0 - args.clip_range, 1.0 + args.clip_range)
                                 adv = advantage.to('cuda')
@@ -362,6 +366,7 @@ def run(args):
                'fault_mode': args.fault_mode, 'group_size': args.group_size,
                'ppo_epochs': args.ppo_epochs, 'episodes': len(rewards),
                'temperature': args.temperature, 'max_new_tokens': args.max_new_tokens,
+               'behavior_distribution': 'temperature_only_top_p_1_top_k_0',
                'learning_rate': args.learning_rate,
                'updated_groups': updated_groups,
                'skipped_zero_advantage_groups': skipped_zero_advantage_groups,

@@ -25,6 +25,7 @@ type spec struct {
 	Model               string `json:"model,omitempty"`
 	Adapter             string `json:"adapter,omitempty"`
 	Limit               int    `json:"limit,omitempty"`
+	BatchSize           int    `json:"batch_size,omitempty"`
 	BothFaults          bool   `json:"both_faults,omitempty"`
 	ExpectedStepsSHA256 string `json:"expected_steps_sha256,omitempty"`
 }
@@ -33,6 +34,7 @@ type result struct {
 	SchemaVersion  string            `json:"schema_version"`
 	ExperimentID   string            `json:"experiment_id"`
 	Entrypoint     string            `json:"entrypoint"`
+	BatchSize      int               `json:"batch_size,omitempty"`
 	Status         string            `json:"status"`
 	GitCommit      string            `json:"git_commit,omitempty"`
 	GitDirty       bool              `json:"git_dirty"`
@@ -51,12 +53,12 @@ func validate(s spec) error {
 	if strings.ContainsAny(s.ExperimentID, `/\\`) || s.ExperimentID == "." || s.ExperimentID == ".." {
 		return errors.New("experiment_id must be a simple name")
 	}
-	if s.Limit < 0 {
-		return errors.New("limit must be nonnegative")
+	if s.Limit < 0 || s.BatchSize < 0 {
+		return errors.New("limit and batch_size must be nonnegative")
 	}
 	switch s.Entrypoint {
 	case "v4_export":
-		if s.Resource != "cpu" || s.Model != "" || s.Adapter != "" || s.Limit != 0 || s.BothFaults {
+		if s.Resource != "cpu" || s.Model != "" || s.Adapter != "" || s.Limit != 0 || s.BothFaults || s.BatchSize != 0 {
 			return errors.New("v4_export requires cpu and no evaluation options")
 		}
 	case "v4_eval":
@@ -64,7 +66,7 @@ func validate(s spec) error {
 			return errors.New("v4_eval requires gpu and model")
 		}
 	case "v4_eval_npu":
-		if s.Resource != "npu" || s.Model == "" || s.ExpectedStepsSHA256 != "" {
+		if s.Resource != "npu" || s.Model == "" || s.ExpectedStepsSHA256 != "" || s.BatchSize != 0 {
 			return errors.New("v4_eval_npu requires npu and model")
 		}
 	default:
@@ -184,6 +186,9 @@ func run(s spec, python, repo, runDir string) (r result, err error) {
 			"--out", output}
 		if s.Entrypoint == "v4_eval" {
 			args = append(args, "--profile-out", profile)
+			if s.BatchSize > 1 {
+				args = append(args, "--batch-size", fmt.Sprint(s.BatchSize))
+			}
 		} else {
 			args = append(args, "--device", "NPU")
 		}
@@ -258,6 +263,7 @@ func run(s spec, python, repo, runDir string) (r result, err error) {
 			Episodes       int    `json:"episodes"`
 			Greedy         bool   `json:"greedy"`
 			Device         string `json:"device"`
+			BatchSize      int    `json:"batch_size"`
 		}
 		if err := json.Unmarshal(b, &summary); err != nil {
 			return r, err
@@ -266,6 +272,20 @@ func run(s spec, python, repo, runDir string) (r result, err error) {
 			(s.Entrypoint == "v4_eval" && !summary.Greedy) ||
 			(s.Entrypoint == "v4_eval_npu" && summary.Device != "NPU") {
 			return r, errors.New("evaluation summary does not match protocol")
+		}
+		if s.Entrypoint == "v4_eval" {
+			requested := s.BatchSize
+			if requested == 0 {
+				requested = 1
+			}
+			actual := summary.BatchSize
+			if actual == 0 {
+				actual = 1
+			}
+			if actual != requested {
+				return r, errors.New("evaluation batch_size does not match spec")
+			}
+			r.BatchSize = actual
 		}
 	}
 	if s.ExpectedStepsSHA256 != "" && r.Hashes["train_steps_sha256"] != s.ExpectedStepsSHA256 {

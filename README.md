@@ -1,162 +1,80 @@
-# RL + LLM Data Analysis Agent — V5.0.0（首个正式研究版）
+# FaultDA-Bench
 
-V5.0.0 汇总了可验证的 DeepSeek 工具使用与 RL 实验、可选 C++ 数值内核，以及 Go 单机实验协调器。正式版的范围、验证结果和未解决的问题见 [发布报告](reports/V5_0_0_RELEASE.md)；后续采用每次加 `0.0.05`、跳过指定编号区间的[版本规则](VERSIONING.md)。本版是可复核的研究软件基线，当前 RL 结果仅支持窄范围初步提升，模型权重仍保存在本机，不默认替换原策略。
+**可验证数据分析 Agent 的工程诊断 Benchmark。**
 
-本版按仓库源码与随仓库提供的 `tasks/`、`data/` 发布；构建出的 Python wheel 只包含代码，不能单独复现数据任务。开始实验请使用完整仓库，并按发布报告核对所需的本机模型权重与设备环境。
+FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误、检查证据需要成本时，Agent 能否获取必要信息，完成正确修复，并避免重复副作用。当前是可运行的开发基准，尚未完成独立最终测试。
 
-V5.0.0-beta.1 已完成[两步环境奖励课程与三种子配对评测](reports/V5_BETA_1.md)。第一次新来源加新措辞测试失败：原三步 GRPO 相对 SFT 为 11/144 对 12/144。随后只用旧合成训练来源构造两步课程，在另一组事先冻结、**只留出数据来源**的公开数据上，RL 更新后策略由同种子 SFT 合计 **96/144 提至 102/144**，新增 11、回退 5，满足预设的窄范围初步提升门槛。三个种子分别净变 −2、+2、+6；一个来源仍净退 1 题，因此尚不能声称 GRPO 普遍优于 SFT，也不能证明其优于等预算的两步 SFT。模型权重保存在本机 `work/`，仓库提供协议、代码与逐题审计。
+当前基准版本：`0.5.65-dev`（离线验证代价诊断） · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
+<!-- inherited-release: V5.0.15-beta.2 -->
 
-V5.0.0-alpha.2 已将 C++17 滚动均值内核作为**可选** Python 工具后端接入，并完成逐项数值对照、真实 CSV episode 正确性和三次重复计时：10 万行进程内验证任务中位数由 1.81 秒降到 1.21 秒；1 万行隔离验证任务由 0.570 秒降到 0.424 秒。Go 已接入单机持久实验队列、CPU/GPU/NPU 设备独占、心跳租约、取消、失联隔离与人工确认恢复、迟到结果拒绝和重复提交去重；真实 GPU 与 NPU 作业、Windows 子进程取消均已验收。使用方法、原始数据和限制见 [alpha.2 报告](reports/V5_ALPHA_2.md)。当前小表 LLM 任务仍默认 Python，模型效果与 RL 泛化结论未改变。
+[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [版本报告](faultda_bench/reports/RELEASE_0565.md) · [English overview](docs/en/FAULTDA_BENCH_OVERVIEW.md) · [版本内性能优化](faultda_bench/reports/PERFORMANCE_0555.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
 
-V5 首个 alpha 的[固定负载性能剖析](reports/V5_ALPHA_1.md)显示：完整 48 题干净开发评测中模型生成中位数约 88.74 秒，工具执行约 0.435 秒，因此大表原生加速不能直接推断小表 LLM 评测显著提速。
+## 研究问题
 
-V4.5.10 已完成[新来源留出评测与 V4 总结](reports/V4_5_10_V4_CLOSURE.md)。预先冻结模型、数据和指标后，在此前未用于本项目的两份 UCI 数据上，DeepSeek SFT 模型正常通过 **10/12**、正常加三种故障合计 **35/48**；专家轨迹 48/48。主要失分来自类别工具误选、故障后跳过重试及两步结束后额外动作。它是来源留出的小样本评测，模板和工具组合仍沿用开发阶段；没有证据表明当前 RL 训练带来了稳定外部提升。[预注册协议](reports/V4_5_10_PREREGISTRATION.md)和[逐题审计](reports/v4_5_10_model_audit.json)可供核查。V5 接下来优先训练这些失败模式，再以新来源、新模板做独立评测；C++ 与 Go 沿[已规划的系统门槛](reports/V4_5_7_V5_ARCHITECTURE_PLAN.md)逐步验收。
+- **提交与正确性：** 工具已提交，是否意味着产物符合分析契约？
+- **证据与决策：** Agent 能否合理检查、修复、结束，或在信息不足时升级？
+- **归因与泛化：** 失败来自分析、故障恢复还是接口说明？简单规则与学习策略各能解决什么？
 
-V4.5.9 完成 [真实 CSV 冻结模型评测与故障归因](reports/V4_5_9_RELEASE.md)：现有 DeepSeek SFT 适配器在 18 道公开真实数据题上正常条件通过 17/18，正常加三种故障条件合计 69/72。最初的 1/18 来自评测临时目录冲突，已修复并撤回；可选的成功动作去重诊断反而降至 14/18，因此未设为默认。结果只针对已在 V3 使用过的三个公开来源，不是最终盲测。Go 单机运行器与手动评测的正常条件结果逐字节一致。
-
-V4.5.8 完成 [公开真实 CSV 与隔离工具故障审计](reports/V4_5_8_RELEASE.md)：冻结 3 个可公开使用的 UCI 数据来源、18 道中英双语两步题；专家计划在正常、瞬时读取失败、超时和部分写入条件下 72/72 通过。工具执行增加可选子进程隔离与状态核验。独立 C++ 移动平均原型完成本机编译和数值差分，但尚无真实任务端到端收益，因此不替换 Python 工具。上述数据在 V3 已使用，不属于最终外部盲测。
-
-V4.5.7 已在 [V5 三语言架构规划](reports/V4_5_7_V5_ARCHITECTURE_PLAN.md)之外，完成 [分阶段计时与 Go 单机运行器原型](reports/V4_5_7_IMPLEMENTATION.md)。Python 负责 DeepSeek 与 RL 训练；本版可对专家导出和冻结 GPU 评测计时，Go 可按固定清单启动这两种 Python 作业、记录日志并核验产物摘要。手动运行与 Go 启动的导出和评测结果一致。C++ 原生内核、持久队列、租约和真实多机调度仍属 V5 后续工作；V4.5.6 的模型实验结论未改变。
-
-V4.5.7 另加入 `native/` 的独立 C++17 移动平均小原型；V4.5.8 已对其完成数值差分，仍未替换 Python 工具。[原 V4.5.8 计划](reports/V4_5_8_PLAN.md)及其完成范围见对应报告。
-
-V4.5.5 在训练来源内部增加四类三步组合，保持原 96 条开发执行不变。三种子 SFT100 从旧课程的 52、65、82/96 变为 72、76、70/96：前两个种子受益，最强种子退化 12 题，因此尚不能把扩展课程设为稳定默认方案。V4.5.6 用相同 32 条在线训练预算对照静态/动态采样和进度/二值奖励。三种子的静态进度 GRPO 为 72、76、73/96，动态进度为 71、76、74/96，静态二值为 71、76、72/96；动态相对静态的平均变化为零。当前收益主要在已见组合故障恢复，仍需新的真实数据盲测。详见 [V4.5.5 / V4.5.6 结果与局限](reports/V4_5_5_5_6_RESULTS.md) 和 [预设实验协议](reports/V4_5_5_5_6_PROTOCOL.md)。
-
-V4.5.4 从训练集内部固定抽取全部 8 类三步组合，分别扫描三个 SFT 种子的无更新采样信号，再只对有成功或正确前缀差异的组做保守 GRPO。冻结开发结果为 58、66、82/96，相对 SFT100 分别 +6、+1、0，逐任务无回退；相对 V4.5.3 普通 GRPO，前两个种子各多通过 1 条。扫描额外消耗 192 条训练执行，7 条相对 SFT 的新增通过中有 6 条属于已见组合的故障条件，不能宣称采样更高效或已解决组合泛化。DeepSeek LoRA 已是神经网络权重训练；后续重点是训练信号、组合课程和独立盲测。详见 [V4 神经网络与训练信号研究](reports/V4_NEURAL_RL_RESEARCH.md)。
-
-V4.5.3 完成三个独立随机种子的 SFT100→GRPO 配对审计。SFT100 冻结结果分别为 52、65、82/96，GRPO 后为 57、65、82/96；平均变化为 +1.67 题，但只有 1/3 个种子提升。三轮均无回退，说明当前低学习率与 KL 约束较安全；收益仍依赖初始化和训练组奖励方差，不能宣称稳定提升。见 [V4.5.3 多种子审计](reports/V4_5_3_MULTI_SEED_AUDIT.md)。
-
-V4.5.2 新增三步困难协议、任务级动态预算、正确前缀进度奖励和 SFT→GRPO 课程学习。完整四来源开发评测中，三步 SFT 为 52/96，保守 GRPO 为 57/96；逐任务配对得到 5 条新增通过、0 条回退。该结果是合成开发集上的单次运行，尚需多随机种子重复，见 [V4.5.2 困难任务与 GRPO 报告](reports/V4_5_2_HARD_GRPO.md)。
-
-V4.5.1 将 NPU 接入纳入正式版本范围：训练与 BF16 金标准评测继续使用 CUDA GPU，Intel AI Boost NPU 用于 OpenVINO 量化推理和精度研究。见 [V4.5.1 发布说明](reports/V4_5_1_RELEASE.md)。
-
-## V4.5.2 困难任务结果
-
-| 冻结开发切片 | 三步 SFT100 | SFT100 → GRPO |
-| --- | ---: | ---: |
-| 已见三步组合，正常 | 31/32 | 31/32 |
-| 已见三步组合，故障 | 16/32 | 20/32 |
-| 未见三步组合，正常 | 5/16 | 5/16 |
-| 未见三步组合，故障 | 0/16 | 1/16 |
-| 合计 | 52/96 | 57/96 |
-
-这轮 GRPO 使用 4 类训练任务、每组 4 条轨迹和一次更新；8 个条件组中有 5 个产生非零优势，参考策略 KL 约为 `1.24e-4`。改善集中在故障恢复，正常条件没有发生配对回退。最终盲测仍未创建，因此不能把 57/96 解释为外部泛化结果。
-
-## V4.5.1 概览
-
-训练主线为 `环境验证监督轨迹 → LoRA SFT → action-level DPO → 在线 GRPO`。所有策略输出都在同一个多步工具环境中执行，以终局任务结果计分；GPU、CPU 和 NPU 评测共用任务协议与严格 JSON 动作解析。
-
-| 项目 | 当前状态 | 结果或边界 |
-| --- | --- | --- |
-| LoRA SFT / DPO | 已完成 | BF16 DPO 冻结开发集 83/96 |
-| 在线 GRPO | 链路完成并已审计 | 修正错误分组后仍为 83/96，尚未超过 DPO |
-| Intel NPU | 已真实接入 | OpenVINO NPU 图和 1.5B INT4 LLM 均可运行 |
-| NPU 冻结评测 | 已完成首轮对照 | 混合 INT4/INT8 为 15/24，低于 GPU BF16 的 21/24 |
-| 最终盲测 | 尚未创建 | 待困难训练任务、量化门槛和发布清单冻结后创建 |
-
-旧 GRPO 实现曾因混合正常与故障条件产生伪优势；对应的 85/96 已撤回。修正实现按条件分别成组，并在组内优势全为零时跳过优化器。当前 64 条均衡训练轨迹没有奖励方差，说明下一阶段首先需要构造可学习的困难任务，而不是继续增加更新轮数。
-
-### 快速验证
-
-基础测试不需要 API 密钥或 GPU：
-
-```powershell
-python -m pip install numpy==2.3.5
-python -m unittest discover -s tests -v
-```
-
-NPU 使用独立环境，避免改动 CUDA 训练依赖：
-
-```powershell
-python -m venv work/.venv-v4-npu
-work/.venv-v4-npu/Scripts/python.exe -m pip install -r requirements-v4-npu.txt
-work/.venv-v4-npu/Scripts/python.exe -m experiments.v4_npu_probe
-```
-
-使用已转换的 OpenVINO 模型进行 NPU 冻结评测：
-
-```powershell
-work/.venv-v4-npu/Scripts/python.exe -m experiments.v4_llm_eval_npu `
-  --model work/modelscope_deepseek_r1_1p5b_dpo_merged_ov_int4_ratio08 `
-  --device NPU --both-faults --limit 12 `
-  --out work/v4_llm_npu_eval.json
-```
-
-模型权重、转换产物、密钥和逐次运行文件位于被 Git 忽略的 `work/` 或本地环境文件中，不会进入仓库。完整 NPU 方法、设备信息和量化对照见 [NPU 接入与精度审计](reports/V4_NPU_ENABLEMENT.md)。
-
-V4 可训练 LLM 试验已建立新来源与未见工具组合划分，并导出经环境回放验证的监督轨迹。LoRA 训练、冻结模型评测及其结果须分开记录；目前的划分是合成开发协议，不是外部真实数据或最终盲测。见 [V4 可训练 LLM 试验协议](reports/V4_LLM_TRAINING_PILOT.md)，入口为 `research.v4_llm_protocol`、`experiments.v4_llm_export`、`experiments.v4_llm_sft` 和 `experiments.v4_llm_eval`。
-
-V4 已增加 SFT 后的 action-level DPO 试验：`experiments.v4_llm_dpo` 用环境验证的专家动作对比提前 stop 和错误动作，作为在线 RL/GRPO 之前的偏好优化基线。首轮完整开发评测为 83/96，仍需在线采样和最终盲测。
-
-V4 已完成最小在线 GRPO 链路烟测：`experiments.v4_llm_grpo` 从 SFT→DPO 适配器采样完整工具轨迹，用环境终局奖励做组内相对优势更新；8 条训练轨迹全部通过，12 任务开发子集为 21/24。该结果仅证明链路可运行，不代表已完成 RL 泛化。
-
-V4 GRPO 后续审计修正了正常/故障轨迹混组造成的伪优势，并在零优势时跳过优化器以避免浮点 KL 经 Adam 放大。均衡覆盖 8 个训练组合族的 64 条轨迹全部通过、组内无奖励方差，冻结开发结果仍为 83/96，与 DPO 相同；当前瓶颈是训练任务过易、缺少有效 RL 信号，而不是继续增加更新轮数。
-
-V4 已接入本机 Intel AI Boost NPU：OpenVINO 计算图和 1.5B INT4 LLM 均已实际运行，并新增 NPU 探测、LoRA 合并与冻结评测入口。当前最佳混合 INT4/INT8 NPU 版本在 24 条开发执行中为 15/24，仍低于 BF16 DPO 的 21/24，因此 NPU 暂用于量化研究与辅助推理，CUDA GPU 继续承担训练和金标准评测。见 [NPU 接入与精度审计](reports/V4_NPU_ENABLEMENT.md)。
-
-V4 早期多步学习阶段：已完成明确任务协议、监督初始化与 REINFORCE 对照，见 [阶段报告](reports/V4_SEQUENCE_RL_STAGE.md)。该早期 RL 从监督基线退化，原始负结果完整保留；此阶段不代表 DeepSeek 权重微调。后续 LoRA 与 GRPO 实验见上文。运行入口为 `experiments.v4_sequence_train` 和 `experiments.v4_sequence_live`。
-
-V4 稳定性修正：批量策略梯度、历史条件基线、更新幅度约束及可选监督保持项，将三种子开发验证通过率恢复至 100%；尚未超过监督基线。见 [退化诊断与优化报告](reports/V4_RL_STABILITY.md)，入口 `experiments.v4_sequence_stabilize`。
-
-V4 后续审计发现，前述 100% 仅针对贪心执行；随机执行通过率约 21.8%，新两步组合中本地策略全部失败。DeepSeek 在组合开发探针温度 0 的一次运行中完成 12/12，仍需重复验证。见 [随机执行与组合泛化审计](reports/V4_STOCHASTIC_AND_COMPOSITION.md)。
-
-V3 主结果与边界见 [V3 最终审计](reports/V3_FINAL_AUDIT.md)，V4 最初规划见 [V4 规划](reports/V4_RESEARCH_PLAN.md)。此处往下保留 V4 早期实验记录；当前版本已完成 DeepSeek LoRA 权重训练与 V4.5.10 来源留出评测。
-
-V4.0 初始协议位于 `tasks/v4/protocol.json`，就绪检查使用 `python -m research.v4_readiness`；该阶段尚未创建最终测试集。V4.5.10 后已完成一次来源留出测试，但模板留出评测仍须在 V5 新建。
-
-V4 现已接入 DeepSeek + Bandit 开发试跑：`python -m experiments.v4_pilot --out work/v4_pilot_001`。先在环境变量或被忽略的 `.env.local` 配置 DeepSeek 密钥；方法、费用记录与权重训练边界见 [V4 DeepSeek RL 试跑](reports/V4_DEEPSEEK_RL_PILOT.md)。
-
-运行 `python -m unittest discover -s tests -v` 后，运行 `python -m research.v3_release --out work/v3_acceptance` 完成离线验收。主恢复比较为 480 条交叉测试，自动完成与升级分别计分。以下 V3.1–V3.5 为历史实验，不能代替最终主结果。
-
-> V3 已加入未见提示模板、正交泛化切片、两步有序计划和澄清任务；`research/v3_runtime.py` 会逐步验证产物、更新输入状态并支持一次参数恢复。设计与首轮结果见 `reports/V3_BASELINE_DESIGN.md`。
-
-> V3.1 进一步加入三份带许可和哈希记录的 UCI 真实数据、五类实际故障及训练后冻结的恢复分类器。方法、结果和解释边界见 `reports/V3_1_REAL_RECOVERY.md`。
-
-> V3.2 将冻结测试扩大到三个真实数据源和 102 条故障记录，并加入测试阶段未见故障及低置信度升级机制。结果见 `reports/V3_2_HARDENED_RECOVERY.md`。
-
-> V3.3 将训练、阈值校准、测试来源分离，并加入复合故障、部分写入、编码损坏、随机延迟与 Wilson 区间。结果见 `reports/V3_3_CALIBRATED_COMPOUND_RECOVERY.md`。
-
-> V3.4 使用真实子进程实施硬超时和部分写入，并补充按数据来源bootstrap。结果见 `reports/V3_4_PROCESS_ISOLATION.md`。
-
-> V3.5 将真实数据池扩展到8个来源，采用按来源留一法和异质日志条件，暴露出截短诊断信息下的恢复错误。结果见 `reports/V3_5_LEAVE_ONE_SOURCE_OUT.md`。
-
-V2 是独立验证的单步数据分析路由实验。修复了原版的任务编号捷径、占位清洗、同源参考计算、数据包损坏、奖励与合法性不一致以及不完整日志。
+相关工作已覆盖多种通用恢复机制。本项目将其作为对照；当前四格设计可被廉价统一重算绕过，已停止作为主实验。问题 R 保留为同工具权限/预算下的正确终止诊断；本轮暂停当前机制路线，保留工程定位。见[与前作的具体对照及否决条件](faultda_bench/docs/R_COMPARISON_0520.md)。
 
 ## 已实现
 
-12 种真实参数化操作：schema、缺失率、类别计数、去重、描述统计、日期规范化、阈值截断、中位数填补、类别规范化、分组求和、相关系数、移动平均。清洗会输出实际 CSV，独立验证器读取产物检查。
+- 三份历史公开数据上的 **24 个开发任务**，分组与版本分析在每个来源上交叉设置；另保留时间窗口诊断。
+- CSV 实际计算、SQLite 持久报告、暂存更正、版本比较后替换、幂等请求与历史副作用审计。
+- 提交确认丢失、语义扰动，以及不同证据可用性和检查预算。
+- 独立 Decimal 参考验证、程序基线与发布守卫、DeepSeek 接口及可重放轨迹。
 
-360 个合成任务实例，按表划分 216/72/72 训练、验证、测试。规则、监督岭分类器、LinUCB 和随机/固定基线共享工具及公开任务；测试时模型冻结。数据实例留出不等于未见模板或真实数据泛化。
+执行流程：**公开任务契约 → Agent 选择工具 → 状态与产物更新 → 私有独立验证 → 分条件汇总**。验证答案与故障标签不进入 Agent 的工具观察。
 
-## 本地运行
+## 当前证据
 
-需要 Python 3.11+（本次验证 3.12.14）及 NumPy 2.3.5。运行不要求 GPU、pytest 或 API 密钥。
+| 范围 | 已有结果 | 解释边界 |
+| --- | --- | --- |
+| 注册/评分批处理优化 | 本机144案例、3组成对测量：6.372秒→0.898秒，输入与评分一致 | 不改变模型能力；CPU/整机能耗未测，不能报告节电比例 |
+| 显式单步终止诊断 | 72 个旧观察 × 两种信息条件；完整规则及总停/总升级程序负对照 | 只有一个已见开发簇；未运行新模型，不是完整恢复成绩 |
+| 自洽工具环境 | 24 个程序状态、72 条读取/终止对照，保留时区等价与隐藏历史对照 | 同一历史任务/数据簇；程序动作不是 LLM 工具成绩 |
+| 真实回执事实诊断 | 24 次真实请求；旧 lookup 主分数 0/12 与 6/12，模糊句按 last-publish 备选参照可匹配 12/12 | 12 对既有意见已据用户转达审阅者同意正式登记；歧义与异议保留，旧分数不变 |
+| 责任与来源 | 72 条公开视图可逆迁移；actor 范围与 scripted/unknown 生成来源分开 | active_actor 不等于模型生成；没有新模型实验 |
+| 终止指标资格 | 72 条既有程序对照：24 安全完成、24 历史违规升级、24 不确定升级 | 单个历史簇的事后资格核对；未来主分母须独立审查、各臂共用 |
+| 历史跨来源开发 | 三个来源、24 题及多种强程序/学习对照；分条件结果归入历史汇总 | 既有签字仅覆盖已确认范围，未确立额外机制或稳定外部 RL 优势 |
+
+当前积累是可执行环境、证据重放与有效性控制。张雨田的 12 对指代意见已据用户明确转达的同意正式登记，四项设计 revise 保留。结构化接口分开责任、来源与回执目标；新增公开请求解析和严格输入包绑定，拒绝额外臂字段、未核实辅助摘要及超出当前快照的预算。人类接口有效性审查仍待完成；声明一致不等于执行或实际成本相同。已落实已见来源准入拦截，旧 holdout 的后续开发复用不能成为新独立测试，也不能反推早期训练泄漏。科学 HOLD；本轮没有新增模型实验、RL 或跨任务提升。详见[本版报告](faultda_bench/reports/RELEASE_0555.md)与[历史证据](docs/PROJECT_HISTORY.md)。
+
+## 快速复核
+
+从完整仓库根目录运行，需要 Python 3.11+。以下步骤不需要 GPU 或 API 密钥：
 
 ```sh
-python -m pip install numpy==2.3.5
-python -m unittest discover -s tests -v
-python -m scripts.run_matrix --out-dir reports/my_run --epochs 6
-python -m research.compare_v1 --v1-root ../v1 --out-dir reports/my_comparison
+python -m pip install -e .
+python -m unittest tests.test_faultda_termination555_runtime tests.test_faultda_termination555 -v
+python -m faultda_bench.termination555.performance_audit
 ```
 
-可选真实 DeepSeek：配置 `DEEPSEEK_API_KEY`、可选 `DEEPSEEK_MODEL` 后运行 `python -m experiments.run --mode llm --out reports/my_llm.jsonl`。本次仅验证模拟客户端，没有执行真实 API 请求。不要提交密钥。
+优化入口核对660份冻结文件与新增优化清单，在显式批次中重放相同案例、请求与评分；原慢速入口保留为参考；加上 `--historical` 可重放旧历史语义验收。保持科学 HOLD。完整仓库测试与复核包子集分别计数；复核包可直接按[包内入口](faultda_bench/docs/FOCUSED_0530_REVIEW.md)运行。哈希只校验一致性，不认证供应商或历史真实性。旧版入口保留在[复现指南](docs/REPRODUCIBILITY.md)，新输出不得覆盖冻结记录。
 
-## 结果
+## 项目演进
 
-[V1/V2 实验报告](reports/V2_COMPARISON.md)记录具体协议与限制。共同 72 题 V1 15/72，V2 Rule 72/72；V2 Rule、监督和 Bandit 在五次冻结测试中都是 72/72。仅数据特征的 Bandit 是 6/72。结果说明已修复基础能力与任务状态，但尚未证明 RL 优于规则。
+| 阶段 | 保留下来的主要积累 |
+| --- | --- |
+| V2–V3 | 真实工具、独立验证、多步文件状态、故障注入与选择性恢复 |
+| V4–V5 | DeepSeek 微调与 RL 对照、GPU/NPU 路径、可选 C++ 内核和 Go 单机实验协调 |
+| FaultDA P0 → 0.2.0-dev | 持久副作用、联合扰动、语义修复及基准原型 |
+| FaultDA 后续开发版 | 字段契约复核、来源×意图交叉，以及证据抽取和条件恢复诊断 |
 
-## 架构
+各阶段评测协议不同，历史分数不作横向排行榜。早期局部 RL 增益经过更强监督对照后未形成稳定优势；详细结论及修正记录归入[历史研究汇总](docs/PROJECT_HISTORY.md)，不在首页逐版堆叠。
 
-- `research/benchmark.py`：任务、数据、清单生成；历史 CSV 修复。
-- `research/oracle.py`：独立参考计算，不调用被测工具。
-- `agent/tools.py`：真实计算、参数校验、清洗产物。
-- `research/features.py` / `policies.py`：具名数据 profile、文本哈希特征、策略。
-- `research/runtime.py`：合法性、预算、完整单步轨迹。
-- `verifier/score.py`：答案、证据、产物和资源一致性检查。
-- `experiments/run.py`：训练/冻结测试、模型保存、版本哈希。
+## 代码与文档入口
 
-## 研究边界
+| 路径 | 内容 |
+| --- | --- |
+| [faultda_bench/](faultda_bench/README.md) | 当前基准组件、协议和记录索引 |
+| [tests/](tests/) | 状态、评分、故障和复现检查 |
+| [agent/](agent/)、[experiments/](experiments/)、[research/](research/) | 继承的工具、模型训练和研究实现 |
+| [native/](native/)、[orchestrator/](orchestrator/) | 可选原生计算与单机实验协调 |
+| [reports/](reports/) | 历史实验报告与原始证据 |
 
-任务参数由公开规格提供，尚未训练列名/参数生成。当前不是多步 RL；没有实现旧 T12–T50 文本所宣称的全部建模、绘图、决策与恢复能力。旧 `tasks/tasks.jsonl` 与早期 reports 保留作历史证据，正式 v2 CLI 明确拒绝旧 schema；不得把旧 98%/100% 当作当前真实分析能力。
+## 当前限制与下一步
 
-本地工具在执行前后检查墙钟预算，超时结果失败；不提供 OS 级抢占沙箱。训练与产物在 `artifacts/`，实验日志在显式 manifest 列出的 reports 路径；禁止用宽泛通配符混合版本。新实验会拒绝覆盖同名输出。
+目前仅使用三个已见来源，属于受控参数绑定；合成维表重复和版本修订不等于真实生产事件。工具 JSON 接口不是任意不可信代码的 OS 安全沙箱。数据引用、许可与派生方式见[任务清单](faultda_bench/protocols/cross_source_v2.json)。
+
+现有 [24 题独立人工审阅](faultda_bench/reports/SCIENTIFIC_REVIEW_24.md)、六条历史专项和最新 37 组技术复审仅覆盖各自明确范围。最终指代登记、结构化责任/来源接口见[本轮指南](faultda_bench/docs/FOCUSED_0530_REVIEW.md)。当前 R 没有可证明的非平凡增量，暂停机制路线，不继续扩格。此前发现单步评测截断不能当作完整恢复失败；已实现显式一步终止诊断；本轮补齐案例/信息条件/完整请求与评分真值的注册绑定，旧成绩不重打分，也不声称认证实际供应商输入。下一步审查终止设计与具体增量；草案不批准新实跑。第二模型暂缓；当前无新增 API 批准，不宣称超出强基线的模型/RL 发现。

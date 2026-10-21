@@ -1,0 +1,46 @@
+{
+  "version": "0.5.0-dev",
+  "sources": {
+    "faultda_bench/reports/coherent_v38_deepseek.json": "b6e9acf6f0c09b713f0778a54bcb235ef50171cb15e92bae68c3beb72f2afa09",
+    "faultda_bench/reports/coherent_v38_offline.json": "4374c41dad85e6237d8609fdec45949ef98e469d9888a0ea5e9fd9326767ce40",
+    "faultda_bench/reports/validity_v39_interpretation.json": "360ac6cd76e6526452f3c1cfdcacc9fcbee27c576a5d37457be527e156a4e1a0",
+    "faultda_bench/reports/validity_v39_migration.json": "7476f120e598e2d36bb56161e0f8c559e9e3e2aa2de8a4c51dcbe0d1108e2f71"
+  },
+  "decisions": [
+    {
+      "claim_id": "interface_referent",
+      "status": "descriptive_interface_validity_only",
+      "evidence": "Old lookup primary contextual 0/12, explicit 6/12. Contextual alternative last-publish frame 12/12. Do not interpret the difference as intrinsic model or RL improvement."
+    },
+    {
+      "claim_id": "target_role_separation",
+      "status": "observed_under_scripted_actor_semantics_not_mechanism_proof",
+      "evidence": "Four explicit responses bind the intended request/event but mismatch the represented actor role; two further responses name a stage rather than a publication. Labels and interpretation need independent review."
+    },
+    {
+      "claim_id": "coherent_tool_benchmark",
+      "status": "engineering_qualification_not_scientific_novelty",
+      "evidence": "24 initial states and 72 scripted read/terminal controls; one historical source/task cluster. Neutral actor migration preserves original histories and all public permissions."
+    },
+    {
+      "claim_id": "model_generation_authorship",
+      "status": "not_established_for_tool_history",
+      "evidence": "API responses are fact answers, not executed tool actions. All 72 supplied tool histories match scripted fixtures, including active_actor scopes."
+    },
+    {
+      "claim_id": "rl_effect_or_general_recovery_mechanism",
+      "status": "not_established",
+      "evidence": "No weight update, reward optimization, new model-tool execution or independent scientific acceptance in these versions."
+    }
+  ],
+  "engineering_scope": "Retain environment and interface validity controls; do not promote prompt sensitivity to a core scientific mechanism.",
+  "live_decision": "NO_GO_LIVE",
+  "approved_transport_requests": 0,
+  "next_requirements": [
+    "Independently review referent wording and actor-versus-origin semantics; previous human scopes do not expand.",
+    "Before any new run, choose a falsifiable claim and counterbalanced coherent conditions that distinguish it from interface wording; freeze a new plan and budget.",
+    "Do not treat reversible neutral aliases or offline remapping as an improvement experiment; no automatic provider call after migration."
+  ],
+  "independent_review": "pending",
+  "scientific_gate": "HOLD"
+}

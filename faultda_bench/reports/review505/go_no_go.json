@@ -1,0 +1,15 @@
+{
+  "version": "0.5.05-dev",
+  "decision": "NO_GO_LIVE",
+  "approved_transport_requests": 0,
+  "scientific_gate": "HOLD",
+  "review_intake_sha256": "47ad4293221b5f65a98f6c53530148c9ddb2ffe365407898b739200878cc8d89",
+  "source_design_sha256": "6935a04b5bf8732bb9866bca504ad600fc968f1310572ad86f11f489c474a650",
+  "cross_task_plan_sha256": "cdacfae5bb3e7010bd7edca871068c0938877e5b6ec9e053f133644ea03789a3",
+  "prior_technical_review": "accepted_37_groups_only",
+  "new_design_independent_review": "pending",
+  "final_referent_adjudication": "not_performed",
+  "reason": "No nontrivial increment established against prior work and strong public rules. New independent clusters, frozen holdout, wording adjudication, effect/power plan and external anchor absent.",
+  "next_version": "0.5.10-dev",
+  "next_action": "Independent review of positioning and cross-task design before source expansion or execution."
+}

@@ -1,0 +1,197 @@
+{
+  "version": "0.2.05-dev",
+  "created_utc": "2026-10-09T15:15:01.603047+00:00",
+  "scope": "exploratory paired contract-clarity diagnostic, not new model or RL",
+  "hypothesis": "Explicit field aliases and output schema may reduce avoidable escalation. Bundle effect only.",
+  "intervention_fields": [
+    "contract.input_binding",
+    "contract.output"
+  ],
+  "primary": "paired difference in contract completion, all 12 pairs retained",
+  "source_clusters": 3,
+  "independent_instances": 3,
+  "confirmation": false,
+  "model": "deepseek-chat",
+  "temperature": 0,
+  "max_tokens": 800,
+  "system": "You operate a data-analysis report service. Complete the public contract using only legal tools. A timeout does not prove that a publication failed. A committed report may still have incorrect analysis. Use available evidence to decide whether to inspect, recompute and correct, or escalate. Return only a JSON object with action and params (an object, empty for read/stop/escalate). stage computes a candidate without publishing. publish requires stage_id, request_id, expected_revision and mode (replace or append). replace supersedes old reports atomically if revision matches. Repeated append can create duplicate reports. No filesystem access or code execution is available. Do not claim completion if unable to establish it. Do not exceed remaining budgets.",
+  "evidence": "E0",
+  "budget": 6,
+  "deduplicate": false,
+  "per_episode_call_cap": 8,
+  "global_call_cap": 192,
+  "automatic_retries": 0,
+  "concurrency": 2,
+  "original_manifest_sha256": "425452911e1bb25b4ef3f7b16f5a7ead530fe50ebc36f97bdf58adbeb78c6785",
+  "code_sha256": {
+    "agent/deepseek_config.py": "be35cea6b6ae19cb04c27921ea23d1041f2220c159f5af9a7d245bf27e349173",
+    "faultda_bench/clarity/__init__.py": "7fb39da12fcd95ebeaccc78889a3472ba94515a21ec1646a182d62f951b0d4c1",
+    "faultda_bench/clarity/compare.py": "9a67557d78461834f12476fe6092ca21ccb7f5a608f39939afd717a0cbf82066",
+    "faultda_bench/clarity/offline.py": "f4e925a0467b08a83350ceba70cd372b1cacd0fe7af1c9084e25fe666d08d740",
+    "faultda_bench/clarity/review.py": "4b5168150ff70289e8fbef5501bd95c3dee9b54d97d73824272590dfba3a5049",
+    "faultda_bench/clarity/tasks.py": "19ebbbe8076a8cde2185092283ef713264375e63ae559e9a4322146e15aa31c2",
+    "faultda_bench/clarity/verify.py": "4b3605ecaf89c8defbde4c9b0edbf0e126e7d2835fa72caff19061c611f8a904",
+    "faultda_bench/semantic/__init__.py": "9154e6b5439356d966b0b1c5a5e7965e3347f563a054168bfd497b8e511c0a6e",
+    "faultda_bench/semantic/compute.py": "c3900fc16b3a531ba1baa6042fb7e3b2f56dca5b32877e8a357b1925424a90c7",
+    "faultda_bench/semantic/deepseek.py": "26c302163a13e8905ecb6c56b01378c5208676bc3b4d7861b6d592b7b779d3ab",
+    "faultda_bench/semantic/environment.py": "54ff6b19f32163120f92aae416615de3e2cf406a826617330ae289cea14f4008",
+    "faultda_bench/semantic/oracle.py": "0e7f457555f80f367b6ab0ff7e6ab4def42e9b85c6601a2e42ccfa7dbaf886eb",
+    "faultda_bench/semantic/policies.py": "dc05a9bac78a9c19e3f0cda57f8f0f3c50151d2c872fc1759ec00b743bbea89c",
+    "faultda_bench/semantic/run.py": "b9c58ea5c5af74a0c1848507fd0da29b6adcbff886bd018e813b0d0a242095b7",
+    "faultda_bench/semantic/tasks.py": "cc095e08bc33e24581cf626c4a3347678078927f82f88c2693d22ff6edfedae0",
+    "faultda_bench/semantic/verify_results.py": "da14d51a5edd497d26fdfa23e65d255fde8cf2dc6f400fd5148d482273079b2f"
+  },
+  "order": [
+    {
+      "task_id": "group-01",
+      "commit_fault": false,
+      "semantic_fault": true,
+      "arm": "explicit"
+    },
+    {
+      "task_id": "group-01",
+      "commit_fault": false,
+      "semantic_fault": true,
+      "arm": "original"
+    },
+    {
+      "task_id": "version-01",
+      "commit_fault": false,
+      "semantic_fault": true,
+      "arm": "original"
+    },
+    {
+      "task_id": "version-01",
+      "commit_fault": false,
+      "semantic_fault": true,
+      "arm": "explicit"
+    },
+    {
+      "task_id": "window-01",
+      "commit_fault": true,
+      "semantic_fault": false,
+      "arm": "original"
+    },
+    {
+      "task_id": "window-01",
+      "commit_fault": true,
+      "semantic_fault": false,
+      "arm": "explicit"
+    },
+    {
+      "task_id": "version-01",
+      "commit_fault": false,
+      "semantic_fault": false,
+      "arm": "explicit"
+    },
+    {
+      "task_id": "version-01",
+      "commit_fault": false,
+      "semantic_fault": false,
+      "arm": "original"
+    },
+    {
+      "task_id": "window-01",
+      "commit_fault": true,
+      "semantic_fault": true,
+      "arm": "original"
+    },
+    {
+      "task_id": "window-01",
+      "commit_fault": true,
+      "semantic_fault": true,
+      "arm": "explicit"
+    },
+    {
+      "task_id": "group-01",
+      "commit_fault": true,
+      "semantic_fault": false,
+      "arm": "original"
+    },
+    {
+      "task_id": "group-01",
+      "commit_fault": true,
+      "semantic_fault": false,
+      "arm": "explicit"
+    },
+    {
+      "task_id": "version-01",
+      "commit_fault": true,
+      "semantic_fault": false,
+      "arm": "original"
+    },
+    {
+      "task_id": "version-01",
+      "commit_fault": true,
+      "semantic_fault": false,
+      "arm": "explicit"
+    },
+    {
+      "task_id": "version-01",
+      "commit_fault": true,
+      "semantic_fault": true,
+      "arm": "explicit"
+    },
+    {
+      "task_id": "version-01",
+      "commit_fault": true,
+      "semantic_fault": true,
+      "arm": "original"
+    },
+    {
+      "task_id": "window-01",
+      "commit_fault": false,
+      "semantic_fault": false,
+      "arm": "explicit"
+    },
+    {
+      "task_id": "window-01",
+      "commit_fault": false,
+      "semantic_fault": false,
+      "arm": "original"
+    },
+    {
+      "task_id": "group-01",
+      "commit_fault": false,
+      "semantic_fault": false,
+      "arm": "original"
+    },
+    {
+      "task_id": "group-01",
+      "commit_fault": false,
+      "semantic_fault": false,
+      "arm": "explicit"
+    },
+    {
+      "task_id": "group-01",
+      "commit_fault": true,
+      "semantic_fault": true,
+      "arm": "original"
+    },
+    {
+      "task_id": "group-01",
+      "commit_fault": true,
+      "semantic_fault": true,
+      "arm": "explicit"
+    },
+    {
+      "task_id": "window-01",
+      "commit_fault": false,
+      "semantic_fault": true,
+      "arm": "original"
+    },
+    {
+      "task_id": "window-01",
+      "commit_fault": false,
+      "semantic_fault": true,
+      "arm": "explicit"
+    }
+  ],
+  "limitations": [
+    "post-v1 diagnostic",
+    "single model",
+    "extra explanation changes input token count",
+    "no model RNG coupling guarantee",
+    "no independent human review"
+  ]
+}

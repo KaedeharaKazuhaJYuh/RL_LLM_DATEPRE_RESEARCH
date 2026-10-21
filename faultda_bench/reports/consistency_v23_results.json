@@ -1,0 +1,711 @@
+{
+  "version": "0.3.10-dev",
+  "source_sha256": "c77ded94ae5478177047f56a7921205bf54f2a0e95e48abc8c05e8111451047b",
+  "plan_sha256": "aaf46eb3a8b8835fe182c6df1a34502338e1b775b0530de8e53e19a0dbb3a269",
+  "code_sha256": {
+    "faultda_bench/consistency310/__init__.py": "bbbd9f198d82967545f809252abb71061c9dae5cfe39431a36094f0dc88ae639",
+    "faultda_bench/consistency310/core.py": "0cfd9029f9d238e1aaafbe74a3982db5ae7866cc025620cfe3a8c2644f014118",
+    "faultda_bench/consistency310/suite.py": "8c1df7944e81d9faabd41bed920420fd2285ca0111c605b126d50f4f8d305ae9"
+  },
+  "rows": [
+    {
+      "source_index": 8,
+      "view": "plus8_end",
+      "repeat": 0,
+      "internal": {
+        "pass": false,
+        "violations": [
+          "comparison:6"
+        ],
+        "scope": "internal_only"
+      },
+      "bound": {
+        "pass": false,
+        "violations": [
+          "comparison:6"
+        ],
+        "scope": "public_bound"
+      },
+      "frozen_score": {
+        "schema": true,
+        "row_selection": false,
+        "row_values": true,
+        "sum_consistent": true,
+        "total_correct": false,
+        "comparison_facts": false,
+        "utc_facts": true
+      }
+    },
+    {
+      "source_index": 10,
+      "view": "plus8_all",
+      "repeat": 1,
+      "internal": {
+        "pass": false,
+        "violations": [
+          "comparison:6"
+        ],
+        "scope": "internal_only"
+      },
+      "bound": {
+        "pass": false,
+        "violations": [
+          "comparison:6"
+        ],
+        "scope": "public_bound"
+      },
+      "frozen_score": {
+        "schema": true,
+        "row_selection": false,
+        "row_values": true,
+        "sum_consistent": true,
+        "total_correct": false,
+        "comparison_facts": false,
+        "utc_facts": true
+      }
+    },
+    {
+      "source_index": 11,
+      "view": "minus5_end",
+      "repeat": 1,
+      "internal": {
+        "pass": false,
+        "violations": [
+          "comparison:6"
+        ],
+        "scope": "internal_only"
+      },
+      "bound": {
+        "pass": false,
+        "violations": [
+          "comparison:6"
+        ],
+        "scope": "public_bound"
+      },
+      "frozen_score": {
+        "schema": true,
+        "row_selection": false,
+        "row_values": true,
+        "sum_consistent": true,
+        "total_correct": false,
+        "comparison_facts": false,
+        "utc_facts": true
+      }
+    },
+    {
+      "source_index": 13,
+      "view": "minus5_end",
+      "repeat": 0,
+      "internal": {
+        "pass": false,
+        "violations": [
+          "comparison:6"
+        ],
+        "scope": "internal_only"
+      },
+      "bound": {
+        "pass": false,
+        "violations": [
+          "comparison:6"
+        ],
+        "scope": "public_bound"
+      },
+      "frozen_score": {
+        "schema": true,
+        "row_selection": false,
+        "row_values": true,
+        "sum_consistent": true,
+        "total_correct": false,
+        "comparison_facts": false,
+        "utc_facts": true
+      }
+    },
+    {
+      "source_index": 15,
+      "view": "plus8_all",
+      "repeat": 0,
+      "internal": {
+        "pass": false,
+        "violations": [
+          "comparison:6"
+        ],
+        "scope": "internal_only"
+      },
+      "bound": {
+        "pass": false,
+        "violations": [
+          "comparison:6"
+        ],
+        "scope": "public_bound"
+      },
+      "frozen_score": {
+        "schema": true,
+        "row_selection": false,
+        "row_values": true,
+        "sum_consistent": true,
+        "total_correct": false,
+        "comparison_facts": false,
+        "utc_facts": true
+      }
+    },
+    {
+      "source_index": 17,
+      "view": "plus8_end",
+      "repeat": 1,
+      "internal": {
+        "pass": false,
+        "violations": [
+          "comparison:6"
+        ],
+        "scope": "internal_only"
+      },
+      "bound": {
+        "pass": false,
+        "violations": [
+          "comparison:6"
+        ],
+        "scope": "public_bound"
+      },
+      "frozen_score": {
+        "schema": true,
+        "row_selection": false,
+        "row_values": true,
+        "sum_consistent": true,
+        "total_correct": false,
+        "comparison_facts": false,
+        "utc_facts": true
+      }
+    },
+    {
+      "source_index": 18,
+      "view": "utc_end",
+      "repeat": 1,
+      "internal": {
+        "pass": true,
+        "violations": [],
+        "scope": "internal_only"
+      },
+      "bound": {
+        "pass": true,
+        "violations": [],
+        "scope": "public_bound"
+      },
+      "frozen_score": {
+        "schema": true,
+        "row_selection": true,
+        "row_values": true,
+        "sum_consistent": true,
+        "total_correct": true,
+        "comparison_facts": true,
+        "utc_facts": true
+      }
+    },
+    {
+      "source_index": 23,
+      "view": "utc_end",
+      "repeat": 0,
+      "internal": {
+        "pass": true,
+        "violations": [],
+        "scope": "internal_only"
+      },
+      "bound": {
+        "pass": true,
+        "violations": [],
+        "scope": "public_bound"
+      },
+      "frozen_score": {
+        "schema": true,
+        "row_selection": true,
+        "row_values": true,
+        "sum_consistent": true,
+        "total_correct": true,
+        "comparison_facts": true,
+        "utc_facts": true
+      }
+    }
+  ],
+  "controls": [
+    {
+      "name": "correct",
+      "record": {
+        "version": "v1",
+        "start_utc": "2015-02-02T14:30:00+00:00",
+        "end_utc": "2015-02-02T15:24:59+00:00",
+        "rows": [
+          {
+            "id": "7",
+            "included": false,
+            "value": 23.29,
+            "ge_start": true,
+            "lt_end": false,
+            "time_utc": "2015-02-02T15:36:00+00:00"
+          },
+          {
+            "id": "0",
+            "included": false,
+            "value": 23.7,
+            "ge_start": false,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:19:00+00:00"
+          },
+          {
+            "id": "5",
+            "included": true,
+            "value": 23.39,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T15:14:00+00:00"
+          },
+          {
+            "id": "2",
+            "included": true,
+            "value": 23.6,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:41:00+00:00"
+          },
+          {
+            "id": "6",
+            "included": false,
+            "value": 23.3066666666667,
+            "ge_start": true,
+            "lt_end": false,
+            "time_utc": "2015-02-02T15:24:59+00:00"
+          },
+          {
+            "id": "1",
+            "included": true,
+            "value": 23.7,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:30:00+00:00"
+          },
+          {
+            "id": "4",
+            "included": true,
+            "value": 23.6,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T15:03:00+00:00"
+          },
+          {
+            "id": "3",
+            "included": true,
+            "value": 23.6,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:51:59+00:00"
+          }
+        ],
+        "total": 117.89
+      },
+      "internal": {
+        "pass": true,
+        "violations": [],
+        "scope": "internal_only"
+      },
+      "bound": {
+        "pass": true,
+        "violations": [],
+        "scope": "public_bound"
+      }
+    },
+    {
+      "name": "shift_all_instants",
+      "record": {
+        "version": "v1",
+        "start_utc": "2015-02-03T14:30:00+00:00",
+        "end_utc": "2015-02-03T15:24:59+00:00",
+        "rows": [
+          {
+            "id": "7",
+            "included": false,
+            "value": 23.29,
+            "ge_start": true,
+            "lt_end": false,
+            "time_utc": "2015-02-03T15:36:00+00:00"
+          },
+          {
+            "id": "0",
+            "included": false,
+            "value": 23.7,
+            "ge_start": false,
+            "lt_end": true,
+            "time_utc": "2015-02-03T14:19:00+00:00"
+          },
+          {
+            "id": "5",
+            "included": true,
+            "value": 23.39,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-03T15:14:00+00:00"
+          },
+          {
+            "id": "2",
+            "included": true,
+            "value": 23.6,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-03T14:41:00+00:00"
+          },
+          {
+            "id": "6",
+            "included": false,
+            "value": 23.3066666666667,
+            "ge_start": true,
+            "lt_end": false,
+            "time_utc": "2015-02-03T15:24:59+00:00"
+          },
+          {
+            "id": "1",
+            "included": true,
+            "value": 23.7,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-03T14:30:00+00:00"
+          },
+          {
+            "id": "4",
+            "included": true,
+            "value": 23.6,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-03T15:03:00+00:00"
+          },
+          {
+            "id": "3",
+            "included": true,
+            "value": 23.6,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-03T14:51:59+00:00"
+          }
+        ],
+        "total": 117.89
+      },
+      "internal": {
+        "pass": true,
+        "violations": [],
+        "scope": "internal_only"
+      },
+      "bound": {
+        "pass": false,
+        "violations": [
+          "time_binding:0",
+          "time_binding:1",
+          "time_binding:2",
+          "time_binding:3",
+          "time_binding:4",
+          "time_binding:5",
+          "time_binding:6",
+          "time_binding:7",
+          "window_binding"
+        ],
+        "scope": "public_bound"
+      }
+    },
+    {
+      "name": "forge_value_and_sum",
+      "record": {
+        "version": "v1",
+        "start_utc": "2015-02-02T14:30:00+00:00",
+        "end_utc": "2015-02-02T15:24:59+00:00",
+        "rows": [
+          {
+            "id": "7",
+            "included": false,
+            "value": 23.29,
+            "ge_start": true,
+            "lt_end": false,
+            "time_utc": "2015-02-02T15:36:00+00:00"
+          },
+          {
+            "id": "0",
+            "included": false,
+            "value": 23.7,
+            "ge_start": false,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:19:00+00:00"
+          },
+          {
+            "id": "5",
+            "included": true,
+            "value": 33.39,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T15:14:00+00:00"
+          },
+          {
+            "id": "2",
+            "included": true,
+            "value": 23.6,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:41:00+00:00"
+          },
+          {
+            "id": "6",
+            "included": false,
+            "value": 23.3066666666667,
+            "ge_start": true,
+            "lt_end": false,
+            "time_utc": "2015-02-02T15:24:59+00:00"
+          },
+          {
+            "id": "1",
+            "included": true,
+            "value": 23.7,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:30:00+00:00"
+          },
+          {
+            "id": "4",
+            "included": true,
+            "value": 23.6,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T15:03:00+00:00"
+          },
+          {
+            "id": "3",
+            "included": true,
+            "value": 23.6,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:51:59+00:00"
+          }
+        ],
+        "total": 127.89
+      },
+      "internal": {
+        "pass": true,
+        "violations": [],
+        "scope": "internal_only"
+      },
+      "bound": {
+        "pass": false,
+        "violations": [
+          "value_binding:5"
+        ],
+        "scope": "public_bound"
+      }
+    },
+    {
+      "name": "duplicate_id",
+      "record": {
+        "version": "v1",
+        "start_utc": "2015-02-02T14:30:00+00:00",
+        "end_utc": "2015-02-02T15:24:59+00:00",
+        "rows": [
+          {
+            "id": "7",
+            "included": false,
+            "value": 23.29,
+            "ge_start": true,
+            "lt_end": false,
+            "time_utc": "2015-02-02T15:36:00+00:00"
+          },
+          {
+            "id": "0",
+            "included": false,
+            "value": 23.7,
+            "ge_start": false,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:19:00+00:00"
+          },
+          {
+            "id": "5",
+            "included": true,
+            "value": 23.39,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T15:14:00+00:00"
+          },
+          {
+            "id": "2",
+            "included": true,
+            "value": 23.6,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:41:00+00:00"
+          },
+          {
+            "id": "6",
+            "included": false,
+            "value": 23.3066666666667,
+            "ge_start": true,
+            "lt_end": false,
+            "time_utc": "2015-02-02T15:24:59+00:00"
+          },
+          {
+            "id": "1",
+            "included": true,
+            "value": 23.7,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:30:00+00:00"
+          },
+          {
+            "id": "4",
+            "included": true,
+            "value": 23.6,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T15:03:00+00:00"
+          },
+          {
+            "id": "3",
+            "included": true,
+            "value": 23.6,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:51:59+00:00"
+          },
+          {
+            "id": "7",
+            "included": false,
+            "value": 23.29,
+            "ge_start": true,
+            "lt_end": false,
+            "time_utc": "2015-02-02T15:36:00+00:00"
+          }
+        ],
+        "total": 117.89
+      },
+      "internal": {
+        "pass": false,
+        "violations": [
+          "malformed_or_unverifiable"
+        ],
+        "scope": "internal_only"
+      },
+      "bound": {
+        "pass": false,
+        "violations": [
+          "malformed_or_unverifiable"
+        ],
+        "scope": "public_bound"
+      }
+    },
+    {
+      "name": "string_boolean",
+      "record": {
+        "version": "v1",
+        "start_utc": "2015-02-02T14:30:00+00:00",
+        "end_utc": "2015-02-02T15:24:59+00:00",
+        "rows": [
+          {
+            "id": "7",
+            "included": false,
+            "value": 23.29,
+            "ge_start": true,
+            "lt_end": "false",
+            "time_utc": "2015-02-02T15:36:00+00:00"
+          },
+          {
+            "id": "0",
+            "included": false,
+            "value": 23.7,
+            "ge_start": false,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:19:00+00:00"
+          },
+          {
+            "id": "5",
+            "included": true,
+            "value": 23.39,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T15:14:00+00:00"
+          },
+          {
+            "id": "2",
+            "included": true,
+            "value": 23.6,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:41:00+00:00"
+          },
+          {
+            "id": "6",
+            "included": false,
+            "value": 23.3066666666667,
+            "ge_start": true,
+            "lt_end": false,
+            "time_utc": "2015-02-02T15:24:59+00:00"
+          },
+          {
+            "id": "1",
+            "included": true,
+            "value": 23.7,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:30:00+00:00"
+          },
+          {
+            "id": "4",
+            "included": true,
+            "value": 23.6,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T15:03:00+00:00"
+          },
+          {
+            "id": "3",
+            "included": true,
+            "value": 23.6,
+            "ge_start": true,
+            "lt_end": true,
+            "time_utc": "2015-02-02T14:51:59+00:00"
+          }
+        ],
+        "total": 117.89
+      },
+      "internal": {
+        "pass": false,
+        "violations": [
+          "malformed_or_unverifiable"
+        ],
+        "scope": "internal_only"
+      },
+      "bound": {
+        "pass": false,
+        "violations": [
+          "malformed_or_unverifiable"
+        ],
+        "scope": "public_bound"
+      }
+    },
+    {
+      "name": "missing_record",
+      "record": null,
+      "internal": {
+        "pass": false,
+        "violations": [
+          "malformed_or_unverifiable"
+        ],
+        "scope": "internal_only"
+      },
+      "bound": {
+        "pass": false,
+        "violations": [
+          "malformed_or_unverifiable"
+        ],
+        "scope": "public_bound"
+      }
+    }
+  ],
+  "summary": {
+    "historical_records": 8,
+    "internal_rejected": 6,
+    "bound_rejected": 6,
+    "controls": 6,
+    "new_api_calls": 0,
+    "model_improvement_established": false,
+    "scientific_gate": "HOLD",
+    "new_human_review": false
+  }
+}

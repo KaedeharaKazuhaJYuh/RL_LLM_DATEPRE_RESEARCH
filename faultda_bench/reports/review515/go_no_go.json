@@ -1,0 +1,20 @@
+{
+  "version": "0.5.15-dev",
+  "decision": "NO_GO_LIVE",
+  "scientific_gate": "HOLD",
+  "reviewed_design_opinions": "received_four_revise",
+  "final_referent_adjudication": "pending_explicitly_not_final",
+  "W4_main_experiment": "rejected_design_not_statistical_refutation",
+  "H_star_operationalization": "not_qualified_no_live_plan",
+  "only_future_question": "R_actor_receipt_terminal_gap_design_only",
+  "new_0515_independent_review": "pending",
+  "novelty_demonstrated": false,
+  "model_improvement_demonstrated": false,
+  "approved_transport_requests": 0,
+  "new_provider_requests": 0,
+  "bindings": {
+    "faultda_bench/reports/review515/intake.json": "6723b33dfb698230f5d171ba7336881b8ed4bac30af44be2bffdd6cb2d2a2301",
+    "faultda_bench/reports/review515/qualification.json": "7f4e12667421385a6a28cf9523ec9f5f37b6c8bca81fe4da86e002555b342da2",
+    "faultda_bench/docs/REVIEW_0515_PROTOCOL.md": "6e4619d81bde3be4c62f8be1215c57471cdad3598b8e342c299d0f2b0ce32f6d"
+  }
+}

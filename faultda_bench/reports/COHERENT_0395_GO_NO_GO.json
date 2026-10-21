@@ -1,0 +1,18 @@
+{
+  "version": "0.3.95-dev",
+  "date": "2026-10-16",
+  "decision": "GO_bounded_paired_diagnostic",
+  "max_transport_requests": 24,
+  "max_completion_tokens_total": 24576,
+  "max_request_bytes_total": 1572864,
+  "plan_sha256": "070657ff972a62904c01f6d2a859d9e2e29fcede39eaca9913e439863b3b2d2e",
+  "dry_sha256": "fbdd45ef447e5b2bc1e5664149abc33936be6c620efbfceba2a250cc05cec70d",
+  "source_sha256": "4374c41dad85e6237d8609fdec45949ef98e469d9888a0ea5e9fd9326767ce40",
+  "internal_review_sha256": "2e113fa28651029e115a13f589c6f18a5326140a95cebef711cdf09422e71107",
+  "focused_tests_passed": 17,
+  "source_replay": "24 states, 72 read/terminal controls verified",
+  "retry_policy": "none; every cell remains in 12-pair denominator",
+  "authority": "Internal technical decision under existing user authorization, not independent acceptance. Prior 32-cell draft stays unapproved.",
+  "independent_review": "pending",
+  "scientific_gate": "HOLD"
+}

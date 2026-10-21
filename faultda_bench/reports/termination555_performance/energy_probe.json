@@ -1,0 +1,16 @@
+{
+  "version": "0.5.55-dev",
+  "date": "2026-10-20",
+  "exact_timestamp": null,
+  "source": "Project transcription of local nvidia-smi tool output, outside the paired benchmark",
+  "command": "nvidia-smi --query-gpu=name,power.draw,power.limit --format=csv,noheader",
+  "observed_output": "NVIDIA GeForce RTX 5070 Ti Laptop GPU, 5.11 W, [N/A]",
+  "gpu_power_snapshot_watts": 5.11,
+  "attributed_to_benchmark": false,
+  "gpu_energy_joules": null,
+  "cpu_energy_joules": null,
+  "system_energy_joules": null,
+  "npu_power_watts": null,
+  "energy_improvement_percent": null,
+  "limits": "One GPU power snapshot is not CPU or whole-system energy; no CPU/system joule telemetry configured or measured."
+}

@@ -1,0 +1,13 @@
+{
+  "version": "0.5.50-dev",
+  "status": "verified_offline_design_only",
+  "frozen_files": 647,
+  "historical_version_verified": "0.5.35-dev",
+  "historical_semantic_audit_replayed": true,
+  "new_model_executions": 0,
+  "new_provider_requests": 0,
+  "scientific_gate": "HOLD",
+  "independent_review": "not_arranged",
+  "design_admitted": false,
+  "new_mechanism_demonstrated": false
+}

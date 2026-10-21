@@ -1,0 +1,39 @@
+{
+  "version": "0.5.55-dev",
+  "date": "2026-10-20",
+  "timezone": "Asia/Taipei",
+  "base_commit": "0783128aa49644d392ba190f3c65bed889b51b1a",
+  "full_repository_tests": {
+    "count": 617,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 158.596,
+    "log_sha256": "1e1bf2bbb0d83bcd0d6f304e50d9411ac73662203733b66a80f15205e9cb0f7c"
+  },
+  "focused_tests": {
+    "count": 9,
+    "failures": 0,
+    "errors": 0
+  },
+  "historical_audit": {
+    "result_file": "faultda_bench/reports/RELEASE_0555_HISTORICAL_AUDIT.json",
+    "sha256": "23d36f1305c510996150c798951340949df714cad7c7a4ba023b1c9e77af81d8",
+    "executed_with_inventory_files": 658,
+    "note": "Two validation records appended after replay; no implementation or old frozen byte changes."
+  },
+  "final_frozen_files": 660,
+  "old_frozen_files_preserved": 649,
+  "registered_old_packets": 144,
+  "program_rule_scores_unchanged": true,
+  "internal_configuration_counterexamples_rejected": 4,
+  "new_provider_requests": 0,
+  "new_model_executions": 0,
+  "case_identity_authenticated": false,
+  "provider_or_runtime_input_attested": false,
+  "scientific_gate": "HOLD",
+  "independent_review": "not_arranged",
+  "design_admitted": false,
+  "model_or_rl_improvement_claim": false,
+  "scope": "Python unittest and old frozen semantics; no new Go/C++ performance, GPU/NPU, training or provider experiment"
+}

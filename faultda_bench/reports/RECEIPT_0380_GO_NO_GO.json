@@ -1,0 +1,31 @@
+{
+  "version": "0.3.80-dev",
+  "date": "2026-10-15",
+  "decision": "GO_bounded_engineering",
+  "status_at_freeze": "ready_to_execute",
+  "scope": "At most eight DeepSeek requests over four trajectories, two actions each. Internal technical decision under user authorization, not scientific approval.",
+  "internal_technical_review": "completed",
+  "independent_scientific_review": "pending",
+  "scientific_gate": "HOLD",
+  "evidence_sha256": {
+    "faultda_bench/reports/receipt_v35_plan.json": "2ba0377af1e32a36316c3eb4ae74fedde262c7bbf219ff049cc0192e10979281",
+    "faultda_bench/reports/receipt_v35_baseline.json": "b6fa269b1f1dfb8bb51d4211336c25cf797101f535ca02502bae6b0f893a7198",
+    "faultda_bench/reports/receipt_v35_dry.json": "0e1bb443f35642747a3abf509f463fdba2f44c24f09dd7756192d02902ff31ba"
+  },
+  "budget": {
+    "max_transport_requests": 8,
+    "max_actions_per_trajectory": 2,
+    "max_completion_tokens_per_request": 2048,
+    "max_completion_tokens_total": 16384,
+    "max_request_bytes": 65536,
+    "max_sent_request_bytes_total": 524288,
+    "prompt_tokens": "Not pre-counted; serialized byte cap enforced, actual provider usage reported."
+  },
+  "reasons": [
+    "Additive versioned parser admits the new tool without changing frozen old tools.",
+    "Same-permission public-rule baseline resolves four of four cases; no correctness guard is fed to the model.",
+    "400 full tests passed, credential preflight sent zero requests, scripted and live receipts are separated."
+  ],
+  "actual_execution_record": "faultda_bench/reports/receipt_v35_deepseek.json",
+  "rl_improvement_claim": false
+}

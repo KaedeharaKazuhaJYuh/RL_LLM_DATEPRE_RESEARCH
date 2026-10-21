@@ -39,6 +39,97 @@ def choose(model, tokenizer, task, observation, max_new_tokens, profile=None,
         return None, response, type(exc).__name__
 
 
+def choose_batch(model, tokenizer, requests, max_new_tokens, profile=None):
+    """Generate one decision for each active episode with left-padded prompts."""
+    import torch
+    prompts = []
+    for task, observation, allowed in requests:
+        message = [{'role': 'user', 'content': input_text(model_input(task, observation, allowed))}]
+        prompts.append(tokenizer.apply_chat_template(message, tokenize=True,
+                                                     add_generation_prompt=True)['input_ids'])
+    width = max(map(len, prompts))
+    pad = tokenizer.pad_token_id if tokenizer.pad_token_id is not None else tokenizer.eos_token_id
+    ids = torch.tensor([[pad] * (width - len(row)) + row for row in prompts], device=model.device)
+    mask = torch.tensor([[0] * (width - len(row)) + [1] * len(row) for row in prompts],
+                        device=model.device)
+    with scope(profile, 'model_generate'):
+        with torch.inference_mode():
+            generated = model.generate(ids, attention_mask=mask, max_new_tokens=max_new_tokens,
+                                       do_sample=False, pad_token_id=pad)
+    decisions = []
+    for (task, _, allowed), sequence in zip(requests, generated):
+        response = tokenizer.decode(sequence[width:], skip_special_tokens=True).strip()
+        try:
+            choice, _ = parse_step(response, task['allowed_tools'] if allowed is None else allowed,
+                                   fixed_bindings=True)
+            decisions.append((choice['action'], response, None))
+        except (ValueError, KeyError, TypeError) as exc:
+            decisions.append((None, response, type(exc).__name__))
+    return decisions
+
+
+def run_episodes(dev, modes, oracle, scratch, model, tokenizer, args, profile):
+    """Keep output order fixed while scheduling independent episodes in waves."""
+    batch_size = getattr(args, 'batch_size', 1)
+    if batch_size < 1:
+        raise ValueError('--batch-size must be positive')
+    records = []
+    episodes = [(task, mode) for task in dev for mode in modes]
+    for offset in range(0, len(episodes), batch_size):
+        active = []
+        for index, (task, mode) in enumerate(episodes[offset:offset + batch_size], offset):
+            env_task = copy.deepcopy(task) if mode in ('timeout', 'partial_write') else task
+            if env_task is not task:
+                env_task['constraints']['tool_timeout_seconds'] = .15
+            # An episode owns its artifacts even when several environments are live.
+            folder = Path(scratch) / f'episode_{index}'
+            env = SequenceEnv(env_task, oracle[task['task_id']], folder,
+                              fault=mode == 'transient_read', profile=profile,
+                              fault_mode=mode if mode in ('timeout', 'partial_write') else None)
+            active.append({'task': task, 'mode': mode, 'env': env, 'steps': [], 'error': False})
+        while any(not item['env'].done and not item['error'] for item in active):
+            requests, current = [], []
+            for item in active:
+                if item['env'].done or item['error']:
+                    continue
+                with scope(profile, 'observation'):
+                    observation = item['env'].observation()
+                allowed = (eligible_actions(item['task'], observation, True)
+                           if getattr(args, 'no_repeat_success', False) else None)
+                requests.append((item['task'], observation, allowed))
+                current.append(item)
+            if batch_size == 1:
+                task, observation, allowed = requests[0]
+                decisions = [choose(model, tokenizer, task, observation,
+                                    args.max_new_tokens, profile, allowed)]
+            else:
+                decisions = choose_batch(model, tokenizer, requests, args.max_new_tokens, profile)
+            for item, (action, raw, error) in zip(current, decisions):
+                item['steps'].append({'action': action, 'raw': raw, 'parse_error': error})
+                if error:
+                    item['error'] = True
+                else:
+                    with scope(profile, 'environment_step'):
+                        item['env'].step(action)
+        for item in active:
+            env, task, mode = item['env'], item['task'], item['mode']
+            if env.done:
+                with scope(profile, 'environment_result'):
+                    scored = env.result()
+            else:
+                scored = {'passed': False, 'reward': 0.0}
+            record = {'task_id': task['task_id'], 'source_id': task['source_id'],
+                      'novelty': task['composition_novelty'], 'fault': mode != 'none',
+                      'passed': scored['passed'], 'reward': scored['reward'], 'steps': item['steps']}
+            if task.get('constraints', {}).get('isolated_tools'):
+                record['tool_history'] = env.history
+            if getattr(args, 'fault_modes', None):
+                record['fault_kind'] = mode
+                record['injection_applied'] = env.injected
+            records.append(record)
+    return records
+
+
 def run(args):
     if Path(args.out).exists():
         raise FileExistsError('new output file required')
@@ -86,45 +177,8 @@ def run(args):
                                                       trust_remote_code=False).to('cuda').eval()
         if args.adapter:
             model = PeftModel.from_pretrained(model, args.adapter).eval()
-    records = []
     with tempfile.TemporaryDirectory(prefix='v4_llm_eval_') as scratch:
-        for task in dev:
-            for mode in modes:
-                env_task = copy.deepcopy(task) if mode in ('timeout', 'partial_write') else task
-                if env_task is not task:
-                    env_task['constraints']['tool_timeout_seconds'] = .15
-                fault = mode != 'none'
-                env = SequenceEnv(env_task, oracle[task['task_id']], scratch,
-                                  fault=mode == 'transient_read', profile=profile,
-                                  fault_mode=mode if mode in ('timeout', 'partial_write') else None)
-                steps = []
-                while not env.done:
-                    with scope(profile, 'observation'):
-                        observation = env.observation()
-                    allowed = (eligible_actions(task, observation, True)
-                               if getattr(args, 'no_repeat_success', False) else None)
-                    action, raw, error = choose(model, tokenizer, task, observation,
-                                                args.max_new_tokens, profile, allowed)
-                    steps.append({'action': action, 'raw': raw, 'parse_error': error})
-                    if error:
-                        break
-                    with scope(profile, 'environment_step'):
-                        env.step(action)
-                if env.done:
-                    with scope(profile, 'environment_result'):
-                        scored = env.result()
-                else:
-                    scored = {'passed': False, 'reward': 0.0}
-                record = {'task_id': task['task_id'], 'source_id': task['source_id'],
-                          'novelty': task['composition_novelty'], 'fault': fault,
-                          'passed': scored['passed'], 'reward': scored['reward'],
-                          'steps': steps}
-                if task.get('constraints', {}).get('isolated_tools'):
-                    record['tool_history'] = env.history
-                if requested_modes:
-                    record['fault_kind'] = mode
-                    record['injection_applied'] = env.injected
-                records.append(record)
+        records = run_episodes(dev, modes, oracle, scratch, model, tokenizer, args, profile)
     groups = defaultdict(list)
     for record in records:
         group_fault = record['fault_kind'] if requested_modes else ('fault' if record['fault'] else 'clean')
@@ -139,13 +193,19 @@ def run(args):
         summary['action_guard'] = 'exclude_successful_actions'
     if requested_modes:
         summary['fault_modes'] = list(modes)
+    if getattr(args, 'batch_size', 1) != 1:
+        summary['batch_size'] = args.batch_size
     write_json(args.out, summary)
     if profile is not None:
         profile.write(args.profile_out, operation='greedy_eval',
                       metadata={'protocol_sha256': summary['protocol_sha256'],
                                 'episodes': len(records), 'model': args.model,
                                 'peak_cuda_allocated_bytes': torch.cuda.max_memory_allocated(),
-                                'adapter': args.adapter})
+                                'adapter': args.adapter,
+                                'batch_size': getattr(args, 'batch_size', 1),
+                                'max_new_tokens': args.max_new_tokens,
+                                'fault_modes': list(modes),
+                                'action_guard': getattr(args, 'no_repeat_success', False)})
     return {k: v for k, v in summary.items() if k != 'records'}
 
 
@@ -161,6 +221,8 @@ if __name__ == '__main__':
     parser.add_argument('--fault-modes',
                         help='comma-separated isolated modes: none,transient_read,timeout,partial_write')
     parser.add_argument('--max-new-tokens', type=int, default=48)
+    parser.add_argument('--batch-size', type=int, default=1,
+                        help='experimental concurrent greedy inference; 1 preserves serial decoding')
     parser.add_argument('--profile-out')
     parser.add_argument('--no-repeat-success', action='store_true',
                         help='diagnostic mask; exclude already successful actions')

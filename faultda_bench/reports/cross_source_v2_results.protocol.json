@@ -1,0 +1,84 @@
+{
+  "version": "0.2.05-dev",
+  "manifest_sha256": "39242a6d3ce552e6f00390dacdcdca249d697c80990239f9d070e550585b0fd2",
+  "code_sha256": {
+    "agent/deepseek_config.py": "be35cea6b6ae19cb04c27921ea23d1041f2220c159f5af9a7d245bf27e349173",
+    "faultda_bench/clarity/__init__.py": "7fb39da12fcd95ebeaccc78889a3472ba94515a21ec1646a182d62f951b0d4c1",
+    "faultda_bench/clarity/compare.py": "9a67557d78461834f12476fe6092ca21ccb7f5a608f39939afd717a0cbf82066",
+    "faultda_bench/clarity/offline.py": "f4e925a0467b08a83350ceba70cd372b1cacd0fe7af1c9084e25fe666d08d740",
+    "faultda_bench/clarity/review.py": "4b5168150ff70289e8fbef5501bd95c3dee9b54d97d73824272590dfba3a5049",
+    "faultda_bench/clarity/tasks.py": "19ebbbe8076a8cde2185092283ef713264375e63ae559e9a4322146e15aa31c2",
+    "faultda_bench/clarity/verify.py": "4b3605ecaf89c8defbde4c9b0edbf0e126e7d2835fa72caff19061c611f8a904",
+    "faultda_bench/semantic/__init__.py": "9154e6b5439356d966b0b1c5a5e7965e3347f563a054168bfd497b8e511c0a6e",
+    "faultda_bench/semantic/compute.py": "c3900fc16b3a531ba1baa6042fb7e3b2f56dca5b32877e8a357b1925424a90c7",
+    "faultda_bench/semantic/deepseek.py": "26c302163a13e8905ecb6c56b01378c5208676bc3b4d7861b6d592b7b779d3ab",
+    "faultda_bench/semantic/environment.py": "54ff6b19f32163120f92aae416615de3e2cf406a826617330ae289cea14f4008",
+    "faultda_bench/semantic/oracle.py": "0e7f457555f80f367b6ab0ff7e6ab4def42e9b85c6601a2e42ccfa7dbaf886eb",
+    "faultda_bench/semantic/policies.py": "dc05a9bac78a9c19e3f0cda57f8f0f3c50151d2c872fc1759ec00b743bbea89c",
+    "faultda_bench/semantic/run.py": "b9c58ea5c5af74a0c1848507fd0da29b6adcbff886bd018e813b0d0a242095b7",
+    "faultda_bench/semantic/tasks.py": "cc095e08bc33e24581cf626c4a3347678078927f82f88c2693d22ff6edfedae0",
+    "faultda_bench/semantic/verify_results.py": "da14d51a5edd497d26fdfa23e65d255fde8cf2dc6f400fd5148d482273079b2f"
+  },
+  "policies": [
+    "abstain",
+    "blind_retry",
+    "generic_verify",
+    "version_refresh",
+    "static_semantic",
+    "task_semantic"
+  ],
+  "evidence": [
+    "E0",
+    "E1"
+  ],
+  "budgets": [
+    2,
+    4
+  ],
+  "deduplicate": false,
+  "task_ids": [
+    "uci_auto_mpg-group-01",
+    "uci_auto_mpg-version-01",
+    "uci_auto_mpg-group-02",
+    "uci_auto_mpg-version-02",
+    "uci_auto_mpg-group-03",
+    "uci_auto_mpg-version-03",
+    "uci_auto_mpg-group-04",
+    "uci_auto_mpg-version-04",
+    "uci_glass-group-01",
+    "uci_glass-version-01",
+    "uci_glass-group-02",
+    "uci_glass-version-02",
+    "uci_glass-group-03",
+    "uci_glass-version-03",
+    "uci_glass-group-04",
+    "uci_glass-version-04",
+    "uci_occupancy-group-01",
+    "uci_occupancy-version-01",
+    "uci_occupancy-group-02",
+    "uci_occupancy-version-02",
+    "uci_occupancy-group-03",
+    "uci_occupancy-version-03",
+    "uci_occupancy-group-04",
+    "uci_occupancy-version-04"
+  ],
+  "conditions": [
+    [
+      false,
+      false
+    ],
+    [
+      false,
+      true
+    ],
+    [
+      true,
+      false
+    ],
+    [
+      true,
+      true
+    ]
+  ],
+  "scope": "crossed historical development; no causal source-generalization claim"
+}

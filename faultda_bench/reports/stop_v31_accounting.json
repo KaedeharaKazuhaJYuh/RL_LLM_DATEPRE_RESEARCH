@@ -1,0 +1,672 @@
+{
+  "version": "0.3.60-dev",
+  "source_sha256": "4c22a12e064f3d2483c4d17bab67a9421445f137556f0b953a14ed8960c033c4",
+  "analysis_sha256": "6a901f1f5bf415b45bcae08b71b5e25b41d9d7fdc9d396962b39be1aeb3645ac",
+  "by_arm": {
+    "history": {
+      "requests": 20,
+      "prompt_tokens": 38058,
+      "completion_tokens": 362,
+      "serialized_sent_request_bytes": 135194,
+      "incremental_tool_cost": {
+        "checks": 8,
+        "mutations": 12,
+        "decisions": 20,
+        "response_bytes": 3666
+      },
+      "new_wrong_publications_from_model_decision": 0,
+      "new_duplicate_events_from_model_decision": 0
+    },
+    "content_binding": {
+      "requests": 20,
+      "prompt_tokens": 44286,
+      "completion_tokens": 420,
+      "serialized_sent_request_bytes": 157126,
+      "incremental_tool_cost": {
+        "checks": 4,
+        "mutations": 16,
+        "decisions": 20,
+        "response_bytes": 3899
+      },
+      "new_wrong_publications_from_model_decision": 0,
+      "new_duplicate_events_from_model_decision": 0
+    }
+  },
+  "matched_states": [
+    {
+      "view": "utc_end",
+      "profile": "initial_correct",
+      "state": 0,
+      "evidence_supported_stop": true,
+      "arms": {
+        "history": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        },
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        }
+      }
+    },
+    {
+      "view": "utc_end",
+      "profile": "initial_wrong",
+      "state": 1,
+      "evidence_supported_stop": false,
+      "arms": {
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        },
+        "history": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        }
+      }
+    },
+    {
+      "view": "utc_end",
+      "profile": "staged_correct",
+      "state": 2,
+      "evidence_supported_stop": false,
+      "arms": {
+        "history": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": false,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        },
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        }
+      }
+    },
+    {
+      "view": "utc_end",
+      "profile": "staged_wrong",
+      "state": 3,
+      "evidence_supported_stop": false,
+      "arms": {
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        },
+        "history": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        }
+      }
+    },
+    {
+      "view": "utc_end",
+      "profile": "acknowledged_correct",
+      "state": 4,
+      "evidence_supported_stop": true,
+      "arms": {
+        "history": {
+          "decision": {
+            "action": "inspect",
+            "params": {}
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        },
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": false,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        }
+      }
+    },
+    {
+      "view": "utc_end",
+      "profile": "acknowledged_wrong",
+      "state": 5,
+      "evidence_supported_stop": false,
+      "arms": {
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        },
+        "history": {
+          "decision": {
+            "action": "status",
+            "params": {}
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        }
+      }
+    },
+    {
+      "view": "utc_end",
+      "profile": "timeout_before",
+      "state": 6,
+      "evidence_supported_stop": false,
+      "arms": {
+        "history": {
+          "decision": {
+            "action": "status",
+            "params": {}
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        },
+        "content_binding": {
+          "decision": {
+            "action": "status",
+            "params": {}
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        }
+      }
+    },
+    {
+      "view": "utc_end",
+      "profile": "timeout_after",
+      "state": 7,
+      "evidence_supported_stop": false,
+      "arms": {
+        "content_binding": {
+          "decision": {
+            "action": "status",
+            "params": {}
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        },
+        "history": {
+          "decision": {
+            "action": "status",
+            "params": {}
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        }
+      }
+    },
+    {
+      "view": "utc_end",
+      "profile": "observed_after_correct",
+      "state": 8,
+      "evidence_supported_stop": true,
+      "arms": {
+        "history": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": false,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        },
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": false,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        }
+      }
+    },
+    {
+      "view": "utc_end",
+      "profile": "repaired_after_wrong",
+      "state": 9,
+      "evidence_supported_stop": false,
+      "arms": {
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        },
+        "history": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        }
+      }
+    },
+    {
+      "view": "plus8_end",
+      "profile": "initial_correct",
+      "state": 10,
+      "evidence_supported_stop": true,
+      "arms": {
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        },
+        "history": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        }
+      }
+    },
+    {
+      "view": "plus8_end",
+      "profile": "initial_wrong",
+      "state": 11,
+      "evidence_supported_stop": false,
+      "arms": {
+        "history": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        },
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        }
+      }
+    },
+    {
+      "view": "plus8_end",
+      "profile": "staged_correct",
+      "state": 12,
+      "evidence_supported_stop": false,
+      "arms": {
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        },
+        "history": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": false,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        }
+      }
+    },
+    {
+      "view": "plus8_end",
+      "profile": "staged_wrong",
+      "state": 13,
+      "evidence_supported_stop": false,
+      "arms": {
+        "history": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        },
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        }
+      }
+    },
+    {
+      "view": "plus8_end",
+      "profile": "acknowledged_correct",
+      "state": 14,
+      "evidence_supported_stop": true,
+      "arms": {
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": false,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        },
+        "history": {
+          "decision": {
+            "action": "status",
+            "params": {}
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        }
+      }
+    },
+    {
+      "view": "plus8_end",
+      "profile": "acknowledged_wrong",
+      "state": 15,
+      "evidence_supported_stop": false,
+      "arms": {
+        "history": {
+          "decision": {
+            "action": "inspect",
+            "params": {}
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        },
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        }
+      }
+    },
+    {
+      "view": "plus8_end",
+      "profile": "timeout_before",
+      "state": 16,
+      "evidence_supported_stop": false,
+      "arms": {
+        "content_binding": {
+          "decision": {
+            "action": "status",
+            "params": {}
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        },
+        "history": {
+          "decision": {
+            "action": "status",
+            "params": {}
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": false
+        }
+      }
+    },
+    {
+      "view": "plus8_end",
+      "profile": "timeout_after",
+      "state": 17,
+      "evidence_supported_stop": false,
+      "arms": {
+        "history": {
+          "decision": {
+            "action": "status",
+            "params": {}
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        },
+        "content_binding": {
+          "decision": {
+            "action": "status",
+            "params": {}
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        }
+      }
+    },
+    {
+      "view": "plus8_end",
+      "profile": "observed_after_correct",
+      "state": 18,
+      "evidence_supported_stop": true,
+      "arms": {
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        },
+        "history": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": false,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        }
+      }
+    },
+    {
+      "view": "plus8_end",
+      "profile": "repaired_after_wrong",
+      "state": 19,
+      "evidence_supported_stop": false,
+      "arms": {
+        "history": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        },
+        "content_binding": {
+          "decision": {
+            "action": "stage",
+            "params": {
+              "version": "v1",
+              "deduplicate_keys": true,
+              "closed": "left"
+            }
+          },
+          "category": "valid_action",
+          "safe_complete": false,
+          "terminal_correct": true
+        }
+      }
+    }
+  ],
+  "scientific_gate": "HOLD",
+  "independent_review": "pending",
+  "scope": "One next decision per snapshot. Setup effects were injected by the runner; only incremental effects are attributable to the model action. Same snapshot budgets, actual costs reported. No complete recovery or inference test."
+}

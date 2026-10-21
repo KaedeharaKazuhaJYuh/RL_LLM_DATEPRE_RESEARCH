@@ -1,0 +1,179 @@
+{
+  "reviewer": "张雨田",
+  "reviewed_commit": "e29d39c1dc9ea26de3c3c3428b4eee0a318d98ec",
+  "reviewed_bundle_sha256": "08336b3097964ae434d32835fb3b28641db905fbe2c1bf5ef3980498faf3c6d8",
+  "source_sha256": "2d8319de281ec425219d9a8d7291c3f5c123e7a7c0e2e7ba01a0a483b4c4ab99",
+  "registry_sha256": "6910ef4ae5ab41a8d051350cb6d715fbc7482c7da583c1b34eb2b8be841abc2f",
+  "case_bindings": {
+    "responses|utc_end|base|historical|bad_never_committed|first": {
+      "pair_sha256": "e4519779c1eff3c3616f1e02c66560af14345f0d16fea376486218501a9b31bf",
+      "kind": "two_existing_responses_new_annotations"
+    },
+    "responses|utc_end|base|historical|bad_committed|first": {
+      "pair_sha256": "6ab61c944a20f46ad84c367884aeb2a4894bd9f5f62c1589ed3f49007e64e2dd",
+      "kind": "two_existing_responses_new_annotations"
+    },
+    "responses|utc_end|base|scripted_current|bad_never_committed|second": {
+      "pair_sha256": "6b73380c657ab973574a68f0d41407b60bcc08d042ccbcbcdc1367606224055f",
+      "kind": "two_existing_responses_new_annotations"
+    },
+    "responses|utc_end|base|scripted_current|bad_committed|second": {
+      "pair_sha256": "7be2d691aa111cb32ead02854aa86ab88e4663e1a13ee5b7ccf261799da451d9",
+      "kind": "two_existing_responses_new_annotations"
+    },
+    "responses|utc_end|trim_start|historical|bad_never_committed|second": {
+      "pair_sha256": "974a631cca54ee54aff4a0e4f7adeb62adf63772396142aefd7a743cf6c79f2d",
+      "kind": "two_existing_responses_new_annotations"
+    },
+    "responses|utc_end|trim_start|historical|bad_committed|second": {
+      "pair_sha256": "3c5f300cb8425d32d79e11fe826118d2f0c57e4d1171cd2c4d405ca01a7b10be",
+      "kind": "two_existing_responses_new_annotations"
+    },
+    "responses|utc_end|trim_start|scripted_current|bad_never_committed|first": {
+      "pair_sha256": "73e477af22b21bae289e9123b18905f3580c1a5806ce04e54ef2aede577fd2b4",
+      "kind": "two_existing_responses_new_annotations"
+    },
+    "responses|utc_end|trim_start|scripted_current|bad_committed|first": {
+      "pair_sha256": "26bce03837c908cddd0e86c638a5c13792490774b269519041b3206e725699d8",
+      "kind": "two_existing_responses_new_annotations"
+    },
+    "responses|utc_end|early_end|historical|bad_never_committed|first": {
+      "pair_sha256": "b7ed77fb9c6cbc039bb94df92587aa40861ed54e728c69edc82772a2f5faf224",
+      "kind": "two_existing_responses_new_annotations"
+    },
+    "responses|utc_end|early_end|historical|bad_committed|first": {
+      "pair_sha256": "daeb089368b26b87c5d13e02eafdf4614f7cd58127e269d527b8fa1d6c8e5465",
+      "kind": "two_existing_responses_new_annotations"
+    },
+    "responses|utc_end|early_end|scripted_current|bad_never_committed|second": {
+      "pair_sha256": "b70a29ed2a8b80e130eb3f8ab13ca17a66de22e12a4618227c1d4c35276c933b",
+      "kind": "two_existing_responses_new_annotations"
+    },
+    "responses|utc_end|early_end|scripted_current|bad_committed|second": {
+      "pair_sha256": "d399105a31a40de65ebbe4a677aae2e9524812a67bac636b1b10f5d5d6b17a71",
+      "kind": "two_existing_responses_new_annotations"
+    },
+    "migration|utc_end|base|historical|bad_never_committed": {
+      "pair_sha256": "e1ebb6e18f8ecb18bece7e8a50e9c50de99a20f3b1f4b336554b4b5b2a69cda3",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|utc_end|base|historical|bad_committed": {
+      "pair_sha256": "0a55bb844d9769ac2d2e797df500c3b42de6cf7e366b5e41cfa647db71776eec",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|utc_end|base|scripted_current|bad_never_committed": {
+      "pair_sha256": "9e2dbc7031dee401af472ac8a1d00f988f32c7802146d0c3616b64c2e54755e7",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|utc_end|base|scripted_current|bad_committed": {
+      "pair_sha256": "1f0d906e7ef90602b7b86aff496c00647375fe3de3620f13cf1ea790195a7c42",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|utc_end|trim_start|historical|bad_never_committed": {
+      "pair_sha256": "f2d6670e403fed3bb6d4e3e7fde2316fcb037d325d55043a732d9d7771416d10",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|utc_end|trim_start|historical|bad_committed": {
+      "pair_sha256": "7760ac39aa51b3cb225b5f7facab1024c4aa7f4f33cf9dfd105bfb435c349300",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|utc_end|trim_start|scripted_current|bad_never_committed": {
+      "pair_sha256": "38b8b9444c519da3c3a1e6f5048503489971a36606005dd064c2f4a8302ecac7",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|utc_end|trim_start|scripted_current|bad_committed": {
+      "pair_sha256": "98f215cae16423aff0528b3e579ad2ce18bfdf92ad0f2254a87f608351fa1bb2",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|utc_end|early_end|historical|bad_never_committed": {
+      "pair_sha256": "dc00af9035ba152f85636a29c596e36872197a286af39857bd0e8592d749bd5e",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|utc_end|early_end|historical|bad_committed": {
+      "pair_sha256": "c1c549b89fd6c5ac2813a8342c7feceee1d6c82583f0a1492313bcd46a923ac4",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|utc_end|early_end|scripted_current|bad_never_committed": {
+      "pair_sha256": "031a87e26cb0b4eed305b8e17db1fee462527b46ab93f0a0198a3a08b42ed3ec",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|utc_end|early_end|scripted_current|bad_committed": {
+      "pair_sha256": "070f19d41dac02f7cb5034fe1530fcd326c5d42166c63c91a961cc9aa7b95f27",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|plus8_end|base|historical|bad_never_committed": {
+      "pair_sha256": "a4c09a28f14ee768b4cc9b0c84e3b1e93d11abf62bf46d7458478955f9cc7c25",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|plus8_end|base|historical|bad_committed": {
+      "pair_sha256": "cdba07a7830df2c0e79f9a8d84822ae122970e75c2a72d94b6f1470c8b75b380",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|plus8_end|base|scripted_current|bad_never_committed": {
+      "pair_sha256": "dcbd9f891d7bc140ae60ae791f8ccadb6cb49c7e49b8a07f5fecef115c6ac13d",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|plus8_end|base|scripted_current|bad_committed": {
+      "pair_sha256": "978c174a4dca27167e2402b04ffb2a954c0ddfcd1ec2572076f73053614f6c98",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|plus8_end|trim_start|historical|bad_never_committed": {
+      "pair_sha256": "b451ef92c5af7e3e2b8fb450283b62ccf45a1daae087bae1ad717bb0129402b1",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|plus8_end|trim_start|historical|bad_committed": {
+      "pair_sha256": "d03f299eb13e312edb87dd87ec6c5eff2348d28d1d0a71ed63fbb98a627b06cb",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|plus8_end|trim_start|scripted_current|bad_never_committed": {
+      "pair_sha256": "239b78052ae36ba83622e330f4b13ec1872782d667d8a6d5435972eb1e7b1246",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|plus8_end|trim_start|scripted_current|bad_committed": {
+      "pair_sha256": "7a003654653449cf6cb0b211c5e3a1f74e0644531438f60ed3d0f067ff63d530",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|plus8_end|early_end|historical|bad_never_committed": {
+      "pair_sha256": "1497450feb3ca25e20ed246f3025a564ea0f5cb538337606a28631b97c72e87d",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|plus8_end|early_end|historical|bad_committed": {
+      "pair_sha256": "5cef334827fdb51a51790af88972d0c046f919e882c1a26fe1ee5927ae164af2",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|plus8_end|early_end|scripted_current|bad_never_committed": {
+      "pair_sha256": "f94d26732e85b77b63d026aefee694f74bbc05366cee654d6cf883a7063c0684",
+      "kind": "three_read_only_actor_views"
+    },
+    "migration|plus8_end|early_end|scripted_current|bad_committed": {
+      "pair_sha256": "5efb4417e2f769bda12ffd6c36dff7e569fe278df87fcb7076a8ac61cd6a1550",
+      "kind": "three_read_only_actor_views"
+    },
+    "decision|scientific_claims": {
+      "pair_sha256": "511208d8b2ba92d53065893a39d97341ea06649448e6fb864061ced281e4ab48",
+      "kind": "internal_scientific_claim_limits_not_independent_acceptance"
+    }
+  },
+  "technical_groups_passed": 37,
+  "basis": "Supplied Markdown global 37/37 verdict plus direct user human-review assertion; not a reviewer-filled per-case JSON submission.",
+  "human_review_registered": true,
+  "reviewer_identity_authenticated": false,
+  "reviewed_commit_resolved_at_intake": true,
+  "reviewer_json_attachments_received": false,
+  "independent_final_referent_adjudication": "not_performed",
+  "scientific_gate": "HOLD",
+  "new_design_independently_reviewed": false,
+  "approved_transport_requests": 0,
+  "excluded_scopes": [
+    "provider_authenticity",
+    "inherited_v5",
+    "older_reports_full_rereview",
+    "0.3.80_live_independent_replay",
+    "final_referent_adjudication",
+    "0.5.05_new_work"
+  ],
+  "nonblocking_changes": [
+    "bundle_runtime_dependencies_and_entrypoint",
+    "test_count_scope"
+  ]
+}

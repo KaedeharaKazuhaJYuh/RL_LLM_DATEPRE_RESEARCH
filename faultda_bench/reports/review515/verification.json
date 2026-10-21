@@ -1,0 +1,26 @@
+{
+  "version": "0.5.15-dev",
+  "completed_date": "2026-10-18",
+  "full_repository": {
+    "tests": 551,
+    "result": "OK",
+    "elapsed_seconds": 106.462,
+    "log_sha256": "bcc7a0c649ba1bb397a633de029cc4e4c9d709153c4f3aa943a897be46b608bc"
+  },
+  "focused_tests": {
+    "tests": 24,
+    "result": "OK",
+    "elapsed_seconds": 0.175,
+    "log_sha256": "6676705b607007eef6802ba662737d7c8489d7a9e68b1567910ac7f297be2796"
+  },
+  "ci_selected_tests": 324,
+  "bundle_expected_tests": 342,
+  "release_metadata_check": "V5.0.15-beta.2 consistent",
+  "new_provider_requests": 0,
+  "new_sources": 0,
+  "new_training_runs": 0,
+  "final_referent_adjudication": "pending_explicitly_not_final",
+  "new_0515_independent_review": "pending",
+  "scientific_gate": "HOLD",
+  "bundle_validation": "Actual isolated results in final fixed-commit ZIP BUNDLE_VALIDATION.json; distinct from full-repository scope."
+}

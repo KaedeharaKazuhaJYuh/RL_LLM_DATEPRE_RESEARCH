@@ -11,6 +11,14 @@ import (
 	"rl-llm-data-agent/orchestrator/queue"
 )
 
+func TestDecodeRejectsTrailingJSON(t *testing.T) {
+	for _, body := range []string{`{"id":"a"} {"id":"b"}`, `{"id":"a"} garbage`} {
+		r := httptest.NewRequest(http.MethodPost, "/jobs", bytes.NewBufferString(body))
+		var value struct { ID string `json:"id"` }
+		if decode(r, &value) == nil { t.Fatal("accepted trailing request data") }
+	}
+}
+
 func TestHTTPLeaseCancelAndAcknowledgedStop(t *testing.T) {
 	q, err := queue.Open(filepath.Join(t.TempDir(), "state.json"))
 	if err != nil {

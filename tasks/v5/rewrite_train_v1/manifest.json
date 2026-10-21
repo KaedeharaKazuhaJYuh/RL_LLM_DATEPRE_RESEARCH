@@ -1,0 +1,42 @@
+{
+  "version": "v5-0-10-rewrite-1",
+  "train_only": true,
+  "synthetic": true,
+  "parent_manifest_sha256": "15af9fde24ed0c8955f50db3fc0fe272540f4a4cbc32e961c9c4c065b88b88ff",
+  "train_sources": [
+    "v4hard_source_00",
+    "v4hard_source_01",
+    "v4hard_source_02",
+    "v4hard_source_03",
+    "v4hard_source_04",
+    "v4hard_source_05",
+    "v4hard_source_06",
+    "v4hard_source_07",
+    "v4hard_source_08",
+    "v4hard_source_09",
+    "v4hard_source_10",
+    "v4hard_source_11",
+    "v4hard_source_12",
+    "v4hard_source_13",
+    "v4hard_source_14",
+    "v4hard_source_15"
+  ],
+  "train_task_count": 96,
+  "prompt_templates": [
+    [
+      "把一模一样的整行记录合并到只剩一份；之后按原来的行序算 {metric} 的三行完整滑动均值，工作完成就停止。",
+      "Collapse identical whole rows to one copy. Then calculate complete three-row moving averages of {metric} in original order and finish."
+    ],
+    [
+      "先修整 {category} 的标签：删掉两端空格并转换成大写；再给出修整后的各标签条数，完成就停止。",
+      "Tidy labels in {category} by stripping outer whitespace and converting to capitals; tally each resulting label and finish."
+    ],
+    [
+      "把 {value} 的值限制在零到一百（含端点），写回结果；然后汇报这一列的描述性数值统计，完成就停止。",
+      "Bound {value} inclusively between zero and one hundred and save; report descriptive numeric statistics for that column, then finish."
+    ]
+  ],
+  "tasks_sha256": "cc67576c8605192c45dffc8f065573eea391772d0df514136714e32a80894db8",
+  "train_oracle_sha256": "d707990b928f0294b894d508f236d15a1076f86dd7902045c8474f44260f2251",
+  "dev_oracle_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+}

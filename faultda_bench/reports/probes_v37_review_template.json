@@ -1,0 +1,391 @@
+{
+  "version": "0.3.90-dev",
+  "reviewer": {
+    "name": null,
+    "declares_human": null,
+    "personally_checked": null,
+    "reviewed_git_commit": null
+  },
+  "overall_verdict": null,
+  "case_reviews": [
+    {
+      "case_id": "postreceipt-0|window",
+      "pair_sha256": "f46e1089b5d6a601c6ab75fdef607e3eec17df25dfbb3d50279cce237ddf6fae",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-1|window",
+      "pair_sha256": "9cb7d742aabb33b3799506cf551d145c4cedac8b0c76f827cec601bcc676c730",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-2|window",
+      "pair_sha256": "d2d5a2c75033255f1ea304e84fc4a1f177ec37996e651197a5b352f0e905e091",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-3|window",
+      "pair_sha256": "8c0cb3976b05bfad5ee52a9743f65ed1c86b22c562ce6d469d917fc358283e6e",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-0|arithmetic",
+      "pair_sha256": "aaca607da121fdb0aa93ed061e11cf9c029f183690325834b33cef86520ec2e9",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-1|arithmetic",
+      "pair_sha256": "04b2e423f5d0dd901605472439f91bc3e149296b20358b025a66d159e32401cd",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-2|arithmetic",
+      "pair_sha256": "aca2585d1212748dad0af804b2adb1c28bc7406b295ead94935232cc95a34e4c",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-3|arithmetic",
+      "pair_sha256": "c80641af4efe4bc57402c115d25a36afe77dcc8ddf54d32f54b1953925c49bb0",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-0|receipt",
+      "pair_sha256": "34815046c086af961a94eaccf129d8cbb87a051e3e05256ff476be10673098f5",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-1|receipt",
+      "pair_sha256": "0eb43010ff0c829bcaf5413925051098b3fd714c03f050ffa334fe3fbe476883",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-2|receipt",
+      "pair_sha256": "fe8fc2eb3e4ee44afd0006052d8bc15c9027868727efcf0069d9344cd2f30942",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-3|receipt",
+      "pair_sha256": "3e0b2a44bc8192dfc9819214b3952468afb09de4a75b37087e31405b4b92b5a2",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-0|responsibility",
+      "pair_sha256": "9a145c7b624191b950628e61ece640f84336c793041614a780bb2d58b2bc4811",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-1|responsibility",
+      "pair_sha256": "5395046e7bdbef9fba400152b1c979b89c3e0e9634422e97f3ead93a1ada9ce2",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-2|responsibility",
+      "pair_sha256": "a64ab036fbc51e059fefe83f93663480a9f0e9c58a71b02c909a67a0c7037665",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "postreceipt-3|responsibility",
+      "pair_sha256": "e46d68b9851de7594a8f2213a4efaecb1269f2098a37da8cb5511496627a9e02",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "counter|window|include_end",
+      "pair_sha256": "74efdbcb815c7551bcf5292313e655c77784fc999035be0dcddc3ae61ffc7fe0",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "counter|window|exclude_start",
+      "pair_sha256": "89256d7ef6b65fb6dbcd4afb72180857120b156b160ac210f202998db2e9af8f",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "counter|window|only_end",
+      "pair_sha256": "de08ade368ec78a19de54c8941fc837948a4a9ab0fabc94c0878579774804800",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "counter|arithmetic|empty",
+      "pair_sha256": "7cb1fc257447d138a806ae09070dd38e7901b17d89c1615a4b0c411a3b76534c",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "counter|arithmetic|0,7",
+      "pair_sha256": "3e642f5381305e7d7fecc9f218ce180daca9e8471cf2c359572ef1f62d399840",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "counter|arithmetic|1,2,3,4,5",
+      "pair_sha256": "a3690e9f001d939c9938dd02863d220e5d8b530a674d574bbd3b2e852b2acdc9",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "counter|receipt|repair-0",
+      "pair_sha256": "bfc6e681b057aa432e5fd23dd87ade941bf5d5c6caf141911ef3756d7464e7e2",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "counter|receipt|repair-1",
+      "pair_sha256": "cf09217ab9488127c872b924ac62519793d73f479d83b17578fc86f72070c3f1",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "counter|responsibility|0",
+      "pair_sha256": "631e819b4e5e00bfb78834ec919dc1f955a81ccc06c8bf6150d8b50cc6b96da5",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "counter|responsibility|8",
+      "pair_sha256": "7becf629d7d06b2e8053bb98513d68788ac8521f57e78e220e26d2f6a2f2a7b4",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "counter|responsibility|11",
+      "pair_sha256": "25c699761895faaf32affe1e2249398978c31390f0d7facbe03d123d428772f4",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    }
+  ],
+  "notice": "Only fill personally reviewed cases; partial returns allowed. Include prompt/scoring objections. Declarations are not identity verification or scientific acceptance."
+}

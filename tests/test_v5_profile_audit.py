@@ -36,6 +36,19 @@ class ProfileAuditTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'workload metadata differs'):
                 run(paths, root / 'invalid.json')
 
+    def test_greedy_profiles_cannot_mix_serial_and_batched(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            paths = [root / 'serial.json', root / 'batched.json']
+            for path, batch_size in zip(paths, (1, 16)):
+                path.write_text(json.dumps({
+                    'operation': 'greedy_eval', 'device_synchronized': True,
+                    'wall_seconds': 10, 'stages': {'model_generate': {'calls': 1, 'seconds': 5}},
+                    'metadata': {'protocol_sha256': 'p', 'episodes': 1, 'model': 'm',
+                                 'adapter': 'a', 'batch_size': batch_size}}))
+            with self.assertRaisesRegex(ValueError, 'workload metadata differs'):
+                run(paths, root / 'invalid.json')
+
 
 if __name__ == '__main__':
     unittest.main()

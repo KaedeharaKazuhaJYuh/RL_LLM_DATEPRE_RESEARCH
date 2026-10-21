@@ -1,0 +1,36 @@
+{
+  "version": "0.5.35-dev",
+  "status": "DRAFT_NOT_ADMITTED",
+  "scientific_gate": "HOLD",
+  "independent_review": "not_arranged",
+  "approved_transport_requests": 0,
+  "target": "Diagnose supported termination, not establish a new recovery mechanism",
+  "execution_implemented": false,
+  "prospective_design": {
+    "full_recovery": "Freeze and disclose both service budgets and experiment horizon before execution; observe complete terminal path or explicit censoring",
+    "single_decision": "State horizon=1 explicitly; score immediate decision separately from eventual recovery",
+    "controls": ["healthy and supported stop", "confirmed scoped violation", "publicly unidentifiable state with lawful escalation"],
+    "information_conditions": ["raw public evidence", "raw evidence plus shared numeric helper"],
+    "parity": "Within each information condition the model and strong public rule receive identical fields, permissions, helper computation and budget caps; actual costs reported separately",
+    "factual_probe": "Separate arm; never prepend a diagnosis question and treat downstream behavior as unprompted",
+    "ground_truth": "Private ledger and reference labels only at grading; source content and numeric helper do not certify historical safety",
+    "baseline": ["complete public rule", "legal full recomputation", "always escalate"],
+    "endpoints": ["supported correct termination", "actual safe completion", "unsupported stop", "unjustified escalation", "incremental historical violations", "actual cost vector"],
+    "independence": "Split by source and template ancestry; old Occupancy variants remain development only",
+    "sample_size": "Not fixed or justified yet; no independent test panel admitted",
+    "model": "DeepSeek continuity proposed, no model request approved",
+    "learning": "No RL or SFT authorized by this draft"
+  },
+  "admission_requirements": [
+    "Independent review of interface, actual source lineage and concrete scientific increment",
+    "Pre-outcome eligibility and frozen common denominator",
+    "Threshold, uncertainty method, sample-size rationale and cost budget",
+    "Explicit authorization for any new provider run"
+  ],
+  "stop_conditions": [
+    "Old interface or arithmetic explains observed difference",
+    "Only generic known model decision errors remain",
+    "Unequal information or helper cost creates advantage",
+    "No nontrivial increment beyond existing benchmarks"
+  ]
+}

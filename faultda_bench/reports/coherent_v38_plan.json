@@ -1,0 +1,152 @@
+{
+  "version": "0.3.95-dev",
+  "source_sha256": "4374c41dad85e6237d8609fdec45949ef98e469d9888a0ea5e9fd9326767ce40",
+  "code_sha256": {
+    "faultda_bench/coherent395/__init__.py": "b1ed1803302040f97159a37eb7ecece32edede92c139df4d1a264a8d0e09c8d8",
+    "faultda_bench/coherent395/suite.py": "bd26c5920d1506320aa9692eff760aaa3917a9c9b91182a1a6bed09b24583d4c",
+    "faultda_bench/coherent395/pilot.py": "cacb9d059aa82c67770167824b7d0befa159a5e0146aa3fcbed909317108745b"
+  },
+  "internal_review_sha256": "2e113fa28651029e115a13f589c6f18a5326140a95cebef711cdf09422e71107",
+  "cells": [
+    {
+      "row_id": "utc_end|base|historical|bad_never_committed|first",
+      "arm": "contextual",
+      "body_sha256": "dfa90387177885ab4e28cbe8a0f4535a0ca50dc14dbafdda3a1d8ce7ec3b9d9e"
+    },
+    {
+      "row_id": "utc_end|base|historical|bad_never_committed|first",
+      "arm": "explicit",
+      "body_sha256": "d335d97d9ba81a7727c942fd7f3c4da7b5f3b3bf5fe5b23884a3c84e7dd08220"
+    },
+    {
+      "row_id": "utc_end|base|historical|bad_committed|first",
+      "arm": "explicit",
+      "body_sha256": "d0e7e3da866c9b1f90548d674268f4dbce13ab4e7f04dc30b431fdd960855977"
+    },
+    {
+      "row_id": "utc_end|base|historical|bad_committed|first",
+      "arm": "contextual",
+      "body_sha256": "0bd76d423c8f37374b7bc74dc20e12604c6a840a59eee3b3e6bd2dffe948e8d1"
+    },
+    {
+      "row_id": "utc_end|base|scripted_current|bad_never_committed|second",
+      "arm": "contextual",
+      "body_sha256": "3d942a7cdc2a7d963f55cb6d695d06a1f642399c986e98a5a1d5fa6be9e1349d"
+    },
+    {
+      "row_id": "utc_end|base|scripted_current|bad_never_committed|second",
+      "arm": "explicit",
+      "body_sha256": "18a2dd34a6d1674f69ebe0584fe10cde83d9fb678e5384a641c380c3208cc25e"
+    },
+    {
+      "row_id": "utc_end|base|scripted_current|bad_committed|second",
+      "arm": "explicit",
+      "body_sha256": "2a04226c7febe5d26447db680ffc1e2061060bdeca10afbee54ab59b40862cef"
+    },
+    {
+      "row_id": "utc_end|base|scripted_current|bad_committed|second",
+      "arm": "contextual",
+      "body_sha256": "e19f798bd3132df4b35a466dfc2b6d238b29b605e71d7cc0efc476692346a5e0"
+    },
+    {
+      "row_id": "utc_end|trim_start|historical|bad_never_committed|second",
+      "arm": "contextual",
+      "body_sha256": "09c321110d0af5313d668ac4b4fd67feeb5a8e8824c0c8a447a5b1e9076f5763"
+    },
+    {
+      "row_id": "utc_end|trim_start|historical|bad_never_committed|second",
+      "arm": "explicit",
+      "body_sha256": "fcd37897a0a47942d5b8b462bdaed10a413762b4d77f607a4f3ec744253fa4b7"
+    },
+    {
+      "row_id": "utc_end|trim_start|historical|bad_committed|second",
+      "arm": "explicit",
+      "body_sha256": "5a4ec5d904f817c5f32d774b5287ea08828132380e7175de546c02b79b9d7f92"
+    },
+    {
+      "row_id": "utc_end|trim_start|historical|bad_committed|second",
+      "arm": "contextual",
+      "body_sha256": "e42f7cb0d6766fa3a605a5b35605e1d533397b63b0814d795b9afea704e67c7c"
+    },
+    {
+      "row_id": "utc_end|trim_start|scripted_current|bad_never_committed|first",
+      "arm": "contextual",
+      "body_sha256": "c51f8225ad57ef40580461bfb9280f179985f3974e0c9e337832b9e05c7a0d37"
+    },
+    {
+      "row_id": "utc_end|trim_start|scripted_current|bad_never_committed|first",
+      "arm": "explicit",
+      "body_sha256": "5d5d813c0870e3049a9a9980edcb2e992f4107f1e5ded36827c57af49f1aed07"
+    },
+    {
+      "row_id": "utc_end|trim_start|scripted_current|bad_committed|first",
+      "arm": "explicit",
+      "body_sha256": "08d5ff4230553ca1747e0e2e16904acc852a55f027925b2b2c2da48d58aeb57e"
+    },
+    {
+      "row_id": "utc_end|trim_start|scripted_current|bad_committed|first",
+      "arm": "contextual",
+      "body_sha256": "3a5b1019be3f236df109fd1eb64bc995a49f360e2b33584330b7113a29d2a33c"
+    },
+    {
+      "row_id": "utc_end|early_end|historical|bad_never_committed|first",
+      "arm": "contextual",
+      "body_sha256": "ca7081e613ff0db99b9873a94ea26fc43e119b39ec6202b604680cd450eb3cb8"
+    },
+    {
+      "row_id": "utc_end|early_end|historical|bad_never_committed|first",
+      "arm": "explicit",
+      "body_sha256": "b4cf89ec0b9a124434fbd9968c6ad68af4196ebce4c18ef50496cfd7a6fb04f7"
+    },
+    {
+      "row_id": "utc_end|early_end|historical|bad_committed|first",
+      "arm": "explicit",
+      "body_sha256": "fb5f051f54fac01fbb3a3f79d823db1316c10eb644b11d6cdb987cb53aa7c330"
+    },
+    {
+      "row_id": "utc_end|early_end|historical|bad_committed|first",
+      "arm": "contextual",
+      "body_sha256": "cbbdb1dd35af23a456a1f1c2c3374e35d4f320c22b3df6e7ee9246fbdb8b4a13"
+    },
+    {
+      "row_id": "utc_end|early_end|scripted_current|bad_never_committed|second",
+      "arm": "contextual",
+      "body_sha256": "4f6e8f619372647a5e8ed55e87860f2b9234b06d869667fe31aa0977e9fb51e5"
+    },
+    {
+      "row_id": "utc_end|early_end|scripted_current|bad_never_committed|second",
+      "arm": "explicit",
+      "body_sha256": "7959642b983fb925aadfecec55cfc1555f2f1402d90feb8449d7f33d3b446db2"
+    },
+    {
+      "row_id": "utc_end|early_end|scripted_current|bad_committed|second",
+      "arm": "explicit",
+      "body_sha256": "330950dbec28949b74f58ee6e182bf0b163def744312622069d50f3e9ce8c486"
+    },
+    {
+      "row_id": "utc_end|early_end|scripted_current|bad_committed|second",
+      "arm": "contextual",
+      "body_sha256": "6d969e12c2df455d2852a51082e3c53d780517cbb364461d5090af08377198b0"
+    }
+  ],
+  "max_transport_requests": 24,
+  "max_request_bytes": 65536,
+  "max_sent_request_bytes_total": 1572864,
+  "max_completion_tokens_per_request": 1024,
+  "max_completion_tokens_total": 24576,
+  "input_token_limit": "not pre-counted; request byte caps plus actual provider usage",
+  "primary": "paired all-five-fields-correct difference over 12 same-snapshot prompt pairs",
+  "secondary": [
+    "exact target request_id and event_id",
+    "receipt metadata correctness",
+    "role incorrect despite exact target; conditional descriptive count, not a causal effect"
+  ],
+  "hypotheses": [
+    "Clarifying only the receipt referent changes explicit target/combined fact correctness.",
+    "A correct target may still be assigned the wrong represented actor role."
+  ],
+  "order": "alternate arm order across fixed cases; one request per cell, no retries or selective supplementation",
+  "scope": "Three related windows x two represented scripted actor roles x two hidden histories, one UTC rendering. Same public observation/output schema and settings within a pair; one final system sentence differs. Twelve condition pairs are one data/task cluster, not twelve independent tasks. No tool execution, stop score, training or improvement claim. Previous 32-cell draft remains unapproved.",
+  "independent_review": "pending",
+  "scientific_gate": "HOLD"
+}

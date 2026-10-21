@@ -1,0 +1,16 @@
+{
+  "id": "v5_gpu_batch16_experiment",
+  "submission_key": "v5_gpu_batch16_experiment",
+  "resource": "gpu",
+  "device_id": "gpu0",
+  "spec": {
+    "schema_version": "v4-local-experiment-1",
+    "experiment_id": "v5_gpu_batch16_experiment",
+    "entrypoint": "v4_eval",
+    "protocol": "tasks/v4/llm_hard_v1",
+    "resource": "gpu",
+    "model": "work/modelscope_deepseek_r1_1p5b",
+    "adapter": "work/v4_llm_hard_sft_100_001/adapter",
+    "batch_size": 16
+  }
+}

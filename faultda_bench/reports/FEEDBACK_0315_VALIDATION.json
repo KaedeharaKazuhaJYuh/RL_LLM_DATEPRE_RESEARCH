@@ -1,0 +1,12 @@
+{
+  "version": "0.3.15-dev",
+  "tests": 258,
+  "test_seconds": 76.943,
+  "test_status": "passed",
+  "new_live_requests": 130,
+  "real_responses_replayed": true,
+  "scientific_gate": "HOLD",
+  "new_human_review": false,
+  "provider_authenticity_verified": false,
+  "external_publication_confirmed": false
+}

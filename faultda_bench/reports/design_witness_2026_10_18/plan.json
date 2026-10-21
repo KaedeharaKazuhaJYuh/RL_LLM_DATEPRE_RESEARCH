@@ -1,0 +1,57 @@
+{
+  "schema": "design-witness-v1",
+  "release_baseline": "0.5.10-dev",
+  "source_sha256": {
+    "faultda_bench/design_witness/__init__.py": "2a3184336be1285356db8210ded9724696e2e0abf442a8ece435cea2b9e238e3",
+    "faultda_bench/design_witness/run.py": "b974d896dcc3b3d4abd17cddd82247d6b10a2505ff310745a42608d37723f750",
+    "faultda_bench/semantic/environment.py": "54ff6b19f32163120f92aae416615de3e2cf406a826617330ae289cea14f4008",
+    "faultda_bench/semantic/oracle.py": "0e7f457555f80f367b6ab0ff7e6ab4def42e9b85c6601a2e42ccfa7dbaf886eb",
+    "faultda_bench/recover325/environment.py": "0c90d141ba35f423e9fc5f727d7bf99098a3dbb1154f4ac5f2642e4fd35b5423",
+    "faultda_bench/responsibility370/environment.py": "7da0612aa3a5c15554d321117b3c5c46a01d8457022f145a019b5c1ec3933760",
+    "faultda_bench/responsibility370/semantics.py": "436273281c2872353b18cdb4a0e0ea9dc247fb47c41b40b8c4644d4afdf6fd23",
+    "faultda_bench/responsibility370/contract.py": "e0a2e2ee41f3d6614f4c2fa478f22b43a4a7edb9d2a57c4fdfe20ba34263e91d",
+    "faultda_bench/trust/policy.py": "61aaae66102923a1280442e7838001db49d53333eb0a38c1633cb63bf63888ce",
+    "faultda_bench/feedback315/core.py": "dc67cd849517707c42bbaab9e1b74d0a872b5c2468e5d43301accbb9e5345e4c",
+    "faultda_bench/reports/coherent_v38_offline.json": "4374c41dad85e6237d8609fdec45949ef98e469d9888a0ea5e9fd9326767ce40"
+  },
+  "task_sha256": "b7daab16226262473a67e8664c4352fe1e098362d6d16398f683cd93266b8afe",
+  "cells": [
+    {
+      "s": 0,
+      "u": 0,
+      "cell": "00"
+    },
+    {
+      "s": 0,
+      "u": 1,
+      "cell": "01"
+    },
+    {
+      "s": 1,
+      "u": 0,
+      "cell": "10"
+    },
+    {
+      "s": 1,
+      "u": 1,
+      "cell": "11"
+    }
+  ],
+  "policies": [
+    "verify_then_reuse",
+    "always_restage"
+  ],
+  "total_program_episodes": 8,
+  "caps": {
+    "checks": 4,
+    "mutations": 6,
+    "decisions": 16
+  },
+  "common_seed": "All cells start with one environment_setup report with numeric error; initial setup/candidate costs included.",
+  "S": "Only the prior uncommitted candidate uses closed=left or closed=both.",
+  "U": "Only acknowledgement of the first subsequent publish is normal or lost after actual commit.",
+  "scope": "Existing window task, one historical cluster. Program qualification only, not formal preregistration, model evidence or new independent tasks.",
+  "approved_transport_requests": 0,
+  "scientific_gate": "HOLD",
+  "independent_review": "pending"
+}

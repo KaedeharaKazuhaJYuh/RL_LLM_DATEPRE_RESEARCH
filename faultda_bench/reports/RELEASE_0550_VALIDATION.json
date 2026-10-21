@@ -1,0 +1,39 @@
+{
+  "version": "0.5.50-dev",
+  "date": "2026-10-20",
+  "timezone": "Asia/Taipei",
+  "base_commit": "4ad2de1eca940489384f1635861df53154a19751",
+  "full_repository_tests": {
+    "count": 608,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 151.917,
+    "log_sha256": "6a2fe7d7e436f2415fbf3de495dfe910a7e006b0d22de0bbac0061a2376266e5"
+  },
+  "focused_tests": {
+    "count": 8,
+    "failures": 0,
+    "errors": 0
+  },
+  "historical_audit": {
+    "result_file": "faultda_bench/reports/RELEASE_0550_HISTORICAL_AUDIT.json",
+    "sha256": "6fce77aa7d62a3044ab8f065c9bf7ccd5d2aedf5d80e74cb428ed477877b86b6",
+    "executed_with_inventory_files": 647,
+    "note": "Two validation records appended after replay; no audited implementation or old frozen bytes changed."
+  },
+  "final_frozen_files": 649,
+  "independent_task_clusters": 1,
+  "new_tasks": 0,
+  "old_public_snapshots": 72,
+  "terminal_only_packets": 144,
+  "actual_model_executions": 0,
+  "new_provider_requests": 0,
+  "scientific_gate": "HOLD",
+  "independent_review": "not_arranged",
+  "full_recovery_runner_implemented": false,
+  "research_design_admitted": false,
+  "actual_costs_equal": null,
+  "model_or_rl_improvement_claim": false,
+  "scope": "Python full unittest and frozen historical semantics; no new Go/C++ performance, GPU/NPU or provider experiment"
+}

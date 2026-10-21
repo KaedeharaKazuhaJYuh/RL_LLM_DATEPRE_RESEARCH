@@ -1,0 +1,1888 @@
+{
+  "version": "0.2.55-dev",
+  "protocol": "trust_v10_results.protocol.json",
+  "protocol_sha256": "2504be906b9f7c187a46069c6eaafcb26acda73b1f9e4a3d4ac963823dec6855",
+  "trace": "trust_v10_results.jsonl",
+  "trace_sha256": "60267a057ae83cd46aca43a4d250480426012a9b473ff9dad4ac2eff0d7959c7",
+  "summary": {
+    "executions": 144,
+    "task_clusters": 3,
+    "strata": {
+      "group-01|E0|2|healthy|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1175
+        }
+      },
+      "group-01|E0|2|healthy|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1175
+        }
+      },
+      "group-01|E0|2|healthy|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1175
+        }
+      },
+      "group-01|E0|2|healthy|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "group-01|E0|2|stage_only|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1175
+        }
+      },
+      "group-01|E0|2|stage_only|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1175
+        }
+      },
+      "group-01|E0|2|stage_only|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1175
+        }
+      },
+      "group-01|E0|2|stage_only|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "group-01|E0|2|shared_compute|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 1,
+          "mutations": 3,
+          "decisions": 4,
+          "response_bytes": 1462
+        }
+      },
+      "group-01|E0|2|shared_compute|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 1,
+          "mutations": 3,
+          "decisions": 4,
+          "response_bytes": 1462
+        }
+      },
+      "group-01|E0|2|shared_compute|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 2,
+          "decisions": 3,
+          "response_bytes": 1412
+        }
+      },
+      "group-01|E0|2|shared_compute|abstain": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "group-01|E0|3|healthy|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1175
+        }
+      },
+      "group-01|E0|3|healthy|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1175
+        }
+      },
+      "group-01|E0|3|healthy|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1175
+        }
+      },
+      "group-01|E0|3|healthy|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "group-01|E0|3|stage_only|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1175
+        }
+      },
+      "group-01|E0|3|stage_only|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1175
+        }
+      },
+      "group-01|E0|3|stage_only|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1175
+        }
+      },
+      "group-01|E0|3|stage_only|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "group-01|E0|3|shared_compute|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 1,
+          "mutations": 3,
+          "decisions": 4,
+          "response_bytes": 1462
+        }
+      },
+      "group-01|E0|3|shared_compute|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 1,
+          "mutations": 3,
+          "decisions": 4,
+          "response_bytes": 1462
+        }
+      },
+      "group-01|E0|3|shared_compute|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 2,
+          "decisions": 3,
+          "response_bytes": 1412
+        }
+      },
+      "group-01|E0|3|shared_compute|abstain": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "group-01|E1|2|healthy|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 386
+        }
+      },
+      "group-01|E1|2|healthy|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 2,
+          "decisions": 4,
+          "response_bytes": 623
+        }
+      },
+      "group-01|E1|2|healthy|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 386
+        }
+      },
+      "group-01|E1|2|healthy|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "group-01|E1|2|stage_only|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 386
+        }
+      },
+      "group-01|E1|2|stage_only|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 2,
+          "mutations": 3,
+          "decisions": 5,
+          "response_bytes": 673
+        }
+      },
+      "group-01|E1|2|stage_only|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 386
+        }
+      },
+      "group-01|E1|2|stage_only|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "group-01|E1|2|shared_compute|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 386
+        }
+      },
+      "group-01|E1|2|shared_compute|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 2,
+          "decisions": 4,
+          "response_bytes": 623
+        }
+      },
+      "group-01|E1|2|shared_compute|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 386
+        }
+      },
+      "group-01|E1|2|shared_compute|abstain": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "group-01|E1|3|healthy|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 3,
+          "mutations": 1,
+          "decisions": 4,
+          "response_bytes": 1199
+        }
+      },
+      "group-01|E1|3|healthy|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 2,
+          "decisions": 4,
+          "response_bytes": 623
+        }
+      },
+      "group-01|E1|3|healthy|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 3,
+          "mutations": 1,
+          "decisions": 4,
+          "response_bytes": 1199
+        }
+      },
+      "group-01|E1|3|healthy|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "group-01|E1|3|stage_only|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 3,
+          "mutations": 1,
+          "decisions": 4,
+          "response_bytes": 1199
+        }
+      },
+      "group-01|E1|3|stage_only|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 2,
+          "mutations": 3,
+          "decisions": 5,
+          "response_bytes": 673
+        }
+      },
+      "group-01|E1|3|stage_only|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 3,
+          "mutations": 1,
+          "decisions": 4,
+          "response_bytes": 1199
+        }
+      },
+      "group-01|E1|3|stage_only|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "group-01|E1|3|shared_compute|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 3,
+          "mutations": 3,
+          "decisions": 6,
+          "response_bytes": 1486
+        }
+      },
+      "group-01|E1|3|shared_compute|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 2,
+          "decisions": 4,
+          "response_bytes": 623
+        }
+      },
+      "group-01|E1|3|shared_compute|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 3,
+          "mutations": 2,
+          "decisions": 5,
+          "response_bytes": 1436
+        }
+      },
+      "group-01|E1|3|shared_compute|abstain": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "window-01|E0|2|healthy|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1790
+        }
+      },
+      "window-01|E0|2|healthy|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1790
+        }
+      },
+      "window-01|E0|2|healthy|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1790
+        }
+      },
+      "window-01|E0|2|healthy|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "window-01|E0|2|stage_only|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1790
+        }
+      },
+      "window-01|E0|2|stage_only|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1790
+        }
+      },
+      "window-01|E0|2|stage_only|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1790
+        }
+      },
+      "window-01|E0|2|stage_only|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "window-01|E0|2|shared_compute|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 1,
+          "mutations": 3,
+          "decisions": 4,
+          "response_bytes": 2072
+        }
+      },
+      "window-01|E0|2|shared_compute|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 1,
+          "mutations": 3,
+          "decisions": 4,
+          "response_bytes": 2072
+        }
+      },
+      "window-01|E0|2|shared_compute|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 2,
+          "decisions": 3,
+          "response_bytes": 2022
+        }
+      },
+      "window-01|E0|2|shared_compute|abstain": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "window-01|E0|3|healthy|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1790
+        }
+      },
+      "window-01|E0|3|healthy|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1790
+        }
+      },
+      "window-01|E0|3|healthy|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1790
+        }
+      },
+      "window-01|E0|3|healthy|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "window-01|E0|3|stage_only|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1790
+        }
+      },
+      "window-01|E0|3|stage_only|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1790
+        }
+      },
+      "window-01|E0|3|stage_only|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1790
+        }
+      },
+      "window-01|E0|3|stage_only|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "window-01|E0|3|shared_compute|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 1,
+          "mutations": 3,
+          "decisions": 4,
+          "response_bytes": 2072
+        }
+      },
+      "window-01|E0|3|shared_compute|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 1,
+          "mutations": 3,
+          "decisions": 4,
+          "response_bytes": 2072
+        }
+      },
+      "window-01|E0|3|shared_compute|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 2,
+          "decisions": 3,
+          "response_bytes": 2022
+        }
+      },
+      "window-01|E0|3|shared_compute|abstain": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "window-01|E1|2|healthy|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 381
+        }
+      },
+      "window-01|E1|2|healthy|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 2,
+          "decisions": 4,
+          "response_bytes": 613
+        }
+      },
+      "window-01|E1|2|healthy|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 381
+        }
+      },
+      "window-01|E1|2|healthy|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "window-01|E1|2|stage_only|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 381
+        }
+      },
+      "window-01|E1|2|stage_only|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 2,
+          "mutations": 3,
+          "decisions": 5,
+          "response_bytes": 663
+        }
+      },
+      "window-01|E1|2|stage_only|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 381
+        }
+      },
+      "window-01|E1|2|stage_only|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "window-01|E1|2|shared_compute|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 381
+        }
+      },
+      "window-01|E1|2|shared_compute|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 2,
+          "decisions": 4,
+          "response_bytes": 613
+        }
+      },
+      "window-01|E1|2|shared_compute|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 381
+        }
+      },
+      "window-01|E1|2|shared_compute|abstain": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "window-01|E1|3|healthy|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 3,
+          "mutations": 1,
+          "decisions": 4,
+          "response_bytes": 1814
+        }
+      },
+      "window-01|E1|3|healthy|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 2,
+          "decisions": 4,
+          "response_bytes": 613
+        }
+      },
+      "window-01|E1|3|healthy|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 3,
+          "mutations": 1,
+          "decisions": 4,
+          "response_bytes": 1814
+        }
+      },
+      "window-01|E1|3|healthy|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "window-01|E1|3|stage_only|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 3,
+          "mutations": 1,
+          "decisions": 4,
+          "response_bytes": 1814
+        }
+      },
+      "window-01|E1|3|stage_only|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 2,
+          "mutations": 3,
+          "decisions": 5,
+          "response_bytes": 663
+        }
+      },
+      "window-01|E1|3|stage_only|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 3,
+          "mutations": 1,
+          "decisions": 4,
+          "response_bytes": 1814
+        }
+      },
+      "window-01|E1|3|stage_only|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "window-01|E1|3|shared_compute|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 3,
+          "mutations": 3,
+          "decisions": 6,
+          "response_bytes": 2096
+        }
+      },
+      "window-01|E1|3|shared_compute|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 2,
+          "decisions": 4,
+          "response_bytes": 613
+        }
+      },
+      "window-01|E1|3|shared_compute|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 3,
+          "mutations": 2,
+          "decisions": 5,
+          "response_bytes": 2046
+        }
+      },
+      "window-01|E1|3|shared_compute|abstain": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "version-01|E0|2|healthy|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1220
+        }
+      },
+      "version-01|E0|2|healthy|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1220
+        }
+      },
+      "version-01|E0|2|healthy|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1220
+        }
+      },
+      "version-01|E0|2|healthy|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "version-01|E0|2|stage_only|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1220
+        }
+      },
+      "version-01|E0|2|stage_only|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1220
+        }
+      },
+      "version-01|E0|2|stage_only|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1220
+        }
+      },
+      "version-01|E0|2|stage_only|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "version-01|E0|2|shared_compute|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 1,
+          "mutations": 3,
+          "decisions": 4,
+          "response_bytes": 1504
+        }
+      },
+      "version-01|E0|2|shared_compute|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 1,
+          "mutations": 3,
+          "decisions": 4,
+          "response_bytes": 1504
+        }
+      },
+      "version-01|E0|2|shared_compute|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 2,
+          "decisions": 3,
+          "response_bytes": 1454
+        }
+      },
+      "version-01|E0|2|shared_compute|abstain": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "version-01|E0|3|healthy|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1220
+        }
+      },
+      "version-01|E0|3|healthy|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1220
+        }
+      },
+      "version-01|E0|3|healthy|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1220
+        }
+      },
+      "version-01|E0|3|healthy|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "version-01|E0|3|stage_only|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1220
+        }
+      },
+      "version-01|E0|3|stage_only|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1220
+        }
+      },
+      "version-01|E0|3|stage_only|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 1,
+          "decisions": 2,
+          "response_bytes": 1220
+        }
+      },
+      "version-01|E0|3|stage_only|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "version-01|E0|3|shared_compute|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 1,
+          "mutations": 3,
+          "decisions": 4,
+          "response_bytes": 1504
+        }
+      },
+      "version-01|E0|3|shared_compute|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 1,
+          "mutations": 3,
+          "decisions": 4,
+          "response_bytes": 1504
+        }
+      },
+      "version-01|E0|3|shared_compute|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 1,
+          "mutations": 2,
+          "decisions": 3,
+          "response_bytes": 1454
+        }
+      },
+      "version-01|E0|3|shared_compute|abstain": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "version-01|E1|2|healthy|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 383
+        }
+      },
+      "version-01|E1|2|healthy|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 2,
+          "decisions": 4,
+          "response_bytes": 617
+        }
+      },
+      "version-01|E1|2|healthy|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 383
+        }
+      },
+      "version-01|E1|2|healthy|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "version-01|E1|2|stage_only|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 383
+        }
+      },
+      "version-01|E1|2|stage_only|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 2,
+          "mutations": 3,
+          "decisions": 5,
+          "response_bytes": 667
+        }
+      },
+      "version-01|E1|2|stage_only|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 383
+        }
+      },
+      "version-01|E1|2|stage_only|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "version-01|E1|2|shared_compute|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 383
+        }
+      },
+      "version-01|E1|2|shared_compute|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 2,
+          "decisions": 4,
+          "response_bytes": 617
+        }
+      },
+      "version-01|E1|2|shared_compute|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 1,
+          "decisions": 3,
+          "response_bytes": 383
+        }
+      },
+      "version-01|E1|2|shared_compute|abstain": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "version-01|E1|3|healthy|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 3,
+          "mutations": 1,
+          "decisions": 4,
+          "response_bytes": 1244
+        }
+      },
+      "version-01|E1|3|healthy|stage_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 2,
+          "decisions": 4,
+          "response_bytes": 617
+        }
+      },
+      "version-01|E1|3|healthy|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 3,
+          "mutations": 1,
+          "decisions": 4,
+          "response_bytes": 1244
+        }
+      },
+      "version-01|E1|3|healthy|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "version-01|E1|3|stage_only|read_reference": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 3,
+          "mutations": 1,
+          "decisions": 4,
+          "response_bytes": 1244
+        }
+      },
+      "version-01|E1|3|stage_only|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 2,
+          "mutations": 3,
+          "decisions": 5,
+          "response_bytes": 667
+        }
+      },
+      "version-01|E1|3|stage_only|guarded_read": {
+        "safe_complete": true,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 3,
+          "mutations": 1,
+          "decisions": 4,
+          "response_bytes": 1244
+        }
+      },
+      "version-01|E1|3|stage_only|abstain": {
+        "safe_complete": false,
+        "terminal_correct": true,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      },
+      "version-01|E1|3|shared_compute|read_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 1,
+        "cost": {
+          "checks": 3,
+          "mutations": 3,
+          "decisions": 6,
+          "response_bytes": 1528
+        }
+      },
+      "version-01|E1|3|shared_compute|stage_reference": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": true,
+        "safe_escalation": false,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 2,
+          "mutations": 2,
+          "decisions": 4,
+          "response_bytes": 617
+        }
+      },
+      "version-01|E1|3|shared_compute|guarded_read": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 3,
+          "mutations": 2,
+          "decisions": 5,
+          "response_bytes": 1478
+        }
+      },
+      "version-01|E1|3|shared_compute|abstain": {
+        "safe_complete": false,
+        "terminal_correct": false,
+        "false_completion": false,
+        "safe_escalation": true,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 0,
+          "mutations": 1,
+          "decisions": 1,
+          "response_bytes": 27
+        }
+      }
+    },
+    "api_requests": 0,
+    "scientific_gate": "HOLD",
+    "model_improvement_claim": false
+  }
+}

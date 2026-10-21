@@ -1,0 +1,515 @@
+{
+  "version": "0.3.05-dev",
+  "protocol_sha256": "aaf46eb3a8b8835fe182c6df1a34502338e1b775b0530de8e53e19a0dbb3a269",
+  "trace_sha256": "c77ded94ae5478177047f56a7921205bf54f2a0e95e48abc8c05e8111451047b",
+  "summary": {
+    "version": "0.3.05-dev",
+    "independent_task_clusters": 1,
+    "rule_controls": {
+      "episodes": 8,
+      "safe_complete": 4,
+      "safe_escalation": 4,
+      "false_completion": 0,
+      "agent_wrong_publications": 0,
+      "cost": {
+        "checks": 24,
+        "mutations": 12,
+        "decisions": 36,
+        "response_bytes": 15440
+      }
+    },
+    "timezone_results": {
+      "comparisons": {
+        "utc_end": {
+          "probes": 2,
+          "schema": 2,
+          "row_selection": 2,
+          "row_values": 2,
+          "sum_consistent": 2,
+          "total_correct": 2,
+          "comparison_facts": 2,
+          "utc_facts": 0
+        },
+        "plus8_end": {
+          "probes": 2,
+          "schema": 2,
+          "row_selection": 0,
+          "row_values": 2,
+          "sum_consistent": 2,
+          "total_correct": 0,
+          "comparison_facts": 0,
+          "utc_facts": 0
+        },
+        "minus5_end": {
+          "probes": 2,
+          "schema": 2,
+          "row_selection": 0,
+          "row_values": 2,
+          "sum_consistent": 2,
+          "total_correct": 0,
+          "comparison_facts": 0,
+          "utc_facts": 0
+        },
+        "plus8_all": {
+          "probes": 2,
+          "schema": 2,
+          "row_selection": 2,
+          "row_values": 2,
+          "sum_consistent": 2,
+          "total_correct": 2,
+          "comparison_facts": 2,
+          "utc_facts": 0
+        }
+      },
+      "normalized": {
+        "utc_end": {
+          "probes": 2,
+          "schema": 2,
+          "row_selection": 2,
+          "row_values": 2,
+          "sum_consistent": 2,
+          "total_correct": 2,
+          "comparison_facts": 2,
+          "utc_facts": 2
+        },
+        "plus8_end": {
+          "probes": 2,
+          "schema": 2,
+          "row_selection": 0,
+          "row_values": 2,
+          "sum_consistent": 2,
+          "total_correct": 0,
+          "comparison_facts": 0,
+          "utc_facts": 2
+        },
+        "minus5_end": {
+          "probes": 2,
+          "schema": 2,
+          "row_selection": 0,
+          "row_values": 2,
+          "sum_consistent": 2,
+          "total_correct": 0,
+          "comparison_facts": 0,
+          "utc_facts": 2
+        },
+        "plus8_all": {
+          "probes": 2,
+          "schema": 2,
+          "row_selection": 0,
+          "row_values": 2,
+          "sum_consistent": 2,
+          "total_correct": 0,
+          "comparison_facts": 0,
+          "utc_facts": 2
+        }
+      }
+    },
+    "by_factors": {
+      "A0I0C0": {
+        "episodes": 4,
+        "safe_complete": 0,
+        "safe_escalation": 4,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "cost": {
+          "checks": 12,
+          "mutations": 7,
+          "decisions": 19,
+          "response_bytes": 7952
+        },
+        "by_mode": {
+          "healthy": {
+            "episodes": 2,
+            "safe_complete": 0,
+            "safe_escalation": 2,
+            "false_completion": 0,
+            "agent_wrong_publications": 0,
+            "cost": {
+              "checks": 6,
+              "mutations": 3,
+              "decisions": 9,
+              "response_bytes": 3860
+            }
+          },
+          "shared_compute": {
+            "episodes": 2,
+            "safe_complete": 0,
+            "safe_escalation": 2,
+            "false_completion": 0,
+            "agent_wrong_publications": 0,
+            "cost": {
+              "checks": 6,
+              "mutations": 4,
+              "decisions": 10,
+              "response_bytes": 4092
+            }
+          }
+        },
+        "correct_front_verifications": 4,
+        "end_kinds": {
+          "agent_terminal": 4,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "request_attempts": 11
+      },
+      "A0I0C1": {
+        "episodes": 4,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 3,
+        "cost": {
+          "checks": 12,
+          "mutations": 13,
+          "decisions": 25,
+          "response_bytes": 8801
+        },
+        "by_mode": {
+          "healthy": {
+            "episodes": 2,
+            "safe_complete": 0,
+            "safe_escalation": 2,
+            "false_completion": 0,
+            "agent_wrong_publications": 0,
+            "cost": {
+              "checks": 6,
+              "mutations": 2,
+              "decisions": 8,
+              "response_bytes": 3628
+            }
+          },
+          "shared_compute": {
+            "episodes": 2,
+            "safe_complete": 0,
+            "safe_escalation": 0,
+            "false_completion": 0,
+            "agent_wrong_publications": 3,
+            "cost": {
+              "checks": 6,
+              "mutations": 11,
+              "decisions": 17,
+              "response_bytes": 5173
+            }
+          }
+        },
+        "correct_front_verifications": 4,
+        "end_kinds": {
+          "agent_terminal": 4,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "request_attempts": 17
+      },
+      "A0I1C0": {
+        "episodes": 4,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 2,
+        "cost": {
+          "checks": 12,
+          "mutations": 12,
+          "decisions": 24,
+          "response_bytes": 8752
+        },
+        "by_mode": {
+          "healthy": {
+            "episodes": 2,
+            "safe_complete": 0,
+            "safe_escalation": 2,
+            "false_completion": 0,
+            "agent_wrong_publications": 0,
+            "cost": {
+              "checks": 6,
+              "mutations": 2,
+              "decisions": 8,
+              "response_bytes": 3628
+            }
+          },
+          "shared_compute": {
+            "episodes": 2,
+            "safe_complete": 0,
+            "safe_escalation": 0,
+            "false_completion": 0,
+            "agent_wrong_publications": 2,
+            "cost": {
+              "checks": 6,
+              "mutations": 10,
+              "decisions": 16,
+              "response_bytes": 5124
+            }
+          }
+        },
+        "correct_front_verifications": 4,
+        "end_kinds": {
+          "agent_terminal": 4,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "request_attempts": 16
+      },
+      "A0I1C1": {
+        "episodes": 4,
+        "safe_complete": 0,
+        "safe_escalation": 3,
+        "false_completion": 0,
+        "agent_wrong_publications": 2,
+        "cost": {
+          "checks": 12,
+          "mutations": 12,
+          "decisions": 24,
+          "response_bytes": 8568
+        },
+        "by_mode": {
+          "healthy": {
+            "episodes": 2,
+            "safe_complete": 0,
+            "safe_escalation": 2,
+            "false_completion": 0,
+            "agent_wrong_publications": 0,
+            "cost": {
+              "checks": 6,
+              "mutations": 4,
+              "decisions": 10,
+              "response_bytes": 3910
+            }
+          },
+          "shared_compute": {
+            "episodes": 2,
+            "safe_complete": 0,
+            "safe_escalation": 1,
+            "false_completion": 0,
+            "agent_wrong_publications": 2,
+            "cost": {
+              "checks": 6,
+              "mutations": 8,
+              "decisions": 14,
+              "response_bytes": 4658
+            }
+          }
+        },
+        "correct_front_verifications": 4,
+        "end_kinds": {
+          "agent_terminal": 4,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "request_attempts": 16
+      },
+      "A1I0C0": {
+        "episodes": 4,
+        "safe_complete": 1,
+        "safe_escalation": 1,
+        "false_completion": 0,
+        "agent_wrong_publications": 2,
+        "cost": {
+          "checks": 12,
+          "mutations": 12,
+          "decisions": 24,
+          "response_bytes": 8571
+        },
+        "by_mode": {
+          "healthy": {
+            "episodes": 2,
+            "safe_complete": 1,
+            "safe_escalation": 1,
+            "false_completion": 0,
+            "agent_wrong_publications": 0,
+            "cost": {
+              "checks": 6,
+              "mutations": 4,
+              "decisions": 10,
+              "response_bytes": 3911
+            }
+          },
+          "shared_compute": {
+            "episodes": 2,
+            "safe_complete": 0,
+            "safe_escalation": 0,
+            "false_completion": 0,
+            "agent_wrong_publications": 2,
+            "cost": {
+              "checks": 6,
+              "mutations": 8,
+              "decisions": 14,
+              "response_bytes": 4660
+            }
+          }
+        },
+        "correct_front_verifications": 4,
+        "end_kinds": {
+          "agent_terminal": 4,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "request_attempts": 16
+      },
+      "A1I0C1": {
+        "episodes": 4,
+        "safe_complete": 1,
+        "safe_escalation": 1,
+        "false_completion": 0,
+        "agent_wrong_publications": 4,
+        "cost": {
+          "checks": 12,
+          "mutations": 17,
+          "decisions": 29,
+          "response_bytes": 9187
+        },
+        "by_mode": {
+          "healthy": {
+            "episodes": 2,
+            "safe_complete": 1,
+            "safe_escalation": 1,
+            "false_completion": 0,
+            "agent_wrong_publications": 0,
+            "cost": {
+              "checks": 6,
+              "mutations": 7,
+              "decisions": 13,
+              "response_bytes": 4427
+            }
+          },
+          "shared_compute": {
+            "episodes": 2,
+            "safe_complete": 0,
+            "safe_escalation": 0,
+            "false_completion": 0,
+            "agent_wrong_publications": 4,
+            "cost": {
+              "checks": 6,
+              "mutations": 10,
+              "decisions": 16,
+              "response_bytes": 4760
+            }
+          }
+        },
+        "correct_front_verifications": 4,
+        "end_kinds": {
+          "agent_terminal": 4,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "request_attempts": 21
+      },
+      "A1I1C0": {
+        "episodes": 4,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 3,
+        "cost": {
+          "checks": 12,
+          "mutations": 10,
+          "decisions": 22,
+          "response_bytes": 8105
+        },
+        "by_mode": {
+          "healthy": {
+            "episodes": 2,
+            "safe_complete": 0,
+            "safe_escalation": 2,
+            "false_completion": 0,
+            "agent_wrong_publications": 0,
+            "cost": {
+              "checks": 6,
+              "mutations": 2,
+              "decisions": 8,
+              "response_bytes": 3628
+            }
+          },
+          "shared_compute": {
+            "episodes": 2,
+            "safe_complete": 0,
+            "safe_escalation": 0,
+            "false_completion": 0,
+            "agent_wrong_publications": 3,
+            "cost": {
+              "checks": 6,
+              "mutations": 8,
+              "decisions": 14,
+              "response_bytes": 4477
+            }
+          }
+        },
+        "correct_front_verifications": 4,
+        "end_kinds": {
+          "agent_terminal": 4,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "request_attempts": 14
+      },
+      "A1I1C1": {
+        "episodes": 4,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 4,
+        "cost": {
+          "checks": 12,
+          "mutations": 13,
+          "decisions": 25,
+          "response_bytes": 8621
+        },
+        "by_mode": {
+          "healthy": {
+            "episodes": 2,
+            "safe_complete": 0,
+            "safe_escalation": 2,
+            "false_completion": 0,
+            "agent_wrong_publications": 0,
+            "cost": {
+              "checks": 6,
+              "mutations": 2,
+              "decisions": 8,
+              "response_bytes": 3628
+            }
+          },
+          "shared_compute": {
+            "episodes": 2,
+            "safe_complete": 0,
+            "safe_escalation": 0,
+            "false_completion": 0,
+            "agent_wrong_publications": 4,
+            "cost": {
+              "checks": 6,
+              "mutations": 11,
+              "decisions": 17,
+              "response_bytes": 4993
+            }
+          }
+        },
+        "correct_front_verifications": 4,
+        "end_kinds": {
+          "agent_terminal": 4,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "request_attempts": 17
+      }
+    },
+    "trajectories": {
+      "episodes": 32,
+      "safe_complete": 2,
+      "safe_escalation": 17,
+      "false_completion": 0,
+      "agent_wrong_publications": 20,
+      "cost": {
+        "checks": 96,
+        "mutations": 96,
+        "decisions": 192,
+        "response_bytes": 68557
+      }
+    },
+    "request_attempts": 144,
+    "usage_available_calls": 144,
+    "prompt_tokens": 324224,
+    "completion_tokens": 19290,
+    "provider_errors": 0,
+    "length_finishes": 0,
+    "scientific_gate": "HOLD",
+    "rl_improvement_claim": false
+  }
+}

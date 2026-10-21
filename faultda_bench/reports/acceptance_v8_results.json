@@ -1,0 +1,81 @@
+{
+  "version": "0.2.35-dev",
+  "machine_status": "verified",
+  "api_requests": 0,
+  "historical_large_suites_replayed": false,
+  "checks": {
+    "semantic_v1": {
+      "offline_episodes": 5184,
+      "pilot_episodes": 12,
+      "status": "verified"
+    },
+    "cross_source_v2_results": {
+      "episodes": 2304,
+      "replayed": false,
+      "status": "verified"
+    },
+    "clarity_v2_comparison": {
+      "episodes": 24,
+      "replayed": false,
+      "status": "verified"
+    },
+    "evidence_v3_offline": {
+      "episodes": 72,
+      "status": "verified",
+      "replayed": true
+    },
+    "evidence_v3_api": {
+      "episodes": 24,
+      "status": "verified",
+      "replayed": true
+    },
+    "decision_v4_offline": {
+      "episodes": 36,
+      "replayed": true,
+      "status": "verified"
+    },
+    "decision_v4_api": {
+      "episodes": 12,
+      "replayed": true,
+      "status": "verified"
+    },
+    "regression_v5_results": {
+      "version": "0.2.20-dev",
+      "cases": 6,
+      "status": "verified",
+      "replayed": true,
+      "api_requests": 0
+    },
+    "allocation_v8_results": {
+      "version": "0.2.35-dev",
+      "executions": 576,
+      "replayed": true,
+      "status": "verified",
+      "api_requests": 0
+    }
+  },
+  "files_verified": 71,
+  "catalog_sha256": "55bee41af2d2f5c8613a0fb2e735c489e4f880c064f85c34427ec328b3c15c0c",
+  "human_review": {
+    "development_tasks": {
+      "status": "passed",
+      "tasks": 24
+    },
+    "legacy_diagnostics": {
+      "status": "passed",
+      "tasks": 3
+    },
+    "new_regression_cases": {
+      "status": "passed",
+      "cases": 6,
+      "reviewer": "张雨田",
+      "reviewed_version": "0.2.20-dev",
+      "identity_basis": "User-supplied signed review; document declares independent personal review and no participation in suite development."
+    },
+    "identity_basis": "user-confirmed personal human review",
+    "declared_boundary_checks": 22,
+    "boundary_scripts_independently_replayed": false
+  },
+  "scientific_gate": "HOLD",
+  "scientific_release_ready": false
+}

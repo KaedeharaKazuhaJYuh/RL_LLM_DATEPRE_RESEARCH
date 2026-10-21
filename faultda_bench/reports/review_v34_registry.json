@@ -1,0 +1,252 @@
+{
+  "version": "0.3.75-dev",
+  "scope": "36 existing responsibility cases plus 4 new history witnesses. Not scientific novelty acceptance.",
+  "source_files": {
+    "faultda_bench/reports/responsibility_v33_results.json": "c1a8b20a8c6a77c3994f34cb95b2f6e9d2bd348e30207ff36f12e5b552e62e02",
+    "faultda_bench/reports/lineage_v34_results.json": "fd1eef5769be612b884b8a188232024023aee379718ab9dc61e771e4f430b34d"
+  },
+  "cases": {
+    "v33|utc_end|initial_correct": {
+      "snapshot_sha256": "54bad7495c743436e62b654297b6597f373b57cd637ae8ab3465638e325e2086",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 0,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|initial_wrong": {
+      "snapshot_sha256": "37993c866ee183e05a74ef86fcaaa95e207b54aef1378c6cd5b9b7dca78073b3",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 1,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|staged_correct": {
+      "snapshot_sha256": "e07e949a86b7b5e1619ad1875e01ce366b3ef868d539bc3c44c46747544e3fe7",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 2,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|staged_wrong": {
+      "snapshot_sha256": "8c1d9d7d2668dfd508763d433f15c6e3c024ec6c4db2284d53317b4e95f9d636",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 3,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|acknowledged_correct": {
+      "snapshot_sha256": "8a83a939e80a45914df00d1fdaf2e2d31485e0266ccee024b1e05395ac6304bd",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 4,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|acknowledged_wrong": {
+      "snapshot_sha256": "ce8aa5d8c3e37603165d05cc3f31071a0270287790dbe52492c8b30753a8daa7",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 5,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|timeout_before": {
+      "snapshot_sha256": "652adde5632e6c49bb26b6c28d364bfefddef54f16b947de9ca124559c1045ed",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 6,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|timeout_after": {
+      "snapshot_sha256": "bc003218d97b85d82b14e065b19bf7277c9d08a9ddff64893b82993ebc50db15",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 7,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|observed_after_correct": {
+      "snapshot_sha256": "59d8d49f085952f7fef9265c19c40f1e513372d382ad08db6cc7e001a0c4c650",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 8,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|repaired_after_wrong": {
+      "snapshot_sha256": "908cead495156b62daa1b24120983ab19c06cceb24b66bdd36f36462a5d2ddb6",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 9,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|unknown_correct": {
+      "snapshot_sha256": "78cc84c524bd5f7875ee240d0d9effb1c20b52891d16ec6920dce5d997497dd2",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 10,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|unknown_wrong": {
+      "snapshot_sha256": "d67b4d1f5ab40f7d79d6ce4800859589a8da8b9207e07f79368d7dc357a2a48a",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 11,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|timeout_wrong_before": {
+      "snapshot_sha256": "6fab65df640cf4b4416f9da491ddb20a49da6e6344026ed4caaf6fd8bf18741c",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 12,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|timeout_wrong_after": {
+      "snapshot_sha256": "4a64ecd9b1b38b0c5382dc4a224359097d945559d9e0d02e9f5a7f6f43766328",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 13,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|resolved_wrong_before": {
+      "snapshot_sha256": "2a68a007f12a8b8b7d71e14c02902d1883f8b4dea3b08f73adac9891219adf7c",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 14,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|resolved_wrong_after": {
+      "snapshot_sha256": "4077bcff258ae6b81ac82044a0d342330cb2e2cbc774b24336a5929a14e637dd",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 15,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|model_wrong_repaired": {
+      "snapshot_sha256": "1e4b3a8035c4e7468c122564ce68aad8f81b2209dfd5dd1802312ac6130934df",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 16,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|utc_end|duplicate_append_repaired": {
+      "snapshot_sha256": "ea579b1980f63316eda106b9c72855f56b1b07c4ae76bf6fccc980ff5cf2f3ed",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 17,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|initial_correct": {
+      "snapshot_sha256": "275d17807d77997c4852138f574026a5db76da87522f71b4ba0b1ff2927c3802",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 18,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|initial_wrong": {
+      "snapshot_sha256": "88e7ae9968b1158c9548bbcd6b84c18e4b97917e76dbd1242ce55956d04b7e0b",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 19,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|staged_correct": {
+      "snapshot_sha256": "8254bfe2ad8fb352530e3d1139a8cd3838e5ec5c895893e465ea821deef29268",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 20,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|staged_wrong": {
+      "snapshot_sha256": "287c24782f118738ee891ad892167f979645e87b51a24d027c136d1610a1c695",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 21,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|acknowledged_correct": {
+      "snapshot_sha256": "a3421e34d03b25dcc22cf936888b0569ceeadbd68e862fa5e248dabe21f72488",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 22,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|acknowledged_wrong": {
+      "snapshot_sha256": "fd58784ae894eb887ddf6da73f8d7f6ac08cf6c4b01263567f060ba81738d922",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 23,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|timeout_before": {
+      "snapshot_sha256": "c60a165b880e09e3c83a7e01e39d3ef2a117ea56bbb431b8c7c3127e2da93846",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 24,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|timeout_after": {
+      "snapshot_sha256": "2df4b2c61174027986ac1c1632c08653c1720bd96264ec5689a9a0f1085ac589",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 25,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|observed_after_correct": {
+      "snapshot_sha256": "f529d3d141d0090b724d71655045a87678f7645fb063820571bf8b4b187b98c5",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 26,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|repaired_after_wrong": {
+      "snapshot_sha256": "94207b7c6da74cf4412d07df09f400c5002e77653d609b7780323ba247dbd8f8",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 27,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|unknown_correct": {
+      "snapshot_sha256": "e4ca968ad5edc2835d9aba1704b2267b5ab6bf506d67ca9c36f0577baab00521",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 28,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|unknown_wrong": {
+      "snapshot_sha256": "9da78711a4148645f275f6d89d9f969a91453a4371d7cb2b768224f476ecfbb5",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 29,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|timeout_wrong_before": {
+      "snapshot_sha256": "b92a27798224a4dba28e3b126187b35532644fc4a71e9f19abca691886681675",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 30,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|timeout_wrong_after": {
+      "snapshot_sha256": "753d2380899bd2025ce6ba522844b247e5c237b9da471fba6448259ae0d615b1",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 31,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|resolved_wrong_before": {
+      "snapshot_sha256": "38c2592af37d18677ef33c85b0a4b3343eafec14e62a708926e7781c6ffdc980",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 32,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|resolved_wrong_after": {
+      "snapshot_sha256": "ba3ca9bdb2a7510d1a9a342832b409aedf1c505a4393a231a6e067947f097aef",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 33,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|model_wrong_repaired": {
+      "snapshot_sha256": "726eb2dc7cc58e297e52f40a6962b8f0c72464945e32c48993c77b285926bec7",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 34,
+      "semantics_version": "responsibility-v1"
+    },
+    "v33|plus8_end|duplicate_append_repaired": {
+      "snapshot_sha256": "7a4ca8a8cef0cdc67dcc2d43f84842ad7b85c1c507d30ff82b3deae9e6319576",
+      "source_file": "faultda_bench/reports/responsibility_v33_results.json",
+      "row_index": 35,
+      "semantics_version": "responsibility-v1"
+    },
+    "v34|utc_end|bad_never_committed": {
+      "snapshot_sha256": "c68382bee4c27742aec4c70da78096c5cb0c1c213ff47542f7ac83e28e0bc4e3",
+      "source_file": "faultda_bench/reports/lineage_v34_results.json",
+      "row_index": 0,
+      "semantics_version": "responsibility-v1.1-receipt-witness"
+    },
+    "v34|utc_end|bad_committed": {
+      "snapshot_sha256": "5dafc68ad04c47aabefb8c08c100714546dc4ed59b778360f85c621974f6808e",
+      "source_file": "faultda_bench/reports/lineage_v34_results.json",
+      "row_index": 1,
+      "semantics_version": "responsibility-v1.1-receipt-witness"
+    },
+    "v34|plus8_end|bad_never_committed": {
+      "snapshot_sha256": "b1dbf205de7507e6395894398dd971ec2d906edd63022fd4a193fdfd6e8023a4",
+      "source_file": "faultda_bench/reports/lineage_v34_results.json",
+      "row_index": 2,
+      "semantics_version": "responsibility-v1.1-receipt-witness"
+    },
+    "v34|plus8_end|bad_committed": {
+      "snapshot_sha256": "3d3e11a7f79b4a0effcc2f8a3570e6d2db41a0a56e5d03d2f0c4999453cc0b99",
+      "source_file": "faultda_bench/reports/lineage_v34_results.json",
+      "row_index": 3,
+      "semantics_version": "responsibility-v1.1-receipt-witness"
+    }
+  },
+  "independent_review": "pending",
+  "scientific_gate": "HOLD"
+}

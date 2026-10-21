@@ -1,0 +1,18 @@
+{
+  "version": "0.5.0-dev",
+  "date": "2026-10-16",
+  "decision": "NO_GO_LIVE",
+  "approved_transport_requests": 0,
+  "actual_provider_requests": 0,
+  "source_live_sha256": "b6e9acf6f0c09b713f0778a54bcb235ef50171cb15e92bae68c3beb72f2afa09",
+  "claims_sha256": "3c0d043784b7157465efedec2d9e25eb39bab36734d3ade0ca22673e1c44b7d4",
+  "internal_review_sha256": "f6643063ab604c121106ed9975593d3bf3cc8971f1af3688c062992ebdab1a65",
+  "focused_tests_passed": 23,
+  "reasons": [
+    "Existing responses suffice to annotate the alternative receipt referent without modifying legacy primary grades.",
+    "A neutral actor vocabulary is a reversible interface migration, not evidence of a new learned recovery mechanism.",
+    "Model action-generation evidence and independent scientific adjudication remain absent; no repetition of paid prompts by default."
+  ],
+  "independent_review": "pending",
+  "scientific_gate": "HOLD"
+}

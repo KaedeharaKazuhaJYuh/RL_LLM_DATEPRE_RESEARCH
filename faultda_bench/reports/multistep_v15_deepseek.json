@@ -1,0 +1,46 @@
+{
+  "version": "0.2.80-dev",
+  "backend": "deepseek_live_multistep",
+  "protocol_sha256": "81d1c90ba3d18c086eba538cb1ceb285430f70c8f4dd3f799272f9d4ef367852",
+  "trace_sha256": "0e33aa50c0eee241e9e075c524a7c36e63f3c7bc7aaa3f4699c55979016f37ad",
+  "summary": {
+    "executions": 18,
+    "task_clusters": 3,
+    "by_mode": {
+      "healthy": {
+        "safe_complete": 0,
+        "false_completion": 0,
+        "safe_escalation": 4,
+        "agent_wrong_publications": 2
+      },
+      "stage_only": {
+        "safe_complete": 0,
+        "false_completion": 0,
+        "safe_escalation": 1,
+        "agent_wrong_publications": 5
+      },
+      "shared_compute": {
+        "safe_complete": 0,
+        "false_completion": 0,
+        "safe_escalation": 1,
+        "agent_wrong_publications": 5
+      }
+    },
+    "terminal_counts": {
+      "budget_exceeded": 1,
+      "escalate": 17
+    },
+    "request_attempts": 120,
+    "valid_action_calls": 120,
+    "format_failure_calls": 0,
+    "length_finish": 0,
+    "usage_available_calls": 120,
+    "reported_prompt_tokens": 170662,
+    "reported_completion_tokens": 4904,
+    "actual_models": [
+      "deepseek-flash"
+    ],
+    "scientific_gate": "HOLD",
+    "rl_improvement_claim": false
+  }
+}

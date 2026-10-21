@@ -1,0 +1,197 @@
+{
+  "schema": "vericost565.plan.v1",
+  "version": "0.5.65-dev",
+  "split": "development",
+  "seen_cluster": true,
+  "independent_test": false,
+  "generalization_claim": "none",
+  "live_authorized": false,
+  "model_used": "d1",
+  "scope": "measurement",
+  "live_round_verdict": "PASS",
+  "gate0_decision": {
+    "d1": {
+      "hard_stop": false,
+      "primary_inadmissible": false,
+      "trigger": false,
+      "scope": "measurement",
+      "live_round_verdict": "PASS",
+      "model_used": "d1",
+      "model": "d1",
+      "epsilon": 0.05,
+      "admissible_regimes": 8,
+      "min_fixed_r_primary": 0.0352313961227,
+      "trigger_rev1": true
+    },
+    "rev1": {
+      "hard_stop": true,
+      "primary_inadmissible": false,
+      "trigger": true,
+      "scope": "measurement",
+      "live_round_verdict": "pending_d1",
+      "model_used": "d1",
+      "model": "rev1",
+      "epsilon": 0.05,
+      "admissible_regimes": 8,
+      "min_fixed_r_primary": 0.0315391087846,
+      "trigger_rev1": true
+    }
+  },
+  "code_sha256": {
+    "faultda_bench/vericost565/__init__.py": "5012c7d70c5d1fcf90ce48621a30492c309982e54fe5165cdaa56500f0ec2541",
+    "faultda_bench/vericost565/canon.py": "0a8fdb53f27d839753bc1e838b9831951baeaeb0abb11b55889ec5abb7c3766c",
+    "faultda_bench/vericost565/costs.py": "7473d629c82eb28d2f789d5cbcb11980e4f95616a0a60fdd1da33e8f31193ab9",
+    "faultda_bench/vericost565/instances.py": "7e4ff4963fa61c010c57fe0ef974fa44dcbf7d63cdda56b535e081d140831bc9",
+    "faultda_bench/vericost565/simulator.py": "ec1dfe6ac5098b1048541a7df86dfe7e8f08c63b9d6eabb91966d7129078bf06",
+    "faultda_bench/vericost565/environment.py": "9fa91fdcabe34f1b5b3c84b4d46ef35c9bd451084ec914f32270c0e0c9f2ba4b",
+    "faultda_bench/vericost565/dp.py": "0c29035bc7ba816e7914c2549bbe2c2c1082a01731f29d1dd66c999609b70f90",
+    "faultda_bench/vericost565/certificate.py": "54fb0e2426d02964c317597f150bfc19ef582369cb8e741f85592cd66b27c871",
+    "faultda_bench/vericost565/policies.py": "f1188c12b8b7fa0bd0f5f474a0bbb01bb5a3da6b293b2066620c197acf5bdb6a",
+    "faultda_bench/vericost565/witness.py": "5853bd3f4f8db8da2f618c8f1943c27b2b5571c0e8d51049758a3e1913d3b063",
+    "faultda_bench/vericost565/suite.py": "967ff6767bc5f68c32b21b969b85e77531d6b8f3483f51e60906b7a89e8e0571"
+  },
+  "artifact_sha256": {
+    "faultda_bench/reports/vericost565/dp_certificate_dev.json": "668c4f32fedd5c1bb78b72d22d22f07275622dc84a85b5f5e6eac4c52e08b8a7",
+    "faultda_bench/reports/vericost565/gate0_rev1_dev.json": "9526551122d3dea7f858ab288a08d78c148f5d3806ea97bf976fb07379c7c20a",
+    "faultda_bench/reports/vericost565/gate0_d1_dev.json": "7f1c930b3e5a0d0ebc00717fbd22475ffef1c7890b7671c4a436939c5a5faa7f",
+    "faultda_bench/reports/vericost565/learned_policies.json": "8ae44fb0a6cb4e63f8623abdb2eb901cecdd4ec004d76b39229601de8aa0e00f",
+    "faultda_bench/reports/vericost565/learned_policies_d1.json": "5bdef867ff76f07d746ff59aa3bf93e1c068d4cbe60791c681926b67a753dc2e",
+    "faultda_bench/reports/vericost565/learned_eval.json": "a0e5db53556e3794076e320f02e330a9af72f947d3bcc5cb6079e19149710e8a"
+  },
+  "write_once": {
+    "frozen_at_gate0_plan": [
+      "faultda_bench/reports/vericost565/dp_certificate_dev.json",
+      "faultda_bench/reports/vericost565/gate0_rev1_dev.json",
+      "faultda_bench/reports/vericost565/gate0_d1_dev.json",
+      "faultda_bench/reports/vericost565/learned_policies.json",
+      "faultda_bench/reports/vericost565/learned_policies_d1.json",
+      "faultda_bench/reports/vericost565/learned_eval.json",
+      "faultda_bench/protocols/vericost_v1_plan.json"
+    ],
+    "outputs": [
+      "faultda_bench/reports/vericost565/offline_eval.json",
+      "faultda_bench/reports/vericost565/analysis.json",
+      "faultda_bench/reports/vericost565/cross_version.json"
+    ]
+  },
+  "seeds": {
+    "episode": "sha256(\"vericost565|\" + profile_id + \"|\" + type)",
+    "training_sampler": 565001,
+    "q": 565001,
+    "thompson": 565002,
+    "linucb": 565003,
+    "bootstrap": 5652026
+  },
+  "regimes": [
+    {
+      "regime_id": "k0.03_L1",
+      "kappa": 0.03,
+      "L": 1,
+      "primary": false
+    },
+    {
+      "regime_id": "k0.03_L3",
+      "kappa": 0.03,
+      "L": 3,
+      "primary": false
+    },
+    {
+      "regime_id": "k0.10_L1",
+      "kappa": 0.1,
+      "L": 1,
+      "primary": false
+    },
+    {
+      "regime_id": "k0.10_L3",
+      "kappa": 0.1,
+      "L": 3,
+      "primary": false
+    },
+    {
+      "regime_id": "k0.30_L1",
+      "kappa": 0.3,
+      "L": 1,
+      "primary": false
+    },
+    {
+      "regime_id": "k0.30_L3",
+      "kappa": 0.3,
+      "L": 3,
+      "primary": true
+    },
+    {
+      "regime_id": "k1.00_L1",
+      "kappa": 1.0,
+      "L": 1,
+      "primary": false
+    },
+    {
+      "regime_id": "k1.00_L3",
+      "kappa": 1.0,
+      "L": 3,
+      "primary": false
+    }
+  ],
+  "prereg_sha256": "73ba39b19410251c37d2349549269e2bce1628370d16bd1716efc400d043faf9",
+  "instances_index_sha256": "08213e21f04536dd3d6914f466443df3721103bec2cc07ffe39c74fcd31fe86b",
+  "golden_fixture_sha256": "71282346a447913d5c23a95751faafe861658c9ceafa6ce928ea04e3383830e6",
+  "certificate_sha256": "668c4f32fedd5c1bb78b72d22d22f07275622dc84a85b5f5e6eac4c52e08b8a7",
+  "learned_sha256": "8ae44fb0a6cb4e63f8623abdb2eb901cecdd4ec004d76b39229601de8aa0e00f",
+  "arms": [
+    "bf",
+    "F",
+    "F_size",
+    "F_hist",
+    "F_hist_plus",
+    "always_full_recompute",
+    "escalate_all",
+    "never_verify",
+    "static_semantic",
+    "guarded_read",
+    "q_only",
+    "thompson",
+    "linucb"
+  ],
+  "live_protocol": {
+    "status": "deferred_not_run",
+    "live_authorized": false,
+    "api_calls": 0,
+    "cny_spent": "0.000000",
+    "prices": {
+      "deepseek-flash": {
+        "cache_hit": "0.04",
+        "cache_miss": "2",
+        "output": "8"
+      },
+      "deepseek-v4-pro": {
+        "cache_hit": "0.30",
+        "cache_miss": "9",
+        "output": "27"
+      }
+    },
+    "price_unit": "CNY per million tokens",
+    "off_peak": "half price",
+    "peak_windows_beijing": [
+      [
+        "Mon-Fri",
+        "09:00",
+        "12:00"
+      ],
+      [
+        "Mon-Fri",
+        "14:00",
+        "18:00"
+      ]
+    ],
+    "peak_excludes": "CN public holidays",
+    "tz": "Asia/Shanghai",
+    "source_url": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing",
+    "access_date": "2026-10-20",
+    "recorded_by": "design review 5; not re-fetched during implementation (no network use in this version)",
+    "re_verify_before_live": true,
+    "floor_cny": "16.00",
+    "cap_cny": "30.00"
+  },
+  "api_calls": 0,
+  "cny_spent": "0.000000"
+}

@@ -1,0 +1,21 @@
+{
+  "version": "0.3.80-dev",
+  "tests": 400,
+  "test_status": "passed",
+  "test_seconds": 92.204,
+  "actual_provider_requests": 8,
+  "actual_model_trajectories": 4,
+  "resolved_correct_terminal": 3,
+  "strong_rule_correct_terminal": 4,
+  "supported_safe_stop": 1,
+  "confirmed_violation_escalation": 2,
+  "supported_evidence_but_escalated": 1,
+  "unsupported_stop": 0,
+  "actual_unsafe_stop": 0,
+  "new_current_model_violation_events": 0,
+  "internal_technical_review": "completed",
+  "independent_review": "pending",
+  "scientific_gate": "HOLD",
+  "provider_authenticity_verified": false,
+  "external_publication_confirmed": false
+}

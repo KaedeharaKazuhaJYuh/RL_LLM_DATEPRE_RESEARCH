@@ -1,0 +1,68 @@
+{
+  "version": "0.2.95-dev",
+  "backend": "deepseek_live_independent_probes",
+  "protocol_sha256": "f0cc5463a49f9a66cc034b7251e7e0917d80fa35880d488d3340af2039d5a604",
+  "trace_sha256": "49333284a34c06e66ec5a31601595054c5c85fc63f80f651251d792de8806e6a",
+  "summary": {
+    "executions": 48,
+    "task_clusters": 3,
+    "by_arm": {
+      "checklist": {
+        "judgement_probes": 12,
+        "exact_judgements": 8,
+        "numeric_judgements": 8,
+        "correctness_judgements": 10,
+        "action_probes": 12,
+        "by_mode": {
+          "healthy": {
+            "safe_complete": 0,
+            "safe_escalation": 0,
+            "false_completion": 0,
+            "agent_wrong_publications": 0
+          },
+          "shared_compute": {
+            "safe_complete": 0,
+            "safe_escalation": 0,
+            "false_completion": 0,
+            "agent_wrong_publications": 0
+          }
+        }
+      },
+      "clarified": {
+        "judgement_probes": 12,
+        "exact_judgements": 8,
+        "numeric_judgements": 8,
+        "correctness_judgements": 10,
+        "action_probes": 12,
+        "by_mode": {
+          "healthy": {
+            "safe_complete": 0,
+            "safe_escalation": 1,
+            "false_completion": 0,
+            "agent_wrong_publications": 0
+          },
+          "shared_compute": {
+            "safe_complete": 0,
+            "safe_escalation": 3,
+            "false_completion": 0,
+            "agent_wrong_publications": 0
+          }
+        }
+      }
+    },
+    "request_attempts": 48,
+    "categories": {
+      "valid_action": 24,
+      "valid_judgement": 24
+    },
+    "usage_available_calls": 48,
+    "reported_prompt_tokens": 78560,
+    "reported_completion_tokens": 1320,
+    "length_finish": 0,
+    "actual_models": [
+      "deepseek-flash"
+    ],
+    "scientific_gate": "HOLD",
+    "rl_improvement_claim": false
+  }
+}

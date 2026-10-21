@@ -1,0 +1,829 @@
+{
+  "version": "0.3.20-dev",
+  "protocol_sha256": "e2e4ace69e5a2a322b427e71730bfed7688f0605de0c305c0c3eafb0c44550a9",
+  "trace_sha256": "c0591450b5e886e4548af9ea703dde00cc7a07d3cdaa3512247f3b0d72e8a5e6",
+  "summary": {
+    "version": "0.3.20-dev",
+    "by_arm": {
+      "review_only": {
+        "episodes": 16,
+        "safe_complete": 2,
+        "safe_escalation": 8,
+        "false_completion": 0,
+        "agent_wrong_publications": 10,
+        "unsafe_episodes": 6,
+        "initial_fully_valid": 4,
+        "revisions": 16,
+        "revision_fully_valid": 4,
+        "end_kinds": {
+          "agent_terminal": 16,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 79,
+        "usage_available": 79,
+        "prompt_tokens": 222900,
+        "completion_tokens": 9780,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 48,
+          "mutations": 63,
+          "decisions": 111,
+          "response_bytes": 36498
+        }
+      },
+      "checked_review": {
+        "episodes": 16,
+        "safe_complete": 2,
+        "safe_escalation": 8,
+        "false_completion": 0,
+        "agent_wrong_publications": 9,
+        "unsafe_episodes": 6,
+        "initial_fully_valid": 4,
+        "revisions": 16,
+        "revision_fully_valid": 14,
+        "end_kinds": {
+          "agent_terminal": 16,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 69,
+        "usage_available": 69,
+        "prompt_tokens": 193578,
+        "completion_tokens": 10971,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 48,
+          "mutations": 53,
+          "decisions": 101,
+          "response_bytes": 35266
+        }
+      },
+      "flags_only": {
+        "episodes": 16,
+        "safe_complete": 2,
+        "safe_escalation": 12,
+        "false_completion": 0,
+        "agent_wrong_publications": 3,
+        "unsafe_episodes": 2,
+        "initial_fully_valid": 4,
+        "revisions": 0,
+        "revision_fully_valid": 0,
+        "end_kinds": {
+          "agent_terminal": 16,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 29,
+        "usage_available": 29,
+        "prompt_tokens": 82661,
+        "completion_tokens": 2382,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 48,
+          "mutations": 29,
+          "decisions": 77,
+          "response_bytes": 31138
+        }
+      }
+    },
+    "by_view_mode_arm": {
+      "utc_end|healthy|review_only": {
+        "episodes": 2,
+        "safe_complete": 2,
+        "safe_escalation": 0,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "unsafe_episodes": 0,
+        "initial_fully_valid": 2,
+        "revisions": 2,
+        "revision_fully_valid": 2,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 8,
+        "usage_available": 8,
+        "prompt_tokens": 21834,
+        "completion_tokens": 1022,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 6,
+          "decisions": 12,
+          "response_bytes": 4194
+        }
+      },
+      "utc_end|healthy|checked_review": {
+        "episodes": 2,
+        "safe_complete": 2,
+        "safe_escalation": 0,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "unsafe_episodes": 0,
+        "initial_fully_valid": 2,
+        "revisions": 2,
+        "revision_fully_valid": 2,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 8,
+        "usage_available": 8,
+        "prompt_tokens": 21892,
+        "completion_tokens": 1168,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 6,
+          "decisions": 12,
+          "response_bytes": 4194
+        }
+      },
+      "utc_end|healthy|flags_only": {
+        "episodes": 2,
+        "safe_complete": 2,
+        "safe_escalation": 0,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "unsafe_episodes": 0,
+        "initial_fully_valid": 2,
+        "revisions": 0,
+        "revision_fully_valid": 0,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 6,
+        "usage_available": 6,
+        "prompt_tokens": 17246,
+        "completion_tokens": 128,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 6,
+          "decisions": 12,
+          "response_bytes": 4194
+        }
+      },
+      "utc_end|shared_compute|review_only": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 0,
+        "false_completion": 0,
+        "agent_wrong_publications": 3,
+        "unsafe_episodes": 2,
+        "initial_fully_valid": 2,
+        "revisions": 2,
+        "revision_fully_valid": 2,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 14,
+        "usage_available": 14,
+        "prompt_tokens": 40855,
+        "completion_tokens": 1424,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 12,
+          "decisions": 18,
+          "response_bytes": 5409
+        }
+      },
+      "utc_end|shared_compute|checked_review": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 0,
+        "false_completion": 0,
+        "agent_wrong_publications": 4,
+        "unsafe_episodes": 2,
+        "initial_fully_valid": 2,
+        "revisions": 2,
+        "revision_fully_valid": 2,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 14,
+        "usage_available": 14,
+        "prompt_tokens": 40941,
+        "completion_tokens": 1609,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 12,
+          "decisions": 18,
+          "response_bytes": 5226
+        }
+      },
+      "utc_end|shared_compute|flags_only": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 0,
+        "false_completion": 0,
+        "agent_wrong_publications": 3,
+        "unsafe_episodes": 2,
+        "initial_fully_valid": 2,
+        "revisions": 0,
+        "revision_fully_valid": 0,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 8,
+        "usage_available": 8,
+        "prompt_tokens": 23489,
+        "completion_tokens": 420,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 8,
+          "decisions": 14,
+          "response_bytes": 4477
+        }
+      },
+      "plus8_end|healthy|review_only": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "unsafe_episodes": 0,
+        "initial_fully_valid": 0,
+        "revisions": 2,
+        "revision_fully_valid": 0,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 8,
+        "usage_available": 8,
+        "prompt_tokens": 22320,
+        "completion_tokens": 1171,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 6,
+          "decisions": 12,
+          "response_bytes": 4377
+        }
+      },
+      "plus8_end|healthy|checked_review": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "unsafe_episodes": 0,
+        "initial_fully_valid": 0,
+        "revisions": 2,
+        "revision_fully_valid": 2,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 4,
+        "usage_available": 4,
+        "prompt_tokens": 10308,
+        "completion_tokens": 1062,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 2,
+          "decisions": 8,
+          "response_bytes": 3628
+        }
+      },
+      "plus8_end|healthy|flags_only": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "unsafe_episodes": 0,
+        "initial_fully_valid": 0,
+        "revisions": 0,
+        "revision_fully_valid": 0,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 2,
+        "usage_available": 2,
+        "prompt_tokens": 5550,
+        "completion_tokens": 188,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 2,
+          "decisions": 8,
+          "response_bytes": 3628
+        }
+      },
+      "plus8_end|shared_compute|review_only": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 1,
+        "false_completion": 0,
+        "agent_wrong_publications": 1,
+        "unsafe_episodes": 1,
+        "initial_fully_valid": 0,
+        "revisions": 2,
+        "revision_fully_valid": 0,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 6,
+        "usage_available": 6,
+        "prompt_tokens": 16057,
+        "completion_tokens": 1060,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 4,
+          "decisions": 10,
+          "response_bytes": 3911
+        }
+      },
+      "plus8_end|shared_compute|checked_review": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 1,
+        "false_completion": 0,
+        "agent_wrong_publications": 1,
+        "unsafe_episodes": 1,
+        "initial_fully_valid": 0,
+        "revisions": 2,
+        "revision_fully_valid": 2,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 7,
+        "usage_available": 7,
+        "prompt_tokens": 19240,
+        "completion_tokens": 1446,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 5,
+          "decisions": 11,
+          "response_bytes": 4144
+        }
+      },
+      "plus8_end|shared_compute|flags_only": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "unsafe_episodes": 0,
+        "initial_fully_valid": 0,
+        "revisions": 0,
+        "revision_fully_valid": 0,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 2,
+        "usage_available": 2,
+        "prompt_tokens": 5550,
+        "completion_tokens": 271,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 2,
+          "decisions": 8,
+          "response_bytes": 3628
+        }
+      },
+      "minus5_end|healthy|review_only": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "unsafe_episodes": 0,
+        "initial_fully_valid": 0,
+        "revisions": 2,
+        "revision_fully_valid": 0,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 12,
+        "usage_available": 12,
+        "prompt_tokens": 34256,
+        "completion_tokens": 1217,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 10,
+          "decisions": 16,
+          "response_bytes": 4760
+        }
+      },
+      "minus5_end|healthy|checked_review": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "unsafe_episodes": 0,
+        "initial_fully_valid": 0,
+        "revisions": 2,
+        "revision_fully_valid": 2,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 6,
+        "usage_available": 6,
+        "prompt_tokens": 16109,
+        "completion_tokens": 1594,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 4,
+          "decisions": 10,
+          "response_bytes": 3911
+        }
+      },
+      "minus5_end|healthy|flags_only": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "unsafe_episodes": 0,
+        "initial_fully_valid": 0,
+        "revisions": 0,
+        "revision_fully_valid": 0,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 4,
+        "usage_available": 4,
+        "prompt_tokens": 11362,
+        "completion_tokens": 240,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 4,
+          "decisions": 10,
+          "response_bytes": 4094
+        }
+      },
+      "minus5_end|shared_compute|review_only": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 0,
+        "false_completion": 0,
+        "agent_wrong_publications": 4,
+        "unsafe_episodes": 2,
+        "initial_fully_valid": 0,
+        "revisions": 2,
+        "revision_fully_valid": 0,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 12,
+        "usage_available": 12,
+        "prompt_tokens": 34256,
+        "completion_tokens": 1303,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 10,
+          "decisions": 16,
+          "response_bytes": 4760
+        }
+      },
+      "minus5_end|shared_compute|checked_review": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 0,
+        "false_completion": 0,
+        "agent_wrong_publications": 3,
+        "unsafe_episodes": 2,
+        "initial_fully_valid": 0,
+        "revisions": 2,
+        "revision_fully_valid": 2,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 13,
+        "usage_available": 13,
+        "prompt_tokens": 37703,
+        "completion_tokens": 1429,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 11,
+          "decisions": 17,
+          "response_bytes": 5176
+        }
+      },
+      "minus5_end|shared_compute|flags_only": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "unsafe_episodes": 0,
+        "initial_fully_valid": 0,
+        "revisions": 0,
+        "revision_fully_valid": 0,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 3,
+        "usage_available": 3,
+        "prompt_tokens": 8456,
+        "completion_tokens": 439,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 3,
+          "decisions": 9,
+          "response_bytes": 3861
+        }
+      },
+      "plus8_all|healthy|review_only": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "unsafe_episodes": 0,
+        "initial_fully_valid": 0,
+        "revisions": 2,
+        "revision_fully_valid": 0,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 10,
+        "usage_available": 10,
+        "prompt_tokens": 27919,
+        "completion_tokens": 1190,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 8,
+          "decisions": 14,
+          "response_bytes": 4660
+        }
+      },
+      "plus8_all|healthy|checked_review": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "unsafe_episodes": 0,
+        "initial_fully_valid": 0,
+        "revisions": 2,
+        "revision_fully_valid": 1,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 6,
+        "usage_available": 6,
+        "prompt_tokens": 15979,
+        "completion_tokens": 1328,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 4,
+          "decisions": 10,
+          "response_bytes": 3911
+        }
+      },
+      "plus8_all|healthy|flags_only": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "unsafe_episodes": 0,
+        "initial_fully_valid": 0,
+        "revisions": 0,
+        "revision_fully_valid": 0,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 2,
+        "usage_available": 2,
+        "prompt_tokens": 5504,
+        "completion_tokens": 233,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 2,
+          "decisions": 8,
+          "response_bytes": 3628
+        }
+      },
+      "plus8_all|shared_compute|review_only": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 1,
+        "false_completion": 0,
+        "agent_wrong_publications": 2,
+        "unsafe_episodes": 1,
+        "initial_fully_valid": 0,
+        "revisions": 2,
+        "revision_fully_valid": 0,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 9,
+        "usage_available": 9,
+        "prompt_tokens": 25403,
+        "completion_tokens": 1393,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 7,
+          "decisions": 13,
+          "response_bytes": 4427
+        }
+      },
+      "plus8_all|shared_compute|checked_review": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 1,
+        "false_completion": 0,
+        "agent_wrong_publications": 1,
+        "unsafe_episodes": 1,
+        "initial_fully_valid": 0,
+        "revisions": 2,
+        "revision_fully_valid": 1,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 11,
+        "usage_available": 11,
+        "prompt_tokens": 31406,
+        "completion_tokens": 1335,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 9,
+          "decisions": 15,
+          "response_bytes": 5076
+        }
+      },
+      "plus8_all|shared_compute|flags_only": {
+        "episodes": 2,
+        "safe_complete": 0,
+        "safe_escalation": 2,
+        "false_completion": 0,
+        "agent_wrong_publications": 0,
+        "unsafe_episodes": 0,
+        "initial_fully_valid": 0,
+        "revisions": 0,
+        "revision_fully_valid": 0,
+        "end_kinds": {
+          "agent_terminal": 2,
+          "response_failure": 0,
+          "experiment_horizon": 0
+        },
+        "requests": 2,
+        "usage_available": 2,
+        "prompt_tokens": 5504,
+        "completion_tokens": 463,
+        "provider_errors": 0,
+        "length_finishes": 0,
+        "cost": {
+          "checks": 6,
+          "mutations": 2,
+          "decisions": 8,
+          "response_bytes": 3628
+        }
+      }
+    },
+    "rule_controls": {
+      "episodes": 8,
+      "safe_complete": 4,
+      "safe_escalation": 4,
+      "false_completion": 0,
+      "agent_wrong_publications": 0,
+      "unsafe_episodes": 0,
+      "initial_fully_valid": 0,
+      "revisions": 0,
+      "revision_fully_valid": 0,
+      "end_kinds": {
+        "agent_terminal": 0,
+        "response_failure": 0,
+        "experiment_horizon": 0
+      },
+      "requests": 0,
+      "usage_available": 0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "provider_errors": 0,
+      "length_finishes": 0,
+      "cost": {
+        "checks": 24,
+        "mutations": 12,
+        "decisions": 36,
+        "response_bytes": 15440
+      }
+    },
+    "all_models": {
+      "episodes": 48,
+      "safe_complete": 6,
+      "safe_escalation": 28,
+      "false_completion": 0,
+      "agent_wrong_publications": 22,
+      "unsafe_episodes": 14,
+      "initial_fully_valid": 12,
+      "revisions": 32,
+      "revision_fully_valid": 18,
+      "end_kinds": {
+        "agent_terminal": 48,
+        "response_failure": 0,
+        "experiment_horizon": 0
+      },
+      "requests": 177,
+      "usage_available": 177,
+      "prompt_tokens": 499139,
+      "completion_tokens": 23133,
+      "provider_errors": 0,
+      "length_finishes": 0,
+      "cost": {
+        "checks": 144,
+        "mutations": 145,
+        "decisions": 289,
+        "response_bytes": 102902
+      }
+    },
+    "new_initial_generation_requests": 0,
+    "reused_historical_initial_requests": 8,
+    "scientific_gate": "HOLD",
+    "independent_task_clusters": 1,
+    "rl_improvement_claim": false
+  }
+}

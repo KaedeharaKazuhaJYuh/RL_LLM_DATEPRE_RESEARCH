@@ -1,0 +1,118 @@
+{
+  "version": "0.5.20-dev",
+  "reviewer": "张雨田",
+  "registered_date": "2026-10-19",
+  "status": "registered_final_referent_adjudication_only",
+  "source_review_sha256": "08f81c87913a9931694f00421ea7408ca3690b46c49b95dc117001fdd5e83703",
+  "source_intake_sha256": "6723b33dfb698230f5d171ba7336881b8ed4bac30af44be2bffdd6cb2d2a2301",
+  "packet_sha256": "83f8e869acddc1e968b52e76a1fa55295fcf3e51d78c757423970c3640b39f80",
+  "consent_relay_sha256": "350020d51896bc90306ac8a52998968764e7ac8110dc7bca2b800f33377f69f8",
+  "case_opinions": [
+    {
+      "case_id": "referent|utc_end|base|historical|bad_never_committed|first",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": true
+    },
+    {
+      "case_id": "referent|utc_end|base|historical|bad_committed|first",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": true
+    },
+    {
+      "case_id": "referent|utc_end|base|scripted_current|bad_never_committed|second",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": false
+    },
+    {
+      "case_id": "referent|utc_end|base|scripted_current|bad_committed|second",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": false
+    },
+    {
+      "case_id": "referent|utc_end|trim_start|historical|bad_never_committed|second",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": true
+    },
+    {
+      "case_id": "referent|utc_end|trim_start|historical|bad_committed|second",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": true
+    },
+    {
+      "case_id": "referent|utc_end|trim_start|scripted_current|bad_never_committed|first",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": false
+    },
+    {
+      "case_id": "referent|utc_end|trim_start|scripted_current|bad_committed|first",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": false
+    },
+    {
+      "case_id": "referent|utc_end|early_end|historical|bad_never_committed|first",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": true
+    },
+    {
+      "case_id": "referent|utc_end|early_end|historical|bad_committed|first",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": true
+    },
+    {
+      "case_id": "referent|utc_end|early_end|scripted_current|bad_never_committed|second",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": false
+    },
+    {
+      "case_id": "referent|utc_end|early_end|scripted_current|bad_committed|second",
+      "contextual": "both_plausible",
+      "explicit": "lookup",
+      "scripted_origin_clear": true,
+      "actor_scope_clear": false
+    }
+  ],
+  "registered_pairs": 12,
+  "retained_objections": [
+    "contextual admits both lookup and last-publish readings; explicit specifies lookup",
+    "scripted_current actor scope in old prompts is not independently unambiguous",
+    "origin scripted is clear but does not imply true model-authored history",
+    "wording-collision explanation remains an opinion, not isolated causal evidence"
+  ],
+  "scope": "Registration of the existing twelve opinions with objections, after user-relayed reviewer consent; no repeat review, replacement scores or new design acceptance.",
+  "final_adjudication_registered": true,
+  "reviewer_identity_authenticated": false,
+  "source_signature_received": false,
+  "old_scores_replaced": false,
+  "old_37_group_scope_expanded": false,
+  "design_opinions": {
+    "design|increment": "revise",
+    "design|independence": "revise",
+    "design|metrics": "revise",
+    "design|decision": "revise"
+  },
+  "new_0520_interface_independently_reviewed": false,
+  "scientific_gate": "HOLD",
+  "approved_transport_requests": 0
+}

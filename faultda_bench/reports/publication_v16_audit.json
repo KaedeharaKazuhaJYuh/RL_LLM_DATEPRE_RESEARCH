@@ -1,0 +1,23 @@
+{
+  "version": "0.2.85-dev",
+  "backend": "offline_historical_publication_audit",
+  "protocol_sha256": "526305831d66a340dc98e8709f3caf12f5037876aacc963460962271bfa27b31",
+  "trace_sha256": "13b31886f0db232e0a9a374a36ca41161b7ea65b40d409d538d81c9b8311e156",
+  "summary": {
+    "publication_attempts": 17,
+    "applied": 16,
+    "wrong_publications": 12,
+    "bad_parameter_only": 2,
+    "bad_compute_only": 7,
+    "bad_both": 3,
+    "bad_neither": 0,
+    "gate_reasons": {
+      "independent_evidence_unavailable": 17
+    },
+    "correct_applied_blocked": 4,
+    "wrong_applied_blocked": 12,
+    "api_requests": 0,
+    "model_recovery_improvement_claim": false,
+    "scientific_gate": "HOLD"
+  }
+}

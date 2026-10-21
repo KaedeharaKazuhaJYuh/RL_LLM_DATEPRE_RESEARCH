@@ -1,0 +1,47 @@
+{
+  "version": "0.5.05-dev",
+  "date": "2026-10-17",
+  "full_repository": {
+    "command": "python -m unittest discover -s tests -v",
+    "count": 513,
+    "elapsed_seconds": 142.589,
+    "result": "OK",
+    "log_sha256": "9dfa5ed62a6dc7d01d9fc64557def9154de2b218a32d5d962c2320f9226711ab",
+    "scope": "Full working repository, including inherited tests; distinct from distributable evidence subset."
+  },
+  "bundle_expected_collected_count": 304,
+  "ci_selected_count": 286,
+  "previous_test_scopes": {
+    "full_repository": 496,
+    "bundle": 287,
+    "ci_selection": 269
+  },
+  "new_tests": 17,
+  "old_bundle_dependency_reproduction": {
+    "unmodified_exit_code": 1,
+    "reason": "ModuleNotFoundError: research",
+    "stderr_sha256": "eefa54c9ef11c57f158025725a1888e5d1087d41a1b1e5dc05aefc91f5068f1e"
+  },
+  "real_dependency_closure_probe": {
+    "exit_code": 0,
+    "elapsed_seconds": 92.062,
+    "stdout_sha256": "0e7999fcebb2d5f18d18a14e14a05de9ffbb403704e6f132e397a6cebefd3cfc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "files": [
+      "research/__init__.py",
+      "research/io.py",
+      "pyproject.toml"
+    ],
+    "isolation": "python -I -S; no site processing or checkout import path"
+  },
+  "final_bundle_validation_location": "BUNDLE_VALIDATION.json, generated from fixed committed sources by review505.bundle; not independent review",
+  "release_metadata_check": "V5.0.15-beta.2 consistent",
+  "new_provider_requests": 0,
+  "scientific_gate": "HOLD",
+  "focused_followup": {
+    "count": 17,
+    "result": "OK",
+    "elapsed_seconds": 0.104,
+    "log_sha256": "1ca0a5ba8c02c09fab59168b447de9471b47b3a59e10287239225293a320a67f"
+  }
+}

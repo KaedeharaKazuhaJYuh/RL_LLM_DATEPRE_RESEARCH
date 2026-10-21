@@ -1,0 +1,157 @@
+{
+  "version": "0.5.55-dev",
+  "revision": "within-version-performance-1",
+  "baseline_commit": "cd8311ebbb5f89f70f17d4a2bfbbea1ad42c3ae1",
+  "operation": "frozen core.qualify (includes registration replay and negative controls), not the paired benchmark workload",
+  "profiled_seconds": 9.1584637,
+  "total_calls": 8114479,
+  "primitive_calls": 6678894,
+  "top_cumulative_functions": [
+    {
+      "file": "core.py",
+      "line": 131,
+      "function": "qualify",
+      "primitive_calls": 1,
+      "calls": 1,
+      "own_seconds": 0.008667900000000001,
+      "cumulative_seconds": 9.1584468
+    },
+    {
+      "file": "core.py",
+      "line": 78,
+      "function": "_resolve",
+      "primitive_calls": 437,
+      "calls": 437,
+      "own_seconds": 0.14509380000000002,
+      "cumulative_seconds": 7.129461
+    },
+    {
+      "file": "core.py",
+      "line": 123,
+      "function": "grade",
+      "primitive_calls": 144,
+      "calls": 144,
+      "own_seconds": 0.1617722,
+      "cumulative_seconds": 5.4915367
+    },
+    {
+      "file": "core.py",
+      "line": 39,
+      "function": "source",
+      "primitive_calls": 439,
+      "calls": 439,
+      "own_seconds": 0.07522530000000001,
+      "cumulative_seconds": 4.974904100000001
+    },
+    {
+      "file": "__init__.py",
+      "line": 299,
+      "function": "loads",
+      "primitive_calls": 1317,
+      "calls": 1317,
+      "own_seconds": 0.0040609,
+      "cumulative_seconds": 3.8718375000000003
+    },
+    {
+      "file": "decoder.py",
+      "line": 333,
+      "function": "decode",
+      "primitive_calls": 1317,
+      "calls": 1317,
+      "own_seconds": 0.004593,
+      "cumulative_seconds": 3.4884624000000004
+    },
+    {
+      "file": "decoder.py",
+      "line": 344,
+      "function": "raw_decode",
+      "primitive_calls": 1317,
+      "calls": 1317,
+      "own_seconds": 3.4787226,
+      "cumulative_seconds": 3.4787226
+    },
+    {
+      "file": "core.py",
+      "line": 108,
+      "function": "verify_supplied",
+      "primitive_calls": 148,
+      "calls": 148,
+      "own_seconds": 0.172607,
+      "cumulative_seconds": 2.7823185
+    },
+    {
+      "file": "core.py",
+      "line": 102,
+      "function": "prepare",
+      "primitive_calls": 145,
+      "calls": 145,
+      "own_seconds": 0.16424470000000002,
+      "cumulative_seconds": 2.7787853
+    },
+    {
+      "file": "copy.py",
+      "line": 118,
+      "function": "deepcopy",
+      "primitive_calls": 18882,
+      "calls": 1279967,
+      "own_seconds": 0.8509809,
+      "cumulative_seconds": 1.7720137
+    },
+    {
+      "file": "copy.py",
+      "line": 217,
+      "function": "_deepcopy_dict",
+      "primitive_calls": 12834,
+      "calls": 177174,
+      "own_seconds": 0.30288560000000003,
+      "cumulative_seconds": 1.7384540000000002
+    },
+    {
+      "file": "design.py",
+      "line": 37,
+      "function": "packet",
+      "primitive_calls": 1885,
+      "calls": 1885,
+      "own_seconds": 0.0156845,
+      "cumulative_seconds": 1.4531547
+    },
+    {
+      "file": "copy.py",
+      "line": 191,
+      "function": "_deepcopy_list",
+      "primitive_calls": 18269,
+      "calls": 28429,
+      "own_seconds": 0.034638600000000005,
+      "cumulative_seconds": 1.2710383
+    },
+    {
+      "file": "pathlib.py",
+      "line": 1015,
+      "function": "read_bytes",
+      "primitive_calls": 1754,
+      "calls": 1754,
+      "own_seconds": 0.0047536,
+      "cumulative_seconds": 1.1861294
+    },
+    {
+      "file": "design.py",
+      "line": 56,
+      "function": "validate",
+      "primitive_calls": 1304,
+      "calls": 1304,
+      "own_seconds": 0.014203700000000001,
+      "cumulative_seconds": 1.0048215
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'read' of '_io.BufferedReader' objects>",
+      "primitive_calls": 1754,
+      "calls": 1754,
+      "own_seconds": 0.9674692,
+      "cumulative_seconds": 0.9674692
+    }
+  ],
+  "note": "cProfile instrumentation overhead; do not compare profiled wall time with unprofiled timing as a speedup",
+  "new_provider_requests": 0
+}

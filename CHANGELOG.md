@@ -1,3 +1,36 @@
+# FaultDA-Bench 0.5.65-dev — 2026-10-21
+
+- 新增离线验证代价诊断核心：按字节计价的分页环境、精确 DP 上界与 C1–C5 最优性证书（全部 pass，tol 1e-9），30 个开发 profile × 8 个 regime 的 Gate 0 regime map。主 regime 上最廉价固定规则（F_hist 9 单元查表）的归一化 regret 为 0.0315391087846 ≤ ε = 0.05，即该主 regime 可被廉价固定规则绕过；如实作为头条结论保留，不作任何“不可绕过”声明。
+- 13 个 arm 的离线对照：没有任何 CPU 学得策略在同等代价下胜过最佳固定规则（主 regime regret bf 0.014189449731 < thompson 0.0241588323286 < linucb 0.155694955762 < q_only 0.307923762624），确认性假设 O2 被点估计否证；4 个 cluster 的符号翻转下界 2^-4 = 0.0625 > α = 0.05，功效不足声明在产生数字前写入。
+- 全程离线：0 API calls, ¥0，无下载、无新来源、无独立测试集；一次写入产物、660 份冻结文件未变、3.11/3.12 跨解释器字节一致（LinUCB 训练因 numpy 缺失为唯一记录在案的例外）。
+
+# FaultDA-Bench 0.5.60-dev — 2026-10-20
+
+- 当前证据 CI 改用 Python 3.11，补跑 release535/termination550/termination555/stats560 及版本检查，执行 0.5.55 优化审计与 stats560 审计并上传结果；历史作业不变。
+- 新增 `faultda_bench/stats560/`：Wilson、百分位/簇自助区间、精确符号/McNemar 检验、Holm 校正与样本量边界；离线审计按冻结目录核对输入哈希，只对已冻结结果再计数，不写冻结位置。
+- stats560 摘要在 `build_summary()` 边界统一量化浮点到 12 位有效数字（`core.round_floats`），修掉 Python 3.12 把内置 `sum()` 改为补偿求和后 `sign_test_power` 差 1–2 个 ULP 导致的历史 CI 失败；3.11 与 3.12 产物现在逐字节相同，计数与统计结论不变。
+- 当前证据 CI 的单一事实来源移入 [`current_evidence_v1.json`](faultda_bench/protocols/current_evidence_v1.json)：测试模块、带类别与理由的排除项、审计入口与上传清单都登记在册，由 `python -m faultda_bench.current_evidence --list/--run-tests/--run-audits` 执行；`faultda-current.yml` **不再内联任何模块清单**。两道防漂移守卫：完整性测试要求每个 `tests/test_faultda_*.py` 要么登记、要么带理由排除（原先 77 个文件中有 22 个静默缺失 CI），YAML 守卫要求工作流不得重新内联清单、必须调用该入口且上传清单与 `artifact.paths` 逐行相同。
+- 新增 [`acceptance_v47.json`](faultda_bench/protocols/acceptance_v47.json) 与审计 `python -m faultda_bench.release560.audit`（登记为第五项审计）：**增量**冻结 v46 原有 660 份（原序、原哈希，一个未改）加 30 份新增，合计 **690** 份，含此前无清单覆盖的 0.5.55 性能清单及其 11 份优化文件。活文档按规则排除——README、CHANGELOG、`VERSION`、`.gitattributes`、`faultda-current.yml`、登记表、登记表的守卫测试与英文镜像记录的是当前状态而非固定版本的证据，每版都会变，冻结它们只会让下一个版本自己把审计弄失败；清单也不哈希自己。审计带四道守卫测试并以 `--emit-manifest` 保证清单可复现。详见 [0.5.60 冻结说明](faultda_bench/reports/RELEASE_0560_FREEZE.md)。
+- 新增英文概览 `docs/en/FAULTDA_BENCH_OVERVIEW.md`；`unittest discover` 不再依赖预建 `work/`。科学 HOLD，无新实验、API 或重打分；VERSION 与 pyproject 不变。详见 [0.5.60 报告](faultda_bench/reports/RELEASE_0560.md)。
+
+# V5.0.15-beta.2 — 2026-10-09
+
+- 完成 beta.1 剩余 CUDA 训练与 18 组冻结评测：SFT 28/240、GRPO/branch 0/240、counterfactual/paired 4/240；paired 故障恢复 0/180，未达到预注册门槛，不设为默认模型。
+- 增加校验后续跑、训练封存回执、逐动作账本和配对审计；发布全部训练分支与 1,440 条评测轨迹。明确条件恢复、来源输入重复、人工一次提交契约及成对策略未严格冻结的限制。
+- 完成语义变换契约与一致错误反例；107 项 Python 测试、Go 测试/静态检查和本机既有 C++ 接入验证通过。详见 [beta.2 收尾报告](reports/V5_0_15_BETA_2.md)。
+
+# V5.0.10 — 2026-10-08
+
+- 增加可选批量生成和 Go 批量评测作业清单，固定开发负载三次重复的总墙钟中位数提高 5.04 倍；因 1/48 题动作不同，冻结效果评测仍采用串行。
+- 预先冻结训练改写与 UCI 新来源、新措辞留出协议，完成三种子原 SFT、匹配监督继续训练和 RL 对照；分别为 35/72、38/72、39/72。RL 净增 1 条，相关题集中，保留逐题审计而不设为默认模型。
+- 完成故障专家回放、Go 本地批量作业端到端核验和 NPU 量化旧模型的独立回归检查；具体结果与限制见 [V5.0.10 报告](reports/V5_0_10.md)。
+
+# V5.0.05 — 2026-09-29
+
+- 从三个原 SFT 适配器继续训练 DeepSeek LoRA 监督对照，逐种子匹配 V5 beta.1 的 64 个训练 episode 与 16/20/26 次实际优化器更新；加入训练轨迹导出、冻结评测和逐题审计。
+- 已见模板来源留出结果：原 SFT 96/144、监督对照 107/144、原 RL 102/144；按预设门槛 RL 未超过监督对照。此前使用过的新措辞诊断中监督对照仅 10/144，不设为默认权重。详见 [V5.0.05 报告](reports/V5_0_05.md)。
+- 修正版本进位：`V5.0.95 → V5.1.0`，跨过 `V5.4.*`；README 版本检查同时防止重新加入已撤下的推送说明。
+
 # V5.0.0 — 2026-09-29
 
 - 统一 `VERSION`、Python 包元数据与 README 为首个正式研究版；在 CI 中检查版本一致性和后续编号规则。
@@ -156,3 +189,8 @@ Independent functional verifier; real CSV mutations; task-aware LinUCB with froz
 - 建立 50 个数据分析任务、任务 schema、参考输出和基础验证规则。
 - 实现 Rule Router、LinUCB Bandit、LLM 适配器、数据工具和实验运行器。
 - 接入 DeepSeek 的 OpenAI-compatible API 调用方式。
+# V5.0.15-beta.1 — 2026-10-08
+
+- 完成条件恢复 RL beta 研究实现：固定首个工具动作和后续分析步骤，学习提交确认、重试、继续或终止，使用真实持久回执、隔离分支和四类故障状态。
+- 冻结两份未用于本项目的 UCI CC BY 4.0 数据来源（Auto MPG、Glass）、训练/留出任务、五个训练臂、三种种子和来源×任务族验收门槛。训练与留出结果仍待 CUDA 环境执行；本机无 CUDA，未生成模型效果结论。
+- 修复 GRPO 采样分布与温度概率不一致、原生滚动均值非法窗口校验、Go HTTP 尾部 JSON 验证，并新增恢复状态、提交回执和分支隔离测试。

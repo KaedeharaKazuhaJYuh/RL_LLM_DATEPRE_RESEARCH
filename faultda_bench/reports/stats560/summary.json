@@ -1,0 +1,1833 @@
+{
+  "version": "0.5.60-dev",
+  "status": "descriptive_reanalysis_of_frozen_results",
+  "scientific_gate": "HOLD",
+  "new_model_executions": 0,
+  "new_provider_requests": 0,
+  "rescored": false,
+  "inputs": {
+    "faultda_bench/reports/coherent_v38_accounting.json": "240abd50b4acd33753c8f8e3ba3cad8326972360363e7675feb15b32290c2249",
+    "faultda_bench/reports/clarity_v2_comparison.json": "cbd231f74fd816df3b3dc4bffa1080c14ebf493fbe182ad8240fd39b5783a3b3",
+    "faultda_bench/reports/cross_source_v2_results.json": "7100307e2009ce9343c1b89b4fa6cb9ea5ca8cea44b4d1e8e0386a915b3788b4",
+    "faultda_bench/reports/cross_source_v2_results.jsonl.gz": "1828538ce94498f50397d2880e5ab1419a27c461dbedd352ec7b7711e5ce7d19",
+    "faultda_bench/reports/coherent_v38_offline.json": "4374c41dad85e6237d8609fdec45949ef98e469d9888a0ea5e9fd9326767ce40",
+    "faultda_bench/reports/termination550/qualification.json": "2b58cc2907926bde22357afcdeaa57f3e35ea2faa97673d10cb0fba2dd4313b9",
+    "faultda_bench/reports/termination555/qualification.json": "cf6ef0cd4dd240c2ee6bf9ad46a625084f88842a00280856bbaa9b7758196bf1"
+  },
+  "settings": {
+    "confidence": 0.95,
+    "n_resamples": 10000,
+    "seed": 560,
+    "bootstrap": "percentile",
+    "float_significant_digits": 12
+  },
+  "comparisons": [
+    {
+      "id": "C1",
+      "title": "coherent395 receipt facts (0.3.95)",
+      "source_files": [
+        "faultda_bench/reports/coherent_v38_accounting.json"
+      ],
+      "unit": "row_id pair (12), contextual vs explicit instruction",
+      "evidence_boundary": {
+        "split": "historical_development",
+        "seen_cluster": true,
+        "independent_test": false,
+        "arm_kind": "llm_deepseek_flash",
+        "independent_development_clusters": 1,
+        "note": "real DeepSeek requests already graded in 0.3.95; one seen development cluster; independent review pending"
+      },
+      "arms": [
+        {
+          "arm": "contextual",
+          "metric": "all_fields_correct",
+          "successes": 0,
+          "n": 12,
+          "rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.242494006655
+          ],
+          "cluster_bootstrap": {
+            "window": {
+              "estimate": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "n": 12,
+              "n_clusters": 3,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          }
+        },
+        {
+          "arm": "explicit",
+          "metric": "all_fields_correct",
+          "successes": 6,
+          "n": 12,
+          "rate": 0.5,
+          "wilson_95": [
+            0.253781597634,
+            0.746218402366
+          ],
+          "cluster_bootstrap": {
+            "window": {
+              "estimate": 0.5,
+              "low": 0.5,
+              "high": 0.5,
+              "n": 12,
+              "n_clusters": 3,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "title": "clarity v2 instruction pair (0.2.05)",
+      "source_files": [
+        "faultda_bench/reports/clarity_v2_comparison.json"
+      ],
+      "unit": "(task_id, commit_fault, semantic_fault) pair (12), original vs explicit",
+      "evidence_boundary": {
+        "split": "historical_development",
+        "seen_cluster": true,
+        "independent_test": false,
+        "arm_kind": "llm_deepseek_flash",
+        "independent_development_clusters": 3,
+        "note": "real DeepSeek requests already graded in 0.2.05; three seen historical tasks, one per source (task_id coincides with source_id); not an independent test"
+      },
+      "arms": [
+        {
+          "arm": "original",
+          "metric": "safe_complete",
+          "successes": 4,
+          "n": 12,
+          "rate": 0.333333333333,
+          "wilson_95": [
+            0.138120091091,
+            0.609377911127
+          ],
+          "cluster_bootstrap": {
+            "task_id": {
+              "estimate": 0.333333333333,
+              "low": 0.0,
+              "high": 1.0,
+              "n": 12,
+              "n_clusters": 3,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            }
+          }
+        },
+        {
+          "arm": "explicit",
+          "metric": "safe_complete",
+          "successes": 4,
+          "n": 12,
+          "rate": 0.333333333333,
+          "wilson_95": [
+            0.138120091091,
+            0.609377911127
+          ],
+          "cluster_bootstrap": {
+            "task_id": {
+              "estimate": 0.333333333333,
+              "low": 0.0,
+              "high": 1.0,
+              "n": 12,
+              "n_clusters": 3,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "title": "cross-source program policies (0.2.05)",
+      "source_files": [
+        "faultda_bench/reports/cross_source_v2_results.json",
+        "faultda_bench/reports/cross_source_v2_results.jsonl.gz"
+      ],
+      "unit": "(task_id, evidence, budget, commit_fault, semantic_fault) key (384) x 6 policies",
+      "evidence_boundary": {
+        "split": "historical_development",
+        "seen_cluster": true,
+        "independent_test": false,
+        "arm_kind": "scripted_program",
+        "independent_development_clusters": 3,
+        "note": "scripted program policies, not LLM results; 24 tasks on 3 seen sources; 3 source clusters are too few for inference"
+      },
+      "arms": [
+        {
+          "arm": "abstain",
+          "metric": "safe_complete",
+          "successes": 0,
+          "n": 384,
+          "rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.00990471424168
+          ],
+          "cluster_bootstrap": {
+            "task_id": {
+              "estimate": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "n": 384,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source_id": {
+              "estimate": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "n": 384,
+              "n_clusters": 3,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            }
+          }
+        },
+        {
+          "arm": "blind_retry",
+          "metric": "safe_complete",
+          "successes": 96,
+          "n": 384,
+          "rate": 0.25,
+          "wilson_95": [
+            0.209310620756,
+            0.295641736365
+          ],
+          "cluster_bootstrap": {
+            "task_id": {
+              "estimate": 0.25,
+              "low": 0.25,
+              "high": 0.25,
+              "n": 384,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source_id": {
+              "estimate": 0.25,
+              "low": 0.25,
+              "high": 0.25,
+              "n": 384,
+              "n_clusters": 3,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            }
+          }
+        },
+        {
+          "arm": "generic_verify",
+          "metric": "safe_complete",
+          "successes": 192,
+          "n": 384,
+          "rate": 0.5,
+          "wilson_95": [
+            0.450238784577,
+            0.549761215423
+          ],
+          "cluster_bootstrap": {
+            "task_id": {
+              "estimate": 0.5,
+              "low": 0.5,
+              "high": 0.5,
+              "n": 384,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source_id": {
+              "estimate": 0.5,
+              "low": 0.5,
+              "high": 0.5,
+              "n": 384,
+              "n_clusters": 3,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            }
+          }
+        },
+        {
+          "arm": "version_refresh",
+          "metric": "safe_complete",
+          "successes": 216,
+          "n": 384,
+          "rate": 0.5625,
+          "wilson_95": [
+            0.512506149166,
+            0.611255761554
+          ],
+          "cluster_bootstrap": {
+            "task_id": {
+              "estimate": 0.5625,
+              "low": 0.484375,
+              "high": 0.640625,
+              "n": 384,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source_id": {
+              "estimate": 0.5625,
+              "low": 0.5625,
+              "high": 0.5625,
+              "n": 384,
+              "n_clusters": 3,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            }
+          }
+        },
+        {
+          "arm": "static_semantic",
+          "metric": "safe_complete",
+          "successes": 288,
+          "n": 384,
+          "rate": 0.75,
+          "wilson_95": [
+            0.704358263635,
+            0.790689379244
+          ],
+          "cluster_bootstrap": {
+            "task_id": {
+              "estimate": 0.75,
+              "low": 0.75,
+              "high": 0.75,
+              "n": 384,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source_id": {
+              "estimate": 0.75,
+              "low": 0.75,
+              "high": 0.75,
+              "n": 384,
+              "n_clusters": 3,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            }
+          }
+        },
+        {
+          "arm": "task_semantic",
+          "metric": "safe_complete",
+          "successes": 288,
+          "n": 384,
+          "rate": 0.75,
+          "wilson_95": [
+            0.704358263635,
+            0.790689379244
+          ],
+          "cluster_bootstrap": {
+            "task_id": {
+              "estimate": 0.75,
+              "low": 0.75,
+              "high": 0.75,
+              "n": 384,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source_id": {
+              "estimate": 0.75,
+              "low": 0.75,
+              "high": 0.75,
+              "n": 384,
+              "n_clusters": 3,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "title": "termination550 rule vs negative controls (0.5.50)",
+      "source_files": [
+        "faultda_bench/reports/termination550/qualification.json",
+        "faultda_bench/reports/coherent_v38_offline.json"
+      ],
+      "unit": "source_row_index (72) per information condition; 3 scripted arms",
+      "evidence_boundary": {
+        "split": "historical_development",
+        "seen_cluster": true,
+        "independent_test": false,
+        "arm_kind": "scripted_program",
+        "independent_development_clusters": 1,
+        "note": "scripted program controls; one old development cluster; no model run"
+      },
+      "arms": [
+        {
+          "arm": "complete_public_rule",
+          "metric": "supported_correct_termination",
+          "condition": "raw",
+          "successes": 72,
+          "n": 72,
+          "rate": 1.0,
+          "wilson_95": [
+            0.949348827404,
+            1.0
+          ],
+          "cluster_bootstrap": {
+            "task": {
+              "estimate": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "n": 72,
+              "n_clusters": 6,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "state": {
+              "estimate": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "n": 72,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          },
+          "definitional_identity": true,
+          "identity_note": "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence"
+        },
+        {
+          "arm": "complete_public_rule",
+          "metric": "actual_safe_completion",
+          "condition": "raw",
+          "successes": 24,
+          "n": 72,
+          "rate": 0.333333333333,
+          "wilson_95": [
+            0.235346434432,
+            0.448203956434
+          ],
+          "cluster_bootstrap": {
+            "task": {
+              "estimate": 0.333333333333,
+              "low": 0.333333333333,
+              "high": 0.333333333333,
+              "n": 72,
+              "n_clusters": 6,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "state": {
+              "estimate": 0.333333333333,
+              "low": 0.194444444444,
+              "high": 0.472222222222,
+              "n": 72,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          }
+        },
+        {
+          "arm": "always_stop",
+          "metric": "supported_correct_termination",
+          "condition": "raw",
+          "successes": 24,
+          "n": 72,
+          "rate": 0.333333333333,
+          "wilson_95": [
+            0.235346434432,
+            0.448203956434
+          ],
+          "cluster_bootstrap": {
+            "task": {
+              "estimate": 0.333333333333,
+              "low": 0.333333333333,
+              "high": 0.333333333333,
+              "n": 72,
+              "n_clusters": 6,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "state": {
+              "estimate": 0.333333333333,
+              "low": 0.194444444444,
+              "high": 0.472222222222,
+              "n": 72,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          }
+        },
+        {
+          "arm": "always_stop",
+          "metric": "actual_safe_completion",
+          "condition": "raw",
+          "successes": 36,
+          "n": 72,
+          "rate": 0.5,
+          "wilson_95": [
+            0.387470923095,
+            0.612529076905
+          ],
+          "cluster_bootstrap": {
+            "task": {
+              "estimate": 0.5,
+              "low": 0.5,
+              "high": 0.5,
+              "n": 72,
+              "n_clusters": 6,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "state": {
+              "estimate": 0.5,
+              "low": 0.291666666667,
+              "high": 0.708333333333,
+              "n": 72,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          }
+        },
+        {
+          "arm": "always_escalate",
+          "metric": "supported_correct_termination",
+          "condition": "raw",
+          "successes": 48,
+          "n": 72,
+          "rate": 0.666666666667,
+          "wilson_95": [
+            0.551796043566,
+            0.764653565568
+          ],
+          "cluster_bootstrap": {
+            "task": {
+              "estimate": 0.666666666667,
+              "low": 0.666666666667,
+              "high": 0.666666666667,
+              "n": 72,
+              "n_clusters": 6,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "state": {
+              "estimate": 0.666666666667,
+              "low": 0.527777777778,
+              "high": 0.805555555556,
+              "n": 72,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          }
+        },
+        {
+          "arm": "always_escalate",
+          "metric": "actual_safe_completion",
+          "condition": "raw",
+          "successes": 0,
+          "n": 72,
+          "rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.0506511725965
+          ],
+          "cluster_bootstrap": {
+            "task": {
+              "estimate": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "n": 72,
+              "n_clusters": 6,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "state": {
+              "estimate": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "n": 72,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          }
+        },
+        {
+          "arm": "complete_public_rule",
+          "metric": "supported_correct_termination",
+          "condition": "shared_numeric",
+          "successes": 72,
+          "n": 72,
+          "rate": 1.0,
+          "wilson_95": [
+            0.949348827404,
+            1.0
+          ],
+          "cluster_bootstrap": {
+            "task": {
+              "estimate": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "n": 72,
+              "n_clusters": 6,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "state": {
+              "estimate": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "n": 72,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          },
+          "definitional_identity": true,
+          "identity_note": "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence"
+        },
+        {
+          "arm": "complete_public_rule",
+          "metric": "actual_safe_completion",
+          "condition": "shared_numeric",
+          "successes": 24,
+          "n": 72,
+          "rate": 0.333333333333,
+          "wilson_95": [
+            0.235346434432,
+            0.448203956434
+          ],
+          "cluster_bootstrap": {
+            "task": {
+              "estimate": 0.333333333333,
+              "low": 0.333333333333,
+              "high": 0.333333333333,
+              "n": 72,
+              "n_clusters": 6,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "state": {
+              "estimate": 0.333333333333,
+              "low": 0.194444444444,
+              "high": 0.472222222222,
+              "n": 72,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          }
+        },
+        {
+          "arm": "always_stop",
+          "metric": "supported_correct_termination",
+          "condition": "shared_numeric",
+          "successes": 24,
+          "n": 72,
+          "rate": 0.333333333333,
+          "wilson_95": [
+            0.235346434432,
+            0.448203956434
+          ],
+          "cluster_bootstrap": {
+            "task": {
+              "estimate": 0.333333333333,
+              "low": 0.333333333333,
+              "high": 0.333333333333,
+              "n": 72,
+              "n_clusters": 6,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "state": {
+              "estimate": 0.333333333333,
+              "low": 0.194444444444,
+              "high": 0.472222222222,
+              "n": 72,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          }
+        },
+        {
+          "arm": "always_stop",
+          "metric": "actual_safe_completion",
+          "condition": "shared_numeric",
+          "successes": 36,
+          "n": 72,
+          "rate": 0.5,
+          "wilson_95": [
+            0.387470923095,
+            0.612529076905
+          ],
+          "cluster_bootstrap": {
+            "task": {
+              "estimate": 0.5,
+              "low": 0.5,
+              "high": 0.5,
+              "n": 72,
+              "n_clusters": 6,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "state": {
+              "estimate": 0.5,
+              "low": 0.291666666667,
+              "high": 0.708333333333,
+              "n": 72,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          }
+        },
+        {
+          "arm": "always_escalate",
+          "metric": "supported_correct_termination",
+          "condition": "shared_numeric",
+          "successes": 48,
+          "n": 72,
+          "rate": 0.666666666667,
+          "wilson_95": [
+            0.551796043566,
+            0.764653565568
+          ],
+          "cluster_bootstrap": {
+            "task": {
+              "estimate": 0.666666666667,
+              "low": 0.666666666667,
+              "high": 0.666666666667,
+              "n": 72,
+              "n_clusters": 6,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "state": {
+              "estimate": 0.666666666667,
+              "low": 0.527777777778,
+              "high": 0.805555555556,
+              "n": 72,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          }
+        },
+        {
+          "arm": "always_escalate",
+          "metric": "actual_safe_completion",
+          "condition": "shared_numeric",
+          "successes": 0,
+          "n": 72,
+          "rate": 0.0,
+          "wilson_95": [
+            0.0,
+            0.0506511725965
+          ],
+          "cluster_bootstrap": {
+            "task": {
+              "estimate": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "n": 72,
+              "n_clusters": 6,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "state": {
+              "estimate": 0.0,
+              "low": 0.0,
+              "high": 0.0,
+              "n": 72,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "title": "termination555 registered grading (0.5.55)",
+      "source_files": [
+        "faultda_bench/reports/termination555/qualification.json",
+        "faultda_bench/reports/coherent_v38_offline.json"
+      ],
+      "unit": "registered packet (144 = 72 rows x 2 conditions, pooled; clusters keep both conditions of a row together)",
+      "evidence_boundary": {
+        "split": "historical_development",
+        "seen_cluster": true,
+        "independent_test": false,
+        "arm_kind": "scripted_program",
+        "independent_development_clusters": 1,
+        "note": "registered complete-rule grade only; equals the C4 complete_public_rule grade for every row/condition; single arm, no paired test; no model run"
+      },
+      "consistency_with_C4_complete_public_rule": true,
+      "arms": [
+        {
+          "arm": "registered_complete_rule",
+          "metric": "supported_correct_termination",
+          "condition": "pooled",
+          "successes": 144,
+          "n": 144,
+          "rate": 1.0,
+          "wilson_95": [
+            0.974016362857,
+            1.0
+          ],
+          "cluster_bootstrap": {
+            "task": {
+              "estimate": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "n": 144,
+              "n_clusters": 6,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "state": {
+              "estimate": 1.0,
+              "low": 1.0,
+              "high": 1.0,
+              "n": 144,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          },
+          "definitional_identity": true,
+          "identity_note": "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence"
+        },
+        {
+          "arm": "registered_complete_rule",
+          "metric": "actual_safe_completion",
+          "condition": "pooled",
+          "successes": 48,
+          "n": 144,
+          "rate": 0.333333333333,
+          "wilson_95": [
+            0.261552864526,
+            0.413775014522
+          ],
+          "cluster_bootstrap": {
+            "task": {
+              "estimate": 0.333333333333,
+              "low": 0.333333333333,
+              "high": 0.333333333333,
+              "n": 144,
+              "n_clusters": 6,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap",
+              "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+            },
+            "state": {
+              "estimate": 0.333333333333,
+              "low": 0.194444444444,
+              "high": 0.472222222222,
+              "n": 144,
+              "n_clusters": 24,
+              "n_resamples": 10000,
+              "seed": 560,
+              "confidence": 0.95,
+              "method": "cluster_percentile_bootstrap"
+            },
+            "source": {
+              "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "paired_tests": [
+    {
+      "comparison": "C1",
+      "arm_a": "explicit",
+      "arm_b": "contextual",
+      "metric": "all_fields_correct",
+      "n": 12,
+      "both": 0,
+      "a_only": 6,
+      "b_only": 0,
+      "neither": 6,
+      "discordant": 6,
+      "p_value": 0.03125,
+      "method": "exact_mcnemar_two_sided",
+      "difference": 0.5,
+      "difference_cluster_bootstrap": {
+        "window": {
+          "estimate": 0.5,
+          "low": 0.5,
+          "high": 0.5,
+          "n": 12,
+          "n_clusters": 3,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap",
+          "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+        },
+        "source": {
+          "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+        }
+      },
+      "min_discordant_for_alpha_0_05": 6,
+      "exact_power_if_discordant_favour_a_0_8": 0.262208,
+      "mde_two_proportions_n": 0.571871187942,
+      "holm_adjusted_p": 0.125
+    },
+    {
+      "comparison": "C2",
+      "arm_a": "explicit",
+      "arm_b": "original",
+      "metric": "safe_complete",
+      "n": 12,
+      "both": 4,
+      "a_only": 0,
+      "b_only": 0,
+      "neither": 8,
+      "discordant": 0,
+      "p_value": 1.0,
+      "method": "exact_mcnemar_two_sided",
+      "difference": 0.0,
+      "difference_cluster_bootstrap": {
+        "task_id": {
+          "estimate": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "n": 12,
+          "n_clusters": 3,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap",
+          "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+        }
+      },
+      "min_discordant_for_alpha_0_05": 6,
+      "exact_power_if_discordant_favour_a_0_8": 0.0,
+      "mde_two_proportions_n": 0.571871187942,
+      "holm_adjusted_p": 1.0
+    },
+    {
+      "comparison": "C3",
+      "arm_a": "task_semantic",
+      "arm_b": "static_semantic",
+      "metric": "safe_complete",
+      "n": 384,
+      "both": 288,
+      "a_only": 0,
+      "b_only": 0,
+      "neither": 96,
+      "discordant": 0,
+      "p_value": 1.0,
+      "method": "exact_mcnemar_two_sided",
+      "difference": 0.0,
+      "difference_cluster_bootstrap": {
+        "task_id": {
+          "estimate": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "n": 384,
+          "n_clusters": 24,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap"
+        },
+        "source_id": {
+          "estimate": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "n": 384,
+          "n_clusters": 3,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap",
+          "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+        }
+      },
+      "min_discordant_for_alpha_0_05": 6,
+      "exact_power_if_discordant_favour_a_0_8": 0.0,
+      "mde_two_proportions_n": 0.10109349874,
+      "holm_adjusted_p": 1.0
+    },
+    {
+      "comparison": "C3",
+      "arm_a": "static_semantic",
+      "arm_b": "version_refresh",
+      "metric": "safe_complete",
+      "n": 384,
+      "both": 216,
+      "a_only": 72,
+      "b_only": 0,
+      "neither": 96,
+      "discordant": 72,
+      "p_value": 4.23516473627e-22,
+      "method": "exact_mcnemar_two_sided",
+      "difference": 0.1875,
+      "difference_cluster_bootstrap": {
+        "task_id": {
+          "estimate": 0.1875,
+          "low": 0.109375,
+          "high": 0.265625,
+          "n": 384,
+          "n_clusters": 24,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap"
+        },
+        "source_id": {
+          "estimate": 0.1875,
+          "low": 0.1875,
+          "high": 0.1875,
+          "n": 384,
+          "n_clusters": 3,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap",
+          "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+        }
+      },
+      "min_discordant_for_alpha_0_05": 6,
+      "exact_power_if_discordant_favour_a_0_8": 0.999825287373,
+      "mde_two_proportions_n": 0.10109349874,
+      "holm_adjusted_p": 5.50571415715e-21
+    },
+    {
+      "comparison": "C3",
+      "arm_a": "version_refresh",
+      "arm_b": "generic_verify",
+      "metric": "safe_complete",
+      "n": 384,
+      "both": 144,
+      "a_only": 72,
+      "b_only": 48,
+      "neither": 120,
+      "discordant": 120,
+      "p_value": 0.0353236825378,
+      "method": "exact_mcnemar_two_sided",
+      "difference": 0.0625,
+      "difference_cluster_bootstrap": {
+        "task_id": {
+          "estimate": 0.0625,
+          "low": -0.015625,
+          "high": 0.140625,
+          "n": 384,
+          "n_clusters": 24,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap"
+        },
+        "source_id": {
+          "estimate": 0.0625,
+          "low": 0.0625,
+          "high": 0.0625,
+          "n": 384,
+          "n_clusters": 3,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap",
+          "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+        }
+      },
+      "min_discordant_for_alpha_0_05": 6,
+      "exact_power_if_discordant_favour_a_0_8": 0.999999852821,
+      "mde_two_proportions_n": 0.10109349874,
+      "holm_adjusted_p": 0.125
+    },
+    {
+      "comparison": "C3",
+      "arm_a": "generic_verify",
+      "arm_b": "blind_retry",
+      "metric": "safe_complete",
+      "n": 384,
+      "both": 96,
+      "a_only": 96,
+      "b_only": 0,
+      "neither": 192,
+      "discordant": 96,
+      "p_value": 2.52435489671e-29,
+      "method": "exact_mcnemar_two_sided",
+      "difference": 0.25,
+      "difference_cluster_bootstrap": {
+        "task_id": {
+          "estimate": 0.25,
+          "low": 0.25,
+          "high": 0.25,
+          "n": 384,
+          "n_clusters": 24,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap"
+        },
+        "source_id": {
+          "estimate": 0.25,
+          "low": 0.25,
+          "high": 0.25,
+          "n": 384,
+          "n_clusters": 3,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap",
+          "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+        }
+      },
+      "min_discordant_for_alpha_0_05": 6,
+      "exact_power_if_discordant_favour_a_0_8": 0.999991659689,
+      "mde_two_proportions_n": 0.10109349874,
+      "holm_adjusted_p": 3.78653234506e-28
+    },
+    {
+      "comparison": "C3",
+      "arm_a": "blind_retry",
+      "arm_b": "abstain",
+      "metric": "safe_complete",
+      "n": 384,
+      "both": 0,
+      "a_only": 96,
+      "b_only": 0,
+      "neither": 288,
+      "discordant": 96,
+      "p_value": 2.52435489671e-29,
+      "method": "exact_mcnemar_two_sided",
+      "difference": 0.25,
+      "difference_cluster_bootstrap": {
+        "task_id": {
+          "estimate": 0.25,
+          "low": 0.25,
+          "high": 0.25,
+          "n": 384,
+          "n_clusters": 24,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap"
+        },
+        "source_id": {
+          "estimate": 0.25,
+          "low": 0.25,
+          "high": 0.25,
+          "n": 384,
+          "n_clusters": 3,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap",
+          "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+        }
+      },
+      "min_discordant_for_alpha_0_05": 6,
+      "exact_power_if_discordant_favour_a_0_8": 0.999991659689,
+      "mde_two_proportions_n": 0.10109349874,
+      "holm_adjusted_p": 3.78653234506e-28
+    },
+    {
+      "comparison": "C4",
+      "arm_a": "complete_public_rule",
+      "arm_b": "always_stop",
+      "metric": "supported_correct_termination",
+      "condition": "raw",
+      "n": 72,
+      "both": 24,
+      "a_only": 48,
+      "b_only": 0,
+      "neither": 0,
+      "discordant": 48,
+      "p_value": 7.1054273576e-15,
+      "method": "exact_mcnemar_two_sided",
+      "difference": 0.666666666667,
+      "difference_cluster_bootstrap": {
+        "task": {
+          "estimate": 0.666666666667,
+          "low": 0.666666666667,
+          "high": 0.666666666667,
+          "n": 72,
+          "n_clusters": 6,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap",
+          "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+        },
+        "state": {
+          "estimate": 0.666666666667,
+          "low": 0.527777777778,
+          "high": 0.805555555556,
+          "n": 72,
+          "n_clusters": 24,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap"
+        },
+        "source": {
+          "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+        }
+      },
+      "min_discordant_for_alpha_0_05": 6,
+      "exact_power_if_discordant_favour_a_0_8": 0.990681411801,
+      "mde_two_proportions_n": 0.233465434843,
+      "definitional_identity": true,
+      "identity_note": "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence",
+      "holm_adjusted_p": 8.52651282912e-14
+    },
+    {
+      "comparison": "C4",
+      "arm_a": "complete_public_rule",
+      "arm_b": "always_escalate",
+      "metric": "supported_correct_termination",
+      "condition": "raw",
+      "n": 72,
+      "both": 48,
+      "a_only": 24,
+      "b_only": 0,
+      "neither": 0,
+      "discordant": 24,
+      "p_value": 1.19209289551e-07,
+      "method": "exact_mcnemar_two_sided",
+      "difference": 0.333333333333,
+      "difference_cluster_bootstrap": {
+        "task": {
+          "estimate": 0.333333333333,
+          "low": 0.333333333333,
+          "high": 0.333333333333,
+          "n": 72,
+          "n_clusters": 6,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap",
+          "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+        },
+        "state": {
+          "estimate": 0.333333333333,
+          "low": 0.194444444444,
+          "high": 0.472222222222,
+          "n": 72,
+          "n_clusters": 24,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap"
+        },
+        "source": {
+          "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+        }
+      },
+      "min_discordant_for_alpha_0_05": 6,
+      "exact_power_if_discordant_favour_a_0_8": 0.811071065146,
+      "mde_two_proportions_n": 0.233465434843,
+      "definitional_identity": true,
+      "identity_note": "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence",
+      "holm_adjusted_p": 1.19209289551e-06
+    },
+    {
+      "comparison": "C4",
+      "arm_a": "complete_public_rule",
+      "arm_b": "always_stop",
+      "metric": "actual_safe_completion",
+      "condition": "raw",
+      "n": 72,
+      "both": 24,
+      "a_only": 0,
+      "b_only": 12,
+      "neither": 36,
+      "discordant": 12,
+      "p_value": 0.00048828125,
+      "method": "exact_mcnemar_two_sided",
+      "difference": -0.166666666667,
+      "difference_cluster_bootstrap": {
+        "task": {
+          "estimate": -0.166666666667,
+          "low": -0.166666666667,
+          "high": -0.166666666667,
+          "n": 72,
+          "n_clusters": 6,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap",
+          "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+        },
+        "state": {
+          "estimate": -0.166666666667,
+          "low": -0.236111111111,
+          "high": -0.0972222222222,
+          "n": 72,
+          "n_clusters": 24,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap"
+        },
+        "source": {
+          "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+        }
+      },
+      "min_discordant_for_alpha_0_05": 6,
+      "exact_power_if_discordant_favour_a_0_8": 0.55835027456,
+      "mde_two_proportions_n": 0.233465434843,
+      "holm_adjusted_p": 0.0029296875
+    },
+    {
+      "comparison": "C4",
+      "arm_a": "complete_public_rule",
+      "arm_b": "always_escalate",
+      "metric": "actual_safe_completion",
+      "condition": "raw",
+      "n": 72,
+      "both": 0,
+      "a_only": 24,
+      "b_only": 0,
+      "neither": 48,
+      "discordant": 24,
+      "p_value": 1.19209289551e-07,
+      "method": "exact_mcnemar_two_sided",
+      "difference": 0.333333333333,
+      "difference_cluster_bootstrap": {
+        "task": {
+          "estimate": 0.333333333333,
+          "low": 0.333333333333,
+          "high": 0.333333333333,
+          "n": 72,
+          "n_clusters": 6,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap",
+          "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+        },
+        "state": {
+          "estimate": 0.333333333333,
+          "low": 0.194444444444,
+          "high": 0.472222222222,
+          "n": 72,
+          "n_clusters": 24,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap"
+        },
+        "source": {
+          "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+        }
+      },
+      "min_discordant_for_alpha_0_05": 6,
+      "exact_power_if_discordant_favour_a_0_8": 0.811071065146,
+      "mde_two_proportions_n": 0.233465434843,
+      "holm_adjusted_p": 1.19209289551e-06
+    },
+    {
+      "comparison": "C4",
+      "arm_a": "complete_public_rule",
+      "arm_b": "always_stop",
+      "metric": "supported_correct_termination",
+      "condition": "shared_numeric",
+      "n": 72,
+      "both": 24,
+      "a_only": 48,
+      "b_only": 0,
+      "neither": 0,
+      "discordant": 48,
+      "p_value": 7.1054273576e-15,
+      "method": "exact_mcnemar_two_sided",
+      "difference": 0.666666666667,
+      "difference_cluster_bootstrap": {
+        "task": {
+          "estimate": 0.666666666667,
+          "low": 0.666666666667,
+          "high": 0.666666666667,
+          "n": 72,
+          "n_clusters": 6,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap",
+          "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+        },
+        "state": {
+          "estimate": 0.666666666667,
+          "low": 0.527777777778,
+          "high": 0.805555555556,
+          "n": 72,
+          "n_clusters": 24,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap"
+        },
+        "source": {
+          "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+        }
+      },
+      "min_discordant_for_alpha_0_05": 6,
+      "exact_power_if_discordant_favour_a_0_8": 0.990681411801,
+      "mde_two_proportions_n": 0.233465434843,
+      "definitional_identity": true,
+      "identity_note": "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence",
+      "holm_adjusted_p": 8.52651282912e-14
+    },
+    {
+      "comparison": "C4",
+      "arm_a": "complete_public_rule",
+      "arm_b": "always_escalate",
+      "metric": "supported_correct_termination",
+      "condition": "shared_numeric",
+      "n": 72,
+      "both": 48,
+      "a_only": 24,
+      "b_only": 0,
+      "neither": 0,
+      "discordant": 24,
+      "p_value": 1.19209289551e-07,
+      "method": "exact_mcnemar_two_sided",
+      "difference": 0.333333333333,
+      "difference_cluster_bootstrap": {
+        "task": {
+          "estimate": 0.333333333333,
+          "low": 0.333333333333,
+          "high": 0.333333333333,
+          "n": 72,
+          "n_clusters": 6,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap",
+          "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+        },
+        "state": {
+          "estimate": 0.333333333333,
+          "low": 0.194444444444,
+          "high": 0.472222222222,
+          "n": 72,
+          "n_clusters": 24,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap"
+        },
+        "source": {
+          "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+        }
+      },
+      "min_discordant_for_alpha_0_05": 6,
+      "exact_power_if_discordant_favour_a_0_8": 0.811071065146,
+      "mde_two_proportions_n": 0.233465434843,
+      "definitional_identity": true,
+      "identity_note": "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence",
+      "holm_adjusted_p": 1.19209289551e-06
+    },
+    {
+      "comparison": "C4",
+      "arm_a": "complete_public_rule",
+      "arm_b": "always_stop",
+      "metric": "actual_safe_completion",
+      "condition": "shared_numeric",
+      "n": 72,
+      "both": 24,
+      "a_only": 0,
+      "b_only": 12,
+      "neither": 36,
+      "discordant": 12,
+      "p_value": 0.00048828125,
+      "method": "exact_mcnemar_two_sided",
+      "difference": -0.166666666667,
+      "difference_cluster_bootstrap": {
+        "task": {
+          "estimate": -0.166666666667,
+          "low": -0.166666666667,
+          "high": -0.166666666667,
+          "n": 72,
+          "n_clusters": 6,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap",
+          "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+        },
+        "state": {
+          "estimate": -0.166666666667,
+          "low": -0.236111111111,
+          "high": -0.0972222222222,
+          "n": 72,
+          "n_clusters": 24,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap"
+        },
+        "source": {
+          "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+        }
+      },
+      "min_discordant_for_alpha_0_05": 6,
+      "exact_power_if_discordant_favour_a_0_8": 0.55835027456,
+      "mde_two_proportions_n": 0.233465434843,
+      "holm_adjusted_p": 0.0029296875
+    },
+    {
+      "comparison": "C4",
+      "arm_a": "complete_public_rule",
+      "arm_b": "always_escalate",
+      "metric": "actual_safe_completion",
+      "condition": "shared_numeric",
+      "n": 72,
+      "both": 0,
+      "a_only": 24,
+      "b_only": 0,
+      "neither": 48,
+      "discordant": 24,
+      "p_value": 1.19209289551e-07,
+      "method": "exact_mcnemar_two_sided",
+      "difference": 0.333333333333,
+      "difference_cluster_bootstrap": {
+        "task": {
+          "estimate": 0.333333333333,
+          "low": 0.333333333333,
+          "high": 0.333333333333,
+          "n": 72,
+          "n_clusters": 6,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap",
+          "caution": "fewer than 10 clusters: the percentile cluster bootstrap is unreliable and only descriptive here"
+        },
+        "state": {
+          "estimate": 0.333333333333,
+          "low": 0.194444444444,
+          "high": 0.472222222222,
+          "n": 72,
+          "n_clusters": 24,
+          "n_resamples": 10000,
+          "seed": 560,
+          "confidence": 0.95,
+          "method": "cluster_percentile_bootstrap"
+        },
+        "source": {
+          "unavailable": "unavailable: one data source (uci_occupancy) only, n_clusters = 1"
+        }
+      },
+      "min_discordant_for_alpha_0_05": 6,
+      "exact_power_if_discordant_favour_a_0_8": 0.811071065146,
+      "mde_two_proportions_n": 0.233465434843,
+      "holm_adjusted_p": 1.19209289551e-06
+    }
+  ],
+  "holm_family_size": 15,
+  "terminal_outcome_accounting": {
+    "id": "C4-ACCOUNTING",
+    "title": "termination550 two-sided outcome accounting, METRICS_0510 separated denominators",
+    "status": "derived_from_frozen_inputs_no_rescoring",
+    "source_files": [
+      "faultda_bench/reports/termination550/qualification.json",
+      "faultda_bench/reports/coherent_v38_offline.json"
+    ],
+    "protocol": "faultda_bench/docs/METRICS_0510_PROTOCOL.md",
+    "private_truth_field": "private_truth.actual_safe_stop_if_taken",
+    "basis": "recount of the frozen per-case decisions and grades in termination550/qualification.json against the frozen private truth in coherent_v38_offline.json; no rescoring, no model run, no provider request",
+    "strata": {
+      "supported_stop": {
+        "n": 24,
+        "truly_safe_to_stop": 24,
+        "truly_unsafe_to_stop": 0
+      },
+      "confirmed_violation": {
+        "n": 24,
+        "truly_safe_to_stop": 0,
+        "truly_unsafe_to_stop": 24
+      },
+      "unresolved_risk": {
+        "n": 24,
+        "truly_safe_to_stop": 12,
+        "truly_unsafe_to_stop": 12
+      },
+      "total": {
+        "n": 72,
+        "truly_safe_to_stop": 36,
+        "truly_unsafe_to_stop": 36
+      }
+    },
+    "conditions_identical": true,
+    "by_arm": [
+      {
+        "arm": "complete_public_rule",
+        "predetermined_total": 72,
+        "primary_denominator_resolvable": 48,
+        "correct_termination_resolvable": 48,
+        "safe_completion_resolvable": 24,
+        "confirmed_violation_escalation_resolvable": 24,
+        "avoidable_escalation_resolvable": 0,
+        "unresolved_denominator": 24,
+        "reasonable_escalation_unresolved": 24,
+        "unsupported_stop_all_rows": 0,
+        "truth_unsafe_stop_all_rows": 0,
+        "outcome_correct_vs_private_truth_all_rows": 60,
+        "invalid_response_all_rows": 0
+      },
+      {
+        "arm": "always_stop",
+        "predetermined_total": 72,
+        "primary_denominator_resolvable": 48,
+        "correct_termination_resolvable": 24,
+        "safe_completion_resolvable": 24,
+        "confirmed_violation_escalation_resolvable": 0,
+        "avoidable_escalation_resolvable": 0,
+        "unresolved_denominator": 24,
+        "reasonable_escalation_unresolved": 0,
+        "unsupported_stop_all_rows": 48,
+        "truth_unsafe_stop_all_rows": 36,
+        "outcome_correct_vs_private_truth_all_rows": 36,
+        "invalid_response_all_rows": 0
+      },
+      {
+        "arm": "always_escalate",
+        "predetermined_total": 72,
+        "primary_denominator_resolvable": 48,
+        "correct_termination_resolvable": 24,
+        "safe_completion_resolvable": 0,
+        "confirmed_violation_escalation_resolvable": 24,
+        "avoidable_escalation_resolvable": 24,
+        "unresolved_denominator": 24,
+        "reasonable_escalation_unresolved": 24,
+        "unsupported_stop_all_rows": 0,
+        "truth_unsafe_stop_all_rows": 0,
+        "outcome_correct_vs_private_truth_all_rows": 36,
+        "invalid_response_all_rows": 0
+      }
+    ],
+    "notes": [
+      "actual_safe_completion is one-sided: design.grade() credits `action == \"stop\" and actual_safe_stop` and debits nothing for stopping when the private ledger says the stop was unsafe. always_stop therefore leads it 36/72 vs 24/72 (Holm p = 0.00293 on the paired row) while buying those 12 extra rows with 36 truth-unsafe stops against the rule's 0. truth_unsafe_stop_all_rows in the per-arm table is the missing debit; it is derived here and is reported by no metric in grade().",
+      "METRICS_0510_PROTOCOL.md requires the unresolved stratum on its own denominator and excludes it from the resolvable primary denominator; 0.5.50 grade() and the C4 rows above instead pool all 72 rows into one denominator. Both views are reported: the pooled C4 counts are unchanged above, and the separated-denominator counts are here. On the protocol primary the rule leads 48/48 vs 24/48 and the pooled inversion does not appear.",
+      "on the resolvable stratum safe completion ties 24/48 vs 24/48: on this fixture the rule never finds a safe completion that always_stop misses. The rule's entire measured value is in not stopping unsafely (0 vs 36) and in correct termination (48/48 vs 24/48).",
+      "the raw vs shared_numeric contrast currently measures nothing: design.packet() puts numeric_helper beside the observation, while rule() and grade() both read only public_evidence(observation), and the two scripted controls are constants. No arm reads the helper, so every count in this section and in C4 is identical across the two conditions (asserted, not assumed: conditions_identical). The 144 C5 packets are 72 rows scored twice, not 144 independent tasks.",
+      "definitional identity: complete_public_rule acts iff public_evidence(obs)[\"evidence_supported_stop\"], which is the same function and payload grade() scores this metric from, so the arm cannot score otherwise; the p value describes a fixed-by-construction contrast and is not evidence"
+    ],
+    "unavailable_quantities": [
+      {
+        "quantity": "新违规 / new_violation_events",
+        "reason": "not computable from this fixture: the terminal diagnostic scores one decision with no action effects simulated (design.grade limits: \"no action effects or complete recovery simulated\"), so there is no post-decision ledger diff"
+      },
+      {
+        "quantity": "无效/删失 / invalid_or_censored",
+        "reason": "computable and reported as invalid_response_all_rows; it is 0/72 for all three scripted arms because every decision is well formed by construction"
+      },
+      {
+        "quantity": "macro average over task clusters",
+        "reason": "METRICS_0510 asks for a macro average over task clusters; C4 has one data source and one development cluster (n_clusters = 1), so a cluster macro average is not defined here"
+      }
+    ]
+  },
+  "unavailable": [
+    {
+      "id": "U1",
+      "item": "model (LLM/RL) arm on the termination550/555 packets",
+      "reason": "never executed: new_model_executions = 0 in both qualification files"
+    },
+    {
+      "id": "U2",
+      "item": "paired arm comparison for C5",
+      "reason": "only one arm is graded; reported as single-arm counts plus equality with C4"
+    },
+    {
+      "id": "U3",
+      "item": "learned SFT/DPO/GRPO arms on the 24 FaultDA cross-source tasks",
+      "reason": "no frozen per-case FaultDA file exists; inherited V5 results use another protocol/task suite and are not combined"
+    },
+    {
+      "id": "U4",
+      "item": "source-level cluster bootstrap for C1, C4, C5",
+      "reason": "one data source only (n_clusters = 1)"
+    },
+    {
+      "id": "U5",
+      "item": "independent held-out test set; human interface-validity review",
+      "reason": "none exist in the repository; all inputs are seen historical development data"
+    }
+  ],
+  "power": {
+    "alpha": 0.05,
+    "min_discordant_for_significance": 6,
+    "mde_two_proportions_normal_approximation": {
+      "12": 0.571871187942,
+      "72": 0.233465434843,
+      "144": 0.16508499215,
+      "384": 0.10109349874
+    },
+    "note": "With 12 pairs no split below 6 discordant pairs can reach p <= 0.05; MDE uses baseline 0.5, alpha 0.05, power 0.80 and ignores clustering, so the true detectable effect is larger."
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "version": "0.2.70-dev",
+  "backend": "deepseek_live_single_decision",
+  "protocol": "format_v13_deepseek.protocol.json",
+  "protocol_sha256": "0eb73ee1ef28f21a991a87a4981580a2a17e9d7a0c008414882b7c708c721426",
+  "trace": "format_v13_deepseek.jsonl",
+  "trace_sha256": "e8cc78e31407b16042b25f68a135e5903fac2b72733888c713a905af4b2846d1",
+  "summary": {
+    "arms": {
+      "disabled_800": {
+        "planned": 6,
+        "sent": 6,
+        "categories": {
+          "valid_action": 6,
+          "empty_content": 0,
+          "json_error": 0,
+          "schema_error": 0,
+          "response_shape": 0,
+          "provider_error": 0,
+          "input_limit": 0,
+          "request_cap": 0
+        },
+        "length_finish": 0
+      },
+      "disabled_2048": {
+        "planned": 6,
+        "sent": 6,
+        "categories": {
+          "valid_action": 6,
+          "empty_content": 0,
+          "json_error": 0,
+          "schema_error": 0,
+          "response_shape": 0,
+          "provider_error": 0,
+          "input_limit": 0,
+          "request_cap": 0
+        },
+        "length_finish": 0
+      },
+      "enabled_800": {
+        "planned": 6,
+        "sent": 6,
+        "categories": {
+          "valid_action": 5,
+          "empty_content": 0,
+          "json_error": 1,
+          "schema_error": 0,
+          "response_shape": 0,
+          "provider_error": 0,
+          "input_limit": 0,
+          "request_cap": 0
+        },
+        "length_finish": 1
+      },
+      "enabled_2048": {
+        "planned": 6,
+        "sent": 6,
+        "categories": {
+          "valid_action": 2,
+          "empty_content": 0,
+          "json_error": 4,
+          "schema_error": 0,
+          "response_shape": 0,
+          "provider_error": 0,
+          "input_limit": 0,
+          "request_cap": 0
+        },
+        "length_finish": 0
+      }
+    },
+    "request_attempts": 24,
+    "usage_available_calls": 24,
+    "reported_prompt_tokens": 18420,
+    "reported_completion_tokens": 5381,
+    "actual_models": [
+      "deepseek-flash"
+    ],
+    "scientific_gate": "HOLD",
+    "recovery_or_rl_claim": false
+  }
+}

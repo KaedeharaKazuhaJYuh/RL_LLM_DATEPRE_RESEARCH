@@ -1,0 +1,361 @@
+{
+  "version": "0.3.75-dev",
+  "machine_status": "verified",
+  "api_requests": 0,
+  "historical_large_suites_replayed": false,
+  "checks": {
+    "semantic_v1": {
+      "offline_episodes": 5184,
+      "pilot_episodes": 12,
+      "status": "verified"
+    },
+    "cross_source_v2_results": {
+      "episodes": 2304,
+      "replayed": false,
+      "status": "verified"
+    },
+    "clarity_v2_comparison": {
+      "episodes": 24,
+      "replayed": false,
+      "status": "verified"
+    },
+    "evidence_v3_offline": {
+      "episodes": 72,
+      "status": "verified",
+      "replayed": true
+    },
+    "evidence_v3_api": {
+      "episodes": 24,
+      "status": "verified",
+      "replayed": true
+    },
+    "decision_v4_offline": {
+      "episodes": 36,
+      "replayed": true,
+      "status": "verified"
+    },
+    "decision_v4_api": {
+      "episodes": 12,
+      "replayed": true,
+      "status": "verified"
+    },
+    "regression_v5_results": {
+      "version": "0.2.20-dev",
+      "cases": 6,
+      "status": "verified",
+      "replayed": true,
+      "api_requests": 0
+    },
+    "allocation_v8_results": {
+      "version": "0.2.35-dev",
+      "executions": 576,
+      "replayed": true,
+      "status": "verified",
+      "api_requests": 0
+    },
+    "surface_v9_results": {
+      "version": "0.2.50-dev",
+      "executions": 144,
+      "replayed": true,
+      "status": "verified",
+      "api_requests": 0
+    },
+    "trust_v10_results": {
+      "version": "0.2.55-dev",
+      "executions": 144,
+      "replayed": true,
+      "status": "verified",
+      "api_requests": 0
+    },
+    "pilot_v11_offline": {
+      "version": "0.2.60-dev",
+      "backend": "offline_rules",
+      "executions": 36,
+      "replayed": true,
+      "request_attempts": 0,
+      "status": "verified",
+      "provider_authenticity_verified": false
+    },
+    "pilot_v12_deepseek": {
+      "version": "0.2.60-dev",
+      "backend": "deepseek_live",
+      "executions": 9,
+      "replayed": true,
+      "request_attempts": 96,
+      "status": "verified",
+      "provider_authenticity_verified": false
+    },
+    "format_v13_deepseek": {
+      "version": "0.2.70-dev",
+      "executions": 24,
+      "status": "verified",
+      "requests_rebuilt": true,
+      "response_classification_independently_replayed": false,
+      "provider_authenticity_verified": false
+    },
+    "followup_v14_deepseek": {
+      "status": "verified",
+      "snapshots_rebuilt": 6,
+      "requests_rebuilt": 12,
+      "response_classification_independently_replayed": false,
+      "provider_authenticity_verified": false
+    },
+    "multistep_v15_deepseek": {
+      "status": "verified",
+      "executions": 18,
+      "tool_effects_and_public_requests_replayed": true,
+      "response_classification_independently_replayed": false,
+      "provider_authenticity_verified": false
+    },
+    "publication_v16_audit": {
+      "status": "verified",
+      "publication_attempts": 17,
+      "replayed": true,
+      "api_requests": 0
+    },
+    "intervention_v17_deepseek": {
+      "status": "verified",
+      "executions": 54,
+      "public_requests_tools_and_interventions_replayed": true,
+      "response_classification_independently_replayed": false,
+      "provider_authenticity_verified": false,
+      "cpu_times_independently_replayed": false
+    },
+    "stopping_v18_deepseek": {
+      "status": "verified",
+      "probes": 48,
+      "public_states_requests_scores_and_one_step_effects_replayed": true,
+      "response_classification_independently_replayed": false,
+      "provider_authenticity_verified": false
+    },
+    "rowdiag_v19_deepseek": {
+      "status": "verified",
+      "episodes": 12,
+      "response_classification_replayed": true,
+      "provider_authenticity_verified": false
+    },
+    "rowdiag_v20_deepseek": {
+      "status": "verified",
+      "episodes": 12,
+      "response_classification_replayed": true,
+      "provider_authenticity_verified": false
+    },
+    "boundary_v21_deepseek": {
+      "status": "verified",
+      "boundary_probes": 16,
+      "trajectories": 12,
+      "response_classification_replayed": true,
+      "provider_authenticity_verified": false,
+      "scientific_gate": "HOLD"
+    },
+    "semantics_v22_deepseek": {
+      "status": "verified",
+      "rule_controls": 8,
+      "timezone_probes": 16,
+      "trajectories": 32,
+      "response_classification_replayed": true,
+      "provider_authenticity_verified": false,
+      "scientific_gate": "HOLD"
+    },
+    "consistency_v23": {
+      "status": "verified",
+      "version": "0.3.10-dev",
+      "historical_records": 8,
+      "internal_rejected": 6,
+      "bound_rejected": 6,
+      "controls": 6,
+      "new_api_calls": 0,
+      "model_improvement_established": false,
+      "scientific_gate": "HOLD",
+      "new_human_review": false
+    },
+    "feedback_v24": {
+      "status": "verified",
+      "revision_probes": 24,
+      "trajectories": 24,
+      "rule_controls": 8,
+      "timings_authenticated": false,
+      "provider_authenticity_verified": false,
+      "scientific_gate": "HOLD"
+    },
+    "feedback_v24_accounting": {
+      "status": "verified",
+      "paired_revision_records": 24,
+      "model_trajectories": 24
+    },
+    "handoff_v25": {
+      "status": "verified",
+      "shared_initial_records": 8,
+      "trajectories": 48,
+      "rule_controls": 8,
+      "timings_authenticated": false,
+      "provider_authenticity_verified": false,
+      "scientific_gate": "HOLD"
+    },
+    "handoff_v25_accounting": {
+      "status": "verified",
+      "matched_cells": 16,
+      "arms": 3
+    },
+    "recover_v26": {
+      "status": "verified",
+      "offline_executions": 64,
+      "audited_model_cases": 6,
+      "audited_wrong_publications": 9,
+      "new_api_calls": 0,
+      "scientific_gate": "HOLD"
+    },
+    "qualify_v27": {
+      "status": "verified",
+      "program_executions": 72,
+      "ambiguous_pairs": 2,
+      "new_api_calls": 0,
+      "model_execution_ready": false,
+      "scientific_gate": "HOLD"
+    },
+    "runtime_v28": {
+      "status": "verified",
+      "scripted_trajectories": 16,
+      "actual_provider_requests": 0,
+      "new_model_results": 0,
+      "scientific_gate": "HOLD"
+    },
+    "live_v29": {
+      "status": "verified",
+      "model_trajectories": 16,
+      "actual_provider_requests": 75,
+      "provider_authenticity_verified": false,
+      "scientific_gate": "HOLD"
+    },
+    "live_v29_accounting": {
+      "status": "verified",
+      "matched_states": 8
+    },
+    "state_v30": {
+      "status": "verified",
+      "model_trajectories": 16,
+      "actual_provider_requests": 96,
+      "provider_authenticity_verified": false,
+      "scientific_gate": "HOLD"
+    },
+    "state_v30_accounting": {
+      "status": "verified",
+      "matched_states": 8
+    },
+    "stop_v31": {
+      "status": "verified",
+      "single_decisions": 40,
+      "actual_provider_requests": 40,
+      "provider_authenticity_verified": false,
+      "scientific_gate": "HOLD"
+    },
+    "stop_v31_matrix": {
+      "status": "verified",
+      "snapshots": 20,
+      "ready": 6
+    },
+    "stop_v31_accounting": {
+      "status": "verified",
+      "matched_states": 20
+    },
+    "goal_v32": {
+      "status": "verified",
+      "single_decisions": 80,
+      "actual_provider_requests": 80,
+      "provider_authenticity_verified": false,
+      "scientific_gate": "HOLD"
+    },
+    "goal_v32_accounting": {
+      "status": "verified",
+      "matched_states": 20
+    },
+    "responsibility_v33": {
+      "status": "verified",
+      "program_snapshots": 36,
+      "old_decisions_replayed": 80,
+      "new_api_calls": 0,
+      "scientific_gate": "HOLD"
+    },
+    "responsibility_v33_live_decision": {
+      "status": "verified",
+      "decision": "NO-GO",
+      "new_provider_requests": 0
+    },
+    "lineage_v34": {
+      "status": "verified",
+      "scripted_snapshots": 4,
+      "scripted_controls": 12,
+      "new_provider_requests": 0,
+      "scientific_gate": "HOLD"
+    },
+    "lineage_v34_review_scope": {
+      "status": "verified",
+      "scope_cases": 40,
+      "independent_review": "pending",
+      "scientific_gate": "HOLD"
+    },
+    "lineage_v34_live_decision": {
+      "status": "verified",
+      "decision": "NO-GO",
+      "new_provider_requests": 0
+    }
+  },
+  "files_verified": 391,
+  "catalog_sha256": "9599e373db827a02ef60f883735f2a462f85dc3bacad478981a2a526fb33b11e",
+  "new_experiment_review": {
+    "allocation_v8": "pending",
+    "surface_v9": "pending",
+    "trust_v10": "pending",
+    "pilot_v11": "pending",
+    "pilot_v12": "pending",
+    "format_v13": "pending",
+    "followup_v14": "pending",
+    "multistep_v15": "pending",
+    "publication_v16": "pending",
+    "intervention_v17": "pending",
+    "stopping_v18": "pending",
+    "rowdiag_v19": "pending",
+    "rowdiag_v20": "pending",
+    "boundary_v21": "pending",
+    "semantics_v22": "pending",
+    "consistency_v23": "pending",
+    "feedback_v24": "pending",
+    "handoff_v25": "pending",
+    "recover_v26": "pending",
+    "qualify_v27": "pending",
+    "runtime_v28": "pending",
+    "live_v29": "pending",
+    "state_v30": "pending",
+    "stop_v31": "pending",
+    "goal_v32": "pending",
+    "responsibility_v33": "pending",
+    "lineage_v34": "pending"
+  },
+  "human_review": {
+    "development_tasks": {
+      "status": "passed",
+      "tasks": 24
+    },
+    "legacy_diagnostics": {
+      "status": "passed",
+      "tasks": 3
+    },
+    "new_regression_cases": {
+      "status": "passed",
+      "cases": 6,
+      "reviewer": "张雨田",
+      "reviewed_version": "0.2.20-dev",
+      "identity_basis": "User-supplied signed review; document declares independent personal review and no participation in suite development."
+    },
+    "identity_basis": "user-confirmed personal human review",
+    "declared_boundary_checks": 22,
+    "boundary_scripts_independently_replayed": false
+  },
+  "scientific_gate": "HOLD",
+  "scientific_release_ready": false,
+  "historical_acceptance_version": "0.2.95-dev",
+  "engineering_release_ready": true,
+  "provider_authenticity_verified": false,
+  "external_publication_confirmed": false,
+  "previous_release_version": "0.3.70-dev"
+}

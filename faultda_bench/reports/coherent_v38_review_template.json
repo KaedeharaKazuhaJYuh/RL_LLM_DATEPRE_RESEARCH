@@ -1,0 +1,517 @@
+{
+  "version": "0.3.95-dev",
+  "reviewer": {
+    "name": null,
+    "declares_human": null,
+    "personally_checked": null,
+    "reviewed_git_commit": null
+  },
+  "overall_verdict": null,
+  "case_reviews": [
+    {
+      "case_id": "environment|utc_end|base|historical|bad_never_committed",
+      "pair_sha256": "d328c622d64bd84753b54c5e3d82fb306e561c5a3710a372dec67aecfa2bec9b",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|utc_end|base|historical|bad_committed",
+      "pair_sha256": "8c7e24ad14e282a95a447552e2139e17d0d1f4706920bc2c1395a94b3ade2bf5",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|utc_end|base|scripted_current|bad_never_committed",
+      "pair_sha256": "f09b7d0f619d257b9586075f2f6c2ff53d824ffc43158433924b9ea205898bfa",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|utc_end|base|scripted_current|bad_committed",
+      "pair_sha256": "de9d948dbcef83f48696a82219640537234096d2fd448773d6244ff73fe86934",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|utc_end|trim_start|historical|bad_never_committed",
+      "pair_sha256": "c7d2f880f2fedcc71b5a4eea00c170b99937235d9b8430663469c70e0df04a2d",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|utc_end|trim_start|historical|bad_committed",
+      "pair_sha256": "fe9d2298249ad7815a2a300375f3d3df9fe8f7d75275c9d5c270c402f02089b5",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|utc_end|trim_start|scripted_current|bad_never_committed",
+      "pair_sha256": "8717b452b9dc846ab50ca4bde6783c285be4fe2a88997cda3e40ac591010b43f",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|utc_end|trim_start|scripted_current|bad_committed",
+      "pair_sha256": "56577e3798098ecdb6c0ad26e2bfe55e9dab711c32bd6f76188a61a62d88579b",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|utc_end|early_end|historical|bad_never_committed",
+      "pair_sha256": "6fffe4ee5b85ce3aa65bd42800025124e01176403af05db756d48eb2332851ac",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|utc_end|early_end|historical|bad_committed",
+      "pair_sha256": "127f8c8d0f28e9555b997275e5ba5919f5fb6011cec18ece53f42ee653267097",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|utc_end|early_end|scripted_current|bad_never_committed",
+      "pair_sha256": "81bc5b12c8dd79fbb2d220d21bd280a66f6a47d6c18bae2dbd1cafd114efc2d8",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|utc_end|early_end|scripted_current|bad_committed",
+      "pair_sha256": "f98d48bd754f420ee5df50c358c540881fa924c966fd812d7d02f54ae7443205",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|plus8_end|base|historical|bad_never_committed",
+      "pair_sha256": "9aa04463a3e5ce2386892b3c23859c916b937eaf4bf7db72b8db42e78d0f8610",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|plus8_end|base|historical|bad_committed",
+      "pair_sha256": "53f493163805111f454d99d719f448f2cd82bd489cf2d6a5241bab1a18549802",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|plus8_end|base|scripted_current|bad_never_committed",
+      "pair_sha256": "56a2696bc4cec3c6a7bac90185acde33f3a4547cd904d2afff9eb14f73b4d15c",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|plus8_end|base|scripted_current|bad_committed",
+      "pair_sha256": "ddd0adc9dc2c0930ed3047064dda650c071672afdd00b7a816c6162572f4d621",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|plus8_end|trim_start|historical|bad_never_committed",
+      "pair_sha256": "782d848c8123a00cc22ba7a335d0be69969235d3661c1c4e1de9c86343e84fe3",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|plus8_end|trim_start|historical|bad_committed",
+      "pair_sha256": "713d4febb350c2b706ca8c560f1f22129b3757caefd1498b48ff39182ee96943",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|plus8_end|trim_start|scripted_current|bad_never_committed",
+      "pair_sha256": "8afd6ee92a71899b3bc2018699012d40d375d26d3ffb8dc8773ac332150e685c",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|plus8_end|trim_start|scripted_current|bad_committed",
+      "pair_sha256": "a91f4085e8696183ae079d142b6292d478dd066724808aa0225dbb070c04d4da",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|plus8_end|early_end|historical|bad_never_committed",
+      "pair_sha256": "1ac2e62b0c56a89d235d9fc90c8cf8c7c9aa5dc43a380c5c3144159bf701085d",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|plus8_end|early_end|historical|bad_committed",
+      "pair_sha256": "80896d1d7a4c431464d3bbddaaecbf8ca259cc17a51b4fda6eb2b2ce9c6cd596",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|plus8_end|early_end|scripted_current|bad_never_committed",
+      "pair_sha256": "4b9422cbebaf4ffcc4ece7a21dd6df727e710a0e77068bc775e8332723872a93",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "environment|plus8_end|early_end|scripted_current|bad_committed",
+      "pair_sha256": "79aaa4c1fd1c2dd0d30679989cae070c8aa1851c56e7fa40f59fb55e64de738d",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "api|utc_end|base|historical|bad_never_committed|first",
+      "pair_sha256": "5d2805af4db60d4b59e4985e1ab95fb4293d515902196dfbbcbb9fc0ba24a27f",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "api|utc_end|base|historical|bad_committed|first",
+      "pair_sha256": "9983069378e98719f111c30d9f73ebedf8cd48a9f0b50ba29b5455399408f4a6",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "api|utc_end|base|scripted_current|bad_never_committed|second",
+      "pair_sha256": "6d1e331047df76b034d93a5d7bbfbae5acde945ffc7b13bc444071fa41358ddc",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "api|utc_end|base|scripted_current|bad_committed|second",
+      "pair_sha256": "a420df1e0622f9542d557bbf0e9ecfa1b67de3e322e64cfd64bf39191704e8bb",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "api|utc_end|trim_start|historical|bad_never_committed|second",
+      "pair_sha256": "d5716cad53dd5bbafff0c7ab29dbbf1e5c90bad30d7c781eaed764307251e618",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "api|utc_end|trim_start|historical|bad_committed|second",
+      "pair_sha256": "cb0f2a0d43fd2fc898fc740a936d8b6d0068614ec75446b34937b17d6eef0ac6",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "api|utc_end|trim_start|scripted_current|bad_never_committed|first",
+      "pair_sha256": "f3794cc2fdf25f963c98603e1eb83e4eee6d58d046b33e93fd6632e0b478f74e",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "api|utc_end|trim_start|scripted_current|bad_committed|first",
+      "pair_sha256": "200c9c0a74c9903e06bdd4a00e907a3197df18c064bee056339ded82dc069026",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "api|utc_end|early_end|historical|bad_never_committed|first",
+      "pair_sha256": "7810b1c886a0226296097487db929f75b7212f0399757b66e0f39bd5ba7bea7f",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "api|utc_end|early_end|historical|bad_committed|first",
+      "pair_sha256": "d38abe38b28ff0cae7e9ef30e07cf0c3997863b092d0f56beca3ac19697601db",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "api|utc_end|early_end|scripted_current|bad_never_committed|second",
+      "pair_sha256": "5b435ce39b5f6b23c74a08deb0e3158d72136c20948f239ce1a1c97aefa746a1",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    },
+    {
+      "case_id": "api|utc_end|early_end|scripted_current|bad_committed|second",
+      "pair_sha256": "a24ce7a33981dbd5b8c62cf5c0e7fab159ff49a9a9dac6defde78d8e85007f19",
+      "checks": {
+        "public_source_and_query": null,
+        "independent_reference": null,
+        "negative_control_discrimination": null,
+        "synthetic_scope_limits": null,
+        "prompt_pair_and_wording": null,
+        "scoring_and_cost_boundary": null
+      },
+      "verdict": null,
+      "comments": ""
+    }
+  ],
+  "notice": "Only fill personally reviewed cases; partial returns allowed. Include prompt/scoring objections. Declarations are not identity verification or scientific acceptance."
+}

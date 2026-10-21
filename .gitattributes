@@ -4,3 +4,124 @@
 *.json text eol=lf
 *.jsonl text eol=lf
 *.toml text eol=lf
+# Frozen experiment evidence is hashed byte-for-byte; preserve its original
+# serialization on checkout rather than normalizing after the experiment.
+faultda_bench/protocols/semantic_tasks_v1.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
+faultda_bench/reports/semantic_v1*.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
+
+faultda_bench/reports/regression_review_2026_10_11/submitted_review.md -text whitespace=-blank-at-eol
+faultda_bench/docs/CONSISTENCY_0310_PROTOCOL.md text eol=lf
+faultda_bench/reports/CONSISTENCY_0310_RELEASE.md text eol=lf
+
+faultda_bench/docs/FEEDBACK_0315_PROTOCOL.md text eol=lf
+faultda_bench/reports/FEEDBACK_0315_*.md text eol=lf
+
+faultda_bench/docs/HANDOFF_0320_PROTOCOL.md text eol=lf
+faultda_bench/reports/HANDOFF_0320_*.md text eol=lf
+
+faultda_bench/docs/RECOVER_0325_PROTOCOL.md text eol=lf
+faultda_bench/reports/RECOVER_0325_*.md text eol=lf
+
+faultda_bench/docs/QUALIFY_0330_PROTOCOL.md text eol=lf
+faultda_bench/reports/QUALIFY_0330_*.md text eol=lf
+
+faultda_bench/docs/RUNTIME_0335_PROTOCOL.md text eol=lf
+faultda_bench/reports/RUNTIME_0335_*.md text eol=lf
+
+faultda_bench/docs/LIVE_0350_PROTOCOL.md text eol=lf
+faultda_bench/reports/LIVE_0350_*.md text eol=lf
+
+faultda_bench/docs/STATE_0355_PROTOCOL.md text eol=lf
+faultda_bench/reports/STATE_0355_*.md text eol=lf
+
+faultda_bench/docs/STOP_0360_PROTOCOL.md text eol=lf
+faultda_bench/reports/STOP_0360_*.md text eol=lf
+
+faultda_bench/docs/GOAL_0365_PROTOCOL.md text eol=lf
+faultda_bench/reports/GOAL_0365_*.md text eol=lf
+
+faultda_bench/docs/RESPONSIBILITY_0370_PROTOCOL.md text eol=lf
+faultda_bench/reports/RESPONSIBILITY_0370_*.md text eol=lf
+faultda_bench/docs/PLAN_0370_2026_10_15.md text eol=lf
+
+faultda_bench/docs/LINEAGE_0375_PROTOCOL.md text eol=lf
+faultda_bench/reports/LINEAGE_0375_*.md text eol=lf
+
+faultda_bench/docs/RECEIPT_0380_PROTOCOL.md text eol=lf
+faultda_bench/reports/RECEIPT_0380_*.md text eol=lf
+
+faultda_bench/docs/POSTRECEIPT_0385_PROTOCOL.md text eol=lf
+faultda_bench/reports/POSTRECEIPT_0385_*.md text eol=lf
+
+faultda_bench/docs/PROBES_0390_PROTOCOL.md text eol=lf
+faultda_bench/reports/PROBES_0390_*.md text eol=lf
+
+faultda_bench/docs/COHERENT_0395_PROTOCOL.md text eol=lf
+faultda_bench/reports/COHERENT_0395_*.md text eol=lf
+
+faultda_bench/docs/VALIDITY_0500_PROTOCOL.md text eol=lf
+faultda_bench/reports/VALIDITY_0500_*.md text eol=lf
+
+faultda_bench/docs/*0505*.md text eol=lf
+faultda_bench/reports/REVIEW_0505_*.md text eol=lf
+faultda_bench/reports/review505/HUMAN_REVIEW_2026_10_16_ZHANG.md -text whitespace=-blank-at-eol
+
+faultda_bench/docs/*0510*.md text eol=lf
+faultda_bench/reports/REVIEW_0510_*.md text eol=lf
+
+faultda_bench/docs/SCIENTIFIC_CHOICE_DRAFT_2026_10_18.md text eol=lf
+
+faultda_bench/docs/FOUR_CELL_WITNESS_2026_10_18.md text eol=lf
+
+faultda_bench/docs/*0515*.md text eol=lf
+faultda_bench/reports/REVIEW_0515_*.md text eol=lf
+faultda_bench/reports/review515/HUMAN_REVIEW_2026_10_18_ZHANG.md -text whitespace=-blank-at-eol
+
+faultda_bench/docs/*0520*.md text eol=lf
+faultda_bench/reports/REVIEW_0520_*.md text eol=lf
+
+faultda_bench/docs/*0525*.md text eol=lf
+faultda_bench/reports/REVIEW_0525_*.md text eol=lf
+
+faultda_bench/docs/*0530*.md text eol=lf
+faultda_bench/reports/REVIEW_0530_*.md text eol=lf
+faultda_bench/reports/review530/*.md text eol=lf
+
+# 0.5.35 offline diagnostic evidence: byte-stable checkout.
+faultda_bench/docs/RESEARCH_RESTART_2026_10_19.md text eol=lf
+faultda_bench/reports/RELEASE_0535.md text eol=lf
+research/BINDING_PROBE_FINDINGS_2026_10_19.md text eol=lf
+research/RESEARCH_CONTRIBUTION_DESIGN_2026_10_19.md text eol=lf
+research/TERMINATION_FINDINGS_2026_10_19.md text eol=lf
+research/TRAJECTORY_AUDIT_FINDINGS_2026_10_19.md text eol=lf
+
+# 0.5.50 offline termination design evidence.
+faultda_bench/docs/TERMINATION_0550_DESIGN.md text eol=lf
+faultda_bench/reports/RELEASE_0550.md text eol=lf
+
+# 0.5.55 registered diagnostic evidence.
+faultda_bench/docs/TERMINATION_0555_BINDING.md text eol=lf
+faultda_bench/reports/RELEASE_0555.md text eol=lf
+
+# 0.5.55 within-version performance evidence.
+faultda_bench/docs/ARCHITECTURE_ENERGY_0555.md text eol=lf
+faultda_bench/reports/PERFORMANCE_0555.md text eol=lf
+
+# 0.5.60 descriptive uncertainty reporting.
+faultda_bench/docs/UNCERTAINTY_0560.md text eol=lf
+faultda_bench/reports/RELEASE_0560.md text eol=lf
+faultda_bench/reports/stats560/summary.md text eol=lf
+docs/en/FAULTDA_BENCH_OVERVIEW.md text eol=lf
+
+# 0.5.60 版本完整性冻结。
+faultda_bench/reports/RELEASE_0560_FREEZE.md text eol=lf
+
+faultda_bench/docs/CI_0565_INTEGRATION.md text eol=lf
+
+faultda_bench/docs/CLAIM_DECISION_INPUT_0565.md text eol=lf
+faultda_bench/docs/VERICOST_0565_AMENDMENTS.md text eol=lf
+faultda_bench/docs/VERICOST_0565_LIVE_PROTOCOL.md text eol=lf
+faultda_bench/docs/VERICOST_0565_PREREG.md text eol=lf
+faultda_bench/docs/vericost565_exploration/exploration_log.txt text eol=lf
+faultda_bench/reports/RELEASE_0565.md text eol=lf
+tests/fixtures/vericost565_rejection_conditions.txt text eol=lf

@@ -1,0 +1,19 @@
+{
+  "version": "0.3.90-dev",
+  "date": "2026-10-16",
+  "full_tests": {
+    "count": 445,
+    "seconds": 105.681,
+    "status": "OK"
+  },
+  "focused_tests": 23,
+  "original_fact_checks": 16,
+  "synthetic_fact_checks": 11,
+  "program_reference_correct": 27,
+  "draft_prompt_cells": 32,
+  "approved_transport_requests": 0,
+  "actual_provider_requests": 0,
+  "independent_review": "pending",
+  "scientific_gate": "HOLD",
+  "provider_authenticity_verified": false
+}

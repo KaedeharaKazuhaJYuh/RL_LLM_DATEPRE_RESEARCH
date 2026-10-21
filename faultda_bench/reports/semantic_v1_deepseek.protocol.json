@@ -1,0 +1,86 @@
+{
+  "version": "0.2.0-dev",
+  "track": "single_model_integration_pilot",
+  "model": "deepseek-chat",
+  "temperature": 0,
+  "max_tokens": 800,
+  "max_calls": 96,
+  "manifest_sha256": "425452911e1bb25b4ef3f7b16f5a7ead530fe50ebc36f97bdf58adbeb78c6785",
+  "system": "You operate a data-analysis report service. Complete the public contract using only legal tools. A timeout does not prove that a publication failed. A committed report may still have incorrect analysis. Use available evidence to decide whether to inspect, recompute and correct, or escalate. Return only a JSON object with action and params (an object, empty for read/stop/escalate). stage computes a candidate without publishing. publish requires stage_id, request_id, expected_revision and mode (replace or append). replace supersedes old reports atomically if revision matches. Repeated append can create duplicate reports. No filesystem access or code execution is available. Do not claim completion if unable to establish it. Do not exceed remaining budgets.",
+  "evidence": "E0",
+  "budget": 6,
+  "deduplicate": false,
+  "concurrency": 3,
+  "order": [
+    {
+      "task_id": "version-01",
+      "commit_fault": false,
+      "semantic_fault": true
+    },
+    {
+      "task_id": "version-01",
+      "commit_fault": false,
+      "semantic_fault": false
+    },
+    {
+      "task_id": "window-01",
+      "commit_fault": true,
+      "semantic_fault": false
+    },
+    {
+      "task_id": "version-01",
+      "commit_fault": true,
+      "semantic_fault": true
+    },
+    {
+      "task_id": "window-01",
+      "commit_fault": false,
+      "semantic_fault": false
+    },
+    {
+      "task_id": "group-01",
+      "commit_fault": false,
+      "semantic_fault": true
+    },
+    {
+      "task_id": "group-01",
+      "commit_fault": false,
+      "semantic_fault": false
+    },
+    {
+      "task_id": "window-01",
+      "commit_fault": false,
+      "semantic_fault": true
+    },
+    {
+      "task_id": "group-01",
+      "commit_fault": true,
+      "semantic_fault": false
+    },
+    {
+      "task_id": "window-01",
+      "commit_fault": true,
+      "semantic_fault": true
+    },
+    {
+      "task_id": "group-01",
+      "commit_fault": true,
+      "semantic_fault": true
+    },
+    {
+      "task_id": "version-01",
+      "commit_fault": true,
+      "semantic_fault": false
+    }
+  ],
+  "code_sha256": {
+    "__init__.py": "9154e6b5439356d966b0b1c5a5e7965e3347f563a054168bfd497b8e511c0a6e",
+    "compute.py": "c3900fc16b3a531ba1baa6042fb7e3b2f56dca5b32877e8a357b1925424a90c7",
+    "deepseek.py": "26c302163a13e8905ecb6c56b01378c5208676bc3b4d7861b6d592b7b779d3ab",
+    "environment.py": "54ff6b19f32163120f92aae416615de3e2cf406a826617330ae289cea14f4008",
+    "oracle.py": "0e7f457555f80f367b6ab0ff7e6ab4def42e9b85c6601a2e42ccfa7dbaf886eb",
+    "policies.py": "dc05a9bac78a9c19e3f0cda57f8f0f3c50151d2c872fc1759ec00b743bbea89c",
+    "run.py": "b9c58ea5c5af74a0c1848507fd0da29b6adcbff886bd018e813b0d0a242095b7",
+    "tasks.py": "cc095e08bc33e24581cf626c4a3347678078927f82f88c2693d22ff6edfedae0"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "version": "0.3.35-dev",
+  "source": "Project-maintained review checklist, not independently signed evidence",
+  "scientific_gate": "HOLD",
+  "independent_acceptance": false,
+  "live_cli_available": false,
+  "provider_requests_performed": 0,
+  "review_scopes": [
+    {
+      "scope": "new initial numeric fault, repeated precommit failure, acknowledgement loss and truthful public trust contract",
+      "status": "pending"
+    },
+    {
+      "scope": "inspect-first/retry-once strong strategies and actual cost comparison",
+      "status": "pending"
+    },
+    {
+      "scope": "matched runtime prompts, exact record transfer and unguarded actions",
+      "status": "pending"
+    },
+    {
+      "scope": "scientific originality and small-model-study decision",
+      "status": "pending"
+    }
+  ],
+  "historical_review_note": "User-confirmed historical 24-task and six-regression reviews are preserved; no new scope inherits those signatures."
+}

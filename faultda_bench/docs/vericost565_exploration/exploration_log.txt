@@ -1,0 +1,250 @@
+# VeriCost 0.5.65-dev design-time exploration re-run (E1-E9)
+# labels: explored | D1 candidate | final-check
+# scripts are unmodified copies of the design-time scratch scripts
+
+# E1: Rev 1: H = 10, R0 rates, no patch candidate [gate0.py]
+E1 label=explored config={} | L=1.0 k=0.03 U*=0.913 best_plain=0.026 ('full', 0) best_sized=0.026 full=0.026 per_n={0.1: -0.0, 1.0: -0.0, 10.0: 0.093}
+E1 label=explored config={} | L=1.0 k=0.1 U*=0.773 best_plain=0.146 ('ccspot', 1) best_sized=0.016 full=0.185 per_n={0.1: -0.0, 1.0: 0.002, 10.0: 0.079}
+E1 label=explored config={} | L=1.0 k=0.3 U*=0.694 best_plain=0.499 ('ccspot', 1) best_sized=0.102 full=1.158 per_n={0.1: -0.0, 1.0: 0.093, 10.0: 0.415}
+E1 label=explored config={} | L=1.0 k=1.0 U*=0.548 best_plain=0.635 ('stop', 0) best_sized=0.091 full=5.925 per_n={0.1: 0.002, 1.0: 0.079, 10.0: 0.364}
+E1 label=explored config={} | L=3.0 k=0.03 U*=0.899 best_plain=0.012 ('full', 0) best_sized=0.012 full=0.012 per_n={0.1: -0.0, 1.0: -0.0, 10.0: 0.043}
+E1 label=explored config={} | L=3.0 k=0.1 U*=0.732 best_plain=0.140 ('full', 0) best_sized=0.044 full=0.140 per_n={0.1: -0.0, 1.0: -0.0, 10.0: 0.315}
+E1 label=explored config={} | L=3.0 k=0.3 U*=0.640 best_plain=0.744 ('ccspot', 1) best_sized=0.131 full=1.172 per_n={0.1: -0.0, 1.0: 0.043, 10.0: 1.0}
+E1 label=explored config={} | L=3.0 k=1.0 U*=0.472 best_plain=1.000 ('escalate', 0) best_sized=0.216 full=6.717 per_n={0.1: -0.0, 1.0: 0.315, 10.0: 1.0}
+# E1: config={} seconds=15.8
+
+# E2: Patch candidate, cc reveals the flagged part, F_hist, F_hist+; H in {10, 2, 0} [gate0_v2.py]
+E2 label=explored config={"H": 10} | H=10 L=1.0 k=0.03 U*=0.935 plain=0.028 size=0.023 hist=0.007 hplus=0.007 full=0.028 ('always_full',)
+E2 label=explored config={"H": 10} | H=10 L=1.0 k=0.1 U*=0.834 plain=0.141 size=0.018 hist=0.007 hplus=0.005 full=0.164 ('check', True, 1, 'full', 'patch')
+E2 label=explored config={"H": 10} | H=10 L=1.0 k=0.3 U*=0.745 plain=0.306 size=0.070 hist=0.015 hplus=0.015 full=0.876 ('check', True, 1, 'full', 'patch')
+E2 label=explored config={"H": 10} | H=10 L=1.0 k=1.0 U*=0.568 plain=0.358 size=0.050 hist=0.007 hplus=0.004 full=4.568 ('check', True, 0, 'none', 'patch')
+E2 label=explored config={"H": 10} | H=10 L=3.0 k=0.03 U*=0.925 plain=0.017 size=0.017 hist=0.008 hplus=0.007 full=0.017 ('always_full',)
+E2 label=explored config={"H": 10} | H=10 L=3.0 k=0.1 U*=0.802 plain=0.130 size=0.036 hist=0.026 hplus=0.025 full=0.130 ('always_full',)
+E2 label=explored config={"H": 10} | H=10 L=3.0 k=0.3 U*=0.693 plain=0.520 size=0.128 hist=0.036 hplus=0.033 full=0.867 ('check', True, 1, 'full', 'patch')
+E2 label=explored config={"H": 10} | H=10 L=3.0 k=1.0 U*=0.479 plain=0.906 size=0.215 hist=0.073 hplus=0.068 full=5.226 ('check', True, 1, 'escalate', 'patch')
+# E2: config={"H": 10} seconds=3.4
+E2 label=explored config={"H": 2} | H=2 L=1.0 k=0.03 U*=0.929 plain=0.021 size=0.016 hist=0.006 hplus=0.006 full=0.021 ('always_full',)
+E2 label=explored config={"H": 2} | H=2 L=1.0 k=0.1 U*=0.825 plain=0.132 size=0.007 hist=0.006 hplus=0.006 full=0.155 ('check', True, 1, 'full', 'patch')
+E2 label=explored config={"H": 2} | H=2 L=1.0 k=0.3 U*=0.727 plain=0.289 size=0.048 hist=0.013 hplus=0.013 full=0.873 ('check', True, 1, 'full', 'patch')
+E2 label=explored config={"H": 2} | H=2 L=1.0 k=1.0 U*=0.547 plain=0.334 size=0.013 hist=0.005 hplus=0.004 full=4.705 ('check', True, 0, 'none', 'patch')
+E2 label=explored config={"H": 2} | H=2 L=3.0 k=0.03 U*=0.918 plain=0.009 size=0.009 hist=0.009 hplus=0.009 full=0.009 ('always_full',)
+E2 label=explored config={"H": 2} | H=2 L=3.0 k=0.1 U*=0.786 plain=0.112 size=0.016 hist=0.014 hplus=0.013 full=0.112 ('always_full',)
+E2 label=explored config={"H": 2} | H=2 L=3.0 k=0.3 U*=0.645 plain=0.483 size=0.062 hist=0.038 hplus=0.037 full=0.856 ('check', True, 1, 'full', 'patch')
+E2 label=explored config={"H": 2} | H=2 L=3.0 k=1.0 U*=0.414 plain=0.891 size=0.092 hist=0.036 hplus=0.033 full=5.886 ('check', True, 1, 'escalate', 'patch')
+# E2: config={"H": 2} seconds=0.3
+E2 label=explored config={"H": 0} | H=0 L=1.0 k=0.03 U*=0.917 plain=0.009 size=0.004 hist=0.004 hplus=0.004 full=0.009 ('always_full',)
+E2 label=explored config={"H": 0} | H=0 L=1.0 k=0.1 U*=0.824 plain=0.130 size=0.006 hist=0.006 hplus=0.006 full=0.153 ('check', True, 1, 'full', 'patch')
+E2 label=explored config={"H": 0} | H=0 L=1.0 k=0.3 U*=0.698 plain=0.260 size=0.008 hist=0.008 hplus=0.008 full=0.867 ('check', True, 1, 'full', 'patch')
+E2 label=explored config={"H": 0} | H=0 L=1.0 k=1.0 U*=0.542 plain=0.327 size=0.004 hist=0.004 hplus=0.004 full=4.739 ('check', True, 0, 'none', 'patch')
+E2 label=explored config={"H": 0} | H=0 L=3.0 k=0.03 U*=0.917 plain=0.009 size=0.009 hist=0.009 hplus=0.009 full=0.009 ('always_full',)
+E2 label=explored config={"H": 0} | H=0 L=3.0 k=0.1 U*=0.778 plain=0.103 size=0.006 hist=0.006 hplus=0.006 full=0.103 ('always_full',)
+E2 label=explored config={"H": 0} | H=0 L=3.0 k=0.3 U*=0.622 plain=0.464 size=0.027 hist=0.027 hplus=0.027 full=0.851 ('check', True, 1, 'full', 'patch')
+E2 label=explored config={"H": 0} | H=0 L=3.0 k=1.0 U*=0.378 plain=0.881 size=0.006 hist=0.006 hplus=0.006 full=6.351 ('check', True, 1, 'escalate', 'patch')
+# E2: config={"H": 0} seconds=0.1
+
+# E3: H in {3,5,10,20} x P_cc in {.3,.5,.7}, L = 3, kappa in {.3,.5,1,2} [gate0_v2.py]
+E3 label=explored config={"H": 3, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=3 L=3.0 k=0.3 U*=0.636 plain=0.715 size=0.068 hist=0.024 hplus=0.024 full=0.854 ('check', True, 1, 'full', 'patch')
+E3 label=explored config={"H": 3, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=3 L=3.0 k=0.5 U*=0.549 plain=0.845 size=0.112 hist=0.026 hplus=0.025 full=1.934 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 3, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=3 L=3.0 k=1.0 U*=0.382 plain=1.000 size=0.215 hist=0.055 hplus=0.050 full=6.296 ('escalate_all',)
+E3 label=explored config={"H": 3, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=3 L=3.0 k=2.0 U*=0.316 plain=1.000 size=0.330 hist=0.060 hplus=0.060 full=16.994 ('escalate_all',)
+# E3: config={"H": 3, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} seconds=0.6
+E3 label=explored config={"H": 3, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=3 L=3.0 k=0.3 U*=0.658 plain=0.494 size=0.081 hist=0.037 hplus=0.032 full=0.859 ('check', True, 1, 'full', 'patch')
+E3 label=explored config={"H": 3, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=3 L=3.0 k=0.5 U*=0.585 plain=0.595 size=0.167 hist=0.041 hplus=0.041 full=1.875 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 3, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=3 L=3.0 k=1.0 U*=0.432 plain=0.895 size=0.130 hist=0.052 hplus=0.043 full=5.686 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 3, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=3 L=3.0 k=2.0 U*=0.355 plain=1.000 size=0.190 hist=0.091 hplus=0.065 full=15.218 ('escalate_all',)
+# E3: config={"H": 3, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} seconds=0.6
+E3 label=explored config={"H": 3, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=3 L=3.0 k=0.3 U*=0.701 plain=0.309 size=0.084 hist=0.036 hplus=0.030 full=0.868 ('check', True, 1, 'full', 'patch')
+E3 label=explored config={"H": 3, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=3 L=3.0 k=0.5 U*=0.628 plain=0.380 size=0.131 hist=0.058 hplus=0.039 full=1.816 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 3, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=3 L=3.0 k=1.0 U*=0.497 plain=0.603 size=0.091 hist=0.018 hplus=0.007 full=5.071 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 3, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=3 L=3.0 k=2.0 U*=0.418 plain=1.000 size=0.129 hist=0.038 hplus=0.028 full=13.089 ('escalate_all',)
+# E3: config={"H": 3, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} seconds=0.6
+E3 label=explored config={"H": 5, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=5 L=3.0 k=0.3 U*=0.650 plain=0.721 size=0.088 hist=0.028 hplus=0.022 full=0.858 ('check', True, 1, 'full', 'patch')
+E3 label=explored config={"H": 5, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=5 L=3.0 k=0.5 U*=0.570 plain=0.851 size=0.144 hist=0.034 hplus=0.026 full=1.900 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 5, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=5 L=3.0 k=1.0 U*=0.410 plain=1.000 size=0.267 hist=0.049 hplus=0.047 full=5.945 ('escalate_all',)
+E3 label=explored config={"H": 5, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=5 L=3.0 k=2.0 U*=0.354 plain=1.000 size=0.402 hist=0.052 hplus=0.052 full=15.280 ('escalate_all',)
+# E3: config={"H": 5, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} seconds=0.9
+E3 label=explored config={"H": 5, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=5 L=3.0 k=0.3 U*=0.679 plain=0.510 size=0.110 hist=0.043 hplus=0.034 full=0.864 ('check', True, 1, 'full', 'patch')
+E3 label=explored config={"H": 5, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=5 L=3.0 k=0.5 U*=0.603 plain=0.607 size=0.192 hist=0.038 hplus=0.038 full=1.849 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 5, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=5 L=3.0 k=1.0 U*=0.455 plain=0.901 size=0.173 hist=0.064 hplus=0.058 full=5.453 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 5, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=5 L=3.0 k=2.0 U*=0.397 plain=1.000 size=0.275 hist=0.079 hplus=0.074 full=13.725 ('escalate_all',)
+# E3: config={"H": 5, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} seconds=0.9
+E3 label=explored config={"H": 5, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=5 L=3.0 k=0.3 U*=0.714 plain=0.321 size=0.100 hist=0.035 hplus=0.030 full=0.870 ('check', True, 1, 'full', 'patch')
+E3 label=explored config={"H": 5, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=5 L=3.0 k=0.5 U*=0.643 plain=0.395 size=0.151 hist=0.052 hplus=0.046 full=1.797 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 5, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=5 L=3.0 k=1.0 U*=0.506 plain=0.610 size=0.107 hist=0.009 hplus=0.008 full=4.998 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 5, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=5 L=3.0 k=2.0 U*=0.447 plain=1.000 size=0.187 hist=0.035 hplus=0.032 full=12.286 ('escalate_all',)
+# E3: config={"H": 5, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} seconds=1.1
+E3 label=explored config={"H": 10, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=10 L=3.0 k=0.3 U*=0.664 plain=0.727 size=0.108 hist=0.030 hplus=0.022 full=0.861 ('check', True, 1, 'full', 'patch')
+E3 label=explored config={"H": 10, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=10 L=3.0 k=0.5 U*=0.593 plain=0.857 size=0.178 hist=0.028 hplus=0.025 full=1.864 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 10, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=10 L=3.0 k=1.0 U*=0.440 plain=1.000 size=0.318 hist=0.054 hplus=0.050 full=5.604 ('escalate_all',)
+E3 label=explored config={"H": 10, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=10 L=3.0 k=2.0 U*=0.387 plain=1.000 size=0.454 hist=0.052 hplus=0.052 full=14.035 ('escalate_all',)
+# E3: config={"H": 10, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} seconds=3.4
+E3 label=explored config={"H": 10, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=10 L=3.0 k=0.3 U*=0.693 plain=0.520 size=0.128 hist=0.036 hplus=0.033 full=0.867 ('check', True, 1, 'full', 'patch')
+E3 label=explored config={"H": 10, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=10 L=3.0 k=0.5 U*=0.626 plain=0.621 size=0.221 hist=0.041 hplus=0.041 full=1.819 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 10, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=10 L=3.0 k=1.0 U*=0.479 plain=0.906 size=0.215 hist=0.073 hplus=0.068 full=5.226 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 10, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=10 L=3.0 k=2.0 U*=0.426 plain=1.000 size=0.324 hist=0.082 hplus=0.075 full=12.862 ('escalate_all',)
+# E3: config={"H": 10, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} seconds=3.4
+E3 label=explored config={"H": 10, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=10 L=3.0 k=0.3 U*=0.729 plain=0.335 size=0.119 hist=0.038 hplus=0.036 full=0.873 ('check', True, 1, 'full', 'patch')
+E3 label=explored config={"H": 10, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=10 L=3.0 k=0.5 U*=0.660 plain=0.410 size=0.173 hist=0.056 hplus=0.052 full=1.776 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 10, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=10 L=3.0 k=1.0 U*=0.523 plain=0.622 size=0.135 hist=0.014 hplus=0.009 full=4.874 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 10, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=10 L=3.0 k=2.0 U*=0.472 plain=1.000 size=0.229 hist=0.045 hplus=0.041 full=11.708 ('escalate_all',)
+# E3: config={"H": 10, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} seconds=3.5
+E3 label=explored config={"H": 20, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=20 L=3.0 k=0.3 U*=0.672 plain=0.731 size=0.119 hist=0.023 hplus=0.022 full=0.862 ('check', True, 1, 'full', 'patch')
+E3 label=explored config={"H": 20, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=20 L=3.0 k=0.5 U*=0.605 plain=0.859 size=0.194 hist=0.025 hplus=0.025 full=1.847 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 20, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=20 L=3.0 k=1.0 U*=0.455 plain=1.000 size=0.341 hist=0.050 hplus=0.050 full=5.447 ('escalate_all',)
+E3 label=explored config={"H": 20, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} | H=20 L=3.0 k=2.0 U*=0.404 plain=1.000 size=0.477 hist=0.051 hplus=0.051 full=13.489 ('escalate_all',)
+# E3: config={"H": 20, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.3} seconds=8.0
+E3 label=explored config={"H": 20, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=20 L=3.0 k=0.3 U*=0.702 plain=0.526 size=0.139 hist=0.034 hplus=0.034 full=0.868 ('check', True, 1, 'full', 'patch')
+E3 label=explored config={"H": 20, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=20 L=3.0 k=0.5 U*=0.636 plain=0.627 size=0.233 hist=0.041 hplus=0.041 full=1.806 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 20, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=20 L=3.0 k=1.0 U*=0.492 plain=0.908 size=0.235 hist=0.075 hplus=0.074 full=5.117 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 20, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} | H=20 L=3.0 k=2.0 U*=0.441 plain=1.000 size=0.348 hist=0.079 hplus=0.077 full=12.450 ('escalate_all',)
+# E3: config={"H": 20, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.5} seconds=8.6
+E3 label=explored config={"H": 20, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=20 L=3.0 k=0.3 U*=0.735 plain=0.341 size=0.126 hist=0.038 hplus=0.038 full=0.874 ('check', True, 1, 'full', 'patch')
+E3 label=explored config={"H": 20, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=20 L=3.0 k=0.5 U*=0.667 plain=0.416 size=0.182 hist=0.056 hplus=0.055 full=1.768 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 20, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=20 L=3.0 k=1.0 U*=0.529 plain=0.627 size=0.145 hist=0.011 hplus=0.010 full=4.828 ('check', True, 1, 'escalate', 'patch')
+E3 label=explored config={"H": 20, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} | H=20 L=3.0 k=2.0 U*=0.482 plain=1.000 size=0.245 hist=0.046 hplus=0.045 full=11.475 ('escalate_all',)
+# E3: config={"H": 20, "L": [3.0], "kappa": [0.3, 0.5, 1.0, 2.0], "p_cc": 0.7} seconds=8.2
+
+# E4: Escalate reactions in F (present in the unmodified script); default grid [gate0_v2.py]
+E4 label=explored config={"H": 10} | H=10 L=1.0 k=0.03 U*=0.935 plain=0.028 size=0.023 hist=0.007 hplus=0.007 full=0.028 ('always_full',)
+E4 label=explored config={"H": 10} | H=10 L=1.0 k=0.1 U*=0.834 plain=0.141 size=0.018 hist=0.007 hplus=0.005 full=0.164 ('check', True, 1, 'full', 'patch')
+E4 label=explored config={"H": 10} | H=10 L=1.0 k=0.3 U*=0.745 plain=0.306 size=0.070 hist=0.015 hplus=0.015 full=0.876 ('check', True, 1, 'full', 'patch')
+E4 label=explored config={"H": 10} | H=10 L=1.0 k=1.0 U*=0.568 plain=0.358 size=0.050 hist=0.007 hplus=0.004 full=4.568 ('check', True, 0, 'none', 'patch')
+E4 label=explored config={"H": 10} | H=10 L=3.0 k=0.03 U*=0.925 plain=0.017 size=0.017 hist=0.008 hplus=0.007 full=0.017 ('always_full',)
+E4 label=explored config={"H": 10} | H=10 L=3.0 k=0.1 U*=0.802 plain=0.130 size=0.036 hist=0.026 hplus=0.025 full=0.130 ('always_full',)
+E4 label=explored config={"H": 10} | H=10 L=3.0 k=0.3 U*=0.693 plain=0.520 size=0.128 hist=0.036 hplus=0.033 full=0.867 ('check', True, 1, 'full', 'patch')
+E4 label=explored config={"H": 10} | H=10 L=3.0 k=1.0 U*=0.479 plain=0.906 size=0.215 hist=0.073 hplus=0.068 full=5.226 ('check', True, 1, 'escalate', 'patch')
+# E4: config={"H": 10} seconds=3.4
+
+# E5: Partial global coverage q_g [gate0_v3.py]
+E5 label=D1 candidate config={"q_g": 1.0} | H=10 L=1.0 k=0.03 U*=0.935 plain=0.028 size=0.023 hist=0.007 hplus=0.007 full=0.028 ('always_full',)
+E5 label=D1 candidate config={"q_g": 1.0} | H=10 L=1.0 k=0.1 U*=0.834 plain=0.141 size=0.018 hist=0.007 hplus=0.005 full=0.164 ('check', True, 1, 'full', 'patch')
+E5 label=D1 candidate config={"q_g": 1.0} | H=10 L=1.0 k=0.3 U*=0.745 plain=0.306 size=0.070 hist=0.015 hplus=0.015 full=0.876 ('check', True, 1, 'full', 'patch')
+E5 label=D1 candidate config={"q_g": 1.0} | H=10 L=1.0 k=1.0 U*=0.568 plain=0.358 size=0.050 hist=0.007 hplus=0.004 full=4.568 ('check', True, 0, 'none', 'patch')
+E5 label=D1 candidate config={"q_g": 1.0} | H=10 L=3.0 k=0.03 U*=0.925 plain=0.017 size=0.017 hist=0.008 hplus=0.007 full=0.017 ('always_full',)
+E5 label=D1 candidate config={"q_g": 1.0} | H=10 L=3.0 k=0.1 U*=0.802 plain=0.130 size=0.036 hist=0.026 hplus=0.025 full=0.130 ('always_full',)
+E5 label=D1 candidate config={"q_g": 1.0} | H=10 L=3.0 k=0.3 U*=0.693 plain=0.520 size=0.128 hist=0.036 hplus=0.033 full=0.867 ('check', True, 1, 'full', 'patch')
+E5 label=D1 candidate config={"q_g": 1.0} | H=10 L=3.0 k=1.0 U*=0.479 plain=0.906 size=0.215 hist=0.073 hplus=0.068 full=5.226 ('check', True, 1, 'escalate', 'patch')
+# E5: config={"q_g": 1.0} seconds=3.7
+E5 label=D1 candidate config={"q_g": 0.5} | H=10 L=1.0 k=0.03 U*=0.929 plain=0.021 size=0.021 hist=0.008 hplus=0.008 full=0.021 ('always_full',)
+E5 label=D1 candidate config={"q_g": 0.5} | H=10 L=1.0 k=0.1 U*=0.815 plain=0.144 size=0.023 hist=0.006 hplus=0.006 full=0.144 ('always_full',)
+E5 label=D1 candidate config={"q_g": 0.5} | H=10 L=1.0 k=0.3 U*=0.727 plain=0.432 size=0.060 hist=0.020 hplus=0.018 full=0.873 ('check', True, 1, 'full', 'patch')
+E5 label=D1 candidate config={"q_g": 0.5} | H=10 L=1.0 k=1.0 U*=0.531 plain=0.314 size=0.070 hist=0.006 hplus=0.004 full=4.816 ('check', True, 0, 'none', 'patch')
+E5 label=D1 candidate config={"q_g": 0.5} | H=10 L=3.0 k=0.03 U*=0.921 plain=0.013 size=0.013 hist=0.009 hplus=0.008 full=0.013 ('always_full',)
+E5 label=D1 candidate config={"q_g": 0.5} | H=10 L=3.0 k=0.1 U*=0.779 plain=0.105 size=0.065 hist=0.031 hplus=0.029 full=0.105 ('always_full',)
+E5 label=D1 candidate config={"q_g": 0.5} | H=10 L=3.0 k=0.3 U*=0.683 plain=0.777 size=0.133 hist=0.040 hplus=0.037 full=0.865 ('check', True, 3, 'escalate', 'patch')
+E5 label=D1 candidate config={"q_g": 0.5} | H=10 L=3.0 k=1.0 U*=0.433 plain=1.000 size=0.339 hist=0.095 hplus=0.088 full=5.673 ('escalate_all',)
+# E5: config={"q_g": 0.5} seconds=75.0
+
+# E6: Unequal part shares and spot orders [gate0_v4.py]
+E6 label=explored config={"shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=1.0 k=0.03 U*=0.935 plain=0.028 size=0.023 hist=0.007 hplus=0.007 full=0.028 ('always_full',)
+E6 label=explored config={"shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=1.0 k=0.1 U*=0.834 plain=0.141 size=0.018 hist=0.007 hplus=0.005 full=0.164 ('check', True, 1, 'full', 'patch', 'desc')
+E6 label=explored config={"shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=1.0 k=0.3 U*=0.745 plain=0.306 size=0.070 hist=0.015 hplus=0.015 full=0.876 ('check', True, 1, 'full', 'patch', 'desc')
+E6 label=explored config={"shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=1.0 k=1.0 U*=0.568 plain=0.358 size=0.050 hist=0.007 hplus=0.004 full=4.568 ('check', True, 0, 'none', 'patch', 'desc')
+E6 label=explored config={"shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=3.0 k=0.03 U*=0.925 plain=0.017 size=0.017 hist=0.008 hplus=0.007 full=0.017 ('always_full',)
+E6 label=explored config={"shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=3.0 k=0.1 U*=0.802 plain=0.130 size=0.036 hist=0.026 hplus=0.025 full=0.130 ('always_full',)
+E6 label=explored config={"shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=3.0 k=0.3 U*=0.693 plain=0.520 size=0.128 hist=0.036 hplus=0.033 full=0.867 ('check', True, 1, 'full', 'patch', 'desc')
+E6 label=explored config={"shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=3.0 k=1.0 U*=0.479 plain=0.906 size=0.215 hist=0.073 hplus=0.068 full=5.226 ('check', True, 1, 'escalate', 'patch', 'desc')
+# E6: config={"shares": [1, 1, 1, 1, 1, 1, 1, 1]} seconds=53.9
+E6 label=explored config={"shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=1.0 k=0.03 U*=0.938 plain=0.030 size=0.024 hist=0.006 hplus=0.006 full=0.030 ('always_full',)
+E6 label=explored config={"shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=1.0 k=0.1 U*=0.841 plain=0.142 size=0.009 hist=0.007 hplus=0.005 full=0.171 ('check', True, 1, 'full', 'patch', 'asc')
+E6 label=explored config={"shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=1.0 k=0.3 U*=0.765 plain=0.256 size=0.071 hist=0.014 hplus=0.014 full=0.879 ('check', True, 1, 'full', 'patch', 'asc')
+E6 label=explored config={"shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=1.0 k=1.0 U*=0.586 plain=0.273 size=0.029 hist=0.009 hplus=0.007 full=4.457 ('check', True, 1, 'escalate', 'patch', 'asc')
+E6 label=explored config={"shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=3.0 k=0.03 U*=0.927 plain=0.019 size=0.019 hist=0.008 hplus=0.007 full=0.019 ('always_full',)
+E6 label=explored config={"shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=3.0 k=0.1 U*=0.809 plain=0.138 size=0.032 hist=0.018 hplus=0.017 full=0.138 ('always_full',)
+E6 label=explored config={"shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=3.0 k=0.3 U*=0.711 plain=0.484 size=0.088 hist=0.029 hplus=0.025 full=0.870 ('check', True, 1, 'full', 'patch', 'asc')
+E6 label=explored config={"shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=3.0 k=1.0 U*=0.495 plain=0.547 size=0.198 hist=0.046 hplus=0.042 full=5.091 ('check', True, 1, 'escalate', 'patch', 'asc')
+# E6: config={"shares": [35, 20, 12, 10, 8, 6, 5, 4]} seconds=52.4
+
+# E7: Rates R0/R1/R2 x H {3,5,10} x q_g {1,.5} x kappa {.3,1,2} x L {1,3} [gate0_v4.py]
+# E7: not reproducible with unmodified script: the R1/R2 rate vectors were not recorded in the scratch results, so only the R0 slice of the E7 grid is re-run below
+
+# E7-R0: E7 restricted to the recorded R0 rates [gate0_v4.py]
+E7-R0 label=explored config={"H": 3, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=3 L=1.0 k=0.3 U*=0.731 plain=0.293 size=0.053 hist=0.014 hplus=0.014 full=0.873 ('check', True, 1, 'full', 'patch', 'desc')
+E7-R0 label=explored config={"H": 3, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=3 L=1.0 k=1.0 U*=0.555 plain=0.343 size=0.028 hist=0.009 hplus=0.004 full=4.650 ('check', True, 0, 'none', 'patch', 'desc')
+E7-R0 label=explored config={"H": 3, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=3 L=1.0 k=2.0 U*=0.504 plain=0.367 size=0.094 hist=0.011 hplus=0.007 full=11.029 ('check', True, 0, 'none', 'patch', 'desc')
+E7-R0 label=explored config={"H": 3, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=3 L=3.0 k=0.3 U*=0.658 plain=0.494 size=0.081 hist=0.037 hplus=0.032 full=0.859 ('check', True, 1, 'full', 'patch', 'desc')
+E7-R0 label=explored config={"H": 3, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=3 L=3.0 k=1.0 U*=0.432 plain=0.895 size=0.130 hist=0.052 hplus=0.043 full=5.686 ('check', True, 1, 'escalate', 'patch', 'desc')
+E7-R0 label=explored config={"H": 3, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=3 L=3.0 k=2.0 U*=0.355 plain=1.000 size=0.190 hist=0.091 hplus=0.065 full=15.218 ('escalate_all',)
+# E7-R0: config={"H": 3, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} seconds=11.5
+E7-R0 label=explored config={"H": 3, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=3 L=1.0 k=0.3 U*=0.711 plain=0.419 size=0.039 hist=0.021 hplus=0.017 full=0.870 ('check', True, 1, 'full', 'patch', 'desc')
+E7-R0 label=explored config={"H": 3, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=3 L=1.0 k=1.0 U*=0.521 plain=0.301 size=0.053 hist=0.008 hplus=0.004 full=4.885 ('check', True, 0, 'none', 'patch', 'desc')
+E7-R0 label=explored config={"H": 3, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=3 L=1.0 k=2.0 U*=0.471 plain=0.324 size=0.033 hist=0.022 hplus=0.011 full=11.711 ('check', True, 0, 'none', 'patch', 'desc')
+E7-R0 label=explored config={"H": 3, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=3 L=3.0 k=0.3 U*=0.653 plain=0.767 size=0.093 hist=0.041 hplus=0.038 full=0.858 ('check', True, 3, 'escalate', 'patch', 'asc')
+E7-R0 label=explored config={"H": 3, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=3 L=3.0 k=1.0 U*=0.368 plain=1.000 size=0.222 hist=0.086 hplus=0.068 full=6.497 ('escalate_all',)
+E7-R0 label=explored config={"H": 3, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=3 L=3.0 k=2.0 U*=0.334 plain=1.000 size=0.402 hist=0.107 hplus=0.092 full=16.112 ('escalate_all',)
+# E7-R0: config={"H": 3, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} seconds=90.3
+E7-R0 label=explored config={"H": 5, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=5 L=1.0 k=0.3 U*=0.737 plain=0.299 size=0.061 hist=0.015 hplus=0.014 full=0.874 ('check', True, 1, 'full', 'patch', 'desc')
+E7-R0 label=explored config={"H": 5, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=5 L=1.0 k=1.0 U*=0.562 plain=0.352 size=0.041 hist=0.012 hplus=0.004 full=4.600 ('check', True, 0, 'none', 'patch', 'desc')
+E7-R0 label=explored config={"H": 5, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=5 L=1.0 k=2.0 U*=0.511 plain=0.377 size=0.107 hist=0.015 hplus=0.007 full=10.884 ('check', True, 0, 'none', 'patch', 'desc')
+E7-R0 label=explored config={"H": 5, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=5 L=3.0 k=0.3 U*=0.679 plain=0.510 size=0.110 hist=0.043 hplus=0.034 full=0.864 ('check', True, 1, 'full', 'patch', 'desc')
+E7-R0 label=explored config={"H": 5, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=5 L=3.0 k=1.0 U*=0.455 plain=0.901 size=0.173 hist=0.064 hplus=0.058 full=5.453 ('check', True, 1, 'escalate', 'patch', 'desc')
+E7-R0 label=explored config={"H": 5, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=5 L=3.0 k=2.0 U*=0.397 plain=1.000 size=0.275 hist=0.079 hplus=0.074 full=13.725 ('escalate_all',)
+# E7-R0: config={"H": 5, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} seconds=19.7
+E7-R0 label=explored config={"H": 5, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=5 L=1.0 k=0.3 U*=0.717 plain=0.424 size=0.047 hist=0.023 hplus=0.017 full=0.871 ('check', True, 1, 'full', 'patch', 'desc')
+E7-R0 label=explored config={"H": 5, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=5 L=1.0 k=1.0 U*=0.526 plain=0.308 size=0.061 hist=0.013 hplus=0.004 full=4.850 ('check', True, 0, 'none', 'patch', 'desc')
+E7-R0 label=explored config={"H": 5, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=5 L=1.0 k=2.0 U*=0.480 plain=0.336 size=0.049 hist=0.037 hplus=0.013 full=11.524 ('check', True, 0, 'none', 'patch', 'desc')
+E7-R0 label=explored config={"H": 5, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=5 L=3.0 k=0.3 U*=0.669 plain=0.773 size=0.114 hist=0.044 hplus=0.037 full=0.862 ('check', True, 3, 'escalate', 'patch', 'desc')
+E7-R0 label=explored config={"H": 5, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=5 L=3.0 k=1.0 U*=0.406 plain=1.000 size=0.294 hist=0.094 hplus=0.086 full=5.990 ('escalate_all',)
+E7-R0 label=explored config={"H": 5, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=5 L=3.0 k=2.0 U*=0.370 plain=1.000 size=0.460 hist=0.093 hplus=0.093 full=14.635 ('escalate_all',)
+# E7-R0: config={"H": 5, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} seconds=162.7
+E7-R0 label=explored config={"H": 10, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=10 L=1.0 k=0.3 U*=0.745 plain=0.306 size=0.070 hist=0.015 hplus=0.015 full=0.876 ('check', True, 1, 'full', 'patch', 'desc')
+E7-R0 label=explored config={"H": 10, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=10 L=1.0 k=1.0 U*=0.568 plain=0.358 size=0.050 hist=0.007 hplus=0.004 full=4.568 ('check', True, 0, 'none', 'patch', 'desc')
+E7-R0 label=explored config={"H": 10, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=10 L=1.0 k=2.0 U*=0.520 plain=0.388 size=0.123 hist=0.009 hplus=0.007 full=10.711 ('check', True, 0, 'none', 'patch', 'desc')
+E7-R0 label=explored config={"H": 10, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=10 L=3.0 k=0.3 U*=0.693 plain=0.520 size=0.128 hist=0.036 hplus=0.033 full=0.867 ('check', True, 1, 'full', 'patch', 'desc')
+E7-R0 label=explored config={"H": 10, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=10 L=3.0 k=1.0 U*=0.479 plain=0.906 size=0.215 hist=0.073 hplus=0.068 full=5.226 ('check', True, 1, 'escalate', 'patch', 'desc')
+E7-R0 label=explored config={"H": 10, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} | H=10 L=3.0 k=2.0 U*=0.426 plain=1.000 size=0.324 hist=0.082 hplus=0.075 full=12.862 ('escalate_all',)
+# E7-R0: config={"H": 10, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 1.0} seconds=47.6
+E7-R0 label=explored config={"H": 10, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=10 L=1.0 k=0.3 U*=0.727 plain=0.432 size=0.060 hist=0.020 hplus=0.018 full=0.873 ('check', True, 1, 'full', 'patch', 'desc')
+E7-R0 label=explored config={"H": 10, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=10 L=1.0 k=1.0 U*=0.531 plain=0.314 size=0.070 hist=0.006 hplus=0.004 full=4.816 ('check', True, 0, 'none', 'patch', 'desc')
+E7-R0 label=explored config={"H": 10, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=10 L=1.0 k=2.0 U*=0.486 plain=0.345 size=0.061 hist=0.019 hplus=0.013 full=11.392 ('check', True, 0, 'none', 'patch', 'desc')
+E7-R0 label=explored config={"H": 10, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=10 L=3.0 k=0.3 U*=0.683 plain=0.777 size=0.133 hist=0.040 hplus=0.037 full=0.865 ('check', True, 3, 'escalate', 'patch', 'probe')
+E7-R0 label=explored config={"H": 10, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=10 L=3.0 k=1.0 U*=0.433 plain=1.000 size=0.339 hist=0.095 hplus=0.088 full=5.673 ('escalate_all',)
+E7-R0 label=explored config={"H": 10, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} | H=10 L=3.0 k=2.0 U*=0.401 plain=1.000 size=0.501 hist=0.091 hplus=0.088 full=13.604 ('escalate_all',)
+# E7-R0: config={"H": 10, "L": [1.0, 3.0], "kappa": [0.3, 1.0, 2.0], "q_g": 0.5} seconds=411.8
+
+# E8: R2 / H = 5 / q_g .5 skewed shares; levers H = 3, q_g = .3, L = 5 [gate0_v4.py]
+# E8: not reproducible with unmodified script: the R2 rate vector was not recorded in the scratch results; the H = 3 / q_g = .3 / L = 5 levers are re-run on R0 below
+
+# E8-R0: E8 levers on the recorded R0 rates [gate0_v4.py]
+E8-R0 label=explored config={"H": 3, "L": [5.0], "kappa": [0.3, 1.0, 3.0], "q_g": 0.3, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=3 L=5.0 k=0.3 U*=0.628 plain=0.853 size=0.056 hist=0.033 hplus=0.033 full=0.853 ('always_full',)
+E8-R0 label=explored config={"H": 3, "L": [5.0], "kappa": [0.3, 1.0, 3.0], "q_g": 0.3, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=3 L=5.0 k=1.0 U*=0.326 plain=1.000 size=0.311 hist=0.112 hplus=0.112 full=7.205 ('escalate_all',)
+E8-R0 label=explored config={"H": 3, "L": [5.0], "kappa": [0.3, 1.0, 3.0], "q_g": 0.3, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=3 L=5.0 k=3.0 U*=0.233 plain=1.000 size=0.249 hist=0.095 hplus=0.095 full=35.648 ('escalate_all',)
+# E8-R0: config={"H": 3, "L": [5.0], "kappa": [0.3, 1.0, 3.0], "q_g": 0.3, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} seconds=47.9
+
+# E9: Final check: rev-1 params, equal and skewed shares; D1 equal and skewed [gate0_v4.py]
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=1.0 k=0.03 U*=0.935 plain=0.028 size=0.023 hist=0.007 hplus=0.007 full=0.028 ('always_full',)
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=1.0 k=0.1 U*=0.834 plain=0.141 size=0.018 hist=0.007 hplus=0.005 full=0.164 ('check', True, 1, 'full', 'patch', 'desc')
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=1.0 k=0.3 U*=0.745 plain=0.306 size=0.070 hist=0.015 hplus=0.015 full=0.876 ('check', True, 1, 'full', 'patch', 'desc')
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=1.0 k=1.0 U*=0.568 plain=0.358 size=0.050 hist=0.007 hplus=0.004 full=4.568 ('check', True, 0, 'none', 'patch', 'desc')
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=3.0 k=0.03 U*=0.925 plain=0.017 size=0.017 hist=0.008 hplus=0.007 full=0.017 ('always_full',)
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=3.0 k=0.1 U*=0.802 plain=0.130 size=0.036 hist=0.026 hplus=0.025 full=0.130 ('always_full',)
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=3.0 k=0.3 U*=0.693 plain=0.520 size=0.128 hist=0.036 hplus=0.033 full=0.867 ('check', True, 1, 'full', 'patch', 'desc')
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=3.0 k=1.0 U*=0.479 plain=0.906 size=0.215 hist=0.073 hplus=0.068 full=5.226 ('check', True, 1, 'escalate', 'patch', 'desc')
+# E9: config={"H": 10, "q_g": 1.0, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} seconds=61.8
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=1.0 k=0.03 U*=0.938 plain=0.030 size=0.024 hist=0.006 hplus=0.006 full=0.030 ('always_full',)
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=1.0 k=0.1 U*=0.841 plain=0.142 size=0.009 hist=0.007 hplus=0.005 full=0.171 ('check', True, 1, 'full', 'patch', 'asc')
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=1.0 k=0.3 U*=0.765 plain=0.256 size=0.071 hist=0.014 hplus=0.014 full=0.879 ('check', True, 1, 'full', 'patch', 'asc')
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=1.0 k=1.0 U*=0.586 plain=0.273 size=0.029 hist=0.009 hplus=0.007 full=4.457 ('check', True, 1, 'escalate', 'patch', 'asc')
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=3.0 k=0.03 U*=0.927 plain=0.019 size=0.019 hist=0.008 hplus=0.007 full=0.019 ('always_full',)
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=3.0 k=0.1 U*=0.809 plain=0.138 size=0.032 hist=0.018 hplus=0.017 full=0.138 ('always_full',)
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=3.0 k=0.3 U*=0.711 plain=0.484 size=0.088 hist=0.029 hplus=0.025 full=0.870 ('check', True, 1, 'full', 'patch', 'asc')
+E9 label=final-check config={"H": 10, "q_g": 1.0, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=3.0 k=1.0 U*=0.495 plain=0.547 size=0.198 hist=0.046 hplus=0.042 full=5.091 ('check', True, 1, 'escalate', 'patch', 'asc')
+# E9: config={"H": 10, "q_g": 1.0, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} seconds=62.1
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=1.0 k=0.03 U*=0.929 plain=0.021 size=0.021 hist=0.008 hplus=0.008 full=0.021 ('always_full',)
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=1.0 k=0.1 U*=0.815 plain=0.144 size=0.023 hist=0.006 hplus=0.006 full=0.144 ('always_full',)
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=1.0 k=0.3 U*=0.727 plain=0.432 size=0.060 hist=0.020 hplus=0.018 full=0.873 ('check', True, 1, 'full', 'patch', 'desc')
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=1.0 k=1.0 U*=0.531 plain=0.314 size=0.070 hist=0.006 hplus=0.004 full=4.816 ('check', True, 0, 'none', 'patch', 'desc')
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=3.0 k=0.03 U*=0.921 plain=0.013 size=0.013 hist=0.009 hplus=0.008 full=0.013 ('always_full',)
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=3.0 k=0.1 U*=0.779 plain=0.105 size=0.065 hist=0.031 hplus=0.029 full=0.105 ('always_full',)
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=3.0 k=0.3 U*=0.683 plain=0.777 size=0.133 hist=0.040 hplus=0.037 full=0.865 ('check', True, 3, 'escalate', 'patch', 'probe')
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} | H=10 L=3.0 k=1.0 U*=0.433 plain=1.000 size=0.339 hist=0.095 hplus=0.088 full=5.673 ('escalate_all',)
+# E9: config={"H": 10, "q_g": 0.5, "shares": [1, 1, 1, 1, 1, 1, 1, 1]} seconds=538.6
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=1.0 k=0.03 U*=0.929 plain=0.022 size=0.022 hist=0.007 hplus=0.007 full=0.022 ('always_full',)
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=1.0 k=0.1 U*=0.826 plain=0.156 size=0.015 hist=0.006 hplus=0.005 full=0.156 ('always_full',)
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=1.0 k=0.3 U*=0.729 plain=0.332 size=0.070 hist=0.017 hplus=0.016 full=0.873 ('check', True, 2, 'full', 'patch', 'asc')
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=1.0 k=1.0 U*=0.557 plain=0.389 size=0.051 hist=0.009 hplus=0.008 full=4.639 ('check', True, 0, 'none', 'patch', 'desc')
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=3.0 k=0.03 U*=0.922 plain=0.014 size=0.014 hist=0.009 hplus=0.007 full=0.014 ('always_full',)
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=3.0 k=0.1 U*=0.790 plain=0.117 size=0.045 hist=0.026 hplus=0.023 full=0.117 ('always_full',)
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=3.0 k=0.3 U*=0.680 plain=0.636 size=0.128 hist=0.032 hplus=0.029 full=0.864 ('check', True, 4, 'escalate', 'patch', 'asc')
+E9 label=final-check config={"H": 10, "q_g": 0.5, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} | H=10 L=3.0 k=1.0 U*=0.456 plain=1.000 size=0.257 hist=0.075 hplus=0.067 full=5.436 ('escalate_all',)
+# E9: config={"H": 10, "q_g": 0.5, "shares": [35, 20, 12, 10, 8, 6, 5, 4]} seconds=520.7

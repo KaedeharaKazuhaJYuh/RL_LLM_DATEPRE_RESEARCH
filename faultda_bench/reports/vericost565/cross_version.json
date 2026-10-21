@@ -1,0 +1,87 @@
+{
+  "schema": "vericost565.cross_version.v1",
+  "version": "0.5.65-dev",
+  "interpreters": {
+    "py311": "3.11.15",
+    "py312": "3.12.13"
+  },
+  "artifacts": [
+    {
+      "path": "faultda_bench/protocols/vericost_v1_instances.json",
+      "sha256_py311": "c8592dd3de1870844f1f741ab51e268903ca89c29ca229e1d4c5ec9d3c861ee0",
+      "sha256_py312": "c8592dd3de1870844f1f741ab51e268903ca89c29ca229e1d4c5ec9d3c861ee0",
+      "identical": true,
+      "volatile_keys": [
+        "validation.env_steps_per_second"
+      ],
+      "committed_sha256": "c8592dd3de1870844f1f741ab51e268903ca89c29ca229e1d4c5ec9d3c861ee0",
+      "matches_committed": true
+    },
+    {
+      "path": "tests/fixtures/vericost565_semantics_golden.json",
+      "sha256_py311": "4197f0f7362c562b7156ca5c294690ce442ff46d4d539b0edaae077c7c808fde",
+      "sha256_py312": "4197f0f7362c562b7156ca5c294690ce442ff46d4d539b0edaae077c7c808fde",
+      "identical": true,
+      "volatile_keys": [],
+      "committed_sha256": "4197f0f7362c562b7156ca5c294690ce442ff46d4d539b0edaae077c7c808fde",
+      "matches_committed": true
+    },
+    {
+      "path": "faultda_bench/reports/vericost565/dp_certificate_unit.json",
+      "sha256_py311": "32019706ee539e1f1ce831c63a3f792cb1719827cfa7f1994cab0b4fc9eae386",
+      "sha256_py312": "32019706ee539e1f1ce831c63a3f792cb1719827cfa7f1994cab0b4fc9eae386",
+      "identical": true,
+      "volatile_keys": [],
+      "committed_sha256": null,
+      "matches_committed": null
+    },
+    {
+      "path": "tests/fixtures/vericost565_gate0_synthetic.json",
+      "sha256_py311": "f275a282bb109d1f3975f8fde828b5f292898ae730522de95c5c4c3f50c4cae7",
+      "sha256_py312": "f275a282bb109d1f3975f8fde828b5f292898ae730522de95c5c4c3f50c4cae7",
+      "identical": true,
+      "volatile_keys": [],
+      "committed_sha256": "f275a282bb109d1f3975f8fde828b5f292898ae730522de95c5c4c3f50c4cae7",
+      "matches_committed": true
+    },
+    {
+      "path": "faultda_bench/reports/vericost565/learned_eval.json",
+      "sha256_py311": "fcbb8a41fb7a7d0bcf529b4cec0fc98989a8fd6988b6a1902a3b960a46d296e5",
+      "sha256_py312": "fcbb8a41fb7a7d0bcf529b4cec0fc98989a8fd6988b6a1902a3b960a46d296e5",
+      "identical": true,
+      "volatile_keys": [],
+      "committed_sha256": "fcbb8a41fb7a7d0bcf529b4cec0fc98989a8fd6988b6a1902a3b960a46d296e5",
+      "matches_committed": true
+    },
+    {
+      "path": "faultda_bench/reports/vericost565/offline_eval.json",
+      "sha256_py311": "90f4b1543384470f1ff1ad07206bd9fb95d103d3e42b0140e7bdf2b6e0feeb03",
+      "sha256_py312": "90f4b1543384470f1ff1ad07206bd9fb95d103d3e42b0140e7bdf2b6e0feeb03",
+      "identical": true,
+      "volatile_keys": [
+        "header.head_commit",
+        "header.replay"
+      ],
+      "committed_sha256": "90f4b1543384470f1ff1ad07206bd9fb95d103d3e42b0140e7bdf2b6e0feeb03",
+      "matches_committed": true
+    },
+    {
+      "path": "faultda_bench/reports/vericost565/analysis.json",
+      "sha256_py311": "59ce5bddeb60ee535379e5f5a23b27e41330139022ceea57406db57376d87235",
+      "sha256_py312": "59ce5bddeb60ee535379e5f5a23b27e41330139022ceea57406db57376d87235",
+      "identical": true,
+      "volatile_keys": [],
+      "committed_sha256": "59ce5bddeb60ee535379e5f5a23b27e41330139022ceea57406db57376d87235",
+      "matches_committed": true
+    }
+  ],
+  "excluded": [
+    {
+      "path": "faultda_bench/reports/vericost565/learned_policies.json",
+      "reason": "LinUCB training requires numpy; numpy is not installed for the local 3.12.13 interpreter and cannot be installed offline",
+      "mitigation": "every consumer of the artifact (learned_eval.json, offline_eval.json, analysis.json) is regenerated under both interpreters from the committed artifact"
+    }
+  ],
+  "api_calls": 0,
+  "cny_spent": "0.000000"
+}

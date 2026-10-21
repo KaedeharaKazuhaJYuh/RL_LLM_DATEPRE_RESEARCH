@@ -1,0 +1,48 @@
+{
+  "version": "0.3.25-dev",
+  "status": "design_only",
+  "new_model_run_performed": false,
+  "scientific_gate": "HOLD",
+  "source_protocol_sha256": "8928c7063724c336b84bc33b3b7cb8de3db5e8b77e7e1ba4b1aee6e30aad079f",
+  "views": [
+    "utc_end",
+    "plus8_end"
+  ],
+  "profiles": [
+    "uncertain_correct",
+    "uncertain_wrong",
+    "uncertain_wrong_ack_loss",
+    "uncertain_wrong_before_commit",
+    "unrecoverable_shared"
+  ],
+  "arms": [
+    "direct",
+    "shared_model_record"
+  ],
+  "independent_task_clusters": 1,
+  "unique_states": 10,
+  "model_trajectories": 20,
+  "shared_record_requests": 10,
+  "max_action_requests": 160,
+  "max_total_new_requests": 170,
+  "action_horizon": 8,
+  "check_budget": 4,
+  "model": "deepseek-flash",
+  "max_tokens": 2048,
+  "thinking": "disabled",
+  "primary_endpoints": [
+    "safe_complete on recoverable states",
+    "safe_escalation on unrecoverable states",
+    "wrong publication events and affected trajectories",
+    "false completion",
+    "horizon and response failures"
+  ],
+  "cost_accounting": "Shared record generation is actual overhead; direct arm has no record-generation requirement when used alone. Same state/budget is not equal actual cost. Report API/token/tool checks/writes/decisions separately.",
+  "permissions": "Both models get serialized public evidence and truthful new reliability contract; no private profile/oracle/ledger/code tool, no executor numerical guard. The record arm receives the actual model-generated record, direct does not. No corrected oracle record is substituted.",
+  "prerequisite_scientific_work": [
+    "independent review of new fault legality and trust declaration",
+    "review paired before/after timeout states and exact CAS paths",
+    "resolve whether question is distinguishable from ordinary correction and verified recovery; HOLD unless justified"
+  ],
+  "execution_note": "Not executed; not a queued automation. Freeze a separate actual runtime plan and outputs after design decision; do not overwrite existing controls."
+}

@@ -1,0 +1,3036 @@
+{
+  "schema_version": "faultda-historical-sources-1",
+  "final_test_sources": [],
+  "final_test_policy": "New sources must not have been used in V1-V5 training, diagnosis, or selection; freeze before model evaluation.",
+  "registry_scope": "source_id values found in historical task JSON/JSONL; source aliases and raw-archive duplication still need manual review",
+  "sources": [
+    {
+      "source_id": "source_00",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_00.csv",
+          "sha256": "59cf1cead8c7f055f163905463f43158a8e0d12c68adc13caabc1a3b31d33989",
+          "columns": [
+            "month",
+            "region",
+            "revenue",
+            "category",
+            "metric"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_01",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_01.csv",
+          "sha256": "d3cb7b08877a1c065df9e5e297d97a7fe4fa8ee085f0bbc7a17fbb532275565c",
+          "columns": [
+            "日期",
+            "区域",
+            "金额",
+            "类型",
+            "指标"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_02",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_02.csv",
+          "sha256": "aaa259eb1b79907079677bb7ebe6cf1c2343e986f351222f051512adde653b01",
+          "columns": [
+            "month",
+            "region",
+            "revenue",
+            "category",
+            "metric"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_03",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_03.csv",
+          "sha256": "9774eac36e2b15fc59b01ce11054297d39064bcf41694b2a79ded21ed0ae05c0",
+          "columns": [
+            "日期",
+            "区域",
+            "金额",
+            "类型",
+            "指标"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_04",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_04.csv",
+          "sha256": "adcc68b226c999af2d9886ecc4dda48377a0683cb6ce872af54fa9066f037164",
+          "columns": [
+            "month",
+            "region",
+            "revenue",
+            "category",
+            "metric"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_05",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_05.csv",
+          "sha256": "9aab97525e7c2f639fa30e9bda3cfc450bfd1c36ea594281044013e87fe1c183",
+          "columns": [
+            "日期",
+            "区域",
+            "金额",
+            "类型",
+            "指标"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_06",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_06.csv",
+          "sha256": "88f275599d97bae18e8bc4d1c3bd783245325e4877c384710a616de1b1bea842",
+          "columns": [
+            "month",
+            "region",
+            "revenue",
+            "category",
+            "metric"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_07",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_07.csv",
+          "sha256": "ed545ddd534e9412e0f3d58fd7cb7cd41700ba81f1d7f3103ec573459e1bfd7f",
+          "columns": [
+            "日期",
+            "区域",
+            "金额",
+            "类型",
+            "指标"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_08",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_08.csv",
+          "sha256": "579f1a549fff932717209a137f551472f6a6d0f2af1f2bb379ed13e9f540e915",
+          "columns": [
+            "month",
+            "region",
+            "revenue",
+            "category",
+            "metric"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_09",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_09.csv",
+          "sha256": "09acf0673844ca3894bfb80f3bd8a224ebdba9075a61696bdf39236bb46f4655",
+          "columns": [
+            "日期",
+            "区域",
+            "金额",
+            "类型",
+            "指标"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_10",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_10.csv",
+          "sha256": "a18fe902684cf9d3a30d8baa72523ac633a4bbedb0b9fdbb1750b9af92bfab3e",
+          "columns": [
+            "month",
+            "region",
+            "revenue",
+            "category",
+            "metric"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_11",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_11.csv",
+          "sha256": "2b07bcdedd2e1da8146ac5dab06f6e119b83c2dae77fcba5c89c229680637104",
+          "columns": [
+            "日期",
+            "区域",
+            "金额",
+            "类型",
+            "指标"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_12",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_12.csv",
+          "sha256": "7eb86caa68a506c48317fc25c83b0091c809ef592e27a52cbb59c763bb08acf9",
+          "columns": [
+            "month",
+            "region",
+            "revenue",
+            "category",
+            "metric"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_13",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_13.csv",
+          "sha256": "b1d6bbb6f12a5b38780c90c002f142c088a61dcb9a3c9970f0faa2cb8a6d7d80",
+          "columns": [
+            "日期",
+            "区域",
+            "金额",
+            "类型",
+            "指标"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_14",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_14.csv",
+          "sha256": "b1aea700887518c2cc46ac07a1c7e7d11425274f90a28d63243f8e3176cf8846",
+          "columns": [
+            "month",
+            "region",
+            "revenue",
+            "category",
+            "metric"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_15",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_15.csv",
+          "sha256": "f014af0491e6133e19969c39188350172252ab65e031b77061b4d97214351868",
+          "columns": [
+            "日期",
+            "区域",
+            "金额",
+            "类型",
+            "指标"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_16",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_16.csv",
+          "sha256": "d15acf9ab07c6db693065316c96ddfa8b111dc11f4eb3e3e80597fcc3f1501f5",
+          "columns": [
+            "month",
+            "region",
+            "revenue",
+            "category",
+            "metric"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_17",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_17.csv",
+          "sha256": "6662b17e83e1e437f17b94c37cb577c6f9f0c84dc005c6b916e97b7ca9ddffe2",
+          "columns": [
+            "日期",
+            "区域",
+            "金额",
+            "类型",
+            "指标"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_18",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "validation"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_18.csv",
+          "sha256": "87e28ebce2765858cd78cc216a9d516d64f46d915178ddab62e32beb7daec354",
+          "columns": [
+            "month",
+            "region",
+            "revenue",
+            "category",
+            "metric"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_19",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "validation"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_19.csv",
+          "sha256": "ca0a26b87bc4e441947487880e00eab76f53fc1be61e8c9498a9bd47ef537dd3",
+          "columns": [
+            "日期",
+            "区域",
+            "金额",
+            "类型",
+            "指标"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_20",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "validation"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_20.csv",
+          "sha256": "b392ffa301ec07bbbd875900a0c6091a36842587affa9210faaf4a1e69612c16",
+          "columns": [
+            "month",
+            "region",
+            "revenue",
+            "category",
+            "metric"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_21",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "validation"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_21.csv",
+          "sha256": "340e12c36ff39d9a201ffc81d785fb344c9e27e451d386819c28e87c7384d957",
+          "columns": [
+            "日期",
+            "区域",
+            "金额",
+            "类型",
+            "指标"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_22",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "validation"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_22.csv",
+          "sha256": "ec96a6c6106c3adad5ee5f547e9b06b692d6c80f558d9f14bd077eca0cf20b51",
+          "columns": [
+            "month",
+            "region",
+            "revenue",
+            "category",
+            "metric"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_23",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "validation"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_23.csv",
+          "sha256": "220b6b535fe303eb0e590601f1da3dc80c754eda80fd3d1d7d8720aa780805c9",
+          "columns": [
+            "日期",
+            "区域",
+            "金额",
+            "类型",
+            "指标"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_24",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_24.csv",
+          "sha256": "0a6b74e9540c92cd162e65a6f25afe35d8e0d60fe0d053b8b04ca9da9251fb2f",
+          "columns": [
+            "month",
+            "region",
+            "revenue",
+            "category",
+            "metric"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_25",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_25.csv",
+          "sha256": "ee648f0e7063dc061f5c775b6e5a849396b5458375d16d705325b03f588ebc57",
+          "columns": [
+            "日期",
+            "区域",
+            "金额",
+            "类型",
+            "指标"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_26",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_26.csv",
+          "sha256": "9f259b5eaabd7451dbfda9392dfbc1c8f9df88c3d5d833ed221eecae0cd180f9",
+          "columns": [
+            "month",
+            "region",
+            "revenue",
+            "category",
+            "metric"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_27",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_27.csv",
+          "sha256": "6c5b20ccfdba9b9c317e3dbfa2e0730064232c745da0fb7ef8d7dd906c916173",
+          "columns": [
+            "日期",
+            "区域",
+            "金额",
+            "类型",
+            "指标"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_28",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_28.csv",
+          "sha256": "8eb50d157fddb4ae332e5ff1e226415fc8aed97eb7a2218369a47bb2a7b7a77a",
+          "columns": [
+            "month",
+            "region",
+            "revenue",
+            "category",
+            "metric"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "source_29",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v2/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v2/data/source_29.csv",
+          "sha256": "2eec8c07b7def9c7383955c5077108ad0b66734783a713b7f52abf0186a9be93",
+          "columns": [
+            "日期",
+            "区域",
+            "金额",
+            "类型",
+            "指标"
+          ]
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "uci_abalone",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v4/real_csv_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/real_csv_v1/data/abalone.csv",
+          "columns": [
+            "Sex",
+            "Length",
+            "Diameter",
+            "Height",
+            "Whole_weight",
+            "Shucked_weight",
+            "Viscera_weight",
+            "Shell_weight",
+            "Rings"
+          ],
+          "sha256": "357e7466e3966bd51bef9a586aa4565ed2041fe76855a93350a1e6b70f0e2053"
+        }
+      ],
+      "source_metadata": [
+        {
+          "manifest": "tasks/v3_real/manifest.json",
+          "url": "https://archive.ics.uci.edu/static/public/1/abalone.zip",
+          "sha256": "755a6a67c5b266961a3f149ea13be2cfb6e6c727e48cee3c83bc0b4526210ee4",
+          "doi": "10.24432/C55C7W",
+          "license": "CC BY 4.0",
+          "derived_sha256": "357e7466e3966bd51bef9a586aa4565ed2041fe76855a93350a1e6b70f0e2053",
+          "rows": 240,
+          "columns": [
+            "Sex",
+            "Length",
+            "Diameter",
+            "Height",
+            "Whole_weight",
+            "Shucked_weight",
+            "Viscera_weight",
+            "Shell_weight",
+            "Rings"
+          ],
+          "category": "Sex",
+          "value": "Whole_weight",
+          "metric": "Shell_weight",
+          "split": "test"
+        },
+        {
+          "manifest": "tasks/v4/real_csv_v1/manifest.json",
+          "source_id": "uci_abalone",
+          "rows": 240,
+          "sha256": "357e7466e3966bd51bef9a586aa4565ed2041fe76855a93350a1e6b70f0e2053",
+          "archive_sha256": "755a6a67c5b266961a3f149ea13be2cfb6e6c727e48cee3c83bc0b4526210ee4",
+          "upstream_url": "https://archive.ics.uci.edu/static/public/1/abalone.zip",
+          "doi": "10.24432/C55C7W",
+          "license": "CC BY 4.0",
+          "derived_from": "tasks/v3_real/data/abalone.csv",
+          "personal_data_columns": []
+        }
+      ]
+    },
+    {
+      "source_id": "uci_auto_mpg",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v5/recovery_beta1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v5/recovery_beta1/data/auto_mpg.csv",
+          "columns": [
+            "mpg",
+            "cylinders",
+            "displacement",
+            "horsepower",
+            "weight",
+            "acceleration",
+            "model_year",
+            "origin",
+            "car_name"
+          ],
+          "sha256": "31098be308e6f601a54eb2608b8c89feeb7568353050df893c610f16009b86be"
+        }
+      ],
+      "source_metadata": [
+        {
+          "manifest": "tasks/v5/recovery_beta1/manifest.json",
+          "sha256": "5fc1507522b73b8050d3aa45df51eefe1b666ae5f428a5f1347b6483339f1003",
+          "doi": "10.24432/C5859H",
+          "citation": "Quinlan, R. (1993). Auto MPG. UCI.",
+          "url": "https://archive.ics.uci.edu/static/public/9/auto+mpg.zip",
+          "license": "CC BY 4.0",
+          "transformations": "whitespace source parsed to CSV; ? becomes empty; all rows retained"
+        }
+      ]
+    },
+    {
+      "source_id": "uci_banknote",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v5/beta_holdout_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v5/beta_holdout_v1/data/banknote.csv",
+          "columns": [
+            "variance",
+            "skewness",
+            "curtosis",
+            "entropy",
+            "class"
+          ],
+          "sha256": "3a54c5e3059a12b0043e23ef49d96788e7a35ff7dac947980ec90b18b99fb13f"
+        }
+      ],
+      "source_metadata": [
+        {
+          "manifest": "tasks/v5/beta_holdout_v1/manifest.json",
+          "source_id": "uci_banknote",
+          "rows": 240,
+          "upstream_rows": 1372,
+          "selection": "240 evenly spaced source-order rows, index floor(i*N/240)",
+          "sha256": "3a54c5e3059a12b0043e23ef49d96788e7a35ff7dac947980ec90b18b99fb13f",
+          "archive_sha256": "1e2acd9a2085fadf3d8145c12d3d22af853320d52294a6590c2eaf75fdc05227",
+          "upstream_url": "https://archive.ics.uci.edu/static/public/267/banknote+authentication.zip",
+          "doi": "10.24432/C55P57",
+          "citation": "Lohweg, V. (2012). Banknote Authentication. UCI Machine Learning Repository.",
+          "license": "CC BY 4.0",
+          "personal_data_columns": []
+        }
+      ]
+    },
+    {
+      "source_id": "uci_drybean",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v5/beta_confirmation_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v5/beta_confirmation_v1/data/drybean.csv",
+          "columns": [
+            "Area",
+            "Perimeter",
+            "MajorAxisLength",
+            "MinorAxisLength",
+            "AspectRation",
+            "Eccentricity",
+            "ConvexArea",
+            "EquivDiameter",
+            "Extent",
+            "Solidity",
+            "roundness",
+            "Compactness",
+            "ShapeFactor1",
+            "ShapeFactor2",
+            "ShapeFactor3",
+            "ShapeFactor4",
+            "Class"
+          ],
+          "sha256": "6100f159e707fd5b4029bef5923c69061d188470cd76d43257412effb4890d9c"
+        }
+      ],
+      "source_metadata": [
+        {
+          "manifest": "tasks/v5/beta_confirmation_v1/manifest.json",
+          "source_id": "uci_drybean",
+          "rows": 240,
+          "upstream_rows": 13611,
+          "selection": "240 evenly spaced source-order rows, index floor(i*N/240)",
+          "sha256": "6100f159e707fd5b4029bef5923c69061d188470cd76d43257412effb4890d9c",
+          "archive_sha256": "0a64eff5be87f48c3dbbfc0a12a56c5d5b5167ef8e61cd45d69b3e7c7130c06f",
+          "upstream_url": "https://archive.ics.uci.edu/static/public/602/dry+bean+dataset.zip",
+          "doi": "10.24432/C50S4B",
+          "citation": "Dry Bean (2020). UCI Machine Learning Repository.",
+          "license": "CC BY 4.0",
+          "personal_data_columns": []
+        }
+      ]
+    },
+    {
+      "source_id": "uci_forest",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v4/final_holdout_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/final_holdout_v1/data/forest.csv",
+          "columns": [
+            "X",
+            "Y",
+            "month",
+            "day",
+            "FFMC",
+            "DMC",
+            "DC",
+            "ISI",
+            "temp",
+            "RH",
+            "wind",
+            "rain",
+            "area"
+          ],
+          "sha256": "9d5b07e6f00cf4f37cacfe02a3861cd805ac07444b6ed05bdf15c3499cefbd70"
+        }
+      ],
+      "source_metadata": [
+        {
+          "manifest": "tasks/v4/final_holdout_v1/manifest.json",
+          "source_id": "uci_forest",
+          "rows": 240,
+          "upstream_rows": 517,
+          "selection": "first 240 rows in upstream order",
+          "sha256": "9d5b07e6f00cf4f37cacfe02a3861cd805ac07444b6ed05bdf15c3499cefbd70",
+          "archive_sha256": "abd40d6142b5e30fea73ff7292f91dcdd8b64bf3b3f36e20f96c37f5d14f06fb",
+          "upstream_url": "https://archive.ics.uci.edu/static/public/162/forest+fires.zip",
+          "doi": "10.24432/C5D88D",
+          "citation": "Cortez, P. & Morais, A. (2007). Forest Fires. UCI Machine Learning Repository.",
+          "license": "CC BY 4.0",
+          "personal_data_columns": []
+        }
+      ]
+    },
+    {
+      "source_id": "uci_glass",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v5/recovery_beta1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v5/recovery_beta1/data/glass.csv",
+          "columns": [
+            "id",
+            "RI",
+            "Na",
+            "Mg",
+            "Al",
+            "Si",
+            "K",
+            "Ca",
+            "Ba",
+            "Fe",
+            "type"
+          ],
+          "sha256": "65d0ee9847b1d74cf4a5eb57e9267055b1006d45fef8ac9732659ef51f310d49"
+        }
+      ],
+      "source_metadata": [
+        {
+          "manifest": "tasks/v5/recovery_beta1/manifest.json",
+          "sha256": "499c07a17115bf63100bb19cc1fdefad7f464bf5dc2b168930fa2071fd6b6e65",
+          "doi": "10.24432/C5WW2P",
+          "citation": "German, B. (1987). Glass Identification. UCI.",
+          "url": "https://archive.ics.uci.edu/static/public/42/glass+identification.zip",
+          "license": "CC BY 4.0",
+          "transformations": "whitespace source parsed to CSV; ? becomes empty; all rows retained"
+        }
+      ]
+    },
+    {
+      "source_id": "uci_letter",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v5/beta_confirmation_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v5/beta_confirmation_v1/data/letter.csv",
+          "columns": [
+            "lettr",
+            "x-box",
+            "y-box",
+            "width",
+            "high",
+            "onpix",
+            "x-bar",
+            "y-bar",
+            "x2bar",
+            "y2bar",
+            "xybar",
+            "x2ybr",
+            "xy2br",
+            "x-ege",
+            "xegvy",
+            "y-ege",
+            "yegvx"
+          ],
+          "sha256": "4e8b76f652c62b27573b94f834ad2d898d74cc0118d2b95e72d1eda6c37e9bf7"
+        }
+      ],
+      "source_metadata": [
+        {
+          "manifest": "tasks/v5/beta_confirmation_v1/manifest.json",
+          "source_id": "uci_letter",
+          "rows": 240,
+          "upstream_rows": 20000,
+          "selection": "240 evenly spaced source-order rows, index floor(i*N/240)",
+          "sha256": "4e8b76f652c62b27573b94f834ad2d898d74cc0118d2b95e72d1eda6c37e9bf7",
+          "archive_sha256": "3b5f07a334697b6cace4fbae22940393a18fee596e73f68d97ce5973d52dc60f",
+          "upstream_url": "https://archive.ics.uci.edu/static/public/59/letter+recognition.zip",
+          "doi": "10.24432/C5ZP40",
+          "citation": "Slate, D. (1991). Letter Recognition. UCI Machine Learning Repository.",
+          "license": "CC BY 4.0",
+          "personal_data_columns": []
+        }
+      ]
+    },
+    {
+      "source_id": "uci_occupancy",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v5/beta_holdout_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v5/beta_holdout_v1/data/occupancy.csv",
+          "columns": [
+            "id",
+            "date",
+            "Temperature",
+            "Humidity",
+            "Light",
+            "CO2",
+            "HumidityRatio",
+            "Occupancy"
+          ],
+          "sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0"
+        }
+      ],
+      "source_metadata": [
+        {
+          "manifest": "tasks/v5/beta_holdout_v1/manifest.json",
+          "source_id": "uci_occupancy",
+          "rows": 240,
+          "upstream_rows": 2665,
+          "selection": "240 evenly spaced source-order rows, index floor(i*N/240)",
+          "sha256": "41ce5ed6cdebaad151b2db97c8d5a755eb1c90bff4468ce29754f68acd8338e0",
+          "archive_sha256": "4ae3f46aa98eedff564a9f6924d1635173e2fd2c816004342a9be93076d3a81a",
+          "upstream_url": "https://archive.ics.uci.edu/static/public/357/occupancy+detection.zip",
+          "doi": "10.24432/C5X01N",
+          "citation": "Candanedo, L. (2016). Occupancy Detection. UCI Machine Learning Repository.",
+          "license": "CC BY 4.0",
+          "personal_data_columns": []
+        }
+      ]
+    },
+    {
+      "source_id": "uci_online_shoppers",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v5/rewrite_holdout_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v5/rewrite_holdout_v1/data/online_shoppers.csv",
+          "columns": [
+            "Administrative",
+            "Administrative_Duration",
+            "Informational",
+            "Informational_Duration",
+            "ProductRelated",
+            "ProductRelated_Duration",
+            "BounceRates",
+            "ExitRates",
+            "PageValues",
+            "SpecialDay",
+            "Month",
+            "OperatingSystems",
+            "Browser",
+            "Region",
+            "TrafficType",
+            "VisitorType",
+            "Weekend",
+            "Revenue"
+          ],
+          "sha256": "72d3ccacdc9956b92f531689dac54d83578a6213eea2e5c082e032f41783e813"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "uci_rice",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v4/final_holdout_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/final_holdout_v1/data/rice.csv",
+          "columns": [
+            "Area",
+            "Perimeter",
+            "Major_Axis_Length",
+            "Minor_Axis_Length",
+            "Eccentricity",
+            "Convex_Area",
+            "Extent",
+            "Class"
+          ],
+          "sha256": "2c38eb95b9192a76acf10de0b790c00990a728beb50126e7bbac7a86b7faaf92"
+        }
+      ],
+      "source_metadata": [
+        {
+          "manifest": "tasks/v4/final_holdout_v1/manifest.json",
+          "source_id": "uci_rice",
+          "rows": 240,
+          "upstream_rows": 3810,
+          "selection": "240 evenly spaced source-order rows, index floor(i*N/240)",
+          "sha256": "2c38eb95b9192a76acf10de0b790c00990a728beb50126e7bbac7a86b7faaf92",
+          "archive_sha256": "fe94e42046b829de21b92b0ffb6a22774fde021328cae799faa802a14e8dbed9",
+          "upstream_url": "https://archive.ics.uci.edu/static/public/545/rice+cammeo+and+osmancik.zip",
+          "doi": "10.24432/C5MW4Z",
+          "citation": "Rice (Cammeo and Osmancik) (2019). UCI Machine Learning Repository.",
+          "license": "CC BY 4.0",
+          "personal_data_columns": []
+        }
+      ]
+    },
+    {
+      "source_id": "uci_wholesale",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v4/real_csv_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/real_csv_v1/data/wholesale.csv",
+          "columns": [
+            "Channel",
+            "Region",
+            "Fresh",
+            "Milk",
+            "Grocery",
+            "Frozen",
+            "Detergents_Paper",
+            "Delicassen"
+          ],
+          "sha256": "7f3f4a4954a4a62704da0356014fde9cf1ed347ce89173018068e348e20a59de"
+        }
+      ],
+      "source_metadata": [
+        {
+          "manifest": "tasks/v3_real/manifest.json",
+          "url": "https://archive.ics.uci.edu/static/public/292/wholesale+customers.zip",
+          "sha256": "647e6a61683ed23f48c7b04e1e2be78835eca8758b32267603fc42a1479dbfb8",
+          "doi": "10.24432/C5030X",
+          "license": "CC BY 4.0",
+          "derived_sha256": "7f3f4a4954a4a62704da0356014fde9cf1ed347ce89173018068e348e20a59de",
+          "rows": 240,
+          "columns": [
+            "Channel",
+            "Region",
+            "Fresh",
+            "Milk",
+            "Grocery",
+            "Frozen",
+            "Detergents_Paper",
+            "Delicassen"
+          ],
+          "category": "Channel",
+          "value": "Fresh",
+          "metric": "Milk",
+          "split": "loo"
+        },
+        {
+          "manifest": "tasks/v4/real_csv_v1/manifest.json",
+          "source_id": "uci_wholesale",
+          "rows": 240,
+          "sha256": "7f3f4a4954a4a62704da0356014fde9cf1ed347ce89173018068e348e20a59de",
+          "archive_sha256": "647e6a61683ed23f48c7b04e1e2be78835eca8758b32267603fc42a1479dbfb8",
+          "upstream_url": "https://archive.ics.uci.edu/static/public/292/wholesale+customers.zip",
+          "doi": "10.24432/C5030X",
+          "license": "CC BY 4.0",
+          "derived_from": "tasks/v3_real/data/wholesale.csv",
+          "personal_data_columns": []
+        }
+      ]
+    },
+    {
+      "source_id": "uci_wine",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v4/real_csv_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/real_csv_v1/data/wine.csv",
+          "columns": [
+            "fixed acidity",
+            "volatile acidity",
+            "citric acid",
+            "residual sugar",
+            "chlorides",
+            "free sulfur dioxide",
+            "total sulfur dioxide",
+            "density",
+            "pH",
+            "sulphates",
+            "alcohol",
+            "quality"
+          ],
+          "sha256": "73e5c37d778b895723f846082ea3abbf76ff2abf49abfbe1335bc5fc10eac27e"
+        }
+      ],
+      "source_metadata": [
+        {
+          "manifest": "tasks/v3_real/manifest.json",
+          "url": "https://archive.ics.uci.edu/static/public/186/wine+quality.zip",
+          "sha256": "3ed56667f4b828242bd732d7d1dd7f2861e54432239d7fa63877014cbb0304d4",
+          "doi": "10.24432/C56S3T",
+          "license": "CC BY 4.0",
+          "derived_sha256": "73e5c37d778b895723f846082ea3abbf76ff2abf49abfbe1335bc5fc10eac27e",
+          "rows": 240,
+          "columns": [
+            "fixed acidity",
+            "volatile acidity",
+            "citric acid",
+            "residual sugar",
+            "chlorides",
+            "free sulfur dioxide",
+            "total sulfur dioxide",
+            "density",
+            "pH",
+            "sulphates",
+            "alcohol",
+            "quality"
+          ],
+          "category": "quality",
+          "value": "alcohol",
+          "metric": "density",
+          "split": "train"
+        },
+        {
+          "manifest": "tasks/v4/real_csv_v1/manifest.json",
+          "source_id": "uci_wine",
+          "rows": 240,
+          "sha256": "73e5c37d778b895723f846082ea3abbf76ff2abf49abfbe1335bc5fc10eac27e",
+          "archive_sha256": "3ed56667f4b828242bd732d7d1dd7f2861e54432239d7fa63877014cbb0304d4",
+          "upstream_url": "https://archive.ics.uci.edu/static/public/186/wine+quality.zip",
+          "doi": "10.24432/C56S3T",
+          "license": "CC BY 4.0",
+          "derived_from": "tasks/v3_real/data/wine.csv",
+          "personal_data_columns": []
+        }
+      ]
+    },
+    {
+      "source_id": "v3_source_00",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/sequence_v1/tasks.json",
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_00.csv",
+          "columns": [
+            "period",
+            "area",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "7df07130a390943434241b9699a72d7343c8631a2eea7951a5d382fc23b87643"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_01",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/sequence_v1/tasks.json",
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_01.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "65719e87f547f6bbb3df7bdbb762383af13cedaacf7516e49db0f317005a831f"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_02",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/sequence_v1/tasks.json",
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_02.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "935ad792933fdd6cabf2b43a54533510e4c3060526759057892c249e32e1da9c"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_03",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/sequence_v1/tasks.json",
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_03.csv",
+          "columns": [
+            "period",
+            "area",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "9df6412c153ce3c8c4cf062b07a7069bb207a0a32108f87ee64dc2fcc21bda34"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_04",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "composition_dev",
+        "validation",
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/composition_dev_v1/tasks.json",
+        "tasks/v4/sequence_v1/tasks.json",
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_04.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "efb54df4ec29032c19e9677035ed6adb8a864e4e0b6992811645d08660ce8bf4"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_05",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "composition_dev",
+        "validation",
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/composition_dev_v1/tasks.json",
+        "tasks/v4/sequence_v1/tasks.json",
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_05.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "80d36a9649aac837ab40ad2e39b511369a0a83b0e6e2b2024da4cad910f58ca1"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_06",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_06.csv",
+          "columns": [
+            "period",
+            "area",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "c8c4390f3af843c928fac194901e8ac401727f17aef732c7a23a9b938bd724fc"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_07",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_07.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "534f94fefa3d09721b549d5b8eb1c8425d1ec175a5a804a0104bf378d516e086"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_08",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_08.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "273d98bd02894faa6a10ced3483b9aa6685e9b5a205e8079970207cf9ee3db8a"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_09",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_09.csv",
+          "columns": [
+            "period",
+            "area",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "7d3362fc75a1b148ce2bb5d40749bf95282bf612562294848b55900fcf1e6962"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_10",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_10.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "491a99c0066d348b3e472630a7af9172012f70a7b6175a6fea8dd0996346bd3d"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_11",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_11.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "d68c5f7840f9d2cee21fdc420b9f5d2d935e4403977fc75cff815f0ea207fc03"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_12",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_12.csv",
+          "columns": [
+            "period",
+            "area",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "84d379a162e6496dbd043617dc4a770599b8b658a36b31fe8956858c023b6d02"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_13",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_13.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "d77fee4ec569d4fdfdf323d893d5c6e529de141ecfdb7e00b09813129124815c"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_14",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_14.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "4e93d0336a4ff04119afb0ab4a1e3bf1fcb901536108d74c59686aee3341b206"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_15",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_15.csv",
+          "columns": [
+            "period",
+            "area",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "3ef7bf9fe068a4aa5e63800792bb95ac861bee504fc2f7f2f2ea3f3bfb5fb38b"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_16",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_16.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "f3f9edd77c38c59d360509d815a10e466b9237e81484cea878c48abb0cb0cfd0"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_17",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_17.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "d29a0a32e40a0470abe3c2341d4dd490ac8b47b572750e4962b3ecc84fd1fa16"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_18",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_18.csv",
+          "columns": [
+            "period",
+            "area",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "ac9ab35b923c8e8890471bbc4710427d80e6f318edf745874dabe9f0db991dd0"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_19",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_19.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "279b528c931006cec1cad5a47037f5e8ecfd81ec0a448328bce48b93b22192ae"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_20",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_20.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "2672ae023912966a678b09eab65dcc19d03a5f3b3d3137fc70dae4676232a070"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_21",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_21.csv",
+          "columns": [
+            "period",
+            "area",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "3236706527756876a824a9df290b374cd0b356004038d945d9fb4f0e1c1492a9"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_22",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_22.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "64f0e0af91e3381f73b0f4d9ab77571efbfbe41384e3538d87a49b0ce4ba28ce"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v3_source_23",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "test"
+      ],
+      "usage_files": [
+        "tasks/v3/tasks.jsonl"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v3/data/source_23.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "a7a33f1deac71122543f4bd98fa18e7d888b0af8c9b13f7e84e2c895a8dca557"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_00",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_00.csv",
+          "columns": [
+            "period",
+            "region",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "8a354553d73dbb5fa6ebb4382c24c50e0f2107feebf9d30720b9faec53fbfb4b"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_01",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_01.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "fd75438b77c0f8dc44004888d9f1364d18e0b880fe369cbb3b4b945f751305ca"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_02",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_02.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "4f6d2fb40f0155a611b41611c3aef48e5b13eaeebc93216d76d7f9633b725a25"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_03",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_03.csv",
+          "columns": [
+            "月份",
+            "区域",
+            "收入",
+            "渠道",
+            "指标"
+          ],
+          "sha256": "96e7133483cc0a2cd2e20a1468bdc92a439e9973989f1038a3d29815b4b74916"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_04",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_04.csv",
+          "columns": [
+            "period",
+            "region",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "d3e5ef9065198f78d37e65148af8176511f61da045938c22b31f4c60156fa9fb"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_05",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_05.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "80ba81263a3ecf8cf9bf6b9dd1f7a507c023a244068543aaca350fe39aa50f5f"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_06",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_06.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "d972cc9c6dde5a928128a2054a50390ec68ab61e7fb74f5948c20f4b10fbbcd1"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_07",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_07.csv",
+          "columns": [
+            "月份",
+            "区域",
+            "收入",
+            "渠道",
+            "指标"
+          ],
+          "sha256": "47240cb96d93aa80af894cf99e33cb251d5847905d35e96c10a5a942085ff51f"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_08",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_08.csv",
+          "columns": [
+            "period",
+            "region",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "91f2d46664b1627890ac18b6837fa7ea8a3cfb0340ffb040f228815214dadfcc"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_09",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_09.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "077859478ad16ff9a866c2ef8d4f8edc6c42d14dc003ea8ca4c28ca8307bb220"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_10",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_10.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "6c829ae84176573732abd23c6a0e48af206b28d37e96271f4458b3987ddda31e"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_11",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_11.csv",
+          "columns": [
+            "月份",
+            "区域",
+            "收入",
+            "渠道",
+            "指标"
+          ],
+          "sha256": "eee54f565f98b1e1b3dd1c2c1e7351228399b39576d12f0fdf32b0457d7793d6"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_12",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_12.csv",
+          "columns": [
+            "period",
+            "region",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "7beb76b6f791d2490d26e1f2747e643daebef9d5ddc9403e1091af61f9325f92"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_13",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_13.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "f71573c87750f51fbbf1f1b073a3be49aadfb3165dee6c26a8868e9813f2b002"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_14",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_14.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "6ccfe0fb2fbf31c58955bc53281e25f2d684d98169b5a131df6d8d576db0a209"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_15",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json",
+        "tasks/v5/beta_curriculum_v1/tasks.json",
+        "tasks/v5/recovery_beta1/tasks.json",
+        "tasks/v5/rewrite_train_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_15.csv",
+          "columns": [
+            "月份",
+            "区域",
+            "收入",
+            "渠道",
+            "指标"
+          ],
+          "sha256": "5932076aa62f615b828a04dc3d23b69b33aa695af8422392ab83492668c680a1"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_16",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_16.csv",
+          "columns": [
+            "period",
+            "region",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "b22fc6d7a2a4a243c3220fd7c7f70cfbaa845316a4ba362e9338a0572c87cada"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_17",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_17.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "d09cad1f309721b7fedc12eca1ec2997b48f17011aff2e975069d022d7481916"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_18",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_18.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "22839c71ed1ae3d2f6ef880cb71345183ff3ad01ce4a618342888d2119d4647a"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4hard_source_19",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_composition_v1/tasks.json",
+        "tasks/v4/llm_hard_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_hard_v1/data/source_19.csv",
+          "columns": [
+            "月份",
+            "区域",
+            "收入",
+            "渠道",
+            "指标"
+          ],
+          "sha256": "84869ca510abb329afc38dcb4357aee46394a95f82b2f59962dc3c69d384fa8e"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_00",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_00.csv",
+          "columns": [
+            "period",
+            "region",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "d26e6615f7b84c8e3b92de82c5fab952cf4584dbadfec99ceabb4586bba12477"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_01",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_01.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "f37a56c3d361dba7a563fd28f703df176e59b25198874d3b169b636df842b326"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_02",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_02.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "8c6e3b476084a62cd2de4e658dc83cfe11635bed17bf938b175bfe3b730a2375"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_03",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_03.csv",
+          "columns": [
+            "月份",
+            "区域",
+            "收入",
+            "渠道",
+            "指标"
+          ],
+          "sha256": "ee9a542cf35de6cf60c8e4643bd06f6a2f8cfc6695e35ae94f15070b1cdecd66"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_04",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_04.csv",
+          "columns": [
+            "period",
+            "region",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "04b190d7a47b89fdfe77cd5a1c1f53dd526492d1be2f3a58e06f5b9d9504453b"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_05",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_05.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "305f78618afb60e52cf03aee36d9678a41426598f62a41556b375dd8203bbe62"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_06",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_06.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "1a27f4fe47c606eb7963289b9cc88015e3487ded5dc12273246227965169bd31"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_07",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_07.csv",
+          "columns": [
+            "月份",
+            "区域",
+            "收入",
+            "渠道",
+            "指标"
+          ],
+          "sha256": "362f644a58522a60e90651b8ec666f2b1745ea19c423a572f14157d6ec7cdb8b"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_08",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_08.csv",
+          "columns": [
+            "period",
+            "region",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "423326ed347876c225391ad97c5a067b862780a9d667e3fb11b201f03083fc79"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_09",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_09.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "8a2d6fe029c3f4700769cad4c05acb35556a9d23b7070ea9d0ce8fb064849e8a"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_10",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_10.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "5b053a7f60a60b0620a1693aa6a2bcfc6810a9930ba88a6fa32796067a277c9f"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_11",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_11.csv",
+          "columns": [
+            "月份",
+            "区域",
+            "收入",
+            "渠道",
+            "指标"
+          ],
+          "sha256": "3bed62464e8e60d6ad7c80bcbac7ad3df58aa11d82974ff9ca3e2b9c62ffc823"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_12",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_12.csv",
+          "columns": [
+            "period",
+            "region",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "7e654116c3f1c13817172f017d7af8ab3d63896f0004af724a19bfad9091c757"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_13",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_13.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "25d6254f0a4624b1fa873f69c72e51d0b0718226589c06a126b1e6622798bd1e"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_14",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_14.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "439bdbafde35848d85e0c0afe113d043092c30d75d8b64d2ec4159bde58bb4c1"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_15",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "train"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_15.csv",
+          "columns": [
+            "月份",
+            "区域",
+            "收入",
+            "渠道",
+            "指标"
+          ],
+          "sha256": "7a508e91eca457f0aa7246feb2ce0d3955d5fa010c38264762765d479d91da17"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_16",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_16.csv",
+          "columns": [
+            "period",
+            "region",
+            "amount",
+            "segment",
+            "signal"
+          ],
+          "sha256": "2dfb211c27b888c0da21fdfb5cfb13af565dbb244a1f9c45e63fbeee3ce1ed38"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_17",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_17.csv",
+          "columns": [
+            "日期",
+            "地区",
+            "销售额",
+            "客群",
+            "观测值"
+          ],
+          "sha256": "50ee6ecd553c6fa789ea9b44cc36031eb99fc527922db996974a80cb77757d47"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_18",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_18.csv",
+          "columns": [
+            "when",
+            "zone",
+            "net_value",
+            "class_name",
+            "measure"
+          ],
+          "sha256": "dec35dcdbcda9309b49da65dc737e6072d984ecec87de8278a4c64c70a51b60e"
+        }
+      ],
+      "source_metadata": []
+    },
+    {
+      "source_id": "v4pilot_source_19",
+      "used_in_prior_v1_v5": true,
+      "faultda_split": "seen_development",
+      "prior_splits": [
+        "dev"
+      ],
+      "usage_files": [
+        "tasks/v4/llm_pilot_v1/tasks.json"
+      ],
+      "datasets": [
+        {
+          "uri": "tasks/v4/llm_pilot_v1/data/source_19.csv",
+          "columns": [
+            "月份",
+            "区域",
+            "收入",
+            "渠道",
+            "指标"
+          ],
+          "sha256": "351d4feac838bcf1f2653ec47031bc34b359b1885ca383b9c71b547780284dc1"
+        }
+      ],
+      "source_metadata": []
+    }
+  ]
+}
