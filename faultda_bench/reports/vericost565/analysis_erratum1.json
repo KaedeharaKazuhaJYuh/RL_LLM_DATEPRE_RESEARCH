@@ -1,0 +1,62 @@
+{
+  "schema": "vericost565.analysis_erratum.v1",
+  "version": "0.5.65-dev",
+  "seq": 1,
+  "utc": "2026-10-21T10:20:00Z",
+  "kind": "post_eval_erratum",
+  "after_commit": "fcb138a2838eec4c9aae19888fe09d70287cdbd7",
+  "title": "The D1 live_round_verdict PASS is fragile and family-dependent",
+  "finding": "The D1 live_round_verdict PASS rests on a single deciding cell that clears epsilon by 0.0022962496574, and in that same cell the same committed artifact records F_hist_plus at 0.0487633864427 <= epsilon. Under a slightly larger and entirely natural fixed rule family, D1 is bypassable too. The honest reading is therefore that D1's PASS is fragile and family-dependent, not a robust non-bypassability result.",
+  "deciding_cell": {
+    "model": "d1",
+    "instance_set": "dev_syn",
+    "regime_id": "k1.00_L3",
+    "epsilon": 0.05,
+    "min_fixed_r": 0.0522962496574,
+    "margin_over_epsilon": 0.0022962496574,
+    "F_hist_plus": 0.0487633864427,
+    "F_hist_plus_within_epsilon": true,
+    "cells": {
+      "F_hist": 9,
+      "F_hist_plus": 198
+    },
+    "is_the_only_cell_above_epsilon": true
+  },
+  "counterfactual_if_F_hist_plus_admitted": {
+    "min_over_admitted_families": {
+      "k0.03_L1": 0.0101087876943,
+      "k0.03_L3": 0.0101036236608,
+      "k0.10_L1": 0.0046860683486,
+      "k0.10_L3": 0.0351414287079,
+      "k0.30_L1": 0.0178531148791,
+      "k0.30_L3": 0.0328292662214,
+      "k1.00_L1": 0.0058464861745,
+      "k1.00_L3": 0.0487633864427
+    },
+    "all_admissible_within_epsilon": true,
+    "hard_stop": true,
+    "trigger": true,
+    "live_round_verdict": "FAIL_NEGATIVE",
+    "recorded_hard_stop": false,
+    "recorded_trigger": false,
+    "recorded_live_round_verdict": "PASS"
+  },
+  "conditionality": "The pre-registration fixes min_fixed_r as \"min over F, F_size and F_hist of the exact expected normalized regret\" and lists F_hist_plus as informational, both before any number existed. F_hist_plus is a 198-cell lookup on DEV-SYN against F_hist's 9, a different complexity class, so excluding it from \"cheap fixed rule\" is defensible. No committed Gate 0 number is changed by this erratum and no threshold is re-chosen; the D1 verdict stands as recorded, but it stands conditional on the pre-registered family set {F, F_size, F_hist}.",
+  "structural_reading": "A gate stops looking bypassed only until a cheap legal strategy is admitted into the comparison set. That is the same failure mode the repository already recorded for the four-cell W4 design, where always_restage bypassed S in every cell because free recomputation was available (faultda_bench/docs/FOUR_CELL_WITNESS_2026_10_18.md). It recurring at the D1 stage, after the rev-1 map was already reported as bypassable, is evidence that the bypass is structural to this environment rather than an artifact of one parameterisation.",
+  "rev1_headline_unaffected": {
+    "rev1_dev_syn_hard_stop": true,
+    "still_hard_stop_with_F_hist_plus_admitted": true,
+    "note": "The headline rev-1 result is hard_stop true with or without F_hist_plus."
+  },
+  "claim_decision_consequence": "The final review identifies the D1 PASS as the last un-falsified support for research claim A. With this disclosure that support is materially weakened. It does not by itself decide between claim A and claim B; the decision remains the owner's and is made in no document of this version.",
+  "recorded_outside_the_amendments_array": "This erratum is recorded in its own file and in RELEASE_0565.md and CLAIM_DECISION_INPUT_0565.md rather than appended to faultda_bench/protocols/vericost_v1_amendments.json, because that file's sha256 is pinned as inputs.amendments inside the write-once analysis.json, which audit --cross-version regenerates and compares byte for byte against the committed copy. Appending would flip matches_committed to false and break the cross-interpreter byte-identity proof, and analysis.json cannot absorb the new hash because it is a pre-registered write-once output. The pre-registered mechanism for exactly this case is analysis_erratum<k>.json (prereg amendment_policy.timing), which is what this file is. The deviation is documented rather than silent.",
+  "changes": {
+    "gate0.d1.dev_syn.live_round_verdict.reading": [
+      "PASS: a usable configuration for a future live round",
+      "PASS, conditional on the pre-registered family set {F, F_size, F_hist}; the deciding cell clears epsilon by 0.0022962496574 and F_hist_plus attains 0.0487633864427 <= epsilon in that same cell, so D1 is bypassable under a slightly larger fixed family and the verdict is fragile and family-dependent"
+    ]
+  },
+  "alters_no_committed_artifact": true,
+  "api_calls": 0,
+  "cny_spent": "0.000000"
+}

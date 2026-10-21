@@ -40,7 +40,7 @@
     "faultda_bench/design_witness/__init__.py": "2a3184336be1285356db8210ded9724696e2e0abf442a8ece435cea2b9e238e3",
     "faultda_bench/design_witness/run.py": "b974d896dcc3b3d4abd17cddd82247d6b10a2505ff310745a42608d37723f750",
     "faultda_bench/docs/ACTOR_0520_PROTOCOL.md": "4969627479f28caadbc3af98403205a017d53e150e9f126787467bea631543dc",
-    "faultda_bench/docs/CLAIM_DECISION_INPUT_0565.md": "03b28f70da83deb9d03d029efc23556436290195b5edf6e359e9e98ce3a0e880",
+    "faultda_bench/docs/CLAIM_DECISION_INPUT_0565.md": "ad246a787bb293a8ec392d6169a98261a63f442ca20cad3d8ce6e2c48bb27fa6",
     "faultda_bench/docs/COHERENT_0395_PROTOCOL.md": "50b757837690ba48adddc2355111e2ba3089b577770a107b4f78ba6e4c77fae6",
     "faultda_bench/docs/CONSISTENCY_0310_PROTOCOL.md": "e52cc9192ec9821169440d315c02156e18d1fcb59137a56d7c1eae270e6743f6",
     "faultda_bench/docs/CROSS_TASK_ADMISSION_0505.md": "e70390a664390262ef22fc84ff782e43785e590c4f0f9c4ea84088014aa31411",
@@ -78,7 +78,7 @@
     "faultda_bench/docs/TERMINATION_0550_DESIGN.md": "fc6b032d6e21e82027854f2d3695ba459f900874b20989b8f4b2e484efd7f240",
     "faultda_bench/docs/TERMINATION_0555_BINDING.md": "004509dbc0140b65c75952e15ec9824f2451f0c7520686b509eeca4964d23d16",
     "faultda_bench/docs/VALIDITY_0500_PROTOCOL.md": "1b91956b62acd44b1318dd262583d180f58e533d95220f26e40fea920cc01906",
-    "faultda_bench/docs/VERICOST_0565_AMENDMENTS.md": "a87f3f3ebedcf75c1c97eea48e97e04a8be5942c5bb0bf1f9e51c6d858a993f6",
+    "faultda_bench/docs/VERICOST_0565_AMENDMENTS.md": "e0abc830958e0b3b8e0006af76d77fea84629f23a6ad28dda3dabd3786af9be9",
     "faultda_bench/docs/VERICOST_0565_LIVE_PROTOCOL.md": "2041045d62d9a568c1764b0e15ba615c4bd59c26e4646a8f6d708b7b51a702ee",
     "faultda_bench/docs/VERICOST_0565_PREREG.md": "5fc35f9ea7106ce580fcf10d9d38e598d63a96dd85f31b13e6edf42cbecad559",
     "faultda_bench/docs/vericost565_exploration/exploration_log.txt": "bce779a6c988438c9fc62e0025e153fa168deb3f168a43907a2059a40bb615e6",
@@ -266,7 +266,7 @@
     "faultda_bench/reports/RELEASE_0555.md": "97df087863e33cfdcf7cc543fcfa2262681e12afecd0bece943a68ca7483ba59",
     "faultda_bench/reports/RELEASE_0555_HISTORICAL_AUDIT.json": "23d36f1305c510996150c798951340949df714cad7c7a4ba023b1c9e77af81d8",
     "faultda_bench/reports/RELEASE_0555_VALIDATION.json": "1b277588a74ab88587b5ecc7b855732d5fb9aad8bb1d007fcebb2fc42383eb13",
-    "faultda_bench/reports/RELEASE_0565.md": "4d2b2c4ec55220c8b0f806e087050a98af8043595541a68d6740c29960cf4ad6",
+    "faultda_bench/reports/RELEASE_0565.md": "281f644f181776080c3ecc006b7da1de34f21ffd1d622212d635da15817f56f4",
     "faultda_bench/reports/RESPONSIBILITY_0370_GO_NO_GO.json": "7e8962eb9ab29bea4a55a4fbb747f6b00bc49368af9757e2dcc1797a212d9e61",
     "faultda_bench/reports/RESPONSIBILITY_0370_INTERNAL_REVIEW.md": "ec19b3d1a806af53caec97a4ff3faec7a4f6d77a3abc157e1c3c534c2b048f3c",
     "faultda_bench/reports/RESPONSIBILITY_0370_RELEASE.md": "572f1265e595e7d052e9ba3113a58f02b7af253ee434ccf5f9e5f6b92d05e6c3",
@@ -722,6 +722,7 @@
     "tests/test_faultda_vericost565_suite.py": "67eb148c5356b3b3fef663e410053fa46709c726dd1e4532ccf7c01933e5e99c",
     "tests/test_faultda_vericost565_witness.py": "f966caafc31308247b4b5832c9880082d21c9c70ccabb928197279669760d75b",
     "tests/test_termination_case_analysis.py": "2d9e0a3e391337164f9015b60974c57c764bf3be94c176376a9bce88303e10d8",
-    "tests/test_trajectory_evidence_audit.py": "db2901a1fb30bfe95e240306fab64c69869f4574bd91fac2e3d9a215357e7a1c"
+    "tests/test_trajectory_evidence_audit.py": "db2901a1fb30bfe95e240306fab64c69869f4574bd91fac2e3d9a215357e7a1c",
+    "faultda_bench/reports/vericost565/analysis_erratum1.json": "604db50ede5901700939db1c65f88e38281eacc0b4b2453f349aab1ac9dc2c70"
   }
 }

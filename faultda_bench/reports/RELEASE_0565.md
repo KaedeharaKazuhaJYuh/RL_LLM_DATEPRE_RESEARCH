@@ -28,8 +28,12 @@
 
 **密钥轮换建议**：密钥曾在对话中以明文粘贴，因此建议在任何实跑之前轮换密钥。本版本只有
 `vericost565/audit.py --secret-scan` 读取 `.env.local`，它在内存中比较值与 sha256，**只打印计数**
-（本轮 `key_matches 0, sha256_matches 0, pattern_matches 0, files_scanned 2040, blobs_scanned 2229, clean true`），
+（本轮 `key_matches 0, sha256_matches 0, pattern_matches 0, clean true`），
 该文件从未被打开、打印、记录或提交。
+`files_scanned` / `blobs_scanned` / `reports_scanned` 是普查量而不是安全量：它们随 `.agents/` 下的任务文件
+与本版本自身的新文件增长而变动（同一份干净仓库在本版本的不同时点测得 2040、2049、2051、2052），
+因此本文件只固定上述四个安全相关的计数，不固定普查计数；任何一次重跑的 `clean` 与三个 `*_matches` 都必须为
+`true, 0, 0, 0`。
 
 ## 2. GATE 0 REGIME MAP（本版本的主要实证结果）
 
@@ -79,6 +83,34 @@ D1 下 DEV-SYN 的 `min_fixed_r` 为
 主 regime `min_fixed_r = 0.0352313961227`。**两件事必须分开**：rev-1 在每个可采纳 regime 上都可被 ε 内的
 廉价固定规则绕过（头条结论）；D1 为未来实跑提供了一个不被覆盖的配置（仅此而已，本版本没有模型结果）。
 
+#### 2.3.1 D1 的 PASS 是脆弱的、且依赖家族集的选择（修正条目 erratum 1，必须与 PASS 同时陈述）
+
+上面这个 `PASS` **只由一个单元决定，且余量极小**：8 个 regime 中只有 `k1.00_L3` 一个高于 ε，
+它高出 **0.0022962496574**（0.0522962496574 对 ε = 0.05）。而**同一份已提交产物
+`gate0_d1_dev.json` 在这同一个单元上记录 `F_hist_plus = 0.0487633864427 ≤ ε`**。
+也就是说，**在一个只是稍大、且完全自然的固定规则家族下，D1 同样可被绕过**：把 F_hist_plus 纳入最小值后，
+8 个可采纳 regime 全部 ≤ ε，`hard_stop` 变为 `true`、`trigger` 变为 `true`、
+`live_round_verdict` 变为 `FAIL_NEGATIVE`。
+
+因此**诚实的读法是：D1 的 `PASS` 是脆弱的、依赖家族集的，不是一个稳健的"不可绕过"结果**，
+不得被当作不可绕过性的证据使用。
+
+**这个结果是有条件的，而不是协议违规**：预注册在任何数字出现之前就把 `min_fixed_r` 固定为
+"min over F, F_size and F_hist"，并把 F_hist_plus 列为 informational；F_hist_plus 在 DEV-SYN 上是
+**198 单元**查表，而 F_hist 是 **9 单元**，属于不同的复杂度量级，因此把它排除在"廉价固定规则"之外是
+可以辩护的。本条目**不改变任何已提交的 Gate 0 数字**，也不重选任何阈值：D1 的判定按原样保留，
+但它**以预注册家族集 {F, F_size, F_hist} 为条件**成立。
+
+**这一模式本身值得报告。** 一道门看起来没被绕过，往往只是因为某个廉价合法策略还没有被纳入对照集——
+这正是仓库早已记录过的 W4 四单元设计的同一种失效模式（`always_restage` 因为重算免费而在每个单元上绕过 S，
+见 [`FOUR_CELL_WITNESS_2026_10_18.md`](../docs/FOUR_CELL_WITNESS_2026_10_18.md)）。
+它在 rev-1 已被报告为可绕过之后、又在 D1 这一层复现，是**该绕过属于本环境的结构性性质、而不是某一次参数化
+的偶然产物**这一判断的现有最强证据。
+
+完整的机器可读记录见 [`analysis_erratum1.json`](vericost565/analysis_erratum1.json)
+（`kind: post_eval_erratum`、`seq 1`、`after_commit fcb138a`）。rev-1 的头条结论不受影响：
+无论是否纳入 F_hist_plus，rev-1 的 DEV-SYN 都是 `hard_stop: true`。
+
 ### 2.4 没有单条规则能一招通吃
 
 每个集、每个模型的 `single_rule_literal.within_epsilon_all_admissible` 均为 `false`：不存在单个 f ∈ F 在所有
@@ -102,7 +134,7 @@ D1 下 DEV-SYN 的 `min_fixed_r` 为
 
 | arm | regret | 说明 |
 | --- | --- | --- |
-| F_hist_plus | 0.0138051012414 | 66 单元查表，仅供参考（不在预注册的 bf 候选集内） |
+| F_hist_plus | 0.0138051012414 | 264 单元查表（本表为 ALL 集；同一族在 DEV-SEEN 为 66 单元、DEV-SYN 为 198 单元），仅供参考（不在预注册的 bf 候选集内） |
 | **bf = F_hist** | **0.014189449731** | 预注册 bf = argmin{F, F_size, F_hist} |
 | thompson | 0.0241588323286 | 最好的学得 arm，仍不及 bf |
 | F_size | 0.0309986668882 | |
@@ -143,6 +175,16 @@ macro 点估计 −0.314931120737，区间 [−0.503467682211, −0.216149562513
 q_only 20 次假完成、linucb 25 次、thompson 18 次；`unsupported_escalation` 全 arm 为 0。
 **`duplicate_effects` 全为 0 是结构性的，不是"测到了 0"**：抽象转移没有 request_id 重试路径，
 环境层的幂等守卫由 C2 证书覆盖；该说明逐字记录在 `offline_eval.header.duplicate_events`。
+
+**`realized_regret` 的符号约定（必须与"期望 regret 不得为负"这一不变式分开读）**：
+`offline_eval.realized` 的 9360 行中有 **1801 行 `realized_regret` 为负**，最负为 **−1.0**，
+集中在 `never_verify`（408 行）。**这是正确的，不是 C4 违反**：DP 的上界是对**期望**成立的
+（`c4_assert` 检查的是 `E[U_arm] ≤ E[U*] + tol`，期望 regret 的最负值为 −2.28597740142e-16，在 `tol = 1e-9` 之内），
+而单次抽样的实现值没有这个约束——在一次"干净"的抽样上，一个完全不验证的 arm 会直接胜过花费了验证代价的最优策略，
+于是单行实现 regret 为负。**没有任何判定读取这个字段**：`analysis.json` 的 realized 块只使用安全完成率、
+Wilson 区间、cluster ICC 与精确 McNemar。该字段因此是描述性的逐 episode 记录，不是不变式的检验量。
+（本说明写在本文件而不是写进 `offline_eval.json` 的 header：该产物是预注册的一次写入输出，
+其 sha256 被 `analysis.json` 固定、并由 `audit --cross-version` 逐字节比对，改动它会破坏跨解释器字节一致证明。）
 
 **学习器的训练不足诊断（阴性结果，保留，且边界不得越过）**：预注册的 q_only 旗标预测**未达成**
 （修正条目 seq 3 `post_eval_erratum`）。原则：预注册的断言是一个**预测**，不是规格说明；当测量与预测不一致时，
@@ -213,6 +255,17 @@ H1–H3 连同其阈值、Holm 家族与 review-5 NIT 7 的修正（partial-A �
   `540f7fb..HEAD` 的修改/删除/重命名集合只含 7 个允许路径。
 - **一次写入**：10 个产物全部只写一次，第二次写入抛 `FileExistsError` 且不覆盖；git 历史层面的
   "只增一次、不改不删不重命名"由 `audit --write-once` 与 `suite --preconditions` 强制。
+  本次发布后新增的 `analysis_erratum1.json` 同样是一次写入产物（第二次写入抛 `FileExistsError`，已演示）。
+- **修正条目 erratum 1（D1 家族集披露）**：`faultda_bench/reports/vericost565/analysis_erratum1.json`
+  （`kind: post_eval_erratum`、`seq 1`、sha256 `604db50ede5901700939db1c65f88e38281eacc0b4b2453f349aab1ac9dc2c70`），
+  内容见本文件 §2.3.1 与 `CLAIM_DECISION_INPUT_0565.md` §2。
+  **记账偏差，明确披露**：该修正**没有**追加到 `vericost_v1_amendments.json` 的 `amendments` 数组，
+  而是记录在上述独立文件与两份文档中，原因是该数组文件的 sha256 被固定在一次写入的 `analysis.json`
+  的 `inputs.amendments` 内，而 `audit --cross-version` 会重算 `analysis.json` 并与已提交副本逐字节比对：
+  追加会使 `matches_committed` 变为 `false`、破坏跨解释器字节一致证明，而 `analysis.json` 作为预注册的
+  一次写入输出无法吸收新哈希。预注册的 `amendment_policy.timing` 为这种情形准备的机制正是
+  "可以新增 `analysis_erratum<k>.json`"，本文件即是该机制的产物。**这是一次有记录、有理由的偏差，
+  不是一次沉默的偏差。**
 - **跨解释器字节一致**：7 个产物在 CPython 3.11.15 与 3.12.13 下重算后逐字节相同；
   **唯一记录在案的例外是 `learned_policies.json`**（LinUCB 训练需要 numpy，本机 3.12 没有 numpy 且离线无法安装），
   其缓解措施是它的每一个消费者（`learned_eval.json`、`offline_eval.json`、`analysis.json`）都在两个解释器下重算。
@@ -225,6 +278,13 @@ H1–H3 连同其阈值、Holm 家族与 review-5 NIT 7 的修正（partial-A �
 - **验收登记**：`faultda_bench/protocols/acceptance_v48.json` = acceptance_v46 的 660 份冻结映射 + 本版本
   全部新证据的 sha256（命名为 v48 以避开并行 0.5.60 工作占用的 v47）；
   `faultda_bench/reports/vericost565/audit_0565.json` 为 `audit --all` 的记录。
+  **关于本次对 v48 的刷新**：为记录 erratum 1，本文件与 `CLAIM_DECISION_INPUT_0565.md` 被修改，
+  `analysis_erratum1.json` 被新增，因此 v48 中这三个条目的 sha256 被同步刷新。
+  **这不是对一次写入纪律的违反**：v48 是**由引入它的这次变更本身**在未合并分支上装配的登记表，从未发布过；
+  一次写入保护的是**已发布的记录不被覆盖**，而不是禁止一份登记表在产生它的那次变更内部完成装配。
+  判准是最终提交状态自洽（v48 的全部 717 个条目都必须重新哈希一致，有测试强制）且守卫对未来每个版本继续有效。
+  **它不构成修改已发布清单的先例**：acceptance_v46 的 660 份冻结映射逐条原样保留，
+  `termination555.audit` 仍为 `frozen_files: 660`。
 
 ## 9. 证据边界（必须与每个数字同时陈述）
 
@@ -254,6 +314,24 @@ real seen slices: on DEV-SEEN `min_fixed_r` is 0.0999024644006 / 0.180085602665 
 (ALL: 0.0744909677605 / 0.135920618803), both above ε, so bypassability within ε is a property of the
 synthetic-shaped profiles, not of the real seen slices at κ = 1. No single rule is within ε across all admissible
 regimes on any set (`within_epsilon_all_admissible: false` everywhere).
+
+**The D1 `PASS` is fragile and family-dependent (erratum 1).** Under the pre-registered D1 latent model the
+DEV-SYN map gives `hard_stop: false` and `live_round_verdict: PASS`, but that verdict is decided by a single
+cell: only `k1.00_L3` is above ε, and only by **0.0022962496574** (0.0522962496574 against ε = 0.05). In that
+same cell the same committed artifact records **`F_hist_plus` = 0.0487633864427 ≤ ε**, so under a slightly
+larger and entirely natural fixed rule family **D1 is bypassable too** — admitting it makes all eight
+admissible regimes ≤ ε and turns the verdict into `hard_stop: true`, `trigger: true`,
+`live_round_verdict: FAIL_NEGATIVE`. The honest reading is therefore that D1's `PASS` is **fragile and
+family-dependent, not a robust non-bypassability result**, and it must not be used as evidence of
+unbypassability. This is a *conditional* result rather than a protocol violation: the pre-registration fixed
+`min_fixed_r` as the minimum over `F`, `F_size` and `F_hist` and listed `F_hist_plus` as informational before
+any number existed, and `F_hist_plus` is a 198-cell lookup on DEV-SYN against `F_hist`'s 9. No committed Gate 0
+number changes. The pattern is worth reporting in itself: a gate stops looking bypassed only until a cheap
+legal strategy is admitted into the comparison set, which is the same failure mode already recorded for the
+four-cell W4 design, and its recurrence at the D1 stage is evidence that the bypass is **structural to this
+environment** rather than an artifact of one parameterisation. Machine-readable record:
+`faultda_bench/reports/vericost565/analysis_erratum1.json`. The rev-1 headline is unaffected — `hard_stop` is
+true with or without `F_hist_plus`.
 
 **Does a CPU-learned policy beat the best fixed rule at equal cost? No.** At the primary regime the normalized
 expected regret is `bf = F_hist` 0.014189449731 < `thompson` 0.0241588323286 < `linucb` 0.155694955762 <

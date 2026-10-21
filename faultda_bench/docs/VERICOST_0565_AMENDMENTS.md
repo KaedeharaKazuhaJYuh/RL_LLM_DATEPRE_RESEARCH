@@ -68,3 +68,27 @@ Gate 0 数字，也不替换任何确认性输入或输出。`kind` 说明：预
 追加，且不新增任何 erratum 产物。
 
 `changes`：`plan.item12.q_only_flag_test_prediction`（原预测 → 未达成，并记录实测结果）。
+
+## 产物形式的修正条目（`analysis_erratum<k>.json`）
+
+第一个最终评估产物出现之后（`first_output_commit` = `96d16c0`），预注册的
+`amendment_policy.timing` 只允许 `post_eval_erratum`，并明确允许它**新增 `analysis_erratum<k>.json`**。
+此后的修正条目因此以产物形式记录在该文件中，**不再追加到本文件与 `vericost_v1_amendments.json` 的
+`amendments` 数组**：该数组文件的 sha256 被固定在一次写入的 `analysis.json` 的 `inputs.amendments` 内，
+而 `audit --cross-version` 会重算 `analysis.json` 并与已提交副本逐字节比对，追加会破坏跨解释器字节一致证明，
+且 `analysis.json` 作为预注册的一次写入输出无法吸收新哈希。两种形式都是只增不改。
+
+### erratum 1 — `post_eval_erratum`（utc 2026-10-21T10:20:00Z，after_commit `fcb138a2838eec4c9aae19888fe09d70287cdbd7`）
+
+**D1 的 `live_round_verdict: PASS` 是脆弱的、且依赖家族集的选择。** 该判定只由 DEV-SYN 的单个单元
+`k1.00_L3` 决定，余量 **0.0022962496574**（0.0522962496574 对 ε = 0.05）；同一份已提交产物
+`gate0_d1_dev.json` 在该单元上记录 `F_hist_plus = 0.0487633864427 ≤ ε`，纳入最小值后 8 个可采纳 regime
+全部 ≤ ε，判定变为 `hard_stop: true`、`trigger: true`、`live_round_verdict: FAIL_NEGATIVE`。
+预注册在任何数字出现之前即把 `min_fixed_r` 固定为 "min over F, F_size and F_hist" 并把 F_hist_plus 列为
+informational，因此这是**有条件的结果而非协议违规**；**没有任何已提交的 Gate 0 数字被改变**。
+rev-1 的头条结论不受影响（无论是否纳入 F_hist_plus 均为 `hard_stop: true`）。
+
+产物：`faultda_bench/reports/vericost565/analysis_erratum1.json`
+（sha256 `604db50ede5901700939db1c65f88e38281eacc0b4b2453f349aab1ac9dc2c70`）。
+叙述见 `faultda_bench/reports/RELEASE_0565.md` §2.3.1 与
+`faultda_bench/docs/CLAIM_DECISION_INPUT_0565.md` §2。
