@@ -152,16 +152,31 @@ class PreregistrationTests(unittest.TestCase):
         self.assertEqual(live['tz'], 'Asia/Shanghai')
         self.assertEqual(live['access_date'], '2026-10-20')
 
-    def test_amendment_policy_and_the_empty_append_only_pair(self):
+    def test_amendment_policy_and_the_append_only_pair(self):
         policy = self.prereg['amendment_policy']
         self.assertEqual(policy['allowed_kinds'],
                          ['mde_regret_units', 'k_power_table', 'gate0_number_change',
                           'certificate_scope', 'post_eval_erratum'])
         self.assertIn('epsilon', policy['forbidden'])
         self.assertIn('after_commit', policy['entry_fields'])
-        self.assertEqual(json.loads(AMENDMENTS.read_text(encoding='utf-8')), {'amendments': []})
-        self.assertEqual(AMENDMENTS.read_text(encoding='utf-8'), canon.dumps({'amendments': []}))
-        self.assertIn('只允许追加', AMENDMENTS_MD.read_text(encoding='utf-8'))
+        text = AMENDMENTS.read_text(encoding='utf-8')
+        entries = json.loads(text)['amendments']
+        self.assertEqual(text, canon.dumps({'amendments': entries}))
+        self.assertEqual([entry['seq'] for entry in entries],
+                         list(range(1, len(entries) + 1)))
+        markdown = AMENDMENTS_MD.read_text(encoding='utf-8')
+        self.assertIn('只允许追加', markdown)
+        for entry in entries:
+            self.assertEqual(sorted(entry), sorted(policy['entry_fields']))
+            self.assertIn(entry['kind'], policy['allowed_kinds'])
+            self.assertEqual(len(entry['after_commit']), 40)
+            self.assertIn(f"seq {entry['seq']} — `{entry['kind']}`", markdown)
+            for key in entry['changes']:
+                for forbidden in policy['forbidden']:
+                    self.assertNotEqual(key.split('.')[-1], forbidden, key)
+        # Appended by the Gate 0 commit: the O2 MDE and the realized cluster power table.
+        self.assertEqual([entry['kind'] for entry in entries][:2],
+                         ['mde_regret_units', 'k_power_table'])
 
     def test_write_once_and_commit_order_are_declared(self):
         write_once = self.prereg['write_once']

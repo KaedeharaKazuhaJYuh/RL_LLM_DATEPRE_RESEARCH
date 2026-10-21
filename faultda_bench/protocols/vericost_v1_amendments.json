@@ -1,3 +1,75 @@
 {
-  "amendments": []
+  "amendments": [
+    {
+      "seq": 1,
+      "utc": "2026-10-21T04:20:00Z",
+      "kind": "mde_regret_units",
+      "after_commit": "c8ab5c89018f72fb51927360cf1b50c74d4d3426",
+      "text": "O2 minimum detectable effect, computed from the development SD before any final evaluation output exists. The exact one-sided cluster sign-flip test over the four development clusters needs d_z = (t_0.95,3 + t_0.80,3)/sqrt(4) = 1.66591787358 standardized units; SD(delta U_c) at the primary regime is 0.595368090067 in U units over cluster totals, so the MDE is 0.991834342603 U units, i.e. 0.0469223856362 in normalized regret units against sum E[U*] = 21.1377646118. No threshold, hypothesis, arm, metric, regime or epsilon is changed.",
+      "changes": {
+        "verdict_rules.power.dz_n4_alpha05": [
+          null,
+          1.66591787358
+        ],
+        "verdict_rules.power.t_quantiles_df3": [
+          null,
+          [
+            2.3533634348,
+            0.978472312363
+          ]
+        ],
+        "hypotheses_offline.O2.sd_delta_u_primary": [
+          null,
+          0.595368090067
+        ],
+        "hypotheses_offline.O2.mde_u_units": [
+          null,
+          0.991834342603
+        ],
+        "hypotheses_offline.O2.mde_regret_units": [
+          null,
+          0.0469223856362
+        ]
+      }
+    },
+    {
+      "seq": 2,
+      "utc": "2026-10-21T04:20:00Z",
+      "kind": "k_power_table",
+      "after_commit": "c8ab5c89018f72fb51927360cf1b50c74d4d3426",
+      "text": "Realized cluster count and the attainable sign-flip floor. The development split has four clusters (synthetic, uci_auto_mpg, uci_glass, uci_occupancy), so the exact one-sided floor is 2^-k with k = 4, i.e. 0.0625 > alpha_O2 = 0.05: no p value can clear alpha and every O-verdict stays INCONCLUSIVE (under_powered) unless the point estimate or dominance FALSIFIES it. This confirms the pre-registered under-power declaration and changes no threshold.",
+      "changes": {
+        "verdict_rules.power.k_table": [
+          null,
+          {
+            "1": 0.5,
+            "2": 0.25,
+            "3": 0.125,
+            "4": 0.0625
+          }
+        ],
+        "verdict_rules.power.n_clusters_realized": [
+          null,
+          4
+        ],
+        "verdict_rules.power.min_attainable_signflip_p_realized": [
+          null,
+          0.0625
+        ]
+      }
+    },
+    {
+      "seq": 3,
+      "utc": "2026-10-21T05:40:00Z",
+      "kind": "post_eval_erratum",
+      "after_commit": "c8ab5c89018f72fb51927360cf1b50c74d4d3426",
+      "text": "Pre-registered expectation not met; the test was changed to record the measured outcome, and the expectation itself is preserved verbatim in `changes`. Predicted (wf-0565 plan item 12): \"the q_only flag test - on a synthetic cc-flag episode (G = 4, 20 000 reduced episodes, fixed seed) the greedy action at the post-flag state equals the DP's (spot_flagged/spot(j))\". Measured on cert-g4-1 at the primary regime with seed 565001 and 20 000 episodes: the DP plays spot:1 (post-flag state value 0.9391) while the greedy gate action is escalate for the type-A history (the only explored action, spot_large, is still valued at -0.0717, below the zero-valued terminal) and the post-flag state is never visited for the type-B and type-C histories, where q_only falls back to the F_hist member. Longer reduced runs do not recover it either: with the history pinned the greedy action is escalate at 20 000 and 50 000 episodes and full (Q = 0.700 = V - kappa, a deterministic payoff) at 1 000 000 and 3 000 000 episodes, with spot_flagged at 0.615 and 0.698 against its true value 0.9391. Diagnosis: slow credit assignment at the pre-registered configuration and episode budget (Q0 = 0, gamma = 1, eps-greedy 0.3 -> 0.02, the tie-break order starting at escalate, negative per-step costs); the episode-length histogram over 20 000 pre-registered episodes is {1: 13848, 2: 4525, 3: 1053, 4: 531, 5: 41, 6: 2}, so 69 per cent of episodes are a single decision. This is NOT a representation defect: the same nine gate actions scored with the DP action values return spot_flagged, and the coverage mapping test holds, so the learned-versus-rule comparison is not biased by a missing action. Whether another configuration would recover the DP action is untested here, and no claim is made that no learner could. No hypothesis, threshold, arm, metric, regime, primary regime or epsilon is changed, no committed Gate 0 number changes, and no confirmatory input or output is replaced. Kind: the pre-registered allowed_kinds list has no kind for an unmet plan-level prediction, so post_eval_erratum is used as the record-correction kind; it is appended before any final-evaluation output exists and adds no erratum artifact.",
+      "changes": {
+        "plan.item12.q_only_flag_test_prediction": [
+          "the q_only flag test - on a synthetic cc-flag episode (G = 4, 20 000 reduced episodes, fixed seed) the greedy action at the post-flag state equals the DP's (spot_flagged/spot(j))",
+          "not met; the test records the measured outcome (greedy escalate for the type-A history, post-flag state unvisited for type B and C, DP spot:1) next to the capability assertion that the gate action set scored with the DP action values returns spot_flagged"
+        ]
+      }
+    }
+  ]
 }
