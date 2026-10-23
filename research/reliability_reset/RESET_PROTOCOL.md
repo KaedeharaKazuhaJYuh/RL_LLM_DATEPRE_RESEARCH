@@ -5,6 +5,8 @@
 **Created:** 2026-10-21
 **Status:** design-only; no live runs, downloads, model calls, training, or new test set. Scientific status remains HOLD until all gates below are reviewed.
 
+**2026-10-24 scope addendum:** the user has requested freer innovation and concrete next-step research. [Recovery-credit exploration](RECOVERY_CREDIT_120.md) now authorizes and records local exploratory interventions on existing development tasks. The original v0.1 text below remains the historical confirmatory proposal; its design-only/engineering-only boundaries do not block this new local prototype. No live/provider request or held-out claim is added by the exploratory experiment.
+
 ## 1. Research question
 
 Can we show that outcome-oriented evaluation of tool-using agents makes consequential, independently verifiable errors about operational reliability, and that those errors recur across independent task families?

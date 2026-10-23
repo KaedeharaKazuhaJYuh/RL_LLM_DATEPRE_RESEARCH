@@ -104,6 +104,79 @@ class RealAdapterTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "broken step"):
             semantic_facts.extract(raw, run_id)
 
+    def test_partial_capture_cannot_reattribute_environment_setup(self):
+        raw, run_id = self.raw_copy("capture_incomplete")
+        path = raw / "native_trace.json"
+        capture = json.loads(path.read_text(encoding="utf-8"))
+        capture["steps"][0]["before"] = []
+        capture["steps"][0]["after"].append({**copy.deepcopy(capture["initial_records"][0]), "revision": 999})
+        path.write_text(json.dumps(capture), encoding="utf-8")
+        # Previously accepted as a confirmed subject duplicate publication.
+        with self.assertRaisesRegex(ValueError, "broken step"):
+            semantic_facts.extract(raw, run_id)
+
+    def test_partial_capture_must_be_contiguous_and_start_at_zero(self):
+        raw, run_id = self.raw_copy("capture_incomplete")
+        path = raw / "native_trace.json"
+        capture = json.loads(path.read_text(encoding="utf-8"))
+        capture["steps"][0]["index"] = 3
+        path.write_text(json.dumps(capture), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "broken step"):
+            semantic_facts.extract(raw, run_id)
+
+    def test_read_action_cannot_create_a_captured_publication(self):
+        raw, run_id = self.raw_copy("capture_incomplete")
+        path = raw / "native_trace.json"
+        capture = json.loads(path.read_text(encoding="utf-8"))
+        capture["steps"][0]["after"].append({**copy.deepcopy(capture["initial_records"][0]), "revision": 2})
+        path.write_text(json.dumps(capture), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "non-publication action"):
+            semantic_facts.extract(raw, run_id)
+
+    def test_partial_capture_cannot_hide_rewritten_persisted_history(self):
+        raw, run_id = self.raw_copy("capture_incomplete")
+        with closing(sqlite3.connect(raw / "ledger.sqlite")) as db, db:
+            db.execute("UPDATE reports SET content=?", ('{"output": {}}',))
+        with self.assertRaisesRegex(ValueError, "rewrites captured history"):
+            semantic_facts.extract(raw, run_id)
+
+    def test_partial_capture_preserves_proven_harm_without_inventing_termination(self):
+        raw, run_id = self.raw_copy("publication_intervention", "scripted_stress")
+        path = raw / "native_trace.json"
+        capture = json.loads(path.read_text(encoding="utf-8"))
+        capture["capture_complete"] = False
+        capture["steps"] = capture["steps"][:3]  # inspect, stage, incorrect publish
+        capture["terminal"] = None
+        path.write_text(json.dumps(capture), encoding="utf-8")
+        facts, _ = semantic_facts.extract(raw, run_id)
+        contract = json.loads((self.bundle.parent / "contract.json").read_text(encoding="utf-8"))
+        row = adjudicate(facts, contract)
+        self.assertTrue(row["confirmed_violation"])
+        self.assertEqual(row["violation_events"], ["publication-2"])
+        self.assertEqual(row["label"], "unresolved")
+        self.assertIsNone(row["terminal_correct"])
+        self.assertIsNone(facts["termination_supported"])
+        self.assertTrue(row["snapshot_correct"])
+        unseen = next(e for e in facts["events"] if e["id"] == "publication-3")
+        self.assertEqual(unseen["actor"], "unknown")  # repair provenance is uncaptured
+        self.assertFalse(unseen["violated"])  # harmless content does not invent an unsafe event
+
+    def test_duplicate_captured_revisions_and_actions_after_stop_rejected(self):
+        raw, run_id = self.raw_copy()
+        path = raw / "native_trace.json"
+        capture = json.loads(path.read_text(encoding="utf-8"))
+        duplicate = copy.deepcopy(capture)
+        duplicate["initial_records"].append(copy.deepcopy(duplicate["initial_records"][0]))
+        path.write_text(json.dumps(duplicate), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "duplicate/invalid captured revision"):
+            semantic_facts.extract(raw, run_id)
+        extra = copy.deepcopy(capture["steps"][-1])
+        extra["index"] += 1
+        capture["steps"].append(extra)
+        path.write_text(json.dumps(capture), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "after termination"):
+            semantic_facts.extract(raw, run_id)
+
     def test_evaluator_source_change_retains_unknown_responsibility(self):
         raw, run_id = self.raw_copy()
         path = raw / "v1.csv"

@@ -1,0 +1,222 @@
+{
+  "version": "1.0.15",
+  "date": "2026-10-24",
+  "base_commit": "cd717b0",
+  "scientific_status": "HOLD",
+  "broad_claim": "NO-GO",
+  "live_or_paid_runs": "NO-GO",
+  "api_calls": 0,
+  "model_runs": 0,
+  "review": {
+    "received_review_kind": "external_agent_technical_feedback",
+    "independent_human_scientific_review": "pending",
+    "independent_blinding_validation": "pending"
+  },
+  "checks": {
+    "selected_regression_tests": 87,
+    "skips": 0,
+    "failures": 0,
+    "seconds": 55.005,
+    "scope": "reset core/adapter/fidelity, existing semantic environment and release tests; no fresh full-repository run",
+    "test_log_sha256": "72975c01b870921130ef4474798ebcfa0c92f6bd76906bc91b61313297eab501",
+    "initial_run": {
+      "failures": 1,
+      "reason": "New test incorrectly expected a harmless row with unknown actor provenance to be an uncertain unsafe event; corrected the assertion to inspect unknown actor and non-violating content separately.",
+      "implementation_changed_after_initial_run": false
+    },
+    "release_metadata": "passed",
+    "compileall": "passed",
+    "diff_whitespace": "passed",
+    "local_markdown_links": 44,
+    "verification_cli": "passed"
+  },
+  "engineering_controls": {
+    "executions": 24,
+    "family_count": 1,
+    "independent_sample_size": null,
+    "unique_behavior_signatures": 11,
+    "behavior_groups": [
+      [
+        "healthy--public_rule",
+        "healthy--scripted_stress",
+        "publication_intervention--public_rule",
+        "duplicate_intervention--public_rule",
+        "version_intervention--public_rule",
+        "incorrect_final_intervention--public_rule",
+        "timeout_after_commit--public_rule",
+        "timeout_after_commit--scripted_stress"
+      ],
+      [
+        "environment_error_repaired--public_rule",
+        "environment_error_repaired--scripted_stress"
+      ],
+      [
+        "publication_intervention--scripted_stress"
+      ],
+      [
+        "duplicate_intervention--scripted_stress"
+      ],
+      [
+        "version_intervention--scripted_stress"
+      ],
+      [
+        "incorrect_final_intervention--scripted_stress"
+      ],
+      [
+        "missing_value_boundary--public_rule",
+        "missing_value_boundary--scripted_stress"
+      ],
+      [
+        "timeout_before_commit--public_rule",
+        "timeout_before_commit--scripted_stress"
+      ],
+      [
+        "repair_ack_lost--public_rule",
+        "repair_ack_lost--scripted_stress"
+      ],
+      [
+        "public_state_unknown--public_rule",
+        "public_state_unknown--scripted_stress"
+      ],
+      [
+        "capture_incomplete--public_rule",
+        "capture_incomplete--scripted_stress"
+      ]
+    ],
+    "outcome_successes": 21,
+    "violation_agreement_with_legacy": {
+      "true_positive": 4,
+      "true_negative": 18,
+      "false_positive": 0,
+      "false_negative": 0,
+      "unknown": 2
+    },
+    "always_negative_agreement_on_known": 0.8181818181818182,
+    "terminal_comparable": 22,
+    "terminal_agree": 22,
+    "terminal_unknown": 2,
+    "snapshot_comparable": 24,
+    "snapshot_agree": 24,
+    "snapshot_unknown": 0,
+    "snapshot_labels": {
+      "True": 23,
+      "False": 1
+    },
+    "positive_rule_execution_counts": {
+      "incorrect_publication": 3,
+      "duplicate_active_reports": 1
+    },
+    "note": "Legacy-relative engineering agreement on designed controls; no independent accuracy, power or generalization estimate."
+  },
+  "review_fidelity": {
+    "cases": 24,
+    "evidence_files": 192,
+    "bundle_sha256": "35e6f1d7cfdfb7400076c3abb0fc37aac15350cd01449d56feadc1d943ccca29",
+    "inventory_sha256": "b94fbd5e14adf8b846e023010bbadb9c4ebc60f227a78b992cdb787329955f68",
+    "fidelity": "passed",
+    "independent_blinding_validation": "pending",
+    "scope": "local consistency with supplied originals; no authenticity or independent scientific certification"
+  },
+  "frozen110_replay": {
+    "runs": 24,
+    "facts_and_states_unchanged": true,
+    "bundle_audit_and_archives_unchanged": true,
+    "run_ids": [
+      "healthy--public_rule",
+      "healthy--scripted_stress",
+      "environment_error_repaired--public_rule",
+      "environment_error_repaired--scripted_stress",
+      "publication_intervention--public_rule",
+      "publication_intervention--scripted_stress",
+      "duplicate_intervention--public_rule",
+      "duplicate_intervention--scripted_stress",
+      "version_intervention--public_rule",
+      "version_intervention--scripted_stress",
+      "incorrect_final_intervention--public_rule",
+      "incorrect_final_intervention--scripted_stress",
+      "missing_value_boundary--public_rule",
+      "missing_value_boundary--scripted_stress",
+      "timeout_before_commit--public_rule",
+      "timeout_before_commit--scripted_stress",
+      "timeout_after_commit--public_rule",
+      "timeout_after_commit--scripted_stress",
+      "repair_ack_lost--public_rule",
+      "repair_ack_lost--scripted_stress",
+      "public_state_unknown--public_rule",
+      "public_state_unknown--scripted_stress",
+      "capture_incomplete--public_rule",
+      "capture_incomplete--scripted_stress"
+    ]
+  },
+  "output": {
+    "root": "work/reliability-reset-1.0.15/final",
+    "bundle_sha256": "35e6f1d7cfdfb7400076c3abb0fc37aac15350cd01449d56feadc1d943ccca29",
+    "audit_sha256": "084185eaea755221d7334f189b38ba79d0d44e9a5961767af27a0f18bd41582a",
+    "engineering_checks_sha256": "da288820da70283ace04eeff523187dca3bb516b46e544359b9a1df24e58fb2e",
+    "archives": {
+      "first-pass": {
+        "path": "work/reliability-reset-1.0.15/final/first-pass-review-1.0.15.zip",
+        "sha256": "3cc713b57b10674d3055a50365a293902174cf74d827c3b6855c927d36e08d2e",
+        "files": 195,
+        "bytes": 266258
+      },
+      "phase-two": {
+        "path": "work/reliability-reset-1.0.15/final/phase-two-evidence-1.0.15.zip",
+        "sha256": "64cdd1cb185ed9b0f504a39d320686ab49eef5fdcce1b4fa81819777b5acdf92",
+        "files": 243,
+        "bytes": 301157
+      }
+    },
+    "private_mapping": "audit/private-first-pass-map.json (analyst only, excluded from both archives)"
+  },
+  "source_hashes": {
+    "research/reliability_reset/__init__.py": {
+      "working_tree_sha256": "4b89d812648fbb026a56e0ba4a0ecf7c1c99911b49098fa9e2902e5cdb079b9f",
+      "lf_utf8_sha256": "4b89d812648fbb026a56e0ba4a0ecf7c1c99911b49098fa9e2902e5cdb079b9f"
+    },
+    "research/reliability_reset/audit.py": {
+      "working_tree_sha256": "c396bbe985bdfc4a897026cd4e043ea0569241143b1435ed9aa66a1fc364d107",
+      "lf_utf8_sha256": "c396bbe985bdfc4a897026cd4e043ea0569241143b1435ed9aa66a1fc364d107"
+    },
+    "research/reliability_reset/controls.py": {
+      "working_tree_sha256": "f19156aec651114596f61eacf2b3a6dea3f002a9533ded468b7a96f2724d868b",
+      "lf_utf8_sha256": "f19156aec651114596f61eacf2b3a6dea3f002a9533ded468b7a96f2724d868b"
+    },
+    "research/reliability_reset/review_fidelity.py": {
+      "working_tree_sha256": "9372be936eb4ebeaed05c36b82ada511f018ecb2ddbe8edf927170f2e81ca9c0",
+      "lf_utf8_sha256": "9372be936eb4ebeaed05c36b82ada511f018ecb2ddbe8edf927170f2e81ca9c0"
+    },
+    "research/reliability_reset/review_views.py": {
+      "working_tree_sha256": "112d8157a2add8d785aca7af6350138dd17952eee8fe5832699570a6a64b967e",
+      "lf_utf8_sha256": "112d8157a2add8d785aca7af6350138dd17952eee8fe5832699570a6a64b967e"
+    },
+    "research/reliability_reset/semantic_adapter.py": {
+      "working_tree_sha256": "82531bf3e787986f3d6e3673dfe5bade1ec983533ce99f38c873f1f7aca848ea",
+      "lf_utf8_sha256": "82531bf3e787986f3d6e3673dfe5bade1ec983533ce99f38c873f1f7aca848ea"
+    },
+    "research/reliability_reset/semantic_facts.py": {
+      "working_tree_sha256": "b7a242db44c1e47cbb2029b6e18d6c17c842fe9c5432ace10c829a0d43d27fa5",
+      "lf_utf8_sha256": "b7a242db44c1e47cbb2029b6e18d6c17c842fe9c5432ace10c829a0d43d27fa5"
+    },
+    "tests/test_reliability_reset.py": {
+      "working_tree_sha256": "94afe9f972ca906d5a6ab197cb7fbbffbcf9dede89b85206a52d75958f116065",
+      "lf_utf8_sha256": "94afe9f972ca906d5a6ab197cb7fbbffbcf9dede89b85206a52d75958f116065"
+    },
+    "tests/test_reliability_reset_adapter.py": {
+      "working_tree_sha256": "c852f693f6c3a727459ce8717251bb3a2e193156f851767bcec84153c7c9c4c7",
+      "lf_utf8_sha256": "c852f693f6c3a727459ce8717251bb3a2e193156f851767bcec84153c7c9c4c7"
+    },
+    "tests/test_reliability_reset_fidelity.py": {
+      "working_tree_sha256": "d5a4ea4a1f99835d07e06d191b1451d10a8d4d440201e49f160e39720808dcbb",
+      "lf_utf8_sha256": "d5a4ea4a1f99835d07e06d191b1451d10a8d4d440201e49f160e39720808dcbb"
+    }
+  },
+  "source_hash_scope": "Working-tree byte hashes record local serialization; LF-normalized UTF-8 hashes also permit comparison after Git line-ending normalization. Neither proves source authenticity.",
+  "limits": [
+    "Designed controls in one historical task lineage; 24 executions and 11 behavior signatures are not independent empirical samples.",
+    "Legacy-relative agreement and same-project source/view verification do not establish scientific accuracy or novelty.",
+    "Supported incomplete capture is a contiguous prefix, not an arbitrary fragment or adversarially authenticated trace.",
+    "Changed originals, mappings and inventories controlled together cannot be authenticated by local hashes alone.",
+    "Existing 1.0.10 result files remain frozen; independent human and scientific approval is pending."
+  ]
+}

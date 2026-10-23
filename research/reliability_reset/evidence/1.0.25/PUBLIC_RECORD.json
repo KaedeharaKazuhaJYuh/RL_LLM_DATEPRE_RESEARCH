@@ -1,0 +1,22 @@
+{
+  "version": "1.0.25",
+  "date": "2026-10-24",
+  "kind": "sanitized_live_development_evidence",
+  "archive": "deepseek-recovery-credit-1.0.25.zip",
+  "sha256": "d677d3f6bf5c4a3309ba8ccf790489414902312bce03f16fb324514e06be77d9",
+  "bytes": 206127,
+  "api_requests": 41,
+  "real_primary_trajectories": 12,
+  "paired_model_prefix_replays": 12,
+  "helper_only_executions": 12,
+  "contains": [
+    "frozen protocol",
+    "public request bodies and provider response bodies",
+    "role-attributed decisions and original grades",
+    "input CSV and persisted SQLite",
+    "runtime source snapshots and task lineage",
+    "inventory hashes"
+  ],
+  "credential_scan": "passed; authorization headers and local env files excluded",
+  "scope": "Three historical task instances in one environment; inspectable development evidence, not independent authentication of the provider or a blinded study."
+}

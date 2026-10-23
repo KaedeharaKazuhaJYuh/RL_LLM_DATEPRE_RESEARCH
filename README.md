@@ -11,7 +11,7 @@
 
 > 结果导向的 Agent 评测，是否会对实际运行可靠性产生有后果、可独立复核，并能在不同任务家族中重复出现的误判？
 
-目前没有证明这种误判具有跨任务稳定性，科学状态为 **HOLD**。新研究只进行设计审查和小规模判别性开发试验；若结果不能越过既有工作与强规则基线，将保留工程基准并停止扩展研究主张。
+当前正在实现一个更具体的研究原型：区分 Agent 自主恢复、外部修复器代做和两者交互，并检验共享预算是否改变帮助的方向。跨独立任务的结论尚未建立；先用可执行开发实验推进，再以真实模型验证。
 
 ## 当前研究
 
@@ -19,18 +19,14 @@
 
 新设计和草稿位于 [`research/reliability_reset/`](research/reliability_reset/README.md)：
 
-**新研究子系统首版：Reliability Reset 1.0.0（2026-10-22）。** 已实现离线证据导入、终态分数与可靠性判定分离、按任务家族统计、不确定性上下界、同条件配对比较及人工复审材料导出。[版本说明](research/reliability_reset/RELEASE_100.md)与[运行入口](research/reliability_reset/README.md)包含复现步骤。该版使用一类合成控制案例验证程序行为；历史 `0.5.65-dev` 检查点与继承版本保持冻结。
+**当前版本：Reliability Reset 1.0.25（2026-10-24）。** 已接入真实 DeepSeek，并完成 12 条模型主轨迹、12 个相同前缀的修复器分支和 12 个独立规则对照；共 41 次 API 请求，全部响应且无解析失败。模型在单次检查预算下先调用 status、再申请 inspect，导致预算终止；四次检查预算下全部完成。研究开始聚焦工具信息粒度、预算规划和交接时机。见[模型实验结果](research/reliability_reset/RELEASE_125.md)和[实验设计](research/reliability_reset/LIVE_CREDIT_125.md)。
 
-**前一检查点：Reliability Reset 1.0.05（2026-10-23）。** 已接入一个历史开发任务的真实 CSV/SQLite 流程，保留原评分器，并以独立代码重建分组数值、发布历史与行动来源。16 次程序控制执行验证了适配器；其中刻意构造的历史违规已被原评分器的安全指标覆盖，不能视作新的科研发现。[更新报告](research/reliability_reset/RELEASE_105.md)及[实跑准入决定](research/reliability_reset/GO_NO_GO_105.md)记录当前边界：独立复审 pending、科学 HOLD、付费模型实跑 NO-GO。
-
-本版本内进一步完成[近邻文献复核](research/reliability_reset/NOVELTY_REVIEW_2026_10_23.md)和[三个候选设计的筛选](research/reliability_reset/CANDIDATE_SCREEN_2026_10_23.md)。当前贡献表述与已有评测研究存在直接重叠，尚无候选通过实跑准入；草稿已相应收紧。
-
-**当前版本：Reliability Reset 1.0.10（2026-10-23）。** 已接收并逐项复核外部代理技术意见，修正终止未知传播、规则覆盖、样本计数与复审材料暴露问题；同时补查数据库与分布式系统基础。新控制为单一历史任务的显式工程派生，不构成新增科研结果。原始证据与旧评分保持冻结，人工技术/科学复审仍 pending。见[修订报告](research/reliability_reset/RELEASE_110.md)和[审阅回应](research/reliability_reset/REVIEW_RESPONSE_110.md)。
+**基础设施检查点（1.0.0–1.0.15）。** 已具备离线证据审计、CSV/SQLite 适配、终止未知传播、历史责任区分和原件对照复审导出。历史 0.5.65-dev、旧评分和审阅原件保持保留；版本细节收在[更新记录](research/reliability_reset/CHANGELOG.md)、[1.0.15 修复报告](research/reliability_reset/RELEASE_115.md)与[审阅回应](research/reliability_reset/REVIEW_RESPONSE_110.md)。
 
 - [研究问题与现有证据草稿](research/reliability_reset/PAPER_DRAFT.md)
 - [重置协议、独立性要求与三周决策门槛](research/reliability_reset/RESET_PROTOCOL.md)
 
-这一步尚未运行新模型、API、微调或留出集实验，也没有下载新数据。开发试验若能在至少两个结构不同的任务家族中发现由持久状态或轨迹证据支持的实质分歧，且分歧经同权限强规则和独立复核后仍存在，才考虑另行设计留出验证；否则研究转为工程维护。
+当前已包含真实模型开发实验；三个分析意图仍共享一个发布环境，不能当作三个独立任务家族。下一步固定预算感知工具选择干预，比较模型是否改变第一步查询并改善低预算完成率；本轮没有新增数据下载或权重训练。
 
 ## 0.5.65-dev 检查点
 

@@ -1,0 +1,112 @@
+{
+  "version": "1.0.20",
+  "date": "2026-10-24",
+  "research_state": "active_exploration",
+  "prior_broad_claim": "HOLD",
+  "model_evidence": "not_run",
+  "model_api_requests": 0,
+  "dataset_downloads": 0,
+  "study_kind": "programmatic_development_controls",
+  "experiment": {
+    "executions": 1008,
+    "task_instances": 12,
+    "environment_families": 1,
+    "analysis_intents": [
+      "group",
+      "version",
+      "window"
+    ],
+    "triplets": 432,
+    "helper_only_executions": 144,
+    "independent_sample_size": null,
+    "signatures": {
+      "001": 108,
+      "011": 40,
+      "101": 36,
+      "111": 248
+    },
+    "native_exact_agreement": 1008,
+    "synergy_candidate_count": 0
+  },
+  "checks": {
+    "new_credit_tests": 12,
+    "new_credit_seconds": 19.46,
+    "new_credit_log_sha256": "fe8f1aa6ab987727c60fc6568830ed5a8810163662e8eee60d03cbcbb1a7ef7c",
+    "inherited_semantic_release_tests": 29,
+    "inherited_seconds": 5.612,
+    "inherited_log_sha256": "ddf7e1f038a634e33a39641825f1e5ba20d7389587cfa26f55cb4a14d31fa259",
+    "total_related_tests": 41,
+    "failures": 0,
+    "skips": 0,
+    "scope": "credit experiment and reused semantic runtime/release tests; no fresh full-repository run",
+    "saved_execution_and_sqlite_checks": 1008,
+    "summary_reconstruction": "passed",
+    "release_metadata": "passed",
+    "compilation": "passed",
+    "diff_whitespace": "passed",
+    "local_markdown_links": 44,
+    "frozen_results": {
+      "1.0.10": "frozen archive hashes unchanged",
+      "1.0.15": "frozen archive hashes unchanged"
+    }
+  },
+  "output": {
+    "root": "work/reliability-reset-1.0.20/credit-study",
+    "study_design_sha256": "ce22a2f2ec91fdfa88cbd4be9a64de07808bc2f0fbf68cba74ead53309e7525a",
+    "summary_sha256": "fc13ba655fb8416a132f33daa32692a97d69cf6da588694985b048fdf6248eec",
+    "runs_sha256": "dfc400bab81a06596549c193f3f235121e9da93e3b47e0a5b5c3f6f0e1f4cbc4",
+    "inventory_sha256": "b95185adcd97c1fb4f504a6f9bd42730e3a0d41ac559f599567eedee90a4987a",
+    "inventory_files": 4357,
+    "archive": {
+      "path": "work/reliability-reset-1.0.20/recovery-credit-1.0.20.zip",
+      "sha256": "78138a20293d1061fd8a67e2d7551d8f8bb233c3781048e0f9333ca84ef6deb5",
+      "bytes": 4236780
+    }
+  },
+  "source_hashes": {
+    "research/reliability_reset/recovery_credit.py": {
+      "working_tree_sha256": "cb2bebe37b7e7fd5b36fbe607c5ceaa3c73548afdb71770a5cb133423e49c023",
+      "lf_utf8_sha256": "cb2bebe37b7e7fd5b36fbe607c5ceaa3c73548afdb71770a5cb133423e49c023"
+    },
+    "research/reliability_reset/__init__.py": {
+      "working_tree_sha256": "5152c24e354e515a474830c2794a36c65c7b388f622f37cd3ce61b85eec575d9",
+      "lf_utf8_sha256": "5152c24e354e515a474830c2794a36c65c7b388f622f37cd3ce61b85eec575d9"
+    },
+    "research/reliability_reset/semantic_facts.py": {
+      "working_tree_sha256": "b7a242db44c1e47cbb2029b6e18d6c17c842fe9c5432ace10c829a0d43d27fa5",
+      "lf_utf8_sha256": "b7a242db44c1e47cbb2029b6e18d6c17c842fe9c5432ace10c829a0d43d27fa5"
+    },
+    "research/reliability_reset/audit.py": {
+      "working_tree_sha256": "c396bbe985bdfc4a897026cd4e043ea0569241143b1435ed9aa66a1fc364d107",
+      "lf_utf8_sha256": "c396bbe985bdfc4a897026cd4e043ea0569241143b1435ed9aa66a1fc364d107"
+    },
+    "tests/test_reliability_reset_credit.py": {
+      "working_tree_sha256": "f9590ba5cfcd3840f47ee424c6186667797075a5e6f7f5020bb2a8236d8ed67b",
+      "lf_utf8_sha256": "f9590ba5cfcd3840f47ee424c6186667797075a5e6f7f5020bb2a8236d8ed67b"
+    },
+    "faultda_bench/semantic/environment.py": {
+      "working_tree_sha256": "54ff6b19f32163120f92aae416615de3e2cf406a826617330ae289cea14f4008",
+      "lf_utf8_sha256": "54ff6b19f32163120f92aae416615de3e2cf406a826617330ae289cea14f4008"
+    },
+    "faultda_bench/semantic/policies.py": {
+      "working_tree_sha256": "dc05a9bac78a9c19e3f0cda57f8f0f3c50151d2c872fc1759ec00b743bbea89c",
+      "lf_utf8_sha256": "dc05a9bac78a9c19e3f0cda57f8f0f3c50151d2c872fc1759ec00b743bbea89c"
+    },
+    "faultda_bench/semantic/compute.py": {
+      "working_tree_sha256": "c3900fc16b3a531ba1baa6042fb7e3b2f56dca5b32877e8a357b1925424a90c7",
+      "lf_utf8_sha256": "c3900fc16b3a531ba1baa6042fb7e3b2f56dca5b32877e8a357b1925424a90c7"
+    },
+    "faultda_bench/semantic/oracle.py": {
+      "working_tree_sha256": "0e7f457555f80f367b6ab0ff7e6ab4def42e9b85c6601a2e42ccfa7dbaf886eb",
+      "lf_utf8_sha256": "0e7f457555f80f367b6ab0ff7e6ab4def42e9b85c6601a2e42ccfa7dbaf886eb"
+    }
+  },
+  "interpretation": [
+    "Designed controller differences validate a measurement prototype, not LLM effect size or paper novelty.",
+    "AH-A and AH-H differ: replacement-sufficient assistance gains are not evidence of primary skill or synergy.",
+    "101 completion regression is safe escalation with correct state in these cases, not a newly attributed violation.",
+    "Three analysis intents share one application state machine and historical development ancestry; no independent cross-task inference.",
+    "Full native metrics already expose the observed completions/failures; the candidate addition is component attribution and replacement control."
+  ],
+  "next": "Add a named DeepSeek primary adapter, freeze an explicit small model experiment and request/cost ledger, then test whether attribution changes actual system selection."
+}

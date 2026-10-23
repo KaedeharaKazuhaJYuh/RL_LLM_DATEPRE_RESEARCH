@@ -49,6 +49,51 @@ def correct(record, version, totals, input_hash):
         return False
 
 
+def validate_capture(capture, records):
+    """This adapter supports a contiguous prefix, not arbitrary capture fragments.
+
+    Missing suffixes may change the final snapshot; they cannot erase or rewrite
+    the append-only publication history already captured by this environment.
+    These are consistency checks, not an authentication of the capture producer.
+    """
+    def indexed(rows):
+        require(isinstance(rows, list), "invalid captured ledger")
+        result = {}
+        for row in rows:
+            revision = row["revision"]
+            require(type(revision) is int and revision > 0 and revision not in result,
+                    "duplicate/invalid captured revision")
+            require(type(row["active"]) is bool and isinstance(row["content"], dict),
+                    "invalid captured record")
+            result[revision] = row
+        require(list(result) == sorted(result), "unordered captured ledger")
+        return result
+
+    def retained(before, after):
+        return all(rev in after and row["content"] == after[rev]["content"]
+                   and (row["active"] or not after[rev]["active"])
+                   for rev, row in before.items())
+
+    previous = capture["initial_records"]
+    prior = indexed(previous)
+    ended = False
+    for index, step in enumerate(capture["steps"]):
+        require(type(step["index"]) is int and step["index"] == index and step["before"] == previous,
+                "broken step capture chain")
+        require(not ended, "captured action after termination")
+        after = indexed(step["after"])
+        require(retained(prior, after), "captured publication history rewritten")
+        new = set(after) - set(prior)
+        require(not new or min(new) > max(prior, default=0), "nonmonotonic captured revision")
+        require(step["action"] == "publish" or step["after"] == previous,
+                "non-publication action changes captured ledger")
+        ended = step["action"] in ("stop", "escalate")
+        previous, prior = step["after"], after
+    if capture["capture_complete"]:
+        require(previous == records, "final database disagrees with complete step capture")
+    require(retained(prior, indexed(records)), "final database rewrites captured history")
+
+
 def extract(folder, run_id):
     folder = Path(folder)
     spec = json.loads((folder / "spec.json").read_text(encoding="utf-8"))
@@ -58,12 +103,7 @@ def extract(folder, run_id):
     intact = all(digest(folder / (v + ".csv")) == h for v, h in spec["initial_input_hashes"].items())
     version, totals = reference(folder, spec) if intact else (None, None)
     records = rows_from_database(folder / "ledger.sqlite")
-    if capture["capture_complete"]:
-        previous = capture["initial_records"]
-        for index, step in enumerate(capture["steps"]):
-            require(step["index"] == index and step["before"] == previous, "broken step capture chain")
-            previous = step["after"]
-        require(previous == records, "final database disagrees with complete step capture")
+    validate_capture(capture, records)
 
     def valid(row):
         return correct(row["content"], version, totals, spec["initial_input_hashes"][version]) if intact else None

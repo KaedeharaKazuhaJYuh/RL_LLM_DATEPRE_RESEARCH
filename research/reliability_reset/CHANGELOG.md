@@ -1,5 +1,17 @@
 # Reliability Reset releases
 
+## 1.0.25 — 2026-10-24
+
+Ran the first live DeepSeek recovery-credit pilot: 12 actual model trajectories, 12 exact-prefix helper continuations and 12 public-rule replacements. Recorded 41 received API responses with no parsing failures. All six one-check model trajectories requested status then an unaffordable inspect; all six four-check trajectories succeeded. Added named model dispatch, helper isolation, raw-response/decision bindings, explicit rejected-budget proposals and separate external missingness. Fifty-one relevant tests passed; 24 additional offline replays and all 41 response classifications were verified without further model calls. Next experiment targets budget-aware tool selection, with information/token costs retained.
+
+## 1.0.20 — 2026-10-24
+
+Built and ran an exploratory recovery-credit experiment: primary alone, primary plus a public semantic helper, and helper alone with shared tool/decision caps and charged handoff. Twelve historical tasks, three analysis intents in one environment, six conditions and two budgets produce matched control triplets. Added a separate Fraction/CSV/SQLite assessment, full original metric retention, actor-level execution evidence and replacement/interference diagnostics. Research exploration is active; these are programmatic controls, not model improvement. Added a focused literature comparison and two concrete research candidates.
+
+## 1.0.15 — 2026-10-24
+
+Fixed attribution from malformed partial captures by validating the retained prefix and append-only history before using its events. Valid missing suffixes remain unknown, without discarding already-proven harm. Replaced recursive metadata-name filtering with explicit capture-envelope substitutions, preserving business payloads and all other source bytes. Added a separate inverse/source fidelity verifier, complete attachment/case coverage checks, and staged export before publication. Original 1.0.10 artifacts remain frozen. Engineering validation only; human/scientific review pending, HOLD and zero paid-run budget unchanged.
+
 ## 1.0.10 — 2026-10-23
 
 Registered user-supplied external-agent review without treating it as human confirmation. Separated snapshot correctness from captured termination, moved input integrity out of subject-writable rules, retained initialization attempts, made version/missing/duplicate/final-state controls explicit, and reported class balance and behavior duplication. Added normalized first-pass review views with private mappings; original/derived sources are explicitly unblinded phase-two material. Database/distributed-system background added. Scientific HOLD, current broad-claim NO-GO and zero paid-run budget retained.

@@ -129,3 +129,6 @@ tests/fixtures/vericost565_rejection_conditions.txt text eol=lf
 # Received review originals and their receipt must retain exact source bytes.
 # Markdown hard line breaks are part of the received documents.
 research/reliability_reset/reviews/** -text whitespace=-blank-at-eol
+
+# Published evidence archives and their records retain frozen bytes on checkout.
+research/reliability_reset/evidence/** -text
