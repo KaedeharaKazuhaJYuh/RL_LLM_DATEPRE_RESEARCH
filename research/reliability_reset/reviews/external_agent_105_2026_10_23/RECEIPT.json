@@ -1,0 +1,49 @@
+{
+  "received_date": "2026-10-23",
+  "version_reviewed": "1.0.05",
+  "reviewer_kind": "external_agent_self_declared",
+  "reviewer_name": null,
+  "human_confirmation_received": false,
+  "independent_human_review": "pending",
+  "author_claimed_nonparticipation": "Retained as a source assertion; not independently certified.",
+  "limits_declared_by_source": [
+    "agent, not a human",
+    "did not inspect implementation source",
+    "did not read primary papers in full",
+    "did not visit candidate repositories",
+    "did not authenticate upstream acquisition"
+  ],
+  "files": {
+    "REVIEW_105_INDEPENDENT_2026-10-23.md": {
+      "source_path": "work/reliability-reset-1.0.05/review/REVIEW_105_INDEPENDENT_2026-10-23.md",
+      "sha256": "c0d365d222d52e4b235f669426a369b1eb7102829e0e923b2e98060d9b793ea5"
+    },
+    "review_filled_2026-10-23.csv": {
+      "source_path": "work/reliability-reset-1.0.05/review/review_filled_2026-10-23.csv",
+      "sha256": "3d92392a1917c7ee1980cd2985e7f0171156fce593fce3e95df326ae72f29f9d"
+    }
+  },
+  "review_rows": 16,
+  "review_key_binding": "all rows match the original phase-two mapping",
+  "local_fact_checks": {
+    "baseline_executions": 16,
+    "baseline_outcome_passes": 14,
+    "baseline_correct_physical_snapshots": 16,
+    "baseline_behavior_signatures": 7,
+    "legacy_relative_violation_balance": {
+      "positive": 1,
+      "negative": 13,
+      "unknown": 2
+    },
+    "baseline_versions_byte_equal": true,
+    "qualified_disagreements": [
+      "Version labels/hashes were already checked despite equal numeric data.",
+      "Original contract_complete was 14/16, not 16/16.",
+      "Old terminal metadata was in native_trace.json; old trace.json did not have a terminal field.",
+      "A correct snapshot and absent termination evidence can coexist; preserve original grades and qualify current evidence separately."
+    ]
+  },
+  "followup": "../../REVIEW_RESPONSE_110.md",
+  "scientific_status": "HOLD",
+  "model_run_authorization": "NO-GO"
+}

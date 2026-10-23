@@ -125,3 +125,7 @@ faultda_bench/docs/VERICOST_0565_PREREG.md text eol=lf
 faultda_bench/docs/vericost565_exploration/exploration_log.txt text eol=lf
 faultda_bench/reports/RELEASE_0565.md text eol=lf
 tests/fixtures/vericost565_rejection_conditions.txt text eol=lf
+
+# Received review originals and their receipt must retain exact source bytes.
+# Markdown hard line breaks are part of the received documents.
+research/reliability_reset/reviews/** -text whitespace=-blank-at-eol

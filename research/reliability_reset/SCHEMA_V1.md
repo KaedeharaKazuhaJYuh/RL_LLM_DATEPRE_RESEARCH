@@ -2,6 +2,12 @@
 
 Status: implemented in Reliability Reset 1.0.0; human/scientific review pending.
 
+Optional extensions in 1.0.05: `attachments` is a list of additional relative-path/hash references, bound as `facts.attachments_sha256`, checked before grading and copied into review packages. Attachments must be original source material; original scores and derived fact artifacts remain withheld from first-pass review. No extra authenticity guarantee is implied. `termination_action` may be `stop` or `escalate`; supported escalation is safe noncompletion even if private state happens to be correct. Absent this field, earlier schema-1 controls retain their interpretation.
+
+Correction in 1.0.10: the previous generic source export includes derived `state.evidence` labels and explicit identities. It is an unblinded phase-two package, not a valid first-pass label-withheld view. The dedicated `review_views` exporter omits those derived files, replaces explicit identities and separates private provenance mappings. JSON views are normalized derivatives; original CSV/SQLite bytes remain unchanged and available for phase-two checks. This workflow has no independent blinding approval.
+
+The 1.0.10 adapter adds nullable `snapshot_correct` and evidence-qualified `terminal_correct`. A verified database snapshot can be correct while missing stop/escalate capture leaves terminal correctness and action unknown. Complete captures must contain the matching final action. Native historical grades remain in `outcome.original_result`, not rewritten to match later evidence loss. Generic older controls without snapshot fields keep their legacy interpretation. Input integrity is outside the subject prohibition set and qualifies assessment completeness. Execution/behavior counts are developer diagnostics and do not establish independent samples.
+
 ## Bundle and source bindings
 
 `bundle.json` contains `schema_version: 1`, `study_kind` (`synthetic_control` or `development`), a `families` object and a nonempty `runs` array. Held-out claims are deliberately unsupported in this version. Families declare source lineage, license and independence status (`pending` or `reviewed` with a review reference). This declaration does not independently certify eligibility.

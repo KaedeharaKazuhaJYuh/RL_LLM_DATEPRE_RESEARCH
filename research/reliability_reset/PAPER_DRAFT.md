@@ -4,7 +4,13 @@
 **Intended venues:** NeurIPS 2027 Evaluations & Datasets / KDD 2027 Datasets & Benchmarks
 **Status:** not submission-ready; no independent cross-task experiment has been run. Venue choice and formatting are deferred until the study passes its preregistered decision gate.
 
+**Novelty decision (2026-10-23, within 1.0.05):** the present broad claim has not passed its novelty gate. The focused review in `NOVELTY_REVIEW_2026_10_23.md` identifies additional direct overlap. All empirical expansion stages below remain conditional; no candidate currently qualifies for execution. This manuscript is retained as an engineering/protocol draft, not a paper with an established original contribution.
+
+**Technical-review correction (1.0.10, 2026-10-23):** a user-supplied review explicitly authored by an agent identified control-coverage, class-balance and disclosure issues. Source-level checks support several findings and qualify others; the original completion score was 14/16, while all sixteen physical snapshots were correct. The new engineering derivative separates snapshot truth from captured termination and adds missing controls. These changes add no scientific result or independent human approval. Database/distributed-systems context is recorded in `SYSTEMS_CONTEXT_110.md`; the current sequential application-level fault controls are not concurrency or storage-crash verification.
+
 **Implementation update (2026-10-22):** Reliability Reset 1.0.0 provides an offline artifact importer, reliability classifier, descriptive paired analysis and source-review export. Its twenty hand-built records are software controls from one synthetic family, not an empirical pilot. No new model evidence, reviewer approval or hypothesis confirmation is added to this manuscript. Implementation semantics are specified in `SCHEMA_V1.md`; the original proposal remains subject to review.
+
+**Adapter update (2026-10-23):** 1.0.05 adds real CSV/SQLite execution and a separately implemented state/trace extractor for one historical group task. Sixteen programmatic controls validate the adapter. The original oracle's safety metric already detects the deliberate repaired-history violation, so this is not a new benchmark defect or a positive scientific pilot. Paid/live model execution remains NO-GO; independent review is pending.
 
 ## Abstract
 
@@ -22,7 +28,7 @@ We propose to test one claim, not to add another catalog of faults:
 
 The study will be considered useful only if an outcome label disagrees with an independent state-and-trace adjudication in ways that change a practical conclusion—for example, a materially different false-success rate or a robust reversal in system ordering. A discrepancy limited to one synthetic task family, a grader tautology, a changed tool permission, an extra source of help, or an already-known security violation will not pass the novelty gate.
 
-This manuscript is deliberately a proposal with a limited retrospective development audit. It does not claim a new benchmark result, a new agent mechanism, an RL improvement, or generalization. The present version makes three contributions of a different kind: (i) it states a falsifiable measurement question and distinguishes it from broader recovery and security claims; (ii) it specifies an adjudication and comparison design intended to avoid the known score/accounting failures in our own development history; and (iii) it records explicit go/no-go conditions before any new model or paid API run.
+This manuscript is a proposal with a limited retrospective development audit. Its current outputs are a measurement question, an engineering adjudication/comparison protocol, and recorded go/no-go conditions. These are useful project artifacts; the present evidence does not establish them as original scientific contributions. The focused review below strengthens the reason to withhold claims of a new benchmark result, mechanism, RL improvement or generalization.
 
 ## 2. Research questions and falsifiable hypotheses
 
@@ -58,9 +64,9 @@ Interactive benchmarks such as AgentBench, WebArena, and τ-bench broaden evalua
 
 Trajectory-centric evaluation is also established. AgentAudit describes full-lifecycle trace dimensions and failure attribution; formal runtime-monitoring work evaluates action-history properties; and safety/security benchmarks can report policy violations that a task-success score does not encode. Consequently, simply adding trace labels, failure categories, or a safe-stop metric would be insufficient novelty.
 
-The closest threat to this proposal is *Do Agent Benchmarks Do What They Say? An Executable-Contract Audit of Tool-Using Agent Environments* (arXiv:2609.37315, 2026). It audits advertised tool contracts against implementations and traces score provenance to show cases where an evaluator can reward a requested payload rather than an actual state change. Any contribution framed as “benchmark scores may not reflect what tools actually did” substantially overlaps and must not be presented as novel without a precise design-level comparison and independent review.
+The earlier comparison concentrated on executable-contract audits and recovery benchmarks. That is insufficient after the 23 October screen. [Evidence-Supported Bounds](https://arxiv.org/html/2605.10448v1) keeps native scores beside an evidence assessment and addresses uncertainty and ranking support. [AgentRelBench](https://arxiv.org/html/2608.15286v1) separately measures task success and state-based damage. [Tool-Veritas](https://arxiv.org/html/2607.02577v1) examines evaluator validity, including rejection of valid alternatives. [AgentEval](https://arxiv.org/html/2610.21177v1) distinguishes behavior, evidential support and assessment qualification. These are direct constraints on the current framing, not merely background citations.
 
-Our candidate distinction is narrower and remains unproven: estimate the **paired, task-level misclassification and decision impact** of terminal-only scores versus independent durable-state-plus-trace reliability adjudication, holding agent, task, tools, and budget fixed, then test whether the discrepancy replicates across genuinely independent task families. This is not a claim to have discovered a new agent failure mechanism. It is a measurement-validity study. If the close-work audit already covers this estimand and design, or if no suitable independent task families can be obtained, the paper should be reframed as an engineering report or abandoned as a top-venue benchmark paper.
+The earlier proposed paired misclassification/decision-impact design is therefore not currently a demonstrated distinction. Comparing more task families alone would not establish a novel mechanism or evaluation methodology. A future proposal would need an exact original task, its full metric suite, a contract-grounded consequential disagreement and a specific gap relative to these works. The present engineering controls supply none of that incremental evidence. The manuscript remains an engineering/protocol draft while that gate is unresolved.
 
 | Work | What it already covers | Implication for this study |
 |---|---|---|
@@ -70,6 +76,11 @@ Our candidate distinction is narrower and remains unproven: estimate the **paire
 | AgentAudit and runtime monitors | Trace dimensions, policy properties, failure attribution | Adding trace labels alone is not enough |
 | Executable-contract benchmark audit (2026) | Tool implementation/advertised contract and score provenance defects | Closest overlap; must be addressed directly before any GO |
 | FaultDA-Bench 0.5.65 | State, tool, replay, and offline cost infrastructure; no held-out experiment | Infrastructure only; no cross-task conclusion |
+| Evidence-Supported Bounds | Native/evidence views, Unknown cases and supported ranking | Dual scoring and missingness bounds are not standalone novelty |
+| AgentRelBench | Success/damage separation using state differences | Collateral damage and single-run misses require direct comparison |
+| Tool-Veritas | Evaluator validity, path rigidity and decomposed scoring | A false-negative pivot is not automatically novel |
+| AgentEval | Contract-bound evidence/assessment semantics | Binding and assessment records are existing close work |
+| Oracle-integrity study, v2 | Stateful-oracle checks and corrected comparison | Mutation checks or ranking changes alone do not distinguish this draft |
 
 ## 4. Study design (proposed, not yet run)
 
@@ -171,6 +182,11 @@ Accordingly, this manuscript is a **research proposal plus a transparent develop
 7. Kekatos et al. “Formal Runtime Verification for Tool-Using LLM Agents: An Offline Same-Benchmark Study on AgentDojo and STAC.” 2026 preprint. [arXiv:2610.09793](https://arxiv.org/abs/2610.09793).
 8. FaultDA-Bench. “0.5.60-dev: Frozen-Result Uncertainty Reporting and Metric-Semantics Audit.” Internal development report, 2026-10-20.
 9. FaultDA-Bench. “0.5.65-dev: Offline Verification-Cost Diagnosis.” Internal development report, 2026-10-21.
+10. Gao and Zhou. “Can Agent Benchmarks Support Their Scores? Evidence-Supported Bounds for Interactive-Agent Evaluation.” 2026 preprint, v1. [arXiv:2605.10448v1](https://arxiv.org/abs/2605.10448v1).
+11. Khurdi. “No Task Fails Every Time: Why One-Shot Audits Are Structurally Blind to Agent Damage.” 2026 preprint, v1. [arXiv:2608.15286v1](https://arxiv.org/abs/2608.15286v1).
+12. Bhat et al. “Benchmarking the Benchmarks: A Validity Audit of Tool-Calling Evaluation.” 2026 preprint, v1. [arXiv:2607.02577v1](https://arxiv.org/abs/2607.02577v1).
+13. Gao. “AgentEval: Evidence-Bounded Assessment of Stateful Agents.” 2026 preprint, v1. [arXiv:2610.21177v1](https://arxiv.org/abs/2610.21177v1).
+14. Chen. “When Agent Evaluation Becomes Unreliable: An Empirical Study of Oracle Failures and Configuration-Dependent Measurement in an LLM Agent Benchmark.” 2026 preprint, v2. [arXiv:2610.16067v2](https://arxiv.org/abs/2610.16067v2).
 
 ## Venue positioning (provisional)
 
