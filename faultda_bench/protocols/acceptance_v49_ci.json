@@ -46,7 +46,7 @@
   },
   "integration_text_normalization": "CRLF to LF only for living integration documents; frozen evidence remains byte exact",
   "integration_paths": {
-    ".gitattributes": "03d91be048877fc52ec6f4b2811fe1f89911458d31ae3d6ccd69663f86127841",
+    ".gitattributes": "6adb9e69088aa433eb60310b5e31946a98310eb8972bcacd6893c30b421fcd6d",
     "docs/PROJECT_HISTORY.md": "58d91a64d365ff9f5e66ce7275029a248925e150cb51763db484d504f69fa2d1",
     "docs/REPRODUCIBILITY.md": "3ec64732245951e3d7c7e1ddd723499da143e1152da8a4ff755f2a53176d1a24"
   },
