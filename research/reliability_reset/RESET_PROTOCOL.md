@@ -11,6 +11,8 @@
 
 **1.0.35 method development (2026-10-24):** [PLANNING_MECHANISM_135.md](PLANNING_MECHANISM_135.md) adds a 2x2 prompt experiment and an automatic public-contract evidence planner under canonical/opaque read names. The fixed design contains 48 model trajectories, 12 shared backend rules, at most 384 requests and a $0.60 peak-rate estimate ceiling. The user's continued request for concrete, freer research motivates this bounded local method experiment. Numerical truth and scoring stay outside the model/planner input; no weight training or data-source expansion is included.
 
+**1.0.50 joint-control development (2026-10-24):** [JOINT_CONTROL_150.md](JOINT_CONTROL_150.md) freezes 54 model trajectories plus 9 shared backend rules, at most 432 requests and a $0.60 peak-rate estimate ceiling. It adds public evidence validity, candidate/receipt binding and advisory feasible actions, with repair-receipt loss as a negative control. All arms share the versioned additive completion-evidence requirement; original scores and historical tasks remain unchanged. No weight training or new data source is included.
+
 ## 1. Research question
 
 Can we show that outcome-oriented evaluation of tool-using agents makes consequential, independently verifiable errors about operational reliability, and that those errors recur across independent task families?

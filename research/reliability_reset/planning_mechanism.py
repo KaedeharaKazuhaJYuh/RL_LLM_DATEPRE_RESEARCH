@@ -50,11 +50,14 @@ class Dispatcher:
         self.cell, self.client, self.recorded = cell, client, recorded
         self.events = []
 
+    def presentation(self, observation):
+        view = public_view(observation, self.cell["interface"], self.cell["phase"] == "transfer")
+        return view, system_prompt(self.cell, view)
+
     def __call__(self, observation, controller):
         require(controller == MODEL, "unexpected mechanism controller")
         mapping = INTERFACES[self.cell["interface"]]
-        view = public_view(observation, self.cell["interface"], self.cell["phase"] == "transfer")
-        prompt = system_prompt(self.cell, view)
+        view, prompt = self.presentation(observation)
         event = {"canonical_observation_sha256": fingerprint(observation), "view_sha256": fingerprint(view),
                  "system_prompt_sha256": fingerprint(prompt)}
         index = len(self.events)

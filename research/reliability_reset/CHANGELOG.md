@@ -1,5 +1,9 @@
 # Reliability Reset releases
 
+## 1.0.50 — 2026-10-24
+
+Added public evidence validity, staged-candidate/CAS-receipt binding and advisory cost-feasible actions. Ran 54 real DeepSeek trajectories plus 9 shared backend controls, with 181 received responses and no parse/provider errors. Under confirmed receipts, joint planning completed 12/12 versus combined prompting 5/12 and read-only planning 1/12; post-publication rejected reads fell from 10 to zero relative to read-only planning. Receipt-loss controls remain unresolved: joint planning escalated once and exceeded the budget five times after six realized lost receipts. Added an explicit shared completion-evidence contract and additive protocol score while retaining original scoring; no unsupported stops occurred in actual samples. All 54 traces/181 classifications replayed offline; 1006 full-repository tests completed with 1003 passes and 3 conditional skips. Next 1.0.55 tests structured admissible-action interfaces and stronger text controls.
+
 ## 1.0.35 — 2026-10-24
 
 Completed 48 real DeepSeek trajectories and 12 shared rule controls across a 2x2 prompt experiment and a public-contract planner with canonical/opaque read names. Budget-only completed 3/6, relation-only 2/6, combined 6/6 and context 0/6. Automatic evidence planning improved transfer completion from 1/6 to 2/6 under canonical names and 3/6 to 4/6 under opaque names, retaining one canonical regression. All 155 requests returned without parse/provider errors; 48 offline replays matched. Posthoc failure localization found 16 correct publications followed by an unaffordable extra read. Added exact public evidence coverage and lossless action namespaces, without overriding model choices. Next release is 1.0.50, skipping the reserved 40–49 interval, and targets joint evidence/action/termination planning.

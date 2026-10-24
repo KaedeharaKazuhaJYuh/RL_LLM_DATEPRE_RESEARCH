@@ -91,7 +91,7 @@ def exact_assessment(folder, contract, catalog, dimension, input_hashes, records
 
 
 def run(task, folder, condition, budget, primary, assisted=False, dispatcher=choose,
-        *, primary_kind="programmatic_rule", max_primary_decisions=16):
+        *, primary_kind="programmatic_rule", max_primary_decisions=16, environment_options=None):
     """Run one system. A primary stop proposal becomes a charged handoff if assisted."""
     require(condition in CONDITIONS and budget in CHECK_BUDGETS, "unknown experiment cell")
     require((primary is None or isinstance(primary, str) and bool(primary)) and not (primary is None and assisted), "invalid controller")
@@ -101,7 +101,10 @@ def run(task, folder, condition, budget, primary, assisted=False, dispatcher=cho
     if condition == "benign_reorder":
         for version in task["versions"]:
             task["versions"][version].reverse()
-    env = SemanticEnv(task, folder, budget=budget, **CONDITIONS[condition])
+    environment_options = {} if environment_options is None else copy.deepcopy(environment_options)
+    require(set(environment_options) <= {"repair_ack_loss"}
+            and all(type(v) is bool for v in environment_options.values()), "invalid environment options")
+    env = SemanticEnv(task, folder, budget=budget, **CONDITIONS[condition], **environment_options)
     public = env.observation()
     initial = rows_from_database(env.db)
     role = "helper" if primary is None else "primary"
@@ -165,6 +168,7 @@ def run(task, folder, condition, budget, primary, assisted=False, dispatcher=cho
             "unexecuted_decisions": sum(d["kind"] in ("budget_rejection", "controller_stop") for d in decisions)}
     require(cost["checks"] <= budget and cost["mutations"] <= 6 and total_decisions <= 16, "experiment exceeded shared budget")
     return {"task_id": task["id"], "analysis_intent": task["contract"]["family"], "source_id": task["source_id"],
+            "environment_options": environment_options,
             "condition": condition, "checks_budget": budget, "primary": primary, "primary_kind": primary_kind,
             "assisted": assisted, "max_primary_decisions": max_primary_decisions,
             "public_input": public, "public_input_sha256": fingerprint(public),

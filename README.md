@@ -19,14 +19,14 @@
 
 新设计和草稿位于 [`research/reliability_reset/`](research/reliability_reset/README.md)：
 
-**当前版本：Reliability Reset 1.0.35（2026-10-24）。** 已完成提示成分识别与自动证据读取规划：组合提示安全完成 **6/6**，仅预算强调 **3/6**，仅信息说明 **2/6**，背景对照 **0/6**。新规划器按公开工具能力生成读取建议，并完成原名/不透明别名接口实跑。共 48 条真实模型轨迹、12 个后台规则控制、155 次收到响应的 DeepSeek 请求，无解析或供应商错误。见[本轮结果与成本](research/reliability_reset/RELEASE_135.md)及[设计](research/reliability_reset/PLANNING_MECHANISM_135.md)。
+**当前版本：Reliability Reset 1.0.50（2026-10-24）。** 已接入证据有效期、候选与发布回执绑定、预算可行动作建议。正常回执条件下，联合规划完成 **12/12**，同条件强组合提示 **5/12**，只读规划 **1/12**；相对只读规划，正确发布后的额外读拒绝从 10 次降为 0。共 54 条真实模型轨迹、9 个共享规则控制、181 次收到响应的 DeepSeek 请求，无解析或供应商错误。见[结果与成本](research/reliability_reset/RELEASE_150.md)及[设计](research/reliability_reset/JOINT_CONTROL_150.md)。
 
 **基础设施检查点（1.0.0–1.0.15）。** 已具备离线证据审计、CSV/SQLite 适配、终止未知传播、历史责任区分和原件对照复审导出。历史 0.5.65-dev、旧评分和审阅原件保持保留；版本细节收在[更新记录](research/reliability_reset/CHANGELOG.md)、[1.0.15 修复报告](research/reliability_reset/RELEASE_115.md)与[审阅回应](research/reliability_reset/REVIEW_RESPONSE_110.md)。
 
 - [研究问题与现有证据草稿](research/reliability_reset/PAPER_DRAFT.md)
 - [重置协议、独立性要求与三周决策门槛](research/reliability_reset/RESET_PROTOCOL.md)
 
-前序 [1.0.20](research/reliability_reset/RELEASE_120.md) 建立恢复贡献归因，[1.0.25](research/reliability_reset/RELEASE_125.md) 定位低预算查询失败，[1.0.30](research/reliability_reset/RELEASE_130.md) 获得提示干预收益。1.0.35 进一步发现 **16 条模型轨迹在正确发布后，仍因额外检查而超预算**。下一版 **1.0.50** 将联合规划取证、可执行动作与停止，按版本规则跳过 40–49。所有实例仍是一个历史环境中的开发数据；新结果不合并为跨任务排行榜。
+前序 [1.0.20](research/reliability_reset/RELEASE_120.md) 建立恢复贡献归因，[1.0.25](research/reliability_reset/RELEASE_125.md) 定位查询预算失败，[1.0.30](research/reliability_reset/RELEASE_130.md) 获得提示收益，[1.0.35](research/reliability_reset/RELEASE_135.md) 定位正确发布后的终止失败。1.0.50 改善了已确认状态下的控制，但六个修复回执丢失单元中仍有五次超预算。下一版 **1.0.55** 将比较软提示与结构化可行动作接口。新增完成证据要求对各臂相同，原评分保留；跨版本分数不直接拼接。
 
 ## 0.5.65-dev 检查点
 
