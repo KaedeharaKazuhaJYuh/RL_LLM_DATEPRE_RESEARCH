@@ -2,7 +2,21 @@
 
 This branch starts from the `0.5.65-dev` infrastructure checkpoint. The active research prototype asks whether a system's recovery success comes from its primary controller, an external repair helper, or their interaction. It keeps the earlier evidence-audit infrastructure and the broader evaluation-reliability question.
 
-**Current release: Reliability Reset 1.0.30 (2026-10-24), budget-aware tool planning.**
+**Current release: Reliability Reset 1.0.35 (2026-10-24), evidence and termination planning.**
+
+The [factorial/method study](PLANNING_MECHANISM_135.md) completed 48 real DeepSeek trajectories and 12 shared rule controls with 155 received responses and no parse/provider errors. Combined guidance completed **6/6**, budget salience **3/6**, information inclusion **2/6**, context **0/6**. The new exact evidence-cover planner runs from public read-tool contracts, including opaque names; compared with schema-only, it added one net completion per interface but retained one canonical regression. See [results and failure locations](RELEASE_135.md).
+
+**The next control problem is concrete:** 16 trajectories correctly published the report, then exceeded the budget by requesting another read. The planner suggests evidence queries but never substitutes its own tool actions. The next release, **1.0.50**, combines evidence acquisition, budget-feasible actions and stopping; versions ending in 40–49 are skipped.
+
+```powershell
+python -m research.reliability_reset.planning_mechanism work/reset135-new --prepare
+python -m research.reliability_reset.planning_mechanism work/reset135-new --execute
+python -m research.reliability_reset.planning_mechanism work/reset135-new --verify work/reset135-replay
+```
+
+Both transfer arms see the same structured tool contracts. Alias translation preserves business fields and tool parameters. All 48 model traces and 155 response classifications were replayed offline. The 03 examples remain historical development instances; the experiment does not introduce a held-out task family.
+
+## Previous budget-aware tool planning (1.0.30)
 
 The frozen [three-arm intervention](TOOL_PLANNING_130.md) completed 36 actual model trajectories and 12 separate rule controls, with 87 received DeepSeek responses and no parse/provider errors. Under a one-check cap, budget/information guidance safely completed **12/12**, the original prompt **0/12**, byte-length-matched service context **1/12**, and the public rule **12/12**. Guidance chose inspect first in every cell and completed all six semantic-error repairs. Token cost increased; the result concerns successful planning within the same tool-count cap, not reduced total computation or RL training. See [results and costs](RELEASE_130.md).
 
@@ -93,13 +107,15 @@ The two scripted arms and ten cases in the first-release controls belong to **on
 - [Previous audit release](RELEASE_115.md): partial-capture consistency and verified source-preserving review export.
 - [Programmatic experiment](RELEASE_120.md): recovery credit, replacement control and shared-budget handoff.
 - [Previous live experiment](RELEASE_125.md): actual DeepSeek prefixes, role isolation and budget-conditioned behavior.
-- [Current prompt intervention](RELEASE_130.md): real three-arm tool planning, full completion and information costs.
+- [Previous prompt intervention](RELEASE_130.md): real three-arm tool planning, full completion and information costs.
+- [Current mechanism/method study](RELEASE_135.md): factorial prompts, public evidence planning and post-publication stopping failures.
 - `audit.py`: offline importer, reliability classification, missingness bounds, matched comparison and review export.
 - `controls.py`: reproducible synthetic controls, zero network/provider activity.
 - `review_views.py` / `review_fidelity.py`: scoped first-pass export and source comparison; no blinding or authenticity certification.
 - `recovery_credit.py`: local primary/helper/replacement intervention runner and per-intent reports.
 - `credit_live.py`: bounded DeepSeek transport, raw response ledger and exact-prefix paired live study.
 - `tool_planning.py`: frozen prompt intervention, information-inclusion preflight and network-free model replay.
+- `evidence_planner.py` / `planning_mechanism.py`: public evidence cover, lossless tool aliases, factorial/transfer experiments and response-bound replay.
 - `tests/test_reliability_reset.py`: mutation, budget, actor and provenance rejection checks.
 
 The generic importer trusts supplied adapter facts after structural checks. The new adapter additionally reconstructs one supported task from original CSV/SQLite/capture artifacts. Neither establishes evidence authenticity or scientific independence. The runner and original environment share development ancestry, and separate algorithms cannot replace source review. This release leaves the inherited `VERSION` and historical FaultDA evidence untouched; subsystem releases follow `1.0.0`, `1.0.05`, `1.0.10`, and so on.
@@ -107,4 +123,4 @@ The generic importer trusts supplied adapter facts after structural checks. The 
 - [Research draft](PAPER_DRAFT.md): proposed measurement question and carefully bounded retrospective development audit.
 - [Reset protocol](RESET_PROTOCOL.md): operational definitions, independence gates, controls, three-week decision rule, and resource limits.
 
-The broad independent-family measurement claim remains **HOLD**; exploratory research is active. The 1.0.30 intervention establishes a concrete development improvement, so the next step tests which guidance component caused it and whether the behavior survives interface changes. A separate held-out study would follow only after that mechanism is clearer.
+The broad independent-family measurement claim remains **HOLD**; exploratory research is active. The current experiments separate initial query selection from completion/termination and supply a working public-contract planner. The next method integrates admissible actions and evidence validity after writes, before a separate held-out study.

@@ -19,14 +19,14 @@
 
 新设计和草稿位于 [`research/reliability_reset/`](research/reliability_reset/README.md)：
 
-**当前版本：Reliability Reset 1.0.30（2026-10-24）。** 已完成低预算工具规划的三提示真实 DeepSeek 实验：预算与信息关系提示安全完成 **12/12**，原提示 **0/12**，等字节背景对照 **1/12**，独立公开规则 **12/12**。共 36 条模型轨迹、12 个规则执行和 87 次收到响应的 API 请求；没有解析或供应商错误。提示让模型先用 inspect，在一次检查预算内完成实际语义修复。见[本轮结果与成本](research/reliability_reset/RELEASE_130.md)和[冻结设计](research/reliability_reset/TOOL_PLANNING_130.md)。
+**当前版本：Reliability Reset 1.0.35（2026-10-24）。** 已完成提示成分识别与自动证据读取规划：组合提示安全完成 **6/6**，仅预算强调 **3/6**，仅信息说明 **2/6**，背景对照 **0/6**。新规划器按公开工具能力生成读取建议，并完成原名/不透明别名接口实跑。共 48 条真实模型轨迹、12 个后台规则控制、155 次收到响应的 DeepSeek 请求，无解析或供应商错误。见[本轮结果与成本](research/reliability_reset/RELEASE_135.md)及[设计](research/reliability_reset/PLANNING_MECHANISM_135.md)。
 
 **基础设施检查点（1.0.0–1.0.15）。** 已具备离线证据审计、CSV/SQLite 适配、终止未知传播、历史责任区分和原件对照复审导出。历史 0.5.65-dev、旧评分和审阅原件保持保留；版本细节收在[更新记录](research/reliability_reset/CHANGELOG.md)、[1.0.15 修复报告](research/reliability_reset/RELEASE_115.md)与[审阅回应](research/reliability_reset/REVIEW_RESPONSE_110.md)。
 
 - [研究问题与现有证据草稿](research/reliability_reset/PAPER_DRAFT.md)
 - [重置协议、独立性要求与三周决策门槛](research/reliability_reset/RESET_PROTOCOL.md)
 
-前序 [1.0.20](research/reliability_reset/RELEASE_120.md) 建立恢复贡献归因，[1.0.25](research/reliability_reset/RELEASE_125.md) 定位低预算下先 status 再 inspect 的失败；1.0.30 已据此完成受控干预。三个分析意图仍共享一个历史发布环境，额外开发实例也不是独立测试集。下一步拆分预算提醒和信息关系提示的贡献，并检查工具表述变化下是否仍有效；本轮没有新增数据下载或权重训练。完成率提升伴随更多 token，不能称为总计算成本下降。
+前序 [1.0.20](research/reliability_reset/RELEASE_120.md) 建立恢复贡献归因，[1.0.25](research/reliability_reset/RELEASE_125.md) 定位低预算查询失败，[1.0.30](research/reliability_reset/RELEASE_130.md) 获得提示干预收益。1.0.35 进一步发现 **16 条模型轨迹在正确发布后，仍因额外检查而超预算**。下一版 **1.0.50** 将联合规划取证、可执行动作与停止，按版本规则跳过 40–49。所有实例仍是一个历史环境中的开发数据；新结果不合并为跨任务排行榜。
 
 ## 0.5.65-dev 检查点
 
@@ -65,4 +65,4 @@
 
 ## 限制
 
-当前项目只有已见开发任务，没有经过新研究协议冻结的独立跨任务测试集。三个历史数据来源不等于三个独立任务家族。测试通过、文件哈希或程序重放只能支持其具体覆盖范围，不能证明供应商响应真实性、历史记录不可变性或 Agent 泛化能力。1.0.30 已观察到提示干预的本地完成率提升；没有权重训练、RL 提升或跨环境泛化结论。
+当前项目只有已见开发任务，没有经过新研究协议冻结的独立跨任务测试集。三个历史数据来源不等于三个独立任务家族。测试通过、文件哈希或程序重放只能支持其具体覆盖范围，不能证明供应商响应真实性、历史记录不可变性或 Agent 泛化能力。当前已观察到本地提示收益及局部自动规划收益；没有权重训练、RL 提升或跨环境泛化结论。

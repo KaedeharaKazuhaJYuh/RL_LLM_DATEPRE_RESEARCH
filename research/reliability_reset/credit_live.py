@@ -34,7 +34,7 @@ PEAK_INPUT, PEAK_OUTPUT, MAX_COST_USD = 0.30, 1.20, 0.60
 EXTERNAL_STOPS = {"provider_error", "input_limit", "request_limit", "cost_limit", "provider_unavailable"}
 
 
-def parse_action(answer):
+def parse_action(answer, action_names=None):
     try:
         choice = answer["choices"][0]
         require(choice.get("finish_reason") == "stop", "unfinished model response")
@@ -48,7 +48,7 @@ def parse_action(answer):
             raise ValueError("non-finite JSON value")
         value = json.loads(choice["message"]["content"], object_pairs_hook=unique, parse_constant=reject_constant)
         require(isinstance(value, dict) and set(value) == {"action", "params"}
-                and isinstance(value["action"], str) and value["action"] in TOOLS
+                and isinstance(value["action"], str) and value["action"] in (TOOLS if action_names is None else action_names)
                 and isinstance(value["params"], dict), "invalid action schema")
         return value, None
     except (ValueError, KeyError, TypeError, IndexError):
@@ -61,7 +61,8 @@ class Client:
     No SDK retry, JSON repair or automatic model fallback. Cost accounting uses
     peak uncached token rates, not the provider's eventual invoice/discounts.
     """
-    def __init__(self, journal, *, config=None, transport=None, system_prompt=SYSTEM, max_calls=MAX_CALLS):
+    def __init__(self, journal, *, config=None, transport=None, system_prompt=SYSTEM, max_calls=MAX_CALLS,
+                 action_names=None):
         config = settings() if config is None else config
         key = config.get("DEEPSEEK_API_KEY", "").strip()
         require(key and key not in ("replace_with_your_key", "your_key", "YOUR_API_KEY"), "DeepSeek credential not configured")
@@ -72,6 +73,9 @@ class Client:
         require(isinstance(system_prompt, str) and system_prompt and type(max_calls) is int and max_calls > 0,
                 "invalid client prompt/request cap")
         self.system_prompt, self.max_calls = system_prompt, max_calls
+        self.action_names = tuple(TOOLS if action_names is None else action_names)
+        require(self.action_names and all(isinstance(n, str) and n for n in self.action_names)
+                and len(set(self.action_names)) == len(self.action_names), "invalid action namespace")
         self.calls, self.peak_cost, self.fatal = 0, 0.0, False
         self.records = []
 
@@ -137,7 +141,7 @@ class Client:
         self.peak_cost += charge
         response_redacted = self.key in json.dumps(answer)
         clean_answer = self.scrub(answer)
-        proposal, parse_error = parse_action(clean_answer)
+        proposal, parse_error = parse_action(clean_answer, self.action_names)
         if response_redacted:
             proposal, parse_error = {"action": "invalid_model_output", "params": {}}, "credential_echo_redacted"
         self.record({**base, "request_sent": True, "request_index": self.calls - 1, "request_body": body,

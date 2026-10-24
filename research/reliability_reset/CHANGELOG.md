@@ -1,5 +1,9 @@
 # Reliability Reset releases
 
+## 1.0.35 — 2026-10-24
+
+Completed 48 real DeepSeek trajectories and 12 shared rule controls across a 2x2 prompt experiment and a public-contract planner with canonical/opaque read names. Budget-only completed 3/6, relation-only 2/6, combined 6/6 and context 0/6. Automatic evidence planning improved transfer completion from 1/6 to 2/6 under canonical names and 3/6 to 4/6 under opaque names, retaining one canonical regression. All 155 requests returned without parse/provider errors; 48 offline replays matched. Posthoc failure localization found 16 correct publications followed by an unaffordable extra read. Added exact public evidence coverage and lossless action namespaces, without overriding model choices. Next release is 1.0.50, skipping the reserved 40–49 interval, and targets joint evidence/action/termination planning.
+
 ## 1.0.30 — 2026-10-24
 
 Ran a frozen three-arm DeepSeek intervention on six historical development instances under one-check caps. Budget/information guidance safely completed 12/12, the original prompt 0/12, length-matched service context 1/12, and separate public-rule controls 12/12. All 87 API responses returned without parse/provider errors; 36 offline model replays and response classifications agreed. Retained larger information/token costs and one redundant healthy-state staging action. Added public information-inclusion preflight and explicit prompt/call-cap configuration. Registered evidence byte-preservation rules in the living CI integration catalog to fix the prior push's two Python failures; historical evidence unchanged. The next experiment separates budget salience from information-relation guidance.

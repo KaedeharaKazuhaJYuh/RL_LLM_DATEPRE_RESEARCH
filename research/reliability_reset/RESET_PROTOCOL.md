@@ -9,6 +9,8 @@
 
 **Live exploration update (2026-10-24):** under the user's continuing next-step research request, [1.0.25](LIVE_CREDIT_125.md) completed bounded DeepSeek development runs. [1.0.30](TOOL_PLANNING_130.md) freezes a three-prompt, one-check intervention with 36 real model trajectories, 12 separate rule controls, a 288-request limit and a $0.60 peak-rate estimate ceiling. These supersede the historical zero-provider scope for this local development line, without authorizing weight training or turning previously used tasks into a held-out set.
 
+**1.0.35 method development (2026-10-24):** [PLANNING_MECHANISM_135.md](PLANNING_MECHANISM_135.md) adds a 2x2 prompt experiment and an automatic public-contract evidence planner under canonical/opaque read names. The fixed design contains 48 model trajectories, 12 shared backend rules, at most 384 requests and a $0.60 peak-rate estimate ceiling. The user's continued request for concrete, freer research motivates this bounded local method experiment. Numerical truth and scoring stay outside the model/planner input; no weight training or data-source expansion is included.
+
 ## 1. Research question
 
 Can we show that outcome-oriented evaluation of tool-using agents makes consequential, independently verifiable errors about operational reliability, and that those errors recur across independent task families?
