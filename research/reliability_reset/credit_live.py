@@ -61,7 +61,7 @@ class Client:
     No SDK retry, JSON repair or automatic model fallback. Cost accounting uses
     peak uncached token rates, not the provider's eventual invoice/discounts.
     """
-    def __init__(self, journal, *, config=None, transport=None):
+    def __init__(self, journal, *, config=None, transport=None, system_prompt=SYSTEM, max_calls=MAX_CALLS):
         config = settings() if config is None else config
         key = config.get("DEEPSEEK_API_KEY", "").strip()
         require(key and key not in ("replace_with_your_key", "your_key", "YOUR_API_KEY"), "DeepSeek credential not configured")
@@ -69,6 +69,9 @@ class Client:
         require(not self.journal.exists(), "request journal must be new")
         self.journal.parent.mkdir(parents=True, exist_ok=True)
         self.transport = transport or self.send
+        require(isinstance(system_prompt, str) and system_prompt and type(max_calls) is int and max_calls > 0,
+                "invalid client prompt/request cap")
+        self.system_prompt, self.max_calls = system_prompt, max_calls
         self.calls, self.peak_cost, self.fatal = 0, 0.0, False
         self.records = []
 
@@ -94,12 +97,12 @@ class Client:
 
     def __call__(self, observation, controller):
         require(controller == MODEL, "unexpected model controller")
-        messages = [{"role": "system", "content": SYSTEM},
+        messages = [{"role": "system", "content": self.system_prompt},
                     {"role": "user", "content": json.dumps(observation, ensure_ascii=False, allow_nan=False)}]
         prompt_bytes = len(json.dumps(messages, ensure_ascii=False).encode("utf-8"))
         reservation = ((prompt_bytes + 1024) * PEAK_INPUT + MAX_TOKENS * PEAK_OUTPUT) / 1_000_000
         reason = ("provider_unavailable" if self.fatal else "input_limit" if prompt_bytes > MAX_PROMPT_BYTES else
-                  "request_limit" if self.calls >= MAX_CALLS else "cost_limit" if self.peak_cost + reservation > MAX_COST_USD else None)
+                  "request_limit" if self.calls >= self.max_calls else "cost_limit" if self.peak_cost + reservation > MAX_COST_USD else None)
         base = {"observation_sha256": fingerprint(observation), "prompt_bytes": prompt_bytes,
                 "timestamp_utc": datetime.now(timezone.utc).isoformat()}
         if reason:

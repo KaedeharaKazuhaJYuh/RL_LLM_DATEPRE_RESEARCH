@@ -3,9 +3,11 @@
 **Checkpoint:** FaultDA-Bench 0.5.65-dev, commit `240e159c5572e36e8f34a17f0b73b4e1bd624fb7`
 **Research branch:** `agent-eval-reliability-reset`
 **Created:** 2026-10-21
-**Status:** design-only; no live runs, downloads, model calls, training, or new test set. Scientific status remains HOLD until all gates below are reviewed.
+**Historical v0.1 status (2026-10-21):** design-only. The confirmatory, independent-family proposal below remains conditional; later exploratory development runs are listed separately.
 
 **2026-10-24 scope addendum:** the user has requested freer innovation and concrete next-step research. [Recovery-credit exploration](RECOVERY_CREDIT_120.md) now authorizes and records local exploratory interventions on existing development tasks. The original v0.1 text below remains the historical confirmatory proposal; its design-only/engineering-only boundaries do not block this new local prototype. No live/provider request or held-out claim is added by the exploratory experiment.
+
+**Live exploration update (2026-10-24):** under the user's continuing next-step research request, [1.0.25](LIVE_CREDIT_125.md) completed bounded DeepSeek development runs. [1.0.30](TOOL_PLANNING_130.md) freezes a three-prompt, one-check intervention with 36 real model trajectories, 12 separate rule controls, a 288-request limit and a $0.60 peak-rate estimate ceiling. These supersede the historical zero-provider scope for this local development line, without authorizing weight training or turning previously used tasks into a held-out set.
 
 ## 1. Research question
 

@@ -2,7 +2,19 @@
 
 This branch starts from the `0.5.65-dev` infrastructure checkpoint. The active research prototype asks whether a system's recovery success comes from its primary controller, an external repair helper, or their interaction. It keeps the earlier evidence-audit infrastructure and the broader evaluation-reliability question.
 
-**Current release: Reliability Reset 1.0.25 (2026-10-24), live DeepSeek recovery credit.**
+**Current release: Reliability Reset 1.0.30 (2026-10-24), budget-aware tool planning.**
+
+The frozen [three-arm intervention](TOOL_PLANNING_130.md) completed 36 actual model trajectories and 12 separate rule controls, with 87 received DeepSeek responses and no parse/provider errors. Under a one-check cap, budget/information guidance safely completed **12/12**, the original prompt **0/12**, byte-length-matched service context **1/12**, and the public rule **12/12**. Guidance chose inspect first in every cell and completed all six semantic-error repairs. Token cost increased; the result concerns successful planning within the same tool-count cap, not reduced total computation or RL training. See [results and costs](RELEASE_130.md).
+
+```powershell
+python -m research.reliability_reset.tool_planning work/reset130-new --prepare
+python -m research.reliability_reset.tool_planning work/reset130-new --execute
+python -m research.reliability_reset.tool_planning work/reset130-new --verify work/reset130-replay
+```
+
+Preparation verifies the public status/inspect inclusion relation without a provider. Verification reparses all response bodies and replays each real model trace without new requests. The six tasks remain historical development instances in one environment; -02 instances are additional development examples, not a held-out family. Next, separate budget reminders from information-inclusion guidance before testing interface changes.
+
+## Previous live recovery credit (1.0.25)
 
 The [live study](LIVE_CREDIT_125.md) generated 12 real DeepSeek primary trajectories, then ran 12 exact-prefix helper continuations and 12 helper-only replacements. All 41 API requests returned; no response failed parsing. At one available check, primary and paired-helper systems completed 0/6 cells while the public helper completed 6/6. At four checks, all three completed 6/6. The low-budget primary always spent its first check on status and then requested inspect; budget termination occurred before a voluntary helper handoff. See [results](RELEASE_125.md).
 
@@ -42,7 +54,7 @@ First-pass sources exclude machine-derived state/reference labels. Only native c
 The audit-adapter controls are an explicit derivative of one historical group task: v2 first value +1, plus declared missing-value and publication interventions. There are twelve conditions, two programmatic arms and repeated behaviors; no independent empirical sample size is inferred. `snapshot_correct` is separate from evidence-qualified `terminal_correct`, and incomplete termination capture propagates null. Original 1.0.05 files remain frozen.
 
 Partial capture is supported only as a contiguous prefix beginning at step zero. A broken prefix, rewritten publication history, or ledger change during a read action is rejected before attribution. Valid missing suffixes keep termination unknown while retaining any already-proven harm. The [1.0.15 decision record](GO_NO_GO_115.md) remains a historical checkpoint; the new [1.0.20 exploration](RECOVERY_CREDIT_120.md) adds the offline recovery-credit study under the user's updated scope. The external-agent memo is preserved without promoting it to human approval.
-No new model runs, API calls, downloads, fine-tuning, or held-out task construction have occurred. The offline audit foundation now has a real CSV/SQLite adapter for one historical development task, plus a separate Fraction-based state/trace extractor. All executions are programmatic engineering controls. They validate the adapter, not the research hypothesis.
+At the 1.0.15 engineering checkpoint there had been no new model runs, downloads, fine-tuning or held-out construction. The CSV/SQLite adapter and separate Fraction-based extractor validated one historical task using programmatic controls. Later live development runs are reported above and do not alter that checkpoint's evidence.
 
 ## Previous 1.0.05 adapter checkpoint
 
@@ -54,7 +66,7 @@ python -m unittest tests.test_reliability_reset tests.test_reliability_reset_ada
 
 The adapter keeps the old `contract_complete` outcome score and full original oracle result unmodified. It separately reads attached CSVs, a read-only SQLite snapshot, and trusted before/after action captures. Its reference code imports neither the old oracle nor tool-side math. Eight workflow/capture conditions and two programmatic arms produce sixteen records from **one** already-seen task. The stress arm is deliberately constructed, not a model; the capture-loss case is a declared missing-evidence control.
 
-The old `safe_complete` metric already detects the planted repaired violation. This validates preservation of that known distinction; it does not establish an overlooked defect in the original benchmark. See [release report](RELEASE_105.md), [go/no-go decision](GO_NO_GO_105.md) and [adapter/review dossier](ADAPTER_105.md). Paid/live model execution remains NO-GO and scientific status HOLD.
+The old `safe_complete` metric already detects the planted repaired violation. This validates preservation of that known distinction; it does not establish an overlooked defect in the original benchmark. See [release report](RELEASE_105.md), [go/no-go decision](GO_NO_GO_105.md) and [adapter/review dossier](ADAPTER_105.md). The paid-run NO-GO in those documents belongs to the historical 1.0.05 proposal; later user-directed development experiments have their own explicit designs and budgets.
 
 The [same-version novelty review](NOVELTY_REVIEW_2026_10_23.md) found additional direct overlap and narrowed the manuscript's claims. [Three candidate designs](CANDIDATE_SCREEN_2026_10_23.md) were screened; none qualifies for live execution. The [focused human review form](FOCUSED_REVIEW_105.md) is pending. Reading documentation and paper sections is not a complete source audit, and this screening adds no model result or new task family.
 
@@ -80,12 +92,14 @@ The two scripted arms and ten cases in the first-release controls belong to **on
 - [Previous review corrections](RELEASE_110.md): engineering corrections and two-phase preparation, with follow-up defects disclosed.
 - [Previous audit release](RELEASE_115.md): partial-capture consistency and verified source-preserving review export.
 - [Programmatic experiment](RELEASE_120.md): recovery credit, replacement control and shared-budget handoff.
-- [Current live experiment](RELEASE_125.md): actual DeepSeek prefixes, role isolation and budget-conditioned behavior.
+- [Previous live experiment](RELEASE_125.md): actual DeepSeek prefixes, role isolation and budget-conditioned behavior.
+- [Current prompt intervention](RELEASE_130.md): real three-arm tool planning, full completion and information costs.
 - `audit.py`: offline importer, reliability classification, missingness bounds, matched comparison and review export.
 - `controls.py`: reproducible synthetic controls, zero network/provider activity.
 - `review_views.py` / `review_fidelity.py`: scoped first-pass export and source comparison; no blinding or authenticity certification.
 - `recovery_credit.py`: local primary/helper/replacement intervention runner and per-intent reports.
 - `credit_live.py`: bounded DeepSeek transport, raw response ledger and exact-prefix paired live study.
+- `tool_planning.py`: frozen prompt intervention, information-inclusion preflight and network-free model replay.
 - `tests/test_reliability_reset.py`: mutation, budget, actor and provenance rejection checks.
 
 The generic importer trusts supplied adapter facts after structural checks. The new adapter additionally reconstructs one supported task from original CSV/SQLite/capture artifacts. Neither establishes evidence authenticity or scientific independence. The runner and original environment share development ancestry, and separate algorithms cannot replace source review. This release leaves the inherited `VERSION` and historical FaultDA evidence untouched; subsystem releases follow `1.0.0`, `1.0.05`, `1.0.10`, and so on.
@@ -93,4 +107,4 @@ The generic importer trusts supplied adapter facts after structural checks. The 
 - [Research draft](PAPER_DRAFT.md): proposed measurement question and carefully bounded retrospective development audit.
 - [Reset protocol](RESET_PROTOCOL.md): operational definitions, independence gates, controls, three-week decision rule, and resource limits.
 
-The scientific status remains **HOLD**. A positive development pilot would only justify designing a separate held-out study; a negative or non-distinct result means keeping FaultDA-Bench as engineering infrastructure and stopping expansion of the current research claim.
+The broad independent-family measurement claim remains **HOLD**; exploratory research is active. The 1.0.30 intervention establishes a concrete development improvement, so the next step tests which guidance component caused it and whether the behavior survives interface changes. A separate held-out study would follow only after that mechanism is clearer.

@@ -1,5 +1,9 @@
 # Reliability Reset releases
 
+## 1.0.30 — 2026-10-24
+
+Ran a frozen three-arm DeepSeek intervention on six historical development instances under one-check caps. Budget/information guidance safely completed 12/12, the original prompt 0/12, length-matched service context 1/12, and separate public-rule controls 12/12. All 87 API responses returned without parse/provider errors; 36 offline model replays and response classifications agreed. Retained larger information/token costs and one redundant healthy-state staging action. Added public information-inclusion preflight and explicit prompt/call-cap configuration. Registered evidence byte-preservation rules in the living CI integration catalog to fix the prior push's two Python failures; historical evidence unchanged. The next experiment separates budget salience from information-relation guidance.
+
 ## 1.0.25 — 2026-10-24
 
 Ran the first live DeepSeek recovery-credit pilot: 12 actual model trajectories, 12 exact-prefix helper continuations and 12 public-rule replacements. Recorded 41 received API responses with no parsing failures. All six one-check model trajectories requested status then an unaffordable inspect; all six four-check trajectories succeeded. Added named model dispatch, helper isolation, raw-response/decision bindings, explicit rejected-budget proposals and separate external missingness. Fifty-one relevant tests passed; 24 additional offline replays and all 41 response classifications were verified without further model calls. Next experiment targets budget-aware tool selection, with information/token costs retained.
