@@ -2,19 +2,19 @@
 
 This branch starts from the `0.5.65-dev` infrastructure checkpoint. The active research prototype asks whether a system's recovery success comes from its primary controller, an external repair helper, or their interaction. It keeps the earlier evidence-audit infrastructure and the broader evaluation-reliability question.
 
-**Current release: Reliability Reset 1.0.50 (2026-10-24), joint evidence/action/termination control.**
+**Current release: Reliability Reset 1.0.55 (2026-10-24), budget-projected tool interfaces and matched completion text.**
 
-The [joint study](JOINT_CONTROL_150.md) ran 54 actual DeepSeek trajectories and 9 shared backend controls, receiving all 181 API responses without parse/provider errors. With ordinary receipts, joint planning completed **12/12**, strong combined prompting **5/12**, read-only planning **1/12**. Rejected reads after successful publication fell from ten to zero versus read-only planning. Under six realized lost repair receipts, joint planning still exceeded the budget five times and escalated once. See [results, fault activation and costs](RELEASE_150.md).
+The [matched-interface study](FEASIBLE_INTERFACE_155.md) ran 54 actual DeepSeek trajectories and 9 shared backend controls, receiving all **207** API responses without parse/provider errors. Ordinary-receipt completion was **12/12 in every arm**. Under planned receipt loss, matched text, soft state and projected tools had **6 / 1 / 0 rejected reads**. Projection triggered only five faults: another publication omitted a required parameter and failed before commit. All five realized faults escalated; escalation is not recovery completion. See [results, retained failure and costs](RELEASE_155.md).
 
-The method invalidates report evidence after writes, derives a new current report only from a known candidate plus bound CAS receipt, and displays cost-feasible actions. It does not verify numerical correctness or override any model proposal. Every arm gets the same additive completion-evidence contract; original metrics remain intact and the evidence-qualified score is separately reported.
+Public state tracking invalidates stale report evidence and binds known candidates to successful CAS receipts. The new projection removes unaffordable tools from the advertised registry/action enum. It never repairs a model proposal or imports private numerical truth. Every arm receives identical conditional completion text and the same additive evidence contract. State tracking reduced invalid reads locally; projection did not dominate soft state in completion or ordinary-case costs.
 
 ```powershell
-python -m research.reliability_reset.joint_control work/reset150-new --prepare
-python -m research.reliability_reset.joint_control work/reset150-new --execute
-python -m research.reliability_reset.joint_control work/reset150-new --verify work/reset150-replay
+python -m research.reliability_reset.feasible_interface work/reset155-new --prepare
+python -m research.reliability_reset.feasible_interface work/reset155-new --execute
+python -m research.reliability_reset.feasible_interface work/reset155-new --verify work/reset155-replay
 ```
 
-All 54 model traces and 181 response classifications replayed offline. The next release, **1.0.55**, tests a structured admissible-action interface against the current advisory list, with matched completion text and all rejected attempts retained. Tasks remain historical development examples in one environment.
+All 54 model traces, 9 rule traces and 207 response classifications replayed offline. The full suite completed with **1010 passes and 3 conditional skips**. Next **1.0.60** tests per-tool parameter schemas and source-linked evidence compaction against frozen decision prefixes. Tasks remain historical development examples in one environment; no weight training was performed.
 
 ## Research milestones
 
@@ -25,7 +25,8 @@ All 54 model traces and 181 response classifications replayed offline. The next 
 | 1.0.25 | First live DeepSeek prefixes; one-check query-planning failure | [Live recovery credit](RELEASE_125.md) |
 | 1.0.30 | Budget/information guidance completed 12/12 versus original 0/12 | [Prompt intervention](RELEASE_130.md) |
 | 1.0.35 | Prompt components, public query planner, and 16 post-publication budget failures | [Mechanism study](RELEASE_135.md) |
-| 1.0.50 | Joint evidence validity and termination; ordinary-receipt completion 12/12 | [Current study](RELEASE_150.md) |
+| 1.0.50 | Joint evidence validity and termination; ordinary-receipt completion 12/12 | [Joint study](RELEASE_150.md) |
+| 1.0.55 | Matched text, state tracking and tool projection; retained parameter and fault-activation failure | [Current study](RELEASE_155.md) |
 
 Full historical commands, review-export procedures and checkpoint limitations are in [the historical/review guide](HISTORY_AND_REVIEW_GUIDE.md); release details are in [CHANGELOG.md](CHANGELOG.md). Experiments use different protocols and correlated development cases, so the table is a history rather than a combined leaderboard.
 
@@ -40,7 +41,8 @@ Full historical commands, review-export procedures and checkpoint limitations ar
 - [Previous live experiment](RELEASE_125.md): actual DeepSeek prefixes, role isolation and budget-conditioned behavior.
 - [Previous prompt intervention](RELEASE_130.md): real three-arm tool planning, full completion and information costs.
 - [Previous mechanism/method study](RELEASE_135.md): factorial prompts, public evidence planning and post-publication stopping failures.
-- [Current joint-control study](RELEASE_150.md): evidence validity, receipt binding, admissible-action advice and receipt-loss controls.
+- [Previous joint-control study](RELEASE_150.md): evidence validity, receipt binding, admissible-action advice and receipt-loss controls.
+- [Current interface study](RELEASE_155.md): matched completion text, cost-feasible tool registry, retained proposals and actual fault activation.
 - `audit.py`: offline importer, reliability classification, missingness bounds, matched comparison and review export.
 - `controls.py`: reproducible synthetic controls, zero network/provider activity.
 - `review_views.py` / `review_fidelity.py`: scoped first-pass export and source comparison; no blinding or authenticity certification.
@@ -49,6 +51,7 @@ Full historical commands, review-export procedures and checkpoint limitations ar
 - `tool_planning.py`: frozen prompt intervention, information-inclusion preflight and network-free model replay.
 - `evidence_planner.py` / `planning_mechanism.py`: public evidence cover, lossless tool aliases, factorial/transfer experiments and response-bound replay.
 - `evidence_state.py` / `joint_control.py`: public evidence validity, receipt-aware state, optional lost-repair-ack control and joint planning experiment.
+- `feasible_interface.py`: matched-text/state/interface intervention, excluded-action accounting and full model/rule replay.
 - `tests/test_reliability_reset.py`: mutation, budget, actor and provenance rejection checks.
 
 The generic importer trusts supplied adapter facts after structural checks. The new adapter additionally reconstructs one supported task from original CSV/SQLite/capture artifacts. Neither establishes evidence authenticity or scientific independence. The runner and original environment share development ancestry, and separate algorithms cannot replace source review. This release leaves the inherited `VERSION` and historical FaultDA evidence untouched; subsystem releases follow `1.0.0`, `1.0.05`, `1.0.10`, and so on.
@@ -56,4 +59,4 @@ The generic importer trusts supplied adapter facts after structural checks. The 
 - [Research draft](PAPER_DRAFT.md): proposed measurement question and carefully bounded retrospective development audit.
 - [Reset protocol](RESET_PROTOCOL.md): operational definitions, independence gates, controls, three-week decision rule, and resource limits.
 
-The broad independent-family measurement claim remains **HOLD**; exploratory research is active. Current joint control improves completion after confirmed publication; uncertain-receipt budget control is still unresolved. The next method compares advisory and structured admissible-action interfaces before a separate held-out study.
+The broad independent-family measurement claim remains **HOLD**; exploratory research is active. Matching completion text closed the ordinary-receipt gap, while public state tracking improved uncertainty handling locally. The next method addresses parameter completeness and context costs, retaining task completion and fault activation as separate outcomes.

@@ -19,7 +19,7 @@
 
 新设计和草稿位于 [`research/reliability_reset/`](research/reliability_reset/README.md)：
 
-**当前版本：Reliability Reset 1.0.50（2026-10-24）。** 已接入证据有效期、候选与发布回执绑定、预算可行动作建议。正常回执条件下，联合规划完成 **12/12**，同条件强组合提示 **5/12**，只读规划 **1/12**；相对只读规划，正确发布后的额外读拒绝从 10 次降为 0。共 54 条真实模型轨迹、9 个共享规则控制、181 次收到响应的 DeepSeek 请求，无解析或供应商错误。见[结果与成本](research/reliability_reset/RELEASE_150.md)及[设计](research/reliability_reset/JOINT_CONTROL_150.md)。
+**当前版本：Reliability Reset 1.0.55（2026-10-24）。** 已完成相同文字说明下的公开状态整理与预算投影工具接口对照：54 条真实模型轨迹、9 个共享规则、207 次收到响应的 DeepSeek 请求。正常回执三组均完成 **12/12**；丢失回执设置下，文字／软状态／投影组超预算读取为 **6／1／0**。投影组实际触发五次故障且均升级，另一次因发布参数遗漏而提前失败；升级不计完成。见[结果、失败与成本](research/reliability_reset/RELEASE_155.md)及[设计](research/reliability_reset/FEASIBLE_INTERFACE_155.md)。
 
 **基础设施检查点（1.0.0–1.0.15）。** 已具备离线证据审计、CSV/SQLite 适配、终止未知传播、历史责任区分和原件对照复审导出。历史 0.5.65-dev、旧评分和审阅原件保持保留；版本细节收在[更新记录](research/reliability_reset/CHANGELOG.md)、[1.0.15 修复报告](research/reliability_reset/RELEASE_115.md)与[审阅回应](research/reliability_reset/REVIEW_RESPONSE_110.md)。
 

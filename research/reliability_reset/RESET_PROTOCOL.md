@@ -13,6 +13,8 @@
 
 **1.0.50 joint-control development (2026-10-24):** [JOINT_CONTROL_150.md](JOINT_CONTROL_150.md) freezes 54 model trajectories plus 9 shared backend rules, at most 432 requests and a $0.60 peak-rate estimate ceiling. It adds public evidence validity, candidate/receipt binding and advisory feasible actions, with repair-receipt loss as a negative control. All arms share the versioned additive completion-evidence requirement; original scores and historical tasks remain unchanged. No weight training or new data source is included.
 
+**1.0.55 interface development (2026-10-24):** [FEASIBLE_INTERFACE_155.md](FEASIBLE_INTERFACE_155.md) freezes 54 actual model trajectories and 9 shared backend rules under identical completion text, with at most 432 requests and a $0.60 peak-rate estimate ceiling. The intervention projects the public tool registry/action enum using remaining budgets; parsing retains all original names and the executor preserves rejected proposals. Actual fault activation, escalation and completion are separate outcomes. This bounded local study continues the user's next-step research request; no training, new data source or independent task-family claim is included.
+
 ## 1. Research question
 
 Can we show that outcome-oriented evaluation of tool-using agents makes consequential, independently verifiable errors about operational reliability, and that those errors recur across independent task families?
