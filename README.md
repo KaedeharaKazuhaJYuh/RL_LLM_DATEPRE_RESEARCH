@@ -19,7 +19,7 @@
 
 新设计和草稿位于 [`research/reliability_reset/`](research/reliability_reset/README.md)：
 
-**当前版本：Reliability Reset 1.0.60（2026-10-25）。** 完成 [AFT-Bench、INTENT、HyperAgent 的直接比较](research/reliability_reset/DIRECT_COMPARISON_160.md)，停止把现有接口／规划实现作为独立新算法主张。新增逐工具参数校验，离线核对 207 条冻结响应，定位一条遗漏 publish.mode 的提案，原参数与 63 个历史完成标签均未改写；新增 API 为 **0**。安全升级、任务完成、工具拒绝、预算拒绝及实际故障激活分别记录。见[本版报告](research/reliability_reset/RELEASE_160.md)与[结果定义](research/reliability_reset/OUTCOME_CONTRACT_160.md)。
+**当前版本：Reliability Reset 1.0.65（2026-10-25）。** 完成[同公开前缀与强规则审查](research/reliability_reset/RESEARCH_SCREEN_165.md)：六对文字／状态记录中五对保留最终升级改善；四对严格匹配的状态／投影记录中，后续调用从 6 减至 4、tokens 从 12,998 减至 7,906，完成数未增加。17 条已触发故障记录的关键安全动作均由既有公开规则给出，现有实现尚无新恢复算法准入。新增模型 API、轨迹及任务家族均为 **0**。见[本版报告](research/reliability_reset/RELEASE_165.md)。
 
 **基础设施检查点（1.0.0–1.0.15）。** 已具备离线证据审计、CSV/SQLite 适配、终止未知传播、历史责任区分和原件对照复审导出。历史 0.5.65-dev、旧评分和审阅原件保持保留；版本细节收在[更新记录](research/reliability_reset/CHANGELOG.md)、[1.0.15 修复报告](research/reliability_reset/RELEASE_115.md)与[审阅回应](research/reliability_reset/REVIEW_RESPONSE_110.md)。
 

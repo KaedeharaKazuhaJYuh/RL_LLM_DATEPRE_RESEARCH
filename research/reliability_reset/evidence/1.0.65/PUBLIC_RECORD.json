@@ -1,0 +1,17 @@
+{
+  "version": "1.0.65",
+  "date": "2026-10-25",
+  "artifact": "CLAIM_SCREEN_165.json",
+  "sha256": "3dfb3108c03846ac9f301121d225519c576b204f71ce474c224edd36d9917082",
+  "bytes": 51112,
+  "new_api_calls": 0,
+  "new_model_trajectories": 0,
+  "new_task_families": 0,
+  "new_research_environment_executions": 0,
+  "source_archive_sha256": "1e9cbebe9391a4af589d465382a5901928fda4272af737efaf60ef020e63760b",
+  "frozen_public_rule_lf_sha256": "dc05a9bac78a9c19e3f0cda57f8f0f3c50151d2c872fc1759ec00b743bbea89c",
+  "original_responses_reparsed": 207,
+  "post_fault_records": 17,
+  "distinct_public_prefixes": 4,
+  "scope": "Retrospective development-data screen; no end-to-end rule executions, causal estimates, or original-algorithm efficacy claim."
+}
