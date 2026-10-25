@@ -19,14 +19,14 @@
 
 新设计和草稿位于 [`research/reliability_reset/`](research/reliability_reset/README.md)：
 
-**当前版本：Reliability Reset 1.0.70（2026-10-26）。** 完成 [AppWorld 原生契约与通用评分链审查](research/reliability_reset/APPWORLD_AUDIT_170.md)，固定官方提交并核对 19 份明文源码／说明。其评分已支持额外状态改动检查，完成标志与完整成功分开；不能把这些已有区分当作新发现。保留一个哈希集合与记录身份的源码疑点，但尚未取得真实任务完整评分与运行原件，**未确认原生误判**。本轮没有下载任务或运行 AppWorld，新增模型调用、轨迹及任务家族均为 **0**。见[本版报告](research/reliability_reset/RELEASE_170.md)。
+**当前版本：Reliability Reset 1.0.75（2026-10-26）。** 完成[记录哈希核验与隔离复现](research/reliability_reset/HASH_AUDIT_175.md)：相同行数／内容集合但重复次数改变时，原公开比较辅助函数可能漏报；8 个软件控制同时保留正常增删改和合法重建对照。这是辅助函数边界反例，**尚未确认真实任务的完整评分误判**。公开哈希定义的位置已查明，并更正上一版描述。新增模型调用、真实任务和原生完整评分执行均为 **0**。见[本版报告](research/reliability_reset/RELEASE_175.md)。
 
 **基础设施检查点（1.0.0–1.0.15）。** 已具备离线证据审计、CSV/SQLite 适配、终止未知传播、历史责任区分和原件对照复审导出。历史 0.5.65-dev、旧评分和审阅原件保持保留；版本细节收在[更新记录](research/reliability_reset/CHANGELOG.md)、[1.0.15 修复报告](research/reliability_reset/RELEASE_115.md)与[审阅回应](research/reliability_reset/REVIEW_RESPONSE_110.md)。
 
 - [研究问题与现有证据草稿](research/reliability_reset/PAPER_DRAFT.md)
 - [重置协议、独立性要求与三周决策门槛](research/reliability_reset/RESET_PROTOCOL.md)
 
-前序 1.0.20–1.0.55 完成恢复归因、预算规划、终止与工具接口开发实验；[1.0.60](research/reliability_reset/RELEASE_160.md) 补充直接近邻与参数契约，[1.0.65](research/reliability_reset/RELEASE_165.md) 保留局部状态／调用成本收益，但未获得新恢复算法准入。历史协议、原始提案与评分保留，跨版本分数不直接拼接。下一步只核验当前源码疑点的身份／哈希前提，再决定是否准备一例原生 train/dev 完整评分核验；独立科学结论仍为 HOLD。
+前序 1.0.20–1.0.55 完成恢复归因、预算规划、终止与工具接口开发实验；[1.0.60](research/reliability_reset/RELEASE_160.md) 补充直接近邻与参数契约，[1.0.65](research/reliability_reset/RELEASE_165.md) 保留局部状态／调用成本收益，但未获得新恢复算法准入，[1.0.70](research/reliability_reset/RELEASE_170.md) 开始核验原生评分链。历史协议、原始提案与评分保留，跨版本分数不直接拼接。下一步仅准备一例原生 train/dev 完整评分核验，若已有测试拦截候选就关闭；独立科学结论仍为 HOLD。
 
 ## 0.5.65-dev 检查点
 

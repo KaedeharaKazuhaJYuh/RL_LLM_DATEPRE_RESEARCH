@@ -1,0 +1,52 @@
+{
+  "commit": "42b5bcf3cd334fee33f0c37c02070a9f5807add5",
+  "fixture": "appworld_175_excerpt.py",
+  "fixture_sha256": "cc3572e772b828b4fb0bdb6da2fe87299f3fee3fa55fec977b2876c60ffc692d",
+  "license": "Apache-2.0",
+  "license_file": "APPWORLD_LICENSE",
+  "license_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+  "extraction": "Public functions dedented to module scope; original argument lists and bodies retained; postponed annotations only. set_record_hash is read as AST, not executed.",
+  "functions": [
+    {
+      "class": null,
+      "name": "_validate_model_name",
+      "path": "src/appworld/collections/models.py",
+      "line_start": 20,
+      "line_end": 22,
+      "whole_source_sha256": "8b2fac59d77c887ab08fe4092ec0811952d051bd56551dc239332c556df136e4",
+      "original_segment_sha256": "b681489d5d36bfab3c83b6b13d45b29e75fe284437f4570b03d8bdbee20424a5"
+    },
+    {
+      "class": "ModelCollectionPair",
+      "name": "_changed_model_names",
+      "path": "src/appworld/collections/models.py",
+      "line_start": 364,
+      "line_end": 457,
+      "whole_source_sha256": "8b2fac59d77c887ab08fe4092ec0811952d051bd56551dc239332c556df136e4",
+      "original_segment_sha256": "41ad9038b6dc6950d668211fd8e7f7a7f364705e7b9a04b6b970383c41afec73"
+    },
+    {
+      "class": "ModelCollectionPair",
+      "name": "_changed_records",
+      "path": "src/appworld/collections/models.py",
+      "line_start": 466,
+      "line_end": 526,
+      "whole_source_sha256": "8b2fac59d77c887ab08fe4092ec0811952d051bd56551dc239332c556df136e4",
+      "original_segment_sha256": "b1b00bece1712d5f496f0da387353fc0cb708ece09b096e2f40f0c58315ec0ea"
+    },
+    {
+      "class": "SQLModel",
+      "name": "set_record_hash",
+      "path": "src/appworld/apps/lib/models/orm.py",
+      "line_start": 1074,
+      "line_end": 1087,
+      "whole_source_sha256": "df959a70b1cb39acd0f40a8fbec103f88f4b3481532d475cd079a551eb43abb9",
+      "original_segment_sha256": "c365ee18eed2922d797ce18db88b44549fa7e5f720b74e1fd6a13c09104459b4"
+    }
+  ],
+  "boundary_adapters": [
+    "In-memory row/hash inputs, no actual ORM or API",
+    "Fixed canonical Item naming; no state-comparison logic in adapter",
+    "Opaque deterministic content labels, not actual xxhash results"
+  ]
+}
