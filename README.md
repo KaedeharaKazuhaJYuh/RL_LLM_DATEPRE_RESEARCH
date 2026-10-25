@@ -11,7 +11,7 @@
 
 > 结果导向的 Agent 评测，是否会对实际运行可靠性产生有后果、可独立复核，并能在不同任务家族中重复出现的误判？
 
-当前保留已完成的程序控制与真实模型开发实验，优先完成直接近邻比较和参数契约修复。现有预算、工具接口与安全终止实现作为工程成果保留；独立算法增量与跨任务结论尚未建立。
+当前保留已完成的程序控制与真实模型开发实验；直接近邻比较和参数契约修复已完成，正在核验现有公开基准的原生契约与评分边界。现有预算、工具接口与安全终止实现作为工程成果保留；独立算法增量与跨任务结论尚未建立。
 
 ## 当前研究
 
@@ -19,14 +19,14 @@
 
 新设计和草稿位于 [`research/reliability_reset/`](research/reliability_reset/README.md)：
 
-**当前版本：Reliability Reset 1.0.65（2026-10-25）。** 完成[同公开前缀与强规则审查](research/reliability_reset/RESEARCH_SCREEN_165.md)：六对文字／状态记录中五对保留最终升级改善；四对严格匹配的状态／投影记录中，后续调用从 6 减至 4、tokens 从 12,998 减至 7,906，完成数未增加。17 条已触发故障记录的关键安全动作均由既有公开规则给出，现有实现尚无新恢复算法准入。新增模型 API、轨迹及任务家族均为 **0**。见[本版报告](research/reliability_reset/RELEASE_165.md)。
+**当前版本：Reliability Reset 1.0.70（2026-10-26）。** 完成 [AppWorld 原生契约与通用评分链审查](research/reliability_reset/APPWORLD_AUDIT_170.md)，固定官方提交并核对 19 份明文源码／说明。其评分已支持额外状态改动检查，完成标志与完整成功分开；不能把这些已有区分当作新发现。保留一个哈希集合与记录身份的源码疑点，但尚未取得真实任务完整评分与运行原件，**未确认原生误判**。本轮没有下载任务或运行 AppWorld，新增模型调用、轨迹及任务家族均为 **0**。见[本版报告](research/reliability_reset/RELEASE_170.md)。
 
 **基础设施检查点（1.0.0–1.0.15）。** 已具备离线证据审计、CSV/SQLite 适配、终止未知传播、历史责任区分和原件对照复审导出。历史 0.5.65-dev、旧评分和审阅原件保持保留；版本细节收在[更新记录](research/reliability_reset/CHANGELOG.md)、[1.0.15 修复报告](research/reliability_reset/RELEASE_115.md)与[审阅回应](research/reliability_reset/REVIEW_RESPONSE_110.md)。
 
 - [研究问题与现有证据草稿](research/reliability_reset/PAPER_DRAFT.md)
 - [重置协议、独立性要求与三周决策门槛](research/reliability_reset/RESET_PROTOCOL.md)
 
-前序 [1.0.20](research/reliability_reset/RELEASE_120.md) 建立恢复贡献归因，[1.0.25](research/reliability_reset/RELEASE_125.md) 定位查询预算失败，[1.0.30](research/reliability_reset/RELEASE_130.md) 获得提示收益，[1.0.35](research/reliability_reset/RELEASE_135.md) 定位正确发布后的终止失败。1.0.50 改善了已确认状态下的控制，但六个修复回执丢失单元中仍有五次超预算。下一版 **1.0.55** 将比较软提示与结构化可行动作接口。新增完成证据要求对各臂相同，原评分保留；跨版本分数不直接拼接。
+前序 1.0.20–1.0.55 完成恢复归因、预算规划、终止与工具接口开发实验；[1.0.60](research/reliability_reset/RELEASE_160.md) 补充直接近邻与参数契约，[1.0.65](research/reliability_reset/RELEASE_165.md) 保留局部状态／调用成本收益，但未获得新恢复算法准入。历史协议、原始提案与评分保留，跨版本分数不直接拼接。下一步只核验当前源码疑点的身份／哈希前提，再决定是否准备一例原生 train/dev 完整评分核验；独立科学结论仍为 HOLD。
 
 ## 0.5.65-dev 检查点
 

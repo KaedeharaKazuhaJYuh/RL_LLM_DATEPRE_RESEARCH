@@ -1,0 +1,71 @@
+{
+  "version": "1.0.70",
+  "date": "2026-10-26",
+  "release_kind": "Pinned public-source/native-contract review; no production scorer or policy changes",
+  "scientific_status": "HOLD",
+  "new_model_api_calls": 0,
+  "new_model_trajectories": 0,
+  "new_task_families": 0,
+  "new_research_environment_executions": 0,
+  "checks": {
+    "release_metadata": "passed",
+    "release_metadata_unit_tests": {
+      "run": 3,
+      "passed": 3,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 0.105
+    },
+    "full_repository_tests_rerun": false,
+    "last_full_suite_record": "VALIDATION_160.json",
+    "new_runtime_or_mirrored_documentation_tests_added": false,
+    "source_files_sha256_and_git_blob_verified": 19,
+    "source_bytes_verified": 522076,
+    "reviewed_line_anchors": 18,
+    "static_AST_observations": {
+      "dispatches_task_specific_evaluation": true,
+      "record_hashes_uses_set_comprehension": true,
+      "updates_use_other_state_hash_membership": true,
+      "request_log_declares_method_url_data_only": true
+    },
+    "public_evidence_digests_verified": 2,
+    "prior_public_artifacts_unchanged": {
+      "1.0.25": "d677d3f6bf5c4a3309ba8ccf790489414902312bce03f16fb324514e06be77d9",
+      "1.0.30": "ee855a610efbe50464ddcdffd49610054052559fa42ddbbf382c01c2062561f8",
+      "1.0.35": "2d1a3476c3223a8b51f13677fa4ddb8758ec177cbf610c0f603168dcaf9f8231",
+      "1.0.50": "f40cbb986ef34a2dd25c00eeccc61714f3373d5427ff65c14a56ed004882f62f",
+      "1.0.55": "1e9cbebe9391a4af589d465382a5901928fda4272af737efaf60ef020e63760b",
+      "1.0.60": "e544b338d5e6145b52edde716ddbf4c7934bc2297f5f79126f7c84edacb3ef47",
+      "1.0.65": "3dfb3108c03846ac9f301121d225519c576b204f71ce474c224edd36d9917082"
+    },
+    "ci_integration_audit": {
+      "version": "0.5.65-dev",
+      "revision": "ci-integration-1",
+      "historical_v48_catalog_unchanged": true,
+      "v47_files_unchanged": 690,
+      "v48_current_or_archived_files_verified": 717,
+      "explicit_ci_corrections": 7,
+      "api_calls": 0,
+      "scientific_gate": "HOLD",
+      "experiment_outputs_changed": false
+    }
+  },
+  "artifacts": [
+    {
+      "artifact": "SOURCE_MANIFEST_170.json",
+      "sha256": "007f2d75cfabc4e0b4b9700ebc6ffc8ac3bbf4a5c7363c59251f3c6b727aff06",
+      "bytes": 7817
+    },
+    {
+      "artifact": "APPWORLD_AUDIT_170.json",
+      "sha256": "dd3d8cda9ebf514aff8e59ae1857886f7486aef5e58d14ecf6db1ee6847b044a",
+      "bytes": 11501
+    }
+  ],
+  "limits": [
+    "Static source review is not native task-scorer reproduction or proof of a real false success.",
+    "No independent scientific reviewer or official run artifact was added.",
+    "Conditional examples were neither executed nor counted as research tasks.",
+    "No new full-suite result is claimed."
+  ]
+}
