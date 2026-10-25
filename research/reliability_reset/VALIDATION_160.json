@@ -1,0 +1,260 @@
+{
+  "version": "1.0.60",
+  "date": "2026-10-25",
+  "python": "3.13.13",
+  "research_state": "engineering_continues_original_algorithm_claims_no_go_scientific_hold",
+  "decisions": {
+    "interface_or_budget_algorithm_novelty": "NO-GO on current evidence",
+    "safe_escalation_necessity_or_optimality": "not_adjudicated",
+    "cross_task_expansion": "conditional on differentiated hypothesis and task/metric review",
+    "paid_model_calls": "not included; no default approval",
+    "source_expansion": "not included"
+  },
+  "checks": {
+    "full_repository_tests": 1023,
+    "passed": 1020,
+    "skipped": 3,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 344.012,
+    "test_log_sha256": "e01c17d82a033055645db7318fa32b2fc5833f697c11847138a0a6c92df10e6b",
+    "targeted_tests": 10,
+    "targeted_seconds": 0.194,
+    "targeted_log_sha256": "2b8fadfddc49de8fa066dfef00f1dc168b7116e6d297b3388e00a6cfa4f376df",
+    "skipped_test_lines": [
+      "test_the_3_12_interpreter_produces_the_same_digests (test_faultda_vericost565_determinism.DeterminismTests.test_the_3_12_interpreter_produces_the_same_digests) ... skipped 'set VERICOST_PY312 to run the second interpreter; mandatory in current-evidence CI'",
+      "test_complete_real_episode_preserves_verifier_result (test_v5_native_rolling.NativeRollingTests.test_complete_real_episode_preserves_verifier_result) ... skipped 'optional native library not built'",
+      "test_edge_cases_and_elementwise_differential (test_v5_native_rolling.NativeRollingTests.test_edge_cases_and_elementwise_differential) ... skipped 'optional native library not built'"
+    ],
+    "ci_integration_audit": {
+      "version": "0.5.65-dev",
+      "revision": "ci-integration-1",
+      "historical_v48_catalog_unchanged": true,
+      "v47_files_unchanged": 690,
+      "v48_current_or_archived_files_verified": 717,
+      "explicit_ci_corrections": 7,
+      "api_calls": 0,
+      "scientific_gate": "HOLD",
+      "experiment_outputs_changed": false
+    },
+    "prior_public_archives_unchanged": {
+      "1.0.25": "d677d3f6bf5c4a3309ba8ccf790489414902312bce03f16fb324514e06be77d9",
+      "1.0.30": "ee855a610efbe50464ddcdffd49610054052559fa42ddbbf382c01c2062561f8",
+      "1.0.35": "2d1a3476c3223a8b51f13677fa4ddb8758ec177cbf610c0f603168dcaf9f8231",
+      "1.0.50": "f40cbb986ef34a2dd25c00eeccc61714f3373d5427ff65c14a56ed004882f62f",
+      "1.0.55": "1e9cbebe9391a4af589d465382a5901928fda4272af737efaf60ef020e63760b"
+    }
+  },
+  "offline_audit": {
+    "version": "1.0.60",
+    "date": "2026-10-25",
+    "artifact": "OFFLINE_AUDIT_160.json",
+    "sha256": "e544b338d5e6145b52edde716ddbf4c7934bc2297f5f79126f7c84edacb3ef47",
+    "bytes": 219177,
+    "new_api_calls": 0,
+    "new_model_trajectories": 0,
+    "source_commit": "b878a217dbd2a73c4422ab7d8e5d42ff849b9cfd",
+    "source_archive_sha256": "1e9cbebe9391a4af589d465382a5901928fda4272af737efaf60ef020e63760b",
+    "responses_reparsed": 207,
+    "execution_vectors": 63,
+    "historical_completion_labels_changed": 0,
+    "schema_invalid_proposals": 1,
+    "scope": "Additive offline contract/outcome audit, not new model evidence or a repaired-trajectory efficacy experiment."
+  },
+  "audit_groups": [
+    {
+      "variant": "healthy",
+      "arm": "feasible_tools",
+      "executions": 6,
+      "task_completed": 6,
+      "safe_escalation": 0,
+      "actual_goal_satisfied": 6,
+      "fault_activated": 0,
+      "tool_rejections": 0,
+      "budget_rejections": 0,
+      "proposals": 20,
+      "schema_invalid": 0
+    },
+    {
+      "variant": "healthy",
+      "arm": "matched_text",
+      "executions": 6,
+      "task_completed": 6,
+      "safe_escalation": 0,
+      "actual_goal_satisfied": 6,
+      "fault_activated": 0,
+      "tool_rejections": 0,
+      "budget_rejections": 0,
+      "proposals": 24,
+      "schema_invalid": 0
+    },
+    {
+      "variant": "healthy",
+      "arm": "rule_only",
+      "executions": 3,
+      "task_completed": 3,
+      "safe_escalation": 0,
+      "actual_goal_satisfied": 3,
+      "fault_activated": 0,
+      "tool_rejections": 0,
+      "budget_rejections": 0
+    },
+    {
+      "variant": "healthy",
+      "arm": "soft_joint",
+      "executions": 6,
+      "task_completed": 6,
+      "safe_escalation": 0,
+      "actual_goal_satisfied": 6,
+      "fault_activated": 0,
+      "tool_rejections": 0,
+      "budget_rejections": 0,
+      "proposals": 17,
+      "schema_invalid": 0
+    },
+    {
+      "variant": "lost_repair_receipt",
+      "arm": "feasible_tools",
+      "executions": 6,
+      "task_completed": 0,
+      "safe_escalation": 6,
+      "actual_goal_satisfied": 5,
+      "fault_activated": 5,
+      "tool_rejections": 1,
+      "budget_rejections": 0,
+      "proposals": 24,
+      "schema_invalid": 1
+    },
+    {
+      "variant": "lost_repair_receipt",
+      "arm": "matched_text",
+      "executions": 6,
+      "task_completed": 0,
+      "safe_escalation": 0,
+      "actual_goal_satisfied": 6,
+      "fault_activated": 6,
+      "tool_rejections": 0,
+      "budget_rejections": 6,
+      "proposals": 24,
+      "schema_invalid": 0
+    },
+    {
+      "variant": "lost_repair_receipt",
+      "arm": "rule_only",
+      "executions": 3,
+      "task_completed": 0,
+      "safe_escalation": 3,
+      "actual_goal_satisfied": 3,
+      "fault_activated": 3,
+      "tool_rejections": 0,
+      "budget_rejections": 0
+    },
+    {
+      "variant": "lost_repair_receipt",
+      "arm": "soft_joint",
+      "executions": 6,
+      "task_completed": 0,
+      "safe_escalation": 5,
+      "actual_goal_satisfied": 6,
+      "fault_activated": 6,
+      "tool_rejections": 3,
+      "budget_rejections": 1,
+      "proposals": 27,
+      "schema_invalid": 0
+    },
+    {
+      "variant": "semantic_error",
+      "arm": "feasible_tools",
+      "executions": 6,
+      "task_completed": 6,
+      "safe_escalation": 0,
+      "actual_goal_satisfied": 6,
+      "fault_activated": 0,
+      "tool_rejections": 0,
+      "budget_rejections": 0,
+      "proposals": 24,
+      "schema_invalid": 0
+    },
+    {
+      "variant": "semantic_error",
+      "arm": "matched_text",
+      "executions": 6,
+      "task_completed": 6,
+      "safe_escalation": 0,
+      "actual_goal_satisfied": 6,
+      "fault_activated": 0,
+      "tool_rejections": 0,
+      "budget_rejections": 0,
+      "proposals": 23,
+      "schema_invalid": 0
+    },
+    {
+      "variant": "semantic_error",
+      "arm": "rule_only",
+      "executions": 3,
+      "task_completed": 3,
+      "safe_escalation": 0,
+      "actual_goal_satisfied": 3,
+      "fault_activated": 0,
+      "tool_rejections": 0,
+      "budget_rejections": 0
+    },
+    {
+      "variant": "semantic_error",
+      "arm": "soft_joint",
+      "executions": 6,
+      "task_completed": 6,
+      "safe_escalation": 0,
+      "actual_goal_satisfied": 6,
+      "fault_activated": 0,
+      "tool_rejections": 0,
+      "budget_rejections": 0,
+      "proposals": 24,
+      "schema_invalid": 0
+    }
+  ],
+  "input_contract_version": "tool-inputs-160-v1",
+  "outcome_vector_version": "outcome-vector-160-v1",
+  "source_hashes": {
+    "research/reliability_reset/__init__.py": {
+      "working_tree_sha256": "03ba6024a63500568e239283c2a31e78db30fafe533cd84794d6341b16944f48",
+      "lf_utf8_sha256": "03ba6024a63500568e239283c2a31e78db30fafe533cd84794d6341b16944f48"
+    },
+    "research/reliability_reset/tool_contracts.py": {
+      "working_tree_sha256": "13a3f5327f6dcf824344e47842c8bbfe8855b2c9da3a722ffc85d9b035247493",
+      "lf_utf8_sha256": "13a3f5327f6dcf824344e47842c8bbfe8855b2c9da3a722ffc85d9b035247493"
+    },
+    "research/reliability_reset/outcomes.py": {
+      "working_tree_sha256": "43773f1050efc134c51f74e55c916d59acc2a7150b898ff3937a032b68a0b978",
+      "lf_utf8_sha256": "43773f1050efc134c51f74e55c916d59acc2a7150b898ff3937a032b68a0b978"
+    },
+    "research/reliability_reset/offline160.py": {
+      "working_tree_sha256": "1e2143fa72c41c47f5e85b371ee091e58b52c26a4f416d3c4c324cba41675683",
+      "lf_utf8_sha256": "1e2143fa72c41c47f5e85b371ee091e58b52c26a4f416d3c4c324cba41675683"
+    },
+    "tests/test_reliability_reset_contracts160.py": {
+      "working_tree_sha256": "0ccd9daea6f64f171309d9dfde74469f9cd5684de6817154bff7944a22d401c8",
+      "lf_utf8_sha256": "0ccd9daea6f64f171309d9dfde74469f9cd5684de6817154bff7944a22d401c8"
+    }
+  },
+  "literature": {
+    "comparison": "DIRECT_COMPARISON_160.md",
+    "sources": "LITERATURE_SOURCES_160.json",
+    "metadata_sha256": "bc172502891e6359c3c7b27a492d46b8cd1271ded5768605c282994eacc4e22b",
+    "versions": [
+      "2608.23628v2",
+      "2602.11541v1",
+      "2608.02650v1"
+    ],
+    "evidence_level": "Read primary manuscripts; no independent replication of their author code or effect sizes."
+  },
+  "limitations": [
+    "Offline detection of a missing parameter is not evidence the model would generate a corrected call.",
+    "Schema-valid arguments may be semantically wrong, stale or unauthorized.",
+    "Safe escalation is not completion; absent completion does not alone establish a model deficit.",
+    "Unknown world truth remains unknown; current historical labels and artifacts are retained.",
+    "No new model family or structurally independent task evidence.",
+    "Project-owned hashes detect byte mismatch, not independent historical authenticity."
+  ],
+  "next_release": "1.0.65: differentiated-claim and task/metric design review before expansion"
+}

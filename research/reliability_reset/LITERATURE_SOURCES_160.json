@@ -1,0 +1,427 @@
+{
+  "checked_date": "2026-10-25",
+  "sources": [
+    {
+      "key": "aft",
+      "arxiv_version": "2608.23628v2",
+      "url": "https://arxiv.org/html/2608.23628v2",
+      "retrieved_date": "2026-10-25",
+      "html_sha256": "b47469dee0606744783932a970f98f9b562c5b43ef8ec0b66943f8b6bc23191e",
+      "headings": [
+        {
+          "section_id": "",
+          "heading": "Report GitHub Issue"
+        },
+        {
+          "section_id": "",
+          "heading": "Callability Is Not Operability: Controlled Interface Interventions for LLM Agents"
+        },
+        {
+          "section_id": "",
+          "heading": "Abstract"
+        },
+        {
+          "section_id": "S1",
+          "heading": "1 Introduction"
+        },
+        {
+          "section_id": "S1.SS0.SSS0.Px1",
+          "heading": "Contributions."
+        },
+        {
+          "section_id": "S2",
+          "heading": "2 Related Work"
+        },
+        {
+          "section_id": "S2.SS0.SSS0.Px1",
+          "heading": "Agent efficiency beyond task success."
+        },
+        {
+          "section_id": "S2.SS0.SSS0.Px2",
+          "heading": "Deployment practice for scalable tool interfaces."
+        },
+        {
+          "section_id": "S3",
+          "heading": "3 Agent-First Tooling Model"
+        },
+        {
+          "section_id": "S3.SS1",
+          "heading": "3.1 System Model"
+        },
+        {
+          "section_id": "S3.SS2",
+          "heading": "3.2 From Callability to Operability"
+        },
+        {
+          "section_id": "S3.SS3",
+          "heading": "3.3 Operational Interface Semantics"
+        },
+        {
+          "section_id": "S3.SS4",
+          "heading": "3.4 Mechanisms as Ambiguity Resolution"
+        },
+        {
+          "section_id": "S4",
+          "heading": "4 Experimental Design"
+        },
+        {
+          "section_id": "S4.SS1",
+          "heading": "4.1 Evidence Layers and Experimental Controls"
+        },
+        {
+          "section_id": "S4.SS2",
+          "heading": "4.2 Interface Treatments and Workloads"
+        },
+        {
+          "section_id": "S4.SS3",
+          "heading": "4.3 Fault Injection and Outcome Semantics"
+        },
+        {
+          "section_id": "S4.SS4",
+          "heading": "4.4 Agent Execution and Instrumentation"
+        },
+        {
+          "section_id": "S4.SS5",
+          "heading": "4.5 Statistical Analysis"
+        },
+        {
+          "section_id": "S4.SS6",
+          "heading": "4.6 Evidence Freeze and Reproducibility"
+        },
+        {
+          "section_id": "S4.SS7",
+          "heading": "4.7 Threats to Validity"
+        },
+        {
+          "section_id": "S5",
+          "heading": "5 Results"
+        },
+        {
+          "section_id": "S5.SS1",
+          "heading": "5.1 Selective Discovery Compresses Context Without Sacrificing Recall"
+        },
+        {
+          "section_id": "S5.SS2",
+          "heading": "5.2 Recovery Depends on Matching Interface State to Failure Mode"
+        },
+        {
+          "section_id": "S5.SS3",
+          "heading": "5.3 Effect Semantics Prevent Duplicate and Unsafe Continuations"
+        },
+        {
+          "section_id": "S5.SS4",
+          "heading": "5.4 Verification Corrects Incorrect Terminal Beliefs"
+        },
+        {
+          "section_id": "S5.SS5",
+          "heading": "5.5 Interface Effects Persist Across Models but Are Not Uniform"
+        },
+        {
+          "section_id": "S5.SS6",
+          "heading": "5.6 Summary"
+        },
+        {
+          "section_id": "S6",
+          "heading": "6 Limitations and Future Work"
+        },
+        {
+          "section_id": "S7",
+          "heading": "7 Conclusion"
+        },
+        {
+          "section_id": "bib",
+          "heading": "References"
+        },
+        {
+          "section_id": "",
+          "heading": "Instructions for reporting errors"
+        }
+      ],
+      "evidence_level": "Primary manuscript read; no author-code execution, independent artifact verification or replicated effect sizes."
+    },
+    {
+      "key": "intent",
+      "arxiv_version": "2602.11541v1",
+      "url": "https://arxiv.org/html/2602.11541v1",
+      "retrieved_date": "2026-10-25",
+      "html_sha256": "5beee3ce86e46bb58cd4232989b295959972fc834d3aa31c7c081cce31956856",
+      "headings": [
+        {
+          "section_id": "",
+          "heading": "Report GitHub Issue"
+        },
+        {
+          "section_id": "",
+          "heading": "Budget-Constrained Agentic Large Language Models: Intention-Based Planning for Costly Tool Use"
+        },
+        {
+          "section_id": "",
+          "heading": "Abstract"
+        },
+        {
+          "section_id": "",
+          "heading": "Keywords:"
+        },
+        {
+          "section_id": "S1",
+          "heading": "1 Introduction"
+        },
+        {
+          "section_id": "S2",
+          "heading": "2 Model"
+        },
+        {
+          "section_id": "S2.SS1",
+          "heading": "2.1 Contextual State"
+        },
+        {
+          "section_id": "S2.SS2",
+          "heading": "2.2 Dynamic Tool Marketplace"
+        },
+        {
+          "section_id": "S2.SS3",
+          "heading": "2.3 Budget-Constrained Agent"
+        },
+        {
+          "section_id": "S2.SS4",
+          "heading": "2.4 Task Formulation"
+        },
+        {
+          "section_id": "S3",
+          "heading": "3 Methodology"
+        },
+        {
+          "section_id": "S3.SS1",
+          "heading": "3.1 Language World Model"
+        },
+        {
+          "section_id": "S3.SS2",
+          "heading": "3.2 Monte Carlo Oracle"
+        },
+        {
+          "section_id": "S3.SS3",
+          "heading": "3.3 Intention-Based Oracle"
+        },
+        {
+          "section_id": "S4",
+          "heading": "4 Experiments"
+        },
+        {
+          "section_id": "S4.SS1",
+          "heading": "4.1 Experimental Setup"
+        },
+        {
+          "section_id": "S4.SS2",
+          "heading": "4.2 Main Results"
+        },
+        {
+          "section_id": "S4.SS3",
+          "heading": "4.3 Robustness under Dynamic Market"
+        },
+        {
+          "section_id": "S5",
+          "heading": "5 Related Work"
+        },
+        {
+          "section_id": "S6",
+          "heading": "6 Conclusions"
+        },
+        {
+          "section_id": "Sx1",
+          "heading": "Impact Statement"
+        },
+        {
+          "section_id": "bib",
+          "heading": "References"
+        },
+        {
+          "section_id": "A1",
+          "heading": "Appendix A Oracle Implementations"
+        },
+        {
+          "section_id": "A1.SS1",
+          "heading": "A.1 Training"
+        },
+        {
+          "section_id": "A1.SS2",
+          "heading": "A.2 Additional Mechanisms"
+        },
+        {
+          "section_id": "A1.SS3",
+          "heading": "A.3 Algorithms"
+        },
+        {
+          "section_id": "A2",
+          "heading": "Appendix B Implementation Details"
+        },
+        {
+          "section_id": "A2.SS1",
+          "heading": "B.1 Training and Inference Details"
+        },
+        {
+          "section_id": "A2.SS2",
+          "heading": "B.2 Algorithm Implementation"
+        },
+        {
+          "section_id": "A2.SS3",
+          "heading": "B.3 Evaluation Details"
+        },
+        {
+          "section_id": "A3",
+          "heading": "Appendix C Group-wise Breakdown of Pass Rate"
+        },
+        {
+          "section_id": "A4",
+          "heading": "Appendix D Further Experiments"
+        },
+        {
+          "section_id": "A4.SS1",
+          "heading": "D.1 Ablation of Oracle Components"
+        },
+        {
+          "section_id": "A4.SS2",
+          "heading": "D.2 Ablation of Additional Mechanisms"
+        },
+        {
+          "section_id": "A4.SS3",
+          "heading": "D.3 Sensitivity Analysis"
+        },
+        {
+          "section_id": "A5",
+          "heading": "Appendix E Case Study"
+        },
+        {
+          "section_id": "A5.SS1",
+          "heading": "E.1 Failure of Direct Prompt"
+        },
+        {
+          "section_id": "A5.SS2",
+          "heading": "E.2 Solution Trajectory of INTENT"
+        },
+        {
+          "section_id": "",
+          "heading": "Instructions for reporting errors"
+        }
+      ],
+      "evidence_level": "Primary manuscript read; no author-code execution, independent artifact verification or replicated effect sizes."
+    },
+    {
+      "key": "hyperagent",
+      "arxiv_version": "2608.02650v1",
+      "url": "https://arxiv.org/html/2608.02650v1",
+      "retrieved_date": "2026-10-25",
+      "html_sha256": "2375ec43a51af8bac15c873609ec2721967e1cf21f17f886426eac5871a7d629",
+      "headings": [
+        {
+          "section_id": "",
+          "heading": "Report GitHub Issue"
+        },
+        {
+          "section_id": "",
+          "heading": "HyperAgent: Planning and Acting over Tool-Schema Hypergraphs for Tool-Use LLM Agents"
+        },
+        {
+          "section_id": "",
+          "heading": "Abstract"
+        },
+        {
+          "section_id": "Sx1",
+          "heading": "Introduction"
+        },
+        {
+          "section_id": "Sx2",
+          "heading": "Related Work"
+        },
+        {
+          "section_id": "Sx3",
+          "heading": "Preliminaries"
+        },
+        {
+          "section_id": "Sx3",
+          "heading": "Definition 1 (Neighbor Tools)."
+        },
+        {
+          "section_id": "Sx4",
+          "heading": "Method"
+        },
+        {
+          "section_id": "Sx4.SSx1",
+          "heading": "HyperGraph Construction"
+        },
+        {
+          "section_id": "Sx4.SSx2",
+          "heading": "Task-Level Planning"
+        },
+        {
+          "section_id": "Sx4.SSx2",
+          "heading": "Definition 2 (Tool Context Graph)."
+        },
+        {
+          "section_id": "Sx4.SSx2",
+          "heading": "Definition 3 (Task DAG)."
+        },
+        {
+          "section_id": "Sx4.SSx3",
+          "heading": "Task Execution"
+        },
+        {
+          "section_id": "Sx4.SSx3",
+          "heading": "Definition 4 (Agent State)."
+        },
+        {
+          "section_id": "Sx4.SSx4",
+          "heading": "Tool–Level Planning"
+        },
+        {
+          "section_id": "Sx4.SSx4",
+          "heading": "Definition 5 (Tool-Schema Support)."
+        },
+        {
+          "section_id": "Sx4.SSx4",
+          "heading": "Definition 6 (Deficit Set)."
+        },
+        {
+          "section_id": "Sx5",
+          "heading": "Experiments"
+        },
+        {
+          "section_id": "Sx5.SSx1",
+          "heading": "Dataset"
+        },
+        {
+          "section_id": "Sx5.SSx2",
+          "heading": "Baselines"
+        },
+        {
+          "section_id": "Sx5.SSx3",
+          "heading": "Agent Implementation"
+        },
+        {
+          "section_id": "Sx5.SSx4",
+          "heading": "Main Results"
+        },
+        {
+          "section_id": "Sx5.SSx5",
+          "heading": "Ablation Study"
+        },
+        {
+          "section_id": "Sx5.SSx6",
+          "heading": "More Experiments"
+        },
+        {
+          "section_id": "Sx6",
+          "heading": "Conclusion"
+        },
+        {
+          "section_id": "bib",
+          "heading": "References"
+        },
+        {
+          "section_id": "",
+          "heading": "Instructions for reporting errors"
+        }
+      ],
+      "evidence_level": "Primary manuscript read; no author-code execution, independent artifact verification or replicated effect sizes."
+    }
+  ]
+}

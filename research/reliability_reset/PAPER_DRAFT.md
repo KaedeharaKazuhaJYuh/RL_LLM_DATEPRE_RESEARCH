@@ -3,6 +3,8 @@
 **Working manuscript — evidence and protocol draft, 21 October 2026**
 **Intended venues:** NeurIPS 2027 Evaluations & Datasets / KDD 2027 Datasets & Benchmarks
 
+**Direct-neighbor correction (1.0.60, 2026-10-25):** the section-level [AFT-Bench / INTENT / HyperAgent comparison](DIRECT_COMPARISON_160.md) does not support claiming current interface exposure, budget planning, receipt/effect tracking or evidence-qualified termination as an original algorithm. AFT explicitly covers post-commit response loss, controlled interface interventions, persistent-state outcomes and policy-correct non-action; the other papers further cover budget lookahead and schema/state-conditioned planning. We retain the local experiments as engineering evidence and qualify the earlier method-development language accordingly. A zero completion rate under unavailable confirmation does not itself identify a model capability defect; safe escalation, actual goal satisfaction, rejected tools and realized faults must remain distinct. [RELEASE_160.md](RELEASE_160.md) records an offline reclassification of 207 existing responses, one detected missing parameter and unchanged historical completion labels, with no new API calls. The next research step is a differentiated hypothesis and independent task/metric design review; no new family or paid experiment follows automatically from this release.
+
 **Matched interface intervention (1.0.55, 2026-10-24):** 54 real DeepSeek trajectories and 9 shared backend controls used identical conditional completion text. All three arms completed 12/12 ordinary-receipt cases, so the previous ordinary-state gain cannot be attributed independently to the evidence-state algorithm. With planned receipt loss, matched text, soft state and a budget-projected tool registry had 6/1/0 rejected reads. Projection realized only five faults because one publication omitted mode and was rejected before commit; all five realized faults escalated. Relative to soft state this is one improved activated escalation and one regression, with no fault-case completion gain. Total model requests were equal and projection tokens were 3.36% lower, while ordinary-case tokens increased. These results motivate complete parameter contracts and evidence compaction, not a claim that projection dominates or that model weights improved. [RELEASE_155.md](RELEASE_155.md) preserves the 207 raw response bindings, actual fault activation, costs and full offline replay.
 **Status:** not submission-ready; no independent cross-task experiment has been run. Venue choice and formatting are deferred until the study passes its preregistered decision gate.
 
@@ -80,6 +82,8 @@ The earlier comparison concentrated on executable-contract audits and recovery b
 
 The earlier proposed paired misclassification/decision-impact design is therefore not currently a demonstrated distinction. Comparing more task families alone would not establish a novel mechanism or evaluation methodology. A future proposal would need an exact original task, its full metric suite, a contract-grounded consequential disagreement and a specific gap relative to these works. The present engineering controls supply none of that incremental evidence. The manuscript remains an engineering/protocol draft while that gate is unresolved.
 
+The 25 October review also constrains the later local interface-development route. [AFT-Bench](https://arxiv.org/html/2608.23628v2) directly studies controlled operational interface changes, including uncertain effects and policy-correct non-action. [INTENT](https://arxiv.org/html/2602.11541v1) addresses hard-budget tool planning, while [HyperAgent](https://arxiv.org/html/2608.02650v1) addresses schema-dependent planning and execution-state support. Our current implementation supplies no independently established algorithmic increment over these adjacent approaches. The exact section-level comparison and remaining unverified coverage questions are recorded in [DIRECT_COMPARISON_160.md](DIRECT_COMPARISON_160.md).
+
 | Work | What it already covers | Implication for this study |
 |---|---|---|
 | AgentBench / WebArena | Interactive tasks and task-completion evaluation | Do not claim interaction itself is new |
@@ -93,6 +97,9 @@ The earlier proposed paired misclassification/decision-impact design is therefor
 | Tool-Veritas | Evaluator validity, path rigidity and decomposed scoring | A false-negative pivot is not automatically novel |
 | AgentEval | Contract-bound evidence/assessment semantics | Binding and assessment records are existing close work |
 | Oracle-integrity study, v2 | Stateful-oracle checks and corrected comparison | Mutation checks or ranking changes alone do not distinguish this draft |
+| AFT-Bench | Controlled operability interventions, uncertain effects and policy-correct termination | Direct overlap with the current receipt/interface route; no first-operability claim |
+| INTENT | Hard-budget inference-time tool planning | Budget salience or affordable-action filtering is not an original planning algorithm |
+| HyperAgent | Schema dependencies and state-conditioned tool support | Explicit dependencies, dynamic tool contexts and completion support need a differentiated result |
 
 ## 4. Study design (proposed, not yet run)
 
@@ -199,6 +206,9 @@ Accordingly, this manuscript is a **research proposal plus a transparent develop
 12. Bhat et al. “Benchmarking the Benchmarks: A Validity Audit of Tool-Calling Evaluation.” 2026 preprint, v1. [arXiv:2607.02577v1](https://arxiv.org/abs/2607.02577v1).
 13. Gao. “AgentEval: Evidence-Bounded Assessment of Stateful Agents.” 2026 preprint, v1. [arXiv:2610.21177v1](https://arxiv.org/abs/2610.21177v1).
 14. Chen. “When Agent Evaluation Becomes Unreliable: An Empirical Study of Oracle Failures and Configuration-Dependent Measurement in an LLM Agent Benchmark.” 2026 preprint, v2. [arXiv:2610.16067v2](https://arxiv.org/abs/2610.16067v2).
+15. Wang, Zihao. “Callability Is Not Operability: Controlled Interface Interventions for LLM Agents.” 2026 preprint, v2. [arXiv:2608.23628v2](https://arxiv.org/abs/2608.23628v2).
+16. Liu, Hanbing, et al. “Budget-Constrained Agentic Large Language Models: Intention-Based Planning for Costly Tool Use.” 2026 preprint, v1. [arXiv:2602.11541v1](https://arxiv.org/abs/2602.11541v1).
+17. Zhai, Zian, et al. “HyperAgent: Planning and Acting over Tool-Schema Hypergraphs for Tool-Use LLM Agents.” 2026 preprint, v1. [arXiv:2608.02650v1](https://arxiv.org/abs/2608.02650v1).
 
 ## Venue positioning (provisional)
 

@@ -11,7 +11,7 @@
 
 > 结果导向的 Agent 评测，是否会对实际运行可靠性产生有后果、可独立复核，并能在不同任务家族中重复出现的误判？
 
-当前研究区分 Agent 自主恢复、外部修复器代做和两者交互，并检验共享预算、工具信息与提示如何改变实际完成能力。已从程序控制推进到真实模型受控实验；跨独立任务的结论尚未建立。
+当前保留已完成的程序控制与真实模型开发实验，优先完成直接近邻比较和参数契约修复。现有预算、工具接口与安全终止实现作为工程成果保留；独立算法增量与跨任务结论尚未建立。
 
 ## 当前研究
 
@@ -19,7 +19,7 @@
 
 新设计和草稿位于 [`research/reliability_reset/`](research/reliability_reset/README.md)：
 
-**当前版本：Reliability Reset 1.0.55（2026-10-24）。** 已完成相同文字说明下的公开状态整理与预算投影工具接口对照：54 条真实模型轨迹、9 个共享规则、207 次收到响应的 DeepSeek 请求。正常回执三组均完成 **12/12**；丢失回执设置下，文字／软状态／投影组超预算读取为 **6／1／0**。投影组实际触发五次故障且均升级，另一次因发布参数遗漏而提前失败；升级不计完成。见[结果、失败与成本](research/reliability_reset/RELEASE_155.md)及[设计](research/reliability_reset/FEASIBLE_INTERFACE_155.md)。
+**当前版本：Reliability Reset 1.0.60（2026-10-25）。** 完成 [AFT-Bench、INTENT、HyperAgent 的直接比较](research/reliability_reset/DIRECT_COMPARISON_160.md)，停止把现有接口／规划实现作为独立新算法主张。新增逐工具参数校验，离线核对 207 条冻结响应，定位一条遗漏 publish.mode 的提案，原参数与 63 个历史完成标签均未改写；新增 API 为 **0**。安全升级、任务完成、工具拒绝、预算拒绝及实际故障激活分别记录。见[本版报告](research/reliability_reset/RELEASE_160.md)与[结果定义](research/reliability_reset/OUTCOME_CONTRACT_160.md)。
 
 **基础设施检查点（1.0.0–1.0.15）。** 已具备离线证据审计、CSV/SQLite 适配、终止未知传播、历史责任区分和原件对照复审导出。历史 0.5.65-dev、旧评分和审阅原件保持保留；版本细节收在[更新记录](research/reliability_reset/CHANGELOG.md)、[1.0.15 修复报告](research/reliability_reset/RELEASE_115.md)与[审阅回应](research/reliability_reset/REVIEW_RESPONSE_110.md)。
 
