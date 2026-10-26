@@ -1,0 +1,15 @@
+{
+  "commit": "42b5bcf3cd334fee33f0c37c02070a9f5807add5",
+  "fixture": "appworld_180_excerpt.py",
+  "fixture_sha256": "d8a526b0de52a4fb9fb301692f67af2bc8639d8ce52ca820fb6ddec5e11f057f",
+  "license": "Apache-2.0",
+  "license_file": "APPWORLD_LICENSE",
+  "license_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+  "path": "src/appworld/apps/lib/models/db.py",
+  "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/apps/lib/models/db.py#L341-L358",
+  "line_start": 341,
+  "line_end": 358,
+  "whole_source_sha256": "641fd9b70f03db3acbd6d564dce762a097a380a3adc105d9294c286889f4b521",
+  "original_segment_sha256": "622e113b5185871dbf72da8d2e62f5046e22853b72b37fe931d3be04c75f4783",
+  "extraction": "Exact public function text, unchanged body and arguments; imports and plain JSONL reader supplied by local boundary adapter. No AppWorld module imported."
+}

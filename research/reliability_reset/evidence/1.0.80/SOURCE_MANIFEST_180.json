@@ -1,0 +1,95 @@
+{
+  "version": "1.0.80",
+  "date": "2026-10-26",
+  "commit": "42b5bcf3cd334fee33f0c37c02070a9f5807add5",
+  "files": [
+    {
+      "path": "src/appworld/common/database.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/common/database.py",
+      "bytes": 2240,
+      "sha256": "3a26ea45c95ad48f1da92502d20e93b2a037195696777e477dff9575d39cccbf",
+      "git_blob_sha1": "33ae2cc93c123560e51317ee00ff584134d55957"
+    },
+    {
+      "path": "src/appworld/apps/lib/models/db.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/apps/lib/models/db.py",
+      "bytes": 22356,
+      "sha256": "641fd9b70f03db3acbd6d564dce762a097a380a3adc105d9294c286889f4b521",
+      "git_blob_sha1": "cb45e32cf37002497950f0133d1f45c61f6a770f"
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/pyproject.toml",
+      "bytes": 13254,
+      "sha256": "7d1d4de00eb8344232c2484dfd0d1ea33e6bf002eeb1a8bf69708e212d9a3b3c",
+      "git_blob_sha1": "e84b61cf520f93642a20ce5a3c8e83f17448d9f0"
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/README.md",
+      "bytes": 81334,
+      "sha256": "f4049141b6e520217395b7ccd9f27048c8e0f90331690dcbef300d2bc4ff7bdd",
+      "git_blob_sha1": "4798bdc3727107bc0c47fccb4f297bdff1e22f33",
+      "origin": "Reused pinned local cache"
+    },
+    {
+      "path": "src/appworld/task.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/task.py",
+      "bytes": 13644,
+      "sha256": "f999c02316639eae33316ad5bac52c58c217a80ee553f38b3084eb5ea18c5d7e",
+      "git_blob_sha1": "63c65e4f383e55a3a396fd2738d527ebdbb226fd",
+      "origin": "Reused pinned local cache"
+    },
+    {
+      "path": "src/appworld/common/constants.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/common/constants.py",
+      "bytes": 1802,
+      "sha256": "776a1c2a97e8f3d7cbda00523be3fdf38ed6165d61ac729a82290a843524138d",
+      "git_blob_sha1": "09770a60ef71ef558e9f5bd019b7c4e015d3aae0",
+      "origin": "Reused pinned local cache"
+    },
+    {
+      "path": "src/appworld/evaluator.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/evaluator.py",
+      "bytes": 25769,
+      "sha256": "bde9deb3b1e6ac0fa9819013729c0e817a97c90f579108fa032a90bba0ca51cb",
+      "git_blob_sha1": "5acb3cfaa079f1942e668fb9ff826fd695d7d31d",
+      "origin": "Reused pinned local cache"
+    },
+    {
+      "path": "src/appworld/collections/models.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/collections/models.py",
+      "bytes": 24304,
+      "sha256": "8b2fac59d77c887ab08fe4092ec0811952d051bd56551dc239332c556df136e4",
+      "git_blob_sha1": "9728fa88181fdb56a4713d6f6c2c2f38957d2cc4",
+      "origin": "Reused pinned local cache"
+    },
+    {
+      "path": "tests/package/test_appworld.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/tests/package/test_appworld.py",
+      "bytes": 68564,
+      "sha256": "860fdc6e171fd4ded818e65da7dba729fd0e4cce678f3fff0ed48e3855dc7c18",
+      "git_blob_sha1": "7208854e362bf1ebd6e548962eebc9652ac3db06",
+      "origin": "Reused pinned local cache"
+    },
+    {
+      "path": "src/appworld/common/crypto.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/common/crypto.py",
+      "bytes": 12060,
+      "sha256": "0d8f1f79c35e9351925ee26c7f9b465d669b131e1541ffca75429b3318d47b23",
+      "git_blob_sha1": "5954e97f3c0686b09ae8f14f979917e81f332327",
+      "origin": "Reused pinned local cache"
+    },
+    {
+      "path": "src/appworld/apps/lib/models/orm.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/apps/lib/models/orm.py",
+      "bytes": 86802,
+      "sha256": "df959a70b1cb39acd0f40a8fbec103f88f4b3481532d475cd079a551eb43abb9",
+      "git_blob_sha1": "7848059a9c245221a0bdf1492394412e0b0445b5",
+      "origin": "Reused pinned local cache"
+    }
+  ],
+  "new_public_source_downloads": 3,
+  "reused_public_source_files": 8,
+  "protected_task_content_published": false
+}

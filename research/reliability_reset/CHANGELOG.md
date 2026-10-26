@@ -1,5 +1,9 @@
 # Reliability Reset releases
 
+## 1.0.80 — 2026-10-26
+
+Prepared exactly one native train task, selected as the first official train entry before task inspection. Bound the minimal 0.2.0 package, 25 original task files and 12 base databases. Unchanged public SQL replay applies all 18 original delta statements; 103 hash-bearing tables contain 373,497 rows, no repeated hashes and no invalid hashes. Distinct start hashes exclude the 1.0.75 multiplicity mechanism under equal row count/hash support, so this candidate receives a task-specific NO-GO without fabricating an end state or running the full scorer. Added eight software controls and kept the original synthetic miss. Protected contents stay local, original tasks/scoring and prior evidence stay unchanged. No official-output download, native scorer, environment, legal tool trajectory or model API call; original terminal DB/log/score packet remains incomplete. Scientific HOLD remains; no automatic task expansion.
+
 ## 1.0.75 — 2026-10-26
 
 Located the public ORM record-hash definition and corrected the 1.0.70 protected-source attribution without rewriting old records. Reproduced a content-multiplicity miss using unchanged public comparison function bodies and synthetic boundary adapters: equal-sized `[a,a,b]` and `[a,b,b]` states produce no reported changes. Retained ordinary update/add/remove/size-change controls and benign same-content recreation; an identity-only permutation is not mislabeled as a content-multiset miss. Added eight regression tests and Apache-2.0 public-source excerpts with provenance. A local static application-schema check does not establish global hash uniqueness or legal API reachability; protected code is not redistributed. No task/output download, native task scorer, real model call or AppWorld environment run. Next is preparation of one original train/dev full-scorer case; no real benchmark false success or paper novelty established, scientific HOLD unchanged.
