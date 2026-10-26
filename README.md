@@ -19,7 +19,7 @@
 
 新设计和草稿位于 [`research/reliability_reset/`](research/reliability_reset/README.md)：
 
-**当前版本：Reliability Reset 1.0.80（2026-10-26）。** 完成[一例原生 train 任务的起点核验](research/reliability_reset/NATIVE_CASE_180.md)：固定原件及全部起始增量后，103 张哈希表的 373,497 行没有重复哈希。因此，上版辅助函数的“重复次数改变却漏检”机制不能在该起点保持行数／哈希集合的条件下发生，**关闭本例候选，不进入完整评分实跑**。这不证明其他任务或评分机制无误。新增模型调用和原生完整评分执行均为 **0**。见[本版报告](research/reliability_reset/RELEASE_180.md)。
+**当前版本：Reliability Reset 1.0.85（2026-10-26）。** 首次完成[AppWorld 原生工具与完整评分对照](research/reliability_reset/NATIVE_CONTROL_185.md)：同一 train 任务的原始参考程序通过 2/2 项，通过有效 API 调用额外交换名称后通过 1/2 项并被状态检查拒绝；两者的完成信号均为 true。**关闭这条具体候选，没有取得真实基准假成功。** 依赖兼容配置、独立进程重放及加密原件已保存；零模型调用，两条轨迹都是程序控制。见[本版报告](research/reliability_reset/RELEASE_185.md)。
 
 **基础设施检查点（1.0.0–1.0.15）。** 已具备离线证据审计、CSV/SQLite 适配、终止未知传播、历史责任区分和原件对照复审导出。历史 0.5.65-dev、旧评分和审阅原件保持保留；版本细节收在[更新记录](research/reliability_reset/CHANGELOG.md)、[1.0.15 修复报告](research/reliability_reset/RELEASE_115.md)与[审阅回应](research/reliability_reset/REVIEW_RESPONSE_110.md)。
 

@@ -1,0 +1,14 @@
+{
+  "attempt": 2,
+  "stage": "AppWorld constructor / original start ORM load",
+  "environment_initialized": false,
+  "native_task_scorer_executed": false,
+  "error_type": "AssertionError",
+  "root_cause": "SQLAlchemy 2.1.6 render_as_string percent-encodes file: and backslash in database names. Original db.py parses this raw string and expects unescaped separators.",
+  "source_path": "src/appworld/apps/lib/models/db.py",
+  "source_lines": "125-132",
+  "repair_scope": "Pin SQLAlchemy==2.0.43 within original declared dependency ranges. Source and original score remain unchanged. Linux/WSL is not required by this diagnosis.",
+  "initial_hypothesis": "Initially suspected Windows separator incompatibility; minimal reproduction instead localized it to SQLAlchemy 2.1 database URL percent-encoding.",
+  "minimal_reproduction_passed_after_pin": true,
+  "unavailable_optional_linux_fallback": "WSL HCS_E_SERVICE_NOT_AVAILABLE; no OS feature changes made."
+}

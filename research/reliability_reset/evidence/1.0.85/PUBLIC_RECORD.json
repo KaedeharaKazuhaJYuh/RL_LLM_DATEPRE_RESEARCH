@@ -1,0 +1,97 @@
+{
+  "version": "1.0.85",
+  "date": "2026-10-26",
+  "upstream_commit": "42b5bcf3cd334fee33f0c37c02070a9f5807add5",
+  "data_version": "0.2.0",
+  "artifacts": [
+    {
+      "artifact": "BOOTSTRAP_COMPATIBILITY_185.json",
+      "bytes": 511,
+      "sha256": "f1dcf9e1041624dd10714263aa81c4ff10515c4c7f053107e612a56c64a466db"
+    },
+    {
+      "artifact": "EXECUTION_PLAN_185.json",
+      "bytes": 1169,
+      "sha256": "218381595a1ef0ed2a97cb29a6bcdbd11b1f3c42c6200a2b0395012b00a9a470"
+    },
+    {
+      "artifact": "FASTAPI_COMPATIBILITY_185.json",
+      "bytes": 444,
+      "sha256": "8279316fdc29b79f8446d4b516c27552b1e7ec512c1b97a2b7cefda98794d45d"
+    },
+    {
+      "artifact": "native-controls-1.0.85.bundle",
+      "bytes": 44476,
+      "sha256": "ab40994932cb83ca494c129497e9d5d00f4b8ad4f6e7711e1b941c6c8e73fde6"
+    },
+    {
+      "artifact": "NATIVE_BOUND_REPLAY_185.json",
+      "bytes": 518,
+      "sha256": "9997765e61f565cb1314d28765277f0a81cd5cace7f4cefeefcc70e97e041a2b"
+    },
+    {
+      "artifact": "NATIVE_BUNDLE_RECEIPT_185.json",
+      "bytes": 1402,
+      "sha256": "36d405929b60cf10b14a8106e2d7dc3d77fc346c64cdbc0daa22a61d01b6b85a"
+    },
+    {
+      "artifact": "NATIVE_EFFECT_CHECK_185.json",
+      "bytes": 1039,
+      "sha256": "b9292d2a2f9dc9f26456e39749f138acd0bca97550cd0c7e0d1ff3421eab2cbe"
+    },
+    {
+      "artifact": "NATIVE_EXECUTION_185.json",
+      "bytes": 601,
+      "sha256": "73f76f07d4a8238c955a7bf915a1daadc9d619cef26592207d2abb4839644ac6"
+    },
+    {
+      "artifact": "NATIVE_SCORE_REPLAY_185.json",
+      "bytes": 1130,
+      "sha256": "4cbbc17690051203dda9364815ed5b6fc299c7fb991c38333bb2d7328cadea0d"
+    },
+    {
+      "artifact": "RUNTIME_LOCK_185.json",
+      "bytes": 6052,
+      "sha256": "2121741f32f2a0c29561ec18ebfe092347d69c0373b52998db78de004f0bbc70"
+    },
+    {
+      "artifact": "RUNTIME_SOURCE_185.json",
+      "bytes": 456,
+      "sha256": "cb858aa1263bf9794fa01e7c0e1010e1c9e126b1ce6b0b34bbd65333db30fc5b"
+    },
+    {
+      "artifact": "WINDOWS_COMPATIBILITY_185.json",
+      "bytes": 958,
+      "sha256": "7e82e2d3adf00bcc5465a7c05998a5495a196eebb139ae92ecf8b7371dc43851"
+    }
+  ],
+  "diagnostic_sources": {
+    "research/reliability_reset/native_replay185.py": "335400b22b5e9a31a372492c2f83136767a22cc5d2b4a60d6c7598e42b0052bb",
+    "tests/test_reliability_reset_native_replay185.py": "64861ee6777df58f877d64f8fe7770a0a609ac94ea7296b561d22e37b97e7164"
+  },
+  "counts": {
+    "original_task_variants": 1,
+    "completed_native_program_trajectories": 2,
+    "completed_native_environments": 2,
+    "bootstrap_import_failures": 1,
+    "environment_constructor_failures": 2,
+    "recorded_user_api_requests": 150,
+    "primary_full_scorer_invocations": 2,
+    "initial_failed_same_process_replay_invocations": 2,
+    "corrected_independent_process_replay_invocations": 2,
+    "final_bound_replay_invocations": 2,
+    "full_scorer_invocations_total": 8,
+    "new_model_api_calls": 0,
+    "new_model_trajectories": 0,
+    "new_task_families": 0,
+    "accepted_native_false_successes": 0
+  },
+  "decision": "CLOSE_THIS_NATIVE_TITLE_EXCHANGE_CANDIDATE",
+  "scientific_status": "HOLD",
+  "protected_plaintext_published": false,
+  "official_model_outputs_downloaded": false,
+  "native_source_or_grader_patched": false,
+  "independent_review": "not_requested_not_received",
+  "scope": "One native train task; oracle reference program controls, original full score and isolated-process terminal replay. Not model improvement, benchmark-wide correctness or a new algorithm.",
+  "integrity_limit": "Local digests, byte matching and repeat execution do not establish independent authenticity or human review."
+}
