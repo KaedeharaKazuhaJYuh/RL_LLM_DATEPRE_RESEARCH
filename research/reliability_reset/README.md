@@ -1,6 +1,8 @@
 # Outcome-based Agent Evaluation Reliability Reset
 
-This branch starts from the `0.5.65-dev` infrastructure checkpoint. The active question is whether a benchmark's unmodified native full scorer can make consequential, verifiable errors about execution reliability. Earlier controller/helper attribution and interface experiments remain development records; the current implementation has not established an original recovery algorithm.
+This branch starts from the `0.5.65-dev` infrastructure checkpoint. It examined whether an unmodified native full scorer makes consequential, verifiable errors about execution reliability. Earlier controller/helper attribution and interface experiments remain development records; the current implementation has not established an original recovery algorithm.
+
+**Closeout, 2026-10-27:** The [AppWorld audit](APPWORLD_AUDIT_CLOSEOUT_2026_10_27.md) and [paper-claim review](PAPER_CLAIM_REVIEW_2026_10_27.md) found no current claim meeting the original-contract, reachability, full-scorer and consequential-novelty requirements. Current paper claims are NO-GO; the broader scientific status is HOLD. Stop random scoring-defect searches. If a concrete new candidate arises, first complete the [one-page design gate](ONE_PAGE_RESEARCH_DESIGN_GATE.md).
 
 **Current release: Reliability Reset 1.0.85 (2026-10-26), native tools, complete scoring and isolated-process replay.**
 
@@ -13,11 +15,12 @@ Pinned compatible dependencies make the unchanged upstream source run on this Wi
 An [encrypted original packet](evidence/1.0.85/native-controls-1.0.85.bundle) retains protected task/tests, terminal deltas, environment IO, API request logs and failure records; base DBs are referenced rather than duplicated. Per-call raw API response bodies were not captured. Upstream public encryption parameters satisfy distribution format, not confidentiality or independent authenticity.
 
 ```powershell
-python -m research.reliability_reset.native_replay185 work/reliability-reset-1.0.85/venv/Scripts/python.exe work/reliability-reset-1.0.85/native-root work/native-replay185-fresh.json
-python -m unittest tests.test_reliability_reset_native_replay185 -v
+python -m research.reliability_reset.terminal_binding185 work/reliability-reset-1.0.85/native-root work/terminal-check-fresh.json
+python -m research.reliability_reset.terminal_binding185 work/reliability-reset-1.0.85/native-root work/terminal-replay-fresh.json --native-python work/reliability-reset-1.0.85/venv/Scripts/python.exe
+python -m unittest tests.test_reliability_reset_terminal_binding185 tests.test_reliability_reset_native_replay185 -v
 ```
 
-The first command needs original protected local inputs and the pinned separate native runtime; it only replays recorded terminal states. The second uses software controls without AppWorld. Scientific status remains HOLD: zero provider model calls, no model training, new task family, confirmed native false success or system-ordering result. Future execution needs a concrete different original-contract candidate; this rejected title exchange does not launch more task variants.
+The first command only checks the 38 recorded task-output files against the [terminal binding](evidence/closeout-2026-10-27/TERMINAL_BINDING.json); it does not call a scorer. The second optionally replays the two recorded terminal states and requires the original protected local inputs and pinned separate native runtime. Use a fresh extracted copy, since any changed, missing or extra output file fails the binding check. The tests use software controls without AppWorld. The 2026-10-27 closeout did not run the second command, a new task or a model; local digests do not independently authenticate history.
 
 ## Research milestones
 
@@ -55,7 +58,7 @@ Full historical commands, review-export procedures and checkpoint limitations ar
 - [Previous offline release](RELEASE_160.md): AFT/INTENT/HyperAgent comparison, parameter validation and separate safety/completion outcomes.
 - [Previous claim screen](RELEASE_165.md): retained local effects, unmatched-prefix reasons and strong-rule falsification.
 - [Previous native-contract audit](RELEASE_170.md): source-bound scoring definitions, candidate closures and an unresolved identity question; no task reproduction.
-- [Current hash audit](RELEASE_175.md): unchanged-helper reproduction, ordinary/benign controls and a bounded native-case decision.
+- [Earlier hash audit](RELEASE_175.md): unchanged-helper reproduction, ordinary/benign controls and a bounded native-case decision.
 - `audit.py`: offline importer, reliability classification, missingness bounds, matched comparison and review export.
 - `controls.py`: reproducible synthetic controls, zero network/provider activity.
 - `review_views.py` / `review_fidelity.py`: scoped first-pass export and source comparison; no blinding or authenticity certification.
@@ -71,6 +74,7 @@ Full historical commands, review-export procedures and checkpoint limitations ar
 - `hash_probe175.py`: synthetic software boundary diagnostic of pinned public functions; not an AppWorld task evaluator or new recovery policy.
 - `native_case180.py`: digest-bound original start-state SQL reconstruction and aggregate multiplicity preflight; no native task score or API execution.
 - `native_replay185.py`: source/input-bound original score replay in a fresh native process for each recorded control; no model or new tool trajectory.
+- `terminal_binding185.py`: check the recorded terminal file set and digests before optional native score replay.
 - `tests/test_reliability_reset.py`: mutation, budget, actor and provenance rejection checks.
 
 The generic importer trusts supplied adapter facts after structural checks. The new adapter additionally reconstructs one supported task from original CSV/SQLite/capture artifacts. Neither establishes evidence authenticity or scientific independence. The runner and original environment share development ancestry, and separate algorithms cannot replace source review. This release leaves the inherited `VERSION` and historical FaultDA evidence untouched; subsystem releases follow `1.0.0`, `1.0.05`, `1.0.10`, and so on.
@@ -78,4 +82,4 @@ The generic importer trusts supplied adapter facts after structural checks. The 
 - [Research draft](PAPER_DRAFT.md): proposed measurement question and carefully bounded retrospective development audit.
 - [Reset protocol](RESET_PROTOCOL.md): operational definitions, independence gates, controls, three-week decision rule, and resource limits.
 
-The independent-family scientific claim remains **HOLD**. Current interface/planning methods are engineering controls with direct prior work. A local effect that a frozen public rule already supplies is not sufficient scientific increment. The next check targets native benchmark measurement validity without changing success definitions or silently introducing a new task family.
+The independent-family scientific claim remains **HOLD**. Current interface/planning methods are engineering controls with direct prior work. A local effect that a frozen public rule already supplies is not sufficient scientific increment. The existing native-scoring audit is closed; future research follows the design gate above rather than an automatic search for another example.

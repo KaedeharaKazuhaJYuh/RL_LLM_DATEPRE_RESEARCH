@@ -11,7 +11,7 @@
 
 > 结果导向的 Agent 评测，是否会对实际运行可靠性产生有后果、可独立复核，并能在不同任务家族中重复出现的误判？
 
-当前保留已完成的程序控制与真实模型开发实验；直接近邻比较和参数契约修复已完成，正在核验现有公开基准的原生契约与评分边界。现有预算、工具接口与安全终止实现作为工程成果保留；独立算法增量与跨任务结论尚未建立。
+当前保留已完成的程序控制与真实模型开发实验；直接近邻比较和参数契约修复已完成。AppWorld 既有审计已收束：所查具体候选被原完整评分识别，尚无真实基准误判证据。预算、工具接口与安全终止实现作为工程成果保留；独立算法增量与跨任务结论尚未建立。
 
 ## 当前研究
 
@@ -21,12 +21,14 @@
 
 **当前版本：Reliability Reset 1.0.85（2026-10-26）。** 首次完成[AppWorld 原生工具与完整评分对照](research/reliability_reset/NATIVE_CONTROL_185.md)：同一 train 任务的原始参考程序通过 2/2 项，通过有效 API 调用额外交换名称后通过 1/2 项并被状态检查拒绝；两者的完成信号均为 true。**关闭这条具体候选，没有取得真实基准假成功。** 依赖兼容配置、独立进程重放及加密原件已保存；零模型调用，两条轨迹都是程序控制。见[本版报告](research/reliability_reset/RELEASE_185.md)。
 
+**2026-10-27 收束：** 已补充终态文件摘要绑定，并完成[审计汇总](research/reliability_reset/APPWORLD_AUDIT_CLOSEOUT_2026_10_27.md)与[论文主张内部评审](research/reliability_reset/PAPER_CLAIM_REVIEW_2026_10_27.md)。当前论文主张 NO-GO，科学状态 HOLD；停止随机寻找评分漏洞。未来有具体新候选时先完成[一页研究设计](research/reliability_reset/ONE_PAGE_RESEARCH_DESIGN_GATE.md)。
+
 **基础设施检查点（1.0.0–1.0.15）。** 已具备离线证据审计、CSV/SQLite 适配、终止未知传播、历史责任区分和原件对照复审导出。历史 0.5.65-dev、旧评分和审阅原件保持保留；版本细节收在[更新记录](research/reliability_reset/CHANGELOG.md)、[1.0.15 修复报告](research/reliability_reset/RELEASE_115.md)与[审阅回应](research/reliability_reset/REVIEW_RESPONSE_110.md)。
 
 - [研究问题与现有证据草稿](research/reliability_reset/PAPER_DRAFT.md)
 - [重置协议、独立性要求与三周决策门槛](research/reliability_reset/RESET_PROTOCOL.md)
 
-前序 1.0.20–1.0.55 完成恢复归因、预算规划、终止与工具接口开发实验；[1.0.60](research/reliability_reset/RELEASE_160.md) 补充直接近邻与参数契约，[1.0.65](research/reliability_reset/RELEASE_165.md) 保留局部状态／调用成本收益，但未获得新恢复算法准入，[1.0.70](research/reliability_reset/RELEASE_170.md) 开始核验原生评分链，[1.0.75](research/reliability_reset/RELEASE_175.md) 复现辅助函数合成反例。历史协议、原始提案与评分保留，跨版本分数不直接拼接。后续先判断新候选是否具备原生契约证据和可执行核验条件，再决定是否实跑；独立科学结论仍为 HOLD。
+前序 1.0.20–1.0.55 完成恢复归因、预算规划、终止与工具接口开发实验；[1.0.60](research/reliability_reset/RELEASE_160.md) 补充直接近邻与参数契约，[1.0.65](research/reliability_reset/RELEASE_165.md) 保留局部状态／调用成本收益，但未获得新恢复算法准入，[1.0.70](research/reliability_reset/RELEASE_170.md) 开始核验原生评分链，[1.0.75](research/reliability_reset/RELEASE_175.md) 复现辅助函数合成反例。历史协议、原始提案与评分保留，跨版本分数不直接拼接。
 
 ## 0.5.65-dev 检查点
 

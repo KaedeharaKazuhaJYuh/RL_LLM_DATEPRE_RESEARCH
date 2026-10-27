@@ -1,5 +1,7 @@
 # When Passing Is Not Reliable: Auditing Outcome-Based Evaluation of Tool-Using Agents
 
+**Internal claim decision, 2026-10-27:** The existing AppWorld audit has not established a real native false success or a consequential paper contribution. The [formal internal review](PAPER_CLAIM_REVIEW_2026_10_27.md) records a NO-GO for the current paper claims and HOLD for broader scientific conclusions. This draft is retained as historical working material, not an active submission or a license to search random scoring defects; any genuinely new candidate first needs the [one-page design](ONE_PAGE_RESEARCH_DESIGN_GATE.md).
+
 **Working manuscript — evidence and protocol draft, 21 October 2026**
 **Intended venues:** NeurIPS 2027 Evaluations & Datasets / KDD 2027 Datasets & Benchmarks
 
