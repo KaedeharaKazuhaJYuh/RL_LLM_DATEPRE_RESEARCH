@@ -61,8 +61,8 @@
     "tests/test_faultda_ci565.py": "7be48252db9a856c7b1820959c754250c47fdc66ecd3e655974ffc4bf3964973",
     "faultda_bench/protocols/ci565_original_bytes.json": "4cff006f3369c19dec5a4b82d9f805022a4e053cb07eb76eb758244cfa46197c",
     "faultda_bench/docs/CI_0565_INTEGRATION.md": "e101bfe5e08ae4c1346df6a11ce84078c0808bd115be28a08c92cce6ce71cd99",
-    "faultda_bench/protocols/current_evidence_v1.json": "31cb9c2301f285e027b473aed30e61418597b4a3fb3c25eaef1269b244cdfde4",
-    "tests/test_faultda_current_evidence.py": "86912d3b2dd85cd4d0f1ad721e743e199520fefa8179e9349b87cdf2a9405bc0",
+    "faultda_bench/protocols/current_evidence_v1.json": "66b2f8d6b854ff3479c07823df85737628d69e249ac1cc159aabf24790e31daa",
+    "tests/test_faultda_current_evidence.py": "8c83aeb2f77f683d7a2fc7fd58a762e266866e3ecfe65939e86e7a7bb241b4ed",
     "tests/test_faultda_vericost565_witness.py": "cf43c5fc29297f1474c1194590247ce4cb4693b9e42d6eda6f6002183455a3d9"
   }
 }

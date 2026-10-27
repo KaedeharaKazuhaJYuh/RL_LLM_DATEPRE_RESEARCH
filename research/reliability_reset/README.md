@@ -4,6 +4,8 @@ This branch starts from the `0.5.65-dev` infrastructure checkpoint. It examined 
 
 **Closeout, 2026-10-27:** The [AppWorld audit](APPWORLD_AUDIT_CLOSEOUT_2026_10_27.md) and [paper-claim review](PAPER_CLAIM_REVIEW_2026_10_27.md) found no current claim meeting the original-contract, reachability, full-scorer and consequential-novelty requirements. Current paper claims are NO-GO; the broader scientific status is HOLD. Stop random scoring-defect searches. If a concrete new candidate arises, first complete the [one-page design gate](ONE_PAGE_RESEARCH_DESIGN_GATE.md).
 
+**Terminal taxonomy, 2026-10-27 (no version bump):** adding up the failure column of all 60 committed 1.0.35 executions changes the reading of the line. All 27 failures are terminations — 24 at the one-check cap, 3 escalations — with 0 false completions, 0 wrong publications and 0 forbidden effects; 22 of the 27 had already produced a correct record. The same 48 model runs read 89.6% on record correctness and 43.8% on safe completion. The check cap is 1 in all 60 runs and was used in all 60, so this packet measures budget arithmetic, not verification reliability. See the [record](TERMINAL_TAXONOMY.md).
+
 **Current release: Reliability Reset 1.0.85 (2026-10-26), native tools, complete scoring and isolated-process replay.**
 
 The [native control study](NATIVE_CONTROL_185.md) runs the original reference program and a legal title-exchange prefix followed by that same reference on the single train task already selected in 1.0.80. The reference passes both original tests; the variant passes the answer test but fails the collateral-state test. Both native completion signals are true, while only the reference receives full task success.
