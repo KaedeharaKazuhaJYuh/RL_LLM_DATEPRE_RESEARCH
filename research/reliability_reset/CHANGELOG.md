@@ -1,5 +1,9 @@
 # Reliability Reset releases
 
+## Terminal taxonomy — 2026-10-27 (no version bump)
+
+Read all 60 committed 1.0.35 executions as one population for the first time. Every failure is a termination, not an action: 24 hit the one-check cap, 3 escalated, and there are 0 false completions, 0 wrong publications, 0 duplicate events, 0 forbidden effects across 60 runs. 22 of the 27 failures had already produced a correct record. The same 48 model runs score 43/48 (89.6%) on record correctness and 21/48 (43.8%) on safe completion, a gap of 22 runs that no single-cell report had added up. The cap is 1 in all 60 runs and was used in all 60, so this packet cannot identify over- or under-checking at all — it measures budget arithmetic. No new execution, no model call, ¥0. See [record](TERMINAL_TAXONOMY.md) and [artifact](evidence/terminal-taxonomy-2026-10-27/TERMINAL_TAXONOMY.json).
+
 ## 1.0.85 — 2026-10-26
 
 **2026-10-27 closeout, no new version:** Bound the two existing terminal-output directories to 38 per-file digests extracted from the previously frozen packet. Completed a scoped AppWorld candidate summary and internal paper-claim review: the concrete native negative control was detected, current paper claims are NO-GO, and scientific status remains HOLD. Future concrete candidates require a one-page design before implementation. No new native-score, model, or environment execution; frozen 1.0.85 evidence is unchanged.

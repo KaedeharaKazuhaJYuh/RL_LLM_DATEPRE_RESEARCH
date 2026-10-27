@@ -87,6 +87,7 @@
     "tests.test_faultda_vericost565_suite",
     "tests.test_faultda_vericost565_witness",
     "tests.test_faultda_vericost566_release",
+    "tests.test_reliability_terminal_taxonomy",
     "tests.test_faultda_ci565",
     "tests.test_release_version"
   ],
