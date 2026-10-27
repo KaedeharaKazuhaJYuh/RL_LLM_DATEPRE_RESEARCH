@@ -140,6 +140,14 @@ class FrozenCatalogTests(unittest.TestCase):
         # The archived original still has to be the frozen one, so the drift stays provable.
         self.assertEqual(record['original_sha256'], catalog['files'][self.PINNED])
 
+    def test_the_two_correction_maps_agree_block_wise(self):
+        # ci565.audit() reads the flat map; migration() reads the superseded one. A release
+        # that updates only one of them fails in CI with two different messages.
+        path = REPO / 'faultda_bench/protocols/acceptance_v49_ci.json'
+        record = json.loads(path.read_text(encoding='utf-8'))
+        for name, entry in record['superseded'].items():
+            self.assertEqual(record['files'][name], entry['corrected_sha256'], name)
+
 
 if __name__ == '__main__':
     unittest.main()
