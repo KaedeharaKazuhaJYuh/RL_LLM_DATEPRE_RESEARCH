@@ -1,0 +1,816 @@
+{
+ "schema": "faultda.vericost566.dev_seen_summary/1",
+ "version": "0.5.66-dev",
+ "model": "rev1",
+ "instance_set": "dev_seen",
+ "profiles": 24,
+ "regimes": 8,
+ "arms": 13,
+ "api_calls": 0,
+ "cny_spent": 0.0,
+ "seconds_cpu": 607.5,
+ "certificate_c4_assertions": 2496,
+ "source": "dev_seen_all_regimes.json",
+ "table": [
+  {
+   "regime_id": "k0.03_L1",
+   "kappa": 0.03,
+   "L": 1,
+   "profiles": 24,
+   "expected_u_star": 23.301805833333344,
+   "arms": {
+    "bf": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "F": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "F_size": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "F_hist": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "F_hist_plus": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "always_full_recompute": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "escalate_all": {
+     "expected_u": 0.0,
+     "regret_norm": 1.0,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "never_verify": {
+     "expected_u": 4.800000000000003,
+     "regret_norm": 0.794007381473689,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "static_semantic": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "guarded_read": {
+     "expected_u": 23.202124583333337,
+     "regret_norm": 0.0042778336886410894,
+     "spent_units": 0.03324480902777778,
+     "raw_check_volume": 1.108160300925926,
+     "decisions": 2.799999999999999
+    },
+    "q_only": {
+     "expected_u": 15.061159895615946,
+     "regret_norm": 0.3536483823038777,
+     "spent_units": 0.026136526127431416,
+     "raw_check_volume": 0.8712175375810473,
+     "decisions": 2.212252472438518
+    },
+    "thompson": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "linucb": {
+     "expected_u": 23.271544927435745,
+     "regret_norm": 0.0012986506760051411,
+     "spent_units": 0.03035229469017746,
+     "raw_check_volume": 1.0117431563392487,
+     "decisions": 2.6382261535174156
+    }
+   }
+  },
+  {
+   "regime_id": "k0.03_L3",
+   "kappa": 0.03,
+   "L": 3,
+   "profiles": 24,
+   "expected_u_star": 23.301805833333344,
+   "arms": {
+    "bf": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "F": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "F_size": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "F_hist": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "F_hist_plus": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "always_full_recompute": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "escalate_all": {
+     "expected_u": 0.0,
+     "regret_norm": 1.0,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "never_verify": {
+     "expected_u": -14.399999999999995,
+     "regret_norm": 1.6179778555789324,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "static_semantic": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "guarded_read": {
+     "expected_u": 23.202124583333337,
+     "regret_norm": 0.0042778336886410894,
+     "spent_units": 0.03324480902777778,
+     "raw_check_volume": 1.108160300925926,
+     "decisions": 2.799999999999999
+    },
+    "q_only": {
+     "expected_u": 12.60899021522322,
+     "regret_norm": 0.4588835601236536,
+     "spent_units": 0.026674534495470126,
+     "raw_check_volume": 0.8891511498490042,
+     "decisions": 1.9846683990860667
+    },
+    "thompson": {
+     "expected_u": 23.28733333333334,
+     "regret_norm": 0.0006210892024214142,
+     "spent_units": 0.029694444444444443,
+     "raw_check_volume": 0.9898148148148148,
+     "decisions": 2.399999999999999
+    },
+    "linucb": {
+     "expected_u": 23.26191473798401,
+     "regret_norm": 0.0017119314972691246,
+     "spent_units": 0.03075355258399963,
+     "raw_check_volume": 1.0251184194666543,
+     "decisions": 2.543679154322604
+    }
+   }
+  },
+  {
+   "regime_id": "k0.10_L1",
+   "kappa": 0.1,
+   "L": 1,
+   "profiles": 24,
+   "expected_u_star": 21.672686111111116,
+   "arms": {
+    "bf": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "F": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "F_size": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "F_hist": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "F_hist_plus": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "always_full_recompute": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "escalate_all": {
+     "expected_u": 0.0,
+     "regret_norm": 1.0,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "never_verify": {
+     "expected_u": 4.800000000000003,
+     "regret_norm": 0.7785230692960045,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "static_semantic": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "guarded_read": {
+     "expected_u": 21.34041527777778,
+     "regret_norm": 0.015331317568567928,
+     "spent_units": 0.11081603009259265,
+     "raw_check_volume": 1.1081603009259264,
+     "decisions": 2.799999999999999
+    },
+    "q_only": {
+     "expected_u": 13.11763268351432,
+     "regret_norm": 0.3947389531568404,
+     "spent_units": 0.06391563285270972,
+     "raw_check_volume": 0.6391563285270971,
+     "decisions": 2.206438380471605
+    },
+    "thompson": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "linucb": {
+     "expected_u": 21.62099769384429,
+     "regret_norm": 0.0023849566685840862,
+     "spent_units": 0.0991250960898213,
+     "raw_check_volume": 0.991250960898213,
+     "decisions": 2.432401778444342
+    }
+   }
+  },
+  {
+   "regime_id": "k0.10_L3",
+   "kappa": 0.1,
+   "L": 3,
+   "profiles": 24,
+   "expected_u_star": 21.672686111111116,
+   "arms": {
+    "bf": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "F": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "F_size": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "F_hist": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "F_hist_plus": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "always_full_recompute": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "escalate_all": {
+     "expected_u": 0.0,
+     "regret_norm": 1.0,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "never_verify": {
+     "expected_u": -14.399999999999995,
+     "regret_norm": 1.6644307921119859,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "static_semantic": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "guarded_read": {
+     "expected_u": 21.34041527777778,
+     "regret_norm": 0.015331317568567928,
+     "spent_units": 0.11081603009259265,
+     "raw_check_volume": 1.1081603009259264,
+     "decisions": 2.799999999999999
+    },
+    "q_only": {
+     "expected_u": 13.298779955270593,
+     "regret_norm": 0.38638063195809413,
+     "spent_units": 0.07711761653767978,
+     "raw_check_volume": 0.7711761653767977,
+     "decisions": 1.9289488803865895
+    },
+    "thompson": {
+     "expected_u": 21.62444444444445,
+     "regret_norm": 0.002225920055287166,
+     "spent_units": 0.09898148148148152,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "linucb": {
+     "expected_u": 21.61922271969598,
+     "regret_norm": 0.0024668557990938722,
+     "spent_units": 0.09919905334600089,
+     "raw_check_volume": 0.9919905334600089,
+     "decisions": 2.445210703232118
+    }
+   }
+  },
+  {
+   "regime_id": "k0.30_L1",
+   "kappa": 0.3,
+   "L": 1,
+   "profiles": 24,
+   "expected_u_star": 17.957074257773346,
+   "arms": {
+    "bf": {
+     "expected_u": 17.613939861717675,
+     "regret_norm": 0.019108591473754877,
+     "spent_units": 0.18311166569341594,
+     "raw_check_volume": 0.6103722189780532,
+     "decisions": 2.5476944135346185
+    },
+    "F": {
+     "expected_u": 16.873333333333335,
+     "regret_norm": 0.060351753792568755,
+     "spent_units": 0.2969444444444445,
+     "raw_check_volume": 0.989814814814815,
+     "decisions": 2.399999999999999
+    },
+    "F_size": {
+     "expected_u": 16.873333333333335,
+     "regret_norm": 0.060351753792568755,
+     "spent_units": 0.2969444444444445,
+     "raw_check_volume": 0.989814814814815,
+     "decisions": 2.399999999999999
+    },
+    "F_hist": {
+     "expected_u": 17.613939861717675,
+     "regret_norm": 0.019108591473754877,
+     "spent_units": 0.18311166569341594,
+     "raw_check_volume": 0.6103722189780532,
+     "decisions": 2.5476944135346185
+    },
+    "F_hist_plus": {
+     "expected_u": 17.683859901304363,
+     "regret_norm": 0.015214859199611158,
+     "spent_units": 0.1880083749103226,
+     "raw_check_volume": 0.6266945830344087,
+     "decisions": 2.5412778747055778
+    },
+    "always_full_recompute": {
+     "expected_u": 16.873333333333335,
+     "regret_norm": 0.060351753792568755,
+     "spent_units": 0.2969444444444445,
+     "raw_check_volume": 0.989814814814815,
+     "decisions": 2.399999999999999
+    },
+    "escalate_all": {
+     "expected_u": 0.0,
+     "regret_norm": 1.0,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "never_verify": {
+     "expected_u": 4.800000000000003,
+     "regret_norm": 0.7326958762270442,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "static_semantic": {
+     "expected_u": 16.873333333333335,
+     "regret_norm": 0.060351753792568755,
+     "spent_units": 0.2969444444444445,
+     "raw_check_volume": 0.989814814814815,
+     "decisions": 2.399999999999999
+    },
+    "guarded_read": {
+     "expected_u": 16.021245833333335,
+     "regret_norm": 0.10780310849369129,
+     "spent_units": 0.33244809027777783,
+     "raw_check_volume": 1.1081603009259262,
+     "decisions": 2.799999999999999
+    },
+    "q_only": {
+     "expected_u": 9.476597455378101,
+     "regret_norm": 0.4722638376752368,
+     "spent_units": 0.08504713031271714,
+     "raw_check_volume": 0.2834904343757238,
+     "decisions": 1.677496246782537
+    },
+    "thompson": {
+     "expected_u": 17.613939861717675,
+     "regret_norm": 0.019108591473754877,
+     "spent_units": 0.18311166569341594,
+     "raw_check_volume": 0.6103722189780532,
+     "decisions": 2.5476944135346185
+    },
+    "linucb": {
+     "expected_u": 17.634971642778762,
+     "regret_norm": 0.017937366097105206,
+     "spent_units": 0.19870409632482555,
+     "raw_check_volume": 0.6623469877494186,
+     "decisions": 2.3424537154000697
+    }
+   }
+  },
+  {
+   "regime_id": "k0.30_L3",
+   "kappa": 0.3,
+   "L": 3,
+   "profiles": 24,
+   "expected_u_star": 17.0441578734767,
+   "arms": {
+    "bf": {
+     "expected_u": 16.873333333333335,
+     "regret_norm": 0.010022468778536327,
+     "spent_units": 0.2969444444444445,
+     "raw_check_volume": 0.989814814814815,
+     "decisions": 2.399999999999999
+    },
+    "F": {
+     "expected_u": 16.873333333333335,
+     "regret_norm": 0.010022468778536327,
+     "spent_units": 0.2969444444444445,
+     "raw_check_volume": 0.989814814814815,
+     "decisions": 2.399999999999999
+    },
+    "F_size": {
+     "expected_u": 16.873333333333335,
+     "regret_norm": 0.010022468778536327,
+     "spent_units": 0.2969444444444445,
+     "raw_check_volume": 0.989814814814815,
+     "decisions": 2.399999999999999
+    },
+    "F_hist": {
+     "expected_u": 16.873333333333335,
+     "regret_norm": 0.010022468778536327,
+     "spent_units": 0.2969444444444445,
+     "raw_check_volume": 0.989814814814815,
+     "decisions": 2.399999999999999
+    },
+    "F_hist_plus": {
+     "expected_u": 16.873333333333335,
+     "regret_norm": 0.010022468778536327,
+     "spent_units": 0.2969444444444445,
+     "raw_check_volume": 0.989814814814815,
+     "decisions": 2.399999999999999
+    },
+    "always_full_recompute": {
+     "expected_u": 16.873333333333335,
+     "regret_norm": 0.010022468778536327,
+     "spent_units": 0.2969444444444445,
+     "raw_check_volume": 0.989814814814815,
+     "decisions": 2.399999999999999
+    },
+    "escalate_all": {
+     "expected_u": 0.0,
+     "regret_norm": 1.0,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "never_verify": {
+     "expected_u": -14.399999999999995,
+     "regret_norm": 1.8448642700270093,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "static_semantic": {
+     "expected_u": 16.873333333333335,
+     "regret_norm": 0.010022468778536327,
+     "spent_units": 0.2969444444444445,
+     "raw_check_volume": 0.989814814814815,
+     "decisions": 2.399999999999999
+    },
+    "guarded_read": {
+     "expected_u": 16.021245833333335,
+     "regret_norm": 0.06001540514566406,
+     "spent_units": 0.33244809027777783,
+     "raw_check_volume": 1.1081603009259262,
+     "decisions": 2.799999999999999
+    },
+    "q_only": {
+     "expected_u": 13.107717749924614,
+     "regret_norm": 0.2309553896867961,
+     "spent_units": 0.24020492394539658,
+     "raw_check_volume": 0.8006830798179886,
+     "decisions": 2.3816828152343645
+    },
+    "thompson": {
+     "expected_u": 16.873333333333335,
+     "regret_norm": 0.010022468778536327,
+     "spent_units": 0.2969444444444445,
+     "raw_check_volume": 0.989814814814815,
+     "decisions": 2.399999999999999
+    },
+    "linucb": {
+     "expected_u": 16.749667235352653,
+     "regret_norm": 0.017278098472809734,
+     "spent_units": 0.2749998834121106,
+     "raw_check_volume": 0.9166662780403688,
+     "decisions": 2.6696126925573735
+    }
+   }
+  },
+  {
+   "regime_id": "k1.00_L1",
+   "kappa": 1.0,
+   "L": 1,
+   "profiles": 24,
+   "expected_u_star": 9.475847519912474,
+   "arms": {
+    "bf": {
+     "expected_u": 8.529187000388948,
+     "regret_norm": 0.09990246440059539,
+     "spent_units": 0.4167180627763099,
+     "raw_check_volume": 0.4167180627763099,
+     "decisions": 2.8150808651150285
+    },
+    "F": {
+     "expected_u": 6.617111111111112,
+     "regret_norm": 0.3016866198821831,
+     "spent_units": 0.3764745370370371,
+     "raw_check_volume": 0.3764745370370371,
+     "decisions": 2.4521874999999995
+    },
+    "F_size": {
+     "expected_u": 6.617111111111112,
+     "regret_norm": 0.3016866198821831,
+     "spent_units": 0.3764745370370371,
+     "raw_check_volume": 0.3764745370370371,
+     "decisions": 2.4521874999999995
+    },
+    "F_hist": {
+     "expected_u": 8.529187000388948,
+     "regret_norm": 0.09990246440059539,
+     "spent_units": 0.4167180627763099,
+     "raw_check_volume": 0.4167180627763099,
+     "decisions": 2.8150808651150285
+    },
+    "F_hist_plus": {
+     "expected_u": 8.645334574632072,
+     "regret_norm": 0.08764524160347331,
+     "spent_units": 0.4007933469720589,
+     "raw_check_volume": 0.4007933469720589,
+     "decisions": 2.694112620476881
+    },
+    "always_full_recompute": {
+     "expected_u": 0.24444444444444435,
+     "regret_norm": 0.9742034214954631,
+     "spent_units": 0.9898148148148151,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "escalate_all": {
+     "expected_u": 0.0,
+     "regret_norm": 1.0,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "never_verify": {
+     "expected_u": 4.800000000000003,
+     "regret_norm": 0.4934490039109093,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "static_semantic": {
+     "expected_u": 0.24444444444444435,
+     "regret_norm": 0.9742034214954631,
+     "spent_units": 0.9898148148148151,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "guarded_read": {
+     "expected_u": -2.595847222222222,
+     "regret_norm": 1.2739435408566178,
+     "spent_units": 1.1081603009259262,
+     "raw_check_volume": 1.1081603009259262,
+     "decisions": 2.799999999999999
+    },
+    "q_only": {
+     "expected_u": 6.86583742218936,
+     "regret_norm": 0.2754381697508807,
+     "spent_units": 0.021550761256106207,
+     "raw_check_volume": 0.021550761256106207,
+     "decisions": 1.141059528221786
+    },
+    "thompson": {
+     "expected_u": 8.52585570068331,
+     "regret_norm": 0.10025402131396245,
+     "spent_units": 0.4168568669307116,
+     "raw_check_volume": 0.4168568669307116,
+     "decisions": 2.7967587167340127
+    },
+    "linucb": {
+     "expected_u": 8.522744725649524,
+     "regret_norm": 0.1005823270435818,
+     "spent_units": 0.39155125669816093,
+     "raw_check_volume": 0.39155125669816093,
+     "decisions": 2.5825115071301132
+    }
+   }
+  },
+  {
+   "regime_id": "k1.00_L3",
+   "kappa": 1.0,
+   "L": 3,
+   "profiles": 24,
+   "expected_u_star": 6.72725508127901,
+   "arms": {
+    "bf": {
+     "expected_u": 5.51577329568519,
+     "regret_norm": 0.18008560266507512,
+     "spent_units": 0.5468777446301994,
+     "raw_check_volume": 0.5468777446301994,
+     "decisions": 2.1775407740811006
+    },
+    "F": {
+     "expected_u": 0.24444444444444435,
+     "regret_norm": 0.9636635683512732,
+     "spent_units": 0.9898148148148151,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "F_size": {
+     "expected_u": 0.24444444444444435,
+     "regret_norm": 0.9636635683512732,
+     "spent_units": 0.9898148148148151,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "F_hist": {
+     "expected_u": 5.51577329568519,
+     "regret_norm": 0.18008560266507512,
+     "spent_units": 0.5468777446301994,
+     "raw_check_volume": 0.5468777446301994,
+     "decisions": 2.1775407740811006
+    },
+    "F_hist_plus": {
+     "expected_u": 5.626491883922872,
+     "regret_norm": 0.16362739097249399,
+     "spent_units": 0.5800649411856557,
+     "raw_check_volume": 0.5800649411856557,
+     "decisions": 2.3050943468882346
+    },
+    "always_full_recompute": {
+     "expected_u": 0.24444444444444435,
+     "regret_norm": 0.9636635683512732,
+     "spent_units": 0.9898148148148151,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "escalate_all": {
+     "expected_u": 0.0,
+     "regret_norm": 1.0,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "never_verify": {
+     "expected_u": -14.399999999999995,
+     "regret_norm": 3.140546155306811,
+     "spent_units": 0.0,
+     "raw_check_volume": 0.0,
+     "decisions": 1.0000000000000002
+    },
+    "static_semantic": {
+     "expected_u": 0.24444444444444435,
+     "regret_norm": 0.9636635683512732,
+     "spent_units": 0.9898148148148151,
+     "raw_check_volume": 0.9898148148148151,
+     "decisions": 2.399999999999999
+    },
+    "guarded_read": {
+     "expected_u": -2.595847222222222,
+     "regret_norm": 1.3858701938396976,
+     "spent_units": 1.1081603009259262,
+     "raw_check_volume": 1.1081603009259262,
+     "decisions": 2.799999999999999
+    },
+    "q_only": {
+     "expected_u": 4.122520772258622,
+     "regret_norm": 0.3871912507478706,
+     "spent_units": 0.03344396840856334,
+     "raw_check_volume": 0.03344396840856334,
+     "decisions": 1.2188903630525718
+    },
+    "thompson": {
+     "expected_u": 5.51577329568519,
+     "regret_norm": 0.18008560266507512,
+     "spent_units": 0.5468777446301994,
+     "raw_check_volume": 0.5468777446301994,
+     "decisions": 2.1775407740811006
+    },
+    "linucb": {
+     "expected_u": 5.360646537789954,
+     "regret_norm": 0.20314504608159312,
+     "spent_units": 0.44903564038635496,
+     "raw_check_volume": 0.44903564038635496,
+     "decisions": 2.225493234343517
+    }
+   }
+  }
+ ]
+}

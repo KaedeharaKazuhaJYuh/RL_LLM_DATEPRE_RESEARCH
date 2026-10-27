@@ -1,8 +1,8 @@
 # FaultDA-Bench 组件索引
 
-当前开发版本为 **0.5.65-dev**，离线验证代价诊断。新增精确 DP 上界与 C1–C5 最优性证书、按字节计价的离线环境、Gate 0 regime map 与 13 个 arm 的离线对照；主 regime 上廉价固定规则落在 ε 内，无学得策略胜过最佳固定规则，均如实保留。无新来源、无独立测试集、无 provider 请求，API 调用 0 次、花费 ¥0，HOLD，新独立人审尚未安排。
+当前开发版本为 **0.5.66-dev**，价格阶梯与 0.5.x 线收尾。补跑此前从未运行的 `dev_seen` × 8 regime × 13 arm：headroom 随价格从 `0.0006` 单调升到 `0.1801`，三个学得 arm 在唯一有差距的格子上一个点都没拿到；记录 `min_fixed_r` 的族选择约定缺口；实测最优固定规则价格弹性 −0.23 到 −0.38、Q-only −1.36 到 −1.47 且不换取 regret。无新来源、无独立测试集、无 provider 请求，API 调用 0 次、花费 ¥0。**本版之后 0.5.x 线关闭，不续号。**
 
-[当前报告](reports/RELEASE_0565.md) · [0.5.60 统计方法](docs/UNCERTAINTY_0560.md) · [版本内性能报告](reports/PERFORMANCE_0555.md) · [原版本报告](reports/RELEASE_0555.md) · [仓库首页](../README.md) · [复现指南](../docs/REPRODUCIBILITY.md) · [历史汇总](../docs/PROJECT_HISTORY.md)
+[本版报告](reports/RELEASE_0566.md) · [跨分支评估与方向重置](docs/CROSS_BRANCH_ASSESSMENT_2026_10_27.md) · [近邻查新审计](docs/NOVELTY_AUDIT_2026_10_27.md) · [0.5.65 报告](reports/RELEASE_0565.md) · [原版本报告](reports/RELEASE_0555.md) · [仓库首页](../README.md) · [复现指南](../docs/REPRODUCIBILITY.md) · [历史汇总](../docs/PROJECT_HISTORY.md)
 
 ## 实现分层
 
