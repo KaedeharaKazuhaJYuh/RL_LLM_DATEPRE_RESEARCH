@@ -16,7 +16,7 @@ FROZEN_WORKFLOW = ROOT / '.github/workflows/tests.yml'
 # These pins track the living registry, which gains entries every release, so
 # acceptance_v47 deliberately does not freeze this module: a hash here would
 # make registering the next release's tests fail the freeze audit.
-EXPECTED_TEST_MODULES = 77
+EXPECTED_TEST_MODULES = 78
 EXPECTED_EXCLUDED = 22
 EXPECTED_AUDITS = 6
 

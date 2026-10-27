@@ -114,7 +114,22 @@ print(r['seconds_cpu'])"
 
 约 608 秒单核。产物写入 `faultda_bench/reports/vericost566/`，不触碰任何冻结文件。
 
-**一处既有的红：** `tests/test_faultda_vericost565_release.py::test_every_listed_file_still_hashes_to_its_recorded_value` 在本分支 HEAD 上本来就失败，本轮之前即如此（在 `origin/agent-eval-reliability-reset` 的干净工作树上复现，同样 1 个失败）。`faultda_bench/protocols/acceptance_v48.json` 逐个钉住 717 个文件的哈希，其中 22 个在本分支开发过程中已被修改，包括 `.github/workflows/tests.yml`、`faultda_bench/vericost565/audit.py`、5 个 `tests/test_faultda_vericost565_*.py` 与 13 份历史文档。**本轮不改写该清单**：它是"0.5.65 被接受时是什么样"的证据，重盖章会抹掉漂移本身。正确的处置是把 0.5.65 的接受范围标注为"在本分支 HEAD 上已被取代"，由后续版本单独决定是否重新验收。
+### 6.1 一处自我指涉的冻结，以及我第一版把它判错了
+
+`acceptance_v48.json` 钉住 717 个文件。其中 7 个在 0.5.65 开发期间被改写，每条都在 `acceptance_v49_ci.json.superseded` 里带着原始字节（归档于 `ci565_original_bytes.json`）与修正后的摘要——也就是说，漂移是被**证明**过的，不是被豁免的。
+
+这 7 条里有一条是 `tests/test_faultda_vericost565_release.py` 自己：它既钉住自己，又断言"当前版本号在 README 第 6 行、CHANGELOG 首行"。版本号一改，这个文件必须改；一改，摘要就不匹配；于是必须更新它那条 `corrected_sha256`，同时不动归档原件。三步缺一，CI 就红。
+
+**我第一版缺了两步，而且把它判错了。** 我在报告里写"这处红在本分支 HEAD 上本来就失败、基线同样复现"——不成立。基线在 CI（Linux）上是全绿的；我用 Windows 本地复现当成了基线证据，混淆了两件不同的事：
+
+| 观察 | 在 Linux CI 上 | 在 Windows 本地 |
+|---|---|---|
+| 基线 `7f0d112` | 绿 | 1 个失败 |
+| 本轮首次推送 `c8cfb50` | 3 个失败 + 1 个错误 | 同上，外加 14 处 |
+
+Windows 那 14 处是检出时把文本文件写成 CRLF 造成的哈希漂移，与提交内容无关，基线同样如此；CI 是 Linux，看不到它们。**真正的红只有三处，全部由本轮引入**：(1) 上面这条摘要(`242825b5`)、(2) 新测试模块没登记进 `current_evidence_v1.json`(`77 → 78`)、(3) `ci565.audit()` 因 (1) 连带失败。
+
+处置：更新 `corrected_sha256`、把 `tests.test_faultda_vericost566_release` 登记为第 78 个模块、归档原件不动，并新增两项守卫钉住这两件事（`FrozenCatalogTests`）。**清单本身仍然不重写**——它不是重盖章，只是把 0.5.65 的接受范围标注为"在本分支 HEAD 上已被取代"。
 
 ## 7. 这条线到此为止
 
