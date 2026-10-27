@@ -1,3 +1,5 @@
+import hashlib
+import json
 import unittest
 
 from faultda_bench.semantic.tasks import REPO
@@ -116,6 +118,27 @@ class RecordTests(unittest.TestCase):
                 self.assertGreaterEqual(block['regret_norm'], 0.0, (row['regime_id'], name))
                 self.assertLess(block['regret_norm'], 10.0, (row['regime_id'], name))
         self.assertTrue(v566.DETAIL.exists())
+
+
+class FrozenCatalogTests(unittest.TestCase):
+    """A release bump edits one pinned file, so the drift table has to record it."""
+
+    PINNED = 'tests/test_faultda_vericost565_release.py'
+
+    def test_the_registry_lists_this_release_test_module(self):
+        path = REPO / 'faultda_bench/protocols/current_evidence_v1.json'
+        registry = json.loads(path.read_text(encoding='utf-8'))
+        self.assertIn('tests.test_faultda_vericost566_release', registry['test_modules'])
+
+    def test_the_pinned_release_test_carries_a_current_superseded_entry(self):
+        from faultda_bench import ci565
+        record = ci565.migration()['superseded'][self.PINNED]
+        actual = hashlib.sha256((REPO / self.PINNED).read_bytes()).hexdigest()
+        self.assertEqual(record['corrected_sha256'], actual)
+        catalog = json.loads((REPO / 'faultda_bench/protocols/acceptance_v48.json')
+                             .read_text(encoding='utf-8'))
+        # The archived original still has to be the frozen one, so the drift stays provable.
+        self.assertEqual(record['original_sha256'], catalog['files'][self.PINNED])
 
 
 if __name__ == '__main__':

@@ -35,8 +35,8 @@
     },
     "tests/test_faultda_vericost565_release.py": {
       "original_sha256": "5d0ab386004075d1ec2944fc0dfc10f1dd2b66a1c22e77cca7dd00456d7090d8",
-      "corrected_sha256": "fae69453bce2951af51ed9840fcf893437094900ccbb1bc7d5a863528d1f9c15",
-      "reason": "Use registry CI and the explicit historical-byte migration"
+      "corrected_sha256": "242825b50aa222196017d716743aa4b10531041e20c691a30fd1aa65c0db9e91",
+      "reason": "Use registry CI and the explicit historical-byte migration; the two current-release pins follow the header to line 0.5.66 and no longer read a fixed line number"
     },
     "tests/test_faultda_vericost565_witness.py": {
       "original_sha256": "f966caafc31308247b4b5832c9880082d21c9c70ccabb928197279669760d75b",

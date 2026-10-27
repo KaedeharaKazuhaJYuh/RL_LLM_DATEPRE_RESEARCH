@@ -8,7 +8,7 @@
 - 记录一处约定缺口：`witness.py` 的 `min_fixed_r` 只在 `F / F_size / F_hist` 三族上取最小，注册但被排除的 `F_hist_plus` 在每个 regime 上都不劣（`dev_seen k1.00_L3` 0.1636 vs 0.1801，回收 9.1%；`k0.30_L1` 回收 20.4%）。该族 66 单元对 24 profile、`dev_syn` 上 198 对 6，排除是合理的，但代码与报告都没有写这个约定。两种约定下结论一致，本版不改数、只写明。
 - 价格弹性实测：原始检查量随 κ 从 0.10 升到 1.00（×10）时，最优固定规则弹性 −0.23 到 −0.38，Q-only −1.36 到 −1.47（检查量降 23 倍），而 Q-only 的 regret 在两端完全相同（0.3864 对 0.3872）。本仓库此前关于"检查行为对价格不敏感"的预测被本版数据否证，方向相反，预测作废。
 - 新增[跨分支评估与方向重置](faultda_bench/docs/CROSS_BRANCH_ASSESSMENT_2026_10_27.md)与[近邻查新审计](faultda_bench/docs/NOVELTY_AUDIT_2026_10_27.md)：三个主要假设在 2026-06 至 2026-10-15 之间各被一篇 10 倍规模的论文做过；全部 3,000+ 次真实模型执行中，跑在别人维护的基准上的次数为 0。详见[本版报告](faultda_bench/reports/RELEASE_0566.md)。
-- 记录一处既有红：`acceptance_v48.json` 钉住的 717 个文件中有 22 个在本分支开发过程中已改动，`test_every_listed_file_still_hashes_to_its_recorded_value` 在本分支 HEAD 上本来就失败（干净工作树同结果）。本版不改写该清单，把 0.5.65 的接受范围标注为"在本分支 HEAD 上已被取代"。新增 `faultda_bench/vericost566/` 读取模块与 11 项守卫测试，只读已提交产物，不重算。
+- 冻结清单的自我指涉，以及一处判断错误：`acceptance_v48.json` 钉住 717 个文件，其中 7 个在 0.5.65 期间被改写，每条都在 `acceptance_v49_ci.json.superseded` 里带原始字节与修正摘要。其中一条是 `tests/test_faultda_vericost565_release.py` 自己——它既钉住自己，又断言当前版本号在 README 第 6 行，版本号一动必须改它，改了摘要就得更新 `corrected_sha256`。本版第一版漏了这一步，并把 CI 的红的成因写成"基线本来就红"；实际是基线在 CI 全绿、我用 Windows 本地的 CRLF 漂移当成了基线证据。真正的红是三处，全部由本版引入（该摘要、新测试模块未登记、`ci565.audit()` 连带失败），已更新摘要为 `242825b5`、把新模块登记为第 78 个、归档原件不动，并新增 `FrozenCatalogTests` 两项守卫。清单本身不重写，0.5.65 的接受范围标注为"在本分支 HEAD 上已被取代"。新增 `faultda_bench/vericost566/` 读取模块与 13 项守卫测试，只读已提交产物，不重算。
 
 # FaultDA-Bench 0.5.65-dev — 2026-10-21
 
