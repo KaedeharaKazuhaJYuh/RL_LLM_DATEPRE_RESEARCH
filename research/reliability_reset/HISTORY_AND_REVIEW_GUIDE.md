@@ -2,6 +2,37 @@
 
 These are dated development checkpoints and their original workflows. Current scope and results are in [README.md](README.md); frozen experiments include their runtime source snapshots in the published evidence packages.
 
+## Reliability Reset milestone index
+
+| Releases | Contribution | Record |
+| --- | --- | --- |
+| 1.0.0–1.0.15 | Offline evidence audit, independent CSV/SQLite reconstruction, source-preserving review export | [Audit checkpoint](RELEASE_115.md) |
+| 1.0.20 | Primary/helper/replacement attribution under shared budgets | [Programmatic controls](RELEASE_120.md) |
+| 1.0.25 | First live DeepSeek prefixes; one-check query-planning failure | [Live recovery credit](RELEASE_125.md) |
+| 1.0.30 | Budget/information guidance completed 12/12 versus original 0/12 | [Prompt intervention](RELEASE_130.md) |
+| 1.0.35 | Prompt components, public query planner, and 16 post-publication budget failures | [Mechanism study](RELEASE_135.md) |
+| 1.0.50 | Joint evidence validity and termination; ordinary-receipt completion 12/12 | [Joint study](RELEASE_150.md) |
+| 1.0.55 | Matched text, state tracking and tool projection; retained parameter and fault-activation failure | [Interface study](RELEASE_155.md) |
+| 1.0.60 | Direct-neighbor comparison, offline parameter contracts and orthogonal outcome audit | [Contract/audit release](RELEASE_160.md) |
+| 1.0.65 | Exact public-prefix, fault-exposure and frozen-rule claim screen | [Claim screen](RELEASE_165.md) |
+| 1.0.70 | Pinned AppWorld contract, scoring-chain and unresolved source-question audit | [Native-contract audit](RELEASE_170.md) |
+| 1.0.75 | Source-bound public helper reproduction and a content-multiplicity blind spot | [Helper diagnostic](RELEASE_175.md) |
+| 1.0.80 | One native start-state preflight; multiplicity candidate closed at this start | [Start-state preflight](RELEASE_180.md) |
+| 1.0.85 | Original native tools, complete score controls and isolated-process replay | [Current release](RELEASE_185.md) |
+
+The historical commands below include optional provider execution. Reproduction should use the original scope and a fresh output location.
+
+<details>
+<summary>Earlier records and native-control artifacts</summary>
+
+- [First release](RELEASE_100.md) · [Review corrections](RELEASE_110.md) · [Hash audit](HASH_AUDIT_175.md)
+- [Native control results](evidence/1.0.85/NATIVE_EXECUTION_185.json) · [Replay receipt](evidence/1.0.85/NATIVE_BOUND_REPLAY_185.json) · [Runtime lock](evidence/1.0.85/RUNTIME_LOCK_185.json)
+- [Encrypted original packet](evidence/1.0.85/native-controls-1.0.85.bundle) · [Terminal-file binding](evidence/closeout-2026-10-27/TERMINAL_BINDING.json)
+
+The packet does not include the base databases; its public encryption parameters do not provide confidentiality or independent authenticity.
+
+</details>
+
 ## Previous evidence and termination planning (1.0.35)
 
 The [factorial/method study](PLANNING_MECHANISM_135.md) completed 48 real DeepSeek trajectories and 12 shared rule controls with 155 received responses and no parse/provider errors. Combined guidance completed **6/6**, budget salience **3/6**, information inclusion **2/6**, context **0/6**. The new exact evidence-cover planner runs from public read-tool contracts, including opaque names; compared with schema-only, it added one net completion per interface but retained one canonical regression. See [results and failure locations](RELEASE_135.md).

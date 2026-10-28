@@ -1,8 +1,16 @@
 # Reliability Reset releases
 
+## Repository maintenance — 2026-10-28 (no version bump)
+
+The root and component READMEs now link to grouped historical and branch guides; the original reports and frozen evidence remain in place. The terminal-taxonomy command defaults to read-only output and refuses to overwrite an explicit output. A separate offline audit entry can write to a fresh `work/` subdirectory while leaving the frozen CI runner intact.
+
+Rechecked the DEV-SEEN cohort selection, 0.5.66 price comparisons and terminal classifications against the recorded data; corrected their scope without changing the historical figures. Added the direct CostBench and CAM-DF comparisons and a bounded, unexecuted external-pilot design. The Windows checkout rules now preserve the expected LF bytes of 14 historical files.
+
+Previous verification covered 84 focused checks in a clean Windows-style checkout, all 717 current or archived v48 paths, and byte-identical outputs from the default and fresh-directory offline audits. No new model calls or independent-task results were produced; the scientific status remains HOLD.
+
 ## Terminal taxonomy — 2026-10-27 (no version bump)
 
-Read all 60 committed 1.0.35 executions as one population for the first time. Every failure is a termination, not an action: 24 hit the one-check cap, 3 escalated, and there are 0 false completions, 0 wrong publications, 0 duplicate events, 0 forbidden effects across 60 runs. 22 of the 27 failures had already produced a correct record. The same 48 model runs score 43/48 (89.6%) on record correctness and 21/48 (43.8%) on safe completion, a gap of 22 runs that no single-cell report had added up. The cap is 1 in all 60 runs and was used in all 60, so this packet cannot identify over- or under-checking at all — it measures budget arithmetic. No new execution, no model call, ¥0. See [record](TERMINAL_TAXONOMY.md) and [artifact](evidence/terminal-taxonomy-2026-10-27/TERMINAL_TAXONOMY.json).
+Read all 60 committed 1.0.35 executions as one population for the first time: 24 hit the one-check cap, 3 escalated, and no false completions, wrong publications, duplicate events or forbidden effects were recorded. Twenty-two of the 27 incomplete runs had a correct terminal record. The 48 model runs score 43/48 (89.6%) on record correctness and 21/48 (43.8%) on safe completion. All 60 used the same one-check cap, so the effect of changing the cap is not identified. Whether individual termination decisions were reasonable requires their public evidence and policy context. No new execution, no model call, ¥0. See the [corrected record](TERMINAL_TAXONOMY.md) and [unchanged artifact](evidence/terminal-taxonomy-2026-10-27/TERMINAL_TAXONOMY.json).
 
 ## 1.0.85 — 2026-10-26
 

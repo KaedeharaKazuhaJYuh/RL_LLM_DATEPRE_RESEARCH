@@ -1,11 +1,16 @@
 import copy
+import io
 import json
 import re
 import tempfile
 import unittest
+from contextlib import redirect_stderr
 from pathlib import Path
+from types import SimpleNamespace
+from unittest.mock import patch
 
 from faultda_bench.current_evidence import VERSION, runner
+from faultda_bench.current_evidence import rerun
 
 ROOT = runner.ROOT
 WORKFLOW = ROOT / '.github/workflows/faultda-current.yml'
@@ -113,6 +118,83 @@ class RegistryLoadTests(unittest.TestCase):
     def test_rejects_artifact_paths_that_drift_from_the_audits(self):
         self._reject(lambda r: r['artifact']['paths'].pop(),
                      'artifact.paths differs from the audit outputs')
+
+
+class AuditOutputTests(unittest.TestCase):
+    def test_audits_can_write_to_a_fresh_subdirectory(self):
+        registry = {'audits': [
+            {'id': 'stats', 'module': 'example.stats',
+             'args': ['--output', 'work/stats.json'],
+             'outputs': ['work/stats.json', 'work/stats.md']},
+            {'id': 'check', 'module': 'example.check', 'args': ['--check'], 'outputs': []},
+        ]}
+        original = copy.deepcopy(registry)
+        calls = []
+
+        def run(command, cwd):
+            calls.append(command)
+            if '--output' in command:
+                output = Path(command[command.index('--output') + 1])
+                output.write_text('json', encoding='utf-8')
+                output.with_suffix('.md').write_text('markdown', encoding='utf-8')
+            return SimpleNamespace(returncode=0)
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            output_dir = root / 'work' / 'next-review'
+            with patch.object(runner, 'ROOT', root), patch.object(runner.subprocess, 'run', side_effect=run):
+                result = rerun.run_audits(output_dir, registry)
+            self.assertEqual(result, 0)
+            self.assertEqual((output_dir / 'stats.json').read_text(encoding='utf-8'), 'json')
+            self.assertEqual((output_dir / 'stats.md').read_text(encoding='utf-8'), 'markdown')
+            self.assertEqual(calls[0][-1], str(output_dir / 'stats.json'))
+            self.assertEqual(calls[1][-1], '--check')
+            self.assertEqual(registry, original)
+
+    def test_existing_output_stops_before_running_any_audit(self):
+        registry = {'audits': [{'id': 'example', 'module': 'example',
+                                'args': ['--output', 'work/result.json'],
+                                'outputs': ['work/result.json']}]}
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            output_dir = root / 'work' / 'review'
+            output_dir.mkdir(parents=True)
+            existing = output_dir / 'result.json'
+            existing.write_text('keep', encoding='utf-8')
+            errors = io.StringIO()
+            with patch.object(runner, 'ROOT', root), patch.object(runner.subprocess, 'run') as run:
+                with redirect_stderr(errors):
+                    result = rerun.run_audits(output_dir, registry)
+            self.assertEqual(result, 1)
+            self.assertEqual(existing.read_text(encoding='utf-8'), 'keep')
+            run.assert_not_called()
+            self.assertIn('--output-dir', errors.getvalue())
+            self.assertNotIn('remove work/', errors.getvalue())
+
+    def test_custom_output_directory_must_be_under_work(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            with patch.object(runner, 'ROOT', root):
+                with self.assertRaisesRegex(ValueError, 'work/'):
+                    rerun.run_audits(root / 'reports', {'audits': []})
+
+    def test_default_audit_arguments_remain_relative_to_the_repository(self):
+        registry = {'audits': [{'id': 'example', 'module': 'example',
+                                'args': ['--output', 'work/result.json'],
+                                'outputs': ['work/result.json']}]}
+        calls = []
+
+        def run(command, cwd):
+            calls.append(command)
+            (Path(cwd) / command[-1]).write_text('ok', encoding='utf-8')
+            return SimpleNamespace(returncode=0)
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            with patch.object(runner, 'ROOT', root), patch.object(runner.subprocess, 'run', side_effect=run):
+                self.assertEqual(runner.run_audits(registry), 0)
+            self.assertEqual(calls[0][-1], 'work/result.json')
+            self.assertEqual((root / 'work' / 'result.json').read_text(encoding='utf-8'), 'ok')
 
 
 class RegistryCompletenessTests(unittest.TestCase):

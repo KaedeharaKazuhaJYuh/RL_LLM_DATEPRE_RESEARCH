@@ -4,6 +4,21 @@
 *.json text eol=lf
 *.jsonl text eol=lf
 *.toml text eol=lf
+# Preserve the LF bytes required by the v48 evidence catalog on Windows checkouts.
+.github/workflows/tests.yml text eol=lf
+faultda_bench/docs/ROWDIAG_030_PROTOCOL.md text eol=lf
+faultda_bench/docs/SEMANTICS_0305_PROTOCOL.md text eol=lf
+faultda_bench/reports/REGRESSION_V5_REVIEW.md text eol=lf
+faultda_bench/reports/ROWDIAG_030_RELEASE.md text eol=lf
+faultda_bench/reports/ROWDIAG_030_REVIEW_GUIDE.md text eol=lf
+faultda_bench/reports/ROWDIAG_V19_INTAKE.md text eol=lf
+faultda_bench/reports/ROWDIAG_V20_INTAKE.md text eol=lf
+faultda_bench/reports/SCIENTIFIC_REVIEW_24.md text eol=lf
+faultda_bench/reports/SEMANTICS_0305_RELEASE.md text eol=lf
+faultda_bench/reports/SEMANTICS_0305_REVIEW_GUIDE.md text eol=lf
+faultda_bench/reports/human_review_round2_2026_10_11/review_record.md text eol=lf
+reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V1.md text eol=lf
+reports/V5_BETA_1_PREREGISTRATION.md text eol=lf
 # Frozen experiment evidence is hashed byte-for-byte; preserve its original
 # serialization on checkout rather than normalizing after the experiment.
 faultda_bench/protocols/semantic_tasks_v1.json -text whitespace=trailing-space,space-before-tab,cr-at-eol

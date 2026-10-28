@@ -47,17 +47,22 @@ class EvidenceTests(unittest.TestCase):
         self.assertEqual(ordered, sorted(ordered))
         self.assertGreater(v566.headroom_ratio(self.data), 250)
 
-    def test_no_learned_arm_closes_the_gap_at_the_only_regime_with_headroom(self):
+    def test_no_learned_arm_closes_the_gap_at_the_high_price_loss_three_regime(self):
         block = self.table['k1.00_L3']
         for arm in v566.LEARNED_ARMS:
             self.assertGreaterEqual(block[arm], block['bf'] - 1e-9, arm)
         self.assertAlmostEqual(block['thompson'], block['bf'], places=6)
 
+    def test_linucb_outperforms_the_three_family_baseline_in_one_development_regime(self):
+        block = self.table['k0.30_L1']
+        self.assertLess(block['linucb'], block['bf'])
+        self.assertLess(block['F_hist_plus'], block['linucb'])
+
     def test_the_richer_fixed_family_is_never_worse_than_the_reported_minimum(self):
         for regime, block in self.table.items():
             self.assertLessEqual(block['F_hist_plus'], block['bf'] + 1e-9, regime)
 
-    def test_the_learned_arm_is_four_times_more_price_elastic_without_gaining_utility(self):
+    def test_the_recorded_two_point_billed_volume_ratios(self):
         for loss in (1, 3):
             best = v566.elasticity('bf', loss, data=self.data)
             learned = v566.elasticity('q_only', loss, data=self.data)
@@ -78,7 +83,7 @@ class RecordTests(unittest.TestCase):
         self.assertIn('0.1801', text)
         self.assertIn('0.1636', text)
         self.assertIn('外部基准', text)
-        self.assertIn('作废', text)
+        self.assertIn('不能给出模型行为弹性结论', text)
 
     def test_the_changelog_entry_keeps_its_bullets_and_the_zero_spend(self):
         lines = CHANGELOG.read_text(encoding='utf-8').splitlines()

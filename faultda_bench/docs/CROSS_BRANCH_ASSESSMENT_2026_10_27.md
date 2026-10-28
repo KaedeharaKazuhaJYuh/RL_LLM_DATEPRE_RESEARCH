@@ -1,5 +1,7 @@
 # 跨分支评估与方向重置（2026-10-27）
 
+**2026-10-28 阅读提示：**本文件保留原评估的历史判断，不应将“只有一个价格研究空白”或“各阴性必然为零”视为已证实结论。价格化工具决策已有直接近邻，具体比较与修正见[近邻查新](NOVELTY_AUDIT_2026_10_27.md)和[0.5.66 说明性更正](../reports/RELEASE_0566.md)。
+
 范围：`main`、`faultda-bench`、`faultda-0.5.60-dev`、`faultda-0.5.65-dev`、`v2-verifiable-routing`、`v3-discriminative-benchmark`、`v4-protocol`、`v5`、`agent-eval-reliability-reset` 共 9 个分支。
 
 这是一份**决策记录**，不是文献综述。目的是回答三个问题：哪些资产还能用、哪些主张已经不能主张、下一个版本必须带什么。

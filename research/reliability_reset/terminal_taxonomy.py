@@ -132,12 +132,13 @@ def population(runs):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--output', type=Path, default=OUTPUT)
+    parser.add_argument('--output', type=Path)
     args = parser.parse_args()
     result = population(load())
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    with args.output.open('w', encoding='utf-8', newline='\n') as stream:
-        stream.write(json.dumps(result, ensure_ascii=False, indent=1, sort_keys=True) + '\n')
+    if args.output is not None:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        with args.output.open('x', encoding='utf-8', newline='\n') as stream:
+            stream.write(json.dumps(result, ensure_ascii=False, indent=1, sort_keys=True) + '\n')
     head = {key: value for key, value in result.items() if key != 'rows'}
     print(json.dumps(head, ensure_ascii=False, indent=1, sort_keys=True))
 
