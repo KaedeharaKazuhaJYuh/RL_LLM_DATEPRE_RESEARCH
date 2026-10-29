@@ -5,7 +5,7 @@
 | 类别 | 远程分支 | 快照提交 | 用途与状态 |
 | --- | --- | --- | --- |
 | 主线 | `main` | `a769ce7` | 包含 FaultDA-Bench 0.5.65 阶段，见 [PR #10](https://github.com/KaedeharaKazuhaJYuh/RL_LLM_DATEPRE_RESEARCH/pull/10)。 |
-| 当前研究 | `agent-eval-reliability-reset` | `9b1b11c` | Reliability Reset 与 0.5.66 的离线分析；后续工作尚未合入 `main`。 |
+| 当前研究 | `agent-eval-reliability-reset` | `ae9db0c` | Reliability Reset 与 0.5.66 的离线分析；后续工作尚未合入 `main`。该提交是本次研究版本开始前的已推送快照。 |
 | 历史检查点 | `faultda-bench` | `240e159` | FaultDA 阶段检查点，已进入 `main`。 |
 | 历史检查点 | `v2-verifiable-routing` | `cbc18c0` | V2 代码与研究背景，已进入 `main`。 |
 | 历史检查点 | `v3-discriminative-benchmark` | `1d75caf` | V3 代码与研究背景，已进入 `main`。 |

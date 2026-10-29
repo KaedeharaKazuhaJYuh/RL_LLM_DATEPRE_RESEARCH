@@ -1,5 +1,11 @@
 # Reliability Reset releases
 
+## 1.0.90 — 2026-10-28
+
+Reused the official AppWorld 0.1.0 GPT-4o/ReAct train and dev outputs, matched all 147 tasks to their original split lists, and separated task-level native scores from scenario-level scores. All 76 native-passing runs have unadjudicated side-effect status; the archives lack the specified provider log and do not establish actual token cost. Added an inventory for the two permitted development splits, explicit unknown-aware bounds and a focused test set. No new model call, independent safety labeling or cross-model estimate. Scientific HOLD remains. See [the results and experiment plan](EVALUATOR_GAP_190.md).
+
+Prepared and locally checked an encrypted four-scenario development review packet, with native scores and the mapping kept outside the reviewer package. This is a feasibility sample, not a completed review or prevalence study.
+
 ## Repository maintenance — 2026-10-28 (no version bump)
 
 The root and component READMEs now link to grouped historical and branch guides; the original reports and frozen evidence remain in place. The terminal-taxonomy command defaults to read-only output and refuses to overwrite an explicit output. A separate offline audit entry can write to a fresh `work/` subdirectory while leaving the frozen CI runner intact.
