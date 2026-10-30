@@ -1,5 +1,9 @@
 # Reliability Reset releases
 
+## 1.0.95 — 2026-10-30
+
+Ran a bounded AppWorld 0.2.0 train-task interface pilot with DeepSeek Flash and the locally available DeepSeek-R1-Distill-Qwen 1.5B on CUDA, plus a no-action weak control. Both models failed to complete the task within eight turns; the local model exhausted all eight output limits. Captured protected request/response and usage records, corrected AppWorld's frozen process clock for real timestamps, and reproduced all three native scores in fresh processes. Intel NPU graph execution succeeded; the prior INT4 model files were not readable, so no NPU LLM result is claimed. One task and two related checkpoints are not a cross-model study; safety labels and the strong baseline remain pending. See [the pilot](APPWORLD_PILOT_195.md).
+
 ## 1.0.90 — 2026-10-28
 
 Reused the official AppWorld 0.1.0 GPT-4o/ReAct train and dev outputs, matched all 147 tasks to their original split lists, and separated task-level native scores from scenario-level scores. All 76 native-passing runs have unadjudicated side-effect status; the archives lack the specified provider log and do not establish actual token cost. Added an inventory for the two permitted development splits, explicit unknown-aware bounds and a focused test set. No new model call, independent safety labeling or cross-model estimate. Scientific HOLD remains. See [the results and experiment plan](EVALUATOR_GAP_190.md).

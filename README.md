@@ -4,7 +4,7 @@
 
 当前研究主张仍处于 **HOLD**：已有工程结果和开发实验，尚未证明跨任务稳定的独立科研增量。
 
-当前研究版本：`1.0.90` · 当前研究线：`agent-eval-reliability-reset` · 历史基准：`0.5.66-dev`。
+当前研究版本：`1.0.95` · 当前研究线：`agent-eval-reliability-reset` · 历史基准：`0.5.66-dev`。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
 ## 项目在做什么
@@ -15,7 +15,7 @@
 
 - **可靠性评测：**在单一开发环境中，终态正确与符合协议地安全完成可能不同；已有数据不足以推断跨任务发生率。[终止分类](research/reliability_reset/TERMINAL_TAXONOMY.md)
 - **验证成本：**0.5.66 的离线仿真揭示价格和规则族会影响比较结果，但学习策略没有在最高价格设置中胜过三族固定规则；某一其他开发设置存在小幅例外。[0.5.66 报告](faultda_bench/reports/RELEASE_0566.md) · [0.5.65 报告](faultda_bench/reports/RELEASE_0565.md)
-- **外部基准：**已复核 AppWorld 官方 GPT-4o 历史训练／开发轨迹及其原评分；独立副作用标签、多模型验证和完整计费仍待完成。此前一条程序控制中的额外副作用被完整评分识别。[当前研究与计划](research/reliability_reset/EVALUATOR_GAP_190.md)
+- **外部基准：**已复核 AppWorld 官方 GPT-4o 历史轨迹，并完成 DeepSeek API 与本机 CUDA 小模型的单任务接口试跑；两者均未完成任务。独立副作用标签、强规则和跨任务验证仍待完成。[试跑结果](research/reliability_reset/APPWORLD_PILOT_195.md)
 - **模型训练：**历史实验尚未建立稳定的 RL 优势；不同任务、预算和评分不能合并成一个排行榜。[项目历史](docs/PROJECT_HISTORY.md)
 
 ## 从哪里开始

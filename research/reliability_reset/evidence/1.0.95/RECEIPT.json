@@ -1,0 +1,9 @@
+{
+  "bundle": "research/reliability_reset/evidence/1.0.95/appworld-pilot-1.0.95.bundle",
+  "bytes": 33350,
+  "sha256": "370e9c1d6aa9e8e25d1b344f836fe44fc140d4694b09686685696140591c801a",
+  "files_verified": 65,
+  "exact_configured_provider_key_scan": "no_match",
+  "format": "AppWorld encrypted bundle; public parameters are not confidentiality",
+  "source_data_version": "0.2.0"
+}
