@@ -1,0 +1,15 @@
+{
+  "version": "1.0.35",
+  "date": "2026-10-24",
+  "archive": "deepseek-planning-mechanism-1.0.35.zip",
+  "sha256": "2d1a3476c3223a8b51f13677fa4ddb8758ec177cbf610c0f603168dcaf9f8231",
+  "bytes": 403784,
+  "inventory_files": 336,
+  "model_trajectories": 48,
+  "backend_rule_controls": 12,
+  "actual_requests": 155,
+  "received_responses": 155,
+  "credential_scan": "No configured credential, request Authorization headers or env files persisted. Exact key checked in all files and decompressed archive entries.",
+  "scope": "One historical environment. 01 and 03 instances were already used in development. No weight updates.",
+  "posthoc_analysis": "FAILURE_LOCATIONS.json is descriptive; the original complete scoring remains unchanged."
+}

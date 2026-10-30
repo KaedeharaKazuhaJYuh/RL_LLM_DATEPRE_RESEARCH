@@ -1,0 +1,162 @@
+{
+  "version": "1.0.10",
+  "date": "2026-10-23",
+  "scientific_status": "HOLD",
+  "live_or_paid_runs": "NO-GO",
+  "api_calls": 0,
+  "model_runs": 0,
+  "review": {
+    "type": "external_agent_technical_feedback",
+    "original_files_preserved": true,
+    "human_confirmation": false,
+    "human_scientific_review": "pending",
+    "receipt_sha256": "ff620a6d508f4c3abb6c07200d21fb0d74a261c1d4bf47edd624028f9bb2a19b",
+    "normalization_blinding_validation": "pending"
+  },
+  "checks": {
+    "selected_regression_tests": 71,
+    "skips": 0,
+    "failures": 0,
+    "seconds": 11.193,
+    "scope": "reset core/adapter, existing semantic environment and release tests; no fresh full-repository run",
+    "test_log_sha256": "a429d2055a1717f4b947419f535890bebb60749b818d2045aa198c223aa1d50d",
+    "release_metadata": "passed",
+    "compileall": "passed",
+    "diff_whitespace": "passed"
+  },
+  "engineering_controls": {
+    "executions": 24,
+    "family_count": 1,
+    "independent_sample_size": null,
+    "unique_behavior_signatures": 11,
+    "behavior_groups": [
+      [
+        "healthy--public_rule",
+        "healthy--scripted_stress",
+        "publication_intervention--public_rule",
+        "duplicate_intervention--public_rule",
+        "version_intervention--public_rule",
+        "incorrect_final_intervention--public_rule",
+        "timeout_after_commit--public_rule",
+        "timeout_after_commit--scripted_stress"
+      ],
+      [
+        "environment_error_repaired--public_rule",
+        "environment_error_repaired--scripted_stress"
+      ],
+      [
+        "publication_intervention--scripted_stress"
+      ],
+      [
+        "duplicate_intervention--scripted_stress"
+      ],
+      [
+        "version_intervention--scripted_stress"
+      ],
+      [
+        "incorrect_final_intervention--scripted_stress"
+      ],
+      [
+        "missing_value_boundary--public_rule",
+        "missing_value_boundary--scripted_stress"
+      ],
+      [
+        "timeout_before_commit--public_rule",
+        "timeout_before_commit--scripted_stress"
+      ],
+      [
+        "repair_ack_lost--public_rule",
+        "repair_ack_lost--scripted_stress"
+      ],
+      [
+        "public_state_unknown--public_rule",
+        "public_state_unknown--scripted_stress"
+      ],
+      [
+        "capture_incomplete--public_rule",
+        "capture_incomplete--scripted_stress"
+      ]
+    ],
+    "outcome_successes": 21,
+    "violation_agreement_with_legacy": {
+      "true_positive": 4,
+      "true_negative": 18,
+      "false_positive": 0,
+      "false_negative": 0,
+      "unknown": 2
+    },
+    "always_negative_agreement_on_known": 0.8181818181818182,
+    "terminal_comparable": 22,
+    "terminal_agree": 22,
+    "terminal_unknown": 2,
+    "snapshot_comparable": 24,
+    "snapshot_agree": 24,
+    "snapshot_unknown": 0,
+    "snapshot_labels": {
+      "True": 23,
+      "False": 1
+    },
+    "positive_rule_execution_counts": {
+      "incorrect_publication": 3,
+      "duplicate_active_reports": 1
+    },
+    "note": "Legacy-relative engineering agreement on designed controls; no independent accuracy, power or generalization estimate."
+  },
+  "output": {
+    "root": "work/reliability-reset-1.0.10/final",
+    "bundle_sha256": "5fb440371a9857663cdc448350156f1c0547f455f1507fbc573dfad6d8ffc6b8",
+    "audit_sha256": "daa0524da3078d24e2b275757f1ab709aa8c4f925e9a0a9d16738c380c4a94d4",
+    "archives": {
+      "first-pass": {
+        "path": "work/reliability-reset-1.0.10/final/first-pass-review-1.0.10.zip",
+        "sha256": "364ab904bf34d39412ccd41c827ba44d8f4ca47d0227f26cc95a3b00315b711e",
+        "bytes": 266270
+      },
+      "phase-two": {
+        "path": "work/reliability-reset-1.0.10/final/phase-two-evidence-1.0.10.zip",
+        "sha256": "adf5bf32fff3adcca9d2f1f8386398d3dff70a70eb2d2b1c9dfe9a3e601125ea",
+        "bytes": 301157
+      }
+    },
+    "private_mapping": "audit/private-first-pass-map.json (analyst only, excluded from archives)"
+  },
+  "source_sha256": {
+    "research/reliability_reset/__init__.py": "b183e6debc4c95bec346e75ec3d2da0e05f53c4c485672fdcc0938d8f81908b5",
+    "research/reliability_reset/audit.py": "c396bbe985bdfc4a897026cd4e043ea0569241143b1435ed9aa66a1fc364d107",
+    "research/reliability_reset/controls.py": "f19156aec651114596f61eacf2b3a6dea3f002a9533ded468b7a96f2724d868b",
+    "research/reliability_reset/review_views.py": "939da391219dd4253a613d49f2b393d695c2172a50a76e055ff93fa35fa8c5fa",
+    "research/reliability_reset/semantic_adapter.py": "82531bf3e787986f3d6e3673dfe5bade1ec983533ce99f38c873f1f7aca848ea",
+    "research/reliability_reset/semantic_facts.py": "038919a7e0e661da1a5e6fb22bb2971052fb0b536d7602c8a3b32c60df22c168",
+    "tests/test_reliability_reset.py": "94afe9f972ca906d5a6ab197cb7fbbffbcf9dede89b85206a52d75958f116065",
+    "tests/test_reliability_reset_adapter.py": "879b4a8f4072afb7eaf4a57bfa39bcf77e096b1ba07702046ee96e4483eec812"
+  },
+  "systems_sources": [
+    {
+      "url": "https://www.cs.cmu.edu/~wing/publications/HerlihyWing90.pdf",
+      "scope": "abstract and introduction"
+    },
+    {
+      "url": "https://research.ibm.com/publications/aries-a-transaction-recovery-method-supporting-fine-granularity-locking-and-partial-rollbacks-using-write-ahead-logging",
+      "scope": "official publication metadata/abstract"
+    },
+    {
+      "url": "https://www.sqlite.org/atomiccommit.html",
+      "scope": "introduction and section 8 crash testing"
+    },
+    {
+      "url": "https://www.sqlite.org/wal.html",
+      "scope": "overview and operation description"
+    },
+    {
+      "url": "https://github.com/anishathalye/porcupine",
+      "scope": "README executable model/history interface; tool not run"
+    }
+  ],
+  "limits": [
+    "One task lineage with explicitly synthetic engineering derivatives, repeated program paths and no independent sample-size claim.",
+    "Agreement is relative to the legacy oracle, not independent accuracy; no inferred generalization.",
+    "Runtime original grades, physical snapshot evidence and captured termination are separate.",
+    "No hardware-crash, concurrent-history or distributed-correctness experiment.",
+    "Internal checks and hashes do not establish authenticity or human/scientific approval."
+  ]
+}

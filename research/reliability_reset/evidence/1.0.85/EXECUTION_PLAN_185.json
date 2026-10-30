@@ -1,0 +1,22 @@
+{
+  "version": "1.0.85",
+  "date": "2026-10-26",
+  "task_id": "82e2fac_1",
+  "split": "train",
+  "upstream_commit": "42b5bcf3cd334fee33f0c37c02070a9f5807add5",
+  "question": "Can a legal same-owner playlist title exchange evade the original full evaluator while keeping original task success semantics?",
+  "arms": [
+    "Unmodified native reference solution / full score",
+    "Legal playlist title exchange followed by the same original reference solution / full score"
+  ],
+  "source_precheck": "Distinct immutable anchors make full-content permutation unsupported by this proposed rename sequence. Full-score control will test detection rather than assert a benchmark defect.",
+  "budget": {
+    "model_api_calls": 0,
+    "new_tasks": 0,
+    "native_task_variants": 1,
+    "maximum_native_arm_executions": 2,
+    "additional_data_or_official_outputs_downloads": 0
+  },
+  "runtime": "Isolated local Python 3.12 environment, pinned public source and existing encrypted app/data caches.",
+  "protected_material": "Native source, task text, parameters, response bodies and SQLite snapshots stay under ignored work; encrypted archive if retained with public receipt."
+}

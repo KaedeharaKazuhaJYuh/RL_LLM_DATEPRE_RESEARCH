@@ -1,80 +1,40 @@
 # FaultDA-Bench
 
-**可验证数据分析 Agent 的工程诊断 Benchmark。**
+**面向数据分析 Agent 的可靠性评测与研究基础设施。**
 
-FaultDA-Bench 研究：当工具执行状态不明确、分析产物可能错误、检查证据需要成本时，Agent 能否获取必要信息，完成正确修复，并避免重复副作用。当前是可运行的开发基准，尚未完成独立最终测试。
+当前研究主张仍处于 **HOLD**：已有工程结果和开发实验，尚未证明跨任务稳定的独立科研增量。
 
-当前基准版本：`0.5.65-dev`（离线验证代价诊断） · 研究分支：`faultda-bench` · 继承代码基线：`V5.0.15-beta.2`。
+当前研究版本：`1.1.0` · 当前研究线：`agent-eval-reliability-reset` · 历史基准：`0.5.66-dev`。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
-[复现指南](docs/REPRODUCIBILITY.md) · [研究协议](reports/FAULTDA_BENCH_RESEARCH_PROTOCOL_V2.md) · [版本报告](faultda_bench/reports/RELEASE_0565.md) · [English overview](docs/en/FAULTDA_BENCH_OVERVIEW.md) · [版本内性能优化](faultda_bench/reports/PERFORMANCE_0555.md) · [历史研究汇总](docs/PROJECT_HISTORY.md)
+## 项目在做什么
 
-## 研究问题
+项目研究 Agent 在分析数据、使用工具和处理故障时的可靠性。环境保留工具动作、持久状态与副作用，并区分最终结果正确、安全完成、升级及状态未知。历史 V4/V5 也包含 DeepSeek 训练对照、可选 C++ 计算内核和 Go 实验调度。
 
-- **提交与正确性：** 工具已提交，是否意味着产物符合分析契约？
-- **证据与决策：** Agent 能否合理检查、修复、结束，或在信息不足时升级？
-- **归因与泛化：** 失败来自分析、故障恢复还是接口说明？简单规则与学习策略各能解决什么？
+## 目前的结论
 
-相关工作已覆盖多种通用恢复机制。本项目将其作为对照；当前四格设计可被廉价统一重算绕过，已停止作为主实验。问题 R 保留为同工具权限/预算下的正确终止诊断；本轮暂停当前机制路线，保留工程定位。见[与前作的具体对照及否决条件](faultda_bench/docs/R_COMPARISON_0520.md)。
+- **可靠性评测：**在单一开发环境中，终态正确与符合协议地安全完成可能不同；已有数据不足以推断跨任务发生率。[终止分类](research/reliability_reset/TERMINAL_TAXONOMY.md)
+- **验证成本：**0.5.66 的离线仿真揭示价格和规则族会影响比较结果，但学习策略没有在最高价格设置中胜过三族固定规则；某一其他开发设置存在小幅例外。[0.5.66 报告](faultda_bench/reports/RELEASE_0566.md) · [0.5.65 报告](faultda_bench/reports/RELEASE_0565.md)
+- **外部基准：**已复核 AppWorld 官方 GPT-4o 历史轨迹，并在同一已见任务上试跑四个模型检查点，均未完成任务；其中两个检查点有共同家族来源。独立副作用标签、强规则和跨任务验证仍待完成。[试跑结果](research/reliability_reset/APPWORLD_PILOT_110.md)
+- **模型训练：**历史实验尚未建立稳定的 RL 优势；不同任务、预算和评分不能合并成一个排行榜。[项目历史](docs/PROJECT_HISTORY.md)
 
-## 已实现
+## 从哪里开始
 
-- 三份历史公开数据上的 **24 个开发任务**，分组与版本分析在每个来源上交叉设置；另保留时间窗口诊断。
-- CSV 实际计算、SQLite 持久报告、暂存更正、版本比较后替换、幂等请求与历史副作用审计。
-- 提交确认丢失、语义扰动，以及不同证据可用性和检查预算。
-- 独立 Decimal 参考验证、程序基线与发布守卫、DeepSeek 接口及可重放轨迹。
+| 目的 | 入口 |
+| --- | --- |
+| 查看当前研究、评估回应和试点 | [Reliability Reset](research/reliability_reset/README.md) |
+| 查看基准组件、协议和证据 | [FaultDA 组件索引](faultda_bench/README.md) |
+| 查找任务、数据、测试及早期报告 | [任务](tasks/) · [数据](data/) · [测试](tests/) · [历史报告](reports/) |
+| 离线复核与运行历史实验 | [复现指南](docs/REPRODUCIBILITY.md) |
+| 查找分支、文件与历史阶段 | [分支与文档导航](docs/BRANCHES.md) · [项目历史](docs/PROJECT_HISTORY.md) |
+| 查看版本记录 | [仓库更新记录](CHANGELOG.md) · [研究线更新记录](research/reliability_reset/CHANGELOG.md) |
 
-执行流程：**公开任务契约 → Agent 选择工具 → 状态与产物更新 → 私有独立验证 → 分条件汇总**。验证答案与故障标签不进入 Agent 的工具观察。
-
-## 当前证据
-
-| 范围 | 已有结果 | 解释边界 |
-| --- | --- | --- |
-| 注册/评分批处理优化 | 本机144案例、3组成对测量：6.372秒→0.898秒，输入与评分一致 | 不改变模型能力；CPU/整机能耗未测，不能报告节电比例 |
-| 显式单步终止诊断 | 72 个旧观察 × 两种信息条件；完整规则及总停/总升级程序负对照 | 只有一个已见开发簇；未运行新模型，不是完整恢复成绩 |
-| 自洽工具环境 | 24 个程序状态、72 条读取/终止对照，保留时区等价与隐藏历史对照 | 同一历史任务/数据簇；程序动作不是 LLM 工具成绩 |
-| 真实回执事实诊断 | 24 次真实请求；旧 lookup 主分数 0/12 与 6/12，模糊句按 last-publish 备选参照可匹配 12/12 | 12 对既有意见已据用户转达审阅者同意正式登记；歧义与异议保留，旧分数不变 |
-| 责任与来源 | 72 条公开视图可逆迁移；actor 范围与 scripted/unknown 生成来源分开 | active_actor 不等于模型生成；没有新模型实验 |
-| 终止指标资格 | 72 条既有程序对照：24 安全完成、24 历史违规升级、24 不确定升级 | 单个历史簇的事后资格核对；未来主分母须独立审查、各臂共用 |
-| 历史跨来源开发 | 三个来源、24 题及多种强程序/学习对照；分条件结果归入历史汇总 | 既有签字仅覆盖已确认范围，未确立额外机制或稳定外部 RL 优势 |
-
-当前积累是可执行环境、证据重放与有效性控制。张雨田的 12 对指代意见已据用户明确转达的同意正式登记，四项设计 revise 保留。结构化接口分开责任、来源与回执目标；新增公开请求解析和严格输入包绑定，拒绝额外臂字段、未核实辅助摘要及超出当前快照的预算。人类接口有效性审查仍待完成；声明一致不等于执行或实际成本相同。已落实已见来源准入拦截，旧 holdout 的后续开发复用不能成为新独立测试，也不能反推早期训练泄漏。科学 HOLD；本轮没有新增模型实验、RL 或跨任务提升。详见[本版报告](faultda_bench/reports/RELEASE_0555.md)与[历史证据](docs/PROJECT_HISTORY.md)。
-
-## 快速复核
-
-从完整仓库根目录运行，需要 Python 3.11+。以下步骤不需要 GPU 或 API 密钥：
+## 当前离线检查
 
 ```sh
-python -m pip install -e .
-python -m unittest tests.test_faultda_termination555_runtime tests.test_faultda_termination555 -v
-python -m faultda_bench.termination555.performance_audit
+python -m scripts.release_version --check
+python -m research.reliability_reset.terminal_taxonomy
+python -m faultda_bench.ci565
 ```
 
-优化入口核对660份冻结文件与新增优化清单，在显式批次中重放相同案例、请求与评分；原慢速入口保留为参考；加上 `--historical` 可重放旧历史语义验收。保持科学 HOLD。完整仓库测试与复核包子集分别计数；复核包可直接按[包内入口](faultda_bench/docs/FOCUSED_0530_REVIEW.md)运行。哈希只校验一致性，不认证供应商或历史真实性。旧版入口保留在[复现指南](docs/REPRODUCIBILITY.md)，新输出不得覆盖冻结记录。
-
-## 项目演进
-
-| 阶段 | 保留下来的主要积累 |
-| --- | --- |
-| V2–V3 | 真实工具、独立验证、多步文件状态、故障注入与选择性恢复 |
-| V4–V5 | DeepSeek 微调与 RL 对照、GPU/NPU 路径、可选 C++ 内核和 Go 单机实验协调 |
-| FaultDA P0 → 0.2.0-dev | 持久副作用、联合扰动、语义修复及基准原型 |
-| FaultDA 后续开发版 | 字段契约复核、来源×意图交叉，以及证据抽取和条件恢复诊断 |
-
-各阶段评测协议不同，历史分数不作横向排行榜。早期局部 RL 增益经过更强监督对照后未形成稳定优势；详细结论及修正记录归入[历史研究汇总](docs/PROJECT_HISTORY.md)，不在首页逐版堆叠。
-
-## 代码与文档入口
-
-| 路径 | 内容 |
-| --- | --- |
-| [faultda_bench/](faultda_bench/README.md) | 当前基准组件、协议和记录索引 |
-| [tests/](tests/) | 状态、评分、故障和复现检查 |
-| [agent/](agent/)、[experiments/](experiments/)、[research/](research/) | 继承的工具、模型训练和研究实现 |
-| [native/](native/)、[orchestrator/](orchestrator/) | 可选原生计算与单机实验协调 |
-| [reports/](reports/) | 历史实验报告与原始证据 |
-
-## 当前限制与下一步
-
-目前仅使用三个已见来源，属于受控参数绑定；合成维表重复和版本修订不等于真实生产事件。工具 JSON 接口不是任意不可信代码的 OS 安全沙箱。数据引用、许可与派生方式见[任务清单](faultda_bench/protocols/cross_source_v2.json)。
-
-现有 [24 题独立人工审阅](faultda_bench/reports/SCIENTIFIC_REVIEW_24.md)、六条历史专项和最新 37 组技术复审仅覆盖各自明确范围。最终指代登记、结构化责任/来源接口见[本轮指南](faultda_bench/docs/FOCUSED_0530_REVIEW.md)。当前 R 没有可证明的非平凡增量，暂停机制路线，不继续扩格。此前发现单步评测截断不能当作完整恢复失败；已实现显式一步终止诊断；本轮补齐案例/信息条件/完整请求与评分真值的注册绑定，旧成绩不重打分，也不声称认证实际供应商输入。下一步审查终止设计与具体增量；草案不批准新实跑。第二模型暂缓；当前无新增 API 批准，不宣称超出强基线的模型/RL 发现。
+这些命令检查版本、终止分类和冻结证据，不能单独证明模型能力或独立科研结论。完整测试及历史命令见[复现指南](docs/REPRODUCIBILITY.md)。

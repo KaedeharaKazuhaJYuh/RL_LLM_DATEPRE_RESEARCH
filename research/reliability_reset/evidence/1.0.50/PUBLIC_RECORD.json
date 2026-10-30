@@ -1,0 +1,16 @@
+{
+  "version": "1.0.50",
+  "date": "2026-10-24",
+  "archive": "deepseek-joint-control-1.0.50.zip",
+  "sha256": "f40cbb986ef34a2dd25c00eeccc61714f3373d5427ff65c14a56ed004882f62f",
+  "bytes": 456749,
+  "inventory_files": 319,
+  "model_trajectories": 54,
+  "shared_backend_controls": 9,
+  "actual_requests": 181,
+  "received_responses": 181,
+  "credential_scan": "Exact configured key absent from all files and decompressed entries. No env files or request Authorization headers included.",
+  "score_migration": "Original scores preserved; additive completion-evidence contract shared by every arm. No cross-version pooling.",
+  "scope": "Three historical development instances, one environment; no weight training.",
+  "negative_control": "Joint arm triggered six lost repair receipts: one escalation, five budget failures; no unsupported stop."
+}

@@ -1,0 +1,21 @@
+{
+  "version": "1.0.30",
+  "date": "2026-10-24",
+  "archive": "deepseek-tool-planning-1.0.30.zip",
+  "sha256": "ee855a610efbe50464ddcdffd49610054052559fa42ddbbf382c01c2062561f8",
+  "bytes": 275264,
+  "inventory_files": 261,
+  "model_trajectories": 36,
+  "rule_controls": 12,
+  "actual_requests": 87,
+  "credential_scan": "No configured key, Authorization header or env file persisted. Exact configured credential scan performed before publication.",
+  "scope": "One historical environment, six development instances; independent-task and trained-policy claims not established.",
+  "contents": [
+    "frozen protocol and prompts",
+    "public requests and received response bodies",
+    "48 executions with CSV, SQLite and full scoring",
+    "12 separate public-information preflights",
+    "offline replay check record",
+    "source snapshots and task lineage"
+  ]
+}

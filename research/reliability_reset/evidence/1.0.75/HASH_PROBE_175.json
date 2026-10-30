@@ -1,0 +1,291 @@
+{
+  "version": "1.0.75",
+  "date": "2026-10-26",
+  "upstream_commit": "42b5bcf3cd334fee33f0c37c02070a9f5807add5",
+  "kind": "Isolated synthetic software reproduction of unchanged public helper functions",
+  "hash_omits_id_source_fact": true,
+  "adapters": [
+    "Synthetic in-memory rows, no ORM or database",
+    "Opaque content labels, not actual xxhash values",
+    "Canonical Item naming only",
+    "Different mutation counters force the detailed comparison"
+  ],
+  "cases": [
+    {
+      "case": "unchanged_content",
+      "start": [
+        [
+          1,
+          "a"
+        ],
+        [
+          2,
+          "b"
+        ]
+      ],
+      "end": [
+        [
+          1,
+          "a"
+        ],
+        [
+          2,
+          "b"
+        ]
+      ],
+      "native_helper_changed_models": [],
+      "native_helper_added_ids": [],
+      "native_helper_updated_ids": [],
+      "native_helper_removed_ids": [],
+      "reference_content_multiset_equal": true,
+      "reference_identity_map_equal": true,
+      "helper_misses_content_multiset_change": false
+    },
+    {
+      "case": "ordinary_content_update",
+      "start": [
+        [
+          1,
+          "a"
+        ],
+        [
+          2,
+          "b"
+        ]
+      ],
+      "end": [
+        [
+          1,
+          "a"
+        ],
+        [
+          2,
+          "c"
+        ]
+      ],
+      "native_helper_changed_models": [
+        "probe.Item"
+      ],
+      "native_helper_added_ids": [],
+      "native_helper_updated_ids": [
+        2
+      ],
+      "native_helper_removed_ids": [],
+      "reference_content_multiset_equal": false,
+      "reference_identity_map_equal": false,
+      "helper_misses_content_multiset_change": false
+    },
+    {
+      "case": "ordinary_addition",
+      "start": [
+        [
+          1,
+          "a"
+        ],
+        [
+          2,
+          "b"
+        ]
+      ],
+      "end": [
+        [
+          1,
+          "a"
+        ],
+        [
+          2,
+          "b"
+        ],
+        [
+          3,
+          "c"
+        ]
+      ],
+      "native_helper_changed_models": [
+        "probe.Item"
+      ],
+      "native_helper_added_ids": [
+        3
+      ],
+      "native_helper_updated_ids": [],
+      "native_helper_removed_ids": [],
+      "reference_content_multiset_equal": false,
+      "reference_identity_map_equal": false,
+      "helper_misses_content_multiset_change": false
+    },
+    {
+      "case": "ordinary_removal",
+      "start": [
+        [
+          1,
+          "a"
+        ],
+        [
+          2,
+          "b"
+        ]
+      ],
+      "end": [
+        [
+          1,
+          "a"
+        ]
+      ],
+      "native_helper_changed_models": [
+        "probe.Item"
+      ],
+      "native_helper_added_ids": [],
+      "native_helper_updated_ids": [],
+      "native_helper_removed_ids": [
+        2
+      ],
+      "reference_content_multiset_equal": false,
+      "reference_identity_map_equal": false,
+      "helper_misses_content_multiset_change": false
+    },
+    {
+      "case": "same_content_recreated_id",
+      "start": [
+        [
+          1,
+          "a"
+        ],
+        [
+          2,
+          "b"
+        ]
+      ],
+      "end": [
+        [
+          1,
+          "a"
+        ],
+        [
+          3,
+          "b"
+        ]
+      ],
+      "native_helper_changed_models": [],
+      "native_helper_added_ids": [],
+      "native_helper_updated_ids": [],
+      "native_helper_removed_ids": [],
+      "reference_content_multiset_equal": true,
+      "reference_identity_map_equal": false,
+      "helper_misses_content_multiset_change": false
+    },
+    {
+      "case": "content_permuted_across_ids",
+      "start": [
+        [
+          1,
+          "a"
+        ],
+        [
+          2,
+          "b"
+        ]
+      ],
+      "end": [
+        [
+          1,
+          "b"
+        ],
+        [
+          2,
+          "a"
+        ]
+      ],
+      "native_helper_changed_models": [],
+      "native_helper_added_ids": [],
+      "native_helper_updated_ids": [],
+      "native_helper_removed_ids": [],
+      "reference_content_multiset_equal": true,
+      "reference_identity_map_equal": false,
+      "helper_misses_content_multiset_change": false
+    },
+    {
+      "case": "duplicate_multiplicity_redistributed",
+      "start": [
+        [
+          1,
+          "a"
+        ],
+        [
+          2,
+          "a"
+        ],
+        [
+          3,
+          "b"
+        ]
+      ],
+      "end": [
+        [
+          1,
+          "a"
+        ],
+        [
+          2,
+          "b"
+        ],
+        [
+          3,
+          "b"
+        ]
+      ],
+      "native_helper_changed_models": [],
+      "native_helper_added_ids": [],
+      "native_helper_updated_ids": [],
+      "native_helper_removed_ids": [],
+      "reference_content_multiset_equal": false,
+      "reference_identity_map_equal": false,
+      "helper_misses_content_multiset_change": true
+    },
+    {
+      "case": "duplicate_added_changes_size",
+      "start": [
+        [
+          1,
+          "a"
+        ],
+        [
+          2,
+          "b"
+        ]
+      ],
+      "end": [
+        [
+          1,
+          "a"
+        ],
+        [
+          2,
+          "b"
+        ],
+        [
+          3,
+          "b"
+        ]
+      ],
+      "native_helper_changed_models": [
+        "probe.Item"
+      ],
+      "native_helper_added_ids": [
+        3
+      ],
+      "native_helper_updated_ids": [],
+      "native_helper_removed_ids": [],
+      "reference_content_multiset_equal": false,
+      "reference_identity_map_equal": false,
+      "helper_misses_content_multiset_change": false
+    }
+  ],
+  "counts": {
+    "synthetic_software_cases": 8,
+    "real_tasks": 0,
+    "native_task_scorer_runs": 0,
+    "AppWorld_environment_runs": 0,
+    "new_model_api_calls": 0
+  },
+  "decision": "Content-multiplicity blind spot reproduced at helper boundary; real native-task false success remains unconfirmed."
+}

@@ -1,0 +1,267 @@
+{
+  "version": "1.0.65",
+  "date": "2026-10-25",
+  "research_decision": "NO-GO for current recovery/stopping-algorithm claim; independent scientific status HOLD",
+  "new_model_api_calls": 0,
+  "new_model_trajectories": 0,
+  "new_task_families": 0,
+  "new_research_environment_executions": 0,
+  "checks": {
+    "targeted_tests": 32,
+    "passed": 32,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 11.861,
+    "log_sha256": "fea07b6be9bdf1c07c6d7e7090775f03d16861cb6bd0ad5bee18eb2331b493db",
+    "full_repository_tests_rerun": false,
+    "last_full_suite_record": "VALIDATION_160.json",
+    "regression_fixture_note": "Existing software test fixtures are not research executions or model evidence.",
+    "ci_integration_audit": {
+      "version": "0.5.65-dev",
+      "revision": "ci-integration-1",
+      "historical_v48_catalog_unchanged": true,
+      "v47_files_unchanged": 690,
+      "v48_current_or_archived_files_verified": 717,
+      "explicit_ci_corrections": 7,
+      "api_calls": 0,
+      "scientific_gate": "HOLD",
+      "experiment_outputs_changed": false
+    },
+    "prior_public_artifacts_unchanged": {
+      "1.0.25": "d677d3f6bf5c4a3309ba8ccf790489414902312bce03f16fb324514e06be77d9",
+      "1.0.30": "ee855a610efbe50464ddcdffd49610054052559fa42ddbbf382c01c2062561f8",
+      "1.0.35": "2d1a3476c3223a8b51f13677fa4ddb8758ec177cbf610c0f603168dcaf9f8231",
+      "1.0.50": "f40cbb986ef34a2dd25c00eeccc61714f3373d5427ff65c14a56ed004882f62f",
+      "1.0.55": "1e9cbebe9391a4af589d465382a5901928fda4272af737efaf60ef020e63760b",
+      "1.0.60": "e544b338d5e6145b52edde716ddbf4c7934bc2297f5f79126f7c84edacb3ef47"
+    }
+  },
+  "screen_summary": {
+    "version": "1.0.65",
+    "date": "2026-10-25",
+    "new_api_calls": 0,
+    "new_task_families": 0,
+    "new_model_trajectories": 0,
+    "source_archive_sha256": "1e9cbebe9391a4af589d465382a5901928fda4272af737efaf60ef020e63760b",
+    "source_responses_reparsed": 207,
+    "frozen_public_rule_lf_sha256": "dc05a9bac78a9c19e3f0cda57f8f0f3c50151d2c872fc1759ec00b743bbea89c",
+    "unique_public_prefixes": 4,
+    "post_fault_records": 17,
+    "public_rule_escalation_proposals": 17,
+    "totals": [
+      {
+        "arm": "matched_text",
+        "planned": 6,
+        "activated": 6,
+        "safe_escalations_all_planned": 0,
+        "safe_escalations_after_activation": 0,
+        "task_completed": 0,
+        "post_fault_prefix_available": 6,
+        "first_post_fault_actions": {
+          "status": 6
+        }
+      },
+      {
+        "arm": "soft_joint",
+        "planned": 6,
+        "activated": 6,
+        "safe_escalations_all_planned": 5,
+        "safe_escalations_after_activation": 5,
+        "task_completed": 0,
+        "post_fault_prefix_available": 6,
+        "first_post_fault_actions": {
+          "publish": 3,
+          "status": 1,
+          "escalate": 2
+        }
+      },
+      {
+        "arm": "feasible_tools",
+        "planned": 6,
+        "activated": 5,
+        "safe_escalations_all_planned": 6,
+        "safe_escalations_after_activation": 5,
+        "task_completed": 0,
+        "post_fault_prefix_available": 5,
+        "first_post_fault_actions": {
+          "escalate": 5
+        }
+      }
+    ],
+    "interpretation": "All planned units retained. Activation-conditioned and exact-prefix subsets are post-treatment descriptive diagnostics, not randomized causal estimates or independent tasks.",
+    "screen_decision": "NO-GO for a new recovery-algorithm or calibrated-abstention claim on current evidence; no independent generalization or causal novelty established.",
+    "limitations": [
+      "Retrospective development-data screen, not preregistered confirmation.",
+      "Public-rule queries are decisions only, not new end-to-end executions or optimality proofs.",
+      "Equal public prefixes do not imply equal interface views or equal total computation.",
+      "Activation-conditioned rates cannot replace the full planned-unit outcomes.",
+      "No claim that another paper's experiments are invalid or that its authors omitted activation controls."
+    ]
+  },
+  "paired_descriptions": [
+    {
+      "comparison": "soft_joint_vs_matched_text",
+      "planned_pairs": 6,
+      "both_activated": 6,
+      "exact_prefix_pairs": 6,
+      "activation_differs": 0,
+      "different_or_missing_prefix": 0,
+      "escalation_increased_on_exact_prefix": 5,
+      "escalation_decreased_on_exact_prefix": 0,
+      "completion_increased_on_exact_prefix": 0,
+      "completion_decreased_on_exact_prefix": 0,
+      "immediate_escalation_increased_on_exact_prefix": 2,
+      "immediate_escalation_decreased_on_exact_prefix": 0,
+      "left_continuation_requests_on_exact_prefix": 6,
+      "right_continuation_requests_on_exact_prefix": 9,
+      "left_continuation_tokens_on_exact_prefix": 10641,
+      "right_continuation_tokens_on_exact_prefix": 18542,
+      "pair_details": [
+        {
+          "task_id": "group-03",
+          "interface": "canonical",
+          "exact_prefix": true,
+          "left_prefix": "a081269ee2cb13e6b13eb1ad42a37abf330a08b4bf7a76447ed352f4ce1720f4",
+          "right_prefix": "a081269ee2cb13e6b13eb1ad42a37abf330a08b4bf7a76447ed352f4ce1720f4"
+        },
+        {
+          "task_id": "group-03",
+          "interface": "opaque",
+          "exact_prefix": true,
+          "left_prefix": "a081269ee2cb13e6b13eb1ad42a37abf330a08b4bf7a76447ed352f4ce1720f4",
+          "right_prefix": "a081269ee2cb13e6b13eb1ad42a37abf330a08b4bf7a76447ed352f4ce1720f4"
+        },
+        {
+          "task_id": "version-03",
+          "interface": "canonical",
+          "exact_prefix": true,
+          "left_prefix": "f07bf935079dcc9707763d5efb066478ef46aac8fdb927ffd40f6cf1a4aa7c05",
+          "right_prefix": "f07bf935079dcc9707763d5efb066478ef46aac8fdb927ffd40f6cf1a4aa7c05"
+        },
+        {
+          "task_id": "version-03",
+          "interface": "opaque",
+          "exact_prefix": true,
+          "left_prefix": "f07bf935079dcc9707763d5efb066478ef46aac8fdb927ffd40f6cf1a4aa7c05",
+          "right_prefix": "f07bf935079dcc9707763d5efb066478ef46aac8fdb927ffd40f6cf1a4aa7c05"
+        },
+        {
+          "task_id": "window-03",
+          "interface": "canonical",
+          "exact_prefix": true,
+          "left_prefix": "362b909de126f4493d63e1bc0afa4745358be5884da78b0fa97795faa0b2a9ca",
+          "right_prefix": "362b909de126f4493d63e1bc0afa4745358be5884da78b0fa97795faa0b2a9ca"
+        },
+        {
+          "task_id": "window-03",
+          "interface": "opaque",
+          "exact_prefix": true,
+          "left_prefix": "362b909de126f4493d63e1bc0afa4745358be5884da78b0fa97795faa0b2a9ca",
+          "right_prefix": "362b909de126f4493d63e1bc0afa4745358be5884da78b0fa97795faa0b2a9ca"
+        }
+      ]
+    },
+    {
+      "comparison": "feasible_tools_vs_soft_joint",
+      "planned_pairs": 6,
+      "both_activated": 5,
+      "exact_prefix_pairs": 4,
+      "activation_differs": 1,
+      "different_or_missing_prefix": 1,
+      "escalation_increased_on_exact_prefix": 0,
+      "escalation_decreased_on_exact_prefix": 0,
+      "completion_increased_on_exact_prefix": 0,
+      "completion_decreased_on_exact_prefix": 0,
+      "immediate_escalation_increased_on_exact_prefix": 2,
+      "immediate_escalation_decreased_on_exact_prefix": 0,
+      "left_continuation_requests_on_exact_prefix": 6,
+      "right_continuation_requests_on_exact_prefix": 4,
+      "left_continuation_tokens_on_exact_prefix": 12998,
+      "right_continuation_tokens_on_exact_prefix": 7906,
+      "pair_details": [
+        {
+          "task_id": "group-03",
+          "interface": "canonical",
+          "exact_prefix": true,
+          "left_prefix": "a081269ee2cb13e6b13eb1ad42a37abf330a08b4bf7a76447ed352f4ce1720f4",
+          "right_prefix": "a081269ee2cb13e6b13eb1ad42a37abf330a08b4bf7a76447ed352f4ce1720f4"
+        },
+        {
+          "task_id": "group-03",
+          "interface": "opaque",
+          "exact_prefix": true,
+          "left_prefix": "a081269ee2cb13e6b13eb1ad42a37abf330a08b4bf7a76447ed352f4ce1720f4",
+          "right_prefix": "a081269ee2cb13e6b13eb1ad42a37abf330a08b4bf7a76447ed352f4ce1720f4"
+        },
+        {
+          "task_id": "version-03",
+          "interface": "opaque",
+          "exact_prefix": false,
+          "left_prefix": "f07bf935079dcc9707763d5efb066478ef46aac8fdb927ffd40f6cf1a4aa7c05",
+          "right_prefix": "104e499ab899a4d20b8f24517c26c686c4c983c8708a47d278e5350dbafb43db",
+          "public_differences": [
+            {
+              "path": "$.history[2].params.request_id",
+              "left": "req-1",
+              "right": "publish-v1-1"
+            }
+          ]
+        },
+        {
+          "task_id": "window-03",
+          "interface": "canonical",
+          "exact_prefix": true,
+          "left_prefix": "362b909de126f4493d63e1bc0afa4745358be5884da78b0fa97795faa0b2a9ca",
+          "right_prefix": "362b909de126f4493d63e1bc0afa4745358be5884da78b0fa97795faa0b2a9ca"
+        },
+        {
+          "task_id": "window-03",
+          "interface": "opaque",
+          "exact_prefix": true,
+          "left_prefix": "362b909de126f4493d63e1bc0afa4745358be5884da78b0fa97795faa0b2a9ca",
+          "right_prefix": "362b909de126f4493d63e1bc0afa4745358be5884da78b0fa97795faa0b2a9ca"
+        }
+      ]
+    }
+  ],
+  "publication": {
+    "version": "1.0.65",
+    "date": "2026-10-25",
+    "artifact": "CLAIM_SCREEN_165.json",
+    "sha256": "3dfb3108c03846ac9f301121d225519c576b204f71ce474c224edd36d9917082",
+    "bytes": 51112,
+    "new_api_calls": 0,
+    "new_model_trajectories": 0,
+    "new_task_families": 0,
+    "new_research_environment_executions": 0,
+    "source_archive_sha256": "1e9cbebe9391a4af589d465382a5901928fda4272af737efaf60ef020e63760b",
+    "frozen_public_rule_lf_sha256": "dc05a9bac78a9c19e3f0cda57f8f0f3c50151d2c872fc1759ec00b743bbea89c",
+    "original_responses_reparsed": 207,
+    "post_fault_records": 17,
+    "distinct_public_prefixes": 4,
+    "scope": "Retrospective development-data screen; no end-to-end rule executions, causal estimates, or original-algorithm efficacy claim."
+  },
+  "source_hashes": {
+    "research/reliability_reset/__init__.py": {
+      "working_tree_sha256": "13ae00c613ca5d8fca4928a996f4e584f2e73e592630ec8108fe4f19d55c9c7b",
+      "lf_utf8_sha256": "13ae00c613ca5d8fca4928a996f4e584f2e73e592630ec8108fe4f19d55c9c7b"
+    },
+    "research/reliability_reset/claim_screen.py": {
+      "working_tree_sha256": "ff26fa21c7ba5a9cac5c23bff9f5bd8ce55e896ecc8ab89ea28138f76505f831",
+      "lf_utf8_sha256": "ff26fa21c7ba5a9cac5c23bff9f5bd8ce55e896ecc8ab89ea28138f76505f831"
+    },
+    "tests/test_reliability_reset_claim_screen.py": {
+      "working_tree_sha256": "fe7791bc9de8f20612dbb8eae846afb2fc689a409447914a1d7a53aad941d50a",
+      "lf_utf8_sha256": "fe7791bc9de8f20612dbb8eae846afb2fc689a409447914a1d7a53aad941d50a"
+    }
+  },
+  "literature_sources_sha256": "02fd9367114d532eef9b93434f7683df489403ea5195bdd7e1f03dda9e98f620",
+  "limits": [
+    "Post-treatment subsets are descriptive, not randomized effects.",
+    "Seventeen records contain four prefixes in one historical environment, not seventeen independent tasks.",
+    "One nonmatching pair differs only by request_id; no hidden normalization or claim of necessary semantic difference.",
+    "Public-rule queries do not establish end-to-end or computational optimality.",
+    "Local author-code replication and external scientific approval remain absent."
+  ],
+  "next_release": "1.0.70: bounded read-only AppWorld native contract/full-scorer audit, no task-data installation or paid runs."
+}

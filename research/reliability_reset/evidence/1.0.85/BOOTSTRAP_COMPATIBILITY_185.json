@@ -1,0 +1,9 @@
+{
+  "attempt": 1,
+  "stage": "import_appworld",
+  "native_environment_initialized": false,
+  "task_scorer_executed": false,
+  "error": "TypeError: match_type() takes 2 positional arguments but 3 were given",
+  "root_cause": "Pinned AppWorld common/datetime.py replaces Pydantic GenerateSchema.match_type(self, obj), while resolved Pydantic 2.14.1 passes an additional origin argument.",
+  "repair": "Pin isolated environment pydantic==2.12.0, within upstream >=2.12.0 requirement; no source or scorer patch."
+}

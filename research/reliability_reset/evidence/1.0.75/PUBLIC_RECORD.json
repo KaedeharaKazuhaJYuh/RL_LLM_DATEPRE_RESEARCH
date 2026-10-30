@@ -1,0 +1,37 @@
+{
+  "version": "1.0.75",
+  "date": "2026-10-26",
+  "upstream_commit": "42b5bcf3cd334fee33f0c37c02070a9f5807add5",
+  "artifacts": [
+    {
+      "artifact": "SOURCE_MANIFEST_175.json",
+      "bytes": 4919,
+      "sha256": "76a1f279efb5b5a2b1f3fac202c47b7bcd893a7cd631091adba7e9ef66b1c1c7"
+    },
+    {
+      "artifact": "HASH_PROBE_175.json",
+      "bytes": 5900,
+      "sha256": "a1ed5e7dccd70eae4e04cb5f57ae1bdaac3650ac12e74e74ea6fc4c06393867c"
+    },
+    {
+      "artifact": "SOURCE_CHECK_175.json",
+      "bytes": 5263,
+      "sha256": "3a2c96f25993c2b62899c1ec9bb7b8d23ea20eea94955f0f15ea9392d2a18e69"
+    }
+  ],
+  "diagnostic_sources": {
+    "research/reliability_reset/hash_probe175.py": "e997317c2278401863954d730d026c771d0fb6867adc2952ba804e8a7a2fb4cf",
+    "tests/test_reliability_reset_hash_probe175.py": "0990a177ad2fc5cd1d52039e37286f2c64c6435dd074335e7014a456293d21a1",
+    "research/reliability_reset/fixtures/appworld_175_excerpt.py": "cc3572e772b828b4fb0bdb6da2fe87299f3fee3fa55fec977b2876c60ffc692d",
+    "research/reliability_reset/fixtures/appworld_175_source.json": "89e6e858c9518882051716671dbf8d42230a3e4f0bbea742b4eae07d852ee87f",
+    "research/reliability_reset/fixtures/APPWORLD_LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "research/reliability_reset/fixtures/.gitattributes": "6922fb7e8342002ae98511340edc2262c99bba1fc3d7b839a167d221d99b65b3"
+  },
+  "new_model_api_calls": 0,
+  "real_tasks": 0,
+  "native_task_scorer_runs": 0,
+  "research_environment_runs": 0,
+  "synthetic_software_case_definitions": 8,
+  "fixed_encrypted_app_source_bundle_sha256": "88d21fc526c1655bb3eee4adfca78ccac793921e4506f28f734ecdb19af77a62",
+  "scope": "Isolated public-helper software reproduction; full native-task false success remains unconfirmed."
+}

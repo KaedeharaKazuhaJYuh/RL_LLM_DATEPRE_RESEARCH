@@ -35,8 +35,8 @@
     },
     "tests/test_faultda_vericost565_release.py": {
       "original_sha256": "5d0ab386004075d1ec2944fc0dfc10f1dd2b66a1c22e77cca7dd00456d7090d8",
-      "corrected_sha256": "fae69453bce2951af51ed9840fcf893437094900ccbb1bc7d5a863528d1f9c15",
-      "reason": "Use registry CI and the explicit historical-byte migration"
+      "corrected_sha256": "242825b50aa222196017d716743aa4b10531041e20c691a30fd1aa65c0db9e91",
+      "reason": "Use registry CI and the explicit historical-byte migration; the two current-release pins follow the header to line 0.5.66 and no longer read a fixed line number"
     },
     "tests/test_faultda_vericost565_witness.py": {
       "original_sha256": "f966caafc31308247b4b5832c9880082d21c9c70ccabb928197279669760d75b",
@@ -46,9 +46,9 @@
   },
   "integration_text_normalization": "CRLF to LF only for living integration documents; frozen evidence remains byte exact",
   "integration_paths": {
-    ".gitattributes": "03d91be048877fc52ec6f4b2811fe1f89911458d31ae3d6ccd69663f86127841",
-    "docs/PROJECT_HISTORY.md": "58d91a64d365ff9f5e66ce7275029a248925e150cb51763db484d504f69fa2d1",
-    "docs/REPRODUCIBILITY.md": "3ec64732245951e3d7c7e1ddd723499da143e1152da8a4ff755f2a53176d1a24"
+    ".gitattributes": "4fd4d3c91051fd982fc6e050b97647e37aa83d63340ab56a07eaaa8a1b80727b",
+    "docs/PROJECT_HISTORY.md": "e7e1219524579c3ef5eb9783e179e0e418489edf829744479f9d77929f4d6ad9",
+    "docs/REPRODUCIBILITY.md": "d75905876bc0f01908d5052faf23e96c6e9b7562d9515b877cef769a227cac73"
   },
   "files": {
     "faultda_bench/vericost565/audit.py": "7e4c504b167bb9f8239990bb24666ef47d495af6dfc4fe4fef1033e1a6c42a6d",
@@ -56,13 +56,13 @@
     "tests/test_faultda_vericost565_determinism.py": "d8a90154672b3ba1c3b24faf43e335856f05c40623b82fc940750ea4992c0dc8",
     "tests/test_faultda_vericost565_prereg.py": "18b0cb574a27d3c8f9339a6add93774fafdcf14ed7359b80551b374e15dcbd4d",
     "tests/test_faultda_vericost565_suite.py": "d1342b2a053c404404ccd9645673a6b04f3544f19122d089d2f7d8c87deacc11",
-    "tests/test_faultda_vericost565_release.py": "fae69453bce2951af51ed9840fcf893437094900ccbb1bc7d5a863528d1f9c15",
+    "tests/test_faultda_vericost565_release.py": "242825b50aa222196017d716743aa4b10531041e20c691a30fd1aa65c0db9e91",
     "faultda_bench/ci565.py": "0f30027da242e1abb4617d9e8893983b96c5547918b24cae30967505be1072b8",
     "tests/test_faultda_ci565.py": "7be48252db9a856c7b1820959c754250c47fdc66ecd3e655974ffc4bf3964973",
     "faultda_bench/protocols/ci565_original_bytes.json": "4cff006f3369c19dec5a4b82d9f805022a4e053cb07eb76eb758244cfa46197c",
     "faultda_bench/docs/CI_0565_INTEGRATION.md": "e101bfe5e08ae4c1346df6a11ce84078c0808bd115be28a08c92cce6ce71cd99",
-    "faultda_bench/protocols/current_evidence_v1.json": "c2068fbdf17e883449b401e7bb53a6fb341c0823e6eb6e7ee0ae61508bc92b34",
-    "tests/test_faultda_current_evidence.py": "a1aa2e202b4dea4178b3b9b61e567510fae475250ec6cee1aca1b553012334bb",
+    "faultda_bench/protocols/current_evidence_v1.json": "66b2f8d6b854ff3479c07823df85737628d69e249ac1cc159aabf24790e31daa",
+    "tests/test_faultda_current_evidence.py": "eea5de0323092b627e5b335db8d8f2f25fc56c3ea7d5a0e5534d0feb98a8f2a4",
     "tests/test_faultda_vericost565_witness.py": "cf43c5fc29297f1474c1194590247ce4cb4693b9e42d6eda6f6002183455a3d9"
   }
 }

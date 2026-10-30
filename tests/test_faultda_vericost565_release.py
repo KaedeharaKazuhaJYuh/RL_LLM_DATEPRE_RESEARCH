@@ -162,22 +162,24 @@ class SharedEditTests(unittest.TestCase):
         expected = {'tests.' + p.stem for p in (REPO / 'tests').glob('test_faultda_vericost565*.py')}
         self.assertTrue(expected.issubset(registry['test_modules']))
 
-    def test_the_changelog_entry_leads_with_the_version_and_the_zero_spend(self):
+    def test_the_0_5_65_changelog_entry_keeps_its_bullets_and_the_zero_spend(self):
         lines = CHANGELOG.read_text(encoding='utf-8').splitlines()
-        self.assertTrue(lines[0].startswith('# FaultDA-Bench %s — ' % VERSION), lines[0])
-        bullets = [line for line in lines[:8] if line.startswith('- ')]
+        starts = [index for index, line in enumerate(lines)
+                  if line.startswith('# FaultDA-Bench %s — ' % VERSION)]
+        self.assertEqual(len(starts), 1, starts)
+        head = starts[0]
+        bullets = [line for line in lines[head:head + 8] if line.startswith('- ')]
         self.assertEqual(len(bullets), 3)
         self.assertTrue(any('0 API calls, ¥0' in line for line in bullets))
 
     def test_the_readme_keeps_the_inherited_release_line_and_points_at_the_report(self):
         lines = README.read_text(encoding='utf-8').splitlines()
         self.assertEqual(lines[0], '# FaultDA-Bench')
-        self.assertIn(VERSION, lines[6])
         self.assertEqual(lines[7], '<!-- inherited-release: V5.0.15-beta.2 -->')
         self.assertIn('faultda_bench/reports/RELEASE_0565.md', README.read_text(encoding='utf-8'))
-        package = PACKAGE_README.read_text(encoding='utf-8').splitlines()
-        self.assertIn(VERSION, package[2])
-        self.assertIn('vericost565/', PACKAGE_README.read_text(encoding='utf-8'))
+        package = PACKAGE_README.read_text(encoding='utf-8')
+        self.assertIn('reports/RELEASE_0565.md', package)
+        self.assertIn('vericost565/', package)
 
 
 if __name__ == '__main__':

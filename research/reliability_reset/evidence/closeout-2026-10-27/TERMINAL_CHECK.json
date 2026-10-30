@@ -1,0 +1,8 @@
+{
+  "binding_date": "2026-10-27",
+  "verified_task_output_files": 38,
+  "terminal_binding_sha256": "04071eb40eb61c75dd66bfbf26b8f2ac14b2bbca5139266b620e2434080a9c98",
+  "matches_terminal_binding": true,
+  "new_native_scorer_calls": 0,
+  "new_model_api_calls": 0
+}

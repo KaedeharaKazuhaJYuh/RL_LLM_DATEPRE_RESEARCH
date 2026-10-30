@@ -1,0 +1,16 @@
+{
+  "version": "1.0.60",
+  "date": "2026-10-25",
+  "artifact": "OFFLINE_AUDIT_160.json",
+  "sha256": "e544b338d5e6145b52edde716ddbf4c7934bc2297f5f79126f7c84edacb3ef47",
+  "bytes": 219177,
+  "new_api_calls": 0,
+  "new_model_trajectories": 0,
+  "source_commit": "b878a217dbd2a73c4422ab7d8e5d42ff849b9cfd",
+  "source_archive_sha256": "1e9cbebe9391a4af589d465382a5901928fda4272af737efaf60ef020e63760b",
+  "responses_reparsed": 207,
+  "execution_vectors": 63,
+  "historical_completion_labels_changed": 0,
+  "schema_invalid_proposals": 1,
+  "scope": "Additive offline contract/outcome audit, not new model evidence or a repaired-trajectory efficacy experiment."
+}

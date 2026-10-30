@@ -1,0 +1,94 @@
+{
+  "commit": "42b5bcf3cd334fee33f0c37c02070a9f5807add5",
+  "files": [
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "origin": "Reused unchanged 1.0.70 source cache"
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/README.md",
+      "bytes": 81334,
+      "sha256": "f4049141b6e520217395b7ccd9f27048c8e0f90331690dcbef300d2bc4ff7bdd",
+      "git_blob_sha1": "4798bdc3727107bc0c47fccb4f297bdff1e22f33",
+      "origin": "Reused unchanged 1.0.70 source cache"
+    },
+    {
+      "path": "src/appworld/.source/apps.bundle",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/.source/apps.bundle",
+      "bytes": 131,
+      "sha256": "68752f6f9c36260e566b1269c283f765dfd3fe603d817fa6ae58dacb034f1470",
+      "git_blob_sha1": "25b097b93982d1e1221b4d48340a0303bf17d3a9"
+    },
+    {
+      "path": "src/appworld/apps/lib/models/orm.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/apps/lib/models/orm.py",
+      "bytes": 86802,
+      "sha256": "df959a70b1cb39acd0f40a8fbec103f88f4b3481532d475cd079a551eb43abb9",
+      "git_blob_sha1": "7848059a9c245221a0bdf1492394412e0b0445b5"
+    },
+    {
+      "path": "src/appworld/collections/models.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/collections/models.py",
+      "bytes": 24304,
+      "sha256": "8b2fac59d77c887ab08fe4092ec0811952d051bd56551dc239332c556df136e4",
+      "git_blob_sha1": "9728fa88181fdb56a4713d6f6c2c2f38957d2cc4",
+      "origin": "Reused unchanged 1.0.70 source cache"
+    },
+    {
+      "path": "src/appworld/common/constants.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/common/constants.py",
+      "bytes": 1802,
+      "sha256": "776a1c2a97e8f3d7cbda00523be3fdf38ed6165d61ac729a82290a843524138d",
+      "git_blob_sha1": "09770a60ef71ef558e9f5bd019b7c4e015d3aae0",
+      "origin": "Reused unchanged 1.0.70 source cache"
+    },
+    {
+      "path": "src/appworld/common/crypto.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/common/crypto.py",
+      "bytes": 12060,
+      "sha256": "0d8f1f79c35e9351925ee26c7f9b465d669b131e1541ffca75429b3318d47b23",
+      "git_blob_sha1": "5954e97f3c0686b09ae8f14f979917e81f332327"
+    },
+    {
+      "path": "src/appworld/install.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/install.py",
+      "bytes": 3977,
+      "sha256": "3025c44d7f44a30cde7f247e2ec4808b3a52a2d741efebee0c0fe1892fa7a26b",
+      "git_blob_sha1": "5c8c5a7692f9beb9d16698298f80c5ce6453fcf8"
+    },
+    {
+      "path": "tests/package/test_model_collection.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/tests/package/test_model_collection.py",
+      "bytes": 2270,
+      "sha256": "1be67cc0ccf703713bb281906190c51fce8571c049825fb2def6fa4e37a98703",
+      "git_blob_sha1": "b035e900d392597184466e1e52426d996d333668"
+    },
+    {
+      "path": "tests/package/test_sqlmodel.py",
+      "url": "https://raw.githubusercontent.com/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/tests/package/test_sqlmodel.py",
+      "bytes": 64058,
+      "sha256": "84e275da7df82d3f4a614303323f3f3a8f7517d5cf7428dc26130c44fcced39f",
+      "git_blob_sha1": "e46abca8967dd692ba5002d05eb0fb75e96c1ff9"
+    }
+  ],
+  "version": "1.0.75",
+  "date": "2026-10-26",
+  "tree_sha1": "dfce7142b8669fc11467c89a3f571b1f47d52dcf",
+  "new_plaintext_downloads": 6,
+  "reused_plaintext_files": 4,
+  "encrypted_application_source_bundle": {
+    "url": "https://media.githubusercontent.com/media/StonyBrookNLP/appworld/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/.source/apps.bundle",
+    "bytes": 193950,
+    "sha256": "88d21fc526c1655bb3eee4adfca78ccac793921e4506f28f734ecdb19af77a62",
+    "role": "Encrypted application-source bundle only; not task data, task generators or experiment outputs."
+  },
+  "protected_application_code_executed": false,
+  "native_task_data_or_outputs_downloaded": false,
+  "source_cache_scope": "Only public plaintext plus one fixed encrypted app-source bundle; no task/generator/data bundle.",
+  "integrity_limit": "Git object and byte matching are not independent historical authentication."
+}

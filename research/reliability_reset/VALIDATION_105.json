@@ -1,0 +1,78 @@
+{
+  "version": "1.0.05",
+  "date": "2026-10-23",
+  "base_commit": "6d7e6e7f00ea4c773d99e543b5aff0bb43c7c17d",
+  "ci_of_base": {
+    "V5_verification": {
+      "status": "success",
+      "run_id": 39793986561
+    },
+    "current_evidence_acceptance": {
+      "status": "success",
+      "run_id": 39793986614
+    }
+  },
+  "local_validation": {
+    "tests": 61,
+    "failures": 0,
+    "skips": 0,
+    "seconds": 15.267,
+    "scope": "reset core, real adapter, existing semantic environment and release tests; no fresh full-repository run",
+    "log_sha256": "c11140517bc6ef47d2ed03eca76812139fa96c31ede0c4fb51be77318120911b",
+    "release_metadata": "passed",
+    "compileall": "passed",
+    "diff_whitespace": "passed"
+  },
+  "development_controls": {
+    "task": "group-01",
+    "task_families": 1,
+    "run_count": 16,
+    "conditions": 8,
+    "system_roles": [
+      "public-observation rule program",
+      "scripted stress control"
+    ],
+    "model_runs": 0,
+    "api_calls": 0,
+    "new_downloads": 0,
+    "heldout_tasks": 0,
+    "oracle_terminal_agreement": {
+      "numerator": 16,
+      "denominator": 16
+    },
+    "oracle_violation_agreement_among_known": {
+      "numerator": 14,
+      "denominator": 14
+    },
+    "unknown_violation_status": 2,
+    "new_confirmed_flags_not_in_old_safety_metric": 0
+  },
+  "decision": {
+    "engineering": "GO: review preparation",
+    "live_or_paid_model_runs": "NO-GO",
+    "approved_request_budget": 0,
+    "scientific_status": "HOLD",
+    "independent_review": "pending"
+  },
+  "output": {
+    "directory": "work/reliability-reset-1.0.05",
+    "audit_sha256": "20a8ac1bfcdfa714da1b4fdfb9d53979c54b30fefd12c14e14383cae0b018af6",
+    "bundle_sha256": "3cbfcedb54057bcb2724390af5c20de84008c44f8f6c2d23e42ecc8d974de617",
+    "review_zip": "work/reliability-reset-1.0.05/review-sources-1.0.05.zip",
+    "review_zip_sha256": "54bdd57165b1780d9f001ea6b8a549cd1b582853577d1fc01906202f6098b39d"
+  },
+  "source_sha256": {
+    "research/reliability_reset/__init__.py": "15101b10737082e1e7ffb9d409d1059626e01cb3280111b796ea5673e60f4edd",
+    "research/reliability_reset/audit.py": "c4e231422cd332c6bec7d38885db1614ae99322b4078cad08dbc31c64c8d6c3d",
+    "research/reliability_reset/controls.py": "f19156aec651114596f61eacf2b3a6dea3f002a9533ded468b7a96f2724d868b",
+    "research/reliability_reset/semantic_adapter.py": "476bbabde66d9c9b19651acbe104d764a7c09b18ded3e44ab1d05f79c30fd5fe",
+    "research/reliability_reset/semantic_facts.py": "311c43b022a160bcc68516656fd1c37d38c8a849f05310a961f3e731375b41ee",
+    "tests/test_reliability_reset_adapter.py": "14309a6af8f4f6c0bdbd430653a4e0f2fa3519284ffe870e45cbeeffa12f1c7b",
+    "tests/test_reliability_reset.py": "94afe9f972ca906d5a6ab197cb7fbbffbcf9dede89b85206a52d75958f116065"
+  },
+  "limits": [
+    "All cases are programmatic engineering controls from a known task; no prevalence or generalization estimate.",
+    "Old full metrics already detect the planted violation; this is not a novel scoring defect.",
+    "Shared task/environment/runner ancestry remains; byte consistency and code separation do not establish external authenticity or scientific independence."
+  ]
+}

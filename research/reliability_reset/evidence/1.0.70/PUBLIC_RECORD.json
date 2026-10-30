@@ -1,0 +1,23 @@
+{
+  "version": "1.0.70",
+  "date": "2026-10-26",
+  "source_commit": "42b5bcf3cd334fee33f0c37c02070a9f5807add5",
+  "artifacts": [
+    {
+      "artifact": "SOURCE_MANIFEST_170.json",
+      "sha256": "007f2d75cfabc4e0b4b9700ebc6ffc8ac3bbf4a5c7363c59251f3c6b727aff06",
+      "bytes": 7817
+    },
+    {
+      "artifact": "APPWORLD_AUDIT_170.json",
+      "sha256": "dd3d8cda9ebf514aff8e59ae1857886f7486aef5e58d14ecf6db1ee6847b044a",
+      "bytes": 11501
+    }
+  ],
+  "new_model_api_calls": 0,
+  "new_model_trajectories": 0,
+  "new_task_families": 0,
+  "task_data_downloads": 0,
+  "research_environment_executions": 0,
+  "scope": "Pinned plaintext source audit; no confirmed real native false success; scientific HOLD."
+}
