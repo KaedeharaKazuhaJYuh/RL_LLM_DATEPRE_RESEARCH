@@ -1,3 +1,3 @@
 """Offline reliability measurement; synthetic controls are not agent evidence."""
 
-__version__ = "1.0.95"
+__version__ = "1.1.0"

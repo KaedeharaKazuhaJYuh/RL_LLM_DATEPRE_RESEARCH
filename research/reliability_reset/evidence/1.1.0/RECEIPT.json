@@ -1,0 +1,10 @@
+{
+  "bundle": "research/reliability_reset/evidence/1.1.0/appworld-multimodel-1.1.0.bundle",
+  "bytes": 31402,
+  "sha256": "aa892c9c19d328b5d38e0a9293760c41b78c2885d398722ba6906e407e87e4c3",
+  "files_verified": 54,
+  "exact_configured_provider_key_scan": "no_match",
+  "format": "AppWorld encrypted bundle; public parameters are not confidentiality",
+  "source_data_version": "0.2.0",
+  "model_weights_included": false
+}

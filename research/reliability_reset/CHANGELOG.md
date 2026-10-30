@@ -1,5 +1,9 @@
 # Reliability Reset releases
 
+## 1.1.0 — 2026-10-31
+
+Investigated the local model's template-opened thinking segment without changing the frozen 1.0.95 parser or reclassifying its outputs. Two controlled format preflights still produced no accepted action. Downloaded Qwen2.5-0.5B-Instruct and SmolLM2-360M-Instruct, verified their weights against upstream LFS metadata, and ran one original AppWorld train task per model under the existing structured interface and budget; both failed the native task score. Reconstructed an accessible INT4 model from an existing DPO-merged FP16 checkpoint, retained the initial GBK logging failure, and verified NPU generation with a 16-token limit. This is one task and four checkpoints, not four independent model families; no strong baseline, independent safety labels or paper claim is established. See [the study](APPWORLD_PILOT_110.md).
+
 ## 1.0.95 — 2026-10-30
 
 Ran a bounded AppWorld 0.2.0 train-task interface pilot with DeepSeek Flash and the locally available DeepSeek-R1-Distill-Qwen 1.5B on CUDA, plus a no-action weak control. Both models failed to complete the task within eight turns; the local model exhausted all eight output limits. Captured protected request/response and usage records, corrected AppWorld's frozen process clock for real timestamps, and reproduced all three native scores in fresh processes. Intel NPU graph execution succeeded; the prior INT4 model files were not readable, so no NPU LLM result is claimed. One task and two related checkpoints are not a cross-model study; safety labels and the strong baseline remain pending. See [the pilot](APPWORLD_PILOT_195.md).

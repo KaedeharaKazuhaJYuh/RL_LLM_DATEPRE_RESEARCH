@@ -1,12 +1,13 @@
 # Reliability Reset：Agent 评测研究线
 
-当前研究版本 **1.0.95**。研究线以历史 FaultDA 基础设施为起点，集中检验原生评分与可证实的可靠性偏差；价格分析和 RL 是条件性后续工作。
+当前研究版本 **1.1.0**。研究线以历史 FaultDA 基础设施为起点，集中检验原生评分与可证实的可靠性偏差；价格分析和 RL 是条件性后续工作。
 
 ## 当前状态
 
 - **研究结论：**所查具体候选被原生完整评分识别；尚无跨独立任务、跨模型的可靠性误判证据。研究状态 **HOLD**。[原生控制](NATIVE_CONTROL_185.md) · [审计汇总](APPWORLD_AUDIT_CLOSEOUT_2026_10_27.md) · [论文主张内部评审](PAPER_CLAIM_REVIEW_2026_10_27.md)
 - **历史官方轨迹：**复用 AppWorld 官方 GPT-4o 训练集 90 条、开发集 57 条历史轨迹；原始评分、任务血缘及记录覆盖已核对，但未对副作用做独立判定。[结果与决定性实验](EVALUATOR_GAP_190.md)
 - **最新接口试跑：**在同一原生训练任务中实跑 DeepSeek API 和 CUDA 本地小模型，记录原始提案、工具响应及模型用量；双方均未完成任务，独立安全裁决仍未知。[试跑结果](APPWORLD_PILOT_195.md)
+- **本版扩展：**增加 Qwen 与 SmolLM 本地模型，四个检查点在同一已见任务中均未完成；恢复了真实 NPU 量化模型生成，但尚无跨任务或 NPU 精度结论。[本版结果](APPWORLD_PILOT_110.md)
 - **已有开发结果：**60 条旧记录中有 24 次预算拒绝、3 次升级，22 条未安全完成记录的终态正确；这些是相关开发轨迹，不是独立任务样本。[终止分类](TERMINAL_TAXONOMY.md)
 - **最新评估回应：**已整理三份评估与价格对照。旧评估器默认 `dev_seen` 可能混入合成 profile；未来重算请使用显式筛选的 [seen_evaluation.py](seen_evaluation.py)。[评估回应](REVIEW_RESPONSE_SEEN_2026_10_28.md)
 - **下一步设计：**先形成可复核的原生通过／违规交叉指标，再以相同工具、预算和公开信息比较至少四个模型及强规则；[旧价格试点](EXTERNAL_PRICE_PILOT_2026_10_28.md)仅作背景。
@@ -20,6 +21,7 @@
 | 终止分类与 AppWorld 重放 | [terminal_taxonomy.py](terminal_taxonomy.py) · [native_replay185.py](native_replay185.py) · [terminal_binding185.py](terminal_binding185.py) |
 | 真实轨迹清点与未决风险 | [official_dev_inventory.py](official_dev_inventory.py) · [结果与实验计划](EVALUATOR_GAP_190.md) |
 | 真实模型与工具接口试跑 | [appworld_pilot195.py](appworld_pilot195.py) · [试跑结果](APPWORLD_PILOT_195.md) |
+| 模型模板解析与 NPU 重建 | [appworld_pilot110.py](appworld_pilot110.py) · [本版结果](APPWORLD_PILOT_110.md) |
 | 原始协议、实验与复审流程 | [历史与复审指南](HISTORY_AND_REVIEW_GUIDE.md) · [更新记录](CHANGELOG.md) |
 | 研究草稿与新候选设计 | [研究草稿](PAPER_DRAFT.md) · [重置协议](RESET_PROTOCOL.md) · [一页设计门槛](ONE_PAGE_RESEARCH_DESIGN_GATE.md) |
 
