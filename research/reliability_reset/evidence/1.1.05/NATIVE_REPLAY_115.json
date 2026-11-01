@@ -1,0 +1,24 @@
+{
+  "separate_process_per_attempt": true,
+  "save_report": false,
+  "results": [
+    {
+      "attempt": "deepseek-ext-115-s01",
+      "source_files_checked": 5,
+      "success": false,
+      "passed": 4,
+      "failed": 1,
+      "total": 5,
+      "matches_recorded": true
+    },
+    {
+      "attempt": "deepseek-ext-115-r03",
+      "source_files_checked": 5,
+      "success": false,
+      "passed": 5,
+      "failed": 1,
+      "total": 6,
+      "matches_recorded": true
+    }
+  ]
+}

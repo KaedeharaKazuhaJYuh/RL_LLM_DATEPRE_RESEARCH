@@ -1,5 +1,9 @@
 # Reliability Reset releases
 
+## 1.1.05 — 2026-11-01
+
+Continued the interrupted AppWorld train-scenario pilot. DeepSeek Flash, Qwen2.5-0.5B and an exploratory Granite 4.0-350M each received six native scores without a pass; a guarded SmolLM2-360M run also received six scores, with five censored by a 2,000-input-token limit. These arms are not an equal-budget ranking. Completed the interrupted sixth DeepSeek public-schema run, preserved all retries and partial journals, and exported a payload-free per-call cost ledger. Two exploratory extended runs had supervisor status `success` but failed full native scoring; both scores matched fresh-process replays. This does not demonstrate that native scoring missed a violation. Strong-rule controls, independent safety adjudication, representative held-out tasks and a valid missed-violation estimate remain unavailable; scientific HOLD remains. See [the study](APPWORLD_PILOT_115.md).
+
 ## 1.1.0 — 2026-10-31
 
 Investigated the local model's template-opened thinking segment without changing the frozen 1.0.95 parser or reclassifying its outputs. Two controlled format preflights still produced no accepted action. Downloaded Qwen2.5-0.5B-Instruct and SmolLM2-360M-Instruct, verified their weights against upstream LFS metadata, and ran one original AppWorld train task per model under the existing structured interface and budget; both failed the native task score. Reconstructed an accessible INT4 model from an existing DPO-merged FP16 checkpoint, retained the initial GBK logging failure, and verified NPU generation with a 16-token limit. This is one task and four checkpoints, not four independent model families; no strong baseline, independent safety labels or paper claim is established. See [the study](APPWORLD_PILOT_110.md).

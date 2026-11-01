@@ -129,11 +129,17 @@ class DeepSeek:
 
 
 class LocalModel:
-    def __init__(self, executable: Path, model_path: Path, error_path: Path):
+    def __init__(self, executable: Path, model_path: Path, error_path: Path,
+                 max_input_tokens: int | None = None):
+        if max_input_tokens is not None and max_input_tokens <= 0:
+            raise ValueError("Local input token limit must be positive")
         self.errors = error_path.open("x", encoding="utf8")
         flags = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+        command = [str(executable), "-m", "research.reliability_reset.local_worker195", str(model_path)]
+        if max_input_tokens is not None:
+            command.append(str(max_input_tokens))
         self.worker = subprocess.Popen(
-            [str(executable), "-m", "research.reliability_reset.local_worker195", str(model_path)],
+            command,
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=self.errors, text=True, encoding="utf8",
             creationflags=flags)
         ready = json.loads(self.worker.stdout.readline())
@@ -156,7 +162,7 @@ class LocalModel:
 
 
 def run(root: Path, experiment: str, task_id: str, provider: str, local_python: Path | None = None,
-        local_model: Path | None = None) -> dict:
+        local_model: Path | None = None, local_max_input_tokens: int | None = None) -> dict:
     """Run one fresh task; the original task and evaluator are unchanged."""
     from appworld import AppWorld, update_root
     from freezegun import api as clock
@@ -168,7 +174,8 @@ def run(root: Path, experiment: str, task_id: str, provider: str, local_python: 
     log_dir = root.parent / "journals" / experiment
     log_dir.mkdir(parents=True, exist_ok=False)
     client = DeepSeek() if provider == "deepseek" else (
-        LocalModel(local_python.resolve(), local_model.resolve(), log_dir / "worker-stderr.txt")
+        LocalModel(local_python.resolve(), local_model.resolve(), log_dir / "worker-stderr.txt",
+                   local_max_input_tokens)
         if provider == "local" else None)
     docs_dir = root / "data" / "api_docs" / "standard"
     docs = {path.stem: json.loads(path.read_text(encoding="utf8")) for path in docs_dir.glob("*.json")}
@@ -202,6 +209,12 @@ def run(root: Path, experiment: str, task_id: str, provider: str, local_python: 
                         "timestamp_utc": clock.real_datetime.now(timezone.utc).isoformat(), "messages": messages,
                         "prompt_bytes": prompt_bytes, "max_output_tokens": MAX_OUTPUT_TOKENS})
                 result = client.request(messages)
+                if result.get("error_type") == "input_token_limit":
+                    termination = "input_token_limit"
+                    record({"kind": "controller_stop", "step": step + 1, "reason": termination,
+                            "input_tokens": result["input_tokens"],
+                            "input_token_limit": result["input_token_limit"]})
+                    break
                 model_calls += 1
                 record({"kind": "model", "step": step + 1, "timestamp_utc": clock.real_datetime.now(timezone.utc).isoformat(),
                         "prompt_bytes": prompt_bytes, **result})
