@@ -1,5 +1,9 @@
 # Reliability Reset releases
 
+## Research evidence update — 2026-11-03 (no version bump)
+
+Recorded two independent human blind reviews and three auxiliary AI reviews of four stratified historical development cases. Both confirmed task conflicts were caught by the saved native full score; the two native-passing cases showed no violation in the reviewed scopes. A same-version 0.1.0 replay matched one of four saved reports using archived state alone. A paired, synthetic state-change marker control restored matching passed and failed test names for all four, without recovering historical runtime metadata. The sample cannot estimate a miss rate, historical dependencies remain unknown, and the scientific claim stays HOLD. Published a de-identified, encrypted evidence bundle and retained raw reviews privately. See [the review and replay](APPWORLD_REVIEW_2026_11_02.md).
+
 ## 1.1.05 — 2026-11-01
 
 Continued the interrupted AppWorld train-scenario pilot. DeepSeek Flash, Qwen2.5-0.5B and an exploratory Granite 4.0-350M each received six native scores without a pass; a guarded SmolLM2-360M run also received six scores, with five censored by a 2,000-input-token limit. These arms are not an equal-budget ranking. Completed the interrupted sixth DeepSeek public-schema run, preserved all retries and partial journals, and exported a payload-free per-call cost ledger. Two exploratory extended runs had supervisor status `success` but failed full native scoring; both scores matched fresh-process replays. This does not demonstrate that native scoring missed a violation. Strong-rule controls, independent safety adjudication, representative held-out tasks and a valid missed-violation estimate remain unavailable; scientific HOLD remains. See [the study](APPWORLD_PILOT_115.md).
