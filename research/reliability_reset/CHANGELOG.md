@@ -1,5 +1,9 @@
 # Reliability Reset releases
 
+## Research decision — 2026-11-05 (no version bump)
+
+Compared the four archived AppWorld 0.1.0 replay cases against prior work and an adaptation of the zero-counter guard proposed in upstream PR #219. In unmodified replay, two saved passes became failures; both saved failures remained failures. The adapted scorer matched saved passed and failed requirement labels for all four without synthetic change markers; this is neither the full upstream PR nor historical-runtime reconstruction. The related zero-counter mechanism was already reported upstream, and closer published studies address evaluation and regrading validity. The present mechanism is NO-GO as a standalone paper contribution; scientific HOLD remains. The working manuscript now incorporates the blind review and distinguishes saved-score reproducibility from original false-success claims. A supplementary encrypted control package enables local rechecking. No new task, model call, or original-score modification. See [the research decision](APPWORLD_REVIEW_2026_11_02.md).
+
 ## Research evidence update — 2026-11-03 (no version bump)
 
 Recorded two independent human blind reviews and three auxiliary AI reviews of four stratified historical development cases. Both confirmed task conflicts were caught by the saved native full score; the two native-passing cases showed no violation in the reviewed scopes. A same-version 0.1.0 replay matched one of four saved reports using archived state alone. A paired, synthetic state-change marker control restored matching passed and failed test names for all four, without recovering historical runtime metadata. The sample cannot estimate a miss rate, historical dependencies remain unknown, and the scientific claim stays HOLD. Published a de-identified, encrypted evidence bundle and retained raw reviews privately. See [the review and replay](APPWORLD_REVIEW_2026_11_02.md).

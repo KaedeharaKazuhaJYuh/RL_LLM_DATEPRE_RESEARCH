@@ -15,7 +15,7 @@
 
 - **可靠性评测：**在单一开发环境中，终态正确与符合协议地安全完成可能不同；已有数据不足以推断跨任务发生率。[终止分类](research/reliability_reset/TERMINAL_TAXONOMY.md)
 - **验证成本：**0.5.66 是 24 个已见 profile 的离线仿真，使用自建成本模型；历史字段 `min_fixed_r` 仅对 `F`、`F_size`、`F_hist` 三族取最小，不能解释为所有固定规则的最小值。扩大规则族会改变自适应价值的估计；结果不能直接推广到真实任务。[0.5.66 报告](faultda_bench/reports/RELEASE_0566.md) · [0.5.65 报告](faultda_bench/reports/RELEASE_0565.md)
-- **外部基准：**本项目在 AppWorld 0.2.0 训练集的六个场景试跑四个模型，尚无原生评分通过的运行；SmolLM 的五个场景受输入上限截断，不能作为等预算排名。[试跑结果与成本](research/reliability_reset/APPWORLD_PILOT_115.md) · 对官方 0.1.0 历史轨迹的四案例独立盲审未发现原生评分漏检；直接重放也暴露了归档状态元数据不足的问题。[审阅与重放](research/reliability_reset/APPWORLD_REVIEW_2026_11_02.md)
+- **外部基准：**本项目在 AppWorld 0.2.0 训练集的六个场景试跑四个模型，尚无原生评分通过的运行；SmolLM 的五个场景受输入上限截断，不能作为等预算排名。[试跑结果与成本](research/reliability_reset/APPWORLD_PILOT_115.md) · 对官方 0.1.0 四条历史轨迹的独立盲审在已检查范围内未形成原生评分漏检的证据链；直接重放暴露了归档状态元数据不足，同类零计数问题已有上游报告。[审阅、重放与查新](research/reliability_reset/APPWORLD_REVIEW_2026_11_02.md)
 - **模型训练：**历史实验尚未建立稳定的 RL 优势；不同任务、预算和评分不能合并成一个排行榜。[项目历史](docs/PROJECT_HISTORY.md)
 
 ## 从哪里开始
