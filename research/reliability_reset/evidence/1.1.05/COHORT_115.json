@@ -1,0 +1,270 @@
+{
+  "version": "1.1.05",
+  "task_indices": "Six locally selected AppWorld train scenarios; indices are not task identifiers.",
+  "attempts": [
+    {
+      "arm": "deepseek-standard",
+      "task": 1,
+      "attempt": "deepseek-115-s01",
+      "role": "primary"
+    },
+    {
+      "arm": "deepseek-standard",
+      "task": 2,
+      "attempt": "deepseek-115-s02",
+      "role": "primary"
+    },
+    {
+      "arm": "deepseek-standard",
+      "task": 3,
+      "attempt": "deepseek-115-s03",
+      "role": "primary"
+    },
+    {
+      "arm": "deepseek-standard",
+      "task": 4,
+      "attempt": "deepseek-115-s04",
+      "role": "primary"
+    },
+    {
+      "arm": "deepseek-standard",
+      "task": 5,
+      "attempt": "deepseek-115-s05",
+      "role": "primary"
+    },
+    {
+      "arm": "deepseek-standard",
+      "task": 6,
+      "attempt": "deepseek-115-s06",
+      "role": "primary"
+    },
+    {
+      "arm": "qwen-standard",
+      "task": 1,
+      "attempt": "qwen-115-s01",
+      "role": "primary"
+    },
+    {
+      "arm": "qwen-standard",
+      "task": 2,
+      "attempt": "qwen-115-s02",
+      "role": "primary"
+    },
+    {
+      "arm": "qwen-standard",
+      "task": 3,
+      "attempt": "qwen-115-s03",
+      "role": "primary"
+    },
+    {
+      "arm": "qwen-standard",
+      "task": 4,
+      "attempt": "qwen-115-s04",
+      "role": "primary"
+    },
+    {
+      "arm": "qwen-standard",
+      "task": 5,
+      "attempt": "qwen-115-s05",
+      "role": "primary"
+    },
+    {
+      "arm": "qwen-standard",
+      "task": 6,
+      "attempt": "qwen-115-s06",
+      "role": "primary"
+    },
+    {
+      "arm": "granite-exploratory",
+      "task": 1,
+      "attempt": "granite-115-s01",
+      "role": "primary"
+    },
+    {
+      "arm": "granite-exploratory",
+      "task": 2,
+      "attempt": "granite-115-s02",
+      "role": "primary"
+    },
+    {
+      "arm": "granite-exploratory",
+      "task": 3,
+      "attempt": "granite-115-s03",
+      "role": "primary"
+    },
+    {
+      "arm": "granite-exploratory",
+      "task": 4,
+      "attempt": "granite-115-s04",
+      "role": "primary"
+    },
+    {
+      "arm": "granite-exploratory",
+      "task": 5,
+      "attempt": "granite-115-s05",
+      "role": "primary"
+    },
+    {
+      "arm": "granite-exploratory",
+      "task": 6,
+      "attempt": "granite-115-s06",
+      "role": "primary"
+    },
+    {
+      "arm": "smollm-unbounded",
+      "task": 1,
+      "attempt": "smollm-115-s01",
+      "role": "interrupted"
+    },
+    {
+      "arm": "smollm-unbounded",
+      "task": 1,
+      "attempt": "smollm-115-r01",
+      "role": "retry-interrupted"
+    },
+    {
+      "arm": "smollm-unbounded",
+      "task": 1,
+      "attempt": "smollm-115-r01-bsod-repro",
+      "role": "diagnostic"
+    },
+    {
+      "arm": "smollm-guarded",
+      "task": 1,
+      "attempt": "smollmcap-115-r01",
+      "role": "diagnostic-counting"
+    },
+    {
+      "arm": "smollm-guarded",
+      "task": 1,
+      "attempt": "smollmcap-115-r01b",
+      "role": "primary"
+    },
+    {
+      "arm": "smollm-guarded",
+      "task": 2,
+      "attempt": "smollmcap-115-s02",
+      "role": "primary"
+    },
+    {
+      "arm": "smollm-guarded",
+      "task": 3,
+      "attempt": "smollmcap-115-s03",
+      "role": "primary"
+    },
+    {
+      "arm": "smollm-guarded",
+      "task": 4,
+      "attempt": "smollmcap-115-s04",
+      "role": "primary"
+    },
+    {
+      "arm": "smollm-guarded",
+      "task": 5,
+      "attempt": "smollmcap-115-s05",
+      "role": "primary"
+    },
+    {
+      "arm": "smollm-guarded",
+      "task": 6,
+      "attempt": "smollmcap-115-s06",
+      "role": "primary"
+    },
+    {
+      "arm": "deepseek-schema-exploratory",
+      "task": 1,
+      "attempt": "deepseek-schema-115-s01",
+      "role": "interrupted"
+    },
+    {
+      "arm": "deepseek-schema-exploratory",
+      "task": 1,
+      "attempt": "deepseek-schema-115-r01",
+      "role": "primary"
+    },
+    {
+      "arm": "deepseek-schema-exploratory",
+      "task": 2,
+      "attempt": "deepseek-schema-115-s02",
+      "role": "primary"
+    },
+    {
+      "arm": "deepseek-schema-exploratory",
+      "task": 3,
+      "attempt": "deepseek-schema-115-s03",
+      "role": "primary"
+    },
+    {
+      "arm": "deepseek-schema-exploratory",
+      "task": 4,
+      "attempt": "deepseek-schema-115-s04",
+      "role": "primary"
+    },
+    {
+      "arm": "deepseek-schema-exploratory",
+      "task": 5,
+      "attempt": "deepseek-schema-115-s05",
+      "role": "primary"
+    },
+    {
+      "arm": "deepseek-schema-exploratory",
+      "task": 6,
+      "attempt": "deepseek-schema-115-s06",
+      "role": "interrupted"
+    },
+    {
+      "arm": "deepseek-schema-exploratory",
+      "task": 6,
+      "attempt": "deepseek-schema-115-r06",
+      "role": "primary"
+    },
+    {
+      "arm": "deepseek-extended-exploratory",
+      "task": 1,
+      "attempt": "deepseek-ext-115-s01",
+      "role": "initial"
+    },
+    {
+      "arm": "deepseek-extended-exploratory",
+      "task": 2,
+      "attempt": "deepseek-ext-115-s02",
+      "role": "initial"
+    },
+    {
+      "arm": "deepseek-extended-exploratory",
+      "task": 3,
+      "attempt": "deepseek-ext-115-s03",
+      "role": "initial"
+    },
+    {
+      "arm": "deepseek-extended-exploratory",
+      "task": 4,
+      "attempt": "deepseek-ext-115-s04",
+      "role": "initial"
+    },
+    {
+      "arm": "deepseek-extended-exploratory",
+      "task": 5,
+      "attempt": "deepseek-ext-115-s05",
+      "role": "initial"
+    },
+    {
+      "arm": "deepseek-extended-exploratory",
+      "task": 6,
+      "attempt": "deepseek-ext-115-s06",
+      "role": "initial"
+    },
+    {
+      "arm": "deepseek-extended-exploratory",
+      "task": 3,
+      "attempt": "deepseek-ext-115-r03",
+      "role": "retry"
+    },
+    {
+      "arm": "deepseek-extended-exploratory",
+      "task": 5,
+      "attempt": "deepseek-ext-115-r05",
+      "role": "retry"
+    }
+  ]
+}

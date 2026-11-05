@@ -1,6 +1,28 @@
 # 复现与运行指南
 
-当前 **0.5.60-dev**：`python -m faultda_bench.stats560.audit --output work/stats560.json`（同时写 `.md`，不覆盖已有文件，拒绝冻结位置）；范围测试 `python -m unittest tests.test_faultda_stats560 -v`。只对冻结结果做描述性再计数，见[方法与边界](../faultda_bench/docs/UNCERTAINTY_0560.md)。`python -m unittest discover -s tests` 不再需要预先创建 `work/`；也可 `python -m pip install -e .[test]` 后运行 `python -m pytest`。
+当前研究线的离线检查从仓库根目录执行。GitHub 的 Python 检查使用 Python 3.12 和 NumPy 2.3.5；模型权重与 GPU/NPU 并非这些检查的必需项。
+
+首次使用时，在选定的 Python 环境中安装项目及依赖：`python -m pip install -e .`。后续命令使用同一个环境运行。
+
+```sh
+python -m scripts.release_version --check
+python -m research.reliability_reset.terminal_taxonomy
+python -m unittest tests.test_reliability_terminal_taxonomy tests.test_reliability_reset_seen_evaluation
+python -m faultda_bench.ci565
+```
+
+终止分类默认只读并打印摘要；若要保存完整结果，使用新的路径，例如 `--output work/terminal-taxonomy-new.json`。历史文件、原始数据和同名输出不会被覆盖。
+
+若要在新目录运行全部登记的离线验收，可使用 `python -m faultda_bench.current_evidence.rerun --output-dir work/audit-new`。请为每次运行选择新的 `work/` 子目录；遇到同名输出时，命令会停止，不需要清理整个 `work/`。此入口调用原有验收逻辑；CI 原入口及其输出位置不变。
+
+Windows 新检出时，仓库属性为 14 个历史证据文件指定 LF，避免换行转换导致摘要不一致；这不改写已有实验内容，也不会自动修复已经检出的文件。
+
+完整回归可运行 `python -m unittest discover -s tests`，耗时较长。VeriCost 的历史验收要求完整 Git 历史，并检查冻结相关路径没有未提交修改；在这些路径有本地改动时，相关检查会按设计拒绝执行。跨 Python 版本检查有单独的解释器条件；本地跳过不等于已通过该检查。详见 [0.5.66 报告](../faultda_bench/reports/RELEASE_0566.md) 和 [研究线入口](../research/reliability_reset/README.md)。
+
+<details>
+<summary>展开 0.5.60 及更早版本的历史复现入口</summary>
+
+历史 **0.5.60-dev**：`python -m faultda_bench.stats560.audit --output work/stats560.json`（同时写 `.md`，不覆盖已有文件，拒绝冻结位置）；范围测试 `python -m unittest tests.test_faultda_stats560 -v`。只对冻结结果做描述性再计数，见[方法与边界](../faultda_bench/docs/UNCERTAINTY_0560.md)。`python -m unittest discover -s tests` 不再需要预先创建 `work/`；也可 `python -m pip install -e .[test]` 后运行 `python -m pytest`。
 
 0.5.55 历史入口 **0.5.55-dev版本内性能修订1**：快速入口 `python -m faultda_bench.termination555.performance_audit`；`--historical` 仍执行旧完整语义链。新增会话不监控文件实时变化，下批次重新装载核验。原 `termination555.audit` 不改。重测用 `python -m faultda_bench.termination555.benchmark --pairs 3 --output work/new_measurement.json`；本机成对数据、内存和能耗边界见[架构说明](../faultda_bench/docs/ARCHITECTURE_ENERGY_0555.md)。
 
@@ -14,25 +36,25 @@
 
 0.5.25 历史入口：`python -m faultda_bench.review525.audit`；重点验证 `python -m unittest tests.test_faultda_review525 -v`。公开解析及比较前置校验见[本轮协议](../faultda_bench/docs/PREFLIGHT_0525_PROTOCOL.md)。无新增API或研究准入。以下版本记录保留各自历史范围。
 
-最新（2026-10-19）：**0.5.20-dev** 依据用户转达审阅者明确同意，正式登记原 12 对指代裁决，保留歧义与异议。完成 R 与具体前作设置对照；暂停当前机制路线，保留工程诊断 Benchmark。新增 actor/来源/回执双事件只读接口，旧 72 条均为脚本派生，不是模型成绩；新接口独立人审 pending，科学 HOLD，API 0。
+（2026-10-19）：**0.5.20-dev** 依据用户转达审阅者明确同意，正式登记原 12 对指代裁决，保留歧义与异议。完成 R 与具体前作设置对照；暂停当前机制路线，保留工程诊断 Benchmark。新增 actor/来源/回执双事件只读接口，旧 72 条均为脚本派生，不是模型成绩；新接口独立人审 pending，科学 HOLD，API 0。
 
 0.5.20 历史入口：`python -m faultda_bench.review520.audit`；[本轮复核指南](../faultda_bench/docs/REVIEW_0520_GUIDE.md)。以下旧 pending 为当时状态，不取消已登记裁决。
 
-最新（2026-10-18）：**0.5.15-dev** 接收张雨田 12 对指代意见和四项设计 revise；原文明确不登记最终裁决，该项仍 pending。落实既有已见来源约束，新增血缘/祖先准入拦截与共同分母结构检查；否决 W4 主实验设计，未统计证伪模型假设。无新模型、来源、训练或 API，科学 HOLD。
+（2026-10-18）：**0.5.15-dev** 接收张雨田 12 对指代意见和四项设计 revise；原文明确不登记最终裁决，该项仍 pending。落实既有已见来源约束，新增血缘/祖先准入拦截与共同分母结构检查；否决 W4 主实验设计，未统计证伪模型假设。无新模型、来源、训练或 API，科学 HOLD。
 
 0.5.15 历史入口：`python -m faultda_bench.review515.audit`；[本轮指南](../faultda_bench/docs/REVIEW_0515_GUIDE.md)列明原件、旧版本与新准入边界。下方均为历史入口与当时测试范围。
 
-最新（2026-10-18）：**0.5.10-dev** 完成 12 对指代裁决材料、4 项设计审阅问题、空白返回模板与范围校验；实现区分安全完成/合理升级/错误终止的指标资格核对。72 条旧程序对照只有一个历史簇，不是新模型结果。新独立裁决与设计审阅仍 pending，HOLD，新增 API 0。
+（2026-10-18）：**0.5.10-dev** 完成 12 对指代裁决材料、4 项设计审阅问题、空白返回模板与范围校验；实现区分安全完成/合理升级/错误终止的指标资格核对。72 条旧程序对照只有一个历史簇，不是新模型结果。新独立裁决与设计审阅仍 pending，HOLD，新增 API 0。
 
 0.5.10 历史验收：`python -m faultda_bench.review510.audit`。人工填写与包内核对见[本轮指南](../faultda_bench/docs/REVIEW_0510_GUIDE.md)。本版完整仓库 527 项，包内子集 318 项，CI 选择 300 项；旧入口保留原范围。
 [本版报告](../faultda_bench/reports/REVIEW_0510_RELEASE.md)。
 
-最新（2026-10-17）：**0.5.05-dev** 接收张雨田 37 组人工技术复审，合理备选指代保留、最终裁决未进行；完成两类证据/决策假设、相关工作与强规则对照、跨任务准入草案。新设计未独立验收；科学 HOLD，新增 API 0。
+（2026-10-17）：**0.5.05-dev** 接收张雨田 37 组人工技术复审，合理备选指代保留、最终裁决未进行；完成两类证据/决策假设、相关工作与强规则对照、跨任务准入草案。新设计未独立验收；科学 HOLD，新增 API 0。
 
 0.5.05 历史验收：`python -m faultda_bench.review505.audit`。复核包解压后按[独立包入口](../faultda_bench/docs/REVIEW_START_HERE_0505.md)运行，无需可编辑安装。旧包的 496 项为完整仓库口径，旧包自身为 287 项，旧 CI 列表为 269 项；不要跨范围比较数量。新包根 `BUNDLE_VALIDATION.json` 记录其实际测试数。
 [本版报告](../faultda_bench/reports/REVIEW_0505_RELEASE.md)。
 
-最新（2026-10-16）：**0.5.0-dev 已完成**。保留旧 0/12、6/12 主分数，另注释 contextual 的 last-publish 合理解释（12/12，不替换主分数）；72 条 actor/origin 视图可逆迁移。496 项测试通过，新增 API 0。研究主张收束为接口/工程有效性，新独立复审 pending，科学 HOLD。下一版 0.5.05-dev 先整理复审、查新及可证伪竞争解释。
+（2026-10-16）：**0.5.0-dev 已完成**。保留旧 0/12、6/12 主分数，另注释 contextual 的 last-publish 合理解释（12/12，不替换主分数）；72 条 actor/origin 视图可逆迁移。496 项测试通过，新增 API 0。研究主张收束为接口/工程有效性，新独立复审 pending，科学 HOLD。下一版 0.5.05-dev 先整理复审、查新及可证伪竞争解释。
 [本版报告](../faultda_bench/reports/VALIDITY_0500_RELEASE.md) · [复审指南](../faultda_bench/reports/VALIDITY_0500_REVIEW_GUIDE.md)。
 
 0.5.0 历史验收：`python -m faultda_bench.validity500.audit`；注释/迁移单独重放：`python -m faultda_bench.validity500.suite`；37 组复审范围：`python -m faultda_bench.validity500.review`。均无 API 请求。本版仅派生只读视图，不改旧引擎或旧响应；新语义版本不直接送入旧责任入口。以下入口保留各历史版本的冻结范围。
@@ -270,3 +292,5 @@ python -m unittest tests.test_faultda_handoff320 tests.test_faultda_handoff320_a
 ## 技术复审后的工程实跑：0.3.50-dev
 
 当前验收 `python -m faultda_bench.live350.audit --output work/acceptance_0350.json` 不联网。单独 `python -m faultda_bench.live350.suite --verify faultda_bench/reports/live_v29_deepseek.json` 和 `python -m faultda_bench.live350.analysis`。历史真实请求75、上限136。新实跑必须先freeze独立新计划，再给独立--protocol/--output；旧响应与JSONL不可覆盖。内部复审不解除科学HOLD。见[协议](../faultda_bench/docs/LIVE_0350_PROTOCOL.md)、[报告](../faultda_bench/reports/LIVE_0350_RELEASE.md)。
+
+</details>

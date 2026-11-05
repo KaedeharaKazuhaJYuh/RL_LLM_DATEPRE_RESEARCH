@@ -1,0 +1,229 @@
+{
+  "version": "1.0.80",
+  "date": "2026-10-26",
+  "upstream_commit": "42b5bcf3cd334fee33f0c37c02070a9f5807add5",
+  "kind": "Native start-state preflight; no native full scorer or legal API execution",
+  "selection": {
+    "task_id": "82e2fac_1",
+    "split": "train",
+    "rule": "First nonempty official train.txt entry, before task inspection"
+  },
+  "decrypted_package_sha256": "f029a84ad87749864be93c4aec0e8c309b119d129847a59ad4dccab15be7f9cf",
+  "data_version": "0.2.0",
+  "original_task_packet": [
+    {
+      "path": "data/tasks/82e2fac_1/dbs/admin.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/dbs/amazon.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/dbs/api_docs.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/dbs/file_system.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/dbs/gmail.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/dbs/phone.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/dbs/simple_note.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/dbs/splitwise.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/dbs/spotify.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/dbs/supervisor.jsonl",
+      "bytes": 3550,
+      "sha256": "6eec74e31182f445523edfb450da9bd8118e1a6230a27afc78e1d35ea3786a79"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/dbs/todoist.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/dbs/venmo.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/ground_truth/answer.json",
+      "bytes": 23,
+      "sha256": "9e51f1611c70c853f26161cd290d769f4cc6814527fdfe8ba1f263b043413f57"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/ground_truth/api_calls.json",
+      "bytes": 9177,
+      "sha256": "e301feae8d17bac098251924eddc5459c6c0e62ad0f9ee7bd1e3bbe58e337622"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/ground_truth/compiled_solution.py",
+      "bytes": 1815,
+      "sha256": "80a47c6d19fd23889f9b347053f219b6f7ba751b7503502f64727dd8a975d7b2"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/ground_truth/evaluation.py",
+      "bytes": 1316,
+      "sha256": "74e4ddce027349a9ef6f3b42dd379cf3db75c26fd82ecf2aa5fb01ebbe487f09"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/ground_truth/generator.py",
+      "bytes": 10379,
+      "sha256": "65b9e60f5133921c204be0140f9e0b5843f3258b499a5256562ff1860e8783f5"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/ground_truth/metadata.json",
+      "bytes": 270,
+      "sha256": "033cfd5ae60d9869d987ab02f64c5de0346d55995553f1672f6e2d67519a04c4"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/ground_truth/private_data.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/ground_truth/public_data.json",
+      "bytes": 94,
+      "sha256": "b03ca8e67a47037848aa83e3d7bfe5927d8783e693eeaddc0484b4b62a97e1de"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/ground_truth/required_apis.json",
+      "bytes": 189,
+      "sha256": "e366a65aa91fe022c390b6ce5adaa1eded0c6b8b70b69aab09a7e8a4ad1bb21f"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/ground_truth/required_apps.json",
+      "bytes": 17,
+      "sha256": "ab5e6144ccf1f6697353cfb7d269f4b700c79512d708ba1c845bdf8f59fd4296"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/ground_truth/solution.py",
+      "bytes": 3699,
+      "sha256": "3c2963e5ed0d2e178718d3645784dc7abd482872a909c689e1546ecc1f561f47"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/ground_truth/test_data.json",
+      "bytes": 187,
+      "sha256": "8285b0e4cb64b2ec8a0c678559a7b32f7025e6f9870f27ffdfc43b498e587f7f"
+    },
+    {
+      "path": "data/tasks/82e2fac_1/specs.json",
+      "bytes": 401,
+      "sha256": "2d50e834f09533ea9d9a534eed309e40cf7a5dbbf52dc0c1052f49f2f4e0df74"
+    }
+  ],
+  "original_base_databases": [
+    {
+      "path": "data/base_dbs/admin.db",
+      "bytes": 286720,
+      "sha256": "2a54320b5c0f3e15ec42a91ff6d48a35c1b9402a439676fd83abe9cba6907ac9"
+    },
+    {
+      "path": "data/base_dbs/amazon.db",
+      "bytes": 25407488,
+      "sha256": "0f8c234176a2ee5c5ed76c88f433fee28d54c77053318a2cda4d8f3fc213a48d"
+    },
+    {
+      "path": "data/base_dbs/api_docs.db",
+      "bytes": 630784,
+      "sha256": "f5c8cb85fce35ea0eab41833bea12b261f1dae637a0011a095026f08f98b6045"
+    },
+    {
+      "path": "data/base_dbs/file_system.db",
+      "bytes": 8593408,
+      "sha256": "6073413135b14fff3ea3a289574d04d9815ea257ebbc3083db25eb97b634846a"
+    },
+    {
+      "path": "data/base_dbs/gmail.db",
+      "bytes": 62550016,
+      "sha256": "069221ea55688e2e454840ac4915b7920848be1958ec2a8d45e0743f7bc48cef"
+    },
+    {
+      "path": "data/base_dbs/phone.db",
+      "bytes": 12611584,
+      "sha256": "cc4b9469902a874adae83ba73f88d3b96e650fbabb34119409f13710abe0a143"
+    },
+    {
+      "path": "data/base_dbs/simple_note.db",
+      "bytes": 9961472,
+      "sha256": "58bfe70a5272be257a07bac3508d17c1d657c431c9628038c21a7e955e9827ed"
+    },
+    {
+      "path": "data/base_dbs/splitwise.db",
+      "bytes": 6017024,
+      "sha256": "36c88eb0b56b9663a74cc8696b520175afe2dedad5c9c9b7fcbbc3135e7ca8a3"
+    },
+    {
+      "path": "data/base_dbs/spotify.db",
+      "bytes": 1904640,
+      "sha256": "75d993b87a603145eff54e8a399848ad3e91c5460082fc9225ce13770f8424a3"
+    },
+    {
+      "path": "data/base_dbs/supervisor.db",
+      "bytes": 45056,
+      "sha256": "410f9388a56d356d50a91e3b42b47777cf8bf0fed86a8c2461f598d91c562072"
+    },
+    {
+      "path": "data/base_dbs/todoist.db",
+      "bytes": 2916352,
+      "sha256": "5470d42bbc9ba39467b279ac2eab62b1978efa3b48d116274438d7031f54fdbb"
+    },
+    {
+      "path": "data/base_dbs/venmo.db",
+      "bytes": 5910528,
+      "sha256": "a1198cedc5e87f44025f4af4a19ce8ec76ebdb6d0270daa776cc1b67811069f9"
+    }
+  ],
+  "start_state": {
+    "apps": 12,
+    "native_delta_statements_replayed": 18,
+    "hash_tables": 103,
+    "rows": 373497,
+    "duplicate_groups": 0,
+    "invalid_hash_rows": 0,
+    "hash_generator_recomputed": false
+  },
+  "decision": "CLOSE_MULTIPLICITY_CANDIDATE_FOR_SELECTED_START",
+  "execution_go_no_go": "NO_GO_NOT_NEEDED_FOR_THIS_CANDIDATE",
+  "argument": "If a start table has n distinct hashes and an end table has the same n rows and the same set of hashes, every end hash occurs exactly once. Therefore the hash multisets coincide. This excludes only the 1.0.75 multiplicity mechanism.",
+  "assumptions": [
+    "Stored hashes and the public comparison path are used as recorded",
+    "No hash collision, stale/tampered hash, identity-permutation or equal-counter claim is tested",
+    "Raw SQLite plus unchanged SQL replay is not full AppWorld environment reconstruction"
+  ],
+  "counts": {
+    "native_task_packets_inspected": 1,
+    "native_start_reconstructions": 1,
+    "native_task_scorer_runs": 0,
+    "AppWorld_environment_runs": 0,
+    "legal_tool_trajectories": 0,
+    "new_model_api_calls": 0,
+    "confirmed_native_false_successes": 0
+  },
+  "scientific_status": "HOLD"
+}

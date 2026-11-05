@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0",
+  "date": "2026-10-22",
+  "python": "3.13.13",
+  "scientific_status": "HOLD",
+  "validation": {
+    "repository_suite": {
+      "tests": 921,
+      "skipped": 3,
+      "failures": 0,
+      "seconds": 347.134,
+      "log_sha256": "da7b35568f50e8ed70036fcdcccaec08f07e5cb521641876f55464f0c7a66352",
+      "scope": "Run started before the final denominator clarification and twentieth regression test. Final changes were then covered by the focused suite below."
+    },
+    "final_focused_suite": {
+      "tests": 20,
+      "skipped": 0,
+      "failures": 0,
+      "log_sha256": "022d147a5a5d2b8811898be50c48cd236f2935e787fa7c6e30b598a7d26ddc02"
+    },
+    "release_metadata": "passed",
+    "diff_whitespace": "passed",
+    "compileall": "passed"
+  },
+  "local_skip_reasons": [
+    "Python 3.12 cross-interpreter check requires VERICOST_PY312",
+    "Two optional native library tests: native library not built"
+  ],
+  "controls": {
+    "study_kind": "synthetic_control",
+    "runs": 20,
+    "families": 1,
+    "model_runs": 0,
+    "api_calls": 0,
+    "independent_human_review": "pending",
+    "bundle_sha256": "7b341a586aed2e39f6cceacecf6d2713d62ea35560621f54849770ebf8bb6250",
+    "audit_sha256": "6d3e93cf51589654d2d8b7e355e98bada6f72e92997e1b139b0fd6efb85671e4",
+    "local_output": "work/reliability-reset-1.0.0"
+  },
+  "source_sha256": {
+    "research/reliability_reset/__init__.py": "55f546a2b30a8666235a37694fe1dcdc86480c453ff9ba12ed17d3d9c5cc3381",
+    "research/reliability_reset/audit.py": "8f14edd34b543a8d2462276254bde2058793b70dde07bc5c2297853c493913a5",
+    "research/reliability_reset/controls.py": "f19156aec651114596f61eacf2b3a6dea3f002a9533ded468b7a96f2724d868b",
+    "tests/test_reliability_reset.py": "94afe9f972ca906d5a6ab197cb7fbbffbcf9dede89b85206a52d75958f116065"
+  },
+  "limits": [
+    "Locally generated consistency evidence; not external attestation.",
+    "Synthetic controls are not a development pilot or evidence of cross-task validity.",
+    "Facts remain assertions from adapters; no real task adapter implemented in this release."
+  ]
+}

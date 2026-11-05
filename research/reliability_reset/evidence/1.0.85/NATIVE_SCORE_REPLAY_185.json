@@ -1,0 +1,31 @@
+{
+  "version": "1.0.85",
+  "replay": "Original full evaluate_task per arm in a separate fresh process on recorded terminal deltas; no new API trajectory",
+  "results": [
+    {
+      "arm": "reference",
+      "success": true,
+      "passed": 2,
+      "failed": 0,
+      "num_tests": 2
+    },
+    {
+      "arm": "legal_title_exchange",
+      "success": false,
+      "passed": 1,
+      "failed": 1,
+      "num_tests": 2
+    }
+  ],
+  "matches_recorded_scores": true,
+  "per_arm_process_isolation": true,
+  "initial_failed_replay": {
+    "scope": "One fresh process reused low-level evaluate_task for the same task across two experiments without clearing its retained in-memory cache",
+    "first_reference_success": true,
+    "second_variant_success": true,
+    "rejected_by_local_expected_score_assertion": true,
+    "cause": "Low-level evaluator deliberately retains same-task memory to support an active AppWorld; official evaluate_tasks guards/reset caches. This is a replay harness lifecycle error, not accepted benchmark false success.",
+    "failed_replay_full_scorer_calls": 2
+  },
+  "corrected_replay_full_scorer_calls": 2
+}

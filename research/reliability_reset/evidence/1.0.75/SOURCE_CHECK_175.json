@@ -1,0 +1,115 @@
+{
+  "version": "1.0.75",
+  "date": "2026-10-26",
+  "commit": "42b5bcf3cd334fee33f0c37c02070a9f5807add5",
+  "evidence_levels": {
+    "hash_omits_id": "confirmed_public_source",
+    "helper_content_multiplicity_blind_spot": "confirmed_isolated_synthetic_boundary",
+    "global_hash_uniqueness": "not_proven",
+    "native_API_reachability": "unknown",
+    "unaltered_full_native_task_score_false_success": "unknown",
+    "observed_real_agent_or_ranking_impact": "not_measured"
+  },
+  "erratum": {
+    "previous_release": "1.0.70",
+    "incorrect_description": "Record hash definition assigned to protected implementation",
+    "correction": "Definition is public in src/appworld/apps/lib/models/orm.py:1074-1087",
+    "historical_artifacts_modified": false
+  },
+  "protected_source_static_check": {
+    "application_model_sources_read_as_text": 12,
+    "explicit_uniqueness_declarations": 103,
+    "table_declarations": 103,
+    "explicit_empty_unique_by": 24,
+    "declaration_inventory_sha256": "2add8c07444cdfa285d442ccd6b29f56290830ac3a217610ba1012537d6adff6",
+    "global_duplicate_exclusion_proven": false,
+    "legal_native_API_reachability_proven": false,
+    "publication": "No protected source, class-by-class declaration list or unencrypted derivative is redistributed."
+  },
+  "public_function_extraction": {
+    "commit": "42b5bcf3cd334fee33f0c37c02070a9f5807add5",
+    "fixture": "appworld_175_excerpt.py",
+    "fixture_sha256": "cc3572e772b828b4fb0bdb6da2fe87299f3fee3fa55fec977b2876c60ffc692d",
+    "license": "Apache-2.0",
+    "license_file": "APPWORLD_LICENSE",
+    "license_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "extraction": "Public functions dedented to module scope; original argument lists and bodies retained; postponed annotations only. set_record_hash is read as AST, not executed.",
+    "functions": [
+      {
+        "class": null,
+        "name": "_validate_model_name",
+        "path": "src/appworld/collections/models.py",
+        "line_start": 20,
+        "line_end": 22,
+        "whole_source_sha256": "8b2fac59d77c887ab08fe4092ec0811952d051bd56551dc239332c556df136e4",
+        "original_segment_sha256": "b681489d5d36bfab3c83b6b13d45b29e75fe284437f4570b03d8bdbee20424a5"
+      },
+      {
+        "class": "ModelCollectionPair",
+        "name": "_changed_model_names",
+        "path": "src/appworld/collections/models.py",
+        "line_start": 364,
+        "line_end": 457,
+        "whole_source_sha256": "8b2fac59d77c887ab08fe4092ec0811952d051bd56551dc239332c556df136e4",
+        "original_segment_sha256": "41ad9038b6dc6950d668211fd8e7f7a7f364705e7b9a04b6b970383c41afec73"
+      },
+      {
+        "class": "ModelCollectionPair",
+        "name": "_changed_records",
+        "path": "src/appworld/collections/models.py",
+        "line_start": 466,
+        "line_end": 526,
+        "whole_source_sha256": "8b2fac59d77c887ab08fe4092ec0811952d051bd56551dc239332c556df136e4",
+        "original_segment_sha256": "b1b00bece1712d5f496f0da387353fc0cb708ece09b096e2f40f0c58315ec0ea"
+      },
+      {
+        "class": "SQLModel",
+        "name": "set_record_hash",
+        "path": "src/appworld/apps/lib/models/orm.py",
+        "line_start": 1074,
+        "line_end": 1087,
+        "whole_source_sha256": "df959a70b1cb39acd0f40a8fbec103f88f4b3481532d475cd079a551eb43abb9",
+        "original_segment_sha256": "c365ee18eed2922d797ce18db88b44549fa7e5f720b74e1fd6a13c09104459b4"
+      }
+    ],
+    "boundary_adapters": [
+      "In-memory row/hash inputs, no actual ORM or API",
+      "Fixed canonical Item naming; no state-comparison logic in adapter",
+      "Opaque deterministic content labels, not actual xxhash results"
+    ]
+  },
+  "frozen_cases": {
+    "definitions": 8,
+    "multiplicity_change_missed": 1,
+    "representative_failure_rate": null,
+    "reason": "Purpose-built software controls are not random task samples or real benchmark execution."
+  },
+  "initial_adapter_error": {
+    "type": "TypeError: SimpleNamespace was not subscriptable",
+    "before_cases_completed": true,
+    "resolution": "Added dictionary-style access to the in-memory adapter only",
+    "upstream_code_changed": false
+  },
+  "decision": {
+    "one_native_case_preparation": "supported_as_next_bounded_step",
+    "native_task_data_downloaded": false,
+    "native_case_execution_admitted_in_this_release": false,
+    "independent_scientific_status": "HOLD",
+    "current_recovery_algorithm_claim": "NO-GO",
+    "cross_model_or_paid_execution": "not_admitted",
+    "close_native_candidate_if": [
+      "Actual API or model semantics exclude the state",
+      "Original full task tests reject it",
+      "Only task-irrelevant identity differs",
+      "Original task/state/score binding cannot be verified"
+    ]
+  },
+  "limits": [
+    "Original public function bodies run with synthetic row, naming and mutation-counter adapters.",
+    "Actual xxhash generation, ORM, DB, API and full task scorer are not executed.",
+    "Source declarations do not prove legal native API reachability.",
+    "No protected source or per-class list is redistributed.",
+    "A component counterexample is not automatically a benchmark defect or paper novelty.",
+    "Local digests and tests do not replace independent review."
+  ]
+}

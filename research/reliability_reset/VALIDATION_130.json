@@ -1,0 +1,287 @@
+{
+  "version": "1.0.30",
+  "date": "2026-10-24",
+  "research_state": "active_live_development_intervention",
+  "python": "3.13.13",
+  "experiment": {
+    "version": "1.0.30",
+    "model_executions": 36,
+    "rule_executions": 12,
+    "task_instances": 6,
+    "environment_families": 1,
+    "requests_sent": 87,
+    "received_responses": 87,
+    "parse_failures": 0,
+    "provider_errors": 0,
+    "models_returned": [
+      "deepseek-flash"
+    ],
+    "peak_cost_estimate_usd": 0.0216279,
+    "known_usage": {
+      "prompt_tokens": 66629,
+      "completion_tokens": 1366,
+      "total_tokens": 67995
+    },
+    "native_exact_agree": 48,
+    "strata": [
+      {
+        "arm": "budget_guidance",
+        "stratum": "additional_development_instance",
+        "executions": 6,
+        "resolved": 6,
+        "safe_complete": 6,
+        "forbidden_effect": 0,
+        "inspect_first": 6,
+        "response_bytes": 9381,
+        "checks": 6,
+        "prompt_tokens": 18297,
+        "completion_tokens": 355,
+        "total_tokens": 18652
+      },
+      {
+        "arm": "budget_guidance",
+        "stratum": "prior_live_instance",
+        "executions": 6,
+        "resolved": 6,
+        "safe_complete": 6,
+        "forbidden_effect": 0,
+        "inspect_first": 6,
+        "response_bytes": 9469,
+        "checks": 6,
+        "prompt_tokens": 19858,
+        "completion_tokens": 389,
+        "total_tokens": 20247
+      },
+      {
+        "arm": "original",
+        "stratum": "additional_development_instance",
+        "executions": 6,
+        "resolved": 6,
+        "safe_complete": 0,
+        "forbidden_effect": 0,
+        "inspect_first": 0,
+        "response_bytes": 276,
+        "checks": 6,
+        "prompt_tokens": 5814,
+        "completion_tokens": 138,
+        "total_tokens": 5952
+      },
+      {
+        "arm": "original",
+        "stratum": "prior_live_instance",
+        "executions": 6,
+        "resolved": 6,
+        "safe_complete": 0,
+        "forbidden_effect": 0,
+        "inspect_first": 0,
+        "response_bytes": 276,
+        "checks": 6,
+        "prompt_tokens": 5818,
+        "completion_tokens": 138,
+        "total_tokens": 5956
+      },
+      {
+        "arm": "placebo",
+        "stratum": "additional_development_instance",
+        "executions": 6,
+        "resolved": 6,
+        "safe_complete": 1,
+        "forbidden_effect": 0,
+        "inspect_first": 1,
+        "response_bytes": 2396,
+        "checks": 6,
+        "prompt_tokens": 10460,
+        "completion_tokens": 208,
+        "total_tokens": 10668
+      },
+      {
+        "arm": "placebo",
+        "stratum": "prior_live_instance",
+        "executions": 6,
+        "resolved": 6,
+        "safe_complete": 0,
+        "forbidden_effect": 0,
+        "inspect_first": 0,
+        "response_bytes": 276,
+        "checks": 6,
+        "prompt_tokens": 6382,
+        "completion_tokens": 138,
+        "total_tokens": 6520
+      },
+      {
+        "arm": "rule_only",
+        "stratum": "additional_development_instance",
+        "executions": 6,
+        "resolved": 6,
+        "safe_complete": 6,
+        "forbidden_effect": 0,
+        "inspect_first": 6,
+        "response_bytes": 9381,
+        "checks": 6,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      {
+        "arm": "rule_only",
+        "stratum": "prior_live_instance",
+        "executions": 6,
+        "resolved": 6,
+        "safe_complete": 6,
+        "forbidden_effect": 0,
+        "inspect_first": 6,
+        "response_bytes": 9237,
+        "checks": 6,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      }
+    ],
+    "paired_comparisons": [
+      {
+        "comparison": "budget_guidance_vs_original",
+        "gains": 12,
+        "losses": 0,
+        "ties": 0,
+        "missing_pairs": 0
+      },
+      {
+        "comparison": "budget_guidance_vs_placebo",
+        "gains": 11,
+        "losses": 0,
+        "ties": 1,
+        "missing_pairs": 0
+      }
+    ]
+  },
+  "budget": {
+    "max_primary_calls": 8,
+    "max_requests": 288,
+    "peak_cost_estimate_ceiling_usd": 0.6,
+    "shared_caps": {
+      "checks": 1,
+      "mutations": 6,
+      "decisions": 16
+    }
+  },
+  "checks": {
+    "full_repository_tests": 988,
+    "passed": 985,
+    "skipped": 3,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 330.834,
+    "skipped_test_lines": [
+      "test_the_3_12_interpreter_produces_the_same_digests (test_faultda_vericost565_determinism.DeterminismTests.test_the_3_12_interpreter_produces_the_same_digests) ... skipped 'set VERICOST_PY312 to run the second interpreter; mandatory in current-evidence CI'",
+      "test_complete_real_episode_preserves_verifier_result (test_v5_native_rolling.NativeRollingTests.test_complete_real_episode_preserves_verifier_result) ... skipped 'optional native library not built'",
+      "test_edge_cases_and_elementwise_differential (test_v5_native_rolling.NativeRollingTests.test_edge_cases_and_elementwise_differential) ... skipped 'optional native library not built'"
+    ],
+    "test_log_sha256": "15a378bb1b910274a1a7c3a34d3c349b08e187d901a59da688adc753fc5aae7b",
+    "source_frozen_before_first_request": true,
+    "code_and_source_snapshot_hashes_match": true,
+    "native_independent_agreement": "48/48",
+    "offline_replay": {
+      "model_replays": 36,
+      "response_classifications": 87,
+      "journal_records_bound": 87,
+      "new_api_calls": 0
+    },
+    "preflight_states": 12,
+    "information_inclusion_verified": true,
+    "paired_public_inputs_verified": 12,
+    "inventory_files_verified": 261,
+    "configured_credential_scan": "passed before public archive publication",
+    "first_targeted_run": "Detected JSON integer/string dictionary-key comparison in replay verifier; fixed before first paid request. The living CI catalog correction also had to be committed to satisfy its clean frozen-path precondition.",
+    "ci_integration_audit": {
+      "version": "0.5.65-dev",
+      "revision": "ci-integration-1",
+      "historical_v48_catalog_unchanged": true,
+      "v47_files_unchanged": 690,
+      "v48_current_or_archived_files_verified": 717,
+      "explicit_ci_corrections": 7,
+      "api_calls": 0,
+      "scientific_gate": "HOLD",
+      "experiment_outputs_changed": false
+    }
+  },
+  "output": {
+    "root": "work/reliability-reset-1.0.30/live-tool-planning",
+    "protocol_sha256": "b11d6a98763fcfb5a7c8238bbdcbd0aa5092d454b264ba921161cbfbab0a2fab",
+    "requests_sha256": "2a98f7bf2116842837e6963e60088977be7038c4c5e536068566264a733331dc",
+    "runs_sha256": "974ffdc4a9f0f9b0e87bfa542bac6b2e8dfd8735df6a41e96853bc218d0f5313",
+    "summary_sha256": "717b6f412b2349a5f09b75cdc3de58a48245521cc6faafb6229f254850f633f4",
+    "inventory_sha256": "8fe44f881567c71eeefe078326a296b57d89c3cb49d6fd3103c471a5270d827e",
+    "offline_replay_checks_sha256": "ffe362caf1b6da472cbefc74bdd749bf86e6391265b74019f669d1245d265003"
+  },
+  "publication": {
+    "archive": "research/reliability_reset/evidence/1.0.30/deepseek-tool-planning-1.0.30.zip",
+    "record": "research/reliability_reset/evidence/1.0.30/PUBLIC_RECORD.json",
+    "sha256": "ee855a610efbe50464ddcdffd49610054052559fa42ddbbf382c01c2062561f8",
+    "bytes": 275264
+  },
+  "source_hashes": {
+    "research/reliability_reset/tool_planning.py": {
+      "working_tree_sha256": "c45eaf07d4e054dd2d5f4d5c0aefdcf8ef53e88f608f68de2532e97f5b065212",
+      "lf_utf8_sha256": "c45eaf07d4e054dd2d5f4d5c0aefdcf8ef53e88f608f68de2532e97f5b065212"
+    },
+    "research/reliability_reset/credit_live.py": {
+      "working_tree_sha256": "94f7c4fe9ce3730470519b4fe868ed4d61d69b0817207aba0fe78d4271508d64",
+      "lf_utf8_sha256": "94f7c4fe9ce3730470519b4fe868ed4d61d69b0817207aba0fe78d4271508d64"
+    },
+    "research/reliability_reset/recovery_credit.py": {
+      "working_tree_sha256": "2dcc8f4396970283440c81f5d4930cbdad0aa931aafff82bee657eb1dcdd983e",
+      "lf_utf8_sha256": "2dcc8f4396970283440c81f5d4930cbdad0aa931aafff82bee657eb1dcdd983e"
+    },
+    "research/reliability_reset/semantic_facts.py": {
+      "working_tree_sha256": "b7a242db44c1e47cbb2029b6e18d6c17c842fe9c5432ace10c829a0d43d27fa5",
+      "lf_utf8_sha256": "b7a242db44c1e47cbb2029b6e18d6c17c842fe9c5432ace10c829a0d43d27fa5"
+    },
+    "research/reliability_reset/__init__.py": {
+      "working_tree_sha256": "2ef2dce04e0493533dc97e76b0b7066639d9adae7a0010e365a421d480c7414e",
+      "lf_utf8_sha256": "2ef2dce04e0493533dc97e76b0b7066639d9adae7a0010e365a421d480c7414e"
+    },
+    "faultda_bench/semantic/environment.py": {
+      "working_tree_sha256": "54ff6b19f32163120f92aae416615de3e2cf406a826617330ae289cea14f4008",
+      "lf_utf8_sha256": "54ff6b19f32163120f92aae416615de3e2cf406a826617330ae289cea14f4008"
+    },
+    "faultda_bench/semantic/tasks.py": {
+      "working_tree_sha256": "cc095e08bc33e24581cf626c4a3347678078927f82f88c2693d22ff6edfedae0",
+      "lf_utf8_sha256": "cc095e08bc33e24581cf626c4a3347678078927f82f88c2693d22ff6edfedae0"
+    },
+    "faultda_bench/semantic/policies.py": {
+      "working_tree_sha256": "dc05a9bac78a9c19e3f0cda57f8f0f3c50151d2c872fc1759ec00b743bbea89c",
+      "lf_utf8_sha256": "dc05a9bac78a9c19e3f0cda57f8f0f3c50151d2c872fc1759ec00b743bbea89c"
+    },
+    "faultda_bench/semantic/compute.py": {
+      "working_tree_sha256": "c3900fc16b3a531ba1baa6042fb7e3b2f56dca5b32877e8a357b1925424a90c7",
+      "lf_utf8_sha256": "c3900fc16b3a531ba1baa6042fb7e3b2f56dca5b32877e8a357b1925424a90c7"
+    },
+    "faultda_bench/semantic/oracle.py": {
+      "working_tree_sha256": "0e7f457555f80f367b6ab0ff7e6ab4def42e9b85c6601a2e42ccfa7dbaf886eb",
+      "lf_utf8_sha256": "0e7f457555f80f367b6ab0ff7e6ab4def42e9b85c6601a2e42ccfa7dbaf886eb"
+    },
+    "tests/test_reliability_reset_tool_planning.py": {
+      "working_tree_sha256": "1d357200eb230a88f54a83f9ac3db7d764ce7f3db40bfd56f38ccfeebd535108",
+      "lf_utf8_sha256": "1d357200eb230a88f54a83f9ac3db7d764ce7f3db40bfd56f38ccfeebd535108"
+    },
+    "faultda_bench/protocols/acceptance_v49_ci.json": {
+      "working_tree_sha256": "f2faf746ff8b184d7c7d162a77b0703fabdb2b790b749927581e3ac40a8806c1",
+      "lf_utf8_sha256": "f2faf746ff8b184d7c7d162a77b0703fabdb2b790b749927581e3ac40a8806c1"
+    }
+  },
+  "findings": [
+    "Guidance safely completed 12/12 vs original 0/12 and byte-length-matched context 1/12.",
+    "All guidance cells chose inspect first; all six semantic-error cases performed inspect/stage/publish/stop.",
+    "One healthy guidance run staged redundantly but did not publish; final state was already correct.",
+    "Original/context failure sequences were status then a rejected inspect in 23/24 cells.",
+    "Guidance total tokens were approximately 3.27 times original; no total-compute or hardware-energy saving is demonstrated."
+  ],
+  "limitations": [
+    "Six historical development instances and one environment, not independent or held-out tasks.",
+    "One mutable provider alias and one response sample per cell.",
+    "Guidance bundles budget salience and information inclusion; components not identified separately.",
+    "Byte length is matched using ASCII space padding; tokenizer counts are not matched.",
+    "No model-weight or RL training; strong public rule still completes 12/12 without vendor calls.",
+    "GitHub CI fix is locally verified; remote rerun awaits a future push."
+  ]
+}

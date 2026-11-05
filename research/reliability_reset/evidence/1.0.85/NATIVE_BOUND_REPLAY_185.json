@@ -1,0 +1,25 @@
+{
+  "version": "1.0.85",
+  "per_arm_process_isolation": true,
+  "original_input_files_verified": 37,
+  "native_score_source_files_verified": 5,
+  "results": [
+    {
+      "arm": "reference",
+      "success": true,
+      "passed": 2,
+      "failed": 0,
+      "num_tests": 2
+    },
+    {
+      "arm": "legal_title_exchange",
+      "success": false,
+      "passed": 1,
+      "failed": 1,
+      "num_tests": 2
+    }
+  ],
+  "matches_recorded_scores": true,
+  "new_environment_trajectories": 0,
+  "new_model_api_calls": 0
+}

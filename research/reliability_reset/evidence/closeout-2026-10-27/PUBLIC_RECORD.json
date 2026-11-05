@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-27",
+  "kind": "1.0.85 audit closeout, not a new version",
+  "checkpoint_commit": "ea4f4b496f60bb38588f6ff1e7727ba3a8f52f20",
+  "source_bundle_sha256": "ab40994932cb83ca494c129497e9d5d00f4b8ad4f6e7711e1b941c6c8e73fde6",
+  "artifacts": [
+    {
+      "path": "research/reliability_reset/evidence/closeout-2026-10-27/TERMINAL_BINDING.json",
+      "bytes": 11488,
+      "sha256": "04071eb40eb61c75dd66bfbf26b8f2ac14b2bbca5139266b620e2434080a9c98"
+    },
+    {
+      "path": "research/reliability_reset/evidence/closeout-2026-10-27/TERMINAL_CHECK.json",
+      "bytes": 264,
+      "sha256": "883a89dfd42fa5ad0a0a5f254103cd6bee921eb7b57c27543a8b018f1f01265d"
+    },
+    {
+      "path": "research/reliability_reset/terminal_binding185.py",
+      "bytes": 3438,
+      "sha256": "f97c4d37d40b2fa438bd504a1dfc1ff611c96c3cd09a6c7c8ec5ffbd848e4b33"
+    },
+    {
+      "path": "tests/test_reliability_reset_terminal_binding185.py",
+      "bytes": 3243,
+      "sha256": "832f68f294cee143b272c649ecfaa0bd7a55e5f14c216c4352a767549042edad"
+    }
+  ],
+  "task_output_files_verified": 38,
+  "new_native_scorer_calls": 0,
+  "new_model_api_calls": 0,
+  "new_native_task_executions": 0,
+  "paper_claim_decision": "NO-GO",
+  "scientific_status": "HOLD",
+  "review": "internal; no new independent scientific review",
+  "limitation": "Local digest consistency is not independent historical authentication."
+}

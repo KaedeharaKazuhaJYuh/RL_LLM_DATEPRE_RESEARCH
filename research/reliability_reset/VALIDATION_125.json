@@ -1,0 +1,133 @@
+{
+  "version": "1.0.25",
+  "date": "2026-10-24",
+  "research_state": "active_live_development",
+  "model_requested": "deepseek-flash",
+  "models_returned": [
+    "deepseek-flash"
+  ],
+  "experiment": {
+    "executions": 36,
+    "attempted_primary_trajectories": 12,
+    "primary_trajectories_with_responses": 12,
+    "paired_model_prefix_replays": 12,
+    "helper_only_executions": 12,
+    "requests_sent": 41,
+    "received_responses": 41,
+    "parse_failures": 0,
+    "known_usage": {
+      "prompt_tokens": 34087,
+      "completion_tokens": 641,
+      "total_tokens": 34728
+    },
+    "signatures": {
+      "111": 6,
+      "001": 6
+    },
+    "resolved_triplets": 12,
+    "native_exact_agree": 36,
+    "peak_cost_estimate_usd": 0.010995299999999996
+  },
+  "cost_note": "USD estimate at documented peak uncached rates; not supplier invoice. No retries or automatic model fallback.",
+  "budget": {
+    "max_requests": 96,
+    "max_calls_per_primary": 8,
+    "max_output_tokens": 512,
+    "peak_cost_estimate_limit_usd": 0.6
+  },
+  "checks": {
+    "related_tests": 51,
+    "seconds": 28.863,
+    "failures": 0,
+    "skips": 0,
+    "test_log_sha256": "bcd30ec12f4b9ce2e509aabdc446bbd9d42292f3c8f987f55710eea6b427529a",
+    "scope": "new live adapter, prior recovery-credit controls, semantic environment and inherited release checks; no full-repository run",
+    "initial_run": {
+      "failures": 1,
+      "reason": "Fake vendor test omitted required params fields; corrected fixture to obey frozen JSON schema. Strict production parser remained unchanged."
+    },
+    "offline_replays": 24,
+    "response_classifications_checked": 41,
+    "offline_replay_api_calls": 0,
+    "offline_replay_sha256": "4391320bcafa7fde33f9f1b57361ea62307d4e7bd339699adf9d6e16d56dfb3d",
+    "frozen_runtime_code_hashes": "matched",
+    "artifact_credential_scan": "passed; no key value persisted in output",
+    "local_markdown_links": 49,
+    "old_evidence": {
+      "VALIDATION_110.json": "archive hashes unchanged",
+      "VALIDATION_115.json": "archive hashes unchanged",
+      "VALIDATION_120.json": "archive hashes unchanged"
+    }
+  },
+  "output": {
+    "root": "work/reliability-reset-1.0.25/live-credit",
+    "protocol_sha256": "66aaaa196f16f64afe0a93813ca7fd3a788a111eea48ecdda623a018c888e19b",
+    "requests_sha256": "e646fccea39635a1a901e8ac55ff04c78f32826f98a7962dbb278c8b074078e1",
+    "runs_sha256": "b99da305203d2362100e9637770f75f5d3c2dedba78fcfc44d36405c99bb8b8d",
+    "summary_sha256": "a5fb62d1720280863c9bcc2168a81b243f2ef5b9e400834b3de3c5cde6c3c1a8",
+    "inventory_sha256": "1658e32ac775c5e9267b0309c799017dbe4acbdcaccbcec5910105b1f0837bd9",
+    "inventory_files": 176,
+    "archive": {
+      "path": "work/reliability-reset-1.0.25/deepseek-recovery-credit-1.0.25.zip",
+      "sha256": "d677d3f6bf5c4a3309ba8ccf790489414902312bce03f16fb324514e06be77d9",
+      "bytes": 206127
+    }
+  },
+  "source_hashes": {
+    "research/reliability_reset/credit_live.py": {
+      "working_tree_sha256": "6617a9f560ca4eff4513fd7fadc0557a0ce5d40194ac1513c938f29ab6fac441",
+      "lf_utf8_sha256": "6617a9f560ca4eff4513fd7fadc0557a0ce5d40194ac1513c938f29ab6fac441"
+    },
+    "research/reliability_reset/recovery_credit.py": {
+      "working_tree_sha256": "2dcc8f4396970283440c81f5d4930cbdad0aa931aafff82bee657eb1dcdd983e",
+      "lf_utf8_sha256": "2dcc8f4396970283440c81f5d4930cbdad0aa931aafff82bee657eb1dcdd983e"
+    },
+    "faultda_bench/semantic/environment.py": {
+      "working_tree_sha256": "54ff6b19f32163120f92aae416615de3e2cf406a826617330ae289cea14f4008",
+      "lf_utf8_sha256": "54ff6b19f32163120f92aae416615de3e2cf406a826617330ae289cea14f4008"
+    },
+    "faultda_bench/semantic/policies.py": {
+      "working_tree_sha256": "dc05a9bac78a9c19e3f0cda57f8f0f3c50151d2c872fc1759ec00b743bbea89c",
+      "lf_utf8_sha256": "dc05a9bac78a9c19e3f0cda57f8f0f3c50151d2c872fc1759ec00b743bbea89c"
+    },
+    "faultda_bench/semantic/compute.py": {
+      "working_tree_sha256": "c3900fc16b3a531ba1baa6042fb7e3b2f56dca5b32877e8a357b1925424a90c7",
+      "lf_utf8_sha256": "c3900fc16b3a531ba1baa6042fb7e3b2f56dca5b32877e8a357b1925424a90c7"
+    },
+    "faultda_bench/semantic/oracle.py": {
+      "working_tree_sha256": "0e7f457555f80f367b6ab0ff7e6ab4def42e9b85c6601a2e42ccfa7dbaf886eb",
+      "lf_utf8_sha256": "0e7f457555f80f367b6ab0ff7e6ab4def42e9b85c6601a2e42ccfa7dbaf886eb"
+    },
+    "research/reliability_reset/__init__.py": {
+      "working_tree_sha256": "453fbdd2ed2ed247e32c6b3b40a6269c41fa4a50ae762fdbb19bb7b7b2ea76e1",
+      "lf_utf8_sha256": "453fbdd2ed2ed247e32c6b3b40a6269c41fa4a50ae762fdbb19bb7b7b2ea76e1"
+    },
+    "tests/test_reliability_reset_credit_live.py": {
+      "working_tree_sha256": "db78807884d6e2aef48a5021db75fabcb3b3e7b97ad2626466f2c52f8930f843",
+      "lf_utf8_sha256": "db78807884d6e2aef48a5021db75fabcb3b3e7b97ad2626466f2c52f8930f843"
+    },
+    "tests/test_reliability_reset_credit.py": {
+      "working_tree_sha256": "d07e214265848f7f114b3d428881628b99e74550646be8b3bdd602a3b1eaa7f5",
+      "lf_utf8_sha256": "d07e214265848f7f114b3d428881628b99e74550646be8b3bdd602a3b1eaa7f5"
+    }
+  },
+  "findings": [
+    "All 12 real primary trajectories began with status; six one-check cells then attempted inspect and hit the shared budget.",
+    "At four checks, primary and same-prefix/helper arms completed all six cells.",
+    "No low-budget voluntary handoff occurred before budget termination; AH does not measure a helper that was allowed to preemptively intervene.",
+    "Helper-only completed all 12 cells. Equal A/AH here is not evidence that all helper designs are ineffective.",
+    "The next targeted intervention is budget-aware information acquisition, not a claim of weight-training or RL improvement."
+  ],
+  "limitations": [
+    "One model alias and three historical task instances in one environment.",
+    "Helper arm reuses the actual model prefix; it is not an independent second live trajectory or a helper-aware model policy.",
+    "Peak-rate usage estimate is not an actual invoice; provider errors retain reserved estimated costs.",
+    "Healthy and semantic-fault cells fail together at budget one; this study does not isolate a fault-specific semantic-recovery deficit.",
+    "Full native metrics and independent assessment agree; the result concerns tool planning and intervention attribution, not an uncovered oracle defect."
+  ],
+  "publication": {
+    "archive": "research/reliability_reset/evidence/1.0.25/deepseek-recovery-credit-1.0.25.zip",
+    "record": "research/reliability_reset/evidence/1.0.25/PUBLIC_RECORD.json",
+    "sha256": "d677d3f6bf5c4a3309ba8ccf790489414902312bce03f16fb324514e06be77d9"
+  }
+}

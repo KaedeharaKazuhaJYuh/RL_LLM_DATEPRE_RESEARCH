@@ -1,0 +1,243 @@
+{
+  "date": "2026-10-27",
+  "kind": "Retrospective explicit binding extracted from the already-frozen 1.0.85 native bundle; no new score or execution",
+  "checkpoint_commit": "ea4f4b496f60bb38588f6ff1e7727ba3a8f52f20",
+  "task_id": "82e2fac_1",
+  "split": "train",
+  "source_bundle": {
+    "path": "research/reliability_reset/evidence/1.0.85/native-controls-1.0.85.bundle",
+    "bytes": 44476,
+    "sha256": "ab40994932cb83ca494c129497e9d5d00f4b8ad4f6e7711e1b941c6c8e73fde6",
+    "decrypted_zip_sha256": "2ff6a717ef2f77f4a8871c2788bf090d910dd29afdb52b7723f669a26a44aef7"
+  },
+  "input_binding": "../1.0.80/NATIVE_PREFLIGHT_180.json: 25 original task files and 12 original base DBs",
+  "arms": [
+    {
+      "arm": "reference",
+      "task_directory": "experiments/outputs/faultda185_reference/tasks/82e2fac_1",
+      "files": [
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/dbs/admin.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/dbs/amazon.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/dbs/api_docs.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/dbs/file_system.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/dbs/gmail.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/dbs/model_hashes.json",
+          "bytes": 51,
+          "sha256": "473d35e8bc5e9682a328dc6b1c65b7cdc8f5f542aacc0d61168fe78228f62775"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/dbs/phone.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/dbs/simple_note.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/dbs/splitwise.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/dbs/spotify.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/dbs/supervisor.jsonl",
+          "bytes": 3706,
+          "sha256": "15a5c00e29cb460c596a6d30b33007c6e72a92a238c1fb4ed589ae64487b1b01"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/dbs/todoist.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/dbs/venmo.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/evaluation/report.md",
+          "bytes": 243,
+          "sha256": "ce6b99d08311d98a62b676feef15c4e21de635e6ae07a6a384a6bc2a1dcebb5c"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/evaluation/version.txt",
+          "bytes": 10,
+          "sha256": "ff13f6054997468dcba854eb0568ab274f250f56a285e5d2235f6891c2846e62"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/logs/api_calls.jsonl",
+          "bytes": 6353,
+          "sha256": "5c3c9ba1ac5f85f0503b1b47e306e71c86f223525a11655b559abc4e7c00cadf"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/logs/environment_io.md",
+          "bytes": 1972,
+          "sha256": "17366ed73f5246b563e1d645d33283570d03a9752c6340ef0909bce6e3d5856d"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/version/code.txt",
+          "bytes": 18,
+          "sha256": "b6338ba3be95fac30214c0e61b08c8b1c583be35f7f02cb5dc218574ae32d8e0"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_reference/tasks/82e2fac_1/version/data.txt",
+          "bytes": 5,
+          "sha256": "911fc0c48cb0c70601db5775a9bef1b740dc4cc9f9b46389b9f0563fe7eb94d7"
+        }
+      ],
+      "terminal_state_files": 13,
+      "code_data_version_files": 2,
+      "tree_sha256": "9c9fb672bcadacf9f427d38c7e0376a46492314dc56827515a4328ee561da6a2",
+      "original_full_score": {
+        "success": true,
+        "passed": 2,
+        "failed": 0,
+        "num_tests": 2
+      }
+    },
+    {
+      "arm": "legal_title_exchange",
+      "task_directory": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1",
+      "files": [
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/dbs/admin.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/dbs/amazon.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/dbs/api_docs.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/dbs/file_system.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/dbs/gmail.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/dbs/model_hashes.json",
+          "bytes": 100,
+          "sha256": "c8e55021d46b9f6b5eee05cd312c3cba1ef9af449c257effcbd6443f104b20a0"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/dbs/phone.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/dbs/simple_note.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/dbs/splitwise.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/dbs/spotify.jsonl",
+          "bytes": 710,
+          "sha256": "47ab0b3ee9888990e00ab7031627624a4b44b108cf1d0b62aea567a96f1788c6"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/dbs/supervisor.jsonl",
+          "bytes": 3706,
+          "sha256": "15a5c00e29cb460c596a6d30b33007c6e72a92a238c1fb4ed589ae64487b1b01"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/dbs/todoist.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/dbs/venmo.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/evaluation/report.md",
+          "bytes": 440,
+          "sha256": "afdc07712941a6066cfa9edca044bb749f892166d82f00e1fe1b4a85e5674422"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/evaluation/version.txt",
+          "bytes": 10,
+          "sha256": "ff13f6054997468dcba854eb0568ab274f250f56a285e5d2235f6891c2846e62"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/logs/api_calls.jsonl",
+          "bytes": 7960,
+          "sha256": "11ea1c25b26e2d07932007847c9e6c6fcaa43797999622a16609234324c7ac9b"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/logs/environment_io.md",
+          "bytes": 3496,
+          "sha256": "bcfa1da7583d12752951e8104229496ba0f4270521eba8c915f4c627bff51464"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/version/code.txt",
+          "bytes": 18,
+          "sha256": "b6338ba3be95fac30214c0e61b08c8b1c583be35f7f02cb5dc218574ae32d8e0"
+        },
+        {
+          "relative_path": "experiments/outputs/faultda185_legal_title_exchange/tasks/82e2fac_1/version/data.txt",
+          "bytes": 5,
+          "sha256": "911fc0c48cb0c70601db5775a9bef1b740dc4cc9f9b46389b9f0563fe7eb94d7"
+        }
+      ],
+      "terminal_state_files": 13,
+      "code_data_version_files": 2,
+      "tree_sha256": "afff69e4dee882f3c60db6e66166187fccceab80c8c5d800a44addf15d85ba4a",
+      "original_full_score": {
+        "success": false,
+        "passed": 1,
+        "failed": 1,
+        "num_tests": 2
+      }
+    }
+  ],
+  "membership_rule": "Each recorded task directory must have exactly the listed files; additions, omissions and byte changes fail before replay.",
+  "tree_hash_definition": "SHA-256 over UTF-8 json.dumps(sorted files, sort_keys=True, separators=(comma,colon)); file rows contain relative_path, bytes and sha256.",
+  "limitations": [
+    "DB files are terminal SQL deltas plus model hashes, not independent full SQLite snapshots. Original base DBs and task deltas are required.",
+    "No per-call raw API response body or official model run is added.",
+    "Binding is retrospective local consistency with a prior published bundle, not independent history authentication."
+  ]
+}

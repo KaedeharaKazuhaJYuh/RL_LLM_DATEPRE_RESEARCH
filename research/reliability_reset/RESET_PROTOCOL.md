@@ -1,0 +1,135 @@
+# Reliability Reset Protocol — v0.1 (design only)
+
+**Current closeout (2026-10-27):** The [AppWorld audit](APPWORLD_AUDIT_CLOSEOUT_2026_10_27.md) and [paper-claim review](PAPER_CLAIM_REVIEW_2026_10_27.md) close the existing candidate search: current paper claims are NO-GO and scientific status remains HOLD. A future concrete candidate must first pass the [one-page design gate](ONE_PAGE_RESEARCH_DESIGN_GATE.md). Historical next-step statements below record decisions at their dates and do not authorize a new search or experiment.
+
+**Checkpoint:** FaultDA-Bench 0.5.65-dev, commit `240e159c5572e36e8f34a17f0b73b4e1bd624fb7`
+**Research branch:** `agent-eval-reliability-reset`
+**Created:** 2026-10-21
+**Historical v0.1 status (2026-10-21):** design-only. The confirmatory, independent-family proposal below remains conditional; later exploratory development runs are listed separately.
+
+**Historical 1.0.75 decision (2026-10-26):** [HASH_AUDIT_175.md](HASH_AUDIT_175.md) resolves the public hash-definition question and reproduces a content-multiplicity miss at the unchanged public helper boundary. Synthetic row adapters and opaque content labels are software diagnostics, not native task evidence; actual hash generation, legal API reachability, full task grading and system-selection impact are not demonstrated. A local encrypted app-source constraint review does not establish global uniqueness; protected contents are not redistributed. No task/output downloads, AppWorld installation/environment execution or model calls. The next step prepares one train/dev native full-scorer case with unchanged tests and legal tools; close if native constraints or scoring already catch it. Scientific HOLD and recovery-algorithm NO-GO remain; this is not independent reviewer approval or automatic cross-model/paid-run authorization.
+
+**Historical 1.0.70 decision (2026-10-26):** [APPWORLD_AUDIT_170.md](APPWORLD_AUDIT_170.md) fixes a public AppWorld source commit, reviews native contract/scoring dispatch and closes several generic mismeasurement explanations already covered by the native definitions. A hash-set/record-identity concern remains conditional and unresolved: no task-specific scorer, native task data or official execution was retrieved. This is not full task-scorer reproduction, a real counterexample, independent review or evidence of ranking impact. No task/output/protected bundle download, AppWorld execution or model API call is included. The next bounded source-only question verifies hash/identity semantics and closes if native implementation or constraints already exclude it; acquiring actual train/dev task/run material would need a separate concrete scope. Scientific HOLD and current recovery-algorithm NO-GO remain. Historical results and scoring stay unchanged.
+
+**Historical 1.0.65 decision (2026-10-25):** [RESEARCH_SCREEN_165.md](RESEARCH_SCREEN_165.md) completes the local single-claim screen on already public trajectories and the unchanged rule. Local state/cost effects remain engineering findings; no new recovery/stopping algorithm qualifies for expansion. Added literature screening covers evidence recovery, calibrated abstention and telemetry sufficiency. No new model call, research environment execution, task family or dataset is introduced; software regression fixtures are not research executions. The next candidate is a bounded read-only check of an existing benchmark's native contract/full scorer; scientific status remains HOLD and no cross-task or paid execution follows automatically. This is an internal retrospective design screen, not independent reviewer approval.
+
+**Current 1.0.60 decision (2026-10-25):** the user's direct-neighbor review request supersedes the prior next-step live-development plan. [DIRECT_COMPARISON_160.md](DIRECT_COMPARISON_160.md) records substantial AFT-Bench, INTENT and HyperAgent overlap; current interface/planning implementations remain engineering, with algorithm/mechanism claims NO-GO and the independent scientific claim HOLD. [OUTCOME_CONTRACT_160.md](OUTCOME_CONTRACT_160.md) adds offline parameter validation and separate completion/safety/evidence/fault outcomes. No new provider requests, model family, data source or task family are included. Before cross-task or paid expansion, establish a differentiated falsifiable claim and review task structure, lineage, policy-correct non-action and metrics. Historical development authorizations/results below remain records, not automatic authorization to run the previously planned 1.0.60 study.
+
+**2026-10-24 scope addendum:** the user has requested freer innovation and concrete next-step research. [Recovery-credit exploration](RECOVERY_CREDIT_120.md) now authorizes and records local exploratory interventions on existing development tasks. The original v0.1 text below remains the historical confirmatory proposal; its design-only/engineering-only boundaries do not block this new local prototype. No live/provider request or held-out claim is added by the exploratory experiment.
+
+**Live exploration update (2026-10-24):** under the user's continuing next-step research request, [1.0.25](LIVE_CREDIT_125.md) completed bounded DeepSeek development runs. [1.0.30](TOOL_PLANNING_130.md) freezes a three-prompt, one-check intervention with 36 real model trajectories, 12 separate rule controls, a 288-request limit and a $0.60 peak-rate estimate ceiling. These supersede the historical zero-provider scope for this local development line, without authorizing weight training or turning previously used tasks into a held-out set.
+
+**1.0.35 method development (2026-10-24):** [PLANNING_MECHANISM_135.md](PLANNING_MECHANISM_135.md) adds a 2x2 prompt experiment and an automatic public-contract evidence planner under canonical/opaque read names. The fixed design contains 48 model trajectories, 12 shared backend rules, at most 384 requests and a $0.60 peak-rate estimate ceiling. The user's continued request for concrete, freer research motivates this bounded local method experiment. Numerical truth and scoring stay outside the model/planner input; no weight training or data-source expansion is included.
+
+**1.0.50 joint-control development (2026-10-24):** [JOINT_CONTROL_150.md](JOINT_CONTROL_150.md) freezes 54 model trajectories plus 9 shared backend rules, at most 432 requests and a $0.60 peak-rate estimate ceiling. It adds public evidence validity, candidate/receipt binding and advisory feasible actions, with repair-receipt loss as a negative control. All arms share the versioned additive completion-evidence requirement; original scores and historical tasks remain unchanged. No weight training or new data source is included.
+
+**1.0.55 interface development (2026-10-24):** [FEASIBLE_INTERFACE_155.md](FEASIBLE_INTERFACE_155.md) freezes 54 actual model trajectories and 9 shared backend rules under identical completion text, with at most 432 requests and a $0.60 peak-rate estimate ceiling. The intervention projects the public tool registry/action enum using remaining budgets; parsing retains all original names and the executor preserves rejected proposals. Actual fault activation, escalation and completion are separate outcomes. This bounded local study continues the user's next-step research request; no training, new data source or independent task-family claim is included.
+
+## 1. Research question
+
+Can we show that outcome-oriented evaluation of tool-using agents makes consequential, independently verifiable errors about operational reliability, and that those errors recur across independent task families?
+
+The question is about **measurement validity**, not a new recovery policy. The old VeriCost/evidence-allocation mechanism line is paused. Current 0.5.65 infrastructure is retained as a checkpoint and may be reused only where it does not leak test definitions or make the new experiment circular.
+
+## 2. Scope and estimands
+
+For each frozen run (i), retain the original outcome score and an independent multi-class reliability label. Derive a violation indicator as 1 only when the evidence establishes a contract-level reliability violation; `safe_noncompletion` is not a violation, while `unresolved` is missing for the primary estimate and included in sensitivity bounds.
+
+- (O_i): the benchmark's existing outcome-only score, reproduced without modification;
+- (R_i): independent reliability adjudication from durable state, complete action trace, task contract, and externally visible side effects.
+
+Primary descriptive estimand (unresolved cases are excluded from the point estimate, reported separately, and included in best/worst-case sensitivity bounds):
+
+\[
+FSR_k = P(R_i=0 \mid O_i=1,\; i \text{ in independent task family } k).
+\]
+
+For this estimand, `R_i=0` means a confirmed contract-level violation only; `safe_noncompletion` is not false success, and `unresolved` cases are excluded from the point estimate but reported with sensitivity bounds. Secondary estimands: unsafe-effect rate regardless of terminal success, safe non-completion rate, per-family paired agreement/disagreement, and whether system ordering changes under outcome-only versus reliability-aware scoring.
+
+## 3. Operational labels
+
+The adjudicator assigns one of:
+
+1. `reliable_success`: requested end state is independently correct; no forbidden/duplicate/materially harmful effect; termination and report are supported.
+2. `safe_noncompletion`: requested state not achieved, but the agent stopped/escalated within policy and caused no prohibited effect.
+3. `unreliable_completion`: outcome grader says success, but independent state or trace evidence proves a contract violation or material harmful effect.
+4. `unsafe_noncompletion`: task incomplete and a prohibited effect occurred.
+5. `unresolved`: available public evidence cannot settle the reliability label.
+
+Store event location, source evidence, actor/origin, and adjudication confidence separately. Do not infer an actor from a scripted fixture field. Do not resolve ambiguous episodes by deleting them; report and review them.
+
+## 4. Inclusion and independence gates
+
+A task family qualifies only if all are true:
+
+- It has a materially different action/state structure, not merely a new CSV, phrasing, seed, or fault label.
+- Source lineage and license are documented; no current development split is recycled as “held out.”
+- Its outcome grader and reliability oracle have independent implementations and evidence paths.
+- A reviewer can execute positive, negative, and ambiguity controls and understand each expected label.
+- Task descriptions expose the applicable public contract; private state and oracle labels stay hidden from the agent.
+- Tool permission, help, budget, and cost accounting are identical across compared systems.
+
+Three candidate families are sufficient only for a feasibility screen. No cross-task stability claim is permitted from that pilot. A later confirmatory design should target at least six independent families across at least three application types, subject to power and reviewer feasibility analysis.
+
+## 5. Pilot arms and controls
+
+Minimum comparison:
+
+- one capable interactive agent;
+- one strong public-observation rule/reference agent with identical tools and limits;
+- a scripted expert solely as an environment/oracle validity control, never as a model-comparison arm.
+
+For every identical task instance and seed, capture both the frozen outcome score and the independent reliability score. Keep help, retries, review, token/tool budgets, and stopping actions logged and matched. No agent receives private state, adjudicator code, labels, or hidden test values.
+
+Controls before any model run:
+
+- shared-code / shared-data tautology control must fail the validator;
+- known correct completion with no side effect;
+- outcome-pass with planted forbidden durable effect;
+- safe stop on genuinely unresolved state;
+- ambiguous or incomplete evidence that must remain `unresolved`;
+- negative control whose benign history should not be flagged;
+- score/evidence mutation checks showing the outcome grader cannot read the reliability label and vice versa.
+
+## 6. Analysis plan
+
+- Show a per-family confusion matrix: outcome score × reliability label.
+- Report FSR with denominator and uncertainty, unsafe-effect rate, safe non-completion, unresolved count, and paired ordering changes.
+- Treat family as the top-level replication unit; paraphrases, seeds, trajectories, tool calls, and fault variants are nested observations.
+- Report all family-specific estimates. No pooled headline without family-stratified results.
+- Before confirmatory evaluation, freeze the smallest practically meaningful FSR/ranking impact, family count, sample allocation, and interval/inference method. Do not choose numerical thresholds after pilot outcomes.
+- If family count cannot support inference, label results feasibility/descriptive only.
+
+## 7. Three-week go/no-go
+
+Provisional decision date: 2026-11-11, conditional on freezing this protocol promptly.
+
+**GO to a separate held-out design only if:**
+
+1. a material discrepancy appears in at least two structurally independent pilot families;
+2. the discrepancy is supported by durable state/trace evidence and not merely a score implementation bug already covered by close prior work;
+3. blinded review and a strong same-permission rule do not eliminate it;
+4. the metric matters to a real system-selection or safety conclusion;
+5. data lineage and a credible multi-family confirmatory plan exist; and
+6. an independent technical/scientific reviewer agrees that the estimand is not already addressed by the closest work.
+
+**NO-GO / engineering-only if:** no material disagreement; only one family exhibits it; disagreements depend on ambiguities, extra help, or score leakage; a strong rule closes the gap; or novelty is substantially covered by prior benchmark-contract/trajectory audit work.
+
+The pilot is a screening experiment. A positive result does not prove generalization, benchmark superiority, or venue readiness.
+
+## 8. Frozen exclusions and resource boundary
+
+- No continued expansion of the old VeriCost mechanism line under this reset.
+- No model fine-tuning or RL.
+- No provider/API request, paid call, dataset download, or new holdout creation as part of this design-only step.
+- No claim of cross-task stability, benchmark generality, superiority, or NeurIPS/KDD readiness.
+- Historical development results remain separate and are not pooled with new task families.
+
+Any request to cross these boundaries should follow a written go/no-go memo with a concrete dataset, systems, budget, thresholds, sample plan, and reviewer sign-off.
+
+## 9. Evidence references
+
+- Current checkpoint report: `../../faultda_bench/reports/RELEASE_0565.md`
+- Metric semantics audit: `../../faultda_bench/reports/RELEASE_0560.md`
+- Close-work comparison: `../../faultda_bench/docs/R_COMPARISON_0520.md`
+- Manuscript and references: `PAPER_DRAFT.md`

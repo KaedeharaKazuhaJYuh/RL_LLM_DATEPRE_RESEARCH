@@ -1,0 +1,44 @@
+{
+  "same_playlist_row_count": true,
+  "same_playlist_ids": true,
+  "same_title_multiset": true,
+  "same_record_hash_support": false,
+  "changed_playlist_rows": 2,
+  "created_at_preserved_for_all_rows": true,
+  "native_outcomes": [
+    {
+      "arm": "reference",
+      "native_tests_by_original_order": [
+        {
+          "native_test_index": 0,
+          "passed": true,
+          "failed": false
+        },
+        {
+          "native_test_index": 1,
+          "passed": true,
+          "failed": false
+        }
+      ]
+    },
+    {
+      "arm": "legal_title_exchange",
+      "native_tests_by_original_order": [
+        {
+          "native_test_index": 0,
+          "passed": true,
+          "failed": false
+        },
+        {
+          "native_test_index": 1,
+          "passed": false,
+          "failed": true
+        }
+      ]
+    }
+  ],
+  "hashes_recomputed_by_original_ORM_during_API_write": true,
+  "native_complete_test_suite_preserved": true,
+  "same_playlist_song_links": true,
+  "title_to_song_mapping_changed": true
+}

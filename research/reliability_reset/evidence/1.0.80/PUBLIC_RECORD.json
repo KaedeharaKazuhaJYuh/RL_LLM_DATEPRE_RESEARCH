@@ -1,0 +1,51 @@
+{
+  "version": "1.0.80",
+  "date": "2026-10-26",
+  "upstream_commit": "42b5bcf3cd334fee33f0c37c02070a9f5807add5",
+  "artifacts": [
+    {
+      "artifact": "COLLECTION_PLAN_180.json",
+      "bytes": 1284,
+      "sha256": "ed85196ce798e5ccb59729e6a137812d3253dafb803d0717db6733043cf81075"
+    },
+    {
+      "artifact": "DATA_PACKAGE_180.json",
+      "bytes": 440,
+      "sha256": "9e505ea5f4a493bebeaac383b922bfde6546dfb2d1400ab0595b5c94cde545e4"
+    },
+    {
+      "artifact": "SOURCE_MANIFEST_180.json",
+      "bytes": 4681,
+      "sha256": "662b8baa310a1faba1c55197f010c382129056e50b90831d3943d4e227b1049a"
+    },
+    {
+      "artifact": "NATIVE_PREFLIGHT_180.json",
+      "bytes": 8094,
+      "sha256": "94256a78b2d779d579a879b83b7e624fae9d0899f781f88c985518b11b2b0b59"
+    },
+    {
+      "artifact": "TASK_PACKET_STATUS_180.json",
+      "bytes": 1524,
+      "sha256": "1b16568fb0aec1dcc8c11311fc68c4266e4f3757c14605149de1ad9a6c23a479"
+    }
+  ],
+  "diagnostic_sources": {
+    "research/reliability_reset/native_case180.py": "a5b1a5e5a0e61f101568954279abb1c47b2bdba06a970b9d10e357fc5c810e75",
+    "tests/test_reliability_reset_native_case180.py": "6e322175173fe691045558eb1893960a32f61d04c6c9387d4deff22ffb4ededc",
+    "research/reliability_reset/fixtures/appworld_180_excerpt.py": "d8a526b0de52a4fb9fb301692f67af2bc8639d8ce52ca820fb6ddec5e11f057f",
+    "research/reliability_reset/fixtures/appworld_180_source.json": "eeddc22fbe5cdcc70a35522ff4edd70d786a3365d8ac463ee2e902fa341ba4b2",
+    "research/reliability_reset/fixtures/APPWORLD_LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "research/reliability_reset/fixtures/.gitattributes": "6922fb7e8342002ae98511340edc2262c99bba1fc3d7b839a167d221d99b65b3"
+  },
+  "native_task_packets_inspected": 1,
+  "new_model_api_calls": 0,
+  "native_task_scorer_runs": 0,
+  "AppWorld_environment_runs": 0,
+  "legal_tool_trajectories": 0,
+  "decision": "CLOSE_MULTIPLICITY_CANDIDATE_FOR_SELECTED_START",
+  "scientific_status": "HOLD",
+  "scope": "Native start-state preparation and necessary-condition exclusion, not a native full-task evaluation or false-success rate.",
+  "protected_task_contents_published": false,
+  "complete_original_run_packet": false,
+  "integrity_limit": "Local digests and fixed-source object checks provide consistency bindings, not independent adjudication or historical authenticity."
+}

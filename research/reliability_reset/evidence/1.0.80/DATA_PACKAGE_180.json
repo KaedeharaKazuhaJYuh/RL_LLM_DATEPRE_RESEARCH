@@ -1,0 +1,8 @@
+{
+  "url": "https://s3.us-west-2.amazonaws.com/appworld.dev/data-0.2.0.bundle",
+  "bytes": 34908601,
+  "sha256": "c9299e6cafe92bce4592a3c117c047c973d1554a667c21dd81537e78ab2f532e",
+  "etag": "\"e879e1fcc5e16748694882d84378ec84-5\"",
+  "last_modified": "Tue, 14 Oct 2025 16:20:34 GMT",
+  "scope": "Encrypted minimal data package received; contents not yet read. No upstream cryptographic digest was supplied by HEAD; ETag is not SHA-256."
+}

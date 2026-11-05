@@ -1,0 +1,173 @@
+{
+  "date": "2026-10-23",
+  "implementation_version": "1.0.05",
+  "kind": "internal_focused_literature_and_design_screen",
+  "primary_papers": [
+    {
+      "id": "2605.10448v1",
+      "url": "https://arxiv.org/html/2605.10448v1",
+      "read_scope": [
+        "abstract",
+        "section 3",
+        "section 5 ranking discussion"
+      ],
+      "role": "evidence labels, uncertainty bounds and ranking overlap"
+    },
+    {
+      "id": "2608.15286v1",
+      "url": "https://arxiv.org/html/2608.15286v1",
+      "read_scope": [
+        "abstract",
+        "section 5.3",
+        "section 6 single-substrate limitation",
+        "appendix A label axes"
+      ],
+      "role": "task-success versus durable-state damage overlap"
+    },
+    {
+      "id": "2607.02577v1",
+      "url": "https://arxiv.org/html/2607.02577v1",
+      "read_scope": [
+        "abstract",
+        "section 3.4",
+        "section 4.3",
+        "conclusion"
+      ],
+      "role": "evaluation-validity and alternative-path overlap"
+    },
+    {
+      "id": "2610.21177v1",
+      "url": "https://arxiv.org/html/2610.21177v1",
+      "read_scope": [
+        "abstract",
+        "section 3",
+        "section 4.1"
+      ],
+      "role": "contract/evidence binding and assessment overlap"
+    },
+    {
+      "id": "2610.16067v2",
+      "url": "https://arxiv.org/html/2610.16067v2",
+      "read_scope": [
+        "abstract",
+        "introduction contributions and limitations",
+        "section 4.1",
+        "portability discussion"
+      ],
+      "role": "oracle-integrity and corrected comparison overlap"
+    },
+    {
+      "id": "2610.05622v1",
+      "url": "https://arxiv.org/html/2610.05622v1",
+      "read_scope": [
+        "abstract",
+        "contents",
+        "prior local comparison report locations"
+      ],
+      "role": "existing recovery/effect-history overlap"
+    },
+    {
+      "id": "2609.37315v1",
+      "url": "https://arxiv.org/html/2609.37315v1",
+      "read_scope": [
+        "abstract",
+        "sections II and IV",
+        "section V-B2"
+      ],
+      "role": "tool-contract and score-provenance overlap"
+    }
+  ],
+  "repository_observations": [
+    {
+      "repository": "sierra-research/tau2-bench",
+      "default_branch": "main",
+      "code_license_observed": "MIT",
+      "license_url": "https://github.com/sierra-research/tau2-bench/blob/main/LICENSE",
+      "api_license_blob_sha": "f0323a32227c1327820da33d2fb9d3338a27ac84",
+      "read_lines": [
+        1,
+        18
+      ],
+      "commit_pin": null,
+      "task_asset_license_review": "pending",
+      "complete_source_audit": false
+    },
+    {
+      "repository": "agent-diff-bench/agent-diff",
+      "default_branch": "main",
+      "code_license_observed": "MIT",
+      "license_url": "https://github.com/agent-diff-bench/agent-diff/blob/main/LICENSE",
+      "api_license_blob_sha": "4f9ed07ed79478900626d3258113ef4949d964e8",
+      "read_lines": [
+        1,
+        18
+      ],
+      "commit_pin": null,
+      "task_asset_license_review": "pending",
+      "complete_source_audit": false
+    },
+    {
+      "repository": "OSU-NLP-Group/ScienceAgentBench",
+      "default_branch": "main",
+      "code_license_observed": "MIT",
+      "license_url": "https://github.com/OSU-NLP-Group/ScienceAgentBench/blob/main/LICENSE",
+      "api_license_blob_sha": "281b68077e52aa0edc708b0daeeab60d4601c1d1",
+      "read_lines": [
+        1,
+        18
+      ],
+      "commit_pin": null,
+      "task_asset_license_review": "pending",
+      "complete_source_audit": false
+    }
+  ],
+  "documentation_observations": [
+    {
+      "url": "https://github.com/sierra-research/tau2-bench/blob/main/docs/evaluation.md",
+      "read_scope": "task reward basis and reference trajectory distinction",
+      "commit_pin": null
+    },
+    {
+      "url": "https://github.com/agent-diff-bench/agent-diff/blob/main/README.md",
+      "read_scope": "state-diff task design and evaluation description",
+      "commit_pin": null
+    },
+    {
+      "url": "https://github.com/OSU-NLP-Group/ScienceAgentBench/blob/main/README.md",
+      "api_blob_sha": "d1eb0900de1820ec40bd1f35c63bc25ff050b26a",
+      "read_lines": [
+        1,
+        110
+      ],
+      "read_scope": "verified release, benchmark access and redistribution notice",
+      "commit_pin": null
+    }
+  ],
+  "candidate_screen": {
+    "considered": 3,
+    "admitted": 0,
+    "eligible_independent_families": 0,
+    "complete_framework_code_audits": 0
+  },
+  "decision": {
+    "current_broad_originality_claim": "not_passed",
+    "scientific_status": "HOLD",
+    "live_or_paid_model_runs": "NO-GO",
+    "new_api_requests": 0,
+    "new_dataset_downloads": 0,
+    "new_tasks_constructed": 0,
+    "new_experiment_runs": 0
+  },
+  "review": {
+    "internal_technical_literature_screen": "completed_at_stated_scope",
+    "independent_human_review": "pending",
+    "third_party_experiments_reproduced": false,
+    "exhaustive_novelty_search": false
+  },
+  "limitations": [
+    "Source descriptions are author claims, not replicated results.",
+    "Blob references identify observed files; no upstream experiment commit is frozen.",
+    "Repository code licenses do not establish asset-level data/trace redistribution rights.",
+    "Zero admitted designs is a scoped project decision, not proof that every future hypothesis is covered."
+  ]
+}

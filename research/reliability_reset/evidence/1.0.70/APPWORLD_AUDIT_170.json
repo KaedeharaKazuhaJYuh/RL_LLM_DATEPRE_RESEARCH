@@ -1,0 +1,281 @@
+{
+  "version": "1.0.70",
+  "date": "2026-10-26",
+  "appworld_commit": "42b5bcf3cd334fee33f0c37c02070a9f5807add5",
+  "question": "Does the unmodified full native scorer accept a materially contract-violating real execution with consequential system-selection impact?",
+  "evidence_type": "Internal static source review; not independent review, task execution or full task-scorer reproduction.",
+  "reviewed_locations": [
+    {
+      "path": "guides/developing_new_task_generators.md",
+      "line_start": 30,
+      "line_end": 40,
+      "reference_label": "生成器说明 L30–40",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/guides/developing_new_task_generators.md#L30-L40"
+    },
+    {
+      "path": "src/appworld/evaluator.py",
+      "line_start": 452,
+      "line_end": 508,
+      "reference_label": "evaluator.py L452–508",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/evaluator.py#L452-L508"
+    },
+    {
+      "path": "src/appworld/evaluator.py",
+      "line_start": 153,
+      "line_end": 181,
+      "reference_label": "L153–181",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/evaluator.py#L153-L181"
+    },
+    {
+      "path": "guides/developing_new_task_generators.md",
+      "line_start": 767,
+      "line_end": 853,
+      "reference_label": "生成器说明 L767–853",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/guides/developing_new_task_generators.md#L767-L853"
+    },
+    {
+      "path": "src/appworld/environment.py",
+      "line_start": 1357,
+      "line_end": 1370,
+      "reference_label": "environment.py L1357–1370",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/environment.py#L1357-L1370"
+    },
+    {
+      "path": "tests/package/test_appworld.py",
+      "line_start": 743,
+      "line_end": 753,
+      "reference_label": "官方测试 L743–753",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/tests/package/test_appworld.py#L743-L753"
+    },
+    {
+      "path": "src/appworld/evaluator.py",
+      "line_start": 322,
+      "line_end": 365,
+      "reference_label": "evaluator.py L322–365",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/evaluator.py#L322-L365"
+    },
+    {
+      "path": "src/appworld/evaluator.py",
+      "line_start": 574,
+      "line_end": 576,
+      "reference_label": "L574–576",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/evaluator.py#L574-L576"
+    },
+    {
+      "path": "src/appworld/environment.py",
+      "line_start": 1084,
+      "line_end": 1161,
+      "reference_label": "environment.py L1084–1161",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/environment.py#L1084-L1161"
+    },
+    {
+      "path": "src/appworld/requester.py",
+      "line_start": 77,
+      "line_end": 119,
+      "reference_label": "requester.py L77–119",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/requester.py#L77-L119"
+    },
+    {
+      "path": "src/appworld/collections/models.py",
+      "line_start": 122,
+      "line_end": 130,
+      "reference_label": "ModelCollection.record_hashes L122–130",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/collections/models.py#L122-L130"
+    },
+    {
+      "path": "src/appworld/collections/models.py",
+      "line_start": 432,
+      "line_end": 449,
+      "reference_label": "ModelCollectionPair._changed_model_names L432–449",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/collections/models.py#L432-L449"
+    },
+    {
+      "path": "src/appworld/collections/models.py",
+      "line_start": 487,
+      "line_end": 505,
+      "reference_label": "同文件 L487–505",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/collections/models.py#L487-L505"
+    },
+    {
+      "path": "src/appworld/collections/models.py",
+      "line_start": 373,
+      "line_end": 384,
+      "reference_label": "L373–384",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/collections/models.py#L373-L384"
+    },
+    {
+      "path": "src/appworld/ground_truth.py",
+      "line_start": 83,
+      "line_end": 90,
+      "reference_label": "GroundTruth.evaluation_module L83–90",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/ground_truth.py#L83-L90"
+    },
+    {
+      "path": "src/appworld/ground_truth.py",
+      "line_start": 346,
+      "line_end": 353,
+      "reference_label": "L346–353",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/src/appworld/ground_truth.py#L346-L353"
+    },
+    {
+      "path": "README.md",
+      "line_start": 1452,
+      "line_end": 1464,
+      "reference_label": "README L1452–1464",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/README.md#L1452-L1464"
+    },
+    {
+      "path": "README.md",
+      "line_start": 941,
+      "line_end": 945,
+      "reference_label": "官方拆分使用要求 L941–945",
+      "url": "https://github.com/StonyBrookNLP/appworld/blob/42b5bcf3cd334fee33f0c37c02070a9f5807add5/README.md#L941-L945"
+    }
+  ],
+  "ast_observations": {
+    "dispatches_task_specific_evaluation": true,
+    "record_hashes_uses_set_comprehension": true,
+    "updates_use_other_state_hash_membership": true,
+    "request_log_declares_method_url_data_only": true
+  },
+  "native_scoring": {
+    "entrypoint": "evaluate_task -> GroundTruth.evaluation_module -> task-specific evaluate -> TestTracker.success",
+    "task_success": "pass_count equals expected num_tests",
+    "TGC": "mean task success percentage",
+    "SGC": "mean per-generator minimum task success percentage",
+    "completion_signal": "Supervisor status query is separate; public test source demonstrates completed flag with scorer failure.",
+    "collateral_check": "Tutorial checks model, record count, target ID and field changes; actual per-task coverage not retrieved."
+  },
+  "candidates": [
+    {
+      "id": "A1",
+      "status": "closed_generic_claim_task_specific_coverage_unknown",
+      "claim": "Persistent collateral changes are necessarily invisible",
+      "reason": "Native evaluation supports collateral state checks; this does not prove complete coverage of all actual tasks."
+    },
+    {
+      "id": "A2",
+      "status": "closed",
+      "claim": "complete_task automatically passes full evaluation",
+      "reason": "Completion signal and full native scoring are distinct in source and public test assertions."
+    },
+    {
+      "id": "A3",
+      "status": "excluded_without_native_temporal_contract",
+      "claim": "Any compensated intermediate mistake is a native scorer defect",
+      "reason": "Do not add a historical obligation absent from the task contract."
+    },
+    {
+      "id": "A4",
+      "status": "closed_as_metric_conflation",
+      "claim": "TGC/SGC differences establish mismeasurement",
+      "reason": "Native metrics explicitly differ; no actual system ordering was examined."
+    },
+    {
+      "id": "A5",
+      "status": "excluded_without_applicable_native_task",
+      "claim": "Safe escalation without completion must be a score error",
+      "reason": "Policy acceptance differs from goal completion; no corresponding actual task or execution obtained."
+    },
+    {
+      "id": "A6",
+      "status": "unresolved_source_level_question",
+      "claim": "Hash-set comparison may lose task-relevant identity or multiplicity",
+      "conditional_examples": [
+        {
+          "start": {
+            "id1": "a",
+            "id2": "b"
+          },
+          "end": {
+            "id1": "b",
+            "id2": "a"
+          },
+          "condition": "Hashes omit relevant identity; actual hash generation not retrieved."
+        },
+        {
+          "start": [
+            "a",
+            "a",
+            "b"
+          ],
+          "end": [
+            "a",
+            "b",
+            "b"
+          ],
+          "condition": "Such identical-content duplicates are legally reachable; actual constraints not retrieved."
+        }
+      ],
+      "examples_executed": false,
+      "confirmed_real_counterexample": false,
+      "missing": [
+        "Hash field/identity semantics",
+        "Native train/dev contract and API reachability",
+        "All original task-specific tests",
+        "Original trace/state/score binding and selection consequence"
+      ],
+      "close_if": [
+        "Hash or uniqueness already excludes example",
+        "Native full tests reject candidate",
+        "Only task-irrelevant identity differs",
+        "No verifiable native evidence can be obtained"
+      ]
+    }
+  ],
+  "official_artifact_entry": {
+    "baseline_name": "simplified_react_code_agent_gpt-4o-2024-05-13_dev",
+    "data_version_in_pinned_source": "0.2.0",
+    "output_version_in_pinned_source": "0.1.3",
+    "actual_bundle_downloaded": false,
+    "trace_digest": "not_checked",
+    "runtime_source_compatibility": "not_checked",
+    "native_scorer_replay": "not_run",
+    "minimum_packet": [
+      "native instruction",
+      "compatible start databases",
+      "end databases",
+      "unaltered full evaluation.py and test_data",
+      "original score",
+      "code/data versions",
+      "environment I/O",
+      "request log"
+    ],
+    "split_policy": "Train/dev only for error analysis; no task-level test split tuning."
+  },
+  "counts": {
+    "downloaded_plaintext_source_files": 19,
+    "source_bytes": 522076,
+    "real_tasks_audited": 0,
+    "official_run_artifacts_downloaded": 0,
+    "native_scorer_runs": 0,
+    "new_model_api_calls": 0,
+    "new_model_trajectories": 0,
+    "new_task_families": 0,
+    "new_research_environment_executions": 0,
+    "synthetic_example_executions": 0
+  },
+  "decision": {
+    "admitted_real_native_mismeasurement_examples": 0,
+    "false_success_rate": "not_estimable_no_task_sample",
+    "ranking_change": "not_estimable_no_system_comparison",
+    "current_recovery_algorithm_claim": "NO-GO",
+    "scientific_status": "HOLD",
+    "expanded_or_paid_runs": "not_admitted",
+    "next_scope": "Bounded read-only verification of hash identity semantics; then close or separately design one native train/dev case."
+  },
+  "limits": [
+    "Generic dispatch is not a complete task scorer",
+    "No original task/run artifacts retrieved",
+    "Conditional helper concern does not prove real reachability or false success",
+    "Closed explanations do not prove all tasks correct",
+    "Hashes do not replace independent review"
+  ],
+  "process_reference": {
+    "url": "https://doi.org/10.48550/arXiv.2609.00065",
+    "record_version_checked": "v2",
+    "checked_date": "2026-10-26",
+    "skill": "scientific-critical-thinking 1.5",
+    "role": "Analytical workflow, not empirical evidence or independent reviewer"
+  }
+}

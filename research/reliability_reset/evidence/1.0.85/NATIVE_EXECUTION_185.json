@@ -1,0 +1,27 @@
+[
+  {
+    "arm": "reference",
+    "task_id": "82e2fac_1",
+    "environment_initialized": true,
+    "full_score_executed": true,
+    "success": true,
+    "passed": 2,
+    "failed": 0,
+    "num_tests": 2,
+    "task_completed_signal": true,
+    "local_api_requests": 71
+  },
+  {
+    "arm": "legal_title_exchange",
+    "task_id": "82e2fac_1",
+    "environment_initialized": true,
+    "full_score_executed": true,
+    "exchange_verified_in_environment": true,
+    "success": false,
+    "passed": 1,
+    "failed": 1,
+    "num_tests": 2,
+    "task_completed_signal": true,
+    "local_api_requests": 79
+  }
+]

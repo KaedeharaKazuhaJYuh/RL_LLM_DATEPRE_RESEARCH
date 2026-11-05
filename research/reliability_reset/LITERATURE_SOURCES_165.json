@@ -1,0 +1,69 @@
+{
+  "version": "1.0.65",
+  "date": "2026-10-25",
+  "previous_comparison": "DIRECT_COMPARISON_160.md",
+  "scope": "Literature screen only; no new task dataset.",
+  "sources": [
+    {
+      "key": "episem",
+      "arxiv_version": "2610.31650v1",
+      "url": "https://arxiv.org/html/2610.31650v1",
+      "checked_date": "2026-10-25",
+      "html_sha256": "1990f45133134a24192cce8f552e99a8e92b9fe2d4e0f19eba4c0076bd032258",
+      "selected_sections": [
+        {
+          "section_id": "S3.SS4",
+          "heading": "3.4 Reporting safety, utility, and recovery"
+        },
+        {
+          "section_id": "A4.SS4",
+          "heading": "D.4 False abstention and safe-world outcomes"
+        },
+        {
+          "section_id": "A4.SS6",
+          "heading": "D.6 Token and interaction cost"
+        }
+      ],
+      "evidence_level": "Primary manuscript design/metric screen; author experiments not reproduced."
+    },
+    {
+      "key": "agentabstain",
+      "arxiv_version": "2607.10059v1",
+      "url": "https://arxiv.org/html/2607.10059v1",
+      "checked_date": "2026-10-25",
+      "html_sha256": "fb13ffdfc76170dcec2e1b206e641eae7297d12e6f64284dbd2a92dd1170a462",
+      "selected_sections": [
+        {
+          "section_id": "S2.SS2",
+          "heading": "2.2 Task Model and Paired Design"
+        },
+        {
+          "section_id": "S3.SS2",
+          "heading": "3.2 Main Results and Findings"
+        },
+        {
+          "section_id": "A2.SS6",
+          "heading": "B.6 Evaluation Metrics"
+        }
+      ],
+      "evidence_level": "Primary manuscript design/metric screen; author experiments not reproduced."
+    },
+    {
+      "key": "telemetrysuff",
+      "arxiv_version": "2608.07899v1",
+      "url": "https://arxiv.org/html/2608.07899v1",
+      "checked_date": "2026-10-25",
+      "html_sha256": null,
+      "read_scope": "Official abstract and HTML method/ambiguity/output sections via browsing tool.",
+      "retrieval_limit": "Local Python and curl HTML downloads timed out; no local-byte snapshot claimed.",
+      "evidence_level": "Primary manuscript screen, not full independent artifact review."
+    },
+    {
+      "key": "posttreatment_bias",
+      "url": "https://doi.org/10.1111/ajps.12357",
+      "author_summary": "https://ajps.org/2019/06/10/conditioning-on-posttreatment-variables-can-ruin-your-experiment/",
+      "checked_date": "2026-10-25",
+      "read_scope": "Publisher bibliographic record and authors journal summary; standard selection-bias warning, not a new method of this project."
+    }
+  ]
+}

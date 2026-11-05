@@ -1,0 +1,16 @@
+{
+  "version": "1.0.55",
+  "date": "2026-10-24",
+  "archive": "deepseek-feasible-interface-1.0.55.zip",
+  "sha256": "1e9cbebe9391a4af589d465382a5901928fda4272af737efaf60ef020e63760b",
+  "bytes": 488954,
+  "inventory_files": 332,
+  "model_trajectories": 54,
+  "shared_backend_controls": 9,
+  "actual_requests": 207,
+  "received_responses": 207,
+  "credential_scan": "Exact configured key absent from all files and decompressed entries. No env files or Authorization headers.",
+  "score_migration": "Same additive v150 contract across all arms; original scores retained; no cross-version pooling.",
+  "interface": "Identical prompts; soft vs projected differs only in advertised registry/action enum. Full parser preserves excluded proposals.",
+  "scope": "Three historical 03 development instances; one environment; no weight training."
+}
