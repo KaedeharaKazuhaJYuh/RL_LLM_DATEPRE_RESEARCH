@@ -1,0 +1,199 @@
+{
+  "protocol": "cesnet-ts26-sparse-sample-cross-granularity-probe-v1",
+  "date": "2026-11-09",
+  "source": "Zenodo 21945629 ip_addresses_sample_gaps_100_80.tar.gz",
+  "archive_md5": "2c50d80fd8b78416a7f960d34e001638",
+  "sample": {
+    "ip_series": 1000,
+    "time_slots_10_minutes": 140636,
+    "time_slots_1_day": 996,
+    "fixed_gap_denominator": 143280,
+    "observed_10m_rows_total": 7146384,
+    "daily_entity_rows_total": 545302,
+    "gap_ratio_min": 0.802534,
+    "gap_ratio_median": 0.972044,
+    "gap_ratio_max": 0.997376,
+    "daily_entity_coverage_median": 0.542169,
+    "joined_entity_days": 545302
+  },
+  "daily_additive_counter_matches": {
+    "n_flows": 545302,
+    "n_packets": 545302,
+    "n_bytes": 545302
+  },
+  "daily_additive_counter_mismatches": {
+    "n_flows": 0,
+    "n_packets": 0,
+    "n_bytes": 0
+  },
+  "stored_daily_vs_10m_derived_semantics": {
+    "flow_weighted_avg_duration_abs_difference_seconds": {
+      "n": 545302,
+      "median": 0.451429,
+      "p90": 5.249596,
+      "p95": 8.863845,
+      "max": 117.857857,
+      "fraction_gt_0_02": 0.793148,
+      "fraction_gt_0_05": 0.75613
+    },
+    "unweighted_10m_avg_duration_vs_daily_abs_difference_seconds": {
+      "n": 545302,
+      "median": 0.002063,
+      "p90": 0.004815,
+      "p95": 0.005,
+      "max": 0.005,
+      "fraction_gt_0_02": 0.0,
+      "fraction_gt_0_05": 0.0
+    },
+    "unweighted_10m_packet_ratio_vs_daily_abs_difference": {
+      "n": 545302,
+      "median": 0.000645,
+      "p90": 0.004286,
+      "p95": 0.004872,
+      "max": 0.005,
+      "fraction_gt_0_02": 0.0,
+      "fraction_gt_0_05": 0.0
+    },
+    "unweighted_10m_byte_ratio_vs_daily_abs_difference": {
+      "n": 545302,
+      "median": 0.000541,
+      "p90": 0.004211,
+      "p95": 0.004865,
+      "max": 0.005,
+      "fraction_gt_0_02": 0.0,
+      "fraction_gt_0_05": 0.0
+    },
+    "packet_weighted_tcp_ratio_abs_difference": {
+      "n": 545302,
+      "median": 0.005,
+      "p90": 0.122472,
+      "p95": 0.234497,
+      "max": 0.966884,
+      "fraction_gt_0_02": 0.313303,
+      "fraction_gt_0_05": 0.194921
+    },
+    "byte_weighted_tcp_ratio_abs_difference": {
+      "n": 545302,
+      "median": 0.006382,
+      "p90": 0.171751,
+      "p95": 0.300866,
+      "max": 0.970047,
+      "fraction_gt_0_02": 0.367989,
+      "fraction_gt_0_05": 0.249031
+    }
+  },
+  "illustrative_rows_selected_by_largest_discrepancy": {
+    "packet_ratio": [
+      {
+        "id_ip": 325286,
+        "utc_day": "2024-06-07 00:00:00+00:00",
+        "n_windows_10m": 51,
+        "n_packets_10m": 1564969,
+        "tcp_udp_ratio_packets": 0.98,
+        "tcp_ratio_unweighted_10m": 0.979216,
+        "tcp_ratio_packet_weighted_10m": 0.013116,
+        "tcp_packet_abs_diff": 0.966884
+      },
+      {
+        "id_ip": 2068421,
+        "utc_day": "2025-11-20 00:00:00+00:00",
+        "n_windows_10m": 60,
+        "n_packets_10m": 193220,
+        "tcp_udp_ratio_packets": 0.96,
+        "tcp_ratio_unweighted_10m": 0.9575,
+        "tcp_ratio_packet_weighted_10m": 0.012987,
+        "tcp_packet_abs_diff": 0.947013
+      },
+      {
+        "id_ip": 552094,
+        "utc_day": "2024-01-25 00:00:00+00:00",
+        "n_windows_10m": 35,
+        "n_packets_10m": 104143,
+        "tcp_udp_ratio_packets": 0.97,
+        "tcp_ratio_unweighted_10m": 0.97,
+        "tcp_ratio_packet_weighted_10m": 0.023978,
+        "tcp_packet_abs_diff": 0.946022
+      },
+      {
+        "id_ip": 325286,
+        "utc_day": "2025-07-18 00:00:00+00:00",
+        "n_windows_10m": 47,
+        "n_packets_10m": 572658,
+        "tcp_udp_ratio_packets": 0.96,
+        "tcp_ratio_unweighted_10m": 0.955319,
+        "tcp_ratio_packet_weighted_10m": 0.018021,
+        "tcp_packet_abs_diff": 0.941979
+      },
+      {
+        "id_ip": 325286,
+        "utc_day": "2026-01-26 00:00:00+00:00",
+        "n_windows_10m": 48,
+        "n_packets_10m": 351358,
+        "tcp_udp_ratio_packets": 0.98,
+        "tcp_ratio_unweighted_10m": 0.976458,
+        "tcp_ratio_packet_weighted_10m": 0.039255,
+        "tcp_packet_abs_diff": 0.940745
+      }
+    ],
+    "avg_duration": [
+      {
+        "id_ip": 528201,
+        "utc_day": "2025-02-26 00:00:00+00:00",
+        "n_windows_10m": 7,
+        "n_flows_10m": 127,
+        "avg_duration": 53.1,
+        "avg_duration_unweighted_10m": 53.101429,
+        "avg_duration_flow_weighted_10m": 159.690394,
+        "duration_abs_diff": 106.590394
+      },
+      {
+        "id_ip": 2014616,
+        "utc_day": "2025-06-08 00:00:00+00:00",
+        "n_windows_10m": 38,
+        "n_flows_10m": 237,
+        "avg_duration": 144.81,
+        "avg_duration_unweighted_10m": 144.806053,
+        "avg_duration_flow_weighted_10m": 42.607848,
+        "duration_abs_diff": 102.202152
+      },
+      {
+        "id_ip": 438207,
+        "utc_day": "2025-05-19 00:00:00+00:00",
+        "n_windows_10m": 6,
+        "n_flows_10m": 105,
+        "avg_duration": 111.48,
+        "avg_duration_unweighted_10m": 111.475,
+        "avg_duration_flow_weighted_10m": 19.224381,
+        "duration_abs_diff": 92.255619
+      },
+      {
+        "id_ip": 9357,
+        "utc_day": "2024-02-01 00:00:00+00:00",
+        "n_windows_10m": 87,
+        "n_flows_10m": 9098,
+        "avg_duration": 92.91,
+        "avg_duration_unweighted_10m": 92.912529,
+        "avg_duration_flow_weighted_10m": 7.042552,
+        "duration_abs_diff": 85.867448
+      },
+      {
+        "id_ip": 310818,
+        "utc_day": "2024-03-29 00:00:00+00:00",
+        "n_windows_10m": 27,
+        "n_flows_10m": 344,
+        "avg_duration": 111.75,
+        "avg_duration_unweighted_10m": 111.754815,
+        "avg_duration_flow_weighted_10m": 25.894215,
+        "duration_abs_diff": 85.855785
+      }
+    ],
+    "additive_bytes": {
+      "id_ip": 397859,
+      "utc_day": "2024-01-12 00:00:00+00:00",
+      "n_windows_10m": 126,
+      "n_bytes_10m": 37970350542,
+      "n_bytes": 37970350542
+    }
+  },
+  "interpretation_limit": "The sample is one high-gap stratum from one ISP dataset. Ratios and averages are rounded published metrics; weighted reconstructions are weighted means of reported values, not exact raw-packet or raw-flow ground truth. These are data-semantics diagnostics, not Agent results or independent task-family evidence."
+}
