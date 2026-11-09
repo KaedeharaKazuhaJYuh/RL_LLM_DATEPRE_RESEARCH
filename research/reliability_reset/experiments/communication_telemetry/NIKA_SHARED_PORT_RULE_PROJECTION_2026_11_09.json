@@ -1,0 +1,476 @@
+{
+  "protocol": "nika-shared-port-rule-projection-v1",
+  "profile_source": "https://zenodo.org/records/21983587",
+  "rule": "I>0 and E=0 => terminal loss; I>0 and E=I => report loss; otherwise underdetermined",
+  "assumptions": [
+    "One representative ServDeg flow is placed on the same egress counter as the NIKA target burst.",
+    "The background packets pass without loss in both conditions.",
+    "Counters expose only the summed ingress and egress deltas shown in each scenario.",
+    "No tool call, active probe, Agent, packet replay, or independent episode is run by this calculation."
+  ],
+  "scenario_count": 30,
+  "scenario_pairs": 15,
+  "determinate_count": 15,
+  "underdetermined_count": 15,
+  "correct_determinate_count": 15,
+  "false_determinate_count": 0,
+  "determinate_coverage": 0.5,
+  "accuracy_conditional_on_determinate": 1.0,
+  "scenarios": [
+    {
+      "day_file": "MON.parquet",
+      "background_packet_quantile": "p50",
+      "source_background_packet_quantile": 6.0,
+      "background_packets_rounded": 6,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 382,
+        "egress_delta": 382
+      },
+      "condition": "report_only_receipt_loss",
+      "prediction": "packet_reached_egress_report_loss",
+      "scenario_label": "packet_reached_egress_report_loss",
+      "correct_if_determinate": true
+    },
+    {
+      "day_file": "MON.parquet",
+      "background_packet_quantile": "p50",
+      "source_background_packet_quantile": 6.0,
+      "background_packets_rounded": 6,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 382,
+        "egress_delta": 6
+      },
+      "condition": "terminal_target_packet_loss",
+      "prediction": "underdetermined",
+      "scenario_label": "terminal_data_plane_loss",
+      "correct_if_determinate": false
+    },
+    {
+      "day_file": "MON.parquet",
+      "background_packet_quantile": "p90",
+      "source_background_packet_quantile": 40.0,
+      "background_packets_rounded": 40,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 416,
+        "egress_delta": 416
+      },
+      "condition": "report_only_receipt_loss",
+      "prediction": "packet_reached_egress_report_loss",
+      "scenario_label": "packet_reached_egress_report_loss",
+      "correct_if_determinate": true
+    },
+    {
+      "day_file": "MON.parquet",
+      "background_packet_quantile": "p90",
+      "source_background_packet_quantile": 40.0,
+      "background_packets_rounded": 40,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 416,
+        "egress_delta": 40
+      },
+      "condition": "terminal_target_packet_loss",
+      "prediction": "underdetermined",
+      "scenario_label": "terminal_data_plane_loss",
+      "correct_if_determinate": false
+    },
+    {
+      "day_file": "MON.parquet",
+      "background_packet_quantile": "p99",
+      "source_background_packet_quantile": 1533.0,
+      "background_packets_rounded": 1533,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 1909,
+        "egress_delta": 1909
+      },
+      "condition": "report_only_receipt_loss",
+      "prediction": "packet_reached_egress_report_loss",
+      "scenario_label": "packet_reached_egress_report_loss",
+      "correct_if_determinate": true
+    },
+    {
+      "day_file": "MON.parquet",
+      "background_packet_quantile": "p99",
+      "source_background_packet_quantile": 1533.0,
+      "background_packets_rounded": 1533,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 1909,
+        "egress_delta": 1533
+      },
+      "condition": "terminal_target_packet_loss",
+      "prediction": "underdetermined",
+      "scenario_label": "terminal_data_plane_loss",
+      "correct_if_determinate": false
+    },
+    {
+      "day_file": "TUE.parquet",
+      "background_packet_quantile": "p50",
+      "source_background_packet_quantile": 5.0,
+      "background_packets_rounded": 5,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 381,
+        "egress_delta": 381
+      },
+      "condition": "report_only_receipt_loss",
+      "prediction": "packet_reached_egress_report_loss",
+      "scenario_label": "packet_reached_egress_report_loss",
+      "correct_if_determinate": true
+    },
+    {
+      "day_file": "TUE.parquet",
+      "background_packet_quantile": "p50",
+      "source_background_packet_quantile": 5.0,
+      "background_packets_rounded": 5,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 381,
+        "egress_delta": 5
+      },
+      "condition": "terminal_target_packet_loss",
+      "prediction": "underdetermined",
+      "scenario_label": "terminal_data_plane_loss",
+      "correct_if_determinate": false
+    },
+    {
+      "day_file": "TUE.parquet",
+      "background_packet_quantile": "p90",
+      "source_background_packet_quantile": 42.0,
+      "background_packets_rounded": 42,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 418,
+        "egress_delta": 418
+      },
+      "condition": "report_only_receipt_loss",
+      "prediction": "packet_reached_egress_report_loss",
+      "scenario_label": "packet_reached_egress_report_loss",
+      "correct_if_determinate": true
+    },
+    {
+      "day_file": "TUE.parquet",
+      "background_packet_quantile": "p90",
+      "source_background_packet_quantile": 42.0,
+      "background_packets_rounded": 42,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 418,
+        "egress_delta": 42
+      },
+      "condition": "terminal_target_packet_loss",
+      "prediction": "underdetermined",
+      "scenario_label": "terminal_data_plane_loss",
+      "correct_if_determinate": false
+    },
+    {
+      "day_file": "TUE.parquet",
+      "background_packet_quantile": "p99",
+      "source_background_packet_quantile": 1626.0,
+      "background_packets_rounded": 1626,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 2002,
+        "egress_delta": 2002
+      },
+      "condition": "report_only_receipt_loss",
+      "prediction": "packet_reached_egress_report_loss",
+      "scenario_label": "packet_reached_egress_report_loss",
+      "correct_if_determinate": true
+    },
+    {
+      "day_file": "TUE.parquet",
+      "background_packet_quantile": "p99",
+      "source_background_packet_quantile": 1626.0,
+      "background_packets_rounded": 1626,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 2002,
+        "egress_delta": 1626
+      },
+      "condition": "terminal_target_packet_loss",
+      "prediction": "underdetermined",
+      "scenario_label": "terminal_data_plane_loss",
+      "correct_if_determinate": false
+    },
+    {
+      "day_file": "WED.parquet",
+      "background_packet_quantile": "p50",
+      "source_background_packet_quantile": 16.0,
+      "background_packets_rounded": 16,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 392,
+        "egress_delta": 392
+      },
+      "condition": "report_only_receipt_loss",
+      "prediction": "packet_reached_egress_report_loss",
+      "scenario_label": "packet_reached_egress_report_loss",
+      "correct_if_determinate": true
+    },
+    {
+      "day_file": "WED.parquet",
+      "background_packet_quantile": "p50",
+      "source_background_packet_quantile": 16.0,
+      "background_packets_rounded": 16,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 392,
+        "egress_delta": 16
+      },
+      "condition": "terminal_target_packet_loss",
+      "prediction": "underdetermined",
+      "scenario_label": "terminal_data_plane_loss",
+      "correct_if_determinate": false
+    },
+    {
+      "day_file": "WED.parquet",
+      "background_packet_quantile": "p90",
+      "source_background_packet_quantile": 62.0,
+      "background_packets_rounded": 62,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 438,
+        "egress_delta": 438
+      },
+      "condition": "report_only_receipt_loss",
+      "prediction": "packet_reached_egress_report_loss",
+      "scenario_label": "packet_reached_egress_report_loss",
+      "correct_if_determinate": true
+    },
+    {
+      "day_file": "WED.parquet",
+      "background_packet_quantile": "p90",
+      "source_background_packet_quantile": 62.0,
+      "background_packets_rounded": 62,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 438,
+        "egress_delta": 62
+      },
+      "condition": "terminal_target_packet_loss",
+      "prediction": "underdetermined",
+      "scenario_label": "terminal_data_plane_loss",
+      "correct_if_determinate": false
+    },
+    {
+      "day_file": "WED.parquet",
+      "background_packet_quantile": "p99",
+      "source_background_packet_quantile": 2785.0,
+      "background_packets_rounded": 2785,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 3161,
+        "egress_delta": 3161
+      },
+      "condition": "report_only_receipt_loss",
+      "prediction": "packet_reached_egress_report_loss",
+      "scenario_label": "packet_reached_egress_report_loss",
+      "correct_if_determinate": true
+    },
+    {
+      "day_file": "WED.parquet",
+      "background_packet_quantile": "p99",
+      "source_background_packet_quantile": 2785.0,
+      "background_packets_rounded": 2785,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 3161,
+        "egress_delta": 2785
+      },
+      "condition": "terminal_target_packet_loss",
+      "prediction": "underdetermined",
+      "scenario_label": "terminal_data_plane_loss",
+      "correct_if_determinate": false
+    },
+    {
+      "day_file": "THU.parquet",
+      "background_packet_quantile": "p50",
+      "source_background_packet_quantile": 5.0,
+      "background_packets_rounded": 5,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 381,
+        "egress_delta": 381
+      },
+      "condition": "report_only_receipt_loss",
+      "prediction": "packet_reached_egress_report_loss",
+      "scenario_label": "packet_reached_egress_report_loss",
+      "correct_if_determinate": true
+    },
+    {
+      "day_file": "THU.parquet",
+      "background_packet_quantile": "p50",
+      "source_background_packet_quantile": 5.0,
+      "background_packets_rounded": 5,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 381,
+        "egress_delta": 5
+      },
+      "condition": "terminal_target_packet_loss",
+      "prediction": "underdetermined",
+      "scenario_label": "terminal_data_plane_loss",
+      "correct_if_determinate": false
+    },
+    {
+      "day_file": "THU.parquet",
+      "background_packet_quantile": "p90",
+      "source_background_packet_quantile": 43.0,
+      "background_packets_rounded": 43,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 419,
+        "egress_delta": 419
+      },
+      "condition": "report_only_receipt_loss",
+      "prediction": "packet_reached_egress_report_loss",
+      "scenario_label": "packet_reached_egress_report_loss",
+      "correct_if_determinate": true
+    },
+    {
+      "day_file": "THU.parquet",
+      "background_packet_quantile": "p90",
+      "source_background_packet_quantile": 43.0,
+      "background_packets_rounded": 43,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 419,
+        "egress_delta": 43
+      },
+      "condition": "terminal_target_packet_loss",
+      "prediction": "underdetermined",
+      "scenario_label": "terminal_data_plane_loss",
+      "correct_if_determinate": false
+    },
+    {
+      "day_file": "THU.parquet",
+      "background_packet_quantile": "p99",
+      "source_background_packet_quantile": 1648.0,
+      "background_packets_rounded": 1648,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 2024,
+        "egress_delta": 2024
+      },
+      "condition": "report_only_receipt_loss",
+      "prediction": "packet_reached_egress_report_loss",
+      "scenario_label": "packet_reached_egress_report_loss",
+      "correct_if_determinate": true
+    },
+    {
+      "day_file": "THU.parquet",
+      "background_packet_quantile": "p99",
+      "source_background_packet_quantile": 1648.0,
+      "background_packets_rounded": 1648,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 2024,
+        "egress_delta": 1648
+      },
+      "condition": "terminal_target_packet_loss",
+      "prediction": "underdetermined",
+      "scenario_label": "terminal_data_plane_loss",
+      "correct_if_determinate": false
+    },
+    {
+      "day_file": "FRI.parquet",
+      "background_packet_quantile": "p50",
+      "source_background_packet_quantile": 2.0,
+      "background_packets_rounded": 2,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 378,
+        "egress_delta": 378
+      },
+      "condition": "report_only_receipt_loss",
+      "prediction": "packet_reached_egress_report_loss",
+      "scenario_label": "packet_reached_egress_report_loss",
+      "correct_if_determinate": true
+    },
+    {
+      "day_file": "FRI.parquet",
+      "background_packet_quantile": "p50",
+      "source_background_packet_quantile": 2.0,
+      "background_packets_rounded": 2,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 378,
+        "egress_delta": 2
+      },
+      "condition": "terminal_target_packet_loss",
+      "prediction": "underdetermined",
+      "scenario_label": "terminal_data_plane_loss",
+      "correct_if_determinate": false
+    },
+    {
+      "day_file": "FRI.parquet",
+      "background_packet_quantile": "p90",
+      "source_background_packet_quantile": 35.0,
+      "background_packets_rounded": 35,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 411,
+        "egress_delta": 411
+      },
+      "condition": "report_only_receipt_loss",
+      "prediction": "packet_reached_egress_report_loss",
+      "scenario_label": "packet_reached_egress_report_loss",
+      "correct_if_determinate": true
+    },
+    {
+      "day_file": "FRI.parquet",
+      "background_packet_quantile": "p90",
+      "source_background_packet_quantile": 35.0,
+      "background_packets_rounded": 35,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 411,
+        "egress_delta": 35
+      },
+      "condition": "terminal_target_packet_loss",
+      "prediction": "underdetermined",
+      "scenario_label": "terminal_data_plane_loss",
+      "correct_if_determinate": false
+    },
+    {
+      "day_file": "FRI.parquet",
+      "background_packet_quantile": "p99",
+      "source_background_packet_quantile": 1290.0,
+      "background_packets_rounded": 1290,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 1666,
+        "egress_delta": 1666
+      },
+      "condition": "report_only_receipt_loss",
+      "prediction": "packet_reached_egress_report_loss",
+      "scenario_label": "packet_reached_egress_report_loss",
+      "correct_if_determinate": true
+    },
+    {
+      "day_file": "FRI.parquet",
+      "background_packet_quantile": "p99",
+      "source_background_packet_quantile": 1290.0,
+      "background_packets_rounded": 1290,
+      "target_packets": 376,
+      "counter_input": {
+        "ingress_delta": 1666,
+        "egress_delta": 1290
+      },
+      "condition": "terminal_target_packet_loss",
+      "prediction": "underdetermined",
+      "scenario_label": "terminal_data_plane_loss",
+      "correct_if_determinate": false
+    }
+  ],
+  "interpretation_limits": [
+    "The five weekdays are one network and one acquisition week, not five independent deployment clusters.",
+    "ServDeg provides aggregate TCP flow packet counts; the projection does not model packet-level timing or NIKA's UDP workload.",
+    "This calculation characterizes the current rule's algebraic coverage under an explicit shared-counter model; live NIKA behavior remains unmeasured."
+  ]
+}

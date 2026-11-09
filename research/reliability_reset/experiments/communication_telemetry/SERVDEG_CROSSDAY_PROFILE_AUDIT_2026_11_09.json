@@ -1,0 +1,339 @@
+{
+  "protocol": "servdeg-five-day-crossday-profile-audit-v1",
+  "generated_utc_date": "2026-11-09",
+  "dataset": {
+    "record": "https://zenodo.org/records/21983587",
+    "record_api": "https://zenodo.org/api/records/21983587",
+    "license_as_stated_in_dataset_readme": "CC BY 4.0",
+    "record_metadata_pinned": true,
+    "analysis_mode": "remote DuckDB HTTP range reads; aggregate-only output",
+    "raw_rows_exported": false
+  },
+  "days": [
+    {
+      "file": "MON.parquet",
+      "source_bytes": 500075664,
+      "source_md5_from_zenodo_metadata": "833e7b9c411358011bad3172ee541a55",
+      "flow_count": 3185436,
+      "first_seen": "2024-01-15T19:24:40",
+      "last_seen": "2024-01-15T20:18:29",
+      "location_count": 17,
+      "protocol_flow_counts": {
+        "tcp_protocol_6": 3185436,
+        "other_protocols": 0,
+        "null_protocol": 0
+      },
+      "rows_with_SDd": 85899,
+      "rows_with_SDj": 87684,
+      "rows_with_SD_sequences": 8907,
+      "rows_with_SD_time": 8907,
+      "flow_quantiles": {
+        "bidirectional_packets": {
+          "p50": 6.0,
+          "p90": 40.0,
+          "p99": 1533.0,
+          "max": 6928103.0
+        },
+        "bidirectional_bytes": {
+          "p50": 452.0,
+          "p90": 14719.0,
+          "p99": 1293566.19999999,
+          "max": 6443883860.0
+        },
+        "bidirectional_duration_ms": {
+          "p50": 113.0,
+          "p90": 60471.0,
+          "p99": 984068.9999999925,
+          "max": 1799999.0
+        },
+        "bidirectional_mean_piat_ms": {
+          "p50": 13.0,
+          "p90": 3755.75,
+          "p99": 12809.294805194542,
+          "max": 119999.0
+        }
+      }
+    },
+    {
+      "file": "TUE.parquet",
+      "source_bytes": 392592741,
+      "source_md5_from_zenodo_metadata": "59a3f0be0ad7ba2b453164ec8e551218",
+      "flow_count": 2513156,
+      "first_seen": "2024-01-16T19:34:09",
+      "last_seen": "2024-01-16T20:16:14",
+      "location_count": 17,
+      "protocol_flow_counts": {
+        "tcp_protocol_6": 2513156,
+        "other_protocols": 0,
+        "null_protocol": 0
+      },
+      "rows_with_SDd": 68217,
+      "rows_with_SDj": 70090,
+      "rows_with_SD_sequences": 6572,
+      "rows_with_SD_time": 6572,
+      "flow_quantiles": {
+        "bidirectional_packets": {
+          "p50": 5.0,
+          "p90": 42.0,
+          "p99": 1626.0,
+          "max": 18979712.0
+        },
+        "bidirectional_bytes": {
+          "p50": 264.0,
+          "p90": 15390.5,
+          "p99": 1400006.2000000067,
+          "max": 18761061735.0
+        },
+        "bidirectional_duration_ms": {
+          "p50": 115.0,
+          "p90": 61086.0,
+          "p99": 710034.8000000007,
+          "max": 1799999.0
+        },
+        "bidirectional_mean_piat_ms": {
+          "p50": 13.0,
+          "p90": 3756.25,
+          "p99": 13418.46022727275,
+          "max": 119854.0
+        }
+      }
+    },
+    {
+      "file": "WED.parquet",
+      "source_bytes": 465860377,
+      "source_md5_from_zenodo_metadata": "34118976ffc59dd65177e66e92781525",
+      "flow_count": 2684673,
+      "first_seen": "2024-01-17T19:26:35",
+      "last_seen": "2024-01-17T20:18:01",
+      "location_count": 17,
+      "protocol_flow_counts": {
+        "tcp_protocol_6": 2684673,
+        "other_protocols": 0,
+        "null_protocol": 0
+      },
+      "rows_with_SDd": 77462,
+      "rows_with_SDj": 79407,
+      "rows_with_SD_sequences": 7765,
+      "rows_with_SD_time": 7765,
+      "flow_quantiles": {
+        "bidirectional_packets": {
+          "p50": 16.0,
+          "p90": 62.0,
+          "p99": 2785.0,
+          "max": 18979712.0
+        },
+        "bidirectional_bytes": {
+          "p50": 3347.0,
+          "p90": 24531.0,
+          "p99": 2623694.519999988,
+          "max": 18761061735.0
+        },
+        "bidirectional_duration_ms": {
+          "p50": 367.0,
+          "p90": 97119.80000000028,
+          "p99": 1209186.8799999957,
+          "max": 1799999.0
+        },
+        "bidirectional_mean_piat_ms": {
+          "p50": 13.0,
+          "p90": 3756.25,
+          "p99": 13418.46022727275,
+          "max": 119854.0
+        }
+      }
+    },
+    {
+      "file": "THU.parquet",
+      "source_bytes": 418849580,
+      "source_md5_from_zenodo_metadata": "1cfd1741f677f9db66a7d2aadd832ef0",
+      "flow_count": 2703948,
+      "first_seen": "2024-01-18T19:20:36",
+      "last_seen": "2024-01-18T20:15:01",
+      "location_count": 17,
+      "protocol_flow_counts": {
+        "tcp_protocol_6": 2703948,
+        "other_protocols": 0,
+        "null_protocol": 0
+      },
+      "rows_with_SDd": 76294,
+      "rows_with_SDj": 77731,
+      "rows_with_SD_sequences": 8085,
+      "rows_with_SD_time": 8085,
+      "flow_quantiles": {
+        "bidirectional_packets": {
+          "p50": 5.0,
+          "p90": 43.0,
+          "p99": 1648.0,
+          "max": 8576522.0
+        },
+        "bidirectional_bytes": {
+          "p50": 260.0,
+          "p90": 15735.0,
+          "p99": 1409124.4899999932,
+          "max": 9117975794.0
+        },
+        "bidirectional_duration_ms": {
+          "p50": 109.0,
+          "p90": 62457.30000000028,
+          "p99": 1087578.9799999865,
+          "max": 1799999.0
+        },
+        "bidirectional_mean_piat_ms": {
+          "p50": 12.190476190476192,
+          "p90": 3756.75,
+          "p99": 13239.70631469973,
+          "max": 119880.0
+        }
+      }
+    },
+    {
+      "file": "FRI.parquet",
+      "source_bytes": 359826572,
+      "source_md5_from_zenodo_metadata": "05cd998e5c2186cefd71eb0ca10a8196",
+      "flow_count": 2865281,
+      "first_seen": "2024-01-19T19:20:35",
+      "last_seen": "2024-01-19T20:15:01",
+      "location_count": 17,
+      "protocol_flow_counts": {
+        "tcp_protocol_6": 2865281,
+        "other_protocols": 0,
+        "null_protocol": 0
+      },
+      "rows_with_SDd": 60043,
+      "rows_with_SDj": 61883,
+      "rows_with_SD_sequences": 6015,
+      "rows_with_SD_time": 6015,
+      "flow_quantiles": {
+        "bidirectional_packets": {
+          "p50": 2.0,
+          "p90": 35.0,
+          "p99": 1290.0,
+          "max": 16510232.0
+        },
+        "bidirectional_bytes": {
+          "p50": 92.0,
+          "p90": 12677.0,
+          "p99": 1115396.400000007,
+          "max": 14780890732.0
+        },
+        "bidirectional_duration_ms": {
+          "p50": 3.0,
+          "p90": 34783.0,
+          "p99": 613044.6000000043,
+          "max": 1799999.0
+        },
+        "bidirectional_mean_piat_ms": {
+          "p50": 0.5454545454545454,
+          "p90": 3454.274472168904,
+          "p99": 10985.976429585717,
+          "max": 119999.0
+        }
+      }
+    }
+  ],
+  "cross_day": {
+    "day_count": 5,
+    "flow_count_min": 2513156,
+    "flow_count_median": 2703948,
+    "flow_count_max": 3185436,
+    "flow_count_population_cv": 0.08127353862408078,
+    "all_flows_use_tcp_protocol_6_each_day": true,
+    "quantile_range_by_feature": {
+      "bidirectional_packets": {
+        "p50": {
+          "min": 2.0,
+          "median": 5.0,
+          "max": 16.0
+        },
+        "p90": {
+          "min": 35.0,
+          "median": 42.0,
+          "max": 62.0
+        },
+        "p99": {
+          "min": 1290.0,
+          "median": 1626.0,
+          "max": 2785.0
+        },
+        "max": {
+          "min": 6928103.0,
+          "median": 16510232.0,
+          "max": 18979712.0
+        }
+      },
+      "bidirectional_bytes": {
+        "p50": {
+          "min": 92.0,
+          "median": 264.0,
+          "max": 3347.0
+        },
+        "p90": {
+          "min": 12677.0,
+          "median": 15390.5,
+          "max": 24531.0
+        },
+        "p99": {
+          "min": 1115396.400000007,
+          "median": 1400006.2000000067,
+          "max": 2623694.519999988
+        },
+        "max": {
+          "min": 6443883860.0,
+          "median": 14780890732.0,
+          "max": 18761061735.0
+        }
+      },
+      "bidirectional_duration_ms": {
+        "p50": {
+          "min": 3.0,
+          "median": 113.0,
+          "max": 367.0
+        },
+        "p90": {
+          "min": 34783.0,
+          "median": 61086.0,
+          "max": 97119.80000000028
+        },
+        "p99": {
+          "min": 613044.6000000043,
+          "median": 984068.9999999925,
+          "max": 1209186.8799999957
+        },
+        "max": {
+          "min": 1799999.0,
+          "median": 1799999.0,
+          "max": 1799999.0
+        }
+      },
+      "bidirectional_mean_piat_ms": {
+        "p50": {
+          "min": 0.5454545454545454,
+          "median": 13.0,
+          "max": 13.0
+        },
+        "p90": {
+          "min": 3454.274472168904,
+          "median": 3756.25,
+          "max": 3756.75
+        },
+        "p99": {
+          "min": 10985.976429585717,
+          "median": 13239.70631469973,
+          "max": 13418.46022727275
+        },
+        "max": {
+          "min": 119854.0,
+          "median": 119880.0,
+          "max": 119999.0
+        }
+      }
+    }
+  },
+  "interpretation_limits": [
+    "Five weekdays come from one dormitory network and are not independent network deployments.",
+    "Parquet records aggregated flows and service-degradation annotations, not packets or network-path root causes.",
+    "The profiles can parameterize trace-derived synthetic background workloads, but do not constitute packet replay.",
+    "Flow-level TCP profiles do not directly reproduce the UDP workload or packet-ID semantics of the NIKA experiment.",
+    "Zenodo MD5 and byte counts are checked against the published record metadata; this remote range scan does not download and locally hash every source byte."
+  ]
+}

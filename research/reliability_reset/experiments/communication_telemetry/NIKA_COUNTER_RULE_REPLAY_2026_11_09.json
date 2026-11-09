@@ -1,0 +1,44 @@
+{
+  "protocol": "nika-counter-rule-replay-v1",
+  "rule": "sum target-leaf ingress and egress packet deltas; classify only exact conservation or zero-egress cases",
+  "source_file": "NIKA_PAIRED_PACKET_REPORT_LOSS_2026_11_07.json",
+  "source_sha256": "fc7ea66716d5ade2d1f4ba3d1a015ab682145b6e14b094fae07864c2478c6f2d",
+  "nika_commit": "ac4422d8a4a03be2b905e28edf72993d467e1b81",
+  "rule_inputs": "Recorded per-port counter snapshots only; no packet-capture, relay, fault-table, or ground-truth fields are supplied to the rule.",
+  "episodes": [
+    {
+      "condition_id": "report_only_burst",
+      "visible_counter_input": {
+        "target_switch": "leaf_1",
+        "ingress_packets": 376,
+        "egress_packets": 376
+      },
+      "prediction": "packet_reached_egress_report_loss",
+      "evaluator_only_truth": "packet_reached_egress_report_loss",
+      "correct": true
+    },
+    {
+      "condition_id": "leaf_loss_burst",
+      "visible_counter_input": {
+        "target_switch": "leaf_1",
+        "ingress_packets": 376,
+        "egress_packets": 0
+      },
+      "prediction": "terminal_data_plane_loss",
+      "evaluator_only_truth": "terminal_data_plane_loss",
+      "correct": true
+    }
+  ],
+  "summary": {
+    "episode_count": 2,
+    "correct_count": 2,
+    "descriptive_accuracy": 1.0,
+    "independent_task_clusters": 1
+  },
+  "limits": [
+    "Both conditions are one paired small-topology workload, not independent task clusters.",
+    "The rule uses the recorded target switch as its scope; the archived run does not retain the exact raw MCP read output used to establish that scope from Agent-visible evidence.",
+    "This is an offline replay of recorded counters, not a live Agent comparison or a frozen blind test.",
+    "The closed-world rule does not establish performance under unrelated traffic, other concurrent faults, route changes, or counter resets."
+  ]
+}

@@ -14,24 +14,28 @@
 
 - **已观测运行事实：**2026-11-07 NIKA `p4_dc_gateway` 小拓扑配对实验中，两臂均有 4 条 UDP 流、每流 94 个包；report-only 臂服务端收到每流 94 包，真实终末丢包臂服务端收到 0 包。目标服务端口 egress counter 差为 376 对 0，因而这一次低背景配对已可由计数规则区分。结果来自单拓扑、单次配对，不是冻结基线或独立任务簇结果。详见 [配对机制核验](experiments/communication_telemetry/NIKA_PAIRED_PACKET_REPORT_LOSS_2026_11_07.md)。
 - **信息边界：**relay 的丢弃日志、注入配置、逐包隐藏账本和评测端抓包属于 oracle/evaluator-only，不得暴露给 Agent 或强规则。Agent 可见数据限于 pinned NIKA MCP 工具实际返回的 INT 行、只读 `read`/`counters` 和配额内主动探测。
-- **强规则当前状态：**低背景端口计数能分开现有两臂；跨背景/多路径的精确能力尚无实测。LossSight/LB-LossSight 是必须对照的相关测量机制，但凡其需要 NIKA 当前 Agent 不可见的标记位/逐流计数，不能单方面加入规则输入；应单列“扩展传感器”敏感性分析，不与主同信息对照混算。
-- **实现限制：**pinned NIKA 的原生 loss 注入以 egress port 为键，不是五元组流级注入。不得将 host-side `tc`、改 P4 注入器或隐藏评测字段伪装为原生任务；若要改注入能力，须显式升版本、记录环境差异并另审任务契约。
+- **强规则回放：**对已存配对文件运行 counter-only replay 后，两臂计数守恒规则均与评测真值一致（2/2 条件）；这是一组小拓扑、单一 workload profile 的离线复算，不是盲测、独立任务族或模型对照。[回放报告](experiments/communication_telemetry/NIKA_R1_R2_EVIDENCE_AUDIT_2026_11_09.md) · [机器输出](experiments/communication_telemetry/NIKA_COUNTER_RULE_REPLAY_2026_11_09.json)
+- **可见信息限制：**pinned `p4rt_exec read` 能返回交换机名、转发表前缀、转发 member 的端口号和 per-port counters；拓扑模型中的端口对端映射不直接返回。现有运行未保存原始 MCP `read` 输出，所以不能回溯证明 Agent 可见字段足以把 `leaf_1` 作为目标范围；后续必须保留完整工具调用与输出。该工具接收原始 CLI 参数，若实验限制为只读必须用白名单包装器。
+- **实现边界：**pinned NIKA 的 loss 表按 egress port 生效，不支持五元组单流注入；不过 P4 使用 packet hash 与 basis-point threshold，可对该端口所有流的确定性子集丢包。因而背景压力在原生 P4 上可能实现，无需先改 P4；必须逐包验证同一 packet length/五元组/IPv4 ID 在两臂形成相同 drop subset。不得将 host-side `tc`、更改 P4 注入器或隐藏评测字段伪装成 pinned 原生任务。
+- **严格配对的发送端约束：**pinned NIKA `BurstTrafficGenerator(raw_udp=True)` 使用 `SOCK_DGRAM.sendto`，固定 seed 只决定流五元组，不控制内核分配的 IPv4 ID；旧两臂因此只匹配 workload profile。现有 relay 可依据 `(flow_id, packet_id, switch_id)` 精确丢报告。要做 packet-level matched pair，runner 必须用 raw-IP/pcap replay 固定包长、五元组、payload 与 IPv4 ID，并将 data-loss 臂实际缺失的 ID 集合转成 report-only 臂的精确 relay drop plan。此路径尚未实现或实测。
+- **真实负载校准：**ServDeg 同一宿舍网络的 MON–FRI 五日记录包含约 1,395 万条聚合 TCP flow。流数总体 CV 为 8.13%，单流 P99 包数约 1,290–2,785；P99 字节数约 1.12–2.62 MB。五日画像可以定义共享端口压力档位，但不提供逐包时序，也不能直接作为 NIKA UDP 包回放。逐日统计与转换边界见 [ServDeg 五日负载审计](experiments/communication_telemetry/SERVDEG_CROSSDAY_PROFILE_AUDIT_2026_11_09.md)。
+- **计数规则覆盖率投影：**固定历史 burst 的 376 个目标包，将五日 P50/P90/P99 代表单流放在同一 egress 计数器、假设背景包无损通过，可复算出 30 个公式场景中 15 个确定、15 个合理弃答、0 个错误确定归因。15 个弃答全部是“目标全丢但背景包通过”。这是明确假设下的代数投影，不是运行样本或效果估计。详见 [投影结果](experiments/communication_telemetry/NIKA_SHARED_PORT_RULE_PROJECTION_2026_11_09.json)。
 
 ## 3. 预注册式比较
 
 | 臂 | 输入 | 目的 |
 |---|---|---|
 | R0 trace-only | Agent 可见的上游 INT 部分轨迹 | 验证两种隐藏历史是否确实产生相同初始观测；若轨迹已不同，配对构造失败。 |
-| R1 raw visible tools | 完整只读 NIKA 工具输出：拓扑/路由可见字段、计数器、INT 轨迹 | 测量现有公开工具是否直接解开成因，不允许读取隐藏注入端口映射或 oracle。 |
+| R1 raw visible tools | 完整只读 NIKA 工具输出：实际返回的转发表字段、计数器、INT 轨迹；缺失的邻接映射不得由研究者补入 | 测量现有公开工具是否直接解开成因，不允许读取隐藏注入端口映射或 oracle。 |
 | R2 frozen rule | 仅使用与 Agent 完全相同的 R1 字段、相同探测/读取预算；证据冲突或不可辨识时必须输出 `underdetermined` | 作为主强规则基线；规则、阈值、窗口和异常处理在开发簇冻结后不得看盲测标签调参。 |
 | R3 Agent | 与 R1/R2 相同工具、起始观察、调用/探测预算和时间限制 | 仅在 R2 于独立盲测簇存在可复现的错误或高弃答后准入；与 R2 配对比较。 |
 | R4 measurement extension | 在 R1 之外增加 LossSight 类标记或流级传感器 | 可选机制上限分析；不用于声称 Agent 在原生 NIKA 同信息条件下优于规则。 |
 
 ## 4. 最小实验设计与记录
 
-1. **机制验证先于模型。**对每个 seed/工作负载配对记录相同上游 report key、服务端收到包 ID、sink exporter 生成的 report ID、relay 转发/丢弃事件、collector 收件及各公开端口计数。隐藏账本必须能逐包闭合；任何未闭合配对不进入分析。
+1. **机制验证先于模型。**对每个 seed/工作负载配对记录相同上游 report key、服务端收到包 ID、sink exporter 生成的 report ID、relay 转发/丢弃事件、collector 收件及各公开端口计数。必须逐包复现相同 packet length、五元组与 IPv4 ID，并验证 hash threshold 在两臂选择同一包集；隐藏账本必须逐包闭合。旧运行仅匹配 workload profile，packet IDs 不同，不作为 exact-equal trace 证据。report-only 臂的 relay drop plan 由先行 data-loss 臂的逐包记录生成，执行时须检查目标 ID 全部命中且没有多余丢弃。
 2. **盲测切分按来源簇。**开发与测试须隔离 workload/flow-profile seed；若可用多个拓扑，拓扑也整簇留出。重复、重试、同一流的时间窗变化及同一 seed 的两个故障臂都不是独立样本。若只有一个拓扑或一个 workload 家族，结论限于该环境的机制检查，不能进入跨簇 Agent 主张。
-3. **预先固定压力变量。**只改变非目标背景负载及其与探测窗口的重叠；拓扑、故障位置、工具权限、规则和总调用预算保持不变。不得用事后筛选“规则失败”的 episode。若 NIKA 注入粒度使目标机制无法与背景流量共存，停止该设计，不改成不等价故障。
+3. **预先固定压力变量。**只改变与目标共享终末 egress port 的背景流及其与计数窗口的重叠；背景档位按 ServDeg 五日 P50/P90/P99 画像预先固定，NIKA 生成流的 TCP→UDP 映射规则单独记录并先验证包数/字节预算。拓扑、故障位置、工具权限、规则和总调用预算保持不变。原生 loss threshold 会作用于该端口全部流量，必须将每个背景包纳入包级真值账本。不得用事后筛选“规则失败”的 episode。
 4. **同信息执行。**Agent、R2 和 R1 使用相同公开字段。执行者和评分程序不可向被测策略泄露真实标签、relay 日志、hidden fault config、ground-truth packet ID 列表或结果文件。
 5. **完整逐 episode 留证。**保存环境与代码 commit、配置、随机种子、工具输入/原始输出、规则版本、Agent 原始响应（若获准运行）、每次调用成本/延迟、盲测标签、账本校验和异常退出。模型供应商响应未保存原文时，不得声称已复核模型行为。
 
@@ -57,7 +61,7 @@
 
 ## 7. 当前裁决
 
-当前已有低背景单拓扑反例证明：端口 egress 计数直接区分这次配对；因此 Agent/API 试验暂不准入，研究状态 **HOLD**。本阶段完成的是把下一实验缩为可否证的同信息强规则压力门槛，并将近邻边界明确化；没有新增 Agent 能力结果、没有证明规则会在背景压力下失效，也没有论文创新结论。实际下一操作应是仅用已有 pinned NIKA 环境与自有逐包证据，完成 R1 字段可见性和 R2 规则冻结的技术审查；若这一步显示规则本身已充分解决问题，就按 NO-GO 收束该候选。
+当前 counter-only 离线 replay 在两个低背景条件中均与服务端/relay 真值一致（2/2）；它以 harness 记录的目标 leaf 为范围，旧运行也不是逐包 ID 完全相同的盲测配对。该结果给出了可靠的低背景基线。真实五日负载画像与代数投影进一步指出：共享端口背景会把简单规则的确定性覆盖压到一半，当前显示为合理弃答，而非错误诊断；这构成下一项可执行的研究问题。研究状态保持 **HOLD（候选继续推进）**：现有材料尚未实测背景压力下的 Agent 增量。下一步先完成 profile-conditioned workload 生成、逐包账本和原始 MCP 输出记录，再比较冻结规则与预算内额外测量策略的正确归因/错误归因/弃答覆盖；之后才决定 Agent 配对实跑。
 
 ## 8. 主要近邻（用于设计审查，不替代完整相关工作）
 

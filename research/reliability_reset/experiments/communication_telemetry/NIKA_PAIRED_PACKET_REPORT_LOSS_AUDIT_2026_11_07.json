@@ -1,0 +1,123 @@
+{
+  "protocol": "nika-leaf-service-loss-preflight-v0.9-paired-mechanism-check",
+  "nika_commit": "ac4422d8a4a03be2b905e28edf72993d467e1b81",
+  "kathara_version": "3.8.3",
+  "phase": "complete",
+  "bounded_run_completed": true,
+  "lab_closed": true,
+  "task_cluster_count": 1,
+  "independent_replication": false,
+  "agent_run": false,
+  "same_flow_profile": true,
+  "same_packet_instances": false,
+  "report_only_relay": {
+    "run_id": "nika-report-only-e7f1dc09522e",
+    "target_sink_switch_id": "201",
+    "target_flow_count": 4,
+    "drop_plan_sha256": "d7071d5cfcaa06ab4eb65495500a9126f069ba6b8b711e3b848976d1ea8382fe",
+    "relay_code_sha256": "3e31b340be7a0f9e83361d3cff8c94e88adbdc5f663f33db05ae9f22c197ab73",
+    "duration_seconds": 16,
+    "events_artifact": "NIKA_LEAF_SERVICE_LOSS_RELAY_EVENTS.jsonl",
+    "run_started": true,
+    "report_received_count": 1128,
+    "report_forwarded_count": 752,
+    "report_dropped_count": 376,
+    "run_finished": true,
+    "stop_reason": "duration_limit",
+    "drop_targets": [
+      {
+        "key": [
+          "28a4463f718872b0",
+          "*",
+          "201"
+        ],
+        "matched_count": 94
+      },
+      {
+        "key": [
+          "5560a874d0f2acfe",
+          "*",
+          "201"
+        ],
+        "matched_count": 94
+      },
+      {
+        "key": [
+          "f6e760d978c438b2",
+          "*",
+          "201"
+        ],
+        "matched_count": 94
+      },
+      {
+        "key": [
+          "fde41913c03f2870",
+          "*",
+          "201"
+        ],
+        "matched_count": 94
+      }
+    ]
+  },
+  "data_loss_relay": {
+    "run_id": "nika-leaf-loss-pass-e7f1dc09522e",
+    "events_artifact": "NIKA_LEAF_SERVICE_LOSS_RELAY_EVENTS_LOSS_ARM.jsonl",
+    "run_started": true,
+    "report_received_count": 752,
+    "report_forwarded_count": 752,
+    "report_dropped_count": 0,
+    "run_finished": true,
+    "drop_plan_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stop_reason": "duration_limit"
+  },
+  "report_only_leaf_service_egress_packets": 376,
+  "data_loss_leaf_service_egress_packets": 0,
+  "report_only_leaf_service_ingress_packets": 282,
+  "data_loss_leaf_service_ingress_packets": 282,
+  "per_flow": [
+    {
+      "flow_id": "28a4463f718872b0",
+      "report_arm_service_packets": 94,
+      "leaf_loss_arm_service_packets": 0,
+      "report_arm_collector_sink_packets": 0,
+      "leaf_loss_arm_collector_sink_packets": 0,
+      "report_arm_collector_rows": 188,
+      "leaf_loss_arm_collector_rows": 188
+    },
+    {
+      "flow_id": "5560a874d0f2acfe",
+      "report_arm_service_packets": 94,
+      "leaf_loss_arm_service_packets": 0,
+      "report_arm_collector_sink_packets": 0,
+      "leaf_loss_arm_collector_sink_packets": 0,
+      "report_arm_collector_rows": 188,
+      "leaf_loss_arm_collector_rows": 188
+    },
+    {
+      "flow_id": "f6e760d978c438b2",
+      "report_arm_service_packets": 94,
+      "leaf_loss_arm_service_packets": 0,
+      "report_arm_collector_sink_packets": 0,
+      "leaf_loss_arm_collector_sink_packets": 0,
+      "report_arm_collector_rows": 188,
+      "leaf_loss_arm_collector_rows": 188
+    },
+    {
+      "flow_id": "fde41913c03f2870",
+      "report_arm_service_packets": 94,
+      "leaf_loss_arm_service_packets": 0,
+      "report_arm_collector_sink_packets": 0,
+      "leaf_loss_arm_collector_sink_packets": 0,
+      "report_arm_collector_rows": 188,
+      "leaf_loss_arm_collector_rows": 188
+    }
+  ],
+  "deterministic_same_information_rule": "Post-hoc application of the preplanned R0 rule family to this observed matched pair separates the arms using the public target leaf service-facing egress delta: 376 in report-only vs 0 in leaf loss. Ingress deltas match (port 1=282, port 2=94). This is not a frozen baseline evaluated on independent clusters.",
+  "interpretation": "Negative control for the clean low-background condition: the observed public counters make this pair directly separable by a deterministic rule. Threshold freezing and repeated/independent cluster evaluation remain undone. No Agent comparison is warranted for this condition.",
+  "source_sha256": {
+    "NIKA_PAIRED_PACKET_REPORT_LOSS_2026_11_07.json": "fc7ea66716d5ade2d1f4ba3d1a015ab682145b6e14b094fae07864c2478c6f2d",
+    "NIKA_PAIRED_DATA_LOSS_RELAY_EVENTS_2026_11_07.jsonl": "326c60b24af709129e61a9b86da22b2758916a21db19cdd3389041700deb2561",
+    "NIKA_PAIRED_REPORT_ONLY_RELAY_EVENTS_2026_11_07.jsonl": "126f9a4a9a52f156b53904387ac5ce62439d95835c8fb4140ec32093361e5643"
+  },
+  "raw_record_note": "The archived run JSON is preserved byte-for-byte as emitted. Its narrative counter-delta string still says single-arm evidence, and telemetry_pair_ready remains false because that field was not updated in the running script; use the structured matched-arm fields and this post-hoc audit/report for the comparison. The experiment data and arm counts are not edited."
+}
