@@ -1,0 +1,36 @@
+{
+  "protocol_id": "cesnet-tls-year22-sparse-label-prequential-v0.1",
+  "status": "candidate-awaiting-archive-census",
+  "dataset": {
+    "name": "CESNET-TLS-Year22",
+    "datazoo_source_commit": "85afe5613a9a1ea840d174d779042ee13f87b4e2",
+    "archive_size": "XS",
+    "archive_bytes_expected": 2692800942,
+    "local_archive_path": "C:/Users/jyuh1/Datasets/CESNET-TLS-Year22/XS/CESNET-TLS-Year22-XS.h5",
+    "sha256": null,
+    "census_complete": false
+  },
+  "timestamp_resolution": "hour-rounded according to the dataset paper",
+  "timezone": "verify against the dataset schema when parsing",
+  "windows": [
+    {"role": "initialization", "iso_weeks": [11, 14], "start": "2022-03-14", "end_inclusive": "2022-04-10"},
+    {"role": "development", "iso_weeks": [15, 18], "start": "2022-04-11", "end_inclusive": "2022-05-08"},
+    {"role": "frozen_prequential_evaluation", "iso_weeks": [19, 51], "start": "2022-05-09", "end_inclusive": "2022-12-25"},
+    {"role": "partial_tail_sensitivity_only", "iso_weeks": [52, 52], "start": "2022-12-26", "end_inclusive": "2022-12-28", "exclude_from_primary_mean": true},
+    {"role": "known_measurement_change_stress", "iso_weeks": [10, 10], "start": "2022-03-07", "end_inclusive": "2022-03-13", "exclude_from_natural_change_mean": true}
+  ],
+  "evaluation_order": [
+    "predict_and_seal_all_scores_for_week_t",
+    "release_only_the_registered_label_budget_for_week_t",
+    "expose_week_t_features_as_unlabeled_and_revealed_labels_for_next-week-update",
+    "evaluate_the_updated_model_on_week_t_plus_1_before_any_week_t_plus_1_update"
+  ],
+  "label_budgets_per_week_candidate": [50, 200, 1000],
+  "label_sampling_primary": "uniform_without_replacement_from_week_t_eligible_population",
+  "label_sampling_secondary": "class-balanced; reported separately and never mixed with natural-prior primary results",
+  "primary_metric": "equal-week mean prequential macro-F1 over ISO weeks 19-51",
+  "secondary_metrics": ["per-class and old-class retention", "forgetting", "pseudo-label precision and coverage", "label-efficiency curve", "update FLOPs", "wall-clock update latency", "peak memory", "replay bytes"],
+  "known_missing_collection_dates": ["2022-01-28", "2022-01-29", "2022-01-30", "2022-12-12", "2022-12-13", "2022-12-29", "2022-12-30", "2022-12-31"],
+  "leakage_exclusions": ["TLS_SNI", "service label", "label-derived fields", "timestamp as predictive input", "future-period normalization or label statistics"],
+  "freeze_gate": "replace candidate status only after downloaded archive passes structural checks and date-by-service census; document any date or budget changes before inspecting frozen evaluation outcomes"
+}
