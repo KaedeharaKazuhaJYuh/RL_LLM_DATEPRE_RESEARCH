@@ -1,6 +1,6 @@
 # 一页研究门槛｜多层级网络遥测分析 Agent
 
-日期：2026-11-09　｜　研究主线：AI Agent × 通信网络遥测与大数据　｜　状态：**HOLD；未准入 Agent/API 实验**
+日期：2026-11-09　｜　研究主线：AI Agent × 通信网络遥测与大数据　｜　整体科学状态：**HOLD**；CESNET 独立基准候选：**NO-GO**
 
 ## 可证伪问题
 
@@ -17,7 +17,7 @@
 ## 近邻边界与候选增量
 
 - **TS-Skill** 已控制时间尺度选择、时间定位、跨区间整合，含 145 个 Network Infrastructure 问题及工具 Agent；但论文将其种子标为 synthetic。故“多尺度时序推理”已被覆盖，候选差异只能落在真实网络遥测的多实体层级、稀疏/缺窗语义和网络指标聚合契约。[论文](https://arxiv.org/abs/2605.24703)
-- **TSAQA** 已有 210k 条、13 个领域、6 类分析任务，但作者描述其为单变量、封闭式 QA，并指出不规则采样、混合频率和领域结构仍未覆盖；候选必须超出普通时序 QA，不能只是改写问题文本。[论文](https://arxiv.org/abs/2601.23204)
+- **TSAQA** 已有 210k 条、13 个领域、6 类分析任务；核心题采用 TF/MC/PZ 等结构化问答，数据源亦包含多变量异常数据。其核心序列筛掉缺失率超过 1% 的序列，作者指出不规则采样和混合频率仍只被部分覆盖；候选必须超出普通时序 QA，不能只是改写问题文本。[论文](https://arxiv.org/abs/2601.23204)
 - **TimeART** 已给时序 Agent 配备分析工具并训练工具使用；**DataAgentBench / AgenticDataBench** 已覆盖异构数据分析工作流、真实数据集与细粒度技能评估；**MeshAgent** 已评估网络管理查询。因此“新增一组网络时序问题”本身不足以构成贡献。[TimeART](https://arxiv.org/abs/2601.13653) · [DAB](https://arxiv.org/abs/2603.20576) · [AgenticDataBench](https://arxiv.org/abs/2607.01647) · [MeshAgent](https://doi.org/10.1145/3771567)
 - **候选增量（待验证）：**以真实网络遥测中可执行的测量契约为中心，测量 Agent 对跨实体/跨粒度数据的语义错误是否会改变网络运营结论；相对于上述工作，增量必须由受控对照结果证明，不能仅以数据集来源不同主张新颖性。
 
@@ -32,6 +32,8 @@
 
 ## 裁决与下一步
 
-**设计审查：HOLD。**来源、许可与聚合语义已确认。离线探针完成：1,000 条高缺失 IP 序列中，545,302 个实体日的三类体量计数都与 10 分钟求和完全一致；日级平均持续时间和协议比率都与对已存窗口取不加权均值相符，差异处于两位小数舍入范围。按流量/包量加权会得到另一估计量。四个可复算任务契约候选及答案边界记录于 [CESNET 多粒度探针报告](experiments/communication_telemetry/CESNET_MULTISCALE_PROBE_2026_11_09.md)。
+**CESNET 数据准入：通过（受限）；独立论文候选：NO-GO。**离线探针证明任务答案可由公开数据和明确规则复算：1,000 条高缺失 IP 序列中，545,302 个实体日三类体量计数均与 10 分钟求和完全一致；日级平均持续时间及协议比率均与已观测窗口等权平均相符。按流量/包量加权是不同估计量。结果和四个题型见 [CESNET 多粒度探针报告](experiments/communication_telemetry/CESNET_MULTISCALE_PROBE_2026_11_09.md)。
 
-探针只说明任务可被精确定义、并且错误聚合具有潜在答案影响；它**没有 Agent 轨迹、独立任务族、模型比较、强规则基线或新颖性证明**。因此不能据此开放模型实验或改变论文主张。下一步为人工审阅四题的统计口径/缺失语义，并与 TS-Skill、TSAQA、TimeART、DataAgentBench、AgenticDataBench、MeshAgent 的任务字段及评分方式做逐项差异表；若审阅或近邻比较未保留可独立检验的差异，关闭此候选并回到 NIKA 同信息规则准入。仍不扩题库，不调用 API。
+定向近邻审计进一步确认：跨区间时序整合、时序工具 Agent、通用数据 Agent、网络诊断/配置 Agent、错误网络报障、部分可观测证据评估、遥测充分性/来源定位、INT 丢失处理及网络流量审计已分别被 TS-Skill、TimeART、DAB、AgenticDataBench、NIKA、CTBench、FaulT-Bench、TelemetrySuffBench、LossSight/LB-LossSight、MeshAgent、WirelessBench、NetAgentBench 和 ANT 覆盖。CESNET 方案目前只显示“换成真实网络数据后，可以考查已知聚合语义”；没有 Agent 轨迹、同信息强规则差值、独立任务族、下游运维影响或基准结论变化。因此不启动模型实验，不把该基准作为独立论文贡献，不扩模板题库。[近邻矩阵与裁决](CESNET_NEIGHBOR_AUDIT_2026_11_09.md)
+
+**返回唯一固定主线 NIKA 配对因果识别；整体状态继续 HOLD。**CTBench、FaulT-Bench、TelemetrySuffBench 和 LossSight/LB-LossSight 分别覆盖电信网络证据诊断、不可靠故障票据、遥测充分性/来源定位及 INT 丢失处理。候选仅剩具体终末故障配对下、严格同信息预算规则无法解释的可复核差值。该规则压力门槛见 [NIKA 同信息规则压力门槛](NIKA_SAME_INFORMATION_RULE_STRESS_GATE_2026_11_09.md)；如果完整近邻核对或冻结规则测试仍解释全部结果，则关闭机制候选，长期研究方向不变。
