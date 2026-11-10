@@ -1,0 +1,148 @@
+{
+  "case_count": 319,
+  "trace_count": 319,
+  "cases_without_skill_read": 7,
+  "unique_skill_sha256_count": 1,
+  "skill_sha256_values": [
+    "00f22aa5e29b4a9b839a076a69011a882afa219fca391fd4336539e9c3e25d35"
+  ],
+  "bad_peer_as_trigger_rule": {
+    "positive_predictions": 26,
+    "true_positive": 26,
+    "false_positive": 0,
+    "false_negative": 268,
+    "true_negative": 25
+  },
+  "families": {
+    "generated_acl_misconfig": {
+      "n": 20,
+      "skill_read_n": 20,
+      "bgp_label_visible_n": 20,
+      "bgp_peer_guidance_visible_n": 20,
+      "agent_correct_n": 19,
+      "one_bit_rule_correct_n": 20,
+      "bad_peer_as_rule_hit_n": 0,
+      "bad_peer_as_rule_correct_n": 0
+    },
+    "generated_bgp_neighbor_misconfig": {
+      "n": 26,
+      "skill_read_n": 26,
+      "bgp_label_visible_n": 26,
+      "bgp_peer_guidance_visible_n": 26,
+      "agent_correct_n": 26,
+      "one_bit_rule_correct_n": 2,
+      "bad_peer_as_rule_hit_n": 26,
+      "bad_peer_as_rule_correct_n": 26
+    },
+    "generated_blackhole_route": {
+      "n": 26,
+      "skill_read_n": 24,
+      "bgp_label_visible_n": 24,
+      "bgp_peer_guidance_visible_n": 24,
+      "agent_correct_n": 18,
+      "one_bit_rule_correct_n": 26,
+      "bad_peer_as_rule_hit_n": 0,
+      "bad_peer_as_rule_correct_n": 0
+    },
+    "generated_device_down": {
+      "n": 26,
+      "skill_read_n": 26,
+      "bgp_label_visible_n": 26,
+      "bgp_peer_guidance_visible_n": 26,
+      "agent_correct_n": 24,
+      "one_bit_rule_correct_n": 26,
+      "bad_peer_as_rule_hit_n": 0,
+      "bad_peer_as_rule_correct_n": 0
+    },
+    "generated_healthy_network": {
+      "n": 25,
+      "skill_read_n": 25,
+      "bgp_label_visible_n": 25,
+      "bgp_peer_guidance_visible_n": 25,
+      "agent_correct_n": 25,
+      "one_bit_rule_correct_n": 25,
+      "bad_peer_as_rule_hit_n": 0,
+      "bad_peer_as_rule_correct_n": 25
+    },
+    "generated_high_latency": {
+      "n": 26,
+      "skill_read_n": 26,
+      "bgp_label_visible_n": 26,
+      "bgp_peer_guidance_visible_n": 26,
+      "agent_correct_n": 6,
+      "one_bit_rule_correct_n": 26,
+      "bad_peer_as_rule_hit_n": 0,
+      "bad_peer_as_rule_correct_n": 0
+    },
+    "generated_link_down": {
+      "n": 26,
+      "skill_read_n": 24,
+      "bgp_label_visible_n": 24,
+      "bgp_peer_guidance_visible_n": 24,
+      "agent_correct_n": 25,
+      "one_bit_rule_correct_n": 18,
+      "bad_peer_as_rule_hit_n": 0,
+      "bad_peer_as_rule_correct_n": 0
+    },
+    "generated_link_flapping": {
+      "n": 26,
+      "skill_read_n": 26,
+      "bgp_label_visible_n": 26,
+      "bgp_peer_guidance_visible_n": 26,
+      "agent_correct_n": 16,
+      "one_bit_rule_correct_n": 18,
+      "bad_peer_as_rule_hit_n": 0,
+      "bad_peer_as_rule_correct_n": 0
+    },
+    "generated_mtu_mismatch": {
+      "n": 26,
+      "skill_read_n": 25,
+      "bgp_label_visible_n": 25,
+      "bgp_peer_guidance_visible_n": 25,
+      "agent_correct_n": 15,
+      "one_bit_rule_correct_n": 26,
+      "bad_peer_as_rule_hit_n": 0,
+      "bad_peer_as_rule_correct_n": 0
+    },
+    "generated_packet_corruption": {
+      "n": 26,
+      "skill_read_n": 26,
+      "bgp_label_visible_n": 26,
+      "bgp_peer_guidance_visible_n": 26,
+      "agent_correct_n": 9,
+      "one_bit_rule_correct_n": 22,
+      "bad_peer_as_rule_hit_n": 0,
+      "bad_peer_as_rule_correct_n": 0
+    },
+    "generated_packet_loss": {
+      "n": 26,
+      "skill_read_n": 26,
+      "bgp_label_visible_n": 26,
+      "bgp_peer_guidance_visible_n": 26,
+      "agent_correct_n": 5,
+      "one_bit_rule_correct_n": 25,
+      "bad_peer_as_rule_hit_n": 0,
+      "bad_peer_as_rule_correct_n": 0
+    },
+    "generated_route_policy_misconfig": {
+      "n": 20,
+      "skill_read_n": 19,
+      "bgp_label_visible_n": 19,
+      "bgp_peer_guidance_visible_n": 19,
+      "agent_correct_n": 19,
+      "one_bit_rule_correct_n": 20,
+      "bad_peer_as_rule_hit_n": 0,
+      "bad_peer_as_rule_correct_n": 0
+    },
+    "generated_static_route_misconfig": {
+      "n": 20,
+      "skill_read_n": 19,
+      "bgp_label_visible_n": 19,
+      "bgp_peer_guidance_visible_n": 19,
+      "agent_correct_n": 20,
+      "one_bit_rule_correct_n": 20,
+      "bad_peer_as_rule_hit_n": 0,
+      "bad_peer_as_rule_correct_n": 0
+    }
+  }
+}

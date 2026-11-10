@@ -1,0 +1,81 @@
+task_id,task_type,application_family,start_db_crc32,start_db_uncompressed_bytes,state_cluster,identity_evidence
+dacomp-de-evol-001,evol,lever,a65bca45,21508096,sha256:3b5b8ed18b4811e24252ebcb4f0935a8ff2696d56dc2b8dad01950c4cf6f71fa,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-002,evol,lever,a65bca45,21508096,sha256:3b5b8ed18b4811e24252ebcb4f0935a8ff2696d56dc2b8dad01950c4cf6f71fa,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-003,evol,pendo,c4733ff2,11546624,sha256:6ee2f5d4706e3d63c8bf97771cd107285d4622ce8a59c886f1ba36b935e77b6d,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-004,evol,pendo,c4733ff2,11546624,sha256:6ee2f5d4706e3d63c8bf97771cd107285d4622ce8a59c886f1ba36b935e77b6d,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-005,evol,customer360,aaaf8e73,6565888,sha256:4ded95467cfd4346785c9ec96eea954ea7e86e6298115c7abae221b661efaba3,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-006,evol,customer360,aaaf8e73,6565888,sha256:4ded95467cfd4346785c9ec96eea954ea7e86e6298115c7abae221b661efaba3,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-007,evol,salesforce,83dece5f,47984640,sha256:cf9b462162d8fa55d76ddbd39027ecfca87d238d010d4ef511baf3165f778fef,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-008,evol,salesforce,83dece5f,47984640,sha256:cf9b462162d8fa55d76ddbd39027ecfca87d238d010d4ef511baf3165f778fef,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-009,evol,salesforce,9720b5b3,62402560,sha256:61544bcae41f67743fdc332359bb4b103802fb768382a651af5348f38033a7a8,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-010,evol,salesforce,9720b5b3,62402560,sha256:61544bcae41f67743fdc332359bb4b103802fb768382a651af5348f38033a7a8,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-011,evol,google_ads,328f4fca,7614464,sha256:1e225b52fac255ba352443a3e5609d85165cb8c7137a89f274e741a11331206a,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-012,evol,google_ads,328f4fca,7614464,sha256:1e225b52fac255ba352443a3e5609d85165cb8c7137a89f274e741a11331206a,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-013,evol,ad_reporting,c80f4428,69218304,sha256:722b078faaa98232d6cc7d65ded9c4d0b013868fe6f7e1b259fd932ee6e8a83a,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-014,evol,ad_reporting,c80f4428,69218304,sha256:722b078faaa98232d6cc7d65ded9c4d0b013868fe6f7e1b259fd932ee6e8a83a,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-015,evol,app_reporting,99fd2118,9711616,sha256:c7417ca57405b0e23f1fe2c66a6d0d84fd596f3e647d8840be1feb49a6da3d7c,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-016,evol,app_reporting,99fd2118,9711616,sha256:c7417ca57405b0e23f1fe2c66a6d0d84fd596f3e647d8840be1feb49a6da3d7c,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-017,evol,asana,2ab87015,7876608,sha256:cce375b8f605dbb3d9cbb94990d23ef5a9d2209a367eeb347b7762a8b2055c1e,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-018,evol,asana,2ab87015,7876608,sha256:cce375b8f605dbb3d9cbb94990d23ef5a9d2209a367eeb347b7762a8b2055c1e,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-019,evol,google_play,ae15904e,15478784,sha256:e5888aff583a804132fad06e8ce784e5277f5d9609b51476cd6a9540c19ec5d2,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-020,evol,google_play,ae15904e,15478784,sha256:e5888aff583a804132fad06e8ce784e5277f5d9609b51476cd6a9540c19ec5d2,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-021,evol,hubspot,d6258b1a,36712448,sha256:27f25b65e220faf987beaf2a180febd173d854e6fd6c8a5db627a74a034ca453,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-022,evol,hubspot,d6258b1a,36712448,sha256:27f25b65e220faf987beaf2a180febd173d854e6fd6c8a5db627a74a034ca453,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-023,evol,jira,0d9e0fe6,24653824,sha256:b78e94d2dafdbe35c4d29a4135e5645c0f8d3893c4afeddb6815f0a7205cb54a,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-024,evol,jira,0d9e0fe6,24653824,sha256:b78e94d2dafdbe35c4d29a4135e5645c0f8d3893c4afeddb6815f0a7205cb54a,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-025,evol,marketo,061630e5,17051648,sha256:45f5bad01225b8e71ef4a0da4a2e5fa991095f88626408d24bca20e776f5726e,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-026,evol,marketo,061630e5,17051648,sha256:45f5bad01225b8e71ef4a0da4a2e5fa991095f88626408d24bca20e776f5726e,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-027,evol,netsuite,c5edbc87,30420992,sha256:3166aca22f6716fa1aa69562221aa1c887057fdc57442575881330e97a5424ff,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-028,evol,netsuite,c5edbc87,30420992,sha256:3166aca22f6716fa1aa69562221aa1c887057fdc57442575881330e97a5424ff,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-029,evol,qualtrics,9fed6f8b,14168064,unique-signature:9fed6f8b:14168064,CRC32+uncompressed-size signature occurs once in the pinned archive; an identical duplicate would have the same signature
+dacomp-de-evol-030,evol,quickbooks,14bc322e,31993856,sha256:e21aaa9e0d82f025f36acf12c5589603569ca0463502db9cead8b7492f8eee0b,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-031,evol,workday,eb7933ac,6565888,unique-signature:eb7933ac:6565888,CRC32+uncompressed-size signature occurs once in the pinned archive; an identical duplicate would have the same signature
+dacomp-de-evol-032,evol,greenhouse,6c257971,25964544,sha256:2e6d31a214d1c5f32765d32ec57f9ce6f638e42edbb762953fea9e2a4a3de4f8,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-033,evol,apple_store,6f851406,6303744,sha256:44978103d1bb7f25447d6b38fb346bb9ea4f3430bc2c92531aa32599484a2695,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-034,evol,apple_store,6f851406,6303744,sha256:44978103d1bb7f25447d6b38fb346bb9ea4f3430bc2c92531aa32599484a2695,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-035,evol,intercom,fbd9249f,17575936,sha256:a2e43823dfc3fe4dbcb837f78976b800117980f8317c268765f9e2558ab93bd1,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-036,evol,intercom,fbd9249f,17575936,sha256:a2e43823dfc3fe4dbcb837f78976b800117980f8317c268765f9e2558ab93bd1,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-037,evol,klaviyo,28ce2283,7876608,sha256:8843b31192122a7ffcac008856485a920618975f10f9c1f68b16c6d2d3385ea7,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-038,evol,klaviyo,28ce2283,7876608,sha256:8843b31192122a7ffcac008856485a920618975f10f9c1f68b16c6d2d3385ea7,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-039,evol,recharge,d2001ab9,13119488,sha256:2a793df54675ad7a806cf867fb00648ca1079961b9408703e32fd69556d3ec0d,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-040,evol,recharge,d2001ab9,13119488,sha256:2a793df54675ad7a806cf867fb00648ca1079961b9408703e32fd69556d3ec0d,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-041,evol,social_media_reporting,135e4cbc,10235904,sha256:4c14ccecf42a7b95524b878dadadca8c33540499d91805074f797b5eb6f92bfc,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-042,evol,social_media_reporting,135e4cbc,10235904,sha256:4c14ccecf42a7b95524b878dadadca8c33540499d91805074f797b5eb6f92bfc,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-043,evol,tiktok_ads,c47f9c1a,2895872,sha256:adfa1b526f4f485f2dea5c8d14049bf57852d7442270c3c1ae92bf5e51a3f610,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-044,evol,tiktok_ads,c47f9c1a,2895872,sha256:adfa1b526f4f485f2dea5c8d14049bf57852d7442270c3c1ae92bf5e51a3f610,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-045,evol,twilio,e2ac6171,4730880,sha256:640030fe148409e666cf75f7dd08d87f039710cae17d22f9328215bf503cc978,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-046,evol,twitter,817f83f8,4993024,sha256:b572a3bc44e42714cb0b956844080fe69e7de0265a51ebd1cdefa7103dbd069f,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-047,evol,xero,39bc98a3,5779456,sha256:fc77a7d119b8f6283b22200d1e34995bb4fedd16da7ea193e2a98d4cb1b90e2d,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-048,evol,youtube_analytics,ca09a4c5,1847296,sha256:f46a05fdf45cef694d42a4bdd3f650917576a9be3fee7f13bdc813febad6c097,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-049,evol,zendesk,0ae5ef78,9449472,sha256:e464440cd35e7624148f20d5424afed5bc4deeec35b7278ea02d64cd2ac6460e,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-evol-050,evol,zuora,4910bfec,16265216,sha256:e8183739a227c0e8a5235be30d484a23db7c38dbf0557f37806bf140f4798b2a,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-001,impl,lever,0a56bfcb,21508096,unique-signature:0a56bfcb:21508096,CRC32+uncompressed-size signature occurs once in the pinned archive; an identical duplicate would have the same signature
+dacomp-de-impl-002,impl,pendo,e43dee2a,12070912,unique-signature:e43dee2a:12070912,CRC32+uncompressed-size signature occurs once in the pinned archive; an identical duplicate would have the same signature
+dacomp-de-impl-003,impl,customer360,aaaf8e73,6565888,sha256:4ded95467cfd4346785c9ec96eea954ea7e86e6298115c7abae221b661efaba3,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-004,impl,salesforce,83dece5f,47984640,sha256:cf9b462162d8fa55d76ddbd39027ecfca87d238d010d4ef511baf3165f778fef,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-005,impl,google_ads,328f4fca,7614464,sha256:1e225b52fac255ba352443a3e5609d85165cb8c7137a89f274e741a11331206a,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-006,impl,ad_reporting,5e793a58,70004736,unique-signature:5e793a58:70004736,CRC32+uncompressed-size signature occurs once in the pinned archive; an identical duplicate would have the same signature
+dacomp-de-impl-007,impl,app_reporting,c63ec87a,12070912,unique-signature:c63ec87a:12070912,CRC32+uncompressed-size signature occurs once in the pinned archive; an identical duplicate would have the same signature
+dacomp-de-impl-008,impl,asana,ba3c0a57,6565888,unique-signature:ba3c0a57:6565888,CRC32+uncompressed-size signature occurs once in the pinned archive; an identical duplicate would have the same signature
+dacomp-de-impl-009,impl,google_play,2fb7542f,15478784,unique-signature:2fb7542f:15478784,CRC32+uncompressed-size signature occurs once in the pinned archive; an identical duplicate would have the same signature
+dacomp-de-impl-010,impl,hubspot,d6258b1a,36712448,sha256:27f25b65e220faf987beaf2a180febd173d854e6fd6c8a5db627a74a034ca453,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-011,impl,jira,9299c4f7,24391680,unique-signature:9299c4f7:24391680,CRC32+uncompressed-size signature occurs once in the pinned archive; an identical duplicate would have the same signature
+dacomp-de-impl-012,impl,marketo,04942c44,18100224,unique-signature:04942c44:18100224,CRC32+uncompressed-size signature occurs once in the pinned archive; an identical duplicate would have the same signature
+dacomp-de-impl-013,impl,netsuite,93c30af6,30420992,unique-signature:93c30af6:30420992,CRC32+uncompressed-size signature occurs once in the pinned archive; an identical duplicate would have the same signature
+dacomp-de-impl-014,impl,qualtrics,254a9d62,15478784,unique-signature:254a9d62:15478784,CRC32+uncompressed-size signature occurs once in the pinned archive; an identical duplicate would have the same signature
+dacomp-de-impl-015,impl,quickbooks,14bc322e,31993856,sha256:e21aaa9e0d82f025f36acf12c5589603569ca0463502db9cead8b7492f8eee0b,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-016,impl,workday,d8f19525,8400896,unique-signature:d8f19525:8400896,CRC32+uncompressed-size signature occurs once in the pinned archive; an identical duplicate would have the same signature
+dacomp-de-impl-017,impl,greenhouse,6c257971,25964544,sha256:2e6d31a214d1c5f32765d32ec57f9ce6f638e42edbb762953fea9e2a4a3de4f8,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-018,impl,salesforce,9720b5b3,62402560,sha256:61544bcae41f67743fdc332359bb4b103802fb768382a651af5348f38033a7a8,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-019,impl,apple_store,6f851406,6303744,sha256:44978103d1bb7f25447d6b38fb346bb9ea4f3430bc2c92531aa32599484a2695,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-020,impl,intercom,fbd9249f,17575936,sha256:a2e43823dfc3fe4dbcb837f78976b800117980f8317c268765f9e2558ab93bd1,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-021,impl,klaviyo,28ce2283,7876608,sha256:8843b31192122a7ffcac008856485a920618975f10f9c1f68b16c6d2d3385ea7,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-022,impl,recharge,d2001ab9,13119488,sha256:2a793df54675ad7a806cf867fb00648ca1079961b9408703e32fd69556d3ec0d,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-023,impl,social_media_reporting,135e4cbc,10235904,sha256:4c14ccecf42a7b95524b878dadadca8c33540499d91805074f797b5eb6f92bfc,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-024,impl,tiktok_ads,c47f9c1a,2895872,sha256:adfa1b526f4f485f2dea5c8d14049bf57852d7442270c3c1ae92bf5e51a3f610,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-025,impl,twilio,e2ac6171,4730880,sha256:640030fe148409e666cf75f7dd08d87f039710cae17d22f9328215bf503cc978,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-026,impl,twitter,817f83f8,4993024,sha256:b572a3bc44e42714cb0b956844080fe69e7de0265a51ebd1cdefa7103dbd069f,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-027,impl,xero,39bc98a3,5779456,sha256:fc77a7d119b8f6283b22200d1e34995bb4fedd16da7ea193e2a98d4cb1b90e2d,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-028,impl,youtube_analytics,ca09a4c5,1847296,sha256:f46a05fdf45cef694d42a4bdd3f650917576a9be3fee7f13bdc813febad6c097,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-029,impl,zendesk,0ae5ef78,9449472,sha256:e464440cd35e7624148f20d5424afed5bc4deeec35b7278ea02d64cd2ac6460e,byte SHA-256 verified within repeated CRC32+size group
+dacomp-de-impl-030,impl,zuora,4910bfec,16265216,sha256:e8183739a227c0e8a5235be30d484a23db7c38dbf0557f37806bf140f4798b2a,byte SHA-256 verified within repeated CRC32+size group

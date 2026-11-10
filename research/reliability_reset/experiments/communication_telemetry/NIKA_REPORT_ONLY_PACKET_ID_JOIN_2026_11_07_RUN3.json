@@ -1,0 +1,72 @@
+{
+  "protocol": "nika-report-only-packet-id-join-audit-v1",
+  "source_run_protocol": "nika-leaf-service-loss-preflight-v0.7-report-only-arm",
+  "nika_commit": "ac4422d8a4a03be2b905e28edf72993d467e1b81",
+  "arm": "report_only_telemetry_loss",
+  "target_sink_switch_id": "201",
+  "source_sha256": {
+    "NIKA_LEAF_SERVICE_LOSS_PREFLIGHT_2026_11_07_RUN3.json": "c1c99c200a3f9b8b71c5ef967f6f42c980b5ce4194cbdc93be87edd054716ebe",
+    "NIKA_LEAF_SERVICE_LOSS_RELAY_EVENTS_2026_11_07_RUN3.jsonl": "dd9dd142d6546f968921e03476d8b23515a82534be14e5e6495ce8520c7cf30d"
+  },
+  "relay_totals": {
+    "report_received_count": 1128,
+    "report_forwarded_count": 752,
+    "report_dropped_count": 376
+  },
+  "flows": {
+    "28a4463f718872b0": {
+      "service_af_packet_unique_ids": 94,
+      "service_udp_socket_receipts": 94,
+      "relay_dropped_leaf_sink_ids": 94,
+      "service_to_dropped_report_id_overlap": 94,
+      "service_only_ids": [],
+      "relay_drop_only_ids": [],
+      "collector_upstream_rows": 188,
+      "collector_sink_ids": [],
+      "exact_packet_id_match": true
+    },
+    "5560a874d0f2acfe": {
+      "service_af_packet_unique_ids": 94,
+      "service_udp_socket_receipts": 94,
+      "relay_dropped_leaf_sink_ids": 94,
+      "service_to_dropped_report_id_overlap": 94,
+      "service_only_ids": [],
+      "relay_drop_only_ids": [],
+      "collector_upstream_rows": 188,
+      "collector_sink_ids": [],
+      "exact_packet_id_match": true
+    },
+    "f6e760d978c438b2": {
+      "service_af_packet_unique_ids": 94,
+      "service_udp_socket_receipts": 94,
+      "relay_dropped_leaf_sink_ids": 94,
+      "service_to_dropped_report_id_overlap": 94,
+      "service_only_ids": [],
+      "relay_drop_only_ids": [],
+      "collector_upstream_rows": 188,
+      "collector_sink_ids": [],
+      "exact_packet_id_match": true
+    },
+    "fde41913c03f2870": {
+      "service_af_packet_unique_ids": 94,
+      "service_udp_socket_receipts": 94,
+      "relay_dropped_leaf_sink_ids": 94,
+      "service_to_dropped_report_id_overlap": 94,
+      "service_only_ids": [],
+      "relay_drop_only_ids": [],
+      "collector_upstream_rows": 188,
+      "collector_sink_ids": [],
+      "exact_packet_id_match": true
+    }
+  },
+  "overall": {
+    "flow_count": 4,
+    "service_packets": 376,
+    "service_socket_receipts": 376,
+    "relay_dropped_sink_reports": 376,
+    "exact_id_overlaps": 376,
+    "all_flows_exactly_match": true,
+    "lab_closed": true
+  },
+  "scope_limit": "This verifies the report-only arm in one small topology. It is not the matched leaf data-plane-loss arm, a strong-rule comparison, an Agent result, cross-task validation, or a paper contribution."
+}

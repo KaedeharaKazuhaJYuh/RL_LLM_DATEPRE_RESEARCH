@@ -1,0 +1,17 @@
+{
+  "tasks": 80,
+  "crosswalk_sha256": "459e460595b0b51b1287f3b2f7b57b73edb3bf8ff074409448beff42f0254297",
+  "application_by_task_type_cells": 58,
+  "all_state_clusters": 41,
+  "repeated_state_clusters": 28,
+  "baseline_design_rank": 58,
+  "rank_after_repeated_state_indicators": 59,
+  "incremental_state_degrees_of_freedom": 1,
+  "rank_after_all_state_indicators": 59,
+  "incremental_all_state_degrees_of_freedom": 1,
+  "families_with_incremental_state_degrees_of_freedom": {
+    "salesforce": 1
+  },
+  "numpy_version": "2.5.4",
+  "interpretation": "Fixed state indicators add only the reported rank beyond application-by-task-type cells; this is a design identifiability result, not an outcome or variance estimate."
+}

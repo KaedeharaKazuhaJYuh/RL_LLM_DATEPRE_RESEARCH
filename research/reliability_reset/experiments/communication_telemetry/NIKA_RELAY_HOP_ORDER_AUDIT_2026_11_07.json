@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "scope": "single low-rate report-only arm; relay order audit, not Agent impact",
+  "input": "C:\\Users\\jyuh1\\Documents\\Codex\\2026-09-13\\qi\\v2\\research\\reliability_reset\\experiments\\communication_telemetry\\NIKA_PAIRED_REPORT_ONLY_RELAY_EVENTS_2026_11_07.jsonl",
+  "input_sha256": "126f9a4a9a52f156b53904387ac5ce62439d95835c8fb4140ec32093361e5643",
+  "path_role_order": [
+    "gateway",
+    "spine",
+    "leaf"
+  ],
+  "switch_id_role_mapping": "<100 gateway; 100-199 spine; >=200 leaf (pinned NIKA topology model)",
+  "event_counts": {
+    "report_dropped": 376,
+    "report_forwarded": 752,
+    "report_received": 1128,
+    "run_finished": 1,
+    "run_started": 1
+  },
+  "packets_with_received_reports": 376,
+  "received_report_order": {
+    "adjacent_hop_pairs": 752,
+    "adjacent_role_reversals": 10,
+    "packets_with_any_role_inversion": 10,
+    "inversion_pairs": 11,
+    "examples": [
+      {
+        "flow_id": "f6e760d978c438b2",
+        "packet_id": "63915",
+        "switch_ids_in_relay_receive_order": [
+          101,
+          201,
+          2
+        ],
+        "adjacent_reversals": 1,
+        "inversion_pairs": 2
+      },
+      {
+        "flow_id": "28a4463f718872b0",
+        "packet_id": "21720",
+        "switch_ids_in_relay_receive_order": [
+          1,
+          201,
+          101
+        ],
+        "adjacent_reversals": 1,
+        "inversion_pairs": 1
+      },
+      {
+        "flow_id": "fde41913c03f2870",
+        "packet_id": "21721",
+        "switch_ids_in_relay_receive_order": [
+          1,
+          201,
+          102
+        ],
+        "adjacent_reversals": 1,
+        "inversion_pairs": 1
+      },
+      {
+        "flow_id": "5560a874d0f2acfe",
+        "packet_id": "63947",
+        "switch_ids_in_relay_receive_order": [
+          2,
+          201,
+          101
+        ],
+        "adjacent_reversals": 1,
+        "inversion_pairs": 1
+      },
+      {
+        "flow_id": "5560a874d0f2acfe",
+        "packet_id": "64034",
+        "switch_ids_in_relay_receive_order": [
+          2,
+          201,
+          101
+        ],
+        "adjacent_reversals": 1,
+        "inversion_pairs": 1
+      },
+      {
+        "flow_id": "f6e760d978c438b2",
+        "packet_id": "64128",
+        "switch_ids_in_relay_receive_order": [
+          2,
+          201,
+          101
+        ],
+        "adjacent_reversals": 1,
+        "inversion_pairs": 1
+      },
+      {
+        "flow_id": "28a4463f718872b0",
+        "packet_id": "21921",
+        "switch_ids_in_relay_receive_order": [
+          1,
+          201,
+          101
+        ],
+        "adjacent_reversals": 1,
+        "inversion_pairs": 1
+      },
+      {
+        "flow_id": "f6e760d978c438b2",
+        "packet_id": "64133",
+        "switch_ids_in_relay_receive_order": [
+          2,
+          201,
+          101
+        ],
+        "adjacent_reversals": 1,
+        "inversion_pairs": 1
+      },
+      {
+        "flow_id": "28a4463f718872b0",
+        "packet_id": "21927",
+        "switch_ids_in_relay_receive_order": [
+          1,
+          201,
+          101
+        ],
+        "adjacent_reversals": 1,
+        "inversion_pairs": 1
+      },
+      {
+        "flow_id": "28a4463f718872b0",
+        "packet_id": "22105",
+        "switch_ids_in_relay_receive_order": [
+          1,
+          201,
+          101
+        ],
+        "adjacent_reversals": 1,
+        "inversion_pairs": 1
+      }
+    ]
+  },
+  "forwarded_upstream_order": {
+    "packets_with_forwarded_reports": 376,
+    "packets_with_gateway_spine_reversal": 1,
+    "examples": [
+      {
+        "flow_id": "f6e760d978c438b2",
+        "packet_id": "63915",
+        "switch_ids_in_relay_forward_order": [
+          101,
+          2
+        ]
+      }
+    ]
+  },
+  "interpretation_limit": "Relay receive/forward order is measured. The raw NIKA collector rows were not retained, so collector hop_sequence order and any Agent-facing effect are not directly confirmed."
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "scope": "local UDP component reproduction; not a NIKA network run or Agent evaluation",
+  "collector_source_sha256": "7e2adc718a0153ebf17a81ad58c95c66b434725749568f6e675713726986b992",
+  "collector_source": "nika/src/nika/net_env/p4_dc_gateway/collector.py",
+  "collector_port": 57419,
+  "sent_switch_id_order": [
+    101,
+    2,
+    201
+  ],
+  "expected_topology_role_order": [
+    2,
+    101,
+    201
+  ],
+  "collector_hop_sequence_order": [
+    101,
+    2,
+    201
+  ],
+  "arrival_order_preserved": true,
+  "collector_row_count": 3,
+  "final_trace_complete": true,
+  "interpretation_limit": "This verifies collector behavior for a controlled UDP arrival sequence only. It does not prove the collector order in the archived NIKA runtime run or any Agent effect."
+}

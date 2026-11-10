@@ -1,0 +1,171 @@
+{
+  "protocol": "nika-leaf-service-loss-preflight-v0.6-report-only-arm",
+  "nika_commit": "ac4422d8a4a03be2b905e28edf72993d467e1b81",
+  "runner_python_version": "3.12.16",
+  "kathara_version": "3.8.3",
+  "scenario": "p4_dc_gateway",
+  "topo_size": "s",
+  "target_switch": "leaf_1",
+  "target_service": "service_1_1",
+  "phase": "baseline_service_probe",
+  "passed": false,
+  "scope_limit": "Leaf service-port injection, direct/VIP HTTP, and one controlled report-only UDP burst with service-interface packet capture and a collector relay ledger; no matched data-plane packet-loss burst or Agent result is included.",
+  "counter_delta_interpretation": "Per-port packet deltas cover each controlled probe window, not individual flow attribution; the single loss arm cannot establish separation from report-only loss. Raw snapshots are retained for reset/wrap inspection.",
+  "background_burst_profile": null,
+  "background_telemetry_summary": null,
+  "service_udp_packet_capture": null,
+  "service_collector_packet_join": null,
+  "report_only_relay_summary": null,
+  "leaf_counter_snapshots": {
+    "before_baseline_http": {
+      "ingress": {},
+      "egress": {},
+      "flow_syn": {},
+      "flow_non_syn": {}
+    },
+    "after_baseline_http": {
+      "ingress": {
+        "1": {
+          "packets": 10,
+          "bytes": 705
+        },
+        "2": {
+          "packets": 11,
+          "bytes": 765
+        },
+        "3": {
+          "packets": 11,
+          "bytes": 814
+        }
+      },
+      "egress": {
+        "2": {
+          "packets": 11,
+          "bytes": 814
+        },
+        "3": {
+          "packets": 15,
+          "bytes": 1110
+        },
+        "4": {
+          "packets": 6,
+          "bytes": 360
+        }
+      },
+      "flow_syn": {},
+      "flow_non_syn": {}
+    },
+    "after_vip_control": {
+      "ingress": {
+        "1": {
+          "packets": 10,
+          "bytes": 705
+        },
+        "2": {
+          "packets": 23,
+          "bytes": 1717
+        },
+        "3": {
+          "packets": 11,
+          "bytes": 814
+        },
+        "4": {
+          "packets": 8,
+          "bytes": 1038
+        }
+      },
+      "egress": {
+        "2": {
+          "packets": 19,
+          "bytes": 1852
+        },
+        "3": {
+          "packets": 15,
+          "bytes": 1110
+        },
+        "4": {
+          "packets": 18,
+          "bytes": 1312
+        }
+      },
+      "flow_syn": {},
+      "flow_non_syn": {}
+    }
+  },
+  "leaf_counter_packet_deltas": {
+    "baseline_direct_http": {
+      "ingress": {
+        "1": 10,
+        "2": 11,
+        "3": 11
+      },
+      "egress": {
+        "2": 11,
+        "3": 15,
+        "4": 6
+      }
+    },
+    "baseline_vip_control": {
+      "ingress": {
+        "1": 0,
+        "2": 12,
+        "3": 0,
+        "4": 8
+      },
+      "egress": {
+        "2": 8,
+        "3": 0,
+        "4": 12
+      }
+    }
+  },
+  "service_egress_counter_packet_deltas": {
+    "baseline_direct_http": {
+      "service_1_1": 15,
+      "service_1_2": 6
+    },
+    "vip_control": {
+      "service_1_1": 0,
+      "service_1_2": 12
+    }
+  },
+  "fault_table_checks": [],
+  "telemetry_pair_ready": false,
+  "expected_static_mapping": {
+    "interface": "eth2",
+    "bmv2_port": 3
+  },
+  "target_service_ports": [
+    {
+      "service": "service_1_1",
+      "service_ip": "10.0.1.11",
+      "interface": "eth2",
+      "bmv2_port": 3
+    },
+    {
+      "service": "service_1_2",
+      "service_ip": "10.0.1.12",
+      "interface": "eth3",
+      "bmv2_port": 4
+    }
+  ],
+  "vip_backends": [
+    "service_1_1",
+    "service_1_2"
+  ],
+  "baseline_direct_http_ok": [
+    false,
+    false
+  ],
+  "baseline_vip_http_ok": [
+    true,
+    true
+  ],
+  "vip_url": "http://20.0.0.1:80/",
+  "direct_watched_service_http_usable": false,
+  "error_type": "RuntimeError",
+  "error": "Direct watched-service HTTP baseline failed; leaf INT-MX decapsulation and service delivery are not validated",
+  "pre_cleanup_recorded_utc": "2026-11-07T04:41:20.681884+00:00",
+  "nika_session_status": "error",
+  "lab_closed": false
+}

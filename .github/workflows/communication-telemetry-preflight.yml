@@ -1,0 +1,71 @@
+name: Communication telemetry P4 runtime preflight
+
+on:
+  push:
+    branches:
+      - comm-telemetry-crossday-load-audit-2026-11-09
+    paths:
+      - .github/workflows/communication-telemetry-preflight.yml
+      - research/reliability_reset/experiments/communication_telemetry/nika_leaf_service_loss_preflight.py
+      - research/reliability_reset/experiments/communication_telemetry/telemetry_report_relay.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  leaf-service-loss-preflight:
+    name: Pinned NIKA leaf-service loss preflight
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Check out this research line
+        uses: actions/checkout@v5
+
+      - name: Check out pinned NIKA source
+        uses: actions/checkout@v5
+        with:
+          repository: sands-lab/nika
+          ref: ac4422d8a4a03be2b905e28edf72993d467e1b81
+          path: nika
+
+      - name: Verify source and Docker runner
+        working-directory: nika
+        run: |
+          test "$(git rev-parse HEAD)" = "ac4422d8a4a03be2b905e28edf72993d467e1b81"
+          docker info
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v10.1.0
+        with:
+          version: "0.8.22"
+          enable-cache: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: nika/.python-version
+
+      - name: Install pinned NIKA lab dependencies
+        working-directory: nika
+        run: uv sync --group labs --group dev
+
+      - name: Pin and verify Kathara packet-capture capabilities
+        working-directory: nika
+        run: |
+          uv pip install --python .venv/bin/python "kathara==3.8.3"
+          .venv/bin/python -c "from importlib.metadata import version; assert version('kathara') == '3.8.3'"
+
+      - name: Verify custom leaf-to-service loss injection and impact
+        working-directory: nika
+        env:
+          FAULTDA_PREFLIGHT_RESULT: ${{ github.workspace }}/preflight-results/NIKA_LEAF_SERVICE_LOSS_PREFLIGHT.json
+        run: .venv/bin/python ../research/reliability_reset/experiments/communication_telemetry/nika_leaf_service_loss_preflight.py
+
+      - name: Preserve bounded preflight record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nika-leaf-service-loss-preflight
+          path: preflight-results/
+          if-no-files-found: warn

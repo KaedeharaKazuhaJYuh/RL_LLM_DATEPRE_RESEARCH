@@ -1,0 +1,650 @@
+{
+  "dataset_revision": "8c4a18983b0733256fffb593f7febb9ab6697854",
+  "archive_size": 2267093861,
+  "method": "HTTP range reads of ZIP central directory and repeated start database members; no database files persisted",
+  "start_database_count": 80,
+  "crc32_size_signature_count": 41,
+  "repeated_signature_groups": 28,
+  "repeated_member_count": 67,
+  "compressed_bytes_read_for_repeated_members": 373718692,
+  "groups": [
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-001/lever_start.duckdb",
+          "uncompressed_size": 21508096,
+          "crc32": "a65bca45",
+          "sha256": "3b5b8ed18b4811e24252ebcb4f0935a8ff2696d56dc2b8dad01950c4cf6f71fa",
+          "compressed_sha256": "43e40948eae89cfc9ce2bd46939bb530f67d2f3d21127d9482196d6d34f39d26"
+        },
+        {
+          "path": "dacomp-de-evol-002/lever_start.duckdb",
+          "uncompressed_size": 21508096,
+          "crc32": "a65bca45",
+          "sha256": "3b5b8ed18b4811e24252ebcb4f0935a8ff2696d56dc2b8dad01950c4cf6f71fa",
+          "compressed_sha256": "43e40948eae89cfc9ce2bd46939bb530f67d2f3d21127d9482196d6d34f39d26"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-003/pendo_start.duckdb",
+          "uncompressed_size": 11546624,
+          "crc32": "c4733ff2",
+          "sha256": "6ee2f5d4706e3d63c8bf97771cd107285d4622ce8a59c886f1ba36b935e77b6d",
+          "compressed_sha256": "22d045141670625bc997def8a698c1449b358db8c9a7d29c337661b71bb4f778"
+        },
+        {
+          "path": "dacomp-de-evol-004/pendo_start.duckdb",
+          "uncompressed_size": 11546624,
+          "crc32": "c4733ff2",
+          "sha256": "6ee2f5d4706e3d63c8bf97771cd107285d4622ce8a59c886f1ba36b935e77b6d",
+          "compressed_sha256": "22d045141670625bc997def8a698c1449b358db8c9a7d29c337661b71bb4f778"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-005/customer360_start.duckdb",
+          "uncompressed_size": 6565888,
+          "crc32": "aaaf8e73",
+          "sha256": "4ded95467cfd4346785c9ec96eea954ea7e86e6298115c7abae221b661efaba3",
+          "compressed_sha256": "ec5135e769a8ce8444a5e7a8849f55a56369eb64cdd8c15802c14ab36fb909d4"
+        },
+        {
+          "path": "dacomp-de-evol-006/customer360_start.duckdb",
+          "uncompressed_size": 6565888,
+          "crc32": "aaaf8e73",
+          "sha256": "4ded95467cfd4346785c9ec96eea954ea7e86e6298115c7abae221b661efaba3",
+          "compressed_sha256": "ec5135e769a8ce8444a5e7a8849f55a56369eb64cdd8c15802c14ab36fb909d4"
+        },
+        {
+          "path": "dacomp-de-impl-003/customer360_start.duckdb",
+          "uncompressed_size": 6565888,
+          "crc32": "aaaf8e73",
+          "sha256": "4ded95467cfd4346785c9ec96eea954ea7e86e6298115c7abae221b661efaba3",
+          "compressed_sha256": "ec5135e769a8ce8444a5e7a8849f55a56369eb64cdd8c15802c14ab36fb909d4"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-007/salesforce_start.duckdb",
+          "uncompressed_size": 47984640,
+          "crc32": "83dece5f",
+          "sha256": "cf9b462162d8fa55d76ddbd39027ecfca87d238d010d4ef511baf3165f778fef",
+          "compressed_sha256": "c0a37c2e0dcddd6d9c74843f7fde5c4e31ceeb3b86301b5a4591465753fb0af7"
+        },
+        {
+          "path": "dacomp-de-evol-008/salesforce_start.duckdb",
+          "uncompressed_size": 47984640,
+          "crc32": "83dece5f",
+          "sha256": "cf9b462162d8fa55d76ddbd39027ecfca87d238d010d4ef511baf3165f778fef",
+          "compressed_sha256": "c0a37c2e0dcddd6d9c74843f7fde5c4e31ceeb3b86301b5a4591465753fb0af7"
+        },
+        {
+          "path": "dacomp-de-impl-004/salesforce_start.duckdb",
+          "uncompressed_size": 47984640,
+          "crc32": "83dece5f",
+          "sha256": "cf9b462162d8fa55d76ddbd39027ecfca87d238d010d4ef511baf3165f778fef",
+          "compressed_sha256": "c0a37c2e0dcddd6d9c74843f7fde5c4e31ceeb3b86301b5a4591465753fb0af7"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-009/salesforce_start.duckdb",
+          "uncompressed_size": 62402560,
+          "crc32": "9720b5b3",
+          "sha256": "61544bcae41f67743fdc332359bb4b103802fb768382a651af5348f38033a7a8",
+          "compressed_sha256": "4dd4e90fa3460bc468ce58352b9972bd7b85b6a949f08433614f6cb5a7c0e6a8"
+        },
+        {
+          "path": "dacomp-de-evol-010/salesforce_start.duckdb",
+          "uncompressed_size": 62402560,
+          "crc32": "9720b5b3",
+          "sha256": "61544bcae41f67743fdc332359bb4b103802fb768382a651af5348f38033a7a8",
+          "compressed_sha256": "4dd4e90fa3460bc468ce58352b9972bd7b85b6a949f08433614f6cb5a7c0e6a8"
+        },
+        {
+          "path": "dacomp-de-impl-018/salesforce_start.duckdb",
+          "uncompressed_size": 62402560,
+          "crc32": "9720b5b3",
+          "sha256": "61544bcae41f67743fdc332359bb4b103802fb768382a651af5348f38033a7a8",
+          "compressed_sha256": "4dd4e90fa3460bc468ce58352b9972bd7b85b6a949f08433614f6cb5a7c0e6a8"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-011/google_ads_start.duckdb",
+          "uncompressed_size": 7614464,
+          "crc32": "328f4fca",
+          "sha256": "1e225b52fac255ba352443a3e5609d85165cb8c7137a89f274e741a11331206a",
+          "compressed_sha256": "7ffa5778be40c64a3cc09e1b5dce6697000bf915a5fbf8eb7bc8215d9862d97c"
+        },
+        {
+          "path": "dacomp-de-evol-012/google_ads_start.duckdb",
+          "uncompressed_size": 7614464,
+          "crc32": "328f4fca",
+          "sha256": "1e225b52fac255ba352443a3e5609d85165cb8c7137a89f274e741a11331206a",
+          "compressed_sha256": "7ffa5778be40c64a3cc09e1b5dce6697000bf915a5fbf8eb7bc8215d9862d97c"
+        },
+        {
+          "path": "dacomp-de-impl-005/google_ads_start.duckdb",
+          "uncompressed_size": 7614464,
+          "crc32": "328f4fca",
+          "sha256": "1e225b52fac255ba352443a3e5609d85165cb8c7137a89f274e741a11331206a",
+          "compressed_sha256": "7ffa5778be40c64a3cc09e1b5dce6697000bf915a5fbf8eb7bc8215d9862d97c"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-013/ad_reporting_start.duckdb",
+          "uncompressed_size": 69218304,
+          "crc32": "c80f4428",
+          "sha256": "722b078faaa98232d6cc7d65ded9c4d0b013868fe6f7e1b259fd932ee6e8a83a",
+          "compressed_sha256": "c088eb7ff0115d27475b77d738cc291c2be06194fd706fdc6fb8fb52ecfb6812"
+        },
+        {
+          "path": "dacomp-de-evol-014/ad_reporting_start.duckdb",
+          "uncompressed_size": 69218304,
+          "crc32": "c80f4428",
+          "sha256": "722b078faaa98232d6cc7d65ded9c4d0b013868fe6f7e1b259fd932ee6e8a83a",
+          "compressed_sha256": "c088eb7ff0115d27475b77d738cc291c2be06194fd706fdc6fb8fb52ecfb6812"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-015/app_reporting_start.duckdb",
+          "uncompressed_size": 9711616,
+          "crc32": "99fd2118",
+          "sha256": "c7417ca57405b0e23f1fe2c66a6d0d84fd596f3e647d8840be1feb49a6da3d7c",
+          "compressed_sha256": "e1bfd0c3fd488b27d57414f4994e7cf3f11cd6cf2027604289affbd963fdfdbf"
+        },
+        {
+          "path": "dacomp-de-evol-016/app_reporting_start.duckdb",
+          "uncompressed_size": 9711616,
+          "crc32": "99fd2118",
+          "sha256": "c7417ca57405b0e23f1fe2c66a6d0d84fd596f3e647d8840be1feb49a6da3d7c",
+          "compressed_sha256": "e1bfd0c3fd488b27d57414f4994e7cf3f11cd6cf2027604289affbd963fdfdbf"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-017/asana_start.duckdb",
+          "uncompressed_size": 7876608,
+          "crc32": "2ab87015",
+          "sha256": "cce375b8f605dbb3d9cbb94990d23ef5a9d2209a367eeb347b7762a8b2055c1e",
+          "compressed_sha256": "472801ff6eb226206f0e6845ddc05e7e118c466b51030c1d7c01fd2a9a91613b"
+        },
+        {
+          "path": "dacomp-de-evol-018/asana_start.duckdb",
+          "uncompressed_size": 7876608,
+          "crc32": "2ab87015",
+          "sha256": "cce375b8f605dbb3d9cbb94990d23ef5a9d2209a367eeb347b7762a8b2055c1e",
+          "compressed_sha256": "472801ff6eb226206f0e6845ddc05e7e118c466b51030c1d7c01fd2a9a91613b"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-019/google_play_start.duckdb",
+          "uncompressed_size": 15478784,
+          "crc32": "ae15904e",
+          "sha256": "e5888aff583a804132fad06e8ce784e5277f5d9609b51476cd6a9540c19ec5d2",
+          "compressed_sha256": "66fc6a0c6ab13b0d3b9e5fae190c1877ac2f80d35a041dcbf8924f34f2002fdb"
+        },
+        {
+          "path": "dacomp-de-evol-020/google_play_start.duckdb",
+          "uncompressed_size": 15478784,
+          "crc32": "ae15904e",
+          "sha256": "e5888aff583a804132fad06e8ce784e5277f5d9609b51476cd6a9540c19ec5d2",
+          "compressed_sha256": "66fc6a0c6ab13b0d3b9e5fae190c1877ac2f80d35a041dcbf8924f34f2002fdb"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-021/hubspot_start.duckdb",
+          "uncompressed_size": 36712448,
+          "crc32": "d6258b1a",
+          "sha256": "27f25b65e220faf987beaf2a180febd173d854e6fd6c8a5db627a74a034ca453",
+          "compressed_sha256": "bd374bb0ee5da542125e96c2128ce61c4b669ab6d29374948ecc0c7b7b6ec836"
+        },
+        {
+          "path": "dacomp-de-evol-022/hubspot_start.duckdb",
+          "uncompressed_size": 36712448,
+          "crc32": "d6258b1a",
+          "sha256": "27f25b65e220faf987beaf2a180febd173d854e6fd6c8a5db627a74a034ca453",
+          "compressed_sha256": "bd374bb0ee5da542125e96c2128ce61c4b669ab6d29374948ecc0c7b7b6ec836"
+        },
+        {
+          "path": "dacomp-de-impl-010/hubspot_start.duckdb",
+          "uncompressed_size": 36712448,
+          "crc32": "d6258b1a",
+          "sha256": "27f25b65e220faf987beaf2a180febd173d854e6fd6c8a5db627a74a034ca453",
+          "compressed_sha256": "bd374bb0ee5da542125e96c2128ce61c4b669ab6d29374948ecc0c7b7b6ec836"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-023/jira_start.duckdb",
+          "uncompressed_size": 24653824,
+          "crc32": "0d9e0fe6",
+          "sha256": "b78e94d2dafdbe35c4d29a4135e5645c0f8d3893c4afeddb6815f0a7205cb54a",
+          "compressed_sha256": "26c7af769f2879bce32acc11f82f632d4b797e16a22cac9f28a0bb2bc3f8fbbe"
+        },
+        {
+          "path": "dacomp-de-evol-024/jira_start.duckdb",
+          "uncompressed_size": 24653824,
+          "crc32": "0d9e0fe6",
+          "sha256": "b78e94d2dafdbe35c4d29a4135e5645c0f8d3893c4afeddb6815f0a7205cb54a",
+          "compressed_sha256": "26c7af769f2879bce32acc11f82f632d4b797e16a22cac9f28a0bb2bc3f8fbbe"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-025/marketo_start.duckdb",
+          "uncompressed_size": 17051648,
+          "crc32": "061630e5",
+          "sha256": "45f5bad01225b8e71ef4a0da4a2e5fa991095f88626408d24bca20e776f5726e",
+          "compressed_sha256": "6f243f10e9e482e98446121125b7952ac5ecf4249b924d7d5b6d58a03ad57aff"
+        },
+        {
+          "path": "dacomp-de-evol-026/marketo_start.duckdb",
+          "uncompressed_size": 17051648,
+          "crc32": "061630e5",
+          "sha256": "45f5bad01225b8e71ef4a0da4a2e5fa991095f88626408d24bca20e776f5726e",
+          "compressed_sha256": "6f243f10e9e482e98446121125b7952ac5ecf4249b924d7d5b6d58a03ad57aff"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-027/netsuite_start.duckdb",
+          "uncompressed_size": 30420992,
+          "crc32": "c5edbc87",
+          "sha256": "3166aca22f6716fa1aa69562221aa1c887057fdc57442575881330e97a5424ff",
+          "compressed_sha256": "56e66021c0ae29a3b7b0dc5a10cb5e70edaf0d920e4e59041aeeae646990b718"
+        },
+        {
+          "path": "dacomp-de-evol-028/netsuite_start.duckdb",
+          "uncompressed_size": 30420992,
+          "crc32": "c5edbc87",
+          "sha256": "3166aca22f6716fa1aa69562221aa1c887057fdc57442575881330e97a5424ff",
+          "compressed_sha256": "56e66021c0ae29a3b7b0dc5a10cb5e70edaf0d920e4e59041aeeae646990b718"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-030/quickbooks_start.duckdb",
+          "uncompressed_size": 31993856,
+          "crc32": "14bc322e",
+          "sha256": "e21aaa9e0d82f025f36acf12c5589603569ca0463502db9cead8b7492f8eee0b",
+          "compressed_sha256": "05f8f41e1852a7a41fb503b1f6f45b319a8f43f82f7449778650f2ee10b405d8"
+        },
+        {
+          "path": "dacomp-de-impl-015/quickbooks_start.duckdb",
+          "uncompressed_size": 31993856,
+          "crc32": "14bc322e",
+          "sha256": "e21aaa9e0d82f025f36acf12c5589603569ca0463502db9cead8b7492f8eee0b",
+          "compressed_sha256": "05f8f41e1852a7a41fb503b1f6f45b319a8f43f82f7449778650f2ee10b405d8"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-032/greenhouse_start.duckdb",
+          "uncompressed_size": 25964544,
+          "crc32": "6c257971",
+          "sha256": "2e6d31a214d1c5f32765d32ec57f9ce6f638e42edbb762953fea9e2a4a3de4f8",
+          "compressed_sha256": "222fafd2c537555a723fb1f35c2b9035753783f83dc9e51eefce921557cf9d50"
+        },
+        {
+          "path": "dacomp-de-impl-017/greenhouse_start.duckdb",
+          "uncompressed_size": 25964544,
+          "crc32": "6c257971",
+          "sha256": "2e6d31a214d1c5f32765d32ec57f9ce6f638e42edbb762953fea9e2a4a3de4f8",
+          "compressed_sha256": "222fafd2c537555a723fb1f35c2b9035753783f83dc9e51eefce921557cf9d50"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-033/apple_store_start.duckdb",
+          "uncompressed_size": 6303744,
+          "crc32": "6f851406",
+          "sha256": "44978103d1bb7f25447d6b38fb346bb9ea4f3430bc2c92531aa32599484a2695",
+          "compressed_sha256": "48cc8f338cf55e0f5c4bc845e1863f276d5c8c896934d9fa5b7d8cfd96adb428"
+        },
+        {
+          "path": "dacomp-de-evol-034/apple_store_start.duckdb",
+          "uncompressed_size": 6303744,
+          "crc32": "6f851406",
+          "sha256": "44978103d1bb7f25447d6b38fb346bb9ea4f3430bc2c92531aa32599484a2695",
+          "compressed_sha256": "48cc8f338cf55e0f5c4bc845e1863f276d5c8c896934d9fa5b7d8cfd96adb428"
+        },
+        {
+          "path": "dacomp-de-impl-019/apple_store_start.duckdb",
+          "uncompressed_size": 6303744,
+          "crc32": "6f851406",
+          "sha256": "44978103d1bb7f25447d6b38fb346bb9ea4f3430bc2c92531aa32599484a2695",
+          "compressed_sha256": "48cc8f338cf55e0f5c4bc845e1863f276d5c8c896934d9fa5b7d8cfd96adb428"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-035/intercom_start.duckdb",
+          "uncompressed_size": 17575936,
+          "crc32": "fbd9249f",
+          "sha256": "a2e43823dfc3fe4dbcb837f78976b800117980f8317c268765f9e2558ab93bd1",
+          "compressed_sha256": "6bc37ae7c5fe175c361fc27d85738f4d955b0927fb1a16eb17e21d1e3e1628bf"
+        },
+        {
+          "path": "dacomp-de-evol-036/intercom_start.duckdb",
+          "uncompressed_size": 17575936,
+          "crc32": "fbd9249f",
+          "sha256": "a2e43823dfc3fe4dbcb837f78976b800117980f8317c268765f9e2558ab93bd1",
+          "compressed_sha256": "6bc37ae7c5fe175c361fc27d85738f4d955b0927fb1a16eb17e21d1e3e1628bf"
+        },
+        {
+          "path": "dacomp-de-impl-020/intercom_start.duckdb",
+          "uncompressed_size": 17575936,
+          "crc32": "fbd9249f",
+          "sha256": "a2e43823dfc3fe4dbcb837f78976b800117980f8317c268765f9e2558ab93bd1",
+          "compressed_sha256": "6bc37ae7c5fe175c361fc27d85738f4d955b0927fb1a16eb17e21d1e3e1628bf"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-037/klaviyo_start.duckdb",
+          "uncompressed_size": 7876608,
+          "crc32": "28ce2283",
+          "sha256": "8843b31192122a7ffcac008856485a920618975f10f9c1f68b16c6d2d3385ea7",
+          "compressed_sha256": "d13c8290d8f65190b1c1680d6c516ad9d6371845d24ba1a12d4d9d16d1248839"
+        },
+        {
+          "path": "dacomp-de-evol-038/klaviyo_start.duckdb",
+          "uncompressed_size": 7876608,
+          "crc32": "28ce2283",
+          "sha256": "8843b31192122a7ffcac008856485a920618975f10f9c1f68b16c6d2d3385ea7",
+          "compressed_sha256": "d13c8290d8f65190b1c1680d6c516ad9d6371845d24ba1a12d4d9d16d1248839"
+        },
+        {
+          "path": "dacomp-de-impl-021/klaviyo_start.duckdb",
+          "uncompressed_size": 7876608,
+          "crc32": "28ce2283",
+          "sha256": "8843b31192122a7ffcac008856485a920618975f10f9c1f68b16c6d2d3385ea7",
+          "compressed_sha256": "d13c8290d8f65190b1c1680d6c516ad9d6371845d24ba1a12d4d9d16d1248839"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-039/recharge_start.duckdb",
+          "uncompressed_size": 13119488,
+          "crc32": "d2001ab9",
+          "sha256": "2a793df54675ad7a806cf867fb00648ca1079961b9408703e32fd69556d3ec0d",
+          "compressed_sha256": "34806c4c3547b0beae94d6545b23d230047ca3f7fddb1deac839befed6f7dd69"
+        },
+        {
+          "path": "dacomp-de-evol-040/recharge_start.duckdb",
+          "uncompressed_size": 13119488,
+          "crc32": "d2001ab9",
+          "sha256": "2a793df54675ad7a806cf867fb00648ca1079961b9408703e32fd69556d3ec0d",
+          "compressed_sha256": "34806c4c3547b0beae94d6545b23d230047ca3f7fddb1deac839befed6f7dd69"
+        },
+        {
+          "path": "dacomp-de-impl-022/recharge_start.duckdb",
+          "uncompressed_size": 13119488,
+          "crc32": "d2001ab9",
+          "sha256": "2a793df54675ad7a806cf867fb00648ca1079961b9408703e32fd69556d3ec0d",
+          "compressed_sha256": "34806c4c3547b0beae94d6545b23d230047ca3f7fddb1deac839befed6f7dd69"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-041/social_media_reporting_start.duckdb",
+          "uncompressed_size": 10235904,
+          "crc32": "135e4cbc",
+          "sha256": "4c14ccecf42a7b95524b878dadadca8c33540499d91805074f797b5eb6f92bfc",
+          "compressed_sha256": "d1aeaf6a4b25a731559cd83bfe701fe60fa2fd915624cfbd74599b51fe501606"
+        },
+        {
+          "path": "dacomp-de-evol-042/social_media_reporting_start.duckdb",
+          "uncompressed_size": 10235904,
+          "crc32": "135e4cbc",
+          "sha256": "4c14ccecf42a7b95524b878dadadca8c33540499d91805074f797b5eb6f92bfc",
+          "compressed_sha256": "d1aeaf6a4b25a731559cd83bfe701fe60fa2fd915624cfbd74599b51fe501606"
+        },
+        {
+          "path": "dacomp-de-impl-023/social_media_reporting_start.duckdb",
+          "uncompressed_size": 10235904,
+          "crc32": "135e4cbc",
+          "sha256": "4c14ccecf42a7b95524b878dadadca8c33540499d91805074f797b5eb6f92bfc",
+          "compressed_sha256": "d1aeaf6a4b25a731559cd83bfe701fe60fa2fd915624cfbd74599b51fe501606"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-043/tiktok_ads_start.duckdb",
+          "uncompressed_size": 2895872,
+          "crc32": "c47f9c1a",
+          "sha256": "adfa1b526f4f485f2dea5c8d14049bf57852d7442270c3c1ae92bf5e51a3f610",
+          "compressed_sha256": "d1ec14ad0ceff13c00f69e66fb224682c2d739fbe75d358aed42530ab9fd2f95"
+        },
+        {
+          "path": "dacomp-de-evol-044/tiktok_ads_start.duckdb",
+          "uncompressed_size": 2895872,
+          "crc32": "c47f9c1a",
+          "sha256": "adfa1b526f4f485f2dea5c8d14049bf57852d7442270c3c1ae92bf5e51a3f610",
+          "compressed_sha256": "d1ec14ad0ceff13c00f69e66fb224682c2d739fbe75d358aed42530ab9fd2f95"
+        },
+        {
+          "path": "dacomp-de-impl-024/tiktok_ads_start.duckdb",
+          "uncompressed_size": 2895872,
+          "crc32": "c47f9c1a",
+          "sha256": "adfa1b526f4f485f2dea5c8d14049bf57852d7442270c3c1ae92bf5e51a3f610",
+          "compressed_sha256": "d1ec14ad0ceff13c00f69e66fb224682c2d739fbe75d358aed42530ab9fd2f95"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-045/twilio_start.duckdb",
+          "uncompressed_size": 4730880,
+          "crc32": "e2ac6171",
+          "sha256": "640030fe148409e666cf75f7dd08d87f039710cae17d22f9328215bf503cc978",
+          "compressed_sha256": "cceb43ffa5b7c88026fa98b133420278184433d06847a29602e20ce74f2fdb72"
+        },
+        {
+          "path": "dacomp-de-impl-025/twilio_start.duckdb",
+          "uncompressed_size": 4730880,
+          "crc32": "e2ac6171",
+          "sha256": "640030fe148409e666cf75f7dd08d87f039710cae17d22f9328215bf503cc978",
+          "compressed_sha256": "cceb43ffa5b7c88026fa98b133420278184433d06847a29602e20ce74f2fdb72"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-046/twitter_start.duckdb",
+          "uncompressed_size": 4993024,
+          "crc32": "817f83f8",
+          "sha256": "b572a3bc44e42714cb0b956844080fe69e7de0265a51ebd1cdefa7103dbd069f",
+          "compressed_sha256": "20c1d62fb5d28a4310668651a101ca85522debc2cf5e577d88ce79e75a8d51a1"
+        },
+        {
+          "path": "dacomp-de-impl-026/twitter_start.duckdb",
+          "uncompressed_size": 4993024,
+          "crc32": "817f83f8",
+          "sha256": "b572a3bc44e42714cb0b956844080fe69e7de0265a51ebd1cdefa7103dbd069f",
+          "compressed_sha256": "20c1d62fb5d28a4310668651a101ca85522debc2cf5e577d88ce79e75a8d51a1"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-047/xero_start.duckdb",
+          "uncompressed_size": 5779456,
+          "crc32": "39bc98a3",
+          "sha256": "fc77a7d119b8f6283b22200d1e34995bb4fedd16da7ea193e2a98d4cb1b90e2d",
+          "compressed_sha256": "60eb8eea18cb4d5f7927bd1a7b227fed563033d2892263bd9de4ea0f24c57c2a"
+        },
+        {
+          "path": "dacomp-de-impl-027/xero_start.duckdb",
+          "uncompressed_size": 5779456,
+          "crc32": "39bc98a3",
+          "sha256": "fc77a7d119b8f6283b22200d1e34995bb4fedd16da7ea193e2a98d4cb1b90e2d",
+          "compressed_sha256": "60eb8eea18cb4d5f7927bd1a7b227fed563033d2892263bd9de4ea0f24c57c2a"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-048/youtube_analytics_start.duckdb",
+          "uncompressed_size": 1847296,
+          "crc32": "ca09a4c5",
+          "sha256": "f46a05fdf45cef694d42a4bdd3f650917576a9be3fee7f13bdc813febad6c097",
+          "compressed_sha256": "34d5bbc6db09d91bc84c745e87c7ae4dcf000fcbcced3decf210f13864a5522a"
+        },
+        {
+          "path": "dacomp-de-impl-028/youtube_analytics_start.duckdb",
+          "uncompressed_size": 1847296,
+          "crc32": "ca09a4c5",
+          "sha256": "f46a05fdf45cef694d42a4bdd3f650917576a9be3fee7f13bdc813febad6c097",
+          "compressed_sha256": "34d5bbc6db09d91bc84c745e87c7ae4dcf000fcbcced3decf210f13864a5522a"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-049/zendesk_start.duckdb",
+          "uncompressed_size": 9449472,
+          "crc32": "0ae5ef78",
+          "sha256": "e464440cd35e7624148f20d5424afed5bc4deeec35b7278ea02d64cd2ac6460e",
+          "compressed_sha256": "01e33b98ed0bd9375c8ce2143745c83957dd32204b527062579344dd3f23fb44"
+        },
+        {
+          "path": "dacomp-de-impl-029/zendesk_start.duckdb",
+          "uncompressed_size": 9449472,
+          "crc32": "0ae5ef78",
+          "sha256": "e464440cd35e7624148f20d5424afed5bc4deeec35b7278ea02d64cd2ac6460e",
+          "compressed_sha256": "01e33b98ed0bd9375c8ce2143745c83957dd32204b527062579344dd3f23fb44"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    },
+    {
+      "members": [
+        {
+          "path": "dacomp-de-evol-050/zuora_start.duckdb",
+          "uncompressed_size": 16265216,
+          "crc32": "4910bfec",
+          "sha256": "e8183739a227c0e8a5235be30d484a23db7c38dbf0557f37806bf140f4798b2a",
+          "compressed_sha256": "fe878c156c98b778368b1283df4fabfdc21b625a3faf920d98e319dbc5d6de8f"
+        },
+        {
+          "path": "dacomp-de-impl-030/zuora_start.duckdb",
+          "uncompressed_size": 16265216,
+          "crc32": "4910bfec",
+          "sha256": "e8183739a227c0e8a5235be30d484a23db7c38dbf0557f37806bf140f4798b2a",
+          "compressed_sha256": "fe878c156c98b778368b1283df4fabfdc21b625a3faf920d98e319dbc5d6de8f"
+        }
+      ],
+      "byte_identical": true,
+      "signature_collision": false
+    }
+  ],
+  "archive_file_git_oid": "74455f15c5ec267a729201547c383d74f803697e"
+}

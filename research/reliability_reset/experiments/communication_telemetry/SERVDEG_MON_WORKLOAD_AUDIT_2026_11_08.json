@@ -1,0 +1,576 @@
+{
+  "source": {
+    "record": "https://zenodo.org/records/21983587",
+    "dataset_license": "CC BY 4.0, as stated in the record's README.md",
+    "file": "MON.parquet",
+    "file_bytes": 500075664,
+    "sha256": "6f1a157f67523660247404ea9c19f901fa72d73c74e5578aaad38b3ff80bcff6"
+  },
+  "schema_column_count": 110,
+  "columns": [
+    {
+      "name": "id",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "src_oui",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "src_port",
+      "type": "USMALLINT"
+    },
+    {
+      "name": "dst_oui",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "dst_port",
+      "type": "USMALLINT"
+    },
+    {
+      "name": "src2dst_first_seen_ms",
+      "type": "UBIGINT"
+    },
+    {
+      "name": "src2dst_last_seen_ms",
+      "type": "UBIGINT"
+    },
+    {
+      "name": "src2dst_duration_ms",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "src2dst_packets",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "dst2src_first_seen_ms",
+      "type": "UBIGINT"
+    },
+    {
+      "name": "dst2src_last_seen_ms",
+      "type": "UBIGINT"
+    },
+    {
+      "name": "dst2src_duration_ms",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "dst2src_packets",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "bidirectional_min_ps",
+      "type": "USMALLINT"
+    },
+    {
+      "name": "bidirectional_mean_ps",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "bidirectional_stddev_ps",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "bidirectional_max_ps",
+      "type": "USMALLINT"
+    },
+    {
+      "name": "src2dst_min_ps",
+      "type": "USMALLINT"
+    },
+    {
+      "name": "src2dst_mean_ps",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "src2dst_stddev_ps",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "src2dst_max_ps",
+      "type": "USMALLINT"
+    },
+    {
+      "name": "dst2src_min_ps",
+      "type": "USMALLINT"
+    },
+    {
+      "name": "dst2src_mean_ps",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "dst2src_stddev_ps",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "dst2src_max_ps",
+      "type": "USMALLINT"
+    },
+    {
+      "name": "bidirectional_min_piat_ms",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "bidirectional_mean_piat_ms",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "bidirectional_stddev_piat_ms",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "bidirectional_max_piat_ms",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "src2dst_min_piat_ms",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "src2dst_mean_piat_ms",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "src2dst_stddev_piat_ms",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "src2dst_max_piat_ms",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "dst2src_min_piat_ms",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "dst2src_mean_piat_ms",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "dst2src_stddev_piat_ms",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "dst2src_max_piat_ms",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "bidirectional_syn_packets",
+      "type": "USMALLINT"
+    },
+    {
+      "name": "bidirectional_cwr_packets",
+      "type": "USMALLINT"
+    },
+    {
+      "name": "bidirectional_ece_packets",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "bidirectional_urg_packets",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "bidirectional_ack_packets",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "bidirectional_psh_packets",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "bidirectional_rst_packets",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "bidirectional_fin_packets",
+      "type": "USMALLINT"
+    },
+    {
+      "name": "src2dst_syn_packets",
+      "type": "USMALLINT"
+    },
+    {
+      "name": "src2dst_cwr_packets",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "src2dst_ece_packets",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "src2dst_urg_packets",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "src2dst_ack_packets",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "src2dst_psh_packets",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "src2dst_rst_packets",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "src2dst_fin_packets",
+      "type": "USMALLINT"
+    },
+    {
+      "name": "dst2src_syn_packets",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "dst2src_cwr_packets",
+      "type": "USMALLINT"
+    },
+    {
+      "name": "dst2src_ece_packets",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "dst2src_urg_packets",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "dst2src_ack_packets",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "dst2src_psh_packets",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "dst2src_rst_packets",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "dst2src_fin_packets",
+      "type": "USMALLINT"
+    },
+    {
+      "name": "application_is_guessed",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "requested_server_name",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "client_fingerprint",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "server_fingerprint",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "user_agent",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "content_type",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "dst_mac",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "src_mac",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "LAN2WAN_bytes",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "WAN2LAN_bytes",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "LAN_host",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "LAN_time",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "SDd",
+      "type": "BOOLEAN[]"
+    },
+    {
+      "name": "SDj",
+      "type": "BOOLEAN[]"
+    },
+    {
+      "name": "SD_sequences_idx",
+      "type": "UTINYINT[][]"
+    },
+    {
+      "name": "SD_sequences",
+      "type": "BOOLEAN[]"
+    },
+    {
+      "name": "SD_sequences_timestamps",
+      "type": "UINTEGER[][]"
+    },
+    {
+      "name": "SD_count",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "SD_time",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "LAN_jitter",
+      "type": "UINTEGER[]"
+    },
+    {
+      "name": "start_second",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "LAN_delay_neighboring_PS",
+      "type": "DOUBLE[]"
+    },
+    {
+      "name": "LAN_delay",
+      "type": "UINTEGER[]"
+    },
+    {
+      "name": "start_time_aggr",
+      "type": "TIMESTAMP_NS"
+    },
+    {
+      "name": "LAN_delay_timestamps",
+      "type": "UINTEGER[]"
+    },
+    {
+      "name": "bidirectional_first_seen_relative_ms",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "bidirectional_last_seen_relative_ms",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "src_ip",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "splt_direction",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "protocol",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "application_name",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "splt_ps",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "dst_ip",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "bidirectional_duration_ms",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "bidirectional_packets",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "expiration_id",
+      "type": "TINYINT"
+    },
+    {
+      "name": "bidirectional_last_seen_ms",
+      "type": "UBIGINT"
+    },
+    {
+      "name": "connection_type",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "reversed",
+      "type": "BOOLEAN"
+    },
+    {
+      "name": "ip_version",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "src2dst_bytes",
+      "type": "UINTEGER"
+    },
+    {
+      "name": "dst2src_bytes",
+      "type": "UBIGINT"
+    },
+    {
+      "name": "application_category_name",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "application_confidence",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "bidirectional_bytes",
+      "type": "UBIGINT"
+    },
+    {
+      "name": "location",
+      "type": "VARCHAR"
+    },
+    {
+      "name": "vlan_id",
+      "type": "UTINYINT"
+    },
+    {
+      "name": "bidirectional_first_seen_ms",
+      "type": "UBIGINT"
+    },
+    {
+      "name": "splt_piat_ms",
+      "type": "VARCHAR"
+    }
+  ],
+  "overview": {
+    "flow_count": 3185436,
+    "first_seen": "2024-01-15T19:24:40",
+    "last_seen": "2024-01-15T20:18:29",
+    "location_count": 17,
+    "rows_with_SDd": 85899,
+    "rows_with_SDj": 87684,
+    "rows_with_SD_sequences": 8907,
+    "rows_with_SD_time": 8907
+  },
+  "flow_quantiles_p50_p90_p99_max": {
+    "bidirectional_packets": [
+      6.0,
+      40.0,
+      1533.0,
+      6928103
+    ],
+    "bidirectional_bytes": [
+      452.0,
+      14719.0,
+      1293566.19999999,
+      6443883860
+    ],
+    "bidirectional_duration_ms": [
+      113.0,
+      60471.0,
+      984068.9999999925,
+      1799999
+    ],
+    "bidirectional_mean_piat_ms": [
+      13.0,
+      3755.75,
+      12809.294805194542,
+      119999.0
+    ]
+  },
+  "protocol_flow_counts": [
+    {
+      "protocol": 6,
+      "flow_count": 3185436
+    }
+  ],
+  "top_application_categories": [
+    {
+      "category": "Web",
+      "flow_count": 2088722,
+      "rows_with_SD_sequences": 7231
+    },
+    {
+      "category": "Unspecified",
+      "flow_count": 335835,
+      "rows_with_SD_sequences": 0
+    },
+    {
+      "category": "Download",
+      "flow_count": 226229,
+      "rows_with_SD_sequences": 57
+    },
+    {
+      "category": "SocialNetwork",
+      "flow_count": 126088,
+      "rows_with_SD_sequences": 1022
+    },
+    {
+      "category": "Cloud",
+      "flow_count": 103237,
+      "rows_with_SD_sequences": 362
+    },
+    {
+      "category": "Network",
+      "flow_count": 53156,
+      "rows_with_SD_sequences": 82
+    },
+    {
+      "category": "Collaborative",
+      "flow_count": 41768,
+      "rows_with_SD_sequences": 153
+    },
+    {
+      "category": "Advertisement",
+      "flow_count": 34476,
+      "rows_with_SD_sequences": 0
+    },
+    {
+      "category": "Media",
+      "flow_count": 23336,
+      "rows_with_SD_sequences": 0
+    },
+    {
+      "category": "Game",
+      "flow_count": 21189,
+      "rows_with_SD_sequences": 0
+    },
+    {
+      "category": "Chat",
+      "flow_count": 20204,
+      "rows_with_SD_sequences": 0
+    },
+    {
+      "category": "Music",
+      "flow_count": 13350,
+      "rows_with_SD_sequences": 0
+    },
+    {
+      "category": "SoftwareUpdate",
+      "flow_count": 12323,
+      "rows_with_SD_sequences": 0
+    },
+    {
+      "category": "Video",
+      "flow_count": 10824,
+      "rows_with_SD_sequences": 0
+    },
+    {
+      "category": "Cybersecurity",
+      "flow_count": 10783,
+      "rows_with_SD_sequences": 0
+    }
+  ],
+  "scope_limits": [
+    "This is a single daily Parquet file from one university dormitory network.",
+    "The dataset contains flow and service-degradation measurements, not device/link root-cause ground truth.",
+    "Feature summaries are not packet captures and cannot be described as exact packet replay."
+  ]
+}

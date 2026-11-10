@@ -1,0 +1,18 @@
+{
+  "server_version": "0.40.15",
+  "model": "qwen3:8b",
+  "model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "model_size_bytes": 5225388164,
+  "tool_call": {
+    "name": "report_probe",
+    "arguments": {
+      "status": "ready",
+      "count": 3
+    }
+  },
+  "returned_tool_executed": false,
+  "generated_tokens": 26,
+  "elapsed_seconds": 0.72,
+  "gpu_vram_bytes_after_call": 5282505686,
+  "result": "PASS"
+}

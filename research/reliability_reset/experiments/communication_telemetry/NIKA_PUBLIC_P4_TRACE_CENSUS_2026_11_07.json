@@ -1,0 +1,561 @@
+{
+  "source": {
+    "record": "https://zenodo.org/records/17971675",
+    "archive_name": "NIKA Traces.zip",
+    "archive_sha256": "0ca421d15fafc1b94e0344e4fc48c0f3953aedec18682824c1bb713e0fccf71b",
+    "archive_md5": "cc940a7fadd29677d5ef942847a5c45c",
+    "zenodo_md5_expected": "cc940a7fadd29677d5ef942847a5c45c",
+    "archive_md5_matches_zenodo": true,
+    "license": null,
+    "license_status": "unverified: Zenodo record API returned a null license field on 2026-11-08; the archive contains no license/readme file; the GitHub software license is not assumed to cover trace data"
+  },
+  "archive_trace_count": 906,
+  "archive_session_metadata_count": 904,
+  "archive_missing_session_metadata": [
+    "link_failures/link_fragmentation_disabled/1205174051/ground_truth.json",
+    "misconfigurations/icmp_acl_block/1204172412/ground_truth.json"
+  ],
+  "p4_trace_count": 36,
+  "p4_explicit_issue_name_trace_count": 24,
+  "p4_scenarios": [
+    "p4_bloom_filter",
+    "p4_mpls"
+  ],
+  "p4_models": [
+    "gpt-5",
+    "gpt-5-mini",
+    "gpt-oss:20b"
+  ],
+  "p4_issue_clusters": {
+    "bmv2_switch_down": {
+      "gpt-5": 2,
+      "gpt-5-mini": 2,
+      "gpt-oss:20b": 2
+    },
+    "mpls_label_limit_exceeded": {
+      "gpt-5": 2,
+      "gpt-5-mini": 2,
+      "gpt-oss:20b": 2
+    },
+    "p4_compilation_error_parser_state": {
+      "gpt-5": 2,
+      "gpt-5-mini": 2,
+      "gpt-oss:20b": 2
+    },
+    "p4_header_definition_error": {
+      "gpt-5": 2,
+      "gpt-5-mini": 2,
+      "gpt-oss:20b": 2
+    },
+    "p4_table_entry_misconfig": {
+      "gpt-5": 2,
+      "gpt-5-mini": 2,
+      "gpt-oss:20b": 2
+    },
+    "p4_table_entry_missing": {
+      "gpt-5": 2,
+      "gpt-5-mini": 2,
+      "gpt-oss:20b": 2
+    }
+  },
+  "p4_issue_cluster_count": 6,
+  "p4_tool_start_counts": {
+    "bmv2_counter_read": 1,
+    "bmv2_get_counter_arrays": 94,
+    "bmv2_get_log": 79,
+    "bmv2_get_register_arrays": 16,
+    "bmv2_read_p4_program": 31,
+    "bmv2_show_tables": 61,
+    "bmv2_table_dump": 70,
+    "ethtool": 10,
+    "exec_shell": 52,
+    "exec_shell_dual": 6,
+    "get_host_net_config": 88,
+    "get_reachability": 24,
+    "get_tc_statistics": 10,
+    "ip_addr_statistics": 4,
+    "ping_pair": 84
+  },
+  "p4_agent_observation_summary": {
+    "traces_with_counter_tool_calls": 35,
+    "counter_tool_call_count": 95,
+    "missing_submission_count": 8,
+    "by_model": {
+      "gpt-5": {
+        "counter_tool_call_count": 33,
+        "counter_trace_count": 12,
+        "faulty_devices_exact": 9,
+        "is_anomaly_exact": 11,
+        "root_cause_name_exact": 6,
+        "submission_count": 12,
+        "trace_count": 12
+      },
+      "gpt-5-mini": {
+        "counter_tool_call_count": 38,
+        "counter_trace_count": 12,
+        "faulty_devices_exact": 4,
+        "is_anomaly_exact": 12,
+        "root_cause_name_exact": 4,
+        "submission_count": 12,
+        "trace_count": 12
+      },
+      "gpt-oss:20b": {
+        "counter_tool_call_count": 24,
+        "counter_trace_count": 11,
+        "faulty_devices_exact": 1,
+        "is_anomaly_exact": 4,
+        "missing_submission_count": 8,
+        "root_cause_name_exact": 2,
+        "submission_count": 4,
+        "trace_count": 12
+      }
+    },
+    "field_match_semantics": "literal field equality after sorting list values; descriptive only, not an official scorer replay",
+    "trace_rows": [
+      {
+        "issue": "p4_table_entry_misconfig",
+        "model": "gpt-5-mini",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1203205326",
+        "counter_tool_calls": 3,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": true,
+          "root_cause_name": true
+        }
+      },
+      {
+        "issue": "p4_table_entry_misconfig",
+        "model": "gpt-5",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1204124617",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": false,
+          "root_cause_name": true
+        }
+      },
+      {
+        "issue": "p4_table_entry_misconfig",
+        "model": "gpt-5-mini",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1205114809",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": false,
+          "root_cause_name": true
+        }
+      },
+      {
+        "issue": "p4_table_entry_misconfig",
+        "model": "gpt-5",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1206131332",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": true,
+          "root_cause_name": true
+        }
+      },
+      {
+        "issue": "p4_table_entry_misconfig",
+        "model": "gpt-oss:20b",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1211190153",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": false,
+          "root_cause_name": true
+        }
+      },
+      {
+        "issue": "p4_table_entry_misconfig",
+        "model": "gpt-oss:20b",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1212125610",
+        "counter_tool_calls": 0,
+        "has_submission": false,
+        "literal_field_exact_matches": null
+      },
+      {
+        "issue": "p4_table_entry_missing",
+        "model": "gpt-5-mini",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1201155618",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": false,
+          "root_cause_name": true
+        }
+      },
+      {
+        "issue": "p4_table_entry_missing",
+        "model": "gpt-5",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1204124942",
+        "counter_tool_calls": 4,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": true,
+          "root_cause_name": true
+        }
+      },
+      {
+        "issue": "p4_table_entry_missing",
+        "model": "gpt-5-mini",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1205115106",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": true,
+          "root_cause_name": true
+        }
+      },
+      {
+        "issue": "p4_table_entry_missing",
+        "model": "gpt-5",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1206132903",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": true,
+          "root_cause_name": true
+        }
+      },
+      {
+        "issue": "p4_table_entry_missing",
+        "model": "gpt-oss:20b",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1211190414",
+        "counter_tool_calls": 1,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": true,
+          "root_cause_name": true
+        }
+      },
+      {
+        "issue": "p4_table_entry_missing",
+        "model": "gpt-oss:20b",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1212125914",
+        "counter_tool_calls": 2,
+        "has_submission": false,
+        "literal_field_exact_matches": null
+      },
+      {
+        "issue": "bmv2_switch_down",
+        "model": "gpt-5-mini",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1201155825",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": false,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "bmv2_switch_down",
+        "model": "gpt-5",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1204125345",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": true,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "bmv2_switch_down",
+        "model": "gpt-5-mini",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1205115411",
+        "counter_tool_calls": 4,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": false,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "bmv2_switch_down",
+        "model": "gpt-5",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1206133530",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": true,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "bmv2_switch_down",
+        "model": "gpt-oss:20b",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1211190653",
+        "counter_tool_calls": 3,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": false,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "bmv2_switch_down",
+        "model": "gpt-oss:20b",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1212130222",
+        "counter_tool_calls": 2,
+        "has_submission": false,
+        "literal_field_exact_matches": null
+      },
+      {
+        "issue": "mpls_label_limit_exceeded",
+        "model": "gpt-5-mini",
+        "scenario": "p4_mpls",
+        "session_id": "1201132918",
+        "counter_tool_calls": 7,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": false,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "mpls_label_limit_exceeded",
+        "model": "gpt-5",
+        "scenario": "p4_mpls",
+        "session_id": "1204123700",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": false,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "mpls_label_limit_exceeded",
+        "model": "gpt-5-mini",
+        "scenario": "p4_mpls",
+        "session_id": "1205114508",
+        "counter_tool_calls": 7,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": true,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "mpls_label_limit_exceeded",
+        "model": "gpt-5",
+        "scenario": "p4_mpls",
+        "session_id": "1206130908",
+        "counter_tool_calls": 7,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": false,
+          "faulty_devices": false,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "mpls_label_limit_exceeded",
+        "model": "gpt-oss:20b",
+        "scenario": "p4_mpls",
+        "session_id": "1211190037",
+        "counter_tool_calls": 3,
+        "has_submission": false,
+        "literal_field_exact_matches": null
+      },
+      {
+        "issue": "mpls_label_limit_exceeded",
+        "model": "gpt-oss:20b",
+        "scenario": "p4_mpls",
+        "session_id": "1212125442",
+        "counter_tool_calls": 3,
+        "has_submission": false,
+        "literal_field_exact_matches": null
+      },
+      {
+        "issue": "p4_compilation_error_parser_state",
+        "model": "gpt-5-mini",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1201132603",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": false,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "p4_compilation_error_parser_state",
+        "model": "gpt-5",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1204122552",
+        "counter_tool_calls": 4,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": true,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "p4_compilation_error_parser_state",
+        "model": "gpt-5-mini",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1205114053",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": false,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "p4_compilation_error_parser_state",
+        "model": "gpt-5",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1206130311",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": true,
+          "root_cause_name": true
+        }
+      },
+      {
+        "issue": "p4_compilation_error_parser_state",
+        "model": "gpt-oss:20b",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1211185849",
+        "counter_tool_calls": 2,
+        "has_submission": false,
+        "literal_field_exact_matches": null
+      },
+      {
+        "issue": "p4_compilation_error_parser_state",
+        "model": "gpt-oss:20b",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1212125139",
+        "counter_tool_calls": 2,
+        "has_submission": false,
+        "literal_field_exact_matches": null
+      },
+      {
+        "issue": "p4_header_definition_error",
+        "model": "gpt-5-mini",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1201132229",
+        "counter_tool_calls": 4,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": false,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "p4_header_definition_error",
+        "model": "gpt-5",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1204122056",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": true,
+          "root_cause_name": true
+        }
+      },
+      {
+        "issue": "p4_header_definition_error",
+        "model": "gpt-5-mini",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1205113634",
+        "counter_tool_calls": 1,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": true,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "p4_header_definition_error",
+        "model": "gpt-5",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1206125801",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": true,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "p4_header_definition_error",
+        "model": "gpt-oss:20b",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1211185612",
+        "counter_tool_calls": 2,
+        "has_submission": true,
+        "literal_field_exact_matches": {
+          "is_anomaly": true,
+          "faulty_devices": false,
+          "root_cause_name": false
+        }
+      },
+      {
+        "issue": "p4_header_definition_error",
+        "model": "gpt-oss:20b",
+        "scenario": "p4_bloom_filter",
+        "session_id": "1212124849",
+        "counter_tool_calls": 2,
+        "has_submission": false,
+        "literal_field_exact_matches": null
+      }
+    ]
+  },
+  "p4_int_or_telemetry_tool_calls": 0,
+  "p4_non_json_diagnostic_lines": 12,
+  "p4_logs_missing": 0,
+  "interpretation_limits": [
+    "Trace rows are clustered within P4 issue types and two P4 scenarios; they are not independent task families.",
+    "The P4 scenarios do not contain the proposed terminal packet-loss versus sink-report-loss paired intervention.",
+    "This census counts logged tool starts only; it does not rerun NIKA scoring or estimate causal Agent effects."
+  ]
+}
