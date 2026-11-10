@@ -1,0 +1,14 @@
+{
+  "archive_sha256": "340f84491dc9c5eb8173718bea15cd7fe80abf8e945adf26859a34aaa66e7816",
+  "flows": {
+    "initialization": 1086644,
+    "development": 994127
+  },
+  "unique_source_strings": {
+    "initialization": 179473,
+    "development": 158612
+  },
+  "shared_source_strings": 79134,
+  "fraction_development_sources_seen_in_initialization": 0.49891559276725594,
+  "scope": "Exact equality of pseudonymous source strings, not proof of client identity or duplicated sessions."
+}

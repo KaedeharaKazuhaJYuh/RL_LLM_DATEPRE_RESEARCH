@@ -1,3 +1,7 @@
+# 2026-11-10｜1.1.20 跨阶段源地址审计与 CI 修复
+
+在 XS 固定归档上扩展至初始化 W11–W14 和开发 W15–W18：分别有 179,473、158,612 个不同源地址字符串，共享 79,134，约占开发期不同字符串的 49.89%。精确字符串相等不证明真实客户端稳定或重复会话；不输出地址，不推断模型性能。[复算结果](experiments/communication_telemetry/CESNET_XS_SOURCE_OVERLAP_PHASES_2026_11_10.json) 与[脚本](experiments/communication_telemetry/audit_cesnet_phase_overlap.py)。同时恢复根 README 历史版本标记的位置，两个相关 CI 定向检查已通过；完整 CI 以 GitHub 新运行结果为准。科学状态 HOLD。
+
 # 2026-11-10｜1.1.15 相邻周源地址重叠审计
 
 对 CESNET XS 初始化末周与开发首周做源地址字符串集合比较：W15 的 48,613 个不同字符串中有 18,463 个也出现在 W14（37.98%）。该结果提示跨期依赖，不能认定真实客户端身份或重复会话；源地址不作为模型输入，独立性和重复流仍需进一步审计。详见[审计记录](experiments/communication_telemetry/CESNET_SOURCE_OVERLAP_W14_W15_2026_11_10.md)。未训练模型，科学状态 HOLD。
