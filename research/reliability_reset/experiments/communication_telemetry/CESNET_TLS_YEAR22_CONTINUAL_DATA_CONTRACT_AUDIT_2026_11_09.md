@@ -3,7 +3,27 @@
 审计日期：2026-11-09  
 数据源：CESNET-TLS-Year22   
 DataZoo 源码快照：`CESNET/cesnet-datazoo` commit `85afe5613a9a1ea840d174d779042ee13f87b4e2`  
-范围：只读审查数据论文、公开元数据及 DataZoo 源码；本次未下载 CESNET 流量文件，未训练模型。
+范围：2026-11-09 首轮为只读审查数据论文、公开元数据及 DataZoo 源码；2026-11-10 更新完成 XS HDF5 全表读取与聚合 census，仍未训练模型。
+
+## 2026-11-10｜XS 归档完整性、真实日期支持与标签预算审计
+
+- 从官方 DataZoo 下载端点获取 CESNET-TLS-Year22 XS HDF5，字节数 `2,692,800,942`；对全部 357 个每日 PyTables 表按 25,000 行分块完整读取全部列，10,000,000 行无读取/解压错误。DataZoo commit 仍固定为 `85afe5613a9a1ea840d174d779042ee13f87b4e2`。本地计算 SHA-256：`340f84491dc9c5eb8173718bea15cd7fe80abf8e945adf26859a34aaa66e7816`；该值是本地数据身份标识，不是上游签名/校验值。
+- 实际日期为 2022-01-01 至 2022-12-28；缺失日期与固定 DataZoo 元数据列出的八日完全一致：01-28/29/30、12-12/13/29/30/31。内部可见缺日 5 天；12-29/30/31 位于最后记录日之后。2022-01-01/02 的 ISO 周键是 **2021-W52**，不能和 2022-W52 的年末尾窗相加；现行 manifest 用 `(ISO year, week)`。
+- `APP` 在 XS 实际有 180 个服务标签，`CATEGORY` 有 23 类。日×APP 文件含完整枚举（包括零计数），没有输出 flow 行或 pseudonymous 地址。PPI 每个 flow 的 `PPI_LEN` 非零比例在各周为 100%，长度中位数约 11、P95 为 30，最大 30；这只证明序列输入存在，不证明可学到准确时间表示。
+- APP 标签映射 SHA-256 为 `71661ce0b59c4eb02b4001d4366cb49e4bc7cdf0131c6b23b972a4b069f240dd`；CATEGORY 映射 SHA-256 为 `c10c1e3cfdab459b20fc597ba8aa9dc662b654f9a41e486394e350dedc94d4de`。二者来自实际 HDF 表 enum 的规范化序列化，分别与原始归档哈希共同固定标签语义。
+- 实际协议窗口支持量：W11–14 1,086,644 flows；W15–18 994,127；W19–51 6,120,730；W10 单列 254,636；W52 只有 3 个日期、24,017 flows，作为尾窗敏感性分析；W1–9 有 1,498,658。W50 只有 5 个可用日期。日期/每周分布与 hash manifest 见 [census JSON](CESNET_TLS_YEAR22_XS_CENSUS_2026_11_10.json)、[逐日×APP 计数](CESNET_TLS_YEAR22_XS_DATE_APP_COUNTS_2026_11_10.csv)、[每周 census](CESNET_TLS_YEAR22_XS_WEEKLY_CENSUS_2026_11_10.csv)、[split manifest](CESNET_TLS_YEAR22_XS_SPLIT_MANIFEST_2026_11_10.csv)；可由 [复算脚本](census_cesnet_tls_year22_xs.py) 重建。
+- 对计划中的每周 uniform-without-replacement 标签预算，W19–51 的理论期望类别覆盖数（不是实际标签抽样）：50→34.4/180，200→74.8，1,000→132.8，5,000→168.3，10,000→172.6。低预算时大量长尾服务当周没有人工标签，不能承诺逐服务置信度；支持不足的服务必须留在 `insufficient_evidence`，且不应用无标签样本更新该类的事件分支。最终预算、标签 seed 和 pooled calibration 规则只可由 W15–18 选择。
+- 由于此次全数据 census 读取了 W19–W51 的 APP 标签并输出聚合支持量，未来主评估虽未产生 per-flow 模型结果，但不应声称对未来类支持完全盲化。当前无模型预测、训练或结果；科学状态继续 **HOLD**。
+
+### 复算
+
+在隔离 Python 环境安装 PyTables 和 NumPy 后运行：
+
+```powershell
+python census_cesnet_tls_year22_xs.py <local-XS-h5> --out-dir <output-directory>
+```
+
+仓库中只提交聚合 census 与脚本，不提交原始 2.69 GB HDF5、未加工标签样本或本机路径。
 
 ## 已核实的事实
 
@@ -21,7 +41,7 @@ DataZoo 源码快照：`CESNET/cesnet-datazoo` commit `85afe5613a9a1ea840d174d77
 
 - DataZoo 官方下载端点对 CESNET-TLS-Year22 XS HDF5 文件接受 1 字节 HTTP Range 请求，返回 `206 Partial Content`，报告完整长度 `2,692,800,942` 字节。探测文件只保留 1 字节，不包含数据样本。
 - 官方 Zenodo 原始归档列出 `CESNET-TLS-Year22.zip` 为 `30,491,259,088` 字节，另附 24,817 字节 `servicemap.csv`；本研究不默认下载 30.5 GB 原始归档。[Zenodo API 记录](https://zenodo.org/api/records/10608607)
-- XS 完整下载尚未完成；官方端点确认 Range 可读，但当前连接慢且并行大范围请求没有稳定完成。仓库外保留未拼装的 Range 分片，供后续续传；DataZoo Python 包及 PyTables 当前未安装，故尚未检查 HDF5 结构或统计日期×类别支持数。目录位于 `C:\Users\jyuh1\Datasets\CESNET-TLS-Year22\XS`。
+- XS 完整下载尚未完成；官方端点确认 Range 可读，但当前连接慢且并行大范围请求没有稳定完成。仓库外保留未拼装的 Range 分片，供后续续传；DataZoo Python 包及 PyTables 当前未安装，故尚未检查 HDF5 结构或统计日期×类别支持数。原始文件和分片保存在仓库外的本地缓存，未纳入版本控制。
 - XS HDF5 无单独公开 SHA-256 清单可由当前记录直接核验；下载完成后必须跑 HDF5/Table 完整性检查，并对文件记录 SHA-256、来源 URL、字节长度和 DataZoo 源码 commit。仅 HTTP 长度匹配不等于文件完整性验证。
 
 ### 主实验：自然的跨期服务流量变化

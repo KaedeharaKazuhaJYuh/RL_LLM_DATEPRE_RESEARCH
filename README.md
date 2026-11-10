@@ -6,7 +6,7 @@
 
 当前研究方向是**真实通信流量上的少标签半监督持续学习**，重点检验 SNN 包事件时间建模在时间漂移和灾难性遗忘下是否有独立作用。当前机制与证据状态见[研究计划](research/reliability_reset/COMMUNICATION_TELEMETRY_CONTINUAL_LEARNING_RESEARCH_PLAN_2026_11_09.md)。
 
-当前研究版本：`1.1.05` · 当前工作分支：`comm-telemetry-crossday-load-audit-2026-11-09` · 历史基准：`FaultDA-Bench 0.5.66-dev`。
+当前研究版本：`1.1.10` · 当前工作分支：`comm-telemetry-crossday-load-audit-2026-11-09` · 历史基准：`FaultDA-Bench 0.5.66-dev`。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
 ## 当前研究主线
@@ -15,7 +15,7 @@
 
 当前算法候选是**稀疏标签锚定的分视图三态更新门**：分别观察包事件和流级摘要的变化，并用延迟释放的少量标签判断预测损害是“有证据支持”“有证据支持无实质损害”还是“证据不足”；只有损害得到标签支持且伪标签可靠性达标，才用无标签数据更新 SNN 时间分支。该机制尚未实现，独立贡献仍待实验检验。
 
-实验协议与 CESNET-TLS-Year22 候选切分见[协议 v0.1](research/reliability_reset/experiments/communication_telemetry/COMMUNICATION_TELEMETRY_EVENT_DRIFT_GATED_SSL_PROTOCOL_V0_1_2026_11_09.md)和[数据契约审计](research/reliability_reset/experiments/communication_telemetry/CESNET_TLS_YEAR22_CONTINUAL_DATA_CONTRACT_AUDIT_2026_11_09.md)。数据 census 和模型实验尚未完成，因此目前没有 SNN/ANN 性能结论。
+CESNET-TLS-Year22 XS 归档已完成全表读取：10,000,000 条 flow、357 个日期表，八个官方缺失日期均匹配；逐日×服务类别 census、ISO 年—周切分清单和 45 列输入字段契约已生成。此为数据支持审计，不是模型结果；ANN/SNN 尚未训练，研究结论仍为 HOLD。详见[协议 v0.2](research/reliability_reset/experiments/communication_telemetry/COMMUNICATION_TELEMETRY_EVENT_DRIFT_GATED_SSL_PROTOCOL_V0_2_2026_11_10.md)、[数据 census](research/reliability_reset/experiments/communication_telemetry/CESNET_TLS_YEAR22_XS_CENSUS_2026_11_10.json)、[输入字段契约](research/reliability_reset/experiments/communication_telemetry/CESNET_TLS_YEAR22_XS_FEATURE_CONTRACT_2026_11_10.md)和[数据契约审计](research/reliability_reset/experiments/communication_telemetry/CESNET_TLS_YEAR22_CONTINUAL_DATA_CONTRACT_AUDIT_2026_11_09.md)。
 
 FaultDA-Bench、AppWorld 试点、NIKA 配对及 V4/V5 的训练、C++ 与 Go 组件是历史基础设施和研究记录，不代表当前并行推进多条研究路线。
 

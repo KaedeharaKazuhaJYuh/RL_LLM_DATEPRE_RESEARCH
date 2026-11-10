@@ -1,0 +1,1268 @@
+{
+  "dataset": "CESNET-TLS-Year22 XS HDF5",
+  "archive_filename": "CESNET-TLS-Year22-XS.h5",
+  "archive_bytes": 2692800942,
+  "archive_sha256": "340f84491dc9c5eb8173718bea15cd7fe80abf8e945adf26859a34aaa66e7816",
+  "official_datazoo_download_url": "https://liberouter.org/datazoo/download?bucket=cesnet-tls-year22&file=CESNET-TLS-Year22-XS.h5",
+  "datazoo_source_commit": "85afe5613a9a1ea840d174d779042ee13f87b4e2",
+  "tables": 357,
+  "total_flows": 10000000,
+  "first_date": "2022-01-01",
+  "last_date": "2022-12-28",
+  "missing_dates": [
+    "2022-01-28",
+    "2022-01-29",
+    "2022-01-30",
+    "2022-12-12",
+    "2022-12-13"
+  ],
+  "full_calendar_missing_dates": [
+    "2022-01-28",
+    "2022-01-29",
+    "2022-01-30",
+    "2022-12-12",
+    "2022-12-13",
+    "2022-12-29",
+    "2022-12-30",
+    "2022-12-31"
+  ],
+  "officially_declared_missing_dates_match": true,
+  "app_enum_count": 201,
+  "category_enum_count": 24,
+  "app_label_map_sha256": "71661ce0b59c4eb02b4001d4366cb49e4bc7cdf0131c6b23b972a4b069f240dd",
+  "category_label_map_sha256": "c10c1e3cfdab459b20fc597ba8aa9dc662b654f9a41e486394e350dedc94d4de",
+  "schema": [
+    {
+      "field": "ID",
+      "dtype": "uint32",
+      "shape": []
+    },
+    {
+      "field": "SRC_IP",
+      "dtype": "|S45",
+      "shape": []
+    },
+    {
+      "field": "DST_IP",
+      "dtype": "|S45",
+      "shape": []
+    },
+    {
+      "field": "DST_ASN",
+      "dtype": "uint16",
+      "shape": []
+    },
+    {
+      "field": "DST_PORT",
+      "dtype": "uint16",
+      "shape": []
+    },
+    {
+      "field": "PROTOCOL",
+      "dtype": "uint8",
+      "shape": []
+    },
+    {
+      "field": "TLS_SNI",
+      "dtype": "|S50",
+      "shape": []
+    },
+    {
+      "field": "TLS_JA3",
+      "dtype": "|S32",
+      "shape": []
+    },
+    {
+      "field": "TIME_FIRST",
+      "dtype": "float64",
+      "shape": []
+    },
+    {
+      "field": "TIME_LAST",
+      "dtype": "float64",
+      "shape": []
+    },
+    {
+      "field": "DURATION",
+      "dtype": "float32",
+      "shape": []
+    },
+    {
+      "field": "BYTES",
+      "dtype": "uint64",
+      "shape": []
+    },
+    {
+      "field": "BYTES_REV",
+      "dtype": "uint64",
+      "shape": []
+    },
+    {
+      "field": "PACKETS",
+      "dtype": "uint32",
+      "shape": []
+    },
+    {
+      "field": "PACKETS_REV",
+      "dtype": "uint32",
+      "shape": []
+    },
+    {
+      "field": "PPI",
+      "dtype": "int32",
+      "shape": [
+        4,
+        30
+      ]
+    },
+    {
+      "field": "PPI_LEN",
+      "dtype": "uint16",
+      "shape": []
+    },
+    {
+      "field": "PPI_DURATION",
+      "dtype": "float32",
+      "shape": []
+    },
+    {
+      "field": "PPI_ROUNDTRIPS",
+      "dtype": "uint16",
+      "shape": []
+    },
+    {
+      "field": "PHIST_SRC_SIZES",
+      "dtype": "uint32",
+      "shape": [
+        8
+      ]
+    },
+    {
+      "field": "PHIST_DST_SIZES",
+      "dtype": "uint32",
+      "shape": [
+        8
+      ]
+    },
+    {
+      "field": "PHIST_SRC_IPT",
+      "dtype": "uint32",
+      "shape": [
+        8
+      ]
+    },
+    {
+      "field": "PHIST_DST_IPT",
+      "dtype": "uint32",
+      "shape": [
+        8
+      ]
+    },
+    {
+      "field": "APP",
+      "dtype": "int16",
+      "shape": []
+    },
+    {
+      "field": "CATEGORY",
+      "dtype": "int16",
+      "shape": []
+    },
+    {
+      "field": "FLAG_CWR",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLAG_CWR_REV",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLAG_ECE",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLAG_ECE_REV",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLAG_URG",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLAG_URG_REV",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLAG_ACK",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLAG_ACK_REV",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLAG_PSH",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLAG_PSH_REV",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLAG_RST",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLAG_RST_REV",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLAG_SYN",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLAG_SYN_REV",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLAG_FIN",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLAG_FIN_REV",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLOW_ENDREASON_IDLE",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLOW_ENDREASON_ACTIVE",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLOW_ENDREASON_END",
+      "dtype": "bool",
+      "shape": []
+    },
+    {
+      "field": "FLOW_ENDREASON_OTHER",
+      "dtype": "bool",
+      "shape": []
+    }
+  ],
+  "active_app_codes_overall": 180,
+  "active_category_codes_overall": 23,
+  "app_codes_overall": {
+    "1": {
+      "name": "adobe-ads",
+      "rows": 31771
+    },
+    "2": {
+      "name": "adobe-analytics",
+      "rows": 6107
+    },
+    "3": {
+      "name": "adobe-authentication",
+      "rows": 10689
+    },
+    "4": {
+      "name": "adobe-cloud",
+      "rows": 9711
+    },
+    "5": {
+      "name": "adobe-notifications",
+      "rows": 11047
+    },
+    "6": {
+      "name": "adobe-search",
+      "rows": 287
+    },
+    "7": {
+      "name": "adobe-updater",
+      "rows": 8814
+    },
+    "8": {
+      "name": "alza-bnr",
+      "rows": 8438
+    },
+    "9": {
+      "name": "alza-logapi",
+      "rows": 11660
+    },
+    "10": {
+      "name": "alza-cdn",
+      "rows": 9023
+    },
+    "12": {
+      "name": "alza-webapi",
+      "rows": 9373
+    },
+    "13": {
+      "name": "amazon-advertising",
+      "rows": 40983
+    },
+    "14": {
+      "name": "amazon-prime",
+      "rows": 7865
+    },
+    "15": {
+      "name": "amazon-alexa",
+      "rows": 3656
+    },
+    "16": {
+      "name": "apple-ocsp",
+      "rows": 9458
+    },
+    "18": {
+      "name": "apple-icloud",
+      "rows": 44633
+    },
+    "19": {
+      "name": "apple-location",
+      "rows": 90128
+    },
+    "20": {
+      "name": "apple-itunes",
+      "rows": 132498
+    },
+    "22": {
+      "name": "apple-pancake",
+      "rows": 12439
+    },
+    "23": {
+      "name": "apple-updates",
+      "rows": 46147
+    },
+    "24": {
+      "name": "apple-siri",
+      "rows": 8785
+    },
+    "25": {
+      "name": "apple-weather",
+      "rows": 36903
+    },
+    "26": {
+      "name": "cesnet-login",
+      "rows": 5452
+    },
+    "27": {
+      "name": "cesnet-filesender",
+      "rows": 1273
+    },
+    "28": {
+      "name": "cesnet-nerd",
+      "rows": 5395
+    },
+    "29": {
+      "name": "cesnet-gerrit",
+      "rows": 5319
+    },
+    "30": {
+      "name": "cesnet-perun",
+      "rows": 1027
+    },
+    "31": {
+      "name": "cesnet-kalendar",
+      "rows": 7507
+    },
+    "33": {
+      "name": "ctu-idp2",
+      "rows": 7231
+    },
+    "34": {
+      "name": "ctu-kos",
+      "rows": 11381
+    },
+    "35": {
+      "name": "ctu-matrix",
+      "rows": 9689
+    },
+    "36": {
+      "name": "ctu-felmail",
+      "rows": 10804
+    },
+    "37": {
+      "name": "ctu-kosapi",
+      "rows": 372
+    },
+    "38": {
+      "name": "eset-edf",
+      "rows": 34486
+    },
+    "39": {
+      "name": "eset-ts",
+      "rows": 38366
+    },
+    "40": {
+      "name": "eset-edtd",
+      "rows": 47897
+    },
+    "41": {
+      "name": "eset-esa",
+      "rows": 8454
+    },
+    "42": {
+      "name": "eset-epns",
+      "rows": 12261
+    },
+    "43": {
+      "name": "facebook-messenger",
+      "rows": 79475
+    },
+    "44": {
+      "name": "whatsapp",
+      "rows": 34361
+    },
+    "45": {
+      "name": "facebook-media",
+      "rows": 94896
+    },
+    "46": {
+      "name": "facebook-graph",
+      "rows": 204358
+    },
+    "47": {
+      "name": "facebook-web",
+      "rows": 56508
+    },
+    "48": {
+      "name": "instagram",
+      "rows": 153583
+    },
+    "49": {
+      "name": "google-ads",
+      "rows": 465226
+    },
+    "50": {
+      "name": "google-conncheck",
+      "rows": 92242
+    },
+    "51": {
+      "name": "google-safebrowsing",
+      "rows": 151074
+    },
+    "52": {
+      "name": "google-authentication",
+      "rows": 59391
+    },
+    "53": {
+      "name": "google-drive",
+      "rows": 26151
+    },
+    "54": {
+      "name": "google-userlocation",
+      "rows": 22907
+    },
+    "55": {
+      "name": "gmail",
+      "rows": 8938
+    },
+    "56": {
+      "name": "google-fonts",
+      "rows": 88467
+    },
+    "57": {
+      "name": "youtube",
+      "rows": 204496
+    },
+    "58": {
+      "name": "google-services",
+      "rows": 75976
+    },
+    "59": {
+      "name": "google-play",
+      "rows": 230972
+    },
+    "60": {
+      "name": "google-translate",
+      "rows": 15330
+    },
+    "61": {
+      "name": "chrome-remotedesktop",
+      "rows": 7319
+    },
+    "62": {
+      "name": "google-www",
+      "rows": 256840
+    },
+    "63": {
+      "name": "google-hangouts",
+      "rows": 33245
+    },
+    "64": {
+      "name": "mcafee-gti",
+      "rows": 159077
+    },
+    "66": {
+      "name": "mcafee-ccs",
+      "rows": 4906
+    },
+    "67": {
+      "name": "microsoft-diagnostic",
+      "rows": 273606
+    },
+    "68": {
+      "name": "microsoft-settings",
+      "rows": 254302
+    },
+    "70": {
+      "name": "visualstudio-insights",
+      "rows": 11493
+    },
+    "71": {
+      "name": "microsoft-defender",
+      "rows": 177685
+    },
+    "72": {
+      "name": "microsoft-authentication",
+      "rows": 246581
+    },
+    "73": {
+      "name": "microsoft-onedrive",
+      "rows": 111164
+    },
+    "74": {
+      "name": "xbox-live",
+      "rows": 34937
+    },
+    "75": {
+      "name": "outlook",
+      "rows": 260129
+    },
+    "76": {
+      "name": "microsoft-push",
+      "rows": 109954
+    },
+    "77": {
+      "name": "edge-ntp",
+      "rows": 27102
+    },
+    "78": {
+      "name": "office365",
+      "rows": 346877
+    },
+    "79": {
+      "name": "bing",
+      "rows": 139819
+    },
+    "80": {
+      "name": "microsoft-update",
+      "rows": 265064
+    },
+    "81": {
+      "name": "vscode-update",
+      "rows": 1271
+    },
+    "82": {
+      "name": "skype",
+      "rows": 153303
+    },
+    "83": {
+      "name": "teams",
+      "rows": 258053
+    },
+    "84": {
+      "name": "microsoft-weather",
+      "rows": 10821
+    },
+    "85": {
+      "name": "mozilla-telemetry",
+      "rows": 40466
+    },
+    "86": {
+      "name": "firefox-settings",
+      "rows": 19674
+    },
+    "87": {
+      "name": "thunderbird-telemetry",
+      "rows": 5006
+    },
+    "88": {
+      "name": "mozilla-token",
+      "rows": 7761
+    },
+    "89": {
+      "name": "firefox-accounts",
+      "rows": 14232
+    },
+    "90": {
+      "name": "mozilla-location",
+      "rows": 14608
+    },
+    "91": {
+      "name": "mozilla-push",
+      "rows": 15795
+    },
+    "92": {
+      "name": "opera-sitecheck",
+      "rows": 11178
+    },
+    "95": {
+      "name": "opera-speeddial",
+      "rows": 10838
+    },
+    "96": {
+      "name": "opera-autoupdate",
+      "rows": 13788
+    },
+    "97": {
+      "name": "opera-weather",
+      "rows": 4878
+    },
+    "98": {
+      "name": "seznam-ssp",
+      "rows": 93512
+    },
+    "99": {
+      "name": "seznam-authentication",
+      "rows": 140240
+    },
+    "100": {
+      "name": "maps-cz",
+      "rows": 142913
+    },
+    "101": {
+      "name": "seznam-email",
+      "rows": 82883
+    },
+    "102": {
+      "name": "seznam-media",
+      "rows": 232842
+    },
+    "103": {
+      "name": "super-media",
+      "rows": 28119
+    },
+    "104": {
+      "name": "seznam-notifications",
+      "rows": 44500
+    },
+    "105": {
+      "name": "seznam-search",
+      "rows": 13162
+    },
+    "106": {
+      "name": "sukl-authentication",
+      "rows": 8280
+    },
+    "107": {
+      "name": "sukl-erecept",
+      "rows": 24868
+    },
+    "108": {
+      "name": "sukl-api",
+      "rows": 15476
+    },
+    "109": {
+      "name": "appnexus",
+      "rows": 235402
+    },
+    "110": {
+      "name": "pubmatic",
+      "rows": 128129
+    },
+    "111": {
+      "name": "rubiconproject",
+      "rows": 160558
+    },
+    "112": {
+      "name": "r2d2",
+      "rows": 17789
+    },
+    "113": {
+      "name": "loggly",
+      "rows": 17836
+    },
+    "114": {
+      "name": "hicloud-conncheck",
+      "rows": 8880
+    },
+    "115": {
+      "name": "hicloud-logservice",
+      "rows": 7163
+    },
+    "116": {
+      "name": "xiaomi-tracking",
+      "rows": 13184
+    },
+    "117": {
+      "name": "nvidiagfe-events",
+      "rows": 17689
+    },
+    "118": {
+      "name": "avast",
+      "rows": 65458
+    },
+    "119": {
+      "name": "kaspersky",
+      "rows": 45546
+    },
+    "120": {
+      "name": "malwarebytes-telemetry",
+      "rows": 7999
+    },
+    "121": {
+      "name": "bitdefender-gravityzone",
+      "rows": 24096
+    },
+    "122": {
+      "name": "bitdefender-nimbus",
+      "rows": 25424
+    },
+    "123": {
+      "name": "xiaomi-accounts",
+      "rows": 13582
+    },
+    "124": {
+      "name": "vsb-sso",
+      "rows": 13531
+    },
+    "125": {
+      "name": "docker-authentication",
+      "rows": 8451
+    },
+    "127": {
+      "name": "dropbox",
+      "rows": 89747
+    },
+    "128": {
+      "name": "github",
+      "rows": 24475
+    },
+    "129": {
+      "name": "uschovna",
+      "rows": 7939
+    },
+    "130": {
+      "name": "ulozto",
+      "rows": 8539
+    },
+    "131": {
+      "name": "gitlab",
+      "rows": 4785
+    },
+    "132": {
+      "name": "owncloud",
+      "rows": 19844
+    },
+    "133": {
+      "name": "steam",
+      "rows": 20005
+    },
+    "134": {
+      "name": "unity-games",
+      "rows": 47405
+    },
+    "135": {
+      "name": "riot-games",
+      "rows": 22320
+    },
+    "136": {
+      "name": "king-games",
+      "rows": 28430
+    },
+    "137": {
+      "name": "ea-games",
+      "rows": 40763
+    },
+    "139": {
+      "name": "uzis-ocko",
+      "rows": 2190
+    },
+    "140": {
+      "name": "moodle",
+      "rows": 16385
+    },
+    "141": {
+      "name": "redmine",
+      "rows": 1419
+    },
+    "142": {
+      "name": "vse-insis",
+      "rows": 21931
+    },
+    "145": {
+      "name": "ndk",
+      "rows": 35577
+    },
+    "146": {
+      "name": "katastr-nahlizeni",
+      "rows": 1482
+    },
+    "147": {
+      "name": "datova-schranka",
+      "rows": 11428
+    },
+    "148": {
+      "name": "slack",
+      "rows": 9600
+    },
+    "149": {
+      "name": "discord",
+      "rows": 41366
+    },
+    "151": {
+      "name": "fio-ib",
+      "rows": 10983
+    },
+    "155": {
+      "name": "rb-ib",
+      "rows": 9776
+    },
+    "156": {
+      "name": "airbank-ib",
+      "rows": 6710
+    },
+    "157": {
+      "name": "kb-ib",
+      "rows": 3058
+    },
+    "158": {
+      "name": "3dsecure",
+      "rows": 5738
+    },
+    "160": {
+      "name": "vimeo",
+      "rows": 11469
+    },
+    "161": {
+      "name": "netflix",
+      "rows": 11090
+    },
+    "162": {
+      "name": "twitch",
+      "rows": 44573
+    },
+    "163": {
+      "name": "o2tv",
+      "rows": 104601
+    },
+    "164": {
+      "name": "font-awesome",
+      "rows": 9344
+    },
+    "166": {
+      "name": "sumava-camdata",
+      "rows": 7755
+    },
+    "167": {
+      "name": "spotify",
+      "rows": 190628
+    },
+    "168": {
+      "name": "soundcloud",
+      "rows": 8876
+    },
+    "169": {
+      "name": "uzis-api",
+      "rows": 9645
+    },
+    "170": {
+      "name": "autodesk",
+      "rows": 54327
+    },
+    "171": {
+      "name": "doh",
+      "rows": 156972
+    },
+    "174": {
+      "name": "vzp-api",
+      "rows": 11215
+    },
+    "175": {
+      "name": "aukro-backend",
+      "rows": 8628
+    },
+    "176": {
+      "name": "rozhlas-api",
+      "rows": 16252
+    },
+    "177": {
+      "name": "zotero",
+      "rows": 7107
+    },
+    "178": {
+      "name": "obalky-knih",
+      "rows": 17998
+    },
+    "179": {
+      "name": "nvidiagfe-services",
+      "rows": 11286
+    },
+    "180": {
+      "name": "grammarly",
+      "rows": 113417
+    },
+    "181": {
+      "name": "signageos",
+      "rows": 11819
+    },
+    "182": {
+      "name": "booking-com",
+      "rows": 10130
+    },
+    "183": {
+      "name": "salesforce",
+      "rows": 29789
+    },
+    "184": {
+      "name": "dopravni-info",
+      "rows": 23275
+    },
+    "185": {
+      "name": "vmware-vcsa",
+      "rows": 27088
+    },
+    "186": {
+      "name": "teamviewer-client",
+      "rows": 8291
+    },
+    "187": {
+      "name": "duckduckgo",
+      "rows": 9009
+    },
+    "188": {
+      "name": "mlp-search",
+      "rows": 11210
+    },
+    "189": {
+      "name": "tiktok",
+      "rows": 319323
+    },
+    "190": {
+      "name": "snapchat",
+      "rows": 216318
+    },
+    "191": {
+      "name": "twitter",
+      "rows": 129487
+    },
+    "192": {
+      "name": "tinder",
+      "rows": 11918
+    },
+    "193": {
+      "name": "docker-registry",
+      "rows": 19851
+    },
+    "194": {
+      "name": "npm-registry",
+      "rows": 10846
+    },
+    "195": {
+      "name": "unpkg",
+      "rows": 11731
+    },
+    "196": {
+      "name": "zoom",
+      "rows": 15146
+    },
+    "197": {
+      "name": "webex",
+      "rows": 14037
+    },
+    "198": {
+      "name": "accuweather",
+      "rows": 34327
+    },
+    "199": {
+      "name": "the-weather-channel",
+      "rows": 9356
+    },
+    "200": {
+      "name": "chmi",
+      "rows": 29007
+    }
+  },
+  "category_codes_overall": {
+    "0": {
+      "name": "Advertising",
+      "rows": 1181808
+    },
+    "1": {
+      "name": "Analytics & Telemetry",
+      "rows": 779308
+    },
+    "2": {
+      "name": "Authentication",
+      "rows": 553333
+    },
+    "3": {
+      "name": "File sharing",
+      "rows": 348261
+    },
+    "4": {
+      "name": "Notifications",
+      "rows": 193557
+    },
+    "5": {
+      "name": "Search",
+      "rows": 430327
+    },
+    "6": {
+      "name": "Software updates",
+      "rows": 377512
+    },
+    "7": {
+      "name": "Media",
+      "rows": 854540
+    },
+    "8": {
+      "name": "Other APIs",
+      "rows": 674232
+    },
+    "9": {
+      "name": "Virtual assistant",
+      "rows": 12441
+    },
+    "10": {
+      "name": "Location",
+      "rows": 270556
+    },
+    "11": {
+      "name": "Music",
+      "rows": 332002
+    },
+    "12": {
+      "name": "Weather",
+      "rows": 125292
+    },
+    "13": {
+      "name": "Information systems",
+      "rows": 113534
+    },
+    "14": {
+      "name": "Mail",
+      "rows": 370261
+    },
+    "15": {
+      "name": "Instant messaging",
+      "rows": 174491
+    },
+    "16": {
+      "name": "Antivirus",
+      "rows": 793192
+    },
+    "17": {
+      "name": "Social",
+      "rows": 887137
+    },
+    "18": {
+      "name": "Other services",
+      "rows": 808697
+    },
+    "19": {
+      "name": "Remote desktop",
+      "rows": 15610
+    },
+    "20": {
+      "name": "Videoconferencing",
+      "rows": 473784
+    },
+    "21": {
+      "name": "Games",
+      "rows": 193860
+    },
+    "22": {
+      "name": "Internet banking",
+      "rows": 36265
+    }
+  },
+  "candidate_protocol_phase_counts": {
+    "initialization": {
+      "iso_year": 2022,
+      "weeks": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "rows": 1086644,
+      "active_app_codes": 180,
+      "apps_with_lt_10": 1,
+      "apps_with_lt_50": 4,
+      "apps_with_lt_200": 6
+    },
+    "development": {
+      "iso_year": 2022,
+      "weeks": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "rows": 994127,
+      "active_app_codes": 180,
+      "apps_with_lt_10": 1,
+      "apps_with_lt_50": 5,
+      "apps_with_lt_200": 8
+    },
+    "frozen_prequential": {
+      "iso_year": 2022,
+      "weeks": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "rows": 6120730,
+      "active_app_codes": 180,
+      "apps_with_lt_10": 0,
+      "apps_with_lt_50": 0,
+      "apps_with_lt_200": 1
+    },
+    "partial_tail": {
+      "iso_year": 2022,
+      "weeks": [
+        52
+      ],
+      "rows": 24017,
+      "active_app_codes": 175,
+      "apps_with_lt_10": 24,
+      "apps_with_lt_50": 93,
+      "apps_with_lt_200": 143
+    },
+    "measurement_change_stress": {
+      "iso_year": 2022,
+      "weeks": [
+        10
+      ],
+      "rows": 254636,
+      "active_app_codes": 180,
+      "apps_with_lt_10": 3,
+      "apps_with_lt_50": 8,
+      "apps_with_lt_200": 26
+    },
+    "early_separate_period": {
+      "iso_year": 2022,
+      "weeks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "rows": 1498658,
+      "active_app_codes": 180,
+      "apps_with_lt_10": 0,
+      "apps_with_lt_50": 1,
+      "apps_with_lt_200": 4
+    },
+    "pre_2022_iso_boundary": {
+      "iso_year": 2021,
+      "weeks": [
+        52
+      ],
+      "rows": 21188,
+      "active_app_codes": 177,
+      "apps_with_lt_10": 17,
+      "apps_with_lt_50": 92,
+      "apps_with_lt_200": 148
+    }
+  },
+  "frozen_prequential_weekly_label_coverage_expectation": {
+    "50": {
+      "mean_expected_classes": 34.4237,
+      "min_expected_classes": 33.3588,
+      "max_expected_classes": 34.9866
+    },
+    "200": {
+      "mean_expected_classes": 74.8408,
+      "min_expected_classes": 72.2316,
+      "max_expected_classes": 76.6421
+    },
+    "1000": {
+      "mean_expected_classes": 132.751,
+      "min_expected_classes": 128.6765,
+      "max_expected_classes": 134.9575
+    },
+    "5000": {
+      "mean_expected_classes": 168.2603,
+      "min_expected_classes": 164.8394,
+      "max_expected_classes": 171.0407
+    },
+    "10000": {
+      "mean_expected_classes": 172.5716,
+      "min_expected_classes": 170.3073,
+      "max_expected_classes": 175.0294
+    }
+  },
+  "label_coverage_formula": "For each APP class with n rows in a week of N flows, sum 1-C(N-n,b)/C(N,b) over classes for a uniform sample of b labels without replacement.",
+  "files": {
+    "daily": {
+      "name": "CESNET_TLS_YEAR22_XS_DAILY_CENSUS_2026_11_10.csv",
+      "sha256": "53c2eb70fb7efd23d43d0aabfaaab4a79c2b13c3459941a329ac8cca6af90d84"
+    },
+    "date_app_counts": {
+      "name": "CESNET_TLS_YEAR22_XS_DATE_APP_COUNTS_2026_11_10.csv",
+      "sha256": "90a91706bf8f32c5948127adc052c6043385523f86d481e338ef6809f18cac69"
+    },
+    "weekly": {
+      "name": "CESNET_TLS_YEAR22_XS_WEEKLY_CENSUS_2026_11_10.csv",
+      "sha256": "dc37522c8766aa16667a1941d949fb916cf837352f69cf18198d0bf064d53c9a"
+    },
+    "split_manifest": {
+      "name": "CESNET_TLS_YEAR22_XS_SPLIT_MANIFEST_2026_11_10.csv",
+      "sha256": "00b4baed8fe2543e568094e92596cb8a37b4a7bc6d62708779efcf036b99cc7a"
+    }
+  },
+  "data_handling": "Aggregate metadata only; no flow-level records or identifiers written.",
+  "limitations": [
+    "XS is a provider-randomized 10M scale, not the full 507M-flow archive.",
+    "Published APP label proportions reflect provider sampling and do not estimate production traffic priors.",
+    "Counts establish support only; they are not model performance or a scientific result.",
+    "Field leakage and cross-date client-ID stability require separate audits before modeling."
+  ]
+}

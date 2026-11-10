@@ -1,13 +1,13 @@
 # Reliability Reset：Agent 评测研究线
 
-当前研究版本 **1.1.05**。当前主线为**真实通信流量上的少标签半监督持续学习**，重点检验 SNN 包事件时间建模在时间漂移下的作用。FaultDA、AppWorld 与 NIKA 保留为历史工程和评测记录。研究问题与设计见[持续学习计划](COMMUNICATION_TELEMETRY_CONTINUAL_LEARNING_RESEARCH_PLAN_2026_11_09.md)及[实验协议 v0.1](experiments/communication_telemetry/COMMUNICATION_TELEMETRY_EVENT_DRIFT_GATED_SSL_PROTOCOL_V0_1_2026_11_09.md)。
+当前研究版本 **1.1.10**。当前主线为**真实通信流量上的少标签半监督持续学习**，重点检验 SNN 包事件时间建模在时间漂移下的作用。FaultDA、AppWorld 与 NIKA 保留为历史工程和评测记录。CESNET-TLS-Year22 XS 的 10M flow 全表 census、ISO 年—周切分清单和模型输入白名单已完成；模型尚未训练。研究问题与设计见[持续学习计划](COMMUNICATION_TELEMETRY_CONTINUAL_LEARNING_RESEARCH_PLAN_2026_11_09.md)、[实验协议 v0.2](experiments/communication_telemetry/COMMUNICATION_TELEMETRY_EVENT_DRIFT_GATED_SSL_PROTOCOL_V0_2_2026_11_10.md)、[数据 census](experiments/communication_telemetry/CESNET_TLS_YEAR22_XS_CENSUS_2026_11_10.json)和[输入字段契约](experiments/communication_telemetry/CESNET_TLS_YEAR22_XS_FEATURE_CONTRACT_2026_11_10.md)。
 
 ## 当前研究阶段
 
 - **研究问题：**每期只获得少量标签、同时接收大量未标注流量时，怎样在真实网络时间漂移中适应新变化，并避免遗忘旧服务？SNN 包事件动力学是否能在同标签、计算和记忆预算下改善这一折中？SNN 流内时间编码与跨期记忆分别作为独立因素评估。
 - **当前机制候选：**“稀疏标签锚定的分视图三态更新门”。分别监测包事件与流级摘要视图的变化；用更新前预测及当期延迟释放标签判断证据属于预测损害、无实质损害或证据不足；仅在标签支持预测损害且伪标签可靠时，允许无标签样本更新 SNN 时间分支。该机制仍是待检验假设，不是已建立的论文创新。
-- **数据与实验状态：**CESNET-TLS-Year22 XS 档已确认可通过官方 Range 接口获取，完整文件为 2,692,800,942 字节；当前下载未完成，尚无日期×服务 census、冻结实际切分或 ANN/SNN 模型结果。W10 exporter 变化作为独立测量流程压力测试，不并入自然流量主结果。详细限制见[数据契约审计](experiments/communication_telemetry/CESNET_TLS_YEAR22_CONTINUAL_DATA_CONTRACT_AUDIT_2026_11_09.md)。
-- **当前执行顺序：**续传 XS → 完成 HDF5 检查和日期×类别 census → 冻结真实切分与标签预算 → 运行配对 ANN 基线 → 运行 SNN 与持续学习/半监督基线 → 检验三态门控的独立作用。当前尚未训练模型。
+- **数据与实验状态：**本地 XS 完整文件已经分块下载并逐表读取，记录了本地 SHA-256、官方缺失日期核对、逐日×类别数及精确切分 manifest。全量 flow 仍是 provider 的 10M XS 抽样，不能解释为真实生产先验。W10 exporter 变化作为独立测量流程压力测试。ANN/SNN 尚未训练，未有性能结论；完整限制见[数据契约审计](experiments/communication_telemetry/CESNET_TLS_YEAR22_CONTINUAL_DATA_CONTRACT_AUDIT_2026_11_09.md)。
+- **当前执行顺序：**完成未暴露标识的重复 flow/跨期依赖审计 → 仅用 W15–W18 冻结标签预算、种子和校准阈值 → 实现并检查 loader 的白名单断言 → 跑 ANN/SNN 输入一致性烟测 → 运行配对基线和门控消融。XS 原始归档保存在仓库外，不提交。
 
 ## 归档研究与历史证据
 
