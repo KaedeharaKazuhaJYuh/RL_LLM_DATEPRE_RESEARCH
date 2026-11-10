@@ -1,6 +1,6 @@
 # Reliability Reset：Agent 评测研究线
 
-当前研究版本 **1.1.10**。当前主线为**真实通信流量上的少标签半监督持续学习**，重点检验 SNN 包事件时间建模在时间漂移下的作用。FaultDA、AppWorld 与 NIKA 保留为历史工程和评测记录。CESNET-TLS-Year22 XS 的 10M flow 全表 census、ISO 年—周切分清单和模型输入白名单已完成；模型尚未训练。研究问题与设计见[持续学习计划](COMMUNICATION_TELEMETRY_CONTINUAL_LEARNING_RESEARCH_PLAN_2026_11_09.md)、[实验协议 v0.2](experiments/communication_telemetry/COMMUNICATION_TELEMETRY_EVENT_DRIFT_GATED_SSL_PROTOCOL_V0_2_2026_11_10.md)、[数据 census](experiments/communication_telemetry/CESNET_TLS_YEAR22_XS_CENSUS_2026_11_10.json)和[输入字段契约](experiments/communication_telemetry/CESNET_TLS_YEAR22_XS_FEATURE_CONTRACT_2026_11_10.md)。
+当前研究版本 **1.1.15**。当前主线为**真实通信流量上的少标签半监督持续学习**，重点检验 SNN 包事件时间建模在时间漂移下的作用。FaultDA、AppWorld 与 NIKA 保留为历史工程和评测记录。CESNET-TLS-Year22 XS 的 10M flow 全表 census、ISO 年—周切分清单和模型输入白名单已完成；模型尚未训练。研究问题与设计见[持续学习计划](COMMUNICATION_TELEMETRY_CONTINUAL_LEARNING_RESEARCH_PLAN_2026_11_09.md)、[实验协议 v0.2](experiments/communication_telemetry/COMMUNICATION_TELEMETRY_EVENT_DRIFT_GATED_SSL_PROTOCOL_V0_2_2026_11_10.md)、[数据 census](experiments/communication_telemetry/CESNET_TLS_YEAR22_XS_CENSUS_2026_11_10.json)和[输入字段契约](experiments/communication_telemetry/CESNET_TLS_YEAR22_XS_FEATURE_CONTRACT_2026_11_10.md)。
 
 ## 当前研究阶段
 

@@ -6,7 +6,7 @@
 
 当前研究方向是**真实通信流量上的少标签半监督持续学习**，重点检验 SNN 包事件时间建模在时间漂移和灾难性遗忘下是否有独立作用。当前机制与证据状态见[研究计划](research/reliability_reset/COMMUNICATION_TELEMETRY_CONTINUAL_LEARNING_RESEARCH_PLAN_2026_11_09.md)。
 
-当前研究版本：`1.1.10` · 当前工作分支：`comm-telemetry-crossday-load-audit-2026-11-09` · 历史基准：`FaultDA-Bench 0.5.66-dev`。
+当前研究版本：`1.1.15` · 当前工作分支：`comm-telemetry-crossday-load-audit-2026-11-09` · 历史基准：`FaultDA-Bench 0.5.66-dev`。
 <!-- inherited-release: V5.0.15-beta.2 -->
 
 ## 当前研究主线
