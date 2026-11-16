@@ -1,0 +1,155 @@
+{
+  "dataset_sha256": "340f84491dc9c5eb8173718bea15cd7fe80abf8e945adf26859a34aaa66e7816",
+  "scope": "development only, sequential supervised fine-tuning; no SSL or replay",
+  "initial_checkpoint_profile": "balanced tuned using W15",
+  "update_budget": 1000,
+  "update_epochs": 5,
+  "update_batch_size": 128,
+  "update_optimizer": "Adam lr=0.001",
+  "torch_version": "2.8.0+cu128",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "models": {
+    "ann_gru": {
+      "initial_checkpoint_sha256": "9d5e3486c1b204d2048ca7fc7792a74a29ae3b913fccbd963dafdc45be425552",
+      "weeks": {
+        "15": {
+          "score_before_update": {
+            "flows": 195033,
+            "accuracy": 0.2233211815436362,
+            "macro_f1_fixed_vocabulary": 0.05793886410835489,
+            "vocabulary_size": 180,
+            "out_of_vocabulary_truth": 0,
+            "label_budget": 1000,
+            "label_seed": 20261129,
+            "prediction_sha256": "f74638cf55328772eebe0a7036e807af96a0c6227195d3e399f542ebdfc7fc99"
+          },
+          "released_label_count": 1000,
+          "released_row_ids_sha256": "ad3c9497ae29382fbadd0155e766f10d32cafaa0d3b3bd83862e571b23d00b1f",
+          "released_distinct_classes": 139,
+          "update_steps": 40,
+          "update_seconds": 0.4539548000029754
+        },
+        "16": {
+          "score_before_update": {
+            "flows": 232229,
+            "accuracy": 0.2080403394924837,
+            "macro_f1_fixed_vocabulary": 0.052202058632151,
+            "vocabulary_size": 180,
+            "out_of_vocabulary_truth": 0,
+            "label_budget": 1000,
+            "label_seed": 20261130,
+            "prediction_sha256": "a726466e43c7727467c13b06a345ac792d77faf930404ba03b9aec7c2059d47b"
+          },
+          "released_label_count": 1000,
+          "released_row_ids_sha256": "b56f57aa22d1ec2180be8a070022aacac16279d02db24f4bb35ba8b7c8b4a825",
+          "released_distinct_classes": 134,
+          "update_steps": 40,
+          "update_seconds": 0.09218970002257265
+        },
+        "17": {
+          "score_before_update": {
+            "flows": 280178,
+            "accuracy": 0.2213235871481701,
+            "macro_f1_fixed_vocabulary": 0.057441391894278146,
+            "vocabulary_size": 180,
+            "out_of_vocabulary_truth": 0,
+            "label_budget": 1000,
+            "label_seed": 20261131,
+            "prediction_sha256": "d882301e350e55219f7b94ffa2986f50887cdbdda714c7041aba99b168a216c7"
+          },
+          "released_label_count": 1000,
+          "released_row_ids_sha256": "4189bffc0757e7cfaee396076d19c5903adbdd3247d492ed4eb32f3fd2f22b45",
+          "released_distinct_classes": 130,
+          "update_steps": 40,
+          "update_seconds": 0.09364999999525025
+        },
+        "18": {
+          "score_before_update": {
+            "flows": 286687,
+            "accuracy": 0.21183729991244807,
+            "macro_f1_fixed_vocabulary": 0.05491888948362721,
+            "vocabulary_size": 180,
+            "out_of_vocabulary_truth": 0,
+            "label_budget": 1000,
+            "label_seed": 20261132,
+            "prediction_sha256": "6c2785b4f827e4b4bd16c6f627ed2caf162676ffd740e26e933200f8d95e33de"
+          },
+          "released_label_count": 1000,
+          "released_row_ids_sha256": "4fcb5c0bceb1e8c26276fc427d35410ae4c9be54b81bc0578700ad5514a1ca0a",
+          "released_distinct_classes": 131
+        }
+      }
+    },
+    "snn_lif_surrogate": {
+      "initial_checkpoint_sha256": "2c321f5c0af77cc1e6bf857c9b570102366609e928f73116b75c9e9927e65f96",
+      "weeks": {
+        "15": {
+          "score_before_update": {
+            "flows": 195033,
+            "accuracy": 0.12984982028682326,
+            "macro_f1_fixed_vocabulary": 0.016846334162539934,
+            "vocabulary_size": 180,
+            "out_of_vocabulary_truth": 0,
+            "label_budget": 1000,
+            "label_seed": 20261129,
+            "prediction_sha256": "1202a6447413eccb158ab3f53bae2648f985afd8f07cc43142cd54a9f539be9b"
+          },
+          "released_label_count": 1000,
+          "released_row_ids_sha256": "ad3c9497ae29382fbadd0155e766f10d32cafaa0d3b3bd83862e571b23d00b1f",
+          "released_distinct_classes": 139,
+          "update_steps": 40,
+          "update_seconds": 0.6972056000086013
+        },
+        "16": {
+          "score_before_update": {
+            "flows": 232229,
+            "accuracy": 0.12076011178621103,
+            "macro_f1_fixed_vocabulary": 0.014711195405526572,
+            "vocabulary_size": 180,
+            "out_of_vocabulary_truth": 0,
+            "label_budget": 1000,
+            "label_seed": 20261130,
+            "prediction_sha256": "6e610bfacc2acad379efce35438ff5a87b3edc3d75901a32766b55c10cfd7048"
+          },
+          "released_label_count": 1000,
+          "released_row_ids_sha256": "b56f57aa22d1ec2180be8a070022aacac16279d02db24f4bb35ba8b7c8b4a825",
+          "released_distinct_classes": 134,
+          "update_steps": 40,
+          "update_seconds": 0.6661440999887418
+        },
+        "17": {
+          "score_before_update": {
+            "flows": 280178,
+            "accuracy": 0.13520690418234121,
+            "macro_f1_fixed_vocabulary": 0.016870316797616212,
+            "vocabulary_size": 180,
+            "out_of_vocabulary_truth": 0,
+            "label_budget": 1000,
+            "label_seed": 20261131,
+            "prediction_sha256": "ca43db24e2cdd17b88fff9d6ca69794a6833de09f526a6d1bb5b12e03b02e032"
+          },
+          "released_label_count": 1000,
+          "released_row_ids_sha256": "4189bffc0757e7cfaee396076d19c5903adbdd3247d492ed4eb32f3fd2f22b45",
+          "released_distinct_classes": 130,
+          "update_steps": 40,
+          "update_seconds": 0.6756050999974832
+        },
+        "18": {
+          "score_before_update": {
+            "flows": 286687,
+            "accuracy": 0.12530390286270393,
+            "macro_f1_fixed_vocabulary": 0.016652303734085983,
+            "vocabulary_size": 180,
+            "out_of_vocabulary_truth": 0,
+            "label_budget": 1000,
+            "label_seed": 20261132,
+            "prediction_sha256": "d5b216f848ec7c0950ae749cc5e069823df2c49d2cf61adf61597573c32dbec9"
+          },
+          "released_label_count": 1000,
+          "released_row_ids_sha256": "4fcb5c0bceb1e8c26276fc427d35410ae4c9be54b81bc0578700ad5514a1ca0a",
+          "released_distinct_classes": 131
+        }
+      }
+    }
+  }
+}

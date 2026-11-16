@@ -1,0 +1,109 @@
+{
+  "dataset_sha256": "340f84491dc9c5eb8173718bea15cd7fe80abf8e945adf26859a34aaa66e7816",
+  "scope": "static frozen models on development weeks only; no continual update",
+  "pilot_profile": "balanced tuned using W15",
+  "torch_version": "2.8.0+cu128",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "models": {
+    "ann_gru": {
+      "checkpoint_sha256": "9d5e3486c1b204d2048ca7fc7792a74a29ae3b913fccbd963dafdc45be425552",
+      "weeks": {
+        "16": {
+          "score": {
+            "flows": 232229,
+            "accuracy": 0.20934078000594242,
+            "macro_f1_fixed_vocabulary": 0.05645020438045511,
+            "vocabulary_size": 180,
+            "out_of_vocabulary_truth": 0,
+            "label_budget": 1000,
+            "label_seed": 20261130,
+            "prediction_sha256": "ed8b531ce7b0b61309904f6f0cf7fe90a90c06e2f775ec00c3a34dfb5f1c4447"
+          },
+          "released_label_count": 1000,
+          "predicted_classes": 70,
+          "most_common_prediction_fraction": 0.08169522324946497
+        },
+        "17": {
+          "score": {
+            "flows": 280178,
+            "accuracy": 0.2040738387739223,
+            "macro_f1_fixed_vocabulary": 0.05535833614773719,
+            "vocabulary_size": 180,
+            "out_of_vocabulary_truth": 0,
+            "label_budget": 1000,
+            "label_seed": 20261131,
+            "prediction_sha256": "da4267b68adb8a5017e233bcbcb77c03e79cedc122f942cd8dcb085f698507db"
+          },
+          "released_label_count": 1000,
+          "predicted_classes": 71,
+          "most_common_prediction_fraction": 0.08730878227412574
+        },
+        "18": {
+          "score": {
+            "flows": 286687,
+            "accuracy": 0.20346580068157957,
+            "macro_f1_fixed_vocabulary": 0.05664152653622708,
+            "vocabulary_size": 180,
+            "out_of_vocabulary_truth": 0,
+            "label_budget": 1000,
+            "label_seed": 20261132,
+            "prediction_sha256": "8136999de812a4999397a74f56639d56c88baacd5ba6bb18d6eadc207c6f1a71"
+          },
+          "released_label_count": 1000,
+          "predicted_classes": 71,
+          "most_common_prediction_fraction": 0.08620202520518894
+        }
+      }
+    },
+    "snn_lif_surrogate": {
+      "checkpoint_sha256": "2c321f5c0af77cc1e6bf857c9b570102366609e928f73116b75c9e9927e65f96",
+      "weeks": {
+        "16": {
+          "score": {
+            "flows": 232229,
+            "accuracy": 0.1258456092908293,
+            "macro_f1_fixed_vocabulary": 0.016950548145083615,
+            "vocabulary_size": 180,
+            "out_of_vocabulary_truth": 0,
+            "label_budget": 1000,
+            "label_seed": 20261130,
+            "prediction_sha256": "cd806e27908b680ce7eac187ef4e16734b7bc770ad64cafaf21d0416ffe75fee"
+          },
+          "released_label_count": 1000,
+          "predicted_classes": 20,
+          "most_common_prediction_fraction": 0.4368705028226449
+        },
+        "17": {
+          "score": {
+            "flows": 280178,
+            "accuracy": 0.12899656646845933,
+            "macro_f1_fixed_vocabulary": 0.01732728157298678,
+            "vocabulary_size": 180,
+            "out_of_vocabulary_truth": 0,
+            "label_budget": 1000,
+            "label_seed": 20261131,
+            "prediction_sha256": "500ff0d5e39cf941040635c75b62918440949618a0f49df0bfcb08aca54890a7"
+          },
+          "released_label_count": 1000,
+          "predicted_classes": 21,
+          "most_common_prediction_fraction": 0.4473977257314993
+        },
+        "18": {
+          "score": {
+            "flows": 286687,
+            "accuracy": 0.12355984052293965,
+            "macro_f1_fixed_vocabulary": 0.016950609482620404,
+            "vocabulary_size": 180,
+            "out_of_vocabulary_truth": 0,
+            "label_budget": 1000,
+            "label_seed": 20261132,
+            "prediction_sha256": "a42ee544d8c5166694b0c1edfc8f95429633a2b00f9fd295ad2bce7f8a0703b1"
+          },
+          "released_label_count": 1000,
+          "predicted_classes": 21,
+          "most_common_prediction_fraction": 0.44702410642966023
+        }
+      }
+    }
+  }
+}

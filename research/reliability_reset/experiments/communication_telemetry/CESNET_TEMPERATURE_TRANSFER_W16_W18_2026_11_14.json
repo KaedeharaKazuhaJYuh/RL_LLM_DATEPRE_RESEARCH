@@ -1,0 +1,276 @@
+{
+  "dataset_sha256": "340f84491dc9c5eb8173718bea15cd7fe80abf8e945adf26859a34aaa66e7816",
+  "scope": "frozen W15 temperatures transferred without updates; development weeks only",
+  "temperature_summary_sha256": "2aceda1d0ddc5f8583f50b98fcb1059184e19c8274a507842127e46ce77081af",
+  "static_summary_sha256": "26f9840238097c92a89700c57801f36fdaf78a56f63c2c9b8ebe58c1190835ae",
+  "models": {
+    "ann_gru": {
+      "checkpoint_sha256": "9d5e3486c1b204d2048ca7fc7792a74a29ae3b913fccbd963dafdc45be425552",
+      "weeks": {
+        "16": {
+          "sealed_prediction_sha256": "ed8b531ce7b0b61309904f6f0cf7fe90a90c06e2f775ec00c3a34dfb5f1c4447",
+          "labeled_row_ids_sha256": "b56f57aa22d1ec2180be8a070022aacac16279d02db24f4bb35ba8b7c8b4a825",
+          "unlabeled_row_ids_sha256": "62174cfd53933f395e6c098d04a7d508741ab48ea89854ddbc515116003b8998",
+          "assessments": [
+            {
+              "temperature": 1.0,
+              "labeled_nll": 3.7579996585845947,
+              "thresholds": [
+                {
+                  "threshold": 0.5,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                },
+                {
+                  "threshold": 0.8,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                }
+              ]
+            },
+            {
+              "temperature": 0.668740304976422,
+              "labeled_nll": 3.6552274227142334,
+              "thresholds": [
+                {
+                  "threshold": 0.5,
+                  "labeled_accepted": 39,
+                  "labeled_correct": 28,
+                  "unlabeled_accepted": 32
+                },
+                {
+                  "threshold": 0.8,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                }
+              ]
+            }
+          ]
+        },
+        "17": {
+          "sealed_prediction_sha256": "da4267b68adb8a5017e233bcbcb77c03e79cedc122f942cd8dcb085f698507db",
+          "labeled_row_ids_sha256": "4189bffc0757e7cfaee396076d19c5903adbdd3247d492ed4eb32f3fd2f22b45",
+          "unlabeled_row_ids_sha256": "c1ad3dd608b2b64b7df524008e70749559817320eb619e32aceb25a74cfa240e",
+          "assessments": [
+            {
+              "temperature": 1.0,
+              "labeled_nll": 3.7353355884552,
+              "thresholds": [
+                {
+                  "threshold": 0.5,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                },
+                {
+                  "threshold": 0.8,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                }
+              ]
+            },
+            {
+              "temperature": 0.668740304976422,
+              "labeled_nll": 3.6063461303710938,
+              "thresholds": [
+                {
+                  "threshold": 0.5,
+                  "labeled_accepted": 32,
+                  "labeled_correct": 19,
+                  "unlabeled_accepted": 28
+                },
+                {
+                  "threshold": 0.8,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                }
+              ]
+            }
+          ]
+        },
+        "18": {
+          "sealed_prediction_sha256": "8136999de812a4999397a74f56639d56c88baacd5ba6bb18d6eadc207c6f1a71",
+          "labeled_row_ids_sha256": "4fcb5c0bceb1e8c26276fc427d35410ae4c9be54b81bc0578700ad5514a1ca0a",
+          "unlabeled_row_ids_sha256": "a2d6d579fdc2d63216d8a661970ed934feedbdb838f5229e85ee86227c630121",
+          "assessments": [
+            {
+              "temperature": 1.0,
+              "labeled_nll": 3.732170820236206,
+              "thresholds": [
+                {
+                  "threshold": 0.5,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                },
+                {
+                  "threshold": 0.8,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                }
+              ]
+            },
+            {
+              "temperature": 0.668740304976422,
+              "labeled_nll": 3.6014349460601807,
+              "thresholds": [
+                {
+                  "threshold": 0.5,
+                  "labeled_accepted": 31,
+                  "labeled_correct": 21,
+                  "unlabeled_accepted": 34
+                },
+                {
+                  "threshold": 0.8,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "snn_lif_surrogate": {
+      "checkpoint_sha256": "2c321f5c0af77cc1e6bf857c9b570102366609e928f73116b75c9e9927e65f96",
+      "weeks": {
+        "16": {
+          "sealed_prediction_sha256": "cd806e27908b680ce7eac187ef4e16734b7bc770ad64cafaf21d0416ffe75fee",
+          "labeled_row_ids_sha256": "b56f57aa22d1ec2180be8a070022aacac16279d02db24f4bb35ba8b7c8b4a825",
+          "unlabeled_row_ids_sha256": "62174cfd53933f395e6c098d04a7d508741ab48ea89854ddbc515116003b8998",
+          "assessments": [
+            {
+              "temperature": 1.0,
+              "labeled_nll": 4.275612831115723,
+              "thresholds": [
+                {
+                  "threshold": 0.5,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                },
+                {
+                  "threshold": 0.8,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                }
+              ]
+            },
+            {
+              "temperature": 0.48468937332853074,
+              "labeled_nll": 4.020205497741699,
+              "thresholds": [
+                {
+                  "threshold": 0.5,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                },
+                {
+                  "threshold": 0.8,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                }
+              ]
+            }
+          ]
+        },
+        "17": {
+          "sealed_prediction_sha256": "500ff0d5e39cf941040635c75b62918440949618a0f49df0bfcb08aca54890a7",
+          "labeled_row_ids_sha256": "4189bffc0757e7cfaee396076d19c5903adbdd3247d492ed4eb32f3fd2f22b45",
+          "unlabeled_row_ids_sha256": "c1ad3dd608b2b64b7df524008e70749559817320eb619e32aceb25a74cfa240e",
+          "assessments": [
+            {
+              "temperature": 1.0,
+              "labeled_nll": 4.2962188720703125,
+              "thresholds": [
+                {
+                  "threshold": 0.5,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                },
+                {
+                  "threshold": 0.8,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                }
+              ]
+            },
+            {
+              "temperature": 0.48468937332853074,
+              "labeled_nll": 4.062851428985596,
+              "thresholds": [
+                {
+                  "threshold": 0.5,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                },
+                {
+                  "threshold": 0.8,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                }
+              ]
+            }
+          ]
+        },
+        "18": {
+          "sealed_prediction_sha256": "a42ee544d8c5166694b0c1edfc8f95429633a2b00f9fd295ad2bce7f8a0703b1",
+          "labeled_row_ids_sha256": "4fcb5c0bceb1e8c26276fc427d35410ae4c9be54b81bc0578700ad5514a1ca0a",
+          "unlabeled_row_ids_sha256": "a2d6d579fdc2d63216d8a661970ed934feedbdb838f5229e85ee86227c630121",
+          "assessments": [
+            {
+              "temperature": 1.0,
+              "labeled_nll": 4.253052711486816,
+              "thresholds": [
+                {
+                  "threshold": 0.5,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                },
+                {
+                  "threshold": 0.8,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                }
+              ]
+            },
+            {
+              "temperature": 0.48468937332853074,
+              "labeled_nll": 3.9782161712646484,
+              "thresholds": [
+                {
+                  "threshold": 0.5,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                },
+                {
+                  "threshold": 0.8,
+                  "labeled_accepted": 0,
+                  "labeled_correct": 0,
+                  "unlabeled_accepted": 0
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

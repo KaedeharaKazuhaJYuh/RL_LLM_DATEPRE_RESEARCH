@@ -1,13 +1,17 @@
 # Reliability Reset：Agent 评测研究线
 
-当前研究版本 **1.1.20**。当前主线为**真实通信流量上的少标签半监督持续学习**，重点检验 SNN 包事件时间建模在时间漂移下的作用。FaultDA、AppWorld 与 NIKA 保留为历史工程和评测记录。CESNET-TLS-Year22 XS 的 10M flow 全表 census、ISO 年—周切分清单和模型输入白名单已完成；模型尚未训练。研究问题与设计见[持续学习计划](COMMUNICATION_TELEMETRY_CONTINUAL_LEARNING_RESEARCH_PLAN_2026_11_09.md)、[实验协议 v0.2](experiments/communication_telemetry/COMMUNICATION_TELEMETRY_EVENT_DRIFT_GATED_SSL_PROTOCOL_V0_2_2026_11_10.md)、[数据 census](experiments/communication_telemetry/CESNET_TLS_YEAR22_XS_CENSUS_2026_11_10.json)和[输入字段契约](experiments/communication_telemetry/CESNET_TLS_YEAR22_XS_FEATURE_CONTRACT_2026_11_10.md)。
+当前研究版本 **1.1.90**。当前主线为**真实通信流量上的少标签半监督持续学习**，重点检验 SNN 包事件时间建模在时间漂移下的作用。FaultDA、AppWorld 与 NIKA 保留为历史工程和评测记录。CESNET-TLS-Year22 XS 的 10M flow census、ISO 年—周切分清单和输入白名单已完成；读取器已在开发窗 512 条真实流上烟测；W15 全周以多数类规则验证预测封存、评分和标签抽样；ANN/SNN 已开展少标签开发窗训练和逐周监督更新试验，尚无等计算匹配的模型对照。研究问题与设计见[持续学习计划](COMMUNICATION_TELEMETRY_CONTINUAL_LEARNING_RESEARCH_PLAN_2026_11_09.md)、[实验协议 v0.2](experiments/communication_telemetry/COMMUNICATION_TELEMETRY_EVENT_DRIFT_GATED_SSL_PROTOCOL_V0_2_2026_11_10.md)、[数据 census](experiments/communication_telemetry/CESNET_TLS_YEAR22_XS_CENSUS_2026_11_10.json)和[输入字段契约](experiments/communication_telemetry/CESNET_TLS_YEAR22_XS_FEATURE_CONTRACT_2026_11_10.md)。
+
+[GPU 原型烟测](experiments/communication_telemetry/CESNET_CUDA_MODEL_SMOKE_2026_11_12.md)仅验证执行路径。开发流程控制及预算边界见 [W15 控制记录](experiments/communication_telemetry/CESNET_PREQUENTIAL_W15_CONTROL_2026_11_12.md)；历史 census 换行哈希差异见[更正](experiments/communication_telemetry/CESNET_CENSUS_LINE_ENDING_ERRATUM_2026_11_12.md)。
+
+[少标签开发试验与逐周更新结果](experiments/communication_telemetry/CESNET_DEVELOPMENT_PILOT_2026_11_14.md)记录监督基线；[回放与半监督开发报告](experiments/communication_telemetry/CESNET_REPLAY_SSL_DEV_REPORT_2026_11_14.md)记录单种子对照与置信度诊断。回放带来开发期改善；固定 0.8 阈值下伪标签均未被接收，不能据此声称半监督方法有效。 [W15 SNN 活动诊断](experiments/communication_telemetry/CESNET_SNN_ACTIVITY_REPORT_2026_11_14.md)显示样本内每条流都有脉冲，但预测类别覆盖较窄；这不构成因果结论。 [固定编码器读出对照](experiments/communication_telemetry/CESNET_READOUT_PROBE_REPORT_2026_11_14.md)中，SNN 完整读出拟合改善 W15 留出表现，但尚无跨周或独立种子验证。 [两标签种子逐周对照](experiments/communication_telemetry/CESNET_HEAD_ONLY_SEQUENTIAL_REPORT_2026_11_14.md)中仅更新读出没有稳定超越全模型更新；两种子共享初始化和数据源。 [低阈值伪标签对照](experiments/communication_telemetry/CESNET_LOW_THRESHOLD_SSL_REPORT_2026_11_16.md)在两个开发种子中发生退化，未隔离监督曝光及损失权重等因素。 [真实标签替代对照](experiments/communication_telemetry/CESNET_MATCHED_EXTRA_CONTROL_REPORT_2026_11_16.md)匹配了基础监督批次和损失项结构，结果优于伪标签，但样本分布及真实标签总曝光仍不同。 [类别可靠性筛选](experiments/communication_telemetry/CESNET_CLASS_GATE_REPORT_2026_11_16.md)在两个标签种子均未接收样本，退回监督回放。 [筛选与留出行诊断](experiments/communication_telemetry/CESNET_CLASS_GATE_SPLIT_REPORT_2026_11_16.md)显示类别支持量普遍不足，个别支持较多的类别仍出现较低正确数。 [跨类别置信度分层诊断](experiments/communication_telemetry/CESNET_CONFIDENCE_POOL_REPORT_2026_11_16.md)在两种标签抽样下均无区间通过预设规则。 [SNN 训练轮数对照](experiments/communication_telemetry/CESNET_SNN_EPOCH_ABLATION_REPORT_2026_11_16.md)显示 W15 指标随额外训练提升，尚未评估后续周。
 
 ## 当前研究阶段
 
 - **研究问题：**每期只获得少量标签、同时接收大量未标注流量时，怎样在真实网络时间漂移中适应新变化，并避免遗忘旧服务？SNN 包事件动力学是否能在同标签、计算和记忆预算下改善这一折中？SNN 流内时间编码与跨期记忆分别作为独立因素评估。
 - **当前机制候选：**“稀疏标签锚定的分视图三态更新门”。分别监测包事件与流级摘要视图的变化；用更新前预测及当期延迟释放标签判断证据属于预测损害、无实质损害或证据不足；仅在标签支持预测损害且伪标签可靠时，允许无标签样本更新 SNN 时间分支。该机制仍是待检验假设，不是已建立的论文创新。
-- **数据与实验状态：**本地 XS 完整文件已经分块下载并逐表读取，记录了本地 SHA-256、官方缺失日期核对、逐日×类别数及精确切分 manifest。全量 flow 仍是 provider 的 10M XS 抽样，不能解释为真实生产先验。W10 exporter 变化作为独立测量流程压力测试。ANN/SNN 尚未训练，未有性能结论；完整限制见[数据契约审计](experiments/communication_telemetry/CESNET_TLS_YEAR22_CONTINUAL_DATA_CONTRACT_AUDIT_2026_11_09.md)。
-- **当前执行顺序：**完成未暴露标识的重复 flow/跨期依赖审计 → 仅用 W15–W18 冻结标签预算、种子和校准阈值 → 实现并检查 loader 的白名单断言 → 跑 ANN/SNN 输入一致性烟测 → 运行配对基线和门控消融。XS 原始归档保存在仓库外，不提交。
+- **数据与实验状态：**本地 XS 完整文件已经分块下载并逐表读取，记录了本地 SHA-256、官方缺失日期核对、逐日×类别数及精确切分 manifest。全量 flow 仍是 provider 的 10M XS 抽样，不能解释为真实生产先验。W10 exporter 变化作为独立测量流程压力测试。ANN/SNN 已在 W15–W18 开发窗评估回放与伪标签，已试行伪标签更新，但未获得正面效果或独立泛化结论；完整限制见[数据契约审计](experiments/communication_telemetry/CESNET_TLS_YEAR22_CONTINUAL_DATA_CONTRACT_AUDIT_2026_11_09.md)。
+- **当前执行顺序：**检查 SNN 活动及置信度 → 设计受标签与计算预算约束的有效半监督对照 → 增加独立抽样种子和强基线 → 匹配架构计算并评估跨期依赖。XS 原始归档保存在仓库外，不提交。
 
 ## 归档研究与历史证据
 

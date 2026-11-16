@@ -1,0 +1,277 @@
+{
+  "dataset_sha256": "340f84491dc9c5eb8173718bea15cd7fe80abf8e945adf26859a34aaa66e7816",
+  "scope": "development only; fixed-composition replay and confidence pseudo-label controls",
+  "initial_samples_sha256": "3d3898e98f1ea77cba8d46ff3a6b6e9d555cf46fa7f30de7b7cffb2588123716",
+  "replay_rows": 1000,
+  "replay_array_bytes": 514000,
+  "holdout_rows": 2000,
+  "holdout_row_ids_sha256": "39db5b3d8d05a6a6e4426dc043193611ac7ca37dfc8a1f270af4a2d1bfa53bb5",
+  "label_budget_per_week": 1000,
+  "unlabeled_candidates_per_week": 1000,
+  "pseudo_threshold": 0.05,
+  "steps_per_week": 40,
+  "batch_size": 128,
+  "label_seed_offset": 0,
+  "head_only": false,
+  "torch_version": "2.8.0+cu128",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "models": {
+    "snn_lif_surrogate": {
+      "initial_checkpoint_sha256": "2c321f5c0af77cc1e6bf857c9b570102366609e928f73116b75c9e9927e65f96",
+      "arms": {
+        "replay_class_gate": {
+          "initial_old_holdout": {
+            "accuracy": 0.1285,
+            "macro_f1_fixed_vocabulary": 0.01810781969101062,
+            "ground_truth_classes": 158
+          },
+          "weeks": {
+            "15": {
+              "score_before_update": {
+                "flows": 195033,
+                "accuracy": 0.12984982028682326,
+                "macro_f1_fixed_vocabulary": 0.016846334162539934,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20261129,
+                "prediction_sha256": "1202a6447413eccb158ab3f53bae2648f985afd8f07cc43142cd54a9f539be9b"
+              },
+              "released_row_ids_sha256": "ad3c9497ae29382fbadd0155e766f10d32cafaa0d3b3bd83862e571b23d00b1f",
+              "old_holdout_before_update": {
+                "accuracy": 0.1285,
+                "macro_f1_fixed_vocabulary": 0.01810781969101062,
+                "ground_truth_classes": 158
+              },
+              "teacher_inference_seconds": 0.010076000000026397,
+              "unlabeled_row_ids_sha256": "cfcd09705d9cf6e5a2c3e74581f239936c56bcca1abd747bef0c81bccc57c4b0",
+              "pseudo_candidates": 1000,
+              "pseudo_accepted": 0,
+              "labeled_confidence_accepted": 18,
+              "labeled_confidence_accuracy": 0.3333333333333333,
+              "labeled_accepted_by_predicted_class": {
+                "43": {
+                  "accepted": 4,
+                  "correct": 1,
+                  "wilson_lower": 0.045587260809700575
+                },
+                "51": {
+                  "accepted": 7,
+                  "correct": 5,
+                  "wilson_lower": 0.35893445183261935
+                },
+                "59": {
+                  "accepted": 2,
+                  "correct": 0,
+                  "wilson_lower": 0.0
+                },
+                "68": {
+                  "accepted": 2,
+                  "correct": 0,
+                  "wilson_lower": 0.0
+                },
+                "72": {
+                  "accepted": 2,
+                  "correct": 0,
+                  "wilson_lower": 0.0
+                },
+                "83": {
+                  "accepted": 1,
+                  "correct": 0,
+                  "wilson_lower": 0.0
+                }
+              },
+              "gate_allowed_classes": [],
+              "pre_gate_pseudo_accepted": 25,
+              "pseudo_by_predicted_class": {},
+              "update_seconds": 0.7749581999999009,
+              "update_steps": 40,
+              "effective_replay": true,
+              "effective_pseudo": false,
+              "extra_true_label_control": false,
+              "checkpoint_sha256": "487dc326bd1dfe6b2a754dba8d4b612e89308118bb4fadfc9722e5f7fd68b4dd",
+              "old_holdout_after_update": {
+                "accuracy": 0.11,
+                "macro_f1_fixed_vocabulary": 0.015323336610783524,
+                "ground_truth_classes": 158
+              }
+            },
+            "16": {
+              "score_before_update": {
+                "flows": 232229,
+                "accuracy": 0.12883834490955048,
+                "macro_f1_fixed_vocabulary": 0.016891478141936596,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20261130,
+                "prediction_sha256": "765192c0767d2269e6cf9ff6d16bbb32c7a48df5cb4411c43b859437778c6592"
+              },
+              "released_row_ids_sha256": "b56f57aa22d1ec2180be8a070022aacac16279d02db24f4bb35ba8b7c8b4a825",
+              "old_holdout_before_update": {
+                "accuracy": 0.11,
+                "macro_f1_fixed_vocabulary": 0.015323336610783524,
+                "ground_truth_classes": 158
+              },
+              "teacher_inference_seconds": 0.010268799999948897,
+              "unlabeled_row_ids_sha256": "62174cfd53933f395e6c098d04a7d508741ab48ea89854ddbc515116003b8998",
+              "pseudo_candidates": 1000,
+              "pseudo_accepted": 0,
+              "labeled_confidence_accepted": 45,
+              "labeled_confidence_accuracy": 0.2,
+              "labeled_accepted_by_predicted_class": {
+                "43": {
+                  "accepted": 1,
+                  "correct": 0,
+                  "wilson_lower": 0.0
+                },
+                "51": {
+                  "accepted": 15,
+                  "correct": 7,
+                  "wilson_lower": 0.24809535365737387
+                },
+                "59": {
+                  "accepted": 7,
+                  "correct": 0,
+                  "wilson_lower": 3.584186086443356e-17
+                },
+                "64": {
+                  "accepted": 11,
+                  "correct": 0,
+                  "wilson_lower": 0.0
+                },
+                "67": {
+                  "accepted": 2,
+                  "correct": 0,
+                  "wilson_lower": 0.0
+                },
+                "68": {
+                  "accepted": 3,
+                  "correct": 2,
+                  "wilson_lower": 0.20765960080204768
+                },
+                "72": {
+                  "accepted": 3,
+                  "correct": 0,
+                  "wilson_lower": 4.8683609171202235e-17
+                },
+                "109": {
+                  "accepted": 3,
+                  "correct": 0,
+                  "wilson_lower": 4.8683609171202235e-17
+                }
+              },
+              "gate_allowed_classes": [],
+              "pre_gate_pseudo_accepted": 45,
+              "pseudo_by_predicted_class": {},
+              "update_seconds": 0.8696431000000757,
+              "update_steps": 40,
+              "effective_replay": true,
+              "effective_pseudo": false,
+              "extra_true_label_control": false,
+              "checkpoint_sha256": "9d781912fb08fce42bd0ee31e0b5e67d1c4071fd3ceb166b97c3b8cfbedcdb22",
+              "old_holdout_after_update": {
+                "accuracy": 0.122,
+                "macro_f1_fixed_vocabulary": 0.017712115102031092,
+                "ground_truth_classes": 158
+              }
+            },
+            "17": {
+              "score_before_update": {
+                "flows": 280178,
+                "accuracy": 0.13325814303764036,
+                "macro_f1_fixed_vocabulary": 0.01754724722878799,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20261131,
+                "prediction_sha256": "8bab0accefc68d4816b3d73bb026f76200e703512ff155ff481192a220582a07"
+              },
+              "released_row_ids_sha256": "4189bffc0757e7cfaee396076d19c5903adbdd3247d492ed4eb32f3fd2f22b45",
+              "old_holdout_before_update": {
+                "accuracy": 0.122,
+                "macro_f1_fixed_vocabulary": 0.017712115102031092,
+                "ground_truth_classes": 158
+              },
+              "teacher_inference_seconds": 0.011005699999941498,
+              "unlabeled_row_ids_sha256": "c1ad3dd608b2b64b7df524008e70749559817320eb619e32aceb25a74cfa240e",
+              "pseudo_candidates": 1000,
+              "pseudo_accepted": 0,
+              "labeled_confidence_accepted": 49,
+              "labeled_confidence_accuracy": 0.08163265306122448,
+              "labeled_accepted_by_predicted_class": {
+                "49": {
+                  "accepted": 4,
+                  "correct": 0,
+                  "wilson_lower": 0.0
+                },
+                "51": {
+                  "accepted": 10,
+                  "correct": 3,
+                  "wilson_lower": 0.10779126740630099
+                },
+                "64": {
+                  "accepted": 21,
+                  "correct": 0,
+                  "wilson_lower": -1.1731740316366828e-17
+                },
+                "67": {
+                  "accepted": 1,
+                  "correct": 1,
+                  "wilson_lower": 0.20654931437723742
+                },
+                "68": {
+                  "accepted": 4,
+                  "correct": 0,
+                  "wilson_lower": 0.0
+                },
+                "72": {
+                  "accepted": 4,
+                  "correct": 0,
+                  "wilson_lower": 0.0
+                },
+                "102": {
+                  "accepted": 5,
+                  "correct": 0,
+                  "wilson_lower": 0.0
+                }
+              },
+              "gate_allowed_classes": [],
+              "pre_gate_pseudo_accepted": 68,
+              "pseudo_by_predicted_class": {},
+              "update_seconds": 0.7524751000000833,
+              "update_steps": 40,
+              "effective_replay": true,
+              "effective_pseudo": false,
+              "extra_true_label_control": false,
+              "checkpoint_sha256": "eeed43b31a153e40ed3abf020dd69086a2a95cb59e7c35eed2e5814ec2641c47",
+              "old_holdout_after_update": {
+                "accuracy": 0.1155,
+                "macro_f1_fixed_vocabulary": 0.014596129023545946,
+                "ground_truth_classes": 158
+              }
+            },
+            "18": {
+              "score_before_update": {
+                "flows": 286687,
+                "accuracy": 0.13036517177269985,
+                "macro_f1_fixed_vocabulary": 0.016622898333387228,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20261132,
+                "prediction_sha256": "4ba36564cd2c86151ff3394ade2e4104a6617720e9a8039214fb1ff91d3a0bb0"
+              },
+              "released_row_ids_sha256": "4fcb5c0bceb1e8c26276fc427d35410ae4c9be54b81bc0578700ad5514a1ca0a",
+              "old_holdout_before_update": {
+                "accuracy": 0.1155,
+                "macro_f1_fixed_vocabulary": 0.014596129023545946,
+                "ground_truth_classes": 158
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

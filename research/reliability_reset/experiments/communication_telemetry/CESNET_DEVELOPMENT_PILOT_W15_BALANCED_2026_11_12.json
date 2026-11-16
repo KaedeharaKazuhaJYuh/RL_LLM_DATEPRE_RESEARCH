@@ -1,0 +1,122 @@
+{
+  "dataset_sha256": "340f84491dc9c5eb8173718bea15cd7fe80abf8e945adf26859a34aaa66e7816",
+  "scope": "development pilot; no SSL, no continual updates, no held-out test",
+  "initialization_weeks": [
+    11,
+    12,
+    13,
+    14
+  ],
+  "label_budget_per_week": 1000,
+  "label_sampling_seed": 20261112,
+  "initialization_labels": 4000,
+  "initialization_label_classes": 172,
+  "sampled_row_ids_sha256": "3d3898e98f1ea77cba8d46ff3a6b6e9d555cf46fa7f30de7b7cffb2588123716",
+  "vocabulary_source": "all APP classes observed in full W11-W14 census; oracle taxonomy",
+  "evaluation_week": 15,
+  "profile": "balanced",
+  "training_epochs": 20,
+  "batch_size": 128,
+  "optimizer": "Adam lr=0.001",
+  "event_transform": "signed log1p, centered and scaled using sampled initialization events",
+  "event_mean": [
+    1.6959827005977381,
+    -0.10453941174483643,
+    5.644763990896091,
+    0.5711078390089875
+  ],
+  "event_scale": [
+    2.269536563285935,
+    0.6852185986606811,
+    1.4303377848371144,
+    0.26400307898776204
+  ],
+  "loss": "inverse square-root class frequency weights from sampled initialization labels",
+  "torch_version": "2.8.0+cu128",
+  "cuda_runtime": "12.8",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "models": {
+    "ann_gru": {
+      "parameters": 9588,
+      "training_steps": 640,
+      "epoch_losses": [
+        5.175608787536621,
+        5.0900117225646975,
+        4.9457837524414066,
+        4.861303997039795,
+        4.793201202392578,
+        4.712312961578369,
+        4.633345489501953,
+        4.552080924987793,
+        4.4776697235107425,
+        4.405576889038086,
+        4.341339008331299,
+        4.281345645904541,
+        4.227129852294921,
+        4.169083065032959,
+        4.12407421875,
+        4.076219800949096,
+        4.024510768890381,
+        3.981167284011841,
+        3.9376478176116945,
+        3.893675416946411
+      ],
+      "predicted_classes": 69,
+      "most_common_prediction_fraction": 0.07826880579184035,
+      "training_seconds": 1.7586598000000322,
+      "score": {
+        "flows": 195033,
+        "accuracy": 0.2233211815436362,
+        "macro_f1_fixed_vocabulary": 0.05793886410835489,
+        "vocabulary_size": 180,
+        "out_of_vocabulary_truth": 0,
+        "label_budget": 1000,
+        "label_seed": 20261114,
+        "prediction_sha256": "f74638cf55328772eebe0a7036e807af96a0c6227195d3e399f542ebdfc7fc99"
+      },
+      "released_label_count": 1000,
+      "checkpoint_sha256": "9d5e3486c1b204d2048ca7fc7792a74a29ae3b913fccbd963dafdc45be425552"
+    },
+    "snn_lif_surrogate": {
+      "parameters": 6100,
+      "training_steps": 640,
+      "epoch_losses": [
+        5.171906776428223,
+        5.117266971588135,
+        5.063466728210449,
+        5.00468051147461,
+        4.9473990669250485,
+        4.898905647277832,
+        4.861207378387451,
+        4.823207229614257,
+        4.792390754699707,
+        4.762798450469971,
+        4.738386394500733,
+        4.716221099853516,
+        4.695932598114013,
+        4.671924350738525,
+        4.652884483337402,
+        4.634433959960938,
+        4.612832187652588,
+        4.596029609680175,
+        4.577703353881836,
+        4.561925354003907
+      ],
+      "predicted_classes": 20,
+      "most_common_prediction_fraction": 0.41936492798654584,
+      "training_seconds": 10.84603960000004,
+      "score": {
+        "flows": 195033,
+        "accuracy": 0.12984982028682326,
+        "macro_f1_fixed_vocabulary": 0.016846334162539934,
+        "vocabulary_size": 180,
+        "out_of_vocabulary_truth": 0,
+        "label_budget": 1000,
+        "label_seed": 20261114,
+        "prediction_sha256": "1202a6447413eccb158ab3f53bae2648f985afd8f07cc43142cd54a9f539be9b"
+      },
+      "released_label_count": 1000,
+      "checkpoint_sha256": "2c321f5c0af77cc1e6bf857c9b570102366609e928f73116b75c9e9927e65f96"
+    }
+  }
+}

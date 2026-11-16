@@ -1,3 +1,51 @@
+# 2026-11-16｜1.1.90 SNN 初始化训练轮数对照
+
+固定初始化样本和训练路径，比较 SNN 的 20、40、80 轮；W15 的固定 180 类 macro-F1 分别为 0.01685、0.02667、0.04296，训练步数依次增加。20 轮的检查点和预测与原结果一致，各轮数损失前缀一致。该开发观察不是等算力对照，尚无后续周、多种子或独立数据验证。[对照报告](experiments/communication_telemetry/CESNET_SNN_EPOCH_ABLATION_REPORT_2026_11_16.md)。科学状态 HOLD。
+
+# 2026-11-16｜1.1.85 跨类别置信度分层诊断
+
+在两个标签种子的 W15–W17 已释放标签上按预设置信度区间跨类别汇总，并用同周不同流行留出；所有区间均未通过预设支持与精度下界规则。未训练新方法，留出不代表独立客户端或任务。[诊断报告](experiments/communication_telemetry/CESNET_CONFIDENCE_POOL_REPORT_2026_11_16.md)列明 FlexMatch、FreeMatch 等近邻。科学状态 HOLD。
+
+# 2026-11-16｜1.1.80 类别门限留出行诊断
+
+复用两个标签种子及逐周冻结模型，将每周 1,000 条已释放标签分为 500 条筛选和 500 条留出；多数预测类别的筛选支持不足 10 条，个别达到 10 条的类别正确数仍有限。检查点及抽样预测与既有封存数据一致；留出是同周不同行，不能视为独立客户端或数据集。[诊断报告](experiments/communication_telemetry/CESNET_CLASS_GATE_SPLIT_REPORT_2026_11_16.md)。科学状态 HOLD。
+
+# 2026-11-16｜1.1.75 类别可靠性筛选开发试验
+
+按当周已释放标签的预测类别样本量与 Wilson 启发式筛选伪标签：两个标签种子 W15–W17 均无类别通过，训练回退到回放；8 个完整周预测摘要与各自回放对照一致。未产生无标签收益，不能将回退写成新机制提升。[实验报告](experiments/communication_telemetry/CESNET_CLASS_GATE_REPORT_2026_11_16.md)。科学状态 HOLD。
+
+# 2026-11-16｜1.1.70 伪标签额外批次对照
+
+在两个标签种子下以已有真实标签替代伪标签批次，固定基础监督批次大小、两个损失项和训练步数；替代臂优于伪标签臂，但样本分布与真实标签总曝光不同，不能单因素归因。[对照报告](experiments/communication_telemetry/CESNET_MATCHED_EXTRA_CONTROL_REPORT_2026_11_16.md)。科学状态 HOLD。
+
+# 2026-11-16｜1.1.65 低阈值伪标签开发对照
+
+在两个标签种子上，探索性阈值 0.05 接收了 SNN 无标签流，但联合回放与伪标签臂在 W16–W18 和旧期留出集上均低于回放臂。有标签代理精度下降且预测类别集中；监督曝光与损失组合不匹配，不能将退化归因于单一因素。[实验报告](experiments/communication_telemetry/CESNET_LOW_THRESHOLD_SSL_REPORT_2026_11_16.md)。科学状态 HOLD。
+
+# 2026-11-14｜1.1.60 SNN 逐周更新范围对照
+
+在两种标签抽样下比较 SNN 全模型与仅读出更新，并分别测试监督与回放。仅读出未稳定优于全模型；回放在此开发设置中优于对应监督臂。两种子共享初始化与同一数据源，计算和存储未匹配，不能证明跨任务泛化或研究新颖性。[逐周报告](experiments/communication_telemetry/CESNET_HEAD_ONLY_SEQUENTIAL_REPORT_2026_11_14.md)。科学状态 HOLD。
+
+# 2026-11-14｜1.1.55 回放与伪标签开发对照
+
+在 W15–W18 同一逐周流程中比较监督、回放、伪标签及组合更新；W11 留出样本用于检查旧期表现。单种子开发试验中回放改善未来周和旧期指标；0.8 伪标签阈值下两种模型均无接收样本。W15 温度缩放在后续开发周降低标签样本 NLL，但 SNN 在 0.5 和 0.8 阈值仍无接收样本。同配置重复运行的 32 组预测哈希一致，并保存 24 个更新后检查点；这不是独立重复。架构和实际计算成本未匹配，额外回放内存未计入等成本预算；科学状态 HOLD。详见[实验报告](experiments/communication_telemetry/CESNET_REPLAY_SSL_DEV_REPORT_2026_11_14.md)。 补充 [W15 SNN 活动诊断](experiments/communication_telemetry/CESNET_SNN_ACTIVITY_REPORT_2026_11_14.md)：1,000 条流均有脉冲，32 个单元中 31 个出现脉冲，预测 18 类；不能据此推断低置信度的因果来源。 补充[固定编码器读出对照](experiments/communication_telemetry/CESNET_READOUT_PROBE_REPORT_2026_11_14.md)：使用 500 条 W15 标签拟合 SNN 线性读出后，另 500 条 macro-F1 从 0.0145 升至 0.0307；仅为同周开发诊断。
+
+# 2026-11-14｜1.1.50 少标签监督开发试验
+
+用初始化 W11–W14 每周 1,000 个标签训练 ANN GRU 和 SNN LIF 原型，在 W15 开发调试后，对 W16–W18 比较冻结与逐周 1,000 标签监督更新；开发结果显示更新并不稳定，SNN 当前弱于 ANN。两种架构与计算量未匹配、无 SSL/回放，单种子结果不支持论文结论。重新独立启动后，两模型四个开发周预测和抽样哈希一致；详见[开发报告](experiments/communication_telemetry/CESNET_DEVELOPMENT_PILOT_2026_11_14.md)。跳过 1.1.40–1.1.49，科学状态 HOLD。
+
+# 2026-11-12｜1.1.35 开发周前向流程与哈希更正
+
+建立先预测落盘、再评分、最后均匀抽取标签的单进程前向流程；在真实 W15 的 195,033 条流上运行固定多数类工程控制，并抽取 1,000 个标签。该规则使用全部初始化标签，不是等预算模型基线。修正 census CSV 原始 CRLF 与 Git LF 检出哈希不同的复现说明，保留两种哈希和原始记录。完成 PyTorch CUDA 独立环境安装：ANN GRU 与 SNN LIF 原型在同一真实初始化批次各执行一次前后向和参数更新，编码层均有非零梯度；模型参数量不同，尚无性能对照。详见[流程记录](experiments/communication_telemetry/CESNET_PREQUENTIAL_W15_CONTROL_2026_11_12.md)、[哈希更正](experiments/communication_telemetry/CESNET_CENSUS_LINE_ENDING_ERRATUM_2026_11_12.md)和[GPU 烟测](experiments/communication_telemetry/CESNET_CUDA_MODEL_SMOKE_2026_11_12.md)。科学状态 HOLD。
+
+# 2026-11-12｜1.1.30 输入白名单与开发窗烟测
+
+实现 CESNET 包事件、有效长度 mask 与流摘要白名单读取器，默认不返回标签；在开发周真实 512 条流上与源表核对并运行合成表契约检查。未实现自动封存评分、延迟标签调度或模型训练；详见[烟测记录](experiments/communication_telemetry/CESNET_INPUT_SMOKE_2026_11_12.md)，科学状态 HOLD。
+
+# 2026-11-10｜1.1.25 匿名化规则与相邻周流指纹审计
+
+核对官方论文：客户端 IP 使用加盐哈希，源端口未发布，开始时间截断至小时；盐跨日期稳定性未确认。固定 XS 的 W14/W15 多字段比较：含时间指纹跨周 0 个匹配，不含时间指纹跨周 12 个匹配；后者仅为相似流候选，不能认定重复会话。周内不含时间指纹分别有 4、5 条重复计数。详见[审计](experiments/communication_telemetry/CESNET_XS_FINGERPRINT_AUDIT_2026_11_10.md)；未训练模型，HOLD。
+
 # 2026-11-10｜1.1.20 跨阶段源地址审计与 CI 修复
 
 在 XS 固定归档上扩展至初始化 W11–W14 和开发 W15–W18：分别有 179,473、158,612 个不同源地址字符串，共享 79,134，约占开发期不同字符串的 49.89%。精确字符串相等不证明真实客户端稳定或重复会话；不输出地址，不推断模型性能。[复算结果](experiments/communication_telemetry/CESNET_XS_SOURCE_OVERLAP_PHASES_2026_11_10.json) 与[脚本](experiments/communication_telemetry/audit_cesnet_phase_overlap.py)。同时恢复根 README 历史版本标记的位置，两个相关 CI 定向检查已通过；完整 CI 以 GitHub 新运行结果为准。科学状态 HOLD。

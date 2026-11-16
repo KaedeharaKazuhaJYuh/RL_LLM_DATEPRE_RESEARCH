@@ -1,0 +1,283 @@
+{
+  "dataset_sha256": "340f84491dc9c5eb8173718bea15cd7fe80abf8e945adf26859a34aaa66e7816",
+  "scope": "development only; fixed-composition replay and confidence pseudo-label controls",
+  "initial_samples_sha256": "3d3898e98f1ea77cba8d46ff3a6b6e9d555cf46fa7f30de7b7cffb2588123716",
+  "replay_rows": 1000,
+  "replay_array_bytes": 514000,
+  "holdout_rows": 2000,
+  "holdout_row_ids_sha256": "39db5b3d8d05a6a6e4426dc043193611ac7ca37dfc8a1f270af4a2d1bfa53bb5",
+  "label_budget_per_week": 1000,
+  "unlabeled_candidates_per_week": 1000,
+  "pseudo_threshold": 0.8,
+  "steps_per_week": 40,
+  "batch_size": 128,
+  "label_seed_offset": 10000,
+  "head_only": true,
+  "torch_version": "2.8.0+cu128",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "models": {
+    "snn_lif_surrogate": {
+      "initial_checkpoint_sha256": "2c321f5c0af77cc1e6bf857c9b570102366609e928f73116b75c9e9927e65f96",
+      "arms": {
+        "supervised": {
+          "initial_old_holdout": {
+            "accuracy": 0.1285,
+            "macro_f1_fixed_vocabulary": 0.01810781969101062,
+            "ground_truth_classes": 158
+          },
+          "weeks": {
+            "15": {
+              "score_before_update": {
+                "flows": 195033,
+                "accuracy": 0.12984982028682326,
+                "macro_f1_fixed_vocabulary": 0.016846334162539934,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20271129,
+                "prediction_sha256": "1202a6447413eccb158ab3f53bae2648f985afd8f07cc43142cd54a9f539be9b"
+              },
+              "released_row_ids_sha256": "afdb1b5a1adb41e491e256913184bd5f18e61c0f7b657ec603474eeb59a1cd32",
+              "old_holdout_before_update": {
+                "accuracy": 0.1285,
+                "macro_f1_fixed_vocabulary": 0.01810781969101062,
+                "ground_truth_classes": 158
+              },
+              "teacher_inference_seconds": 0.007563699997263029,
+              "unlabeled_row_ids_sha256": "8cbc567bd3680c99986cef4a57c607faca9fa057b9701d63ff580ec4a32694f4",
+              "pseudo_candidates": 1000,
+              "pseudo_accepted": 0,
+              "labeled_confidence_accepted": 0,
+              "labeled_confidence_accuracy": null,
+              "update_seconds": 0.40157700001145713,
+              "update_steps": 40,
+              "effective_replay": false,
+              "effective_pseudo": false,
+              "checkpoint_sha256": "594e3f6ca7aa04bce0842e4d9d030d1910040217b0d8a94067856d1016e3b076",
+              "old_holdout_after_update": {
+                "accuracy": 0.1095,
+                "macro_f1_fixed_vocabulary": 0.015309471864935142,
+                "ground_truth_classes": 158
+              }
+            },
+            "16": {
+              "score_before_update": {
+                "flows": 232229,
+                "accuracy": 0.12519108293968453,
+                "macro_f1_fixed_vocabulary": 0.0147122099735042,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20271130,
+                "prediction_sha256": "f2b19644805487e67ecface56bcfea36d549e82420a9a8c6c783557dded75c6f"
+              },
+              "released_row_ids_sha256": "2b9254f74a4062feccc30681ff041cfdc85b890d0b81f92e3033421b23133dbc",
+              "old_holdout_before_update": {
+                "accuracy": 0.1095,
+                "macro_f1_fixed_vocabulary": 0.015309471864935142,
+                "ground_truth_classes": 158
+              },
+              "teacher_inference_seconds": 0.008545399992726743,
+              "unlabeled_row_ids_sha256": "a68e737ecf7fe3660535f9fdf4787b78b2ca5f72a57dc8f64bd2964a000d87d4",
+              "pseudo_candidates": 1000,
+              "pseudo_accepted": 0,
+              "labeled_confidence_accepted": 0,
+              "labeled_confidence_accuracy": null,
+              "update_seconds": 0.3563312999904156,
+              "update_steps": 40,
+              "effective_replay": false,
+              "effective_pseudo": false,
+              "checkpoint_sha256": "339e88612749ba6e2e9d1f72205c127095ed1fcd3f8755c2ad01ada49bf18da1",
+              "old_holdout_after_update": {
+                "accuracy": 0.1105,
+                "macro_f1_fixed_vocabulary": 0.013490636607721785,
+                "ground_truth_classes": 158
+              }
+            },
+            "17": {
+              "score_before_update": {
+                "flows": 280178,
+                "accuracy": 0.1277616372448943,
+                "macro_f1_fixed_vocabulary": 0.014656231341055747,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20271131,
+                "prediction_sha256": "c1a5409bec722a77ace2fc10727fe6d9d6b84ad6643e1d3a9e30aa830c627c17"
+              },
+              "released_row_ids_sha256": "b054b7a1f6d98d86e1fd5dae03b2c7b55f83ee196f9a1993cb9dd01e40225979",
+              "old_holdout_before_update": {
+                "accuracy": 0.1105,
+                "macro_f1_fixed_vocabulary": 0.013490636607721785,
+                "ground_truth_classes": 158
+              },
+              "teacher_inference_seconds": 0.008831700019072741,
+              "unlabeled_row_ids_sha256": "336ce539698d0234167f6c9801cc77ffb5c3f34e8c0af3907a56df14493d94f6",
+              "pseudo_candidates": 1000,
+              "pseudo_accepted": 0,
+              "labeled_confidence_accepted": 0,
+              "labeled_confidence_accuracy": null,
+              "update_seconds": 0.34295469999779016,
+              "update_steps": 40,
+              "effective_replay": false,
+              "effective_pseudo": false,
+              "checkpoint_sha256": "796ce83bc54308940dfd22efb50eb7e7b1d18fade89114f2e3ab9645593ecb9e",
+              "old_holdout_after_update": {
+                "accuracy": 0.107,
+                "macro_f1_fixed_vocabulary": 0.010823329928076893,
+                "ground_truth_classes": 158
+              }
+            },
+            "18": {
+              "score_before_update": {
+                "flows": 286687,
+                "accuracy": 0.11387680641256841,
+                "macro_f1_fixed_vocabulary": 0.013402097547657251,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20271132,
+                "prediction_sha256": "b5eebb45542025aef29a7ab10ae884bed914eaf5a31a2728ce4c2d55efd6d6fb"
+              },
+              "released_row_ids_sha256": "78cc2f1aa7e3d46141f730917d92bcd97b7617ad248eca60a450986543126afb",
+              "old_holdout_before_update": {
+                "accuracy": 0.107,
+                "macro_f1_fixed_vocabulary": 0.010823329928076893,
+                "ground_truth_classes": 158
+              }
+            }
+          }
+        },
+        "replay": {
+          "initial_old_holdout": {
+            "accuracy": 0.1285,
+            "macro_f1_fixed_vocabulary": 0.01810781969101062,
+            "ground_truth_classes": 158
+          },
+          "weeks": {
+            "15": {
+              "score_before_update": {
+                "flows": 195033,
+                "accuracy": 0.12984982028682326,
+                "macro_f1_fixed_vocabulary": 0.016846334162539934,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20271129,
+                "prediction_sha256": "1202a6447413eccb158ab3f53bae2648f985afd8f07cc43142cd54a9f539be9b"
+              },
+              "released_row_ids_sha256": "afdb1b5a1adb41e491e256913184bd5f18e61c0f7b657ec603474eeb59a1cd32",
+              "old_holdout_before_update": {
+                "accuracy": 0.1285,
+                "macro_f1_fixed_vocabulary": 0.01810781969101062,
+                "ground_truth_classes": 158
+              },
+              "teacher_inference_seconds": 0.010805799975059927,
+              "unlabeled_row_ids_sha256": "8cbc567bd3680c99986cef4a57c607faca9fa057b9701d63ff580ec4a32694f4",
+              "pseudo_candidates": 1000,
+              "pseudo_accepted": 0,
+              "labeled_confidence_accepted": 0,
+              "labeled_confidence_accuracy": null,
+              "update_seconds": 0.3472438000026159,
+              "update_steps": 40,
+              "effective_replay": true,
+              "effective_pseudo": false,
+              "checkpoint_sha256": "29df935be88d646afe6947d264c0afca25ef9a2b00f7c0b318722329e3befa08",
+              "old_holdout_after_update": {
+                "accuracy": 0.112,
+                "macro_f1_fixed_vocabulary": 0.01586371036802523,
+                "ground_truth_classes": 158
+              }
+            },
+            "16": {
+              "score_before_update": {
+                "flows": 232229,
+                "accuracy": 0.12481645272554245,
+                "macro_f1_fixed_vocabulary": 0.01611325566972262,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20271130,
+                "prediction_sha256": "1ffd65f75361051a772eba9d6fba38a1ccb3c7d8d5bf3755dc229644a1dbe2d5"
+              },
+              "released_row_ids_sha256": "2b9254f74a4062feccc30681ff041cfdc85b890d0b81f92e3033421b23133dbc",
+              "old_holdout_before_update": {
+                "accuracy": 0.112,
+                "macro_f1_fixed_vocabulary": 0.01586371036802523,
+                "ground_truth_classes": 158
+              },
+              "teacher_inference_seconds": 0.01345310002216138,
+              "unlabeled_row_ids_sha256": "a68e737ecf7fe3660535f9fdf4787b78b2ca5f72a57dc8f64bd2964a000d87d4",
+              "pseudo_candidates": 1000,
+              "pseudo_accepted": 0,
+              "labeled_confidence_accepted": 0,
+              "labeled_confidence_accuracy": null,
+              "update_seconds": 0.41996229998767376,
+              "update_steps": 40,
+              "effective_replay": true,
+              "effective_pseudo": false,
+              "checkpoint_sha256": "0248e86c1f35df5560e8baa6c17dc1ef22f266050bf2dad9e858c163f1681753",
+              "old_holdout_after_update": {
+                "accuracy": 0.12,
+                "macro_f1_fixed_vocabulary": 0.015735287890270167,
+                "ground_truth_classes": 158
+              }
+            },
+            "17": {
+              "score_before_update": {
+                "flows": 280178,
+                "accuracy": 0.12969969091077815,
+                "macro_f1_fixed_vocabulary": 0.01614382942150554,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20271131,
+                "prediction_sha256": "dfd3398b8743451d564a1b9c1bf0cf30a1619e70c72a19dcdac71c3a285a68cd"
+              },
+              "released_row_ids_sha256": "b054b7a1f6d98d86e1fd5dae03b2c7b55f83ee196f9a1993cb9dd01e40225979",
+              "old_holdout_before_update": {
+                "accuracy": 0.12,
+                "macro_f1_fixed_vocabulary": 0.015735287890270167,
+                "ground_truth_classes": 158
+              },
+              "teacher_inference_seconds": 0.008785400015767664,
+              "unlabeled_row_ids_sha256": "336ce539698d0234167f6c9801cc77ffb5c3f34e8c0af3907a56df14493d94f6",
+              "pseudo_candidates": 1000,
+              "pseudo_accepted": 0,
+              "labeled_confidence_accepted": 0,
+              "labeled_confidence_accuracy": null,
+              "update_seconds": 0.3003783000167459,
+              "update_steps": 40,
+              "effective_replay": true,
+              "effective_pseudo": false,
+              "checkpoint_sha256": "bc74498b80f7d83a164951f01b47a4dbbd355ada822e78c4f04b46341dbe975e",
+              "old_holdout_after_update": {
+                "accuracy": 0.118,
+                "macro_f1_fixed_vocabulary": 0.014576910764398657,
+                "ground_truth_classes": 158
+              }
+            },
+            "18": {
+              "score_before_update": {
+                "flows": 286687,
+                "accuracy": 0.12602594467136632,
+                "macro_f1_fixed_vocabulary": 0.01546007353861158,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20271132,
+                "prediction_sha256": "6cdf9609500ca88c23fc077ca73756eb2568c98ae326b36e705e8ffe5970ee66"
+              },
+              "released_row_ids_sha256": "78cc2f1aa7e3d46141f730917d92bcd97b7617ad248eca60a450986543126afb",
+              "old_holdout_before_update": {
+                "accuracy": 0.118,
+                "macro_f1_fixed_vocabulary": 0.014576910764398657,
+                "ground_truth_classes": 158
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
