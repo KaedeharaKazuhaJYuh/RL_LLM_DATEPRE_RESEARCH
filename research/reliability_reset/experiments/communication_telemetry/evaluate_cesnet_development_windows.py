@@ -17,6 +17,7 @@ parser.add_argument('--pilot-dir', required=True, type=Path)
 parser.add_argument('--pilot-summary', required=True, type=Path)
 parser.add_argument('--output-dir', required=True, type=Path)
 parser.add_argument('--summary-path', required=True, type=Path)
+parser.add_argument('--snn-only', action='store_true')
 args = parser.parse_args()
 if args.output_dir.exists():
     raise ValueError('output directory must not already exist')
@@ -41,7 +42,8 @@ if not torch.cuda.is_available():
 results = {'dataset_sha256': EXPECTED, 'scope': 'static frozen models on development weeks only; no continual update',
            'pilot_profile': 'balanced tuned using W15', 'torch_version': torch.__version__,
            'gpu': torch.cuda.get_device_name(0), 'models': {}}
-for name, constructor in [('ann_gru', Ann), ('snn_lif_surrogate', Snn)]:
+models = [('snn_lif_surrogate', Snn)] if args.snn_only else [('ann_gru', Ann), ('snn_lif_surrogate', Snn)]
+for name, constructor in models:
     checkpoint = args.pilot_dir / f'{name}.pt'
     expected = pilot['models'][name]['checkpoint_sha256']
     if hashlib.sha256(checkpoint.read_bytes()).hexdigest() != expected:

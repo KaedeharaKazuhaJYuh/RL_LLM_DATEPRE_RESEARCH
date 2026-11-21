@@ -51,6 +51,9 @@ def main():
     parser.add_argument('--label-seed-offset', type=int, default=0)
     parser.add_argument('--pseudo-threshold', type=float, default=0.8)
     parser.add_argument('--replay-pseudo-only', action='store_true')
+    parser.add_argument('--replay-only', action='store_true')
+    parser.add_argument('--matched-pseudo-arms', action='store_true')
+    parser.add_argument('--matched-augment-only', action='store_true')
     parser.add_argument('--replay-extra-labels-only', action='store_true')
     parser.add_argument('--class-gated-only', action='store_true')
     parser.add_argument('--head-only', action='store_true')
@@ -103,7 +106,7 @@ def main():
                'replay_array_bytes': int(replay_x.nbytes + replay_m.nbytes + replay_y.nbytes),
                'holdout_rows': len(old_y), 'holdout_row_ids_sha256': hashlib.sha256('\n'.join(f'{d}:{i}' for d, i in old_refs).encode()).hexdigest(),
                'label_budget_per_week': 1000, 'unlabeled_candidates_per_week': 1000,
-               'pseudo_threshold': args.pseudo_threshold, 'steps_per_week': 40, 'batch_size': 128,
+               'pseudo_threshold': args.pseudo_threshold, 'steps_per_week': 40, 'batch_size': 192 if args.matched_pseudo_arms or args.matched_augment_only else 128,
                'label_seed_offset': args.label_seed_offset, 'head_only': args.head_only, 'torch_version': torch.__version__, 'gpu': torch.cuda.get_device_name(0), 'models': {}}
     model_specs = [('snn_lif_surrogate', Snn)] if args.snn_only else [('ann_gru', Ann), ('snn_lif_surrogate', Snn)]
     for model_name, constructor in model_specs:
@@ -138,7 +141,7 @@ def main():
             return {'accuracy': float(np.mean(pred == old_y)), 'macro_f1_fixed_vocabulary': float(np.mean(f1)),
                     'ground_truth_classes': int(len(np.unique(old_y)))}
         arms = {}
-        arm_names = ('replay_class_gate',) if args.class_gated_only else ('replay_extra_labels',) if args.replay_extra_labels_only else ('replay_pseudo',) if args.replay_pseudo_only else (('supervised', 'replay') if args.no_pseudo_arms else ('supervised', 'replay', 'pseudo', 'replay_pseudo'))
+        arm_names = ('matched_aug_pseudo',) if args.matched_augment_only else ('matched_control', 'matched_pseudo') if args.matched_pseudo_arms else ('replay',) if args.replay_only else ('replay_class_gate',) if args.class_gated_only else ('replay_extra_labels',) if args.replay_extra_labels_only else ('replay_pseudo',) if args.replay_pseudo_only else (('supervised', 'replay') if args.no_pseudo_arms else ('supervised', 'replay', 'pseudo', 'replay_pseudo'))
         for arm in arm_names:
             print(f'processing model={model_name} arm={arm}', flush=True)
             model = constructor(len(classes)).cuda()
@@ -201,7 +204,7 @@ def main():
                         pseudo_y = classes[pseudo_index.numpy()[accepted]]
                         record['pseudo_accepted'] = int(accepted.sum())
                     record['pseudo_by_predicted_class'] = {str(int(c)): int(np.sum(pseudo_y == c)) for c in np.unique(pseudo_y)}
-                    replay_on = arm in ('replay', 'replay_pseudo', 'replay_extra_labels', 'replay_class_gate')
+                    replay_on = arm in ('replay', 'replay_pseudo', 'replay_extra_labels', 'replay_class_gate', 'matched_control', 'matched_pseudo', 'matched_aug_pseudo')
                     pseudo_on = (arm in ('pseudo', 'replay_pseudo', 'replay_class_gate') and accepted.any()) or arm == 'replay_extra_labels'
                     weights_counts = np.bincount(np.searchsorted(classes, np.concatenate([current_y, replay_y])), minlength=len(classes))
                     weights = np.zeros(len(classes), dtype=np.float32)
@@ -210,20 +213,34 @@ def main():
                     weights[observed] /= weights[observed].mean()
                     class_weights = torch.tensor(weights, device='cuda')
                     rng_batches = np.random.default_rng(20261400 + week)
+                    rng_extra = np.random.default_rng(20261500 + week)
+                    supervised_batch_digest = hashlib.sha256()
+                    augmentation_rng = torch.Generator(device='cuda').manual_seed(20261600 + week)
                     model.train()
                     started = time.perf_counter()
                     for _ in range(40):
-                        current_n = 32 if replay_on and pseudo_on else 64 if replay_on or pseudo_on else 128
-                        replay_n = 32 if replay_on and pseudo_on else 64 if replay_on else 0
-                        pseudo_n = 64 if pseudo_on else 0
+                        matched = arm in ('matched_control', 'matched_pseudo', 'matched_aug_pseudo')
+                        current_n = 64 if matched else 32 if replay_on and pseudo_on else 64 if replay_on or pseudo_on else 128
+                        replay_n = 64 if matched else 32 if replay_on and pseudo_on else 64 if replay_on else 0
+                        pseudo_n = 64 if matched or pseudo_on else 0
                         ci = rng_batches.integers(0, len(current_y), current_n)
                         chunks_x, chunks_m, chunks_y = [current_x[ci]], [current_m[ci]], [current_y[ci]]
                         if replay_n:
                             ri = rng_batches.integers(0, len(replay_y), replay_n)
                             chunks_x.append(replay_x[ri]); chunks_m.append(replay_m[ri]); chunks_y.append(replay_y[ri])
+                        if matched:
+                            supervised_batch_digest.update(ci.astype('<i8').tobytes())
+                            supervised_batch_digest.update(ri.astype('<i8').tobytes())
                         supervised_n = current_n + replay_n
                         if pseudo_n:
-                            if arm == 'replay_extra_labels':
+                            if matched:
+                                if accepted.any():
+                                    pi = rng_extra.integers(0, len(pseudo_y), pseudo_n)
+                                    chunks_x.append(un_x[accepted][pi]); chunks_m.append(un_m[accepted][pi]); chunks_y.append(pseudo_y[pi])
+                                else:
+                                    pi = rng_extra.integers(0, len(un_x), pseudo_n)
+                                    chunks_x.append(un_x[pi]); chunks_m.append(un_m[pi]); chunks_y.append(classes[pseudo_index.numpy()[pi]])
+                            elif arm == 'replay_extra_labels':
                                 ei = rng_batches.integers(0, len(current_y), 32)
                                 er = rng_batches.integers(0, len(replay_y), 32)
                                 chunks_x.extend((current_x[ei], replay_x[er])); chunks_m.extend((current_m[ei], replay_m[er])); chunks_y.extend((current_y[ei], replay_y[er]))
@@ -234,10 +251,17 @@ def main():
                         mask = torch.as_tensor(np.concatenate(chunks_m), device='cuda')
                         y = torch.as_tensor(np.searchsorted(classes, np.concatenate(chunks_y)), device='cuda', dtype=torch.long)
                         optimizer.zero_grad(set_to_none=True)
-                        logits = model(transform(x, mask), mask)
+                        transformed = transform(x, mask)
+                        if arm == 'matched_aug_pseudo':
+                            extra = transformed[supervised_n:]
+                            keep = torch.rand(extra.shape, device='cuda', generator=augmentation_rng) >= 0.1
+                            transformed = torch.cat((transformed[:supervised_n], extra * keep), dim=0)
+                        logits = model(transformed, mask)
                         loss = nn.functional.cross_entropy(logits[:supervised_n], y[:supervised_n], weight=class_weights)
                         if pseudo_n:
-                            loss = loss + nn.functional.cross_entropy(logits[supervised_n:], y[supervised_n:])
+                            extra_loss = nn.functional.cross_entropy(logits[supervised_n:], y[supervised_n:])
+                            extra_weight = float(arm != 'matched_control' and (not matched or accepted.any()))
+                            loss = loss + extra_weight * extra_loss
                         if not torch.isfinite(loss):
                             raise RuntimeError('non-finite update loss')
                         loss.backward(); optimizer.step()
@@ -248,8 +272,11 @@ def main():
                                 raise RuntimeError('frozen encoder changed')
                     record['update_seconds'] = time.perf_counter() - started
                     record['update_steps'] = 40
+                    if arm in ('matched_control', 'matched_pseudo', 'matched_aug_pseudo'):
+                        record['supervised_batch_indices_sha256'] = supervised_batch_digest.hexdigest()
+                        record['extra_loss_weight'] = float(arm in ('matched_pseudo', 'matched_aug_pseudo') and accepted.any())
                     record['effective_replay'] = replay_on
-                    record['effective_pseudo'] = bool(pseudo_on and arm != 'replay_extra_labels')
+                    record['effective_pseudo'] = bool((pseudo_on and arm != 'replay_extra_labels') or (arm in ('matched_pseudo', 'matched_aug_pseudo') and accepted.any()))
                     record['extra_true_label_control'] = arm == 'replay_extra_labels'
                     checkpoint_path = args.output_dir / f'{model_name}_{arm}_after_w{week}.pt'
                     torch.save({'model': model.state_dict(), 'optimizer': optimizer.state_dict(),

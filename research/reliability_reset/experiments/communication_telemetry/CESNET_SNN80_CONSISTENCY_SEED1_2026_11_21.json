@@ -1,0 +1,495 @@
+{
+  "dataset_sha256": "340f84491dc9c5eb8173718bea15cd7fe80abf8e945adf26859a34aaa66e7816",
+  "scope": "development only; fixed-composition replay and confidence pseudo-label controls",
+  "initial_samples_sha256": "3d3898e98f1ea77cba8d46ff3a6b6e9d555cf46fa7f30de7b7cffb2588123716",
+  "replay_rows": 1000,
+  "replay_array_bytes": 514000,
+  "holdout_rows": 2000,
+  "holdout_row_ids_sha256": "39db5b3d8d05a6a6e4426dc043193611ac7ca37dfc8a1f270af4a2d1bfa53bb5",
+  "label_budget_per_week": 1000,
+  "unlabeled_candidates_per_week": 1000,
+  "pseudo_threshold": 0.05,
+  "steps_per_week": 40,
+  "batch_size": 192,
+  "label_seed_offset": 0,
+  "head_only": false,
+  "torch_version": "2.8.0+cu128",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "models": {
+    "snn_lif_surrogate": {
+      "initial_checkpoint_sha256": "5f05fae52f8b30d700ed47a8e2df0a968e1bbd9c5c7d03ad06e558f09c6f6c42",
+      "arms": {
+        "matched_aug_pseudo": {
+          "initial_old_holdout": {
+            "accuracy": 0.185,
+            "macro_f1_fixed_vocabulary": 0.03968916143807207,
+            "ground_truth_classes": 158
+          },
+          "weeks": {
+            "15": {
+              "score_before_update": {
+                "flows": 195033,
+                "accuracy": 0.20453974455604948,
+                "macro_f1_fixed_vocabulary": 0.042961458441670805,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20261129,
+                "prediction_sha256": "42eef316f26924ca3045ee3edcc7a0661279e3a99aa7a7d678c2f04657f6a359"
+              },
+              "released_row_ids_sha256": "ad3c9497ae29382fbadd0155e766f10d32cafaa0d3b3bd83862e571b23d00b1f",
+              "old_holdout_before_update": {
+                "accuracy": 0.185,
+                "macro_f1_fixed_vocabulary": 0.03968916143807207,
+                "ground_truth_classes": 158
+              },
+              "teacher_inference_seconds": 0.009308499999974629,
+              "unlabeled_row_ids_sha256": "cfcd09705d9cf6e5a2c3e74581f239936c56bcca1abd747bef0c81bccc57c4b0",
+              "pseudo_candidates": 1000,
+              "pseudo_accepted": 446,
+              "labeled_confidence_accepted": 439,
+              "labeled_confidence_accuracy": 0.32801822323462415,
+              "labeled_accepted_by_predicted_class": {
+                "38": {
+                  "accepted": 1,
+                  "correct": 1
+                },
+                "43": {
+                  "accepted": 26,
+                  "correct": 1
+                },
+                "45": {
+                  "accepted": 1,
+                  "correct": 0
+                },
+                "46": {
+                  "accepted": 1,
+                  "correct": 0
+                },
+                "48": {
+                  "accepted": 1,
+                  "correct": 0
+                },
+                "49": {
+                  "accepted": 13,
+                  "correct": 5
+                },
+                "51": {
+                  "accepted": 38,
+                  "correct": 12
+                },
+                "59": {
+                  "accepted": 11,
+                  "correct": 1
+                },
+                "64": {
+                  "accepted": 34,
+                  "correct": 15
+                },
+                "67": {
+                  "accepted": 65,
+                  "correct": 30
+                },
+                "68": {
+                  "accepted": 65,
+                  "correct": 26
+                },
+                "72": {
+                  "accepted": 61,
+                  "correct": 15
+                },
+                "75": {
+                  "accepted": 3,
+                  "correct": 1
+                },
+                "76": {
+                  "accepted": 7,
+                  "correct": 5
+                },
+                "78": {
+                  "accepted": 2,
+                  "correct": 0
+                },
+                "80": {
+                  "accepted": 6,
+                  "correct": 0
+                },
+                "83": {
+                  "accepted": 8,
+                  "correct": 5
+                },
+                "88": {
+                  "accepted": 3,
+                  "correct": 0
+                },
+                "102": {
+                  "accepted": 11,
+                  "correct": 4
+                },
+                "109": {
+                  "accepted": 25,
+                  "correct": 3
+                },
+                "111": {
+                  "accepted": 21,
+                  "correct": 6
+                },
+                "127": {
+                  "accepted": 9,
+                  "correct": 1
+                },
+                "136": {
+                  "accepted": 1,
+                  "correct": 0
+                },
+                "137": {
+                  "accepted": 6,
+                  "correct": 3
+                },
+                "163": {
+                  "accepted": 1,
+                  "correct": 0
+                },
+                "167": {
+                  "accepted": 3,
+                  "correct": 0
+                },
+                "170": {
+                  "accepted": 1,
+                  "correct": 1
+                },
+                "180": {
+                  "accepted": 2,
+                  "correct": 0
+                },
+                "189": {
+                  "accepted": 13,
+                  "correct": 9
+                }
+              },
+              "pseudo_by_predicted_class": {
+                "38": 3,
+                "43": 18,
+                "45": 4,
+                "46": 2,
+                "49": 8,
+                "50": 1,
+                "51": 30,
+                "59": 16,
+                "64": 46,
+                "67": 64,
+                "68": 80,
+                "72": 53,
+                "75": 5,
+                "76": 4,
+                "78": 1,
+                "80": 3,
+                "83": 10,
+                "88": 1,
+                "102": 13,
+                "109": 26,
+                "111": 24,
+                "127": 1,
+                "136": 8,
+                "137": 9,
+                "163": 2,
+                "167": 2,
+                "180": 1,
+                "189": 11
+              },
+              "update_seconds": 0.8749344999999948,
+              "update_steps": 40,
+              "supervised_batch_indices_sha256": "430fbfd6ce0d6d35812fdca26a13835ee04ebf5fd5d39ae0656b4f1bc0cb830e",
+              "extra_loss_weight": 1.0,
+              "effective_replay": true,
+              "effective_pseudo": true,
+              "extra_true_label_control": false,
+              "checkpoint_sha256": "28670b54921ee7e9ee2b36d99cc7a24e25aeee83528f2ddce9ae87ff12948bca",
+              "old_holdout_after_update": {
+                "accuracy": 0.145,
+                "macro_f1_fixed_vocabulary": 0.024839143959992625,
+                "ground_truth_classes": 158
+              }
+            },
+            "16": {
+              "score_before_update": {
+                "flows": 232229,
+                "accuracy": 0.15258645561062573,
+                "macro_f1_fixed_vocabulary": 0.026008963078757812,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20261130,
+                "prediction_sha256": "94969eb65e73e1e4940e4a9e26c23ce597502f40f30b28ba102dafc5d82b41f6"
+              },
+              "released_row_ids_sha256": "b56f57aa22d1ec2180be8a070022aacac16279d02db24f4bb35ba8b7c8b4a825",
+              "old_holdout_before_update": {
+                "accuracy": 0.145,
+                "macro_f1_fixed_vocabulary": 0.024839143959992625,
+                "ground_truth_classes": 158
+              },
+              "teacher_inference_seconds": 0.010700299999939489,
+              "unlabeled_row_ids_sha256": "62174cfd53933f395e6c098d04a7d508741ab48ea89854ddbc515116003b8998",
+              "pseudo_candidates": 1000,
+              "pseudo_accepted": 741,
+              "labeled_confidence_accepted": 757,
+              "labeled_confidence_accuracy": 0.1809775429326288,
+              "labeled_accepted_by_predicted_class": {
+                "43": {
+                  "accepted": 32,
+                  "correct": 2
+                },
+                "45": {
+                  "accepted": 2,
+                  "correct": 1
+                },
+                "49": {
+                  "accepted": 7,
+                  "correct": 0
+                },
+                "51": {
+                  "accepted": 68,
+                  "correct": 13
+                },
+                "59": {
+                  "accepted": 48,
+                  "correct": 5
+                },
+                "64": {
+                  "accepted": 93,
+                  "correct": 16
+                },
+                "67": {
+                  "accepted": 95,
+                  "correct": 25
+                },
+                "68": {
+                  "accepted": 131,
+                  "correct": 23
+                },
+                "72": {
+                  "accepted": 75,
+                  "correct": 10
+                },
+                "75": {
+                  "accepted": 4,
+                  "correct": 1
+                },
+                "76": {
+                  "accepted": 3,
+                  "correct": 2
+                },
+                "83": {
+                  "accepted": 5,
+                  "correct": 3
+                },
+                "88": {
+                  "accepted": 2,
+                  "correct": 0
+                },
+                "102": {
+                  "accepted": 47,
+                  "correct": 5
+                },
+                "109": {
+                  "accepted": 53,
+                  "correct": 11
+                },
+                "111": {
+                  "accepted": 47,
+                  "correct": 12
+                },
+                "127": {
+                  "accepted": 1,
+                  "correct": 0
+                },
+                "136": {
+                  "accepted": 8,
+                  "correct": 2
+                },
+                "137": {
+                  "accepted": 9,
+                  "correct": 2
+                },
+                "189": {
+                  "accepted": 27,
+                  "correct": 4
+                }
+              },
+              "pseudo_by_predicted_class": {
+                "38": 2,
+                "43": 30,
+                "45": 2,
+                "49": 8,
+                "51": 65,
+                "59": 52,
+                "64": 102,
+                "67": 100,
+                "68": 133,
+                "72": 80,
+                "75": 2,
+                "76": 2,
+                "79": 1,
+                "83": 4,
+                "88": 1,
+                "102": 33,
+                "109": 42,
+                "111": 41,
+                "136": 11,
+                "137": 7,
+                "189": 23
+              },
+              "update_seconds": 0.7789756999999327,
+              "update_steps": 40,
+              "supervised_batch_indices_sha256": "d46ea12b551541c37b11a86dea7a60e2d9bd406e627ca3e64ad0faaa0269db4a",
+              "extra_loss_weight": 1.0,
+              "effective_replay": true,
+              "effective_pseudo": true,
+              "extra_true_label_control": false,
+              "checkpoint_sha256": "74662a918479fbad8aebbc1f1d2676db669c4d0b614da7db20c1c4afb95e693c",
+              "old_holdout_after_update": {
+                "accuracy": 0.128,
+                "macro_f1_fixed_vocabulary": 0.018950490484706765,
+                "ground_truth_classes": 158
+              }
+            },
+            "17": {
+              "score_before_update": {
+                "flows": 280178,
+                "accuracy": 0.1280400316941373,
+                "macro_f1_fixed_vocabulary": 0.018626741213297375,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20261131,
+                "prediction_sha256": "38a7e2a27bec0b18c03c92e70f3b8f346df657e874b9c6180ab4a4cb537dc69e"
+              },
+              "released_row_ids_sha256": "4189bffc0757e7cfaee396076d19c5903adbdd3247d492ed4eb32f3fd2f22b45",
+              "old_holdout_before_update": {
+                "accuracy": 0.128,
+                "macro_f1_fixed_vocabulary": 0.018950490484706765,
+                "ground_truth_classes": 158
+              },
+              "teacher_inference_seconds": 0.014926100000025144,
+              "unlabeled_row_ids_sha256": "c1ad3dd608b2b64b7df524008e70749559817320eb619e32aceb25a74cfa240e",
+              "pseudo_candidates": 1000,
+              "pseudo_accepted": 943,
+              "labeled_confidence_accepted": 936,
+              "labeled_confidence_accuracy": 0.125,
+              "labeled_accepted_by_predicted_class": {
+                "38": {
+                  "accepted": 2,
+                  "correct": 2
+                },
+                "43": {
+                  "accepted": 31,
+                  "correct": 1
+                },
+                "51": {
+                  "accepted": 96,
+                  "correct": 14
+                },
+                "59": {
+                  "accepted": 99,
+                  "correct": 8
+                },
+                "64": {
+                  "accepted": 161,
+                  "correct": 15
+                },
+                "67": {
+                  "accepted": 113,
+                  "correct": 20
+                },
+                "68": {
+                  "accepted": 163,
+                  "correct": 19
+                },
+                "72": {
+                  "accepted": 108,
+                  "correct": 12
+                },
+                "76": {
+                  "accepted": 1,
+                  "correct": 0
+                },
+                "102": {
+                  "accepted": 28,
+                  "correct": 2
+                },
+                "109": {
+                  "accepted": 29,
+                  "correct": 7
+                },
+                "111": {
+                  "accepted": 61,
+                  "correct": 6
+                },
+                "136": {
+                  "accepted": 11,
+                  "correct": 1
+                },
+                "137": {
+                  "accepted": 2,
+                  "correct": 0
+                },
+                "189": {
+                  "accepted": 31,
+                  "correct": 10
+                }
+              },
+              "pseudo_by_predicted_class": {
+                "38": 2,
+                "43": 40,
+                "51": 104,
+                "59": 107,
+                "64": 194,
+                "67": 108,
+                "68": 143,
+                "72": 83,
+                "83": 2,
+                "102": 27,
+                "109": 39,
+                "111": 52,
+                "136": 9,
+                "137": 7,
+                "189": 26
+              },
+              "update_seconds": 1.0506775999999718,
+              "update_steps": 40,
+              "supervised_batch_indices_sha256": "9db5a4cd85aa76b626a30fe1093d27162a61e168f0eab3f28b3aee1509875fe9",
+              "extra_loss_weight": 1.0,
+              "effective_replay": true,
+              "effective_pseudo": true,
+              "extra_true_label_control": false,
+              "checkpoint_sha256": "b6c57f741b1b800de452783b16a6d0f1c5e23c75a46e6cdd7a6bca50a528359e",
+              "old_holdout_after_update": {
+                "accuracy": 0.1115,
+                "macro_f1_fixed_vocabulary": 0.011448248469175793,
+                "ground_truth_classes": 158
+              }
+            },
+            "18": {
+              "score_before_update": {
+                "flows": 286687,
+                "accuracy": 0.10835859316955425,
+                "macro_f1_fixed_vocabulary": 0.013783114937532582,
+                "vocabulary_size": 180,
+                "out_of_vocabulary_truth": 0,
+                "label_budget": 1000,
+                "label_seed": 20261132,
+                "prediction_sha256": "5c675580f262eb781ba9367fde506b016a8e732410ad1dfb9c977c1bca234937"
+              },
+              "released_row_ids_sha256": "4fcb5c0bceb1e8c26276fc427d35410ae4c9be54b81bc0578700ad5514a1ca0a",
+              "old_holdout_before_update": {
+                "accuracy": 0.1115,
+                "macro_f1_fixed_vocabulary": 0.011448248469175793,
+                "ground_truth_classes": 158
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

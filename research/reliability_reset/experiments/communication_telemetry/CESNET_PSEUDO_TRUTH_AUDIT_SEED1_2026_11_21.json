@@ -1,0 +1,299 @@
+{
+  "dataset_sha256": "340f84491dc9c5eb8173718bea15cd7fe80abf8e945adf26859a34aaa66e7816",
+  "label_seed_offset": 0,
+  "scope": "offline reconstruction; dataset labels revealed only after predictions sealed",
+  "weeks": {
+    "15": {
+      "candidate_rows_sha256": "cfcd09705d9cf6e5a2c3e74581f239936c56bcca1abd747bef0c81bccc57c4b0",
+      "checkpoint_sha256": "5f05fae52f8b30d700ed47a8e2df0a968e1bbd9c5c7d03ad06e558f09c6f6c42",
+      "sealed_candidate_sha256": "8607c4b7801b6306e8649b03a43308d313c08d1d459e6eaef2edcac940b3b03d",
+      "candidate_count": 1000,
+      "accepted_count": 446,
+      "accepted_correct": 148,
+      "accepted_truth_classes": 94,
+      "accepted_predicted_classes": 28,
+      "by_predicted_class": {
+        "38": {
+          "accepted": 3,
+          "correct": 3
+        },
+        "43": {
+          "accepted": 18,
+          "correct": 1
+        },
+        "45": {
+          "accepted": 4,
+          "correct": 1
+        },
+        "46": {
+          "accepted": 2,
+          "correct": 0
+        },
+        "49": {
+          "accepted": 8,
+          "correct": 3
+        },
+        "50": {
+          "accepted": 1,
+          "correct": 0
+        },
+        "51": {
+          "accepted": 30,
+          "correct": 8
+        },
+        "59": {
+          "accepted": 16,
+          "correct": 2
+        },
+        "64": {
+          "accepted": 46,
+          "correct": 24
+        },
+        "67": {
+          "accepted": 64,
+          "correct": 30
+        },
+        "68": {
+          "accepted": 80,
+          "correct": 23
+        },
+        "72": {
+          "accepted": 53,
+          "correct": 13
+        },
+        "75": {
+          "accepted": 5,
+          "correct": 2
+        },
+        "76": {
+          "accepted": 4,
+          "correct": 3
+        },
+        "78": {
+          "accepted": 1,
+          "correct": 0
+        },
+        "80": {
+          "accepted": 3,
+          "correct": 0
+        },
+        "83": {
+          "accepted": 10,
+          "correct": 3
+        },
+        "88": {
+          "accepted": 1,
+          "correct": 0
+        },
+        "102": {
+          "accepted": 13,
+          "correct": 3
+        },
+        "109": {
+          "accepted": 26,
+          "correct": 7
+        },
+        "111": {
+          "accepted": 24,
+          "correct": 10
+        },
+        "127": {
+          "accepted": 1,
+          "correct": 0
+        },
+        "136": {
+          "accepted": 8,
+          "correct": 2
+        },
+        "137": {
+          "accepted": 9,
+          "correct": 1
+        },
+        "163": {
+          "accepted": 2,
+          "correct": 1
+        },
+        "167": {
+          "accepted": 2,
+          "correct": 1
+        },
+        "180": {
+          "accepted": 1,
+          "correct": 0
+        },
+        "189": {
+          "accepted": 11,
+          "correct": 7
+        }
+      }
+    },
+    "16": {
+      "candidate_rows_sha256": "62174cfd53933f395e6c098d04a7d508741ab48ea89854ddbc515116003b8998",
+      "checkpoint_sha256": "4e3cf580f4e9efbfadb5bad2239f03057e9ac4b87c443597468236f6110ac25c",
+      "sealed_candidate_sha256": "e4e1540d8c6f10b98a01c86502c8340529e8ee4dab3e7c9016ee262228f1f969",
+      "candidate_count": 1000,
+      "accepted_count": 740,
+      "accepted_correct": 142,
+      "accepted_truth_classes": 117,
+      "accepted_predicted_classes": 21,
+      "by_predicted_class": {
+        "38": {
+          "accepted": 2,
+          "correct": 2
+        },
+        "43": {
+          "accepted": 29,
+          "correct": 2
+        },
+        "45": {
+          "accepted": 2,
+          "correct": 0
+        },
+        "49": {
+          "accepted": 7,
+          "correct": 0
+        },
+        "51": {
+          "accepted": 60,
+          "correct": 11
+        },
+        "59": {
+          "accepted": 49,
+          "correct": 4
+        },
+        "64": {
+          "accepted": 103,
+          "correct": 16
+        },
+        "67": {
+          "accepted": 98,
+          "correct": 34
+        },
+        "68": {
+          "accepted": 137,
+          "correct": 27
+        },
+        "72": {
+          "accepted": 82,
+          "correct": 15
+        },
+        "75": {
+          "accepted": 2,
+          "correct": 1
+        },
+        "76": {
+          "accepted": 2,
+          "correct": 1
+        },
+        "79": {
+          "accepted": 1,
+          "correct": 0
+        },
+        "83": {
+          "accepted": 6,
+          "correct": 3
+        },
+        "88": {
+          "accepted": 1,
+          "correct": 0
+        },
+        "102": {
+          "accepted": 31,
+          "correct": 2
+        },
+        "109": {
+          "accepted": 42,
+          "correct": 3
+        },
+        "111": {
+          "accepted": 44,
+          "correct": 10
+        },
+        "136": {
+          "accepted": 11,
+          "correct": 5
+        },
+        "137": {
+          "accepted": 8,
+          "correct": 1
+        },
+        "189": {
+          "accepted": 23,
+          "correct": 5
+        }
+      }
+    },
+    "17": {
+      "candidate_rows_sha256": "c1ad3dd608b2b64b7df524008e70749559817320eb619e32aceb25a74cfa240e",
+      "checkpoint_sha256": "1982a1818d434d332faffe039a5b0f54cd79d96e9c2013242d30937b179a41d6",
+      "sealed_candidate_sha256": "bbbb0ddaa95e4309de8012fa18cbd16a7f7d7fa1fd3104dfaecb9b61d36b4dd3",
+      "candidate_count": 1000,
+      "accepted_count": 934,
+      "accepted_correct": 127,
+      "accepted_truth_classes": 131,
+      "accepted_predicted_classes": 15,
+      "by_predicted_class": {
+        "38": {
+          "accepted": 2,
+          "correct": 2
+        },
+        "43": {
+          "accepted": 38,
+          "correct": 2
+        },
+        "51": {
+          "accepted": 102,
+          "correct": 14
+        },
+        "59": {
+          "accepted": 74,
+          "correct": 6
+        },
+        "64": {
+          "accepted": 203,
+          "correct": 19
+        },
+        "67": {
+          "accepted": 113,
+          "correct": 24
+        },
+        "68": {
+          "accepted": 154,
+          "correct": 14
+        },
+        "72": {
+          "accepted": 80,
+          "correct": 19
+        },
+        "83": {
+          "accepted": 3,
+          "correct": 0
+        },
+        "102": {
+          "accepted": 29,
+          "correct": 4
+        },
+        "109": {
+          "accepted": 39,
+          "correct": 8
+        },
+        "111": {
+          "accepted": 62,
+          "correct": 12
+        },
+        "136": {
+          "accepted": 9,
+          "correct": 0
+        },
+        "137": {
+          "accepted": 6,
+          "correct": 0
+        },
+        "189": {
+          "accepted": 20,
+          "correct": 3
+        }
+      }
+    }
+  }
+}
